@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "build": "node-sass web/scss/style.scss web/css/style.css",
+    "watch": "npm run build -- -w"
+  },
+  "devDependencies": {
+    "node-sass": "^3.8.0"
+  }
+}

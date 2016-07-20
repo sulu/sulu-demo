@@ -1,0 +1,43 @@
+.slider {
+    height: auto;
+    position: relative;
+      .slides {
+          &-images {
+              width: 100%;
+              height: inherit;
+              display: block;
+              z-index: 1;
+
+          }
+          &-text{
+              width: 450px;
+              left: 18%;
+              top:-450px;
+              z-index: 2;
+              position: relative;
+              h2,p,a{
+                  color:#fff;
+              }
+              h2{
+                  font-weight: bold;
+                  font-size: 57px;
+                  line-height: 59px;
+                  margin-bottom: 31px;
+              }
+              p{
+                  font-size: 16px;
+                  line-height: 24px;
+              }
+              &-button{
+                  background-color: #282828;
+                  display: inline-block;
+                  font-family: $fontoswald;
+                  font-size:14px;
+                  line-height: 24px;
+                  letter-spacing: 3px;
+                  text-transform: uppercase;
+                  padding:12px 29px 11px 32px;
+              }
+          }
+      }
+}

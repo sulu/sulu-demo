@@ -1,0 +1,23 @@
+.gird{
+    font-size:0px;
+}
+.gird__item{
+    font-size: 1em;
+}
+p{
+    font-size: 14px;
+    font-family: $fonthind;
+    line-height: 22px;
+    color: $colorblack;
+}
+h1, h2, h3, h4, h5, h6{
+    color: #2d2d2d;
+    font-family: $fontoswald;
+    font-weight: 300;
+    letter-spacing: -1;
+}
+h2{
+    font-size: 50px;
+    line-height: 53px;
+    text-transform: uppercase;
+}

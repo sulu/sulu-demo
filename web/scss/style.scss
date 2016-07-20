@@ -1,0 +1,21 @@
+// BASE
+@import 'base/variables';
+@import 'base/_mixin.scss';
+
+// VENDOR
+@import 'vendor/csswizardry-grids';
+
+// BLOCKS
+@import 'blocks/general';
+@import 'blocks/slider';
+
+// FONTS
+@import url(https://fonts.googleapis.com/css?family=Hind:400,700);
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,700);
+
+// CSS
+@import '../css/normalize.css';
+@import '../css/flexslider.css';
+@import url(http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css");
+
