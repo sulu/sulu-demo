@@ -19,6 +19,10 @@ h3{
     font-size: 34px;
     line-height: 37px;
 }
+h5{
+    font-size: 20px;
+    line-height:23px;
+}
 a{
     color: $colorblack;
     font-family: $fontoswald;
@@ -26,6 +30,7 @@ a{
 }
 a:hover, a:focus{
     text-decoration: none;
+    color: $coloryellow;
 }
 #content{
     padding-top: 80px;
@@ -45,12 +50,12 @@ a:hover, a:focus{
     }
 }
 .grid{
-    font-size: 0px;
+    font-size: 0px !important;
     margin-left: 0;
     padding-left: 0;
 }
 .grid__item{
-    font-size: 14px;
+    font-size: 14px !important;
     margin-left: 0;
-    padding-left: 0;
+    padding: 0;
 }

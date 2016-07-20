@@ -1,0 +1,31 @@
+.discography {
+    background-color: $colorblack--lighter03;
+    &-frame {
+        max-width: $maxwidth;
+        margin: 0 auto;
+        padding-top: 80px;
+        padding-bottom: 80px;
+        &-collum {
+            padding: 5px;
+            &-image {
+                width: 100%;
+                height: auto;
+
+            }
+            > a {
+                color: $colorblack--lighter01;
+                margin-top: 10px;
+                display: block;
+            }
+            h5 {
+                margin-top: 5px;
+            }
+        }
+    }
+}
+@media (max-width: $maxwidth + 20) {
+  .discography{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
