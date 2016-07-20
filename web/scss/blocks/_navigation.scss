@@ -2,7 +2,7 @@ nav{
   position: fixed;
   width: 100%;
   height: 80px;
-  z-index: 100;background-color: #ffffff;
+  z-index: 10000;background-color: #ffffff;
   .navbar-default{
     background-color:#ffffff;
     border: none;
@@ -10,7 +10,7 @@ nav{
     max-width: $maxwidth;
     width: 100%;
     margin: 0 auto;
-    z-index: 100;
+    z-index: 10000;
 
     .navbar-collapse{
       background-color: #ffffff;
@@ -33,7 +33,7 @@ nav{
       }
       height: auto;
       min-height: 80px;
-      z-index: 100;
+      z-index: 10000;
       a {
         height: 80px;
         padding: 5px;
@@ -50,7 +50,7 @@ nav{
     }
     .navbar-right{
         min-height: 80px;
-        z-index: 100;
+        z-index: 10000;
         margin: 0;
         .open{
             background-color: #ffffff;
@@ -61,7 +61,7 @@ nav{
         li{
             min-height: 80px;
 
-            z-index: 100;
+            z-index: 10000;
             a{
                 color: $colorblack;
                 width: 100%;
@@ -70,7 +70,7 @@ nav{
                 font-size: 15px;
                 text-transform: uppercase;
                 color: #21272E;
-                z-index: 100;
+                z-index: 10000;
              }
             a:hover{
                 color: $coloryellow;

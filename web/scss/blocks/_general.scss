@@ -15,18 +15,31 @@ h1, h2, h3, h4, h5, h6{
     font-family: $fontoswald;
     font-weight: 300;
     letter-spacing: -1;
+    text-transform: uppercase;
 }
 h2{
     font-size: 50px;
     line-height: 53px;
-    text-transform: uppercase;
+}
+h3{
+    font-size: 34px;
+    line-height: 37px;
 }
 a{
     font-family: $fontoswald;
+    @include transition(all, 0.3s, ease-in-out);
 }
 a:hover, a:focus{
     text-decoration: none;
 }
 #content{
     padding-top: 80px;
+}
+.heading--h2{
+    border-left: 13px solid $coloryellow;
+    padding-left: 30px;
+    font-weight: bold;
+    margin: 20px auto;
+    display:block;
+    font-size:49px;
 }

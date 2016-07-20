@@ -13,6 +13,7 @@
               width: 450px;
               left: 18%;
               top:-450px;
+              margin-bottom: -400px;
               z-index: 2;
               position: relative;
               h2,p,a{
@@ -45,17 +46,18 @@
       }
 }
 
-@media (max-width: 1360px){
+@media (max-width: 1480px){
     .slider {
         .slides {
             &-text{
                 top:-400px;
+                margin-bottom: -390px;
             }
         }
     }
 }
 
-@media (max-width: 1080px){
+@media (max-width: 1370px){
     .slider {
         .slides {
             &-text{
