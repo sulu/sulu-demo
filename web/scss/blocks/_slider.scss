@@ -38,6 +38,27 @@
                   text-transform: uppercase;
                   padding:12px 29px 11px 32px;
               }
+              &-button:hover{
+                  color: $coloryellow
+              }
           }
       }
+}
+@media (max-width: 1480px){
+    .slider {
+        .slides {
+            &-text{
+                top:-400px;
+            }
+        }
+    }
+}
+@media (max-width: 1280px){
+    .slider {
+        .slides {
+            &-text{
+                display: none;
+            }
+        }
+    }
 }

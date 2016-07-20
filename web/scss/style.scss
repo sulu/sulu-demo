@@ -5,8 +5,11 @@
 // VENDOR
 @import 'vendor/csswizardry-grids';
 
-// BLOCKS
+// BLOCKS - GENERAL
 @import 'blocks/general';
+@import 'blocks/navigation';
+
+// BLOCKS - HOME
 @import 'blocks/slider';
 
 // FONTS

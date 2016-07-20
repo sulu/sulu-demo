@@ -21,3 +21,9 @@ h2{
     line-height: 53px;
     text-transform: uppercase;
 }
+a{
+    font-family: $fontoswald;
+}
+a:hover, a:focus{
+    text-decoration: none;
+}
