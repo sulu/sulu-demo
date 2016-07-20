@@ -1,9 +1,3 @@
-.gird{
-    font-size:0px;
-}
-.gird__item{
-    font-size: 1em;
-}
 p{
     font-size: 14px;
     font-family: $fonthind;
@@ -26,6 +20,7 @@ h3{
     line-height: 37px;
 }
 a{
+    color: $colorblack;
     font-family: $fontoswald;
     @include transition(all, 0.3s, ease-in-out);
 }
@@ -42,4 +37,20 @@ a:hover, a:focus{
     margin: 20px auto;
     display:block;
     font-size:49px;
+}
+@media (max-width: 460px){
+    .heading--h2{
+        font-size: 30px;
+        line-height: 32px;
+    }
+}
+.grid{
+    font-size: 0px;
+    margin-left: 0;
+    padding-left: 0;
+}
+.grid__item{
+    font-size: 14px;
+    margin-left: 0;
+    padding-left: 0;
 }
