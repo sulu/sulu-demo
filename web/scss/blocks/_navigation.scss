@@ -92,15 +92,11 @@ nav{
         width: 100%;
         min-height: 35px;
         li{
-          min-height: 35px;
+          min-height: 25px;
           width: 100%;
           a{
-            min-height: 35px;
+            min-height: 30px;
             padding: 5px 15px;
-            font-size: 20px;
-            text-transform: uppercase;
-            color: #21272E;
-            z-index: 100;
             text-align: center;
           }
         }
