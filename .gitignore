@@ -24,8 +24,8 @@ app/maintenance.php
 !/var/uploads/.gitkeep
 
 # web
-/web/css
-/web/js
+#/web/css
+#/web/js
 /web/bundles
 /web/uploads
 /web/bootstrap.php.cache
@@ -44,3 +44,6 @@ app/maintenance.php
 
 # System files
 .DS_Store
+
+#node modules
+node_modules
