@@ -10,7 +10,10 @@
             &-image {
                 width: 100%;
                 height: auto;
-
+                @include transition(scale, 0.3, ease-in-out);
+            }
+            &-image:hover {
+                @include scale-elem(0.95);
             }
             > a {
                 color: $colorblack--lighter01;
@@ -19,6 +22,23 @@
             }
             h5 {
                 margin-top: 5px;
+            }
+            &-button{
+                color: #ffffff !important;
+                background: $colorblack--lighter02;
+                display: block;
+                border-radius: 1em;
+                font-size:12px;
+                width:100px;
+                text-align: center;
+                font-weight: bold;
+                text-transform: uppercase;
+                font-family: $fonthind;
+                padding-top: 3px;
+                vertical-align: middle;
+            }
+            &-button:hover{
+                background-color: $coloryellow;
             }
         }
     }
