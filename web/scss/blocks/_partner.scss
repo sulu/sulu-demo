@@ -8,14 +8,14 @@
         &-item {
             box-sizing: border-box;
             padding: 30px 0;
-            border: 1px solid $colorblack;
+            border: 1px solid $colorblack--lighter03;
             border-left: 0px;
             img {
                 margin: auto;
             }
         }
         &-item:first-of-type {
-            border-left: 1px solid $colorblack;
+            border-left: 1px solid $colorblack--lighter03;
         }
     }
 }
