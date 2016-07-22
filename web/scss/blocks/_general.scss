@@ -34,6 +34,16 @@ p {
         line-height: 37px;
     }
 
+    &--h4{
+        &--border{
+            @extend .heading;
+            border-left: $coloryellow 6px solid;
+            padding-left: 26px;
+            font-size:24px;
+            line-height:26px;
+        }
+    }
+
     &--h5 {
         @extend .heading;
         font-size: 20px;
@@ -60,15 +70,6 @@ a:hover, a:focus {
 
 #content {
     padding-top: 80px;
-}
-
-.heading--h2--border {
-    border-left: 13px solid $coloryellow;
-    padding-left: 30px;
-    font-weight: bold;
-    margin: 20px auto;
-    display: block;
-    font-size: 49px;
 }
 
 @media (max-width: 460px) {

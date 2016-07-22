@@ -658,7 +658,7 @@ p {
   line-height: 22px;
   color: #282828; }
 
-.heading, .heading--h2, .heading--h2--border, .heading--h3, .heading--h5, .heading--h6 {
+.heading, .heading--h2, .heading--h2--border, .heading--h3, .heading--h4--border, .heading--h5, .heading--h6 {
   color: #2d2d2d;
   font-family: "Oswald", sans-serif;
   font-weight: 300;
@@ -677,6 +677,11 @@ p {
   .heading--h3 {
     font-size: 34px;
     line-height: 37px; }
+  .heading--h4--border {
+    border-left: #FFC600 6px solid;
+    padding-left: 26px;
+    font-size: 24px;
+    line-height: 26px; }
   .heading--h5 {
     font-size: 20px;
     line-height: 23px; }
@@ -698,14 +703,6 @@ a:hover, a:focus {
 
 #content {
   padding-top: 80px; }
-
-.heading--h2--border {
-  border-left: 13px solid #FFC600;
-  padding-left: 30px;
-  font-weight: bold;
-  margin: 20px auto;
-  display: block;
-  font-size: 49px; }
 
 @media (max-width: 460px) {
   .heading--h2--border {
