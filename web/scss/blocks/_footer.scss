@@ -167,9 +167,7 @@
 
 @media (max-width: 800px) {
   .footer {
-
     &-elem {
-
       &-emaillabel {
         width: 100%;
       }
@@ -179,9 +177,7 @@
 
 @media (max-width: $maxwidth) and (min-width: 1023px) {
   .footer {
-
     &-elem {
-
       &-emaillabel {
         width: 100%;
       }
@@ -191,9 +187,7 @@
 
 @media (min-width: 481px) and (max-width: 1023px) {
   .footer {
-
     &-socials {
-
       a {
         border: 1px solid $colorblack--lighter01;
       }
@@ -221,6 +215,7 @@
         border: 1px solid $colorblack--lighter01;
         border-bottom: none;
       }
+
       a:last-of-type {
         border-bottom: 1px solid $colorblack--lighter01;
       }

@@ -3,13 +3,11 @@
   position: relative;
 
   .slides {
-
     &-images {
       width: 100%;
       height: inherit;
       display: block;
       z-index: 1;
-
     }
 
     &-text {
@@ -58,9 +56,7 @@
 
 @media (max-width: 1300px) {
   .slider {
-
     .slides {
-
       &-text {
         top: -400px;
         margin-bottom: -390px;
@@ -71,11 +67,8 @@
 
 @media (max-width: 1040px) {
   .slider {
-
     .slides {
-
       &-text {
-
         display: none;
       }
     }

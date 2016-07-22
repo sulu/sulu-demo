@@ -19,6 +19,9 @@ nav {
     }
 
     .navbar-header {
+      height: auto;
+      min-height: 80px;
+      z-index: 10000;
 
       button {
         border: none;
@@ -38,10 +41,6 @@ nav {
       .icon-bar {
         background-color: $colorblack;
       }
-
-      height: auto;
-      min-height: 80px;
-      z-index: 10000;
 
       a {
         height: 80px;

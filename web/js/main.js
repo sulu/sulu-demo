@@ -1,18 +1,17 @@
-$(window).load(function() {
-    $('.js-flexslider').flexslider({
-        slideshowSpeed: 4000,
-        animationDuration: 1100,
-        animation: 'slide',
-        directionNav: false,
-        controlNav: false,
-        pausePlay: false
-    });
+$(".js-slider").slick({
+
+    // normal options...
+    infinite: true,
+    arrows: false,
+    autoplay:true,
+    autoplaySpeed: 10000
+
 });
 
 $(".js-partner-carousel").slick({
 
     // normal options...
-    infinite: false,
+    infinite: true,
 
     // the magic
     responsive: [{
