@@ -1,0 +1,29 @@
+// BASE
+@import 'base/variables';
+@import 'base/_mixin.scss';
+
+// VENDOR
+@import 'vendor/csswizardry-grids';
+
+// BLOCKS - GENERAL
+@import 'blocks/general';
+@import 'blocks/navigation';
+@import 'blocks/footer';
+
+// BLOCKS - HOME
+@import 'blocks/slider';
+@import 'blocks/news';
+@import 'blocks/partner';
+@import 'blocks/biography';
+@import 'blocks/team';
+@import 'blocks/discography';
+
+// FONTS
+@import url(https://fonts.googleapis.com/css?family=Hind:300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,700);
+
+// IMPORTS
+@import '/css/normalize.css';
+@import url(http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+@import '/css/bootstrap.min.css';
+@import '/css/slick.css';

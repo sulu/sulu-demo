@@ -1,9 +1,21 @@
 {% extends "master.html.twig" %}
 
 {% block content %}
-    <h1 property="title">{{ content.title }}</h1>
+    {# Slider #}
+    {% include('includes/slider.html.twig') %}
 
-    <div property="article">
-        {{ content.article|raw }}
-    </div>
+    {# Biography #}
+    {% include('includes/biography.html.twig') %}
+
+    {# Discography #}
+    {% include('includes/discography.html.twig') %}
+
+    {# News #}
+    {% include('includes/news.html.twig') %}
+
+    {# Team #}
+    {% include('includes/team.html.twig') %}
+
+    {# Partner #}
+    {% include('includes/partner.html.twig') %}
 {% endblock %}

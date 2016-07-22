@@ -1,0 +1,13 @@
+@mixin scale-elem($factor) {
+    -webkit-transform: scale($factor);
+    -moz-transform: scale($factor);
+    -ms-transform: scale($factor);
+    transform: scale($factor);
+}
+
+@mixin transition($form, $time, $kind) {
+    -webkit-transition: $form $time $kind;
+    -moz-transition: $form $time $kind;
+    -ms-transition: $form $time $kind;
+    transition: $form $time $kind;
+}

@@ -11,15 +11,21 @@
 
         {% block meta %}{% endblock %}
 
-        {% block style %}
-            <link rel="stylesheet" href="/css/style.css">
-        {% endblock %}
+        {% block style %}{% endblock %}
     </head>
     <body>
         <header>
             {% block header %}
                 <nav>
-                    {% include('blocks/navigation.html.twig') %}
+                    <ul>
+                        <li><a href="{{ sulu_content_root_path() }}">Homepage</a></li>
+                        {% for item in sulu_navigation_root_tree('main') %}
+                            <li>
+                                <a href="{{ sulu_content_path(item.url) }}"
+                                   title="{{ item.title }}">{{ item.title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
                 </nav>
             {% endblock %}
         </header>
@@ -34,15 +40,10 @@
 
         <footer>
             {% block footer %}
-                {% include('blocks/footer.html.twig') %}
+                <p>Copyright {{ 'now'|date('Y') }} SULU</p>
             {% endblock %}
         </footer>
 
-        {% block javascripts %}
-            <script src="/js/jquery.min.js"></script>
-            <script src="/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-            <script src="/js/slick.min.js"></script>
-            <script src="/js/main.js"></script>
-        {% endblock %}
+        {% block javascripts %}{% endblock %}
     </body>
 </html>

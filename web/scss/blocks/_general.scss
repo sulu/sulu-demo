@@ -1,0 +1,92 @@
+p {
+    font-size: 14px;
+    font-family: $fonthind;
+    line-height: 22px;
+    color: $colorblack;
+}
+
+.heading {
+    color: #2d2d2d;
+    font-family: $fontoswald;
+    font-weight: 300;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+
+    &--h2 {
+        @extend .heading;
+        font-size: 50px;
+        line-height: 53px;
+
+        &--border {
+            @extend .heading;
+            border-left: 13px solid $coloryellow;
+            padding-left: 30px;
+            font-weight: bold;
+            display: block;
+            font-size: 49px;
+            line-height: 53px;
+        }
+    }
+
+    &--h3 {
+        @extend .heading;
+        font-size: 34px;
+        line-height: 37px;
+    }
+
+    &--h4{
+        &--border{
+            @extend .heading;
+            border-left: $coloryellow 6px solid;
+            padding-left: 26px;
+            font-size:24px;
+            line-height:26px;
+        }
+    }
+
+    &--h5 {
+        @extend .heading;
+        font-size: 20px;
+        line-height: 23px;
+    }
+
+    &--h6 {
+        @extend .heading;
+        font-size: 18px;
+        line-height: 21px;
+    }
+}
+
+a {
+    color: $colorblack;
+    font-family: $fontoswald;
+    @include transition(all, 0.3s, ease-in-out);
+}
+
+a:hover, a:focus {
+    text-decoration: none;
+    color: $coloryellow;
+}
+
+#content {
+    padding-top: 80px;
+}
+
+@media (max-width: 460px) {
+    .heading--h2--border {
+        font-size: 30px;
+        line-height: 32px;
+    }
+}
+
+.grid {
+    font-size: 0px !important;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.grid__item {
+    font-size: 14px !important;
+    margin-left: 0;
+    padding: 0;
+}
