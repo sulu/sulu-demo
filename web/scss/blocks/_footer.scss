@@ -1,180 +1,220 @@
-.footer{
+.footer {
   background: $colorblack;
   padding-top: 80px;
-    &--frame{
-        max-width: $maxwidth;
-        margin:0 auto;
-    }
-    &-elem{
-      margin-bottom:30px;
-      padding-right:20px;
-      padding-left:20px;
-        h6{
-            color:#fff;
-        }
-        span, a, i, p{
-            color: $colorblack--lighter03;
-        }
-        span{
-            display: block;
-            width: 100%;
-            line-height: 25px;
-            position: relative;
-            padding-left: 20px;
-            padding-right: 10px;
-        }
-        span>i{
-            position: absolute;
-            left:0px;
-        }
-        a{
-          display: block;
-          width: 100%;
-          line-height: 26px;
-          i{
-              padding-right: 10px;
-          }
-        }
-        a:hover, a:hover>i{
-            color:$coloryellow;
-            @include transition(all,0.3s,ease-in-out);
-        }
-        &-emaillabel {
-            width: 70%;
-            background: #000;
-            &-input, &-icon {
-                background: #000;
-                color: $colorblack--lighter01;
-                font-size: 14px;
-                height: 48px;
-                line-height: 48px;
-                width: 80%;
-                border: none;
-                box-shadow: none;
-                padding: 0 10px;
-                box-sizing: border-box;
-                display: inline-block;
-                left: 0px;
-            }
-            &-icon {
-                width: auto;
-              padding-left: 20px;
 
-            }
-        }
-        &-button{
-            border:medium none;
-            color: #fff;
-            font-size:16px;
-            height: 48px;
-            text-transform: uppercase;
-            width:138px;
-          background-color: $coloryellow;
-        }
-    }
-  &-imprint{
-      color: $colorblack--lighter02;
-      font-size: 12px;
-      line-height:18px;
-      text-align: center;
-      width:100%;
-      display: block;
-      padding:20px 0;
+  &--frame {
+    max-width: $maxwidth;
+    margin: 0 auto;
   }
-  &-socials{
+
+  &-elem {
+    margin-bottom: 30px;
+    padding-right: 20px;
+    padding-left: 20px;
+
+    h6 {
+      color: #fff;
+    }
+
+    span, a, i, p {
+      color: $colorblack--lighter03;
+    }
+
+    span {
       display: block;
       width: 100%;
+      line-height: 25px;
+      position: relative;
+      padding-left: 20px;
+      padding-right: 10px;
+    }
 
-      a{
-          font-size: 16px!important;
-          border: 1px solid $colorblack--lighter01;
-          font-weight: 300;
-          border-right: none;
-          text-transform: uppercase;
-       }
-      a:last-of-type{
-          border-right: 1px solid $colorblack--lighter01;
+    span > i {
+      position: absolute;
+      left: 0px;
+    }
+
+    a {
+      display: block;
+      width: 100%;
+      line-height: 26px;
+
+      i {
+        padding-right: 10px;
       }
-      i{
-         font-size:30px;
-          padding-right: 10px;
+    }
+
+    a:hover, a:hover > i {
+      color: $coloryellow;
+      @include transition(all, 0.3s, ease-in-out);
+    }
+
+    &-emaillabel {
+      width: 70%;
+      background: #000;
+      &-input, &-icon {
+        background: #000;
+        color: $colorblack--lighter01;
+        font-size: 14px;
+        height: 48px;
+        line-height: 48px;
+        width: 80%;
+        border: none;
+        box-shadow: none;
+        padding: 0 10px;
+        box-sizing: border-box;
+        display: inline-block;
+        left: 0px;
       }
-      a, i{
-          font-family: $fonthind;
-          line-height: 80px;
-          text-align: center;
-          vertical-align: middle;
+
+      &-icon {
+        width: auto;
+        padding-left: 20px;
+
       }
-      &-facebook, &-facebook i{
-          color: #267CD5;
-      }
-      &-twitter, &-twitter i{
-        color: #2EC5EB;
-      }
-      &-googleplus, &-googleplus i{
-        color: #D34338;
-      }
-      &-github, &-github i{
-        color: #FFFFFF;
-      }
-      &-facebook:hover, &-facebook i:hover{
-        color: #267CD5;
-      }
-      &-twitter:hover, &-twitter i:hover{
-        color: #2EC5EB;
-      }
-      &-googleplus:hover, &-googleplus i:hover{
-        color: #D34338;
-      }
-      &-github:hover, &-github i:hover{
-        color: #FFFFFF;
-      }
+    }
+
+    &-button {
+      border: medium none;
+      color: #fff;
+      font-size: 16px;
+      height: 48px;
+      text-transform: uppercase;
+      width: 138px;
+      background-color: $coloryellow;
+    }
+  }
+
+  &-imprint {
+    color: $colorblack--lighter02;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    width: 100%;
+    display: block;
+    padding: 20px 0;
+  }
+
+  &-socials {
+    display: block;
+    width: 100%;
+
+    a {
+      font-size: 16px !important;
+      border: 1px solid $colorblack--lighter01;
+      font-weight: 300;
+      border-right: none;
+      text-transform: uppercase;
+    }
+
+    a:last-of-type {
+      border-right: 1px solid $colorblack--lighter01;
+    }
+
+    i {
+      font-size: 30px;
+      padding-right: 10px;
+    }
+
+    a,
+    i {
+      font-family: $fonthind;
+      line-height: 80px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    &-facebook, &-facebook i {
+      color: #267CD5;
+    }
+
+    &-twitter, &-twitter i {
+      color: #2EC5EB;
+    }
+
+    &-googleplus, &-googleplus i {
+      color: #D34338;
+    }
+
+    &-github, &-github i {
+      color: #FFFFFF;
+    }
+
+    &-facebook:hover, &-facebook i:hover {
+      color: #267CD5;
+    }
+
+    &-twitter:hover, &-twitter i:hover {
+      color: #2EC5EB;
+    }
+
+    &-googleplus:hover, &-googleplus i:hover {
+      color: #D34338;
+    }
+
+    &-github:hover, &-github i:hover {
+      color: #FFFFFF;
+    }
   }
 }
+
 @media (max-width: $maxwidth + 20) {
-  .footer{
+  .footer {
     padding-left: 20px;
     padding-right: 20px;
   }
 }
-@media (max-width: 800px){
-  .footer{
-    &-elem{
+
+@media (max-width: 800px) {
+  .footer {
+
+    &-elem {
+
       &-emaillabel {
         width: 100%;
       }
     }
   }
 }
-@media (max-width: $maxwidth ) and (min-width: 1023px) {
-  .footer{
-    &-elem{
+
+@media (max-width: $maxwidth) and (min-width: 1023px) {
+  .footer {
+
+    &-elem {
+
       &-emaillabel {
         width: 100%;
       }
     }
   }
 }
-@media (min-width: 481px) and (max-width: 1023px){
-  .footer{
-    &-socials{
-      a{
+
+@media (min-width: 481px) and (max-width: 1023px) {
+  .footer {
+
+    &-socials {
+
+      a {
         border: 1px solid $colorblack--lighter01;
       }
-      a:first-of-type{
+
+      a:first-of-type {
         border-bottom: none;
         border-right: none;
       }
-      a:nth-of-type(2){
+
+      a:nth-of-type(2) {
         border-bottom: none;
       }
-      a:nth-of-type(3){
+
+      a:nth-of-type(3) {
         border-right: none;
       }
     }
   }
 }
-@media (max-width: 480px){
+
+@media (max-width: 480px) {
   .footer {
     &-socials {
       a {

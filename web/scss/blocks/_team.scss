@@ -1,91 +1,104 @@
-.team{
+.team {
   background-image: url("../img/band-bg.jpg");
   background-attachment: fixed;
   background-size: cover;
   padding-top: 100px;
   padding-bottom: 100px;
-  >div{
+
+  > div {
     max-width: $maxwidth;
     margin: 0 auto;
-
   }
-  &-heading{
-      color: #fff;
+
+  &-heading {
+    color: #fff;
     margin-bottom: 50px;
   }
-  &-member{
-      text-align: center;
-      padding-left: 0px;
+
+  &-member {
+    text-align: center;
+    padding-left: 0px;
+    position: relative;
+    padding: 0 5px;
+
+    &-image {
+      height: auto;
+      width: 100%;
       position: relative;
-      padding: 0 5px;
+    }
 
-      &-image{
-          height: auto;
-          width: 100%;
-          position: relative;
-      }
-      &-socials
-      {
-        opacity: 0;
-        width: 100%;
-        position: absolute;
-        bottom: 70px;
-        left: 0px;
-        font-size: 0px;
-        overflow: hidden;
-        i {
-          width: 40px;
-          height: 40px;
-          font-size: 30px;
-          text-align: center;
-          vertical-align: middle;
-          display: inline-block;
-          color:#ffffff;
-        }
-        &-twitter{
-          background-color: #2EC5EB;
-        }
-        &-facebook{
-          background-color: #267CD5;
-        }
-        &-googleplus{
-          background-color: #AF1314;
-        }
-        &-linkedin{
-          background-color: #007BB6;
-        }
-        &-instagram{
-          background-color: #375989;
-        }
-      }
+    &-socials {
+      opacity: 0;
+      width: 100%;
+      position: absolute;
+      bottom: 70px;
+      left: 0px;
+      font-size: 0px;
+      overflow: hidden;
 
-      &-text{
+      i {
+        width: 40px;
+        height: 40px;
+        font-size: 30px;
         text-align: center;
-        width: 100%;
-        margin: 10px 0;
-        &-name{
-          font-size: 20px;
-          text-transform: uppercase;
-          letter-spacing: 0px;
-          color: #fff;
-        }
-        &-role{
-          text-transform: uppercase;
-          color: #fff;
-        }
+        vertical-align: middle;
+        display: inline-block;
+        color: #ffffff;
       }
+
+      &-twitter {
+        background-color: #2EC5EB;
+      }
+
+      &-facebook {
+        background-color: #267CD5;
+      }
+
+      &-googleplus {
+        background-color: #AF1314;
+      }
+
+      &-linkedin {
+        background-color: #007BB6;
+      }
+
+      &-instagram {
+        background-color: #375989;
+      }
+    }
+
+    &-text {
+      text-align: center;
+      width: 100%;
+      margin: 10px 0;
+
+      &-name {
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 0px;
+        color: #fff;
+      }
+
+      &-role {
+        text-transform: uppercase;
+        color: #fff;
+      }
+    }
   }
-  &-member:hover> &-member-socials {
+
+  &-member:hover > &-member-socials {
     opacity: 1;
-    @include transition(all,0.3s, ease-in-out);
+    @include transition(all, 0.3s, ease-in-out);
   }
-  &-member:hover> &-member-image {
+
+  &-member:hover > &-member-image {
     @include scale-elem(0.98);
-    @include transition(all,0.3s, ease-in-out);
+    @include transition(all, 0.3s, ease-in-out);
   }
 }
+
 @media (max-width: $maxwidth + 20) {
-  .team{
+  .team {
     padding-left: 20px;
     padding-right: 20px;
   }

@@ -124,11 +124,11 @@
  */
 @import url(https://fonts.googleapis.com/css?family=Hind:300,400,700);
 @import url(https://fonts.googleapis.com/css?family=Oswald:400,700);
-@import url(../css/normalize.css);
-@import url(../css/flexslider.css);
+@import url(/css/normalize.css);
+@import url(/css/flexslider.css);
 @import url(http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
-@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css);
-@import url(//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css);
+@import url(/css/bootstrap.min.css);
+@import url(/css/slick.css);
 .grid {
   list-style: none;
   /* [1] */
@@ -726,7 +726,7 @@ nav {
   height: 80px;
   z-index: 10000;
   background-color: #ffffff; }
-  nav .navbar-default {
+  nav .navbar--default {
     background-color: #ffffff;
     border: none;
     height: 80px;
@@ -734,45 +734,45 @@ nav {
     width: 100%;
     margin: 0 auto;
     z-index: 10000; }
-    nav .navbar-default .navbar-collapse {
+    nav .navbar--default .navbar-collapse {
       background-color: #ffffff; }
-    nav .navbar-default .navbar-header {
+    nav .navbar--default .navbar-header {
       height: auto;
       min-height: 80px;
       z-index: 10000; }
-      nav .navbar-default .navbar-header button {
+      nav .navbar--default .navbar-header button {
         border: none;
         padding: 30px 15px;
         margin: 0px;
         height: 80px; }
-      nav .navbar-default .navbar-header button:hover {
+      nav .navbar--default .navbar-header button:hover {
         background-color: #ffffff; }
-      nav .navbar-default .navbar-header button:hover > .icon-bar {
+      nav .navbar--default .navbar-header button:hover > .icon-bar {
         backbround-color: #FFC600; }
-      nav .navbar-default .navbar-header .icon-bar {
+      nav .navbar--default .navbar-header .icon-bar {
         background-color: #282828; }
-      nav .navbar-default .navbar-header a {
+      nav .navbar--default .navbar-header a {
         height: 80px;
         padding: 5px; }
-        nav .navbar-default .navbar-header a img {
+        nav .navbar--default .navbar-header a img {
           position: relative;
           top: 50%;
           transform: translateY(-50%);
           height: 72%;
           width: auto;
           padding: 8px; }
-    nav .navbar-default .navbar-right {
+    nav .navbar--default .navbar-right {
       min-height: 80px;
       z-index: 10000;
       margin: 0; }
-      nav .navbar-default .navbar-right .open {
+      nav .navbar--default .navbar-right .open {
         background-color: #ffffff; }
-      nav .navbar-default .navbar-right .dropdown {
+      nav .navbar--default .navbar-right .dropdown {
         background-color: #ffffff; }
-      nav .navbar-default .navbar-right li {
+      nav .navbar--default .navbar-right li {
         min-height: 80px;
         z-index: 10000; }
-        nav .navbar-default .navbar-right li a {
+        nav .navbar--default .navbar-right li a {
           color: #282828;
           width: 100%;
           min-height: 80px;
@@ -781,11 +781,11 @@ nav {
           text-transform: uppercase;
           color: #21272E;
           z-index: 10000; }
-        nav .navbar-default .navbar-right li a:hover {
+        nav .navbar--default .navbar-right li a:hover {
           color: #FFC600; }
-        nav .navbar-default .navbar-right li .dropdown-toggle {
+        nav .navbar--default .navbar-right li .dropdown-toggle {
           background-color: #ffffff; }
-        nav .navbar-default .navbar-right li .dropdown-toggle:active {
+        nav .navbar--default .navbar-right li .dropdown-toggle:active {
           background-color: #ffffff; }
 
 @media (max-width: 768px) {
@@ -885,7 +885,8 @@ nav {
     .footer-socials i {
       font-size: 30px;
       padding-right: 10px; }
-    .footer-socials a, .footer-socials i {
+    .footer-socials a,
+    .footer-socials i {
       font-family: "Hind", sans-serif;
       line-height: 80px;
       text-align: center;
@@ -953,7 +954,9 @@ nav {
     margin-bottom: -400px;
     z-index: 2;
     position: relative; }
-    .slider .slides-text h2, .slider .slides-text p, .slider .slides-text a {
+    .slider .slides-text h2,
+    .slider .slides-text p,
+    .slider .slides-text a {
       color: #fff; }
     .slider .slides-text h2 {
       font-weight: bold;
@@ -1050,7 +1053,9 @@ nav {
   padding-bottom: 50px; }
   .partner-carousel {
     padding-right: 1px; }
-    .partner-carousel .slick-prev, .partner-carousel .slick-next, .partner-carousel .slick-dots {
+    .partner-carousel .slick-prev,
+    .partner-carousel .slick-next,
+    .partner-carousel .slick-dots {
       display: none !important; }
     .partner-carousel-item {
       box-sizing: border-box;
