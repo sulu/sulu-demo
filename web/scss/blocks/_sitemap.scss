@@ -1,0 +1,41 @@
+.sidemap{
+  max-width: $maxwidth;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  &-item{
+      padding-bottom: 20px;
+
+      &-subtitle{
+          text-transform: uppercase;
+          font-size: 1.5em;
+          letter-spacing: 0px;
+          padding-bottom: 7px;
+          padding-top: 15px;
+      }
+
+      &-list{
+          padding-left: 0px;
+
+          li {
+              list-style-type: none;
+
+              i,
+              a {
+                  padding: 7px 5px;
+                  display: inline-block;
+                  color: gray;
+                  font-size: 14px;
+                  line-height:17px;
+                  font-family: $fonthind;
+                  font-weight: normal;
+              }
+          }
+
+        a:hover{
+          color: $coloryellow;
+          font-weight: bold;
+        }
+      }
+  }
+}
