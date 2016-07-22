@@ -1,60 +1,60 @@
 .biography {
-  max-width: $maxwidth;
-  margin: 60px auto;
+    max-width: $maxwidth;
+    margin: 60px auto;
 
-  &-text {
-    padding-top: 10px;
-    padding-right: 60px;
+    &-text {
+        padding-top: 10px;
+        padding-right: 60px;
 
-    h3 {
-      font-size: 19px;
-      line-height: 28px;
+        h3 {
+            font-size: 19px;
+            line-height: 28px;
+        }
+
+        p {
+            color: $colorblack--lighter01;
+            padding-bottom: 22px;
+        }
+
+        &-button {
+            background-color: $colorblack--lighter01;
+            display: inline-block;
+            font-family: $fonthind;
+            font-size: 14px;
+            line-height: 24px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 12px 29px 11px 32px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        &-button:first-of-type {
+            margin-right: 10px;
+        }
+
+        &-button:hover {
+            color: $coloryellow;
+        }
     }
-
-    p {
-      color: $colorblack--lighter01;
-      padding-bottom: 22px;
-    }
-
-    &-button {
-      background-color: $colorblack--lighter01;
-      display: inline-block;
-      font-family: $fonthind;
-      font-size: 14px;
-      line-height: 24px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      padding: 12px 29px 11px 32px;
-      color: #fff;
-      margin-bottom: 20px;
-    }
-
-    &-button:first-of-type {
-      margin-right: 10px;
-    }
-
-    &-button:hover {
-      color: $coloryellow
-    }
-  }
 }
 
 @media (max-width: $maxwidth + 20) {
-  .biography {
-    padding: 0 20px;
+    .biography {
+        padding: 0 20px;
 
-    &-text {
-      padding-top: 0px;
+        &-text {
+            padding-top: 0px;
+        }
     }
-  }
 }
 
 @media (max-width: 1023px) {
-  .biography {
-    margin: 40px auto;
+    .biography {
+        margin: 40px auto;
 
-    .biography-text {
-      padding-top: 0px;
+        .biography-text {
+            padding-top: 0px;
+        }
     }
-  }
 }

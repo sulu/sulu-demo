@@ -1,76 +1,76 @@
 .slider {
-  height: auto;
-  position: relative;
+    height: auto;
+    position: relative;
 
-  .slides {
-    &-images {
-      width: 100%;
-      height: inherit;
-      display: block;
-      z-index: 1;
+    .slides {
+        &-images {
+            width: 100%;
+            height: inherit;
+            display: block;
+            z-index: 1;
+        }
+
+        &-text {
+            width: 450px;
+            left: 18%;
+            top: -450px;
+            margin-bottom: -400px;
+            z-index: 2;
+            position: relative;
+
+            h2,
+            p,
+            a {
+                color: #fff;
+            }
+
+            h2 {
+                font-weight: bold;
+                font-size: 57px;
+                line-height: 59px;
+                margin-bottom: 31px;
+            }
+
+            p {
+                font-size: 16px;
+                line-height: 24px;
+            }
+
+            &-button {
+                background-color: $colorblack;
+                display: inline-block;
+                font-family: $fontoswald;
+                font-size: 14px;
+                line-height: 24px;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+                padding: 12px 29px 11px 32px;
+            }
+
+            &-button:hover {
+                color: $coloryellow
+            }
+        }
     }
-
-    &-text {
-      width: 450px;
-      left: 18%;
-      top: -450px;
-      margin-bottom: -400px;
-      z-index: 2;
-      position: relative;
-
-      h2,
-      p,
-      a {
-        color: #fff;
-      }
-
-      h2 {
-        font-weight: bold;
-        font-size: 57px;
-        line-height: 59px;
-        margin-bottom: 31px;
-      }
-
-      p {
-        font-size: 16px;
-        line-height: 24px;
-      }
-
-      &-button {
-        background-color: $colorblack;
-        display: inline-block;
-        font-family: $fontoswald;
-        font-size: 14px;
-        line-height: 24px;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        padding: 12px 29px 11px 32px;
-      }
-
-      &-button:hover {
-        color: $coloryellow
-      }
-    }
-  }
 }
 
 @media (max-width: 1300px) {
-  .slider {
-    .slides {
-      &-text {
-        top: -400px;
-        margin-bottom: -390px;
-      }
+    .slider {
+        .slides {
+            &-text {
+                top: -400px;
+                margin-bottom: -390px;
+            }
+        }
     }
-  }
 }
 
 @media (max-width: 1040px) {
-  .slider {
-    .slides {
-      &-text {
-        display: none;
-      }
+    .slider {
+        .slides {
+            &-text {
+                display: none;
+            }
+        }
     }
-  }
 }

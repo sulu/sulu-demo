@@ -1,91 +1,91 @@
 p {
-  font-size: 14px;
-  font-family: $fonthind;
-  line-height: 22px;
-  color: $colorblack;
+    font-size: 14px;
+    font-family: $fonthind;
+    line-height: 22px;
+    color: $colorblack;
 }
 
 .heading {
-  color: #2d2d2d;
-  font-family: $fontoswald;
-  font-weight: 300;
-  letter-spacing: -1px;
-  text-transform: uppercase;
+    color: #2d2d2d;
+    font-family: $fontoswald;
+    font-weight: 300;
+    letter-spacing: -1px;
+    text-transform: uppercase;
 
-  &--h2 {
-    @extend .heading;
-    font-size: 50px;
-    line-height: 53px;
+    &--h2 {
+        @extend .heading;
+        font-size: 50px;
+        line-height: 53px;
 
-    &--border {
-      @extend .heading;
-      border-left: 13px solid $coloryellow;
-      padding-left: 30px;
-      font-weight: bold;
-      display: block;
-      font-size: 49px;
-      line-height: 53px;
+        &--border {
+            @extend .heading;
+            border-left: 13px solid $coloryellow;
+            padding-left: 30px;
+            font-weight: bold;
+            display: block;
+            font-size: 49px;
+            line-height: 53px;
+        }
     }
-  }
 
-  &--h3 {
-    @extend .heading;
-    font-size: 34px;
-    line-height: 37px;
-  }
+    &--h3 {
+        @extend .heading;
+        font-size: 34px;
+        line-height: 37px;
+    }
 
-  &--h5 {
-    @extend .heading;
-    font-size: 20px;
-    line-height: 23px;
-  }
+    &--h5 {
+        @extend .heading;
+        font-size: 20px;
+        line-height: 23px;
+    }
 
-  &--h6 {
-    @extend .heading;
-    font-size: 18px;
-    line-height: 21px;
-  }
+    &--h6 {
+        @extend .heading;
+        font-size: 18px;
+        line-height: 21px;
+    }
 }
 
 a {
-  color: $colorblack;
-  font-family: $fontoswald;
-  @include transition(all, 0.3s, ease-in-out);
+    color: $colorblack;
+    font-family: $fontoswald;
+    @include transition(all, 0.3s, ease-in-out);
 }
 
 a:hover, a:focus {
-  text-decoration: none;
-  color: $coloryellow;
+    text-decoration: none;
+    color: $coloryellow;
 }
 
 #content {
-  padding-top: 80px;
+    padding-top: 80px;
 }
 
 .heading--h2--border {
-  border-left: 13px solid $coloryellow;
-  padding-left: 30px;
-  font-weight: bold;
-  margin: 20px auto;
-  display: block;
-  font-size: 49px;
+    border-left: 13px solid $coloryellow;
+    padding-left: 30px;
+    font-weight: bold;
+    margin: 20px auto;
+    display: block;
+    font-size: 49px;
 }
 
 @media (max-width: 460px) {
-  .heading--h2--border {
-    font-size: 30px;
-    line-height: 32px;
-  }
+    .heading--h2--border {
+        font-size: 30px;
+        line-height: 32px;
+    }
 }
 
 .grid {
-  font-size: 0px !important;
-  margin-left: 0;
-  padding-left: 0;
+    font-size: 0px !important;
+    margin-left: 0;
+    padding-left: 0;
 }
 
 .grid__item {
-  font-size: 14px !important;
-  margin-left: 0;
-  padding: 0;
+    font-size: 14px !important;
+    margin-left: 0;
+    padding: 0;
 }

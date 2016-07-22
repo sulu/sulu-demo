@@ -1,224 +1,224 @@
 .footer {
-  background: $colorblack;
-  padding-top: 80px;
+    background: $colorblack;
+    padding-top: 80px;
 
-  &--frame {
-    max-width: $maxwidth;
-    margin: 0 auto;
-  }
-
-  &-elem {
-    margin-bottom: 30px;
-    padding-right: 20px;
-    padding-left: 20px;
-
-    h6 {
-      color: #fff;
+    &--frame {
+        max-width: $maxwidth;
+        margin: 0 auto;
     }
 
-    span, a, i, p {
-      color: $colorblack--lighter03;
-    }
-
-    span {
-      display: block;
-      width: 100%;
-      line-height: 25px;
-      position: relative;
-      padding-left: 20px;
-      padding-right: 10px;
-    }
-
-    span > i {
-      position: absolute;
-      left: 0px;
-    }
-
-    a {
-      display: block;
-      width: 100%;
-      line-height: 26px;
-
-      i {
-        padding-right: 10px;
-      }
-    }
-
-    a:hover, a:hover > i {
-      color: $coloryellow;
-      @include transition(all, 0.3s, ease-in-out);
-    }
-
-    &-emaillabel {
-      width: 70%;
-      background: #000;
-      &-input, &-icon {
-        background: #000;
-        color: $colorblack--lighter01;
-        font-size: 14px;
-        height: 48px;
-        line-height: 48px;
-        width: 80%;
-        border: none;
-        box-shadow: none;
-        padding: 0 10px;
-        box-sizing: border-box;
-        display: inline-block;
-        left: 0px;
-      }
-
-      &-icon {
-        width: auto;
+    &-elem {
+        margin-bottom: 30px;
+        padding-right: 20px;
         padding-left: 20px;
 
-      }
+        h6 {
+            color: #fff;
+        }
+
+        span, a, i, p {
+            color: $colorblack--lighter03;
+        }
+
+        span {
+            display: block;
+            width: 100%;
+            line-height: 25px;
+            position: relative;
+            padding-left: 20px;
+            padding-right: 10px;
+        }
+
+        span > i {
+            position: absolute;
+            left: 0px;
+        }
+
+        a {
+            display: block;
+            width: 100%;
+            line-height: 26px;
+
+            i {
+                padding-right: 10px;
+            }
+        }
+
+        a:hover, a:hover > i {
+            color: $coloryellow;
+            @include transition(all, 0.3s, ease-in-out);
+        }
+
+        &-emaillabel {
+            width: 70%;
+            background: #000;
+            &-input, &-icon {
+                background: #000;
+                color: $colorblack--lighter01;
+                font-size: 14px;
+                height: 48px;
+                line-height: 48px;
+                width: 80%;
+                border: none;
+                box-shadow: none;
+                padding: 0 10px;
+                box-sizing: border-box;
+                display: inline-block;
+                left: 0px;
+            }
+
+            &-icon {
+                width: auto;
+                padding-left: 20px;
+
+            }
+        }
+
+        &-button {
+            border: medium none;
+            color: #fff;
+            font-size: 16px;
+            height: 48px;
+            text-transform: uppercase;
+            width: 138px;
+            background-color: $coloryellow;
+        }
     }
 
-    &-button {
-      border: medium none;
-      color: #fff;
-      font-size: 16px;
-      height: 48px;
-      text-transform: uppercase;
-      width: 138px;
-      background-color: $coloryellow;
-    }
-  }
-
-  &-imprint {
-    color: $colorblack--lighter02;
-    font-size: 12px;
-    line-height: 18px;
-    text-align: center;
-    width: 100%;
-    display: block;
-    padding: 20px 0;
-  }
-
-  &-socials {
-    display: block;
-    width: 100%;
-
-    a {
-      font-size: 16px !important;
-      border: 1px solid $colorblack--lighter01;
-      font-weight: 300;
-      border-right: none;
-      text-transform: uppercase;
+    &-imprint {
+        color: $colorblack--lighter02;
+        font-size: 12px;
+        line-height: 18px;
+        text-align: center;
+        width: 100%;
+        display: block;
+        padding: 20px 0;
     }
 
-    a:last-of-type {
-      border-right: 1px solid $colorblack--lighter01;
-    }
+    &-socials {
+        display: block;
+        width: 100%;
 
-    i {
-      font-size: 30px;
-      padding-right: 10px;
-    }
+        a {
+            font-size: 16px !important;
+            border: 1px solid $colorblack--lighter01;
+            font-weight: 300;
+            border-right: none;
+            text-transform: uppercase;
+        }
 
-    a,
-    i {
-      font-family: $fonthind;
-      line-height: 80px;
-      text-align: center;
-      vertical-align: middle;
-    }
+        a:last-of-type {
+            border-right: 1px solid $colorblack--lighter01;
+        }
 
-    &-facebook, &-facebook i {
-      color: #267CD5;
-    }
+        i {
+            font-size: 30px;
+            padding-right: 10px;
+        }
 
-    &-twitter, &-twitter i {
-      color: #2EC5EB;
-    }
+        a,
+        i {
+            font-family: $fonthind;
+            line-height: 80px;
+            text-align: center;
+            vertical-align: middle;
+        }
 
-    &-googleplus, &-googleplus i {
-      color: #D34338;
-    }
+        &-facebook, &-facebook i {
+            color: #267CD5;
+        }
 
-    &-github, &-github i {
-      color: #FFFFFF;
-    }
+        &-twitter, &-twitter i {
+            color: #2EC5EB;
+        }
 
-    &-facebook:hover, &-facebook i:hover {
-      color: #267CD5;
-    }
+        &-googleplus, &-googleplus i {
+            color: #D34338;
+        }
 
-    &-twitter:hover, &-twitter i:hover {
-      color: #2EC5EB;
-    }
+        &-github, &-github i {
+            color: #FFFFFF;
+        }
 
-    &-googleplus:hover, &-googleplus i:hover {
-      color: #D34338;
-    }
+        &-facebook:hover, &-facebook i:hover {
+            color: #267CD5;
+        }
 
-    &-github:hover, &-github i:hover {
-      color: #FFFFFF;
+        &-twitter:hover, &-twitter i:hover {
+            color: #2EC5EB;
+        }
+
+        &-googleplus:hover, &-googleplus i:hover {
+            color: #D34338;
+        }
+
+        &-github:hover, &-github i:hover {
+            color: #FFFFFF;
+        }
     }
-  }
 }
 
 @media (max-width: $maxwidth + 20) {
-  .footer {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+    .footer {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 }
 
 @media (max-width: 800px) {
-  .footer {
-    &-elem {
-      &-emaillabel {
-        width: 100%;
-      }
+    .footer {
+        &-elem {
+            &-emaillabel {
+                width: 100%;
+            }
+        }
     }
-  }
 }
 
 @media (max-width: $maxwidth) and (min-width: 1023px) {
-  .footer {
-    &-elem {
-      &-emaillabel {
-        width: 100%;
-      }
+    .footer {
+        &-elem {
+            &-emaillabel {
+                width: 100%;
+            }
+        }
     }
-  }
 }
 
 @media (min-width: 481px) and (max-width: 1023px) {
-  .footer {
-    &-socials {
-      a {
-        border: 1px solid $colorblack--lighter01;
-      }
+    .footer {
+        &-socials {
+            a {
+                border: 1px solid $colorblack--lighter01;
+            }
 
-      a:first-of-type {
-        border-bottom: none;
-        border-right: none;
-      }
+            a:first-of-type {
+                border-bottom: none;
+                border-right: none;
+            }
 
-      a:nth-of-type(2) {
-        border-bottom: none;
-      }
+            a:nth-of-type(2) {
+                border-bottom: none;
+            }
 
-      a:nth-of-type(3) {
-        border-right: none;
-      }
+            a:nth-of-type(3) {
+                border-right: none;
+            }
+        }
     }
-  }
 }
 
 @media (max-width: 480px) {
-  .footer {
-    &-socials {
-      a {
-        border: 1px solid $colorblack--lighter01;
-        border-bottom: none;
-      }
+    .footer {
+        &-socials {
+            a {
+                border: 1px solid $colorblack--lighter01;
+                border-bottom: none;
+            }
 
-      a:last-of-type {
-        border-bottom: 1px solid $colorblack--lighter01;
-      }
+            a:last-of-type {
+                border-bottom: 1px solid $colorblack--lighter01;
+            }
+        }
     }
-  }
 }
