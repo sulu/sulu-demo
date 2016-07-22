@@ -1,9 +1,9 @@
 .biography {
   max-width: $maxwidth;
-  margin: 0 auto;
+  margin: 60px auto;
 
   &-text {
-    padding-top: 30px;
+    padding-top: 10px;
     padding-right: 60px;
 
     h3 {
@@ -42,5 +42,19 @@
 @media (max-width: $maxwidth + 20) {
   .biography {
     padding: 0 20px;
+
+    &-text {
+      padding-top: 0px;
+    }
+  }
+}
+
+@media (max-width: 1023px) {
+  .biography {
+    margin: 40px auto;
+
+    .biography-text {
+      padding-top: 0px;
+    }
   }
 }

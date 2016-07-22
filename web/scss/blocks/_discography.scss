@@ -4,8 +4,8 @@
   &-frame {
     max-width: $maxwidth;
     margin: 0 auto;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 60px;
+    padding-bottom: 60px;
 
     &-collum {
       padding: 5px;
@@ -13,7 +13,7 @@
       &-image {
         width: 100%;
         height: auto;
-        @include transition(scale, 0.3, ease-in-out);
+        @include transition(all, .3s, ease-in-out);
       }
 
       &-image:hover {
@@ -56,5 +56,12 @@
   .discography {
     padding-left: 20px;
     padding-right: 20px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .discography-frame{
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 }

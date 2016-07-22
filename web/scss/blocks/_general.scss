@@ -5,32 +5,47 @@ p {
   color: $colorblack;
 }
 
-h1, h2, h3, h4, h5, h6 {
+.heading {
   color: #2d2d2d;
   font-family: $fontoswald;
   font-weight: 300;
-  letter-spacing: -1;
+  letter-spacing: -1px;
   text-transform: uppercase;
-}
 
-h2 {
-  font-size: 50px;
-  line-height: 53px;
-}
+  &--h2 {
 
-h3 {
-  font-size: 34px;
-  line-height: 37px;
-}
+    @extend .heading;
+    font-size: 50px;
+    line-height: 53px;
 
-h5 {
-  font-size: 20px;
-  line-height: 23px;
-}
+    &--border {
+      @extend .heading;
+      border-left: 13px solid $coloryellow;
+      padding-left: 30px;
+      font-weight: bold;
+      display: block;
+      font-size: 49px;
+      line-height: 53px;
+    }
+  }
 
-h6 {
-  font-size: 18px;
-  line-height: 21px;
+  &--h3 {
+    @extend .heading;
+    font-size: 34px;
+    line-height: 37px;
+  }
+
+  &--h5 {
+    @extend .heading;
+    font-size: 20px;
+    line-height: 23px;
+  }
+
+  &--h6 {
+    @extend .heading;
+    font-size: 18px;
+    line-height: 21px;
+  }
 }
 
 a {
@@ -48,7 +63,7 @@ a:hover, a:focus {
   padding-top: 80px;
 }
 
-.heading--h2 {
+.heading--h2--border {
   border-left: 13px solid $coloryellow;
   padding-left: 30px;
   font-weight: bold;
@@ -58,7 +73,7 @@ a:hover, a:focus {
 }
 
 @media (max-width: 460px) {
-  .heading--h2 {
+  .heading--h2--border {
     font-size: 30px;
     line-height: 32px;
   }

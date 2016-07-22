@@ -659,28 +659,31 @@ p {
   line-height: 22px;
   color: #282828; }
 
-h1, h2, h3, h4, h5, h6 {
+.heading, .heading--h2, .heading--h2--border, .heading--h3, .heading--h5, .heading--h6 {
   color: #2d2d2d;
   font-family: "Oswald", sans-serif;
   font-weight: 300;
-  letter-spacing: -1;
+  letter-spacing: -1px;
   text-transform: uppercase; }
-
-h2 {
-  font-size: 50px;
-  line-height: 53px; }
-
-h3 {
-  font-size: 34px;
-  line-height: 37px; }
-
-h5 {
-  font-size: 20px;
-  line-height: 23px; }
-
-h6 {
-  font-size: 18px;
-  line-height: 21px; }
+  .heading--h2 {
+    font-size: 50px;
+    line-height: 53px; }
+    .heading--h2--border {
+      border-left: 13px solid #FFC600;
+      padding-left: 30px;
+      font-weight: bold;
+      display: block;
+      font-size: 49px;
+      line-height: 53px; }
+  .heading--h3 {
+    font-size: 34px;
+    line-height: 37px; }
+  .heading--h5 {
+    font-size: 20px;
+    line-height: 23px; }
+  .heading--h6 {
+    font-size: 18px;
+    line-height: 21px; }
 
 a {
   color: #282828;
@@ -697,7 +700,7 @@ a:hover, a:focus {
 #content {
   padding-top: 80px; }
 
-.heading--h2 {
+.heading--h2--border {
   border-left: 13px solid #FFC600;
   padding-left: 30px;
   font-weight: bold;
@@ -706,7 +709,7 @@ a:hover, a:focus {
   font-size: 49px; }
 
 @media (max-width: 460px) {
-  .heading--h2 {
+  .heading--h2--border {
     font-size: 30px;
     line-height: 32px; } }
 
@@ -988,7 +991,7 @@ nav {
     display: none; } }
 
 .news {
-  padding: 30px 0; }
+  padding: 40px 0; }
   .news-heading {
     max-width: 1080px; }
   .news-item {
@@ -1050,7 +1053,8 @@ nav {
 .partner {
   max-width: 1080px;
   margin: 0 auto;
-  padding-bottom: 50px; }
+  padding-bottom: 40px;
+  padding-top: 20px; }
   .partner-carousel {
     padding-right: 1px; }
     .partner-carousel .slick-prev,
@@ -1074,9 +1078,9 @@ nav {
 
 .biography {
   max-width: 1080px;
-  margin: 0 auto; }
+  margin: 60px auto; }
   .biography-text {
-    padding-top: 30px;
+    padding-top: 10px;
     padding-right: 60px; }
     .biography-text h3 {
       font-size: 19px;
@@ -1102,7 +1106,15 @@ nav {
 
 @media (max-width: 1100px) {
   .biography {
-    padding: 0 20px; } }
+    padding: 0 20px; }
+    .biography-text {
+      padding-top: 0px; } }
+
+@media (max-width: 1023px) {
+  .biography {
+    margin: 40px auto; }
+    .biography .biography-text {
+      padding-top: 0px; } }
 
 .team {
   background-image: url("../img/band-bg.jpg");
@@ -1124,7 +1136,11 @@ nav {
     .team-member-image {
       height: auto;
       width: 100%;
-      position: relative; }
+      position: relative;
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -ms-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out; }
     .team-member-socials {
       opacity: 0;
       width: 100%;
@@ -1132,7 +1148,11 @@ nav {
       bottom: 70px;
       left: 0px;
       font-size: 0px;
-      overflow: hidden; }
+      overflow: hidden;
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -ms-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out; }
       .team-member-socials i {
         width: 40px;
         height: 40px;
@@ -1140,7 +1160,11 @@ nav {
         text-align: center;
         vertical-align: middle;
         display: inline-block;
-        color: #ffffff; }
+        color: #ffffff;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out; }
       .team-member-socials-twitter {
         background-color: #2EC5EB; }
       .team-member-socials-facebook {
@@ -1164,20 +1188,12 @@ nav {
         text-transform: uppercase;
         color: #fff; }
   .team-member:hover > .team-member-socials {
-    opacity: 1;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out; }
+    opacity: 1; }
   .team-member:hover > .team-member-image {
-    -webkit-transform: scale(0.98);
-    -moz-transform: scale(0.98);
-    -ms-transform: scale(0.98);
-    transform: scale(0.98);
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out; }
+    -webkit-transform: scale(0.95);
+    -moz-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95); }
 
 @media (max-width: 1100px) {
   .team {
@@ -1189,17 +1205,17 @@ nav {
   .discography-frame {
     max-width: 1080px;
     margin: 0 auto;
-    padding-top: 80px;
-    padding-bottom: 80px; }
+    padding-top: 60px;
+    padding-bottom: 60px; }
     .discography-frame-collum {
       padding: 5px; }
       .discography-frame-collum-image {
         width: 100%;
         height: auto;
-        -webkit-transition: scale 0.3 ease-in-out;
-        -moz-transition: scale 0.3 ease-in-out;
-        -ms-transition: scale 0.3 ease-in-out;
-        transition: scale 0.3 ease-in-out; }
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out; }
       .discography-frame-collum-image:hover {
         -webkit-transform: scale(0.95);
         -moz-transform: scale(0.95);
@@ -1231,3 +1247,8 @@ nav {
   .discography {
     padding-left: 20px;
     padding-right: 20px; } }
+
+@media (max-width: 1023px) {
+  .discography-frame {
+    padding-top: 40px;
+    padding-bottom: 40px; } }

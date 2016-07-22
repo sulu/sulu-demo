@@ -25,6 +25,7 @@
       height: auto;
       width: 100%;
       position: relative;
+      @include transition(all, .3s, ease-in-out);
     }
 
     &-socials {
@@ -35,6 +36,7 @@
       left: 0px;
       font-size: 0px;
       overflow: hidden;
+      @include transition(all, .3s, ease-in-out);
 
       i {
         width: 40px;
@@ -44,6 +46,7 @@
         vertical-align: middle;
         display: inline-block;
         color: #ffffff;
+        @include transition(all, .3s, ease-in-out);
       }
 
       &-twitter {
@@ -88,12 +91,10 @@
 
   &-member:hover > &-member-socials {
     opacity: 1;
-    @include transition(all, 0.3s, ease-in-out);
   }
 
   &-member:hover > &-member-image {
-    @include scale-elem(0.98);
-    @include transition(all, 0.3s, ease-in-out);
+    @include scale-elem(0.95);
   }
 }
 
