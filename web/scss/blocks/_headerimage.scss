@@ -14,7 +14,7 @@
         max-width: $maxwidth;
         magin: 0 auto;
 
-        &--middle--top {
+        &--middle-top {
             text-align: center;
             top: 40px;
             left: 50%;
@@ -23,7 +23,7 @@
             transform: translateX(-50%);
         }
 
-        &--middle--middle {
+        &--middle-middle {
             text-align: center;
             top: 50%;
             left: 50%;
@@ -50,7 +50,6 @@
             font-size: 60px;
             font-weight: bold;
         }
-
     }
 }
 
