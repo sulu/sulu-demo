@@ -658,7 +658,7 @@ p {
   line-height: 22px;
   color: #282828; }
 
-.heading, .heading--h2, .heading--h2--border, .heading--h3, .heading--h4--border, .heading--h5, .heading--h6 {
+.heading, .heading--h2, .heading--h2--border, .heading--h3, .heading--h3--border, .heading--h4--border, .heading--h5, .heading--h6 {
   color: #2d2d2d;
   font-family: "Oswald", sans-serif;
   font-weight: 300;
@@ -677,6 +677,12 @@ p {
   .heading--h3 {
     font-size: 34px;
     line-height: 37px; }
+    .heading--h3--border {
+      border-left: #FFC600 6px solid;
+      padding-left: 12px;
+      font-size: 24px;
+      line-height: 26px;
+      font-weight: bold; }
   .heading--h4--border {
     border-left: #FFC600 6px solid;
     padding-left: 26px;
@@ -1248,3 +1254,62 @@ nav {
   .discography-frame {
     padding-top: 40px;
     padding-bottom: 40px; } }
+
+.artists {
+  max-width: 1080px;
+  margin: 0 auto; }
+  .artists-item {
+    background-color: #F3F3F3;
+    margin: 10px;
+    margin-bottom: 40px; }
+    .artists-item-image {
+      width: 100%; }
+    .artists-item-text {
+      padding: 30px; }
+      .artists-item-text-date {
+        font-family: "Oswald", sans-serif;
+        color: #999;
+        font-size: 14px;
+        line-height: 15px;
+        letter-spacing: 0; }
+      .artists-item-text-heading {
+        letter-spacing: 0px; }
+      .artists-item-text-subheading {
+        color: #999;
+        font-size: 13px;
+        padding-left: 13px;
+        border-left: #FFC600 7px solid;
+        line-height: 22px;
+        margin-top: 9px;
+        margin-bottom: 9px; }
+        .artists-item-text-subheading a {
+          font-family: "Hind", sans-serif;
+          color: #666;
+          font-size: 13px;
+          font-weight: bold; }
+        .artists-item-text-subheading a:hover {
+          color: #FFC600; }
+      .artists-item-text-text {
+        color: #333333;
+        font-size: 13px;
+        line-height: 22px;
+        margin-bottom: 15px; }
+      .artists-item-text-button {
+        color: #fff;
+        background: #DBDEE5;
+        padding: 3px 13px;
+        -webkit-border-radius: 87px;
+        -moz-border-radius: 87px;
+        -ms-border-radius: 87px;
+        border-radius: 87px;
+        font-family: "Hind", sans-serif;
+        font-size: 12px;
+        line-height: 28px; }
+      .artists-item-text-button:hover {
+        color: #fff;
+        background: #FFC600; }
+
+@media (max-width: 1100px) {
+  .artists {
+    padding-left: 20px;
+    padding-right: 20px; } }

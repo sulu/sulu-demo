@@ -11,3 +11,10 @@
     -ms-transition: $form $time $kind;
     transition: $form $time $kind;
 }
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
