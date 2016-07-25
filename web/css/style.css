@@ -1262,8 +1262,20 @@ nav {
     background-color: #F3F3F3;
     margin: 10px;
     margin-bottom: 40px; }
-    .artists-item-image {
+    .artists-item--scalebox {
+      overflow: hidden;
       width: 100%; }
+    .artists-item-image {
+      width: 100%;
+      -webkit-transition: all 0.7s ease-in-out;
+      -moz-transition: all 0.7s ease-in-out;
+      -ms-transition: all 0.7s ease-in-out;
+      transition: all 0.7s ease-in-out; }
+    .artists-item-image:hover {
+      -webkit-transform: scale(1.15);
+      -moz-transform: scale(1.15);
+      -ms-transform: scale(1.15);
+      transform: scale(1.15); }
     .artists-item-text {
       padding: 30px; }
       .artists-item-text-date {
@@ -1313,3 +1325,98 @@ nav {
   .artists {
     padding-left: 20px;
     padding-right: 20px; } }
+
+.artist {
+  max-width: 1080px;
+  margin: 0 auto 50px; }
+  .artist-main {
+    margin-right: 20px; }
+    .artist-main-heading {
+      font-family: "Oswald", sans-serif;
+      font-size: 36px;
+      line-height: 46px;
+      color: #282828;
+      margin-top: 0px;
+      text-transform: uppercase; }
+    .artist-main--scalebox {
+      overflow: hidden;
+      margin-bottom: 10px; }
+    .artist-main-image {
+      width: 100%;
+      -webkit-transition: all 0.7s ease-in-out;
+      -moz-transition: all 0.7s ease-in-out;
+      -ms-transition: all 0.7s ease-in-out;
+      transition: all 0.7s ease-in-out; }
+    .artist-main-image:hover {
+      -webkit-transform: scale(1.15);
+      -moz-transform: scale(1.15);
+      -ms-transform: scale(1.15);
+      transform: scale(1.15); }
+    .artist-main-subheading {
+      font-size: 16px;
+      color: #000000;
+      margin-top: 30px; }
+    .artist-main-text {
+      font-size: 14px;
+      color: #666; }
+      .artist-main-text--quote {
+        position: relative;
+        width: 100%;
+        color: #666;
+        font-size: 17.5px;
+        line-height: 25px;
+        border-left: 3px solid #FFC600;
+        padding-left: 20px;
+        margin: 45px 0; }
+    .artist-main--galleryitem:first-of-type {
+      padding-right: 10px; }
+    .artist-main--galleryitem {
+      padding: 5px; }
+    .artist-main--galleryitem:last-of-type {
+      padding-left: 10px; }
+  .artist-sidemenu {
+    width: 100%;
+    margin-bottom: 50px; }
+    .artist-sidemenu-heading {
+      font-family: "Oswald", sans-serif;
+      font-size: 18px;
+      line-height: 20px;
+      margin: 15px 0;
+      text-transform: uppercase; }
+    .artist-sidemenu-list {
+      padding-left: 0px; }
+      .artist-sidemenu-list li {
+        list-style-type: none;
+        width: 100%;
+        border-top: 1px solid #999;
+        padding: 5px 5px; }
+        .artist-sidemenu-list li a {
+          border-left: 2px solid #999;
+          padding-left: 12px;
+          padding-top: 1px;
+          margin-bottom: 3px;
+          font-family: "Hind", sans-serif;
+          font-size: 14px;
+          line-height: 14px;
+          display: inline-block;
+          width: 100%;
+          height: 14px;
+          vertical-align: bottom; }
+          .artist-sidemenu-list li a i {
+            float: right; }
+        .artist-sidemenu-list li a:hover {
+          border-left: 15px solid #FFC600;
+          padding-left: 7px; }
+      .artist-sidemenu-list li:last-of-type {
+        border-bottom: 1px solid #999; }
+
+@media (max-width: 1100px) {
+  .artist {
+    padding-left: 20px;
+    padding-right: 20px; } }
+
+@media (max-width: 1023px) {
+  .artist-sidemenu-list li a {
+    text-align: center; }
+    .artist-sidemenu-list li a i {
+      padding-left: 12px; } }

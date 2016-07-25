@@ -3,15 +3,15 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
 
-    <key>artists</key>
+    <key>artist_detail</key>
 
-    <view>templates/artists</view>
+    <view>templates/artist_detail</view>
     <controller>SuluWebsiteBundle:Default:index</controller>
     <cacheLifetime>604800</cacheLifetime>
 
     <meta>
-        <title lang="en">Artist Overview</title>
-        <title lang="de">Artist Overview</title>
+        <title lang="en">Artist Detail</title>
+        <title lang="de">Artist Detail</title>
     </meta>
 
     <properties>
