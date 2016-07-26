@@ -32,6 +32,15 @@ p {
         @extend .heading;
         font-size: 34px;
         line-height: 37px;
+
+        &--border {
+            @extend .heading;
+            border-left: $coloryellow 6px solid;
+            padding-left: 12px;
+            font-size: 24px;
+            line-height: 26px;
+            font-weight: bold;
+        }
     }
 
     &--h4 {

@@ -658,7 +658,7 @@ p {
   line-height: 22px;
   color: #282828; }
 
-.heading, .heading--h2, .heading--h2--border, .heading--h3, .heading--h4--border, .heading--h5, .heading--h6 {
+.heading, .heading--h2, .heading--h2--border, .heading--h3, .heading--h3--border, .heading--h4--border, .heading--h5, .heading--h6 {
   color: #2d2d2d;
   font-family: "Oswald", sans-serif;
   font-weight: 300;
@@ -677,6 +677,12 @@ p {
   .heading--h3 {
     font-size: 34px;
     line-height: 37px; }
+    .heading--h3--border {
+      border-left: #FFC600 6px solid;
+      padding-left: 12px;
+      font-size: 24px;
+      line-height: 26px;
+      font-weight: bold; }
   .heading--h4--border {
     border-left: #FFC600 6px solid;
     padding-left: 26px;
@@ -942,7 +948,8 @@ nav {
 
 .headerimage {
   width: 100%;
-  position: relative; }
+  position: relative;
+  margin-bottom: 30px; }
   .headerimage img {
     width: 100%;
     height: auto; }
@@ -973,11 +980,16 @@ nav {
       -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%); }
-    .headerimage-text .heading, .headerimage-text .heading--h2, .headerimage-text .heading--h2--border, .headerimage-text .heading--h3, .headerimage-text .heading--h4--border, .headerimage-text .heading--h5, .headerimage-text .heading--h6,
-    .headerimage-text p {
+    .headerimage-text .heading, .headerimage-text .heading--h2, .headerimage-text .heading--h2--border, .headerimage-text .heading--h3, .headerimage-text .heading--h3--border, .headerimage-text .heading--h4--border, .headerimage-text .heading--h5, .headerimage-text .heading--h6 {
       color: #ffffff; }
+    .headerimage-text p {
+      color: #999;
+      font-size: 11px; }
     .headerimage-text .heading--middle {
       font-size: 60px;
+      font-weight: bold; }
+    .headerimage-text .heading--left {
+      font-size: 30px;
       font-weight: bold; }
 
 @media (max-width: 1100px) {
@@ -988,7 +1000,7 @@ nav {
 @media (max-width: 1023px) {
   .headerimage-text p {
     display: none; }
-  .headerimage-text .heading, .headerimage-text .heading--h2, .headerimage-text .heading--h2--border, .headerimage-text .heading--h3, .headerimage-text .heading--h4--border, .headerimage-text .heading--h5, .headerimage-text .heading--h6 {
+  .headerimage-text .heading, .headerimage-text .heading--h2, .headerimage-text .heading--h2--border, .headerimage-text .heading--h3, .headerimage-text .heading--h3--border, .headerimage-text .heading--h4--border, .headerimage-text .heading--h5, .headerimage-text .heading--h6 {
     display: none; } }
 
 .slider {
@@ -1301,6 +1313,172 @@ nav {
   .discography-frame {
     padding-top: 40px;
     padding-bottom: 40px; } }
+
+.artists {
+  max-width: 1080px;
+  margin: 0 auto; }
+  .artists-item {
+    background-color: #F3F3F3;
+    margin: 10px;
+    margin-bottom: 40px; }
+    .artists-item--scalebox {
+      overflow: hidden;
+      width: 100%; }
+    .artists-item-image {
+      width: 100%;
+      -webkit-transition: all 0.7s ease-in-out;
+      -moz-transition: all 0.7s ease-in-out;
+      -ms-transition: all 0.7s ease-in-out;
+      transition: all 0.7s ease-in-out; }
+    .artists-item-image:hover {
+      -webkit-transform: scale(1.15);
+      -moz-transform: scale(1.15);
+      -ms-transform: scale(1.15);
+      transform: scale(1.15); }
+    .artists-item-text {
+      padding: 30px; }
+      .artists-item-text-date {
+        font-family: "Oswald", sans-serif;
+        color: #999;
+        font-size: 14px;
+        line-height: 15px;
+        letter-spacing: 0; }
+      .artists-item-text-heading {
+        letter-spacing: 0px; }
+      .artists-item-text-subheading {
+        color: #999;
+        font-size: 13px;
+        padding-left: 13px;
+        border-left: #FFC600 7px solid;
+        line-height: 22px;
+        margin-top: 9px;
+        margin-bottom: 9px; }
+        .artists-item-text-subheading a {
+          font-family: "Hind", sans-serif;
+          color: #666;
+          font-size: 13px;
+          font-weight: bold; }
+        .artists-item-text-subheading a:hover {
+          color: #FFC600; }
+      .artists-item-text p {
+        color: #333333;
+        font-size: 13px;
+        line-height: 22px;
+        margin-bottom: 15px; }
+      .artists-item-text-button {
+        color: #fff;
+        background: #DBDEE5;
+        padding: 3px 13px;
+        -webkit-border-radius: 87px;
+        -moz-border-radius: 87px;
+        -ms-border-radius: 87px;
+        border-radius: 87px;
+        font-family: "Hind", sans-serif;
+        font-size: 12px;
+        line-height: 28px; }
+      .artists-item-text-button:hover {
+        color: #fff;
+        background: #FFC600; }
+
+@media (max-width: 1100px) {
+  .artists {
+    padding-left: 20px;
+    padding-right: 20px; } }
+
+.artist {
+  max-width: 1080px;
+  margin: 0 auto 50px; }
+  .artist-main {
+    margin-right: 20px; }
+    .artist-main-heading {
+      font-family: "Oswald", sans-serif;
+      font-size: 36px;
+      line-height: 46px;
+      color: #282828;
+      margin-top: 0px;
+      text-transform: uppercase; }
+    .artist-main-scalebox {
+      overflow: hidden;
+      margin-bottom: 10px; }
+      .artist-main-scalebox-image {
+        width: 100%;
+        -webkit-transition: all 0.7s ease-in-out;
+        -moz-transition: all 0.7s ease-in-out;
+        -ms-transition: all 0.7s ease-in-out;
+        transition: all 0.7s ease-in-out; }
+      .artist-main-scalebox-image:hover {
+        -webkit-transform: scale(1.15);
+        -moz-transform: scale(1.15);
+        -ms-transform: scale(1.15);
+        transform: scale(1.15); }
+    .artist-main-subheading {
+      font-size: 16px;
+      color: #000000;
+      margin-top: 30px; }
+    .artist-main p {
+      font-size: 14px;
+      color: #666; }
+    .artist-main-quote p {
+      position: relative;
+      width: 100%;
+      color: #666;
+      font-size: 17.5px;
+      line-height: 25px;
+      border-left: 3px solid #FFC600;
+      padding-left: 20px;
+      margin: 45px 0; }
+    .artist-main-galleryitem:first-of-type {
+      padding-right: 10px; }
+    .artist-main-galleryitem {
+      padding: 5px; }
+    .artist-main-galleryitem:last-of-type {
+      padding-left: 10px; }
+  .artist-sidemenu {
+    width: 100%;
+    margin-bottom: 50px; }
+    .artist-sidemenu-heading {
+      font-family: "Oswald", sans-serif;
+      font-size: 18px;
+      line-height: 20px;
+      margin: 15px 0;
+      text-transform: uppercase; }
+    .artist-sidemenu-list {
+      padding-left: 0px; }
+      .artist-sidemenu-list li {
+        list-style-type: none;
+        width: 100%;
+        border-top: 1px solid #999;
+        padding: 5px 5px; }
+        .artist-sidemenu-list li a {
+          border-left: 2px solid #999;
+          padding-left: 12px;
+          padding-top: 1px;
+          margin-bottom: 3px;
+          font-family: "Hind", sans-serif;
+          font-size: 14px;
+          line-height: 14px;
+          display: inline-block;
+          width: 100%;
+          height: 14px;
+          vertical-align: bottom; }
+          .artist-sidemenu-list li a i {
+            float: right; }
+        .artist-sidemenu-list li a:hover {
+          border-left: 15px solid #FFC600;
+          padding-left: 7px; }
+      .artist-sidemenu-list li:last-of-type {
+        border-bottom: 1px solid #999; }
+
+@media (max-width: 1100px) {
+  .artist {
+    padding-left: 20px;
+    padding-right: 20px; } }
+
+@media (max-width: 1023px) {
+  .artist-sidemenu-list li a {
+    text-align: center; }
+    .artist-sidemenu-list li a i {
+      padding-left: 12px; } }
 
 .sidemap {
   max-width: 1080px;
