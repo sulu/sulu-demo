@@ -34,13 +34,15 @@ p {
         line-height: 37px;
     }
 
-    &--h4{
-        &--border{
+    &--h4 {
+        &--border {
             @extend .heading;
             border-left: $coloryellow 6px solid;
             padding-left: 26px;
-            font-size:24px;
-            line-height:26px;
+            font-size: 24px;
+            line-height: 26px;
+            font-weight: bold;
+            letter-spacing: 0px;
         }
     }
 

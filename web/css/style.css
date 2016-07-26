@@ -681,7 +681,9 @@ p {
     border-left: #FFC600 6px solid;
     padding-left: 26px;
     font-size: 24px;
-    line-height: 26px; }
+    line-height: 26px;
+    font-weight: bold;
+    letter-spacing: 0px; }
   .heading--h5 {
     font-size: 20px;
     line-height: 23px; }
@@ -937,6 +939,57 @@ nav {
     border-bottom: none; }
   .footer-socials a:last-of-type {
     border-bottom: 1px solid #666; } }
+
+.headerimage {
+  width: 100%;
+  position: relative; }
+  .headerimage img {
+    width: 100%;
+    height: auto; }
+  .headerimage-text {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    max-width: 1080px;
+    magin: 0 auto; }
+    .headerimage-text--middle-top {
+      text-align: center;
+      top: 40px;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%); }
+    .headerimage-text--middle-middle {
+      text-align: center;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); }
+    .headerimage-text--left {
+      text-align: left;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); }
+    .headerimage-text .heading, .headerimage-text .heading--h2, .headerimage-text .heading--h2--border, .headerimage-text .heading--h3, .headerimage-text .heading--h4--border, .headerimage-text .heading--h5, .headerimage-text .heading--h6,
+    .headerimage-text p {
+      color: #ffffff; }
+    .headerimage-text .heading--middle {
+      font-size: 60px;
+      font-weight: bold; }
+
+@media (max-width: 1100px) {
+  .headerimage-text {
+    padding-left: 20px;
+    padding-right: 20px; } }
+
+@media (max-width: 1023px) {
+  .headerimage-text p {
+    display: none; }
+  .headerimage-text .heading, .headerimage-text .heading--h2, .headerimage-text .heading--h2--border, .headerimage-text .heading--h3, .headerimage-text .heading--h4--border, .headerimage-text .heading--h5, .headerimage-text .heading--h6 {
+    display: none; } }
 
 .slider {
   height: auto;
@@ -1248,3 +1301,32 @@ nav {
   .discography-frame {
     padding-top: 40px;
     padding-bottom: 40px; } }
+
+.sidemap {
+  max-width: 1080px;
+  margin: 40px auto;
+  padding: 0 20px; }
+  .sidemap-item {
+    padding-bottom: 20px; }
+    .sidemap-item-subtitle {
+      text-transform: uppercase;
+      font-size: 1.5em;
+      letter-spacing: 0px;
+      padding-bottom: 7px;
+      padding-top: 15px; }
+    .sidemap-item-list {
+      padding-left: 0px; }
+      .sidemap-item-list li {
+        list-style-type: none; }
+        .sidemap-item-list li i,
+        .sidemap-item-list li a {
+          padding: 7px 5px;
+          display: inline-block;
+          color: gray;
+          font-size: 14px;
+          line-height: 17px;
+          font-family: "Hind", sans-serif;
+          font-weight: normal; }
+      .sidemap-item-list a:hover {
+        color: #FFC600;
+        font-weight: bold; }
