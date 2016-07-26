@@ -952,14 +952,14 @@ nav {
     width: 100%;
     max-width: 1080px;
     magin: 0 auto; }
-    .headerimage-text--middle--top {
+    .headerimage-text--middle-top {
       text-align: center;
       top: 40px;
       left: 50%;
       -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
       transform: translateX(-50%); }
-    .headerimage-text--middle--middle {
+    .headerimage-text--middle-middle {
       text-align: center;
       top: 50%;
       left: 50%;
