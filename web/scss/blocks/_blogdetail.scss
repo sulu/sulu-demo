@@ -30,22 +30,51 @@
 
     &-editor {
         width: 100%;
-        height: 80px;
+        min-height: 80px;
 
         img {
             display: inline-block;
             width: 60px;
             height: 60px;
             margin-top: 10px;
+            margin-right: 20px;
             border-radius: 30px;
             float: left;
         }
         &--middle {
             display: inline-block;
-            padding-left: 20px;
+            height: 80px;
+            padding-top: 20px;
+            box-sizing: border-box;
 
-            span {
+            &-date, &-date p {
                 display: block;
+                font-size: 16px;
+                font-family: $fontoswald;
+                text-transform: uppercase;
+            }
+
+            &-editor {
+                display: block;
+                color: $colorblack--lighter02;
+                font-size: 13px;
+                padding-left: 13px;
+                border-left: $coloryellow 7px solid;
+                line-height: 13px;
+                margin-top: 9px;
+                margin-bottom: 9px;
+                font-family: $fonthind;
+
+                a {
+                    font-family: $fonthind;
+                    color: $colorblack--lighter01;
+                    font-size: 13px;
+                    font-weight: bold;
+                }
+
+                a:hover {
+                    color: $coloryellow;
+                }
             }
 
             p {
@@ -140,4 +169,18 @@
         }
     }
 
+}
+
+@media (max-width: 768px) {
+    .blogdetail-editor--right{
+        float: none;
+
+        &-social {
+            margin-top: 10px;
+        }
+
+        &-line {
+            margin-top: 25px;
+        }
+    }
 }
