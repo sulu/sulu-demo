@@ -9,6 +9,7 @@
 @import 'blocks/general';
 @import 'blocks/navigation';
 @import 'blocks/footer';
+@import 'blocks/headerimage';
 
 // BLOCKS - HOME
 @import 'blocks/slider';
@@ -23,6 +24,9 @@
 
 // BLOCKS - ARTIST - DETAIL
 @import 'blocks/artistdetail';
+
+//BLOCKS - SITEMAP
+@import 'blocks/sitemap';
 
 // FONTS
 @import url(https://fonts.googleapis.com/css?family=Hind:300,400,700);
