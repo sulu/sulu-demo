@@ -32,6 +32,7 @@ p {
         @extend .heading;
         font-size: 34px;
         line-height: 37px;
+
         &--border {
             @extend .heading;
             border-left: $coloryellow 6px solid;

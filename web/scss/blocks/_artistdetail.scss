@@ -37,6 +37,7 @@
         &-text {
             font-size: 14px;
             color: $colorblack--lighter01;
+
             &--quote {
                 position: relative;
                 width: 100%;
@@ -125,6 +126,7 @@
     .artist-sidemenu-list li {
         a {
             text-align: center;
+
             i {
                 padding-left: 12px;
             }
