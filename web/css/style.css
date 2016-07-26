@@ -1360,7 +1360,7 @@ nav {
           font-weight: bold; }
         .artists-item-text-subheading a:hover {
           color: #FFC600; }
-      .artists-item-text-text {
+      .artists-item-text p {
         color: #333333;
         font-size: 13px;
         line-height: 22px;
@@ -1397,41 +1397,41 @@ nav {
       color: #282828;
       margin-top: 0px;
       text-transform: uppercase; }
-    .artist-main--scalebox {
+    .artist-main-scalebox {
       overflow: hidden;
       margin-bottom: 10px; }
-    .artist-main-image {
-      width: 100%;
-      -webkit-transition: all 0.7s ease-in-out;
-      -moz-transition: all 0.7s ease-in-out;
-      -ms-transition: all 0.7s ease-in-out;
-      transition: all 0.7s ease-in-out; }
-    .artist-main-image:hover {
-      -webkit-transform: scale(1.15);
-      -moz-transform: scale(1.15);
-      -ms-transform: scale(1.15);
-      transform: scale(1.15); }
+      .artist-main-scalebox-image {
+        width: 100%;
+        -webkit-transition: all 0.7s ease-in-out;
+        -moz-transition: all 0.7s ease-in-out;
+        -ms-transition: all 0.7s ease-in-out;
+        transition: all 0.7s ease-in-out; }
+      .artist-main-scalebox-image:hover {
+        -webkit-transform: scale(1.15);
+        -moz-transform: scale(1.15);
+        -ms-transform: scale(1.15);
+        transform: scale(1.15); }
     .artist-main-subheading {
       font-size: 16px;
       color: #000000;
       margin-top: 30px; }
-    .artist-main-text {
+    .artist-main p {
       font-size: 14px;
       color: #666; }
-      .artist-main-text--quote {
-        position: relative;
-        width: 100%;
-        color: #666;
-        font-size: 17.5px;
-        line-height: 25px;
-        border-left: 3px solid #FFC600;
-        padding-left: 20px;
-        margin: 45px 0; }
-    .artist-main--galleryitem:first-of-type {
+    .artist-main-quote p {
+      position: relative;
+      width: 100%;
+      color: #666;
+      font-size: 17.5px;
+      line-height: 25px;
+      border-left: 3px solid #FFC600;
+      padding-left: 20px;
+      margin: 45px 0; }
+    .artist-main-galleryitem:first-of-type {
       padding-right: 10px; }
-    .artist-main--galleryitem {
+    .artist-main-galleryitem {
       padding: 5px; }
-    .artist-main--galleryitem:last-of-type {
+    .artist-main-galleryitem:last-of-type {
       padding-left: 10px; }
   .artist-sidemenu {
     width: 100%;

@@ -14,18 +14,18 @@
             text-transform: uppercase;
         }
 
-        &--scalebox {
+        &-scalebox {
             overflow: hidden;
             margin-bottom: 10px;
-        }
 
-        &-image {
-            width: 100%;
-            @include transition(all, 0.7s, ease-in-out);
-        }
+            &-image {
+                width: 100%;
+                @include transition(all, 0.7s, ease-in-out);
+            }
 
-        &-image:hover {
-            @include scale-elem(1.15);
+            &-image:hover {
+                @include scale-elem(1.15);
+            }
         }
 
         &-subheading {
@@ -34,31 +34,31 @@
             margin-top: 30px;
         }
 
-        &-text {
+        p {
             font-size: 14px;
             color: $colorblack--lighter01;
-
-            &--quote {
-                position: relative;
-                width: 100%;
-                color: $colorblack--lighter01;
-                font-size: 17.5px;
-                line-height: 25px;
-                border-left: 3px solid $coloryellow;
-                padding-left: 20px;
-                margin: 45px 0
-            }
         }
 
-        &--galleryitem:first-of-type {
+        &-quote p {
+            position: relative;
+            width: 100%;
+            color: $colorblack--lighter01;
+            font-size: 17.5px;
+            line-height: 25px;
+            border-left: 3px solid $coloryellow;
+            padding-left: 20px;
+            margin: 45px 0
+        }
+
+        &-galleryitem:first-of-type {
             padding-right: 10px;
         }
 
-        &--galleryitem {
+        &-galleryitem {
             padding: 5px;
         }
 
-        &--galleryitem:last-of-type {
+        &-galleryitem:last-of-type {
             padding-left: 10px;
         }
     }
