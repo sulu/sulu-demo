@@ -71,4 +71,9 @@
     }
 }
 
-
+@media (max-width: 1023px) {
+    .blog,
+    .blog-sidemenu {
+        margin-bottom: 0px !important;
+    }
+}
