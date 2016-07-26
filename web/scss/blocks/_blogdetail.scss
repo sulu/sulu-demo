@@ -150,6 +150,97 @@
     &--galleryitem:last-of-type {
         padding-left: 10px;
     }
+
+    &-tags {
+        &-heading {
+            text-transform: uppercase;
+            font-family: $fonthind;
+            font-weight: bold;
+            letter-spacing: -1px;
+            display: block;
+            margin: 25px 0 5px;
+        }
+
+        &-list {
+            padding-left: 0px;
+
+            li,
+            a {
+                display: inline-block;
+            }
+
+            a {
+                color: #0a88d3;
+                font-family: $fonthind;
+                padding-right: 15px;
+                padding-bottom: 5px;
+            }
+        }
+    }
+
+    &-share {
+        position: relative;
+        height: 50px;
+
+        &-heading {
+            font-family: $fonthind;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-style: normal;
+            float: left;
+            line-height: 50px;
+            vertical-align: middle;
+        }
+
+        &-line {
+            border-top: 1px solid $colorblack--lighter03;
+            width: 60%;
+            height: 24px;
+            margin-top: 24px;
+            display: inline-flex;
+            position: absolute;
+        }
+
+        &-socials {
+            right: 0px;
+            top: 0px;
+            position: absolute;
+            background-color: #FFFFFF;
+            z-index: 2;
+            padding-left: 30px;
+
+            a {
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                border: 2px solid $colorblack--lighter03;
+                border-radius: 25px;
+                text-align: center;
+                vertical-align: middle;
+            }
+
+            i {
+                font-size: 22px;
+                line-height: 44px;
+            }
+
+            &--facebook {
+                color: #23609F;
+            }
+
+            &--twitter {
+                color: #2EC5EB;
+            }
+
+            &--instagram {
+                color: #267CD5;
+            }
+
+            &--whatsapp {
+                color: #25D366;
+            }
+        }
+    }
 }
 
 @media (max-width: $maxwidth + 20) {
@@ -172,7 +263,7 @@
 }
 
 @media (max-width: 768px) {
-    .blogdetail-editor--right{
+    .blogdetail-editor--right {
         float: none;
 
         &-social {
@@ -181,6 +272,25 @@
 
         &-line {
             margin-top: 25px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .blogdetail-share {
+        padding-bottom: 110px;
+
+        &-socials {
+            position: relative;
+            float: none;
+            width: 100%;
+            text-align: center;
+            padding-left: 15px;
+        }
+        &-heading {
+            position: relative;
+            display: block;
+            float: none;
         }
     }
 }

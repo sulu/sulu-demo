@@ -1552,6 +1552,67 @@ nav {
     padding: 5px; }
   .blogdetail--galleryitem:last-of-type {
     padding-left: 10px; }
+  .blogdetail-tags-heading {
+    text-transform: uppercase;
+    font-family: "Hind", sans-serif;
+    font-weight: bold;
+    letter-spacing: -1px;
+    display: block;
+    margin: 25px 0 5px; }
+  .blogdetail-tags-list {
+    padding-left: 0px; }
+    .blogdetail-tags-list li,
+    .blogdetail-tags-list a {
+      display: inline-block; }
+    .blogdetail-tags-list a {
+      color: #0a88d3;
+      font-family: "Hind", sans-serif;
+      padding-right: 15px;
+      padding-bottom: 5px; }
+  .blogdetail-share {
+    position: relative;
+    height: 50px; }
+    .blogdetail-share-heading {
+      font-family: "Hind", sans-serif;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-style: normal;
+      float: left;
+      line-height: 50px;
+      vertical-align: middle; }
+    .blogdetail-share-line {
+      border-top: 1px solid #DBDEE5;
+      width: 60%;
+      height: 24px;
+      margin-top: 24px;
+      display: inline-flex;
+      position: absolute; }
+    .blogdetail-share-socials {
+      right: 0px;
+      top: 0px;
+      position: absolute;
+      background-color: #FFFFFF;
+      z-index: 2;
+      padding-left: 30px; }
+      .blogdetail-share-socials a {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border: 2px solid #DBDEE5;
+        border-radius: 25px;
+        text-align: center;
+        vertical-align: middle; }
+      .blogdetail-share-socials i {
+        font-size: 22px;
+        line-height: 44px; }
+      .blogdetail-share-socials--facebook {
+        color: #23609F; }
+      .blogdetail-share-socials--twitter {
+        color: #2EC5EB; }
+      .blogdetail-share-socials--instagram {
+        color: #267CD5; }
+      .blogdetail-share-socials--whatsapp {
+        color: #25D366; }
 
 @media (max-width: 1100px) {
   .blogdetail {
@@ -1571,6 +1632,20 @@ nav {
       margin-top: 10px; }
     .blogdetail-editor--right-line {
       margin-top: 25px; } }
+
+@media (max-width: 480px) {
+  .blogdetail-share {
+    padding-bottom: 110px; }
+    .blogdetail-share-socials {
+      position: relative;
+      float: none;
+      width: 100%;
+      text-align: center;
+      padding-left: 15px; }
+    .blogdetail-share-heading {
+      position: relative;
+      display: block;
+      float: none; } }
 
 .sidemap {
   max-width: 1080px;
