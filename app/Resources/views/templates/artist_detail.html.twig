@@ -2,6 +2,14 @@
 
 {% block content %}
     {# header image #}
+    {% include(':includes:headerimge.html.twig') with {
+        'imagesrc' : '/img/subheader1.jpg',
+        'kind' : 'headerimage-text--left',
+        'headingposition' : 'heading--left',
+        'heading' : 'Artist',
+        'text': 'New album, Fallen Empires, arrives with a serious reputation attached. The Irish/Scottish five piece have sold over.'
+    } %}
+
     <section class="artist">
         <div class="grid">
             <div class="grid__item desk--four-fifths portable--one-whole">

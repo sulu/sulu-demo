@@ -1,6 +1,7 @@
 .headerimage {
     width: 100%;
     position: relative;
+    margin-bottom: 30px;
 
     img {
         width: 100%;
@@ -41,13 +42,22 @@
             transform: translate(-50%, -50%);
         }
 
-        .heading,
-        p {
+        .heading {
             color: #ffffff;
+        }
+
+        p {
+            color: $colorblack--lighter02;
+            font-size: 11px;
         }
 
         .heading--middle {
             font-size: 60px;
+            font-weight: bold;
+        }
+
+        .heading--left {
+            font-size: 30px;
             font-weight: bold;
         }
     }

@@ -948,7 +948,8 @@ nav {
 
 .headerimage {
   width: 100%;
-  position: relative; }
+  position: relative;
+  margin-bottom: 30px; }
   .headerimage img {
     width: 100%;
     height: auto; }
@@ -979,11 +980,16 @@ nav {
       -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%); }
-    .headerimage-text .heading, .headerimage-text .heading--h2, .headerimage-text .heading--h2--border, .headerimage-text .heading--h3, .headerimage-text .heading--h3--border, .headerimage-text .heading--h4--border, .headerimage-text .heading--h5, .headerimage-text .heading--h6,
-    .headerimage-text p {
+    .headerimage-text .heading, .headerimage-text .heading--h2, .headerimage-text .heading--h2--border, .headerimage-text .heading--h3, .headerimage-text .heading--h3--border, .headerimage-text .heading--h4--border, .headerimage-text .heading--h5, .headerimage-text .heading--h6 {
       color: #ffffff; }
+    .headerimage-text p {
+      color: #999;
+      font-size: 11px; }
     .headerimage-text .heading--middle {
       font-size: 60px;
+      font-weight: bold; }
+    .headerimage-text .heading--left {
+      font-size: 30px;
       font-weight: bold; }
 
 @media (max-width: 1100px) {
