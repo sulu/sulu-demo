@@ -1,0 +1,60 @@
+.services {
+    max-width: $maxwidth;
+    margin: 0 auto;
+
+    &-activities {
+        margin: 40px 0;
+        &-elem {
+            text-align: center;
+            height: 335px;
+            border: 1px solid $colorblack--lighter03;
+            margin: 7.5px;
+            padding: 30px;
+            padding-top: 40px;
+            border-radius: 3px;
+            box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
+            @include transition(all,0.3s, ease-in-out);
+
+            i {
+                color: $coloryellow;
+                font-size: 80px;
+                @include transition(all,0.3s, ease-in-out);
+            }
+
+            h4{
+                font-family: $fontoswald;
+                text-transform: uppercase;
+                letter-spacing: 0px;
+                font-size: 24px;
+                @include transition(all,0.3s, ease-in-out);
+            }
+
+            p{
+                color: $colorblack--lighter01;
+                @include transition(all,0.3s, ease-in-out);
+            }
+        }
+        &-elem:hover {
+            background-color: $coloryellow;
+
+            i,
+            h4,
+            p{
+                color: #FFFFFF;
+            }
+        }
+    }
+}
+
+@media (max-width: $maxwidth + 20) {
+    .services {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 630px) {
+    .services-activities-elem{
+        height: 400px;
+    }
+}

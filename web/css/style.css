@@ -1964,18 +1964,91 @@ nav {
         color: #FFC600;
         font-weight: bold; }
 
+.services {
+  max-width: 1080px;
+  margin: 0 auto; }
+  .services-activities {
+    margin: 40px 0; }
+    .services-activities-elem {
+      text-align: center;
+      height: 335px;
+      border: 1px solid #DBDEE5;
+      margin: 7.5px;
+      padding: 30px;
+      padding-top: 40px;
+      border-radius: 3px;
+      box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -ms-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out; }
+      .services-activities-elem i {
+        color: #FFC600;
+        font-size: 80px;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out; }
+      .services-activities-elem h4 {
+        font-family: "Oswald", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0px;
+        font-size: 24px;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out; }
+      .services-activities-elem p {
+        color: #666;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out; }
+    .services-activities-elem:hover {
+      background-color: #FFC600; }
+      .services-activities-elem:hover i,
+      .services-activities-elem:hover h4,
+      .services-activities-elem:hover p {
+        color: #FFFFFF; }
+
+@media (max-width: 1100px) {
+  .services {
+    padding-left: 20px;
+    padding-right: 20px; } }
+
+@media (min-width: 480px) and (max-width: 630px) {
+  .services-activities-elem {
+    height: 400px; } }
+
 .forbooking {
   position: relative; }
   .forbooking-image {
-    width: 100%; }
+    width: 100%;
+    min-height: 300px; }
   .forbooking-text {
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 0px;
+    bottom: 0px;
     text-align: center;
-    padding-top: 10px; }
+    padding: 3vw;
+    vertical-align: bottom; }
     .forbooking-text a,
     .forbooking-text h2,
     .forbooking-text p {
       color: #FFFFFF; }
+    .forbooking-text p {
+      max-width: 850px;
+      margin: 0 auto; }
+    .forbooking-text-button {
+      display: block;
+      border: medium none;
+      color: #fff;
+      font-size: 16px;
+      line-height: 16px;
+      height: 52px;
+      text-transform: uppercase;
+      background-color: #FFC600;
+      padding: 18px 37px 10px;
+      width: 180px;
+      margin: 10px auto; }
