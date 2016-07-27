@@ -2,7 +2,7 @@
     max-width: $maxwidth;
     margin: 0 auto 50px;
 
-    &--main {
+    &-main {
         margin-right: 20px;
     }
     &-heading {
@@ -14,18 +14,18 @@
         text-transform: uppercase;
     }
 
-    &--scalebox {
+    &-scalebox {
         overflow: hidden;
         margin-bottom: 10px;
-    }
 
-    &-image {
-        width: 100%;
-        @include transition(all, 0.7s, ease-in-out);
-    }
+        &-image {
+            width: 100%;
+            @include transition(all, 0.7s, ease-in-out);
+        }
 
-    &-image:hover {
-        @include scale-elem(1.15);
+        &-image:hover {
+            @include scale-elem(1.15);
+        }
     }
 
     &-editor {
@@ -41,7 +41,7 @@
             border-radius: 30px;
             float: left;
         }
-        &--middle {
+        &-middle {
             display: inline-block;
             height: 80px;
             padding-top: 20px;
@@ -82,7 +82,7 @@
             }
         }
 
-        &--right {
+        &-right {
             float: right;
 
             &-social {
@@ -99,8 +99,9 @@
                 color: #FFFFFF;
 
                 &-number {
-                    @extend .blogdetail-editor--right-social;
+                    @extend .blogdetail-editor-right-social;
                     padding-top: 1px;
+                    color: #FFFFFF !important;
                 }
             }
 
@@ -117,37 +118,40 @@
     }
 
     &-subheading {
-        font-size: 16px;
-        color: #000000;
-        margin-top: 10px;
-        padding-top: 30px;
-        border-top: 1px solid $colorblack--lighter03;
-    }
-
-    &-text {
-        font-size: 14px;
-        color: $colorblack--lighter01;
-        &--quote {
-            position: relative;
-            width: 100%;
-            color: $colorblack--lighter01;
-            font-size: 17.5px;
-            line-height: 25px;
-            border-left: 3px solid $coloryellow;
-            padding-left: 20px;
-            margin: 45px 0
+        p {
+            font-size: 16px !important;
+            color: #000000 !important;
+            margin-top: 10px;
+            padding-top: 30px;
+            border-top: 1px solid $colorblack--lighter03;
         }
     }
 
-    &--galleryitem:first-of-type {
+    p {
+        font-size: 14px;
+        color: $colorblack--lighter01;
+    }
+
+    &-quote p {
+        position: relative;
+        width: 100%;
+        color: $colorblack--lighter01;
+        font-size: 17.5px;
+        line-height: 25px;
+        border-left: 3px solid $coloryellow;
+        padding-left: 20px;
+        margin: 45px 0
+    }
+
+    &-galleryitem:first-of-type {
         padding-right: 10px;
     }
 
-    &--galleryitem {
+    &-galleryitem {
         padding: 5px;
     }
 
-    &--galleryitem:last-of-type {
+    &-galleryitem:last-of-type {
         padding-left: 10px;
     }
 
@@ -241,6 +245,43 @@
             }
         }
     }
+
+    &-posts {
+        margin-bottom: 40px;
+
+        &-item {
+            border-bottom: 1px solid $colorblack--lighter03;
+            margin-bottom: 5px;
+
+            img {
+                height: 80px;
+                width: auto;
+                float: left;
+                margin-right: 15px;
+            }
+
+            &-date {
+                display: block;
+                font-family: $fontoswald;
+                color: $colorblack--lighter02;
+                font-size: 12px;
+                margin-top: 15px;
+                margin-bottom: 3px;
+            }
+
+            a,
+            h5 {
+                display: inline;
+                font-size: 16px;
+                word-spacing: 1.9px;
+                font-family: $fontoswald;
+            }
+        }
+
+        &-item:last-of-type {
+            border-bottom: none;
+        }
+    }
 }
 
 @media (max-width: $maxwidth + 20) {
@@ -263,7 +304,7 @@
 }
 
 @media (max-width: 768px) {
-    .blogdetail-editor--right {
+    .blogdetail-editor-right {
         float: none;
 
         &-social {

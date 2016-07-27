@@ -1,0 +1,135 @@
+.artist {
+    max-width: $maxwidth;
+    margin: 0 auto 50px;
+
+    &-main {
+        margin-right: 20px;
+
+        &-heading {
+            font-family: $fontoswald;
+            font-size: 36px;
+            line-height: 46px;
+            color: $colorblack;
+            margin-top: 0px;
+            text-transform: uppercase;
+        }
+
+        &-scalebox {
+            overflow: hidden;
+            margin-bottom: 10px;
+
+            &-image {
+                width: 100%;
+                @include transition(all, 0.7s, ease-in-out);
+            }
+
+            &-image:hover {
+                @include scale-elem(1.15);
+            }
+        }
+
+        &-subheading {
+            font-size: 16px;
+            color: #000000;
+            margin-top: 30px;
+        }
+
+        p {
+            font-size: 14px;
+            color: $colorblack--lighter01;
+        }
+
+        &-quote p {
+            position: relative;
+            width: 100%;
+            color: $colorblack--lighter01;
+            font-size: 17.5px;
+            line-height: 25px;
+            border-left: 3px solid $coloryellow;
+            padding-left: 20px;
+            margin: 45px 0
+        }
+
+        &-galleryitem:first-of-type {
+            padding-right: 10px;
+        }
+
+        &-galleryitem {
+            padding: 5px;
+        }
+
+        &-galleryitem:last-of-type {
+            padding-left: 10px;
+        }
+    }
+
+    &-sidemenu {
+        width: 100%;
+        margin-bottom: 50px;
+
+        &-heading {
+            font-family: $fontoswald;
+            font-size: 18px;
+            line-height: 20px;
+            margin: 15px 0;
+            text-transform: uppercase;
+        }
+
+        &-list {
+            padding-left: 0px;
+
+            li {
+                list-style-type: none;
+                width: 100%;
+                border-top: 1px solid $colorblack--lighter02;
+                padding: 5px 5px;
+
+                a {
+                    border-left: 2px solid $colorblack--lighter02;
+                    padding-left: 12px;
+                    padding-top: 1px;
+                    margin-bottom: 3px;
+                    font-family: $fonthind;
+                    font-size: 14px;
+                    line-height: 14px;
+                    display: inline-block;
+                    width: 100%;
+                    height: 14px;
+                    vertical-align: bottom;
+
+                    i {
+                        float: right;
+                    }
+                }
+
+                a:hover {
+                    border-left: 15px solid $coloryellow;
+                    padding-left: 7px;
+                }
+            }
+
+            li:last-of-type {
+                border-bottom: 1px solid $colorblack--lighter02;
+            }
+        }
+    }
+}
+
+@media (max-width: $maxwidth + 20) {
+    .artist {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .artist-sidemenu-list li {
+        a {
+            text-align: center;
+
+            i {
+                padding-left: 12px;
+            }
+        }
+    }
+}

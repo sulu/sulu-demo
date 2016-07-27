@@ -1,0 +1,101 @@
+.messageform {
+    background-color: #EFEFEF;
+    padding: 15px;
+
+    &-label {
+        width: 95%;
+        background: #fff;
+        border: 1px solid $colorblack--lighter03;
+        margin: 10px;
+        box-shadow: 3px 3px 3px #d7d7d7;
+
+        &-input, &-icon {
+            background: #fff;
+            font-size: 14px;
+            height: 40px;
+            line-height: 48px;
+            width: 75%;
+            border: none;
+            box-shadow: none;
+            padding: 0 10px;
+            box-sizing: content-box;
+            display: inline-block;
+            left: 0px;
+            font-family: $fonthind;
+        }
+
+        &-input {
+            color: $colorblack;
+        }
+
+        &-icon {
+            width: auto;
+            padding-left: 20px;
+            color: $colorblack--lighter01;
+        }
+    }
+
+    &--area {
+        &-label {
+            width: 97.5%;
+            background: #fff;
+            border: 1px solid $colorblack--lighter03;
+            margin: 10px;
+            box-shadow: 3px 3px 3px #d7d7d7;
+
+            &-input, &-icon {
+                background: #fff;
+                font-size: 14px;
+                border: none;
+                box-shadow: none;
+                display: inline-block;
+                left: 0px;
+                font-family: $fonthind;
+            }
+
+            &-input {
+                color: $colorblack;
+                min-height: 150px;
+                width: 97.5%;
+                box-sizing: content-box;
+                padding: 10px;
+                padding-top: 15px;
+                margin-bottom: -2px;
+                resize:  vertical;
+            }
+
+            &-icon {
+                margin-top: 15px;
+                height: 30px;
+                width: auto;
+                padding-left: 20px;
+                color: $colorblack--lighter01;
+                vertical-align: top;
+            }
+        }
+    }
+
+    &-button {
+        text-align: center;
+        input {
+            border: medium none;
+            color: #fff;
+            font-size: 16px;
+            line-height: 16px;
+            height: 52px;
+            text-transform: uppercase;
+            background-color: $coloryellow;
+            padding: 18px 37px;
+            margin: 10px 0;
+        }
+    }
+
+    &-button--left {
+        text-align: left;
+        padding-left: 10px;
+    }
+
+    &-button--center {
+        text-align: center;
+    }
+}

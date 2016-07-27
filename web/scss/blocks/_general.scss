@@ -32,6 +32,15 @@ p {
         @extend .heading;
         font-size: 34px;
         line-height: 37px;
+
+        &--border {
+            @extend .heading;
+            border-left: $coloryellow 6px solid;
+            padding-left: 12px;
+            font-size: 24px;
+            line-height: 26px;
+            font-weight: bold;
+        }
     }
 
     &--h4 {
@@ -91,4 +100,14 @@ a:hover, a:focus {
     font-size: 14px !important;
     margin-left: 0;
     padding: 0;
+}
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
 }
