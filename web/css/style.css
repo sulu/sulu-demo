@@ -1753,22 +1753,20 @@ nav {
       padding-left: 20px;
       color: #666;
       vertical-align: top; }
-  .messageform-button {
-    text-align: center; }
-    .messageform-button input {
-      border: medium none;
-      color: #fff;
-      font-size: 16px;
-      line-height: 16px;
-      height: 52px;
-      text-transform: uppercase;
-      background-color: #FFC600;
-      padding: 18px 37px;
-      margin: 10px 0; }
-  .messageform-button--left {
+  .messageform-buttonbox-button {
+    border: medium none;
+    color: #fff;
+    font-size: 16px;
+    line-height: 16px;
+    height: 52px;
+    text-transform: uppercase;
+    background-color: #FFC600;
+    padding: 18px 37px;
+    margin: 10px 0; }
+  .messageform-buttonbox--left {
     text-align: left;
     padding-left: 10px; }
-  .messageform-button--center {
+  .messageform-buttonbox--center {
     text-align: center; }
 
 .artists {

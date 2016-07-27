@@ -5,6 +5,7 @@
     &-main {
         margin-right: 20px;
     }
+
     &-heading {
         font-family: $fontoswald;
         font-size: 36px;
@@ -41,6 +42,7 @@
             border-radius: 30px;
             float: left;
         }
+
         &-middle {
             display: inline-block;
             height: 80px;
@@ -295,6 +297,7 @@
     .blogdetail-sidemenu-list li {
         a {
             text-align: center;
+
             i {
                 padding-left: 12px;
             }
@@ -328,6 +331,7 @@
             text-align: center;
             padding-left: 15px;
         }
+
         &-heading {
             position: relative;
             display: block;

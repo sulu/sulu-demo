@@ -2,32 +2,32 @@
     max-width: $maxwidth;
     margin: 0 auto 50px;
 
-    .grid__item{
+    .grid__item {
         overflow: hidden;
         margin-bottom: 20px;
     }
 
-    &-image{
+    &-image {
         width: 100%;
         @include transition(all, .5s, ease-in-out);
     }
 
-    &-image:hover{
+    &-image:hover {
         @include scale-elem(1.15);
     }
 
-    &-text{
+    &-text {
         margin: 0 20px;
         padding: 20px 0;
         border-top: 1px solid $colorblack--lighter03;
 
-        &-date{
+        &-date {
             font-family: $fontoswald;
             color: $colorblack--lighter02;
             font-size: 16px;
         }
 
-        h5{
+        h5 {
             letter-spacing: 0px;
         }
 

@@ -90,12 +90,12 @@
     .blog-sidemenu-list li {
         a {
             text-align: center;
+
             i {
                 padding-left: 12px;
             }
         }
     }
-
 }
 
 @media (min-width: 481px) and (max-width: 1023px) {
@@ -106,5 +106,4 @@
     .blog-sidemenu-recent {
         margin-left: 10px;
     }
-
 }
