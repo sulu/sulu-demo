@@ -58,7 +58,7 @@
             &-input {
                 color: $colorblack;
                 min-height: 150px;
-                width: 97.5%;
+                width: 93.45%;
                 box-sizing: content-box;
                 padding: 10px;
                 padding-top: 15px;
@@ -98,5 +98,25 @@
         &--center {
             text-align: center;
         }
+    }
+}
+
+@media (min-width: 1024px) and (max-width: $maxwidth + 20) {
+    .messageform--area-label-input {
+        width: 92.78%;
+    }
+}
+
+@media (max-width: 480px) {
+    .messageform--area-label-input {
+        width: 78%;
+    }
+
+    .messageform-label-input{
+        width:70%;
+    }
+
+    .messageform-label {
+        width: 97.5%;
     }
 }

@@ -1661,6 +1661,49 @@ nav {
         font-family: "Oswald", sans-serif; }
     .blogdetail-posts-item:last-of-type {
       border-bottom: none; }
+  .blogdetail-comments-item {
+    position: relative;
+    margin: 10px 0 10px 30px;
+    background-color: #F8F8F8; }
+    .blogdetail-comments-item-image {
+      position: absolute;
+      height: 60px;
+      width: 60px;
+      border-radius: 30px;
+      border: 1px solid #DBDEE5;
+      padding: 5px;
+      background-color: #FFFFFF;
+      left: -30px;
+      top: 20px; }
+    .blogdetail-comments-item-text {
+      padding: 20px 30px 30px 50px; }
+      .blogdetail-comments-item-text-name {
+        letter-spacing: 0px; }
+      .blogdetail-comments-item-text-date {
+        color: #999; }
+        .blogdetail-comments-item-text-date > i {
+          color: #999 !important; }
+        .blogdetail-comments-item-text-date a {
+          font-size: 14px;
+          font-family: "Hind", sans-serif;
+          font-weight: bold; }
+        .blogdetail-comments-item-text-date a:hover > i {
+          color: #FFC600; }
+        .blogdetail-comments-item-text-date i:last-of-type {
+          color: #282828;
+          padding-left: 20px;
+          -webkit-transition: all 0.3s ease-in-out;
+          -moz-transition: all 0.3s ease-in-out;
+          -ms-transition: all 0.3s ease-in-out;
+          transition: all 0.3s ease-in-out; }
+  .blogdetail-comments-item--sub {
+    position: relative;
+    margin: 10px 0 10px 60px;
+    background-color: #F8F8F8; }
+  .blogdetail-comments-item--subsub {
+    position: relative;
+    margin: 10px 0 10px 90px;
+    background-color: #F8F8F8; }
 
 @media (max-width: 1100px) {
   .blogdetail {
@@ -1693,7 +1736,11 @@ nav {
     .blogdetail-share-heading {
       position: relative;
       display: block;
-      float: none; } }
+      float: none; }
+  .blogdetail-comments-item-text-date a {
+    display: block; }
+  .blogdetail-comments-item-text-date i {
+    padding-left: 0px !important; } }
 
 .messageform {
   background-color: #EFEFEF;
@@ -1740,7 +1787,7 @@ nav {
     .messageform--area-label-input {
       color: #282828;
       min-height: 150px;
-      width: 97.5%;
+      width: 93.45%;
       box-sizing: content-box;
       padding: 10px;
       padding-top: 15px;
@@ -1768,6 +1815,18 @@ nav {
     padding-left: 10px; }
   .messageform-buttonbox--center {
     text-align: center; }
+
+@media (min-width: 1024px) and (max-width: 1100px) {
+  .messageform--area-label-input {
+    width: 92.78%; } }
+
+@media (max-width: 480px) {
+  .messageform--area-label-input {
+    width: 78%; }
+  .messageform-label-input {
+    width: 70%; }
+  .messageform-label {
+    width: 97.5%; } }
 
 .artists {
   max-width: 1080px;
