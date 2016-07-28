@@ -72,6 +72,7 @@ a {
     color: $colorblack;
     font-family: $fontoswald;
     @include transition(all, 0.3s, ease-in-out);
+    outline: none;
 }
 
 a:hover, a:focus {

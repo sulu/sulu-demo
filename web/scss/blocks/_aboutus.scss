@@ -1,18 +1,110 @@
-.about{
+.about {
     max-width: $maxwidth;
     margin: 0 auto;
 
-    .gallery{
-        img{
+    .gallery {
+        img {
             width: 100%;
         }
     }
 
-    &-history{
+    &-history {
         text-align: center;
 
-        &-subheading{
+        &-subheading {
             margin-bottom: 30px;
+        }
+
+        &-tabs {
+            &-links {
+                padding-left: 0px;
+                margin-bottom: 0px;
+                font-size: 0px;
+
+                li {
+                    list-style-type: none;
+                    width: 25%;
+                    display: inline-block;
+                    font-size: 0px;
+                    padding-right: 15px;
+                    outline: none;
+
+                    a {
+                        font-size: 16px;
+                        line-height: 45px;
+                        font-family: $fonthind;
+                        vertical-align: middle;
+                        background-color: $colorblack--lighter03;
+                        display: block;
+                        width: 100%;
+                        outline: none;
+                    }
+
+                    a:hover {
+                        color: $colorblack;
+                    }
+                }
+                li.active {
+                    list-style-type: none;
+                    width: 25%;
+                    display: inline-block;
+                    font-size: 0px;
+                    padding-right: 15px;
+                    position: relative;
+
+                    a {
+                        background-color: #FFFFFF;
+                        box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+                        color: $coloryellow;
+                    }
+
+                    a::before {
+                        background-color: #fff;
+                        position: absolute;
+                        bottom: -4px;
+                        content: "";
+                        height: 5px;
+                        left: 0;
+                        width: 100%;
+                        z-index: 99;
+                    }
+                }
+            }
+
+            &-content {
+                background-color: #FFFFFF;
+                box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+                z-index: 3;
+                padding: 35px 40px;
+
+                &-tab {
+                    display: none;
+                    text-align: left;
+
+                    &-heading {
+                        p {
+                            color: $colorblack;
+                            display: block;
+                            font-size: 16px;
+                            font-weight: 400;
+                            line-height: 22px;
+                            margin: 0 0 10px;
+                        }
+                    }
+
+                    &-text {
+                        p {
+                            color: $colorblack--lighter01;
+                            font-size: 14px;
+                        }
+                    }
+
+                    &.active {
+                        display: block;
+                        position: relative;
+                    }
+                }
+            }
         }
     }
 }
