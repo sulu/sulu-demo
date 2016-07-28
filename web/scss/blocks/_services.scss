@@ -10,8 +10,7 @@
             height: 335px;
             border: 1px solid $colorblack--lighter03;
             margin: 7.5px;
-            padding: 30px;
-            padding-top: 40px;
+            padding: 40px 30px 30px 30px;
             border-radius: 3px;
             box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
             @include transition(all, 0.3s, ease-in-out);
