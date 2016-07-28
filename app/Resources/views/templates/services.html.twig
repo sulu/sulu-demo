@@ -171,7 +171,9 @@
     </section>
 
     {# for booking #}
-    {% include(':includes:forbooking.html.twig') %}
+    {% include(':includes:forbooking.html.twig') with{
+        "imagepath" : "/img/fancyhead-img1.jpg"
+    } %}
 
     <section class="services">
         <div class="services-carousel js-services-carousel" data-slick='{"slidesToShow": 1, "slidesToScroll": 1}'>

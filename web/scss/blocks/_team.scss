@@ -1,10 +1,10 @@
 .team {
-    &--heading--h2--border{
+    &--heading--h2--border {
         @extend .heading--h2--border;
         text-align: left;
     }
 
-    &--heading--h2{
+    &--heading--h2 {
         @extend .heading--h2;
         text-align: center;
     }
@@ -12,10 +12,6 @@
     > div {
         max-width: $maxwidth;
         margin: 0 auto;
-    }
-
-    &-heading {
-        margin-bottom: 50px;
     }
 
     &-member {
@@ -101,20 +97,33 @@
     }
 }
 
-.team--nobackground{
+.team--nobackground {
     padding-top: 40px;
     padding-bottom: 40px;
+
+    .team-member-text-name {
+        color: $colorblack;
+    }
+
+    .team-member-text-name:hover {
+        color: $coloryellow;
+    }
+
+    .team-member-text-role {
+        color: $colorblack--lighter02;
+    }
 }
 
-.team--imagebackground{
+.team--imagebackground {
     background-image: url("../img/band-bg.jpg");
     background-attachment: fixed;
     background-size: cover;
     padding-top: 100px;
     padding-bottom: 100px;
 
-    .team-heading{
+    .team-heading {
         color: #FFFFFF;
+        margin-bottom: 50px;
     }
 }
 
@@ -122,5 +131,9 @@
     .team {
         padding-left: 20px;
         padding-right: 20px;
+
+        .team-heading {
+            margin-bottom: 20px;
+        }
     }
 }

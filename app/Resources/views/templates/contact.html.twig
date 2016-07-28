@@ -1,0 +1,86 @@
+{% extends "master.html.twig" %}
+
+{% block content %}
+    <section class="contact">
+        {# header image #}
+        {% include(':includes:headerimge.html.twig') with {
+            'imagesrc' : '/img/subheader1.jpg',
+            'kind' : 'headerimage-text--left',
+            'headingposition' : 'heading--left',
+            'heading' : 'Our Artists',
+            'text': 'New album, Fallen Empires, arrives with a serious reputation attached. The Irish/Scottish five piece have sold over.'
+        } %}
+
+        <div class="contact-data">
+            <div class="grid">
+                <div class="grid__item desk--three-twelfths portable--one-whole">
+                    <h4 class="heading--h4--border">Contact Us</h4>
+                    <div class="grid">
+                        <div class="grid__item desk--one-whole lap--one-half palm--one-whole">
+                            <div class="contact-data-elem">
+                                <i class="ion-email contact-data-elem-icon"></i>
+                                <div class="contact-data-elem-text">
+                                    <p>Adress</p>
+                                    <h6>Steinebach 16 6850 Dornbirn, Austria</h6>
+                                </div>
+                            </div>
+
+                            <div class="contact-data-elem">
+                                <i class="ion-ios-telephone contact-data-elem-icon"></i>
+                                <div class="contact-data-elem-text">
+                                    <p>Telephone</p>
+                                    <h6>+43 (5572) 906090</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid__item desk--one-whole lap--one-half palm--one-whole">
+                            <div class="contact-data-elem">
+                                <i class="ion-email contact-data-elem-icon"></i>
+                                <div class="contact-data-elem-text">
+                                    <p>Email Adress</p>
+                                    <h6>webservices@massiveart.com</h6>
+                                </div>
+                            </div>
+
+                            <div class="contact-data-elem">
+                                <i class="ion-android-time contact-data-elem-icon"></i>
+                                <div class="contact-data-elem-text">
+                                    <p>Opening Hours</p>
+                                    <h6>Monday to Friday 08:00 - 17:00</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid__item desk--one-twelfth">
+                    {# Empty space #}
+                </div>
+
+                <div class="grid__item desk--eight-twelfths portable--one-whole">
+                    <h4 class="heading--h4--border">Locate Us</h4>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2700.3528184119828!2d9.756274315835674!3d47.405058979171876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479b6b479d43ab7b%3A0x5cdc99dabedd32fc!2sMASSIVE+ART+WebServices+GmbH!5e0!3m2!1sde!2sat!4v1469692443394"
+                            width="100%"
+                            height="450"
+                            frameborder="0"
+                            style="border:0"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <div class="contact-form-content">
+                <div class="contact-form-content-text">
+                    {# Contact Form #}
+                    <h2 class="heading--h2">Feel free to contact us</h2>
+                    <p>Arrives with a serious reputation attached. The Irish/Scottish five piece have sold over.</p>
+                </div>
+                
+                {% include(':includes:messageform.html.twig') %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -205,6 +205,10 @@
     } %}
 
     {# for Booking #}
+    {% include(':includes:forbooking.html.twig') with{
+        "frame" : "forbooking--frame",
+        "imagepath" : "/img/bg-cell.jpg"
+    } %}
 
     {# Partners #}
     {% include(':includes:partner.html.twig') %}
