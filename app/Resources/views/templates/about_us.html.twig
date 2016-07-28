@@ -1,6 +1,24 @@
 {% extends "master.html.twig" %}
 
 {% block content %}
+    <header class="about-header">
+        <div class="about-header-frame">
+            <h2 class="heading--h2">Discover us</h2>
+            <p>
+                New album, Fallen Empires, arrives with a serious reputation attached. The Irish/Scottish five piece
+                have sold over.
+            </p>
+            <div class="about-header-frame-video">
+                <iframe src="https://player.vimeo.com/video/25924530"
+                        frameborder="0"
+                        webkitallowfullscreen
+                        mozallowfullscreen
+                        allowfullscreen>
+
+                </iframe>
+            <div>
+        </div>
+    </header>
 
     <section class="about">
         <div class="about-gallery">
@@ -196,6 +214,14 @@
                 </div>
             </div>
         </div>
+
+        <div class="about-numbers">
+            <div class="grid">
+                <div class="grid__item desk--one-quarter lap--one-half palm--one-whole">
+
+                </div>
+            </div>
+        </div>
     </section>
 
     {# Team #}
@@ -206,8 +232,8 @@
 
     {# for Booking #}
     {% include(':includes:forbooking.html.twig') with{
-        "frame" : "forbooking--frame",
-        "imagepath" : "/img/bg-cell.jpg"
+    "frame" : "forbooking--frame",
+    "imagepath" : "/img/bg-cell.jpg"
     } %}
 
     {# Partners #}
