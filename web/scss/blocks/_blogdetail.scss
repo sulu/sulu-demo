@@ -284,6 +284,70 @@
             border-bottom: none;
         }
     }
+
+    &-comments{
+        &-item{
+            position: relative;
+            margin: 10px 0 10px 30px;
+            background-color: #F8F8F8;
+
+            &-image{
+                position: absolute;
+                height: 60px;
+                width: 60px;
+                border-radius: 30px;
+                border: 1px solid $colorblack--lighter03;
+                padding: 5px;
+                background-color: #FFFFFF;
+                left: -30px;
+                top: 20px;
+            }
+
+            &-text{
+                padding: 20px 30px 30px 50px;
+
+                &-name{
+                    letter-spacing: 0px;
+                }
+
+                &-date{
+                    color: $colorblack--lighter02;
+
+                    >i{
+                        color: $colorblack--lighter02 !important;
+                    }
+
+                    a{
+                        font-size: 14px;
+                        font-family: $fonthind;
+                        font-weight: bold;
+                    }
+
+                    a:hover>i{
+                        color: $coloryellow;
+                    }
+
+                    i:last-of-type{
+                        color: $colorblack;
+                        padding-left: 20px;
+                        @include transition(all, 0.3s, ease-in-out);
+                    }
+                }
+            }
+        }
+
+        &-item--sub{
+            position: relative;
+            margin: 10px 0 10px 60px;
+            background-color: #F8F8F8;
+        }
+
+        &-item--subsub{
+            position: relative;
+            margin: 10px 0 10px 90px;
+            background-color: #F8F8F8;
+        }
+    }
 }
 
 @media (max-width: $maxwidth + 20) {
@@ -337,5 +401,13 @@
             display: block;
             float: none;
         }
+    }
+
+    .blogdetail-comments-item-text-date a{
+        display: block;
+    }
+
+    .blogdetail-comments-item-text-date i{
+        padding-left: 0px!important;
     }
 }

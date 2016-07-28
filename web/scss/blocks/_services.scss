@@ -13,25 +13,25 @@
             padding-top: 40px;
             border-radius: 3px;
             box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
-            @include transition(all,0.3s, ease-in-out);
+            @include transition(all, 0.3s, ease-in-out);
 
             i {
                 color: $coloryellow;
                 font-size: 80px;
-                @include transition(all,0.3s, ease-in-out);
+                @include transition(all, 0.3s, ease-in-out);
             }
 
-            h4{
+            h4 {
                 font-family: $fontoswald;
                 text-transform: uppercase;
                 letter-spacing: 0px;
                 font-size: 24px;
-                @include transition(all,0.3s, ease-in-out);
+                @include transition(all, 0.3s, ease-in-out);
             }
 
-            p{
+            p {
                 color: $colorblack--lighter01;
-                @include transition(all,0.3s, ease-in-out);
+                @include transition(all, 0.3s, ease-in-out);
             }
         }
         &-elem:hover {
@@ -39,8 +39,130 @@
 
             i,
             h4,
-            p{
+            p {
                 color: #FFFFFF;
+            }
+        }
+    }
+
+    &-location {
+        text-align: center;
+        margin: 40px 0;
+
+        &-elem {
+            margin: 7px;
+            height: 160px;
+            position: relative;
+
+            &-icon {
+                font-size: 60px;
+                width: 60px;
+                text-align: center;
+                color: #CCCCCC;
+                display: inline-block;
+                float: left;
+                vertical-align: text-top;
+            }
+
+            &-text {
+                display: block;
+                position: absolute;
+                padding-left: 75px;
+                padding-right: 10px;
+                padding-top: 5px;
+                top: 0px;
+                width: 100%;
+                height: 100%;
+
+                h4 {
+                    font-size: 24px;
+                    line-height: 27px;
+                    font-family: $fontoswald;
+                    color: $colorblack;
+                    text-transform: uppercase;
+                }
+
+                p {
+                    color: $colorblack--lighter01;
+                }
+            }
+        }
+    }
+
+    &-carousel {
+        &-item {
+            text-align: center;
+            position: relative;
+            margin: 70px 0;
+            padding-top: 30px;
+
+            &-prev,
+            &-next {
+                position: absolute;
+                display: block;
+                top: 87px;
+                background-color: $colorblack--lighter03;
+                height: 28px;
+                width: 28px;
+                line-height: 28px;
+                font-size: 16px;
+                text-align: center;
+                vertical-align: center;
+                color: #FFFFFF;
+                border-radius: 14px;
+            }
+
+            &-prev {
+                margin-left: 50%;
+                left: -210px;
+            }
+
+            &-next {
+                margin-right: 50%;
+                right: -210px;
+            }
+
+            &-line {
+                border-top: 1px solid $colorblack--lighter03;
+                border-bottom: 1px solid $colorblack--lighter03;
+                height: 4px;
+                width: 350px;
+                margin: 0px auto 90px auto;
+            }
+
+            img {
+                position: absolute;
+                width: 120px;
+                height: 120px;
+                box-sizing: content-box;
+                border-radius: 70px;
+                border: 10px solid #FFFFFF;
+                top: -40px;
+                left: -65px;
+                margin-left: 50%;
+            }
+
+            p {
+                font-family: $fonthind;
+                font-size: 20px;
+                font-weight: 300;
+                line-height: 30px;
+                font-style: italic;
+                padding: 0 40px;
+                color: #444444;
+            }
+
+            &-author {
+                display: block;
+                font-size: 20px;
+                font-weight: bold;
+                text-transform: uppercase;
+                line-height: 20px;
+            }
+
+            &-corporation {
+                color: $colorblack--lighter02;
+                font-size: 12px;
             }
         }
     }
@@ -54,7 +176,11 @@
 }
 
 @media (min-width: 480px) and (max-width: 630px) {
-    .services-activities-elem{
+    .services-activities-elem {
         height: 400px;
+    }
+
+    .services-location-elem {
+        height: 250px;
     }
 }

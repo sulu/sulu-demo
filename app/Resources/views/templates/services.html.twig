@@ -3,11 +3,11 @@
 {% block content %}
     {# header image #}
     {% include(':includes:headerimge.html.twig') with {
-        'imagesrc' : '/img/Sitemap_banner.png',
-        'kind' : 'headerimage-text--middle-middle',
-        'headingposition' : 'heading--middle',
-        'heading' : 'What we are famous for',
-        'text': 'New album, Fallen Empires, arrives with a serious reputation attached. The Irish/Scottish
+    'imagesrc' : '/img/Sitemap_banner.png',
+    'kind' : 'headerimage-text--middle-middle',
+    'headingposition' : 'heading--middle',
+    'heading' : 'What we are famous for',
+    'text': 'New album, Fallen Empires, arrives with a serious reputation attached. The Irish/Scottish
                 five piece have sold over.'
     } %}
 
@@ -80,13 +80,89 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="services-location">
+            <h2 class="heading--h2">Where we Perform?</h2>
+            <p>
+                Arrives with a serious reputation attached. The Irish/Scottish five piece have sold over.
+            </p>
 
             <div class="grid">
                 <div class="grid__item desk--one-third lap--one-half palm--one-whole">
-                    <div class="services-location">
-                        <i class="ion-ios-world services-location-icon"></i>
-                        <div class="services-location-text">
+                    <div class="services-location-elem">
+                        <i class="ion-earth services-location-elem-icon"></i>
+                        <div class="services-location-elem-text">
+                            <h4>World Tours</h4>
+                            <p>
+                                Gave a free concert in Hyde Park to an estimated crowd of 200,000 fans. The album
+                                was a huge success, advance orders alone amounting to over.
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="grid__item desk--one-third lap--one-half palm--one-whole">
+                    <div class="services-location-elem">
+                        <i class="ion-ios-people services-location-elem-icon"></i>
+                        <div class="services-location-elem-text">
+                            <h4>International</h4>
+                            <p>
+                                Gave a free concert in Hyde Park to an estimated crowd of 200,000 fans. The album
+                                was a huge success, advance orders alone amounting to over.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid__item desk--one-third lap--one-half palm--one-whole">
+                    <div class="services-location-elem">
+                        <i class="ion-mic-c services-location-elem-icon"></i>
+                        <div class="services-location-elem-text">
+                            <h4>Concerts</h4>
+                            <p>
+                                Gave a free concert in Hyde Park to an estimated crowd of 200,000 fans. The album
+                                was a huge success, advance orders alone amounting to over.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid__item desk--one-third lap--one-half palm--one-whole">
+                    <div class="services-location-elem">
+                        <i class="ion-ios-monitor services-location-elem-icon"></i>
+                        <div class="services-location-elem-text">
+                            <h4>Tv Shows</h4>
+                            <p>
+                                Gave a free concert in Hyde Park to an estimated crowd of 200,000 fans. The album
+                                was a huge success, advance orders alone amounting to over.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid__item desk--one-third lap--one-half palm--one-whole">
+                    <div class="services-location-elem">
+                        <i class="ion-heart services-location-elem-icon"></i>
+                        <div class="services-location-elem-text">
+                            <h4>Wedding Parties</h4>
+                            <p>
+                                Gave a free concert in Hyde Park to an estimated crowd of 200,000 fans. The album
+                                was a huge success, advance orders alone amounting to over.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid__item desk--one-third lap--one-half palm--one-whole">
+                    <div class="services-location-elem">
+                        <i class="ion-leaf services-location-elem-icon"></i>
+                        <div class="services-location-elem-text">
+                            <h4>Charity</h4>
+                            <p>
+                                Gave a free concert in Hyde Park to an estimated crowd of 200,000 fans. The album
+                                was a huge success, advance orders alone amounting to over.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -96,5 +172,35 @@
 
     {# for booking #}
     {% include(':includes:forbooking.html.twig') %}
+
+    <section class="services">
+        <div class="services-carousel js-services-carousel" data-slick='{"slidesToShow": 1, "slidesToScroll": 1}'>
+            <div class="services-carousel-item">
+                <div class="services-carousel-item-line"></div>
+                <img src="/img/person.jpg"/>
+                <p>
+                    “ Regarding and more overlaid along with jeepers opposite instead frailly including so one
+                    suspicious saw otter groaned however intole be to rable on scowled through alas whale out some.
+                    including so one suspicious saw otter groaned however intolerable on scowled through alas whale out
+                    some instead frailly including so one suspic ious saw otter groaned however intole ”
+                </p>
+                <span class="services-carousel-item-author">Rick Wilson</span>
+                <span class="services-carousel-item-corporation">Rosmen Corporation</span>
+            </div>
+
+            <div class="services-carousel-item">
+                <div class="services-carousel-item-line"></div>
+                <img src="/img/person.jpg"/>
+                <p>
+                    “ Regarding and more overlaid along with jeepers opposite instead frailly including so one
+                    suspicious saw otter groaned however intole be to rable on scowled through alas whale out some.
+                    including so one suspicious saw otter groaned however intolerable on scowled through alas whale out
+                    some instead frailly including so one suspic ious saw otter groaned however intole ”
+                </p>
+                <span class="services-carousel-item-author">Trump</span>
+                <span class="services-carousel-item-corporation">Rosmen Corporation</span>
+            </div>
+        </div>
+    </section>
 
 {% endblock %}

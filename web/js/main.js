@@ -45,3 +45,12 @@ $(".js-partner-carousel").slick({
 
     }]
 });
+
+$(".js-services-carousel").slick({
+
+    // normal options...
+    infinite: true,
+    prevArrow: '<i class="ion-ios-arrow-back services-carousel-item-prev"></i>',
+    nextArrow: '<i class="ion-ios-arrow-forward services-carousel-item-next"></i>'
+
+});
