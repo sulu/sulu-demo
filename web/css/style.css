@@ -2025,7 +2025,8 @@ nav {
 
 .contact-data {
   max-width: 1080px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  padding: 20px 0 40px 0; }
   .contact-data-elem {
     position: relative;
     width: 100%; }
