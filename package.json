@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "node-sass web/scss/style.scss web/css/style.css",
+    "build": "node-sass web/scss/style.scss web/css/style.css --output-style compressed",
     "watch": "npm run build -- -w"
   },
   "devDependencies": {
