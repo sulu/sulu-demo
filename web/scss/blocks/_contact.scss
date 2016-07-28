@@ -1,0 +1,69 @@
+.contact {
+    &-data {
+        max-width: $maxwidth;
+        margin: 0 auto;
+
+        &-elem {
+            position: relative;
+            width: 100%;
+
+            &-icon {
+                position: absolute;
+                display: block;
+                top: 5px;
+                left: 0px;
+                font-size: 20px;
+                line-height: 32px;
+                width: 32px;
+                border-radius: 20px;
+                text-align: center;
+                color: #FFFFFF;
+                background-color: $coloryellow;
+            }
+
+            &-text {
+                padding-left: 50px;
+                padding-right: 20px;
+                padding-bottom: 30px;
+
+                p {
+                    font-family: $fonthind;
+                    color: $colorblack--lighter02;
+                    margin: 0px;
+                    font-size: 12px;
+                }
+
+                h6 {
+                    margin: 0px;
+                    font-family: $fonthind;
+                    color: #444444;
+                    font-size: 18px;
+                    line-height: 22px;
+                }
+            }
+        }
+    }
+
+    &-form {
+        background-color: #EFEFEF;
+
+        &-content {
+            max-width: $maxwidth;
+            margin: 0 auto;
+            padding: 40px 0;
+
+            &-text {
+                text-align: center;
+            }
+        }
+    }
+}
+
+@media (max-width: $maxwidth + 20) {
+    .contact {
+        &-form-content, &-data {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+}
