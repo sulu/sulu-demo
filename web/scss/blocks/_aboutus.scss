@@ -1,0 +1,18 @@
+.about{
+    max-width: $maxwidth;
+    margin: 0 auto;
+
+    .gallery{
+        img{
+            width: 100%;
+        }
+    }
+
+    &-history{
+        text-align: center;
+
+        &-subheading{
+            margin-bottom: 30px;
+        }
+    }
+}

@@ -2039,3 +2039,13 @@ nav {
       .sidemap-item-list a:hover {
         color: #FFC600;
         font-weight: bold; }
+
+.about {
+  max-width: 1080px;
+  margin: 0 auto; }
+  .about .gallery img {
+    width: 100%; }
+  .about-history {
+    text-align: center; }
+    .about-history-subheading {
+      margin-bottom: 30px; }

@@ -2,9 +2,85 @@
 
 {% block content %}
 
+    <section class="about">
+        <div class="about-gallery">
+            <div class="grid">
+                <div class="grid__item desk--one-third lap--one-half palm--one-whole">
+                    <img src="/img/gallery1.jpg"/>
+                </div>
+
+                <div class="grid__item desk--one-third lap--one-half palm--one-whole">
+                    <img src="/img/gallery1.jpg"/>
+                </div>
+
+                <div class="grid__item desk--one-third lap--one-half palm--one-whole">
+                    <img src="/img/gallery1.jpg"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-history">
+            <h2 class="heading--h2">Discover us</h2>
+            <p class="about-history-subheading">
+                Arrives with a serious reputation attached. The Irish/Scottish five piece have sold over.
+            </p>
+            <p>
+                Queen formed in 1971 and in 1973 signed their first recording contract for EMI. That year they released
+                their first album, QUEEN. The same year saw their first major UK tour, and in 1974 they released QUEEN
+                II as well as making their first UK headlining tour. They made their first US tour, and in November
+                released SHEER HEART ATTACK which was a hit on both sides of the Atlantic.1975 saw their new release, A
+                NIGHT AT THE OPERA, and – significantly – the single Bohemian Rhapsody. At 5’ 55” it should have been
+                too long for successful radio play but it became one of the greatest singles of all time, staying at No.
+                1 in the UK chart for nine weeks. The video, directed by Bruce Gowers, is credited with being the first
+                genuine promotional video. The song has regularly featured in all major pop polls and was recently named
+                again as the best single of all time. The success of A NIGHT AT THE OPERA was equally stunning, giving
+                the band their first platinum album.
+            </p>
+
+            <p>
+                In 1976 they toured the US and Japan and by spring all four albums resided in the UK Top Twenty. Later
+                that year they released A DAY AT THE RACES, and gave a free concert in Hyde Park to an estimated crowd
+                of 200,000 fans. The album was a huge success, advance orders alone amounting to over 500,000. The
+                following year saw two major US tours, the band’s sixth album, NEWS OF THE WORLD and the legendary
+                double A side single.
+            </p>
+
+            <div class="grid">
+                <div class="grid__item desk--one-quarter lap--one-half palm--one-whole">
+                    <a data href="#tab1" class="active">How we Established</a>
+                    <a data href="#tab1" class="active">How we Established</a>
+                    <a data href="#tab1" class="active">How we Established</a>
+                    <a data href="#tab1" class="active">How we Established</a>
+                </div>
+            </div>
+            <div class="tab-content">
+                <div id="tab1" class="tab active">
+                    <p>Tab #1 content goes here!</p>
+                    <p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis.</p>
+                </div>
+
+                <div id="tab2" class="tab">
+                    <p>Tab #2 content goes here!</p>
+                    <p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis. In hac habitasse platea dictumst. Ut euismod tempus hendrerit. Morbi ut adipiscing nisi. Etiam rutrum sodales gravida! Aliquam tellus orci, iaculis vel.</p>
+                </div>
+
+                <div id="tab3" class="tab">
+                    <p>Tab #3 content goes here!</p>
+                    <p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum ri.</p>
+                </div>
+
+                <div id="tab4" class="tab">
+                    <p>Tab #4 content goes here!</p>
+                    <p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis. In hac habitasse platea dictumst. Ut euismod tempus hendrerit. Morbi ut adipiscing nisi. Etiam rutrum sodales gravida! Aliquam tellus orci, iaculis vel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {# Team #}
     {% include(':includes:team.html.twig')  with {
-        "background" : "nobackground"
+        "background" : "nobackground",
+        "kind" : "heading--h2"
     } %}
 
     {# for Booking #}
