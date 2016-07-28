@@ -14,7 +14,9 @@
     {% include('includes/news.html.twig') %}
 
     {# Team #}
-    {% include('includes/team.html.twig') %}
+    {% include('includes/team.html.twig') with {
+        "background": "imagebackground"
+    } %}
 
     {# Partner #}
     {% include('includes/partner.html.twig') %}

@@ -1,0 +1,14 @@
+{% extends "master.html.twig" %}
+
+{% block content %}
+
+    {# Team #}
+    {% include(':includes:team.html.twig')  with {
+        "background" : "nobackground"
+    } %}
+
+    {# for Booking #}
+
+    {# Partners #}
+    {% include(':includes:partner.html.twig') %}
+{% endblock %}

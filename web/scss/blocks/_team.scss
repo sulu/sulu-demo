@@ -1,9 +1,13 @@
 .team {
-    background-image: url("../img/band-bg.jpg");
-    background-attachment: fixed;
-    background-size: cover;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    &--heading--h2--border{
+        @extend .heading--h2--border;
+        text-align: left;
+    }
+
+    &--heading--h2{
+        @extend .heading--h2;
+        text-align: center;
+    }
 
     > div {
         max-width: $maxwidth;
@@ -11,7 +15,6 @@
     }
 
     &-heading {
-        color: #fff;
         margin-bottom: 50px;
     }
 
@@ -95,6 +98,23 @@
 
     &-member:hover > &-member-image {
         @include scale-elem(0.95);
+    }
+}
+
+.team--nobackground{
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.team--imagebackground{
+    background-image: url("../img/band-bg.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    .team-heading{
+        color: #FFFFFF;
     }
 }
 
