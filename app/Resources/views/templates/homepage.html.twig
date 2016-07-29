@@ -14,7 +14,10 @@
     {% include('includes/news.html.twig') %}
 
     {# Team #}
-    {% include('includes/team.html.twig') %}
+    {% include('includes/team.html.twig') with {
+        "background": "imagebackground",
+        "kind" : "heading--h2--border"
+    } %}
 
     {# Partner #}
     {% include('includes/partner.html.twig') %}

@@ -5,7 +5,11 @@
     padding-top: 20px;
 
     &-carousel {
-        padding-right: 1px;
+        height:130px;
+
+        .slick-list{
+            height:130px;
+        }
 
         .slick-prev,
         .slick-next,
@@ -34,5 +38,10 @@
     .partner {
         padding-left: 20px;
         padding-right: 20px;
+
+
+        .slick-list{
+            border-right: 1px solid $colorblack--lighter03;
+        }
     }
 }
