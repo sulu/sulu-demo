@@ -16,8 +16,8 @@
                         allowfullscreen>
 
                 </iframe>
-            <div>
-        </div>
+                <div>
+                </div>
     </header>
 
     <section class="about">
@@ -214,15 +214,34 @@
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="about-numbers">
+    <div class="about-numbers js-numbers">
+        <div class="about-numbers-frame">
             <div class="grid">
                 <div class="grid__item desk--one-quarter lap--one-half palm--one-whole">
-
+                    <i class="ion-mic-c"></i>
+                    <p class="about-numbers-frame-number js-number-mic">0</p>
+                    <p>Live Performences</p>
+                </div>
+                <div class="grid__item desk--one-quarter lap--one-half palm--one-whole">
+                    <i class="ion-ios-world-outline"></i>
+                    <p class="about-numbers-frame-number js-number-world">0</p>
+                    <p>LInternational Tours</p>
+                </div>
+                <div class="grid__item desk--one-quarter lap--one-half palm--one-whole">
+                    <i class="ion-speakerphone"></i>
+                    <p class="about-numbers-frame-number js-number-songs">0</p>
+                    <p>Songs Performance</p>
+                </div>
+                <div class="grid__item desk--one-quarter lap--one-half palm--one-whole">
+                    <i class="ion-social-twitter"></i>
+                    <p class="about-numbers-frame-number js-number-twitter">0</p>
+                    <p>Twitter Followers</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     {# Team #}
     {% include(':includes:team.html.twig')  with {

@@ -14,23 +14,23 @@ $(".js-partner-carousel").slick({
         breakpoint: 1024,
         settings: {
             slidesToShow: 3,
+            slidesToScroll: 3,
             dots: true
         }
     }, {
         breakpoint: 600,
         settings: {
             slidesToShow: 2,
+            slidesToScroll: 2,
             dots: true
         }
     }, {
         breakpoint: 400,
         settings: {
             slidesToShow: 1,
+            slidesToScroll: 1,
             dots: true
         }
-    }, {
-        breakpoint: 300,
-        settings: "unslick" // destroys slick
     }]
 });
 
@@ -53,3 +53,30 @@ jQuery(document).ready(function() {
         e.preventDefault();
     });
 });
+
+var waypoints = $('.js-numbers').waypoint({
+    handler: function(direction) {
+        $('.js-number-mic').countTo({
+            from: 0,
+            to: 5894
+        });
+
+        $('.js-number-world').countTo({
+            from: 0,
+            to: 123
+        });
+
+        $('.js-number-songs').countTo({
+            from: 0,
+            to: 13632
+        });
+
+        $('.js-number-twitter').countTo({
+            from: 0,
+            to: 300000
+        });
+        this.destroy();
+    },
+    offset: 'bottom-in-view'
+})
+
