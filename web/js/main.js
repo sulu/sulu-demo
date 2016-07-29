@@ -75,6 +75,7 @@ var waypoints = $('.js-numbers').waypoint({
             from: 0,
             to: 300000
         });
+        
         this.destroy();
     },
     offset: 'bottom-in-view'

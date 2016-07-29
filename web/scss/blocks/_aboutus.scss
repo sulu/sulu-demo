@@ -83,6 +83,7 @@
                         color: $colorblack;
                     }
                 }
+
                 li.active {
                     list-style-type: none;
                     width: 25%;
@@ -147,29 +148,28 @@
         }
     }
 
-    &-numbers{
+    &-numbers {
         background-image: url('../img/fancyhead-img1.jpg');
         background-size: cover;
 
-        &-frame{
+        &-frame {
             max-width: $maxwidth;
             margin: 0 auto;
             text-align: center;
             padding: 40px 0;
 
-            p{
+            p {
                 color: #ccc;
                 text-transform: uppercase;
-
             }
 
-            &-number{
+            &-number {
                 color: #FFFFFF !important;
                 font-size: 60px;
                 line-height: 75px;
             }
 
-            i{
+            i {
                 color: #CCC;
                 font-size: 50px;
             }
