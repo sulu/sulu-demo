@@ -79,5 +79,5 @@ var waypoints = $('.js-numbers').waypoint({
         this.destroy();
     },
     offset: 'bottom-in-view'
-})
+});
 
