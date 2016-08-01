@@ -40,11 +40,20 @@
             </properties>
         </section>
 
-        <property name="article" type="text_editor">
+        <property name="artists" type="smart_content">
             <meta>
-                <title lang="en">Article</title>
-                <title lang="de">Artikel</title>
+                <title lang="en">Artists</title>
+                <title lang="de">Künstler</title>
             </meta>
+
+            <params>
+                <param name="properties" type="collection">
+                    <param name="heading" value="contentHeading"/>
+                    <param name="text" value="contentSubheading"/>
+                    <param name="image" value="contentTitleimage"/>
+                    <param name="tags" value="tags"/>
+                </param>
+            </params>
         </property>
     </properties>
 </template>

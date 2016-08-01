@@ -33,6 +33,7 @@ class WebsiteKernel extends AbstractKernel
     {
         $bundles = parent::registerBundles();
         $bundles[] = new Symfony\Cmf\Bundle\RoutingBundle\CmfRoutingBundle();
+        $bundles[] = new \AppBundle\AppBundle();
 
         return $bundles;
     }

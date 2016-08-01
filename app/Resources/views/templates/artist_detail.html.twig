@@ -58,53 +58,6 @@
 
                         {% endif %}
                     {% endfor %}
-
-                    {#{{ content.content_text1 | raw }}
-
-                    <div class="artist-main-quote">
-                        <p>
-                            {{ content.content_quote }}
-                        </p>
-                    </div>
-
-                    {{ content.content_text2 | raw }}
-
-                    <div class="grid">
-                        <div class="grid__item desk--one-third lap--one-half palm--one-whole">
-                            <div class="artist-main-galleryitem">
-                                <div class="artist-main-scalebox">
-                                    <img src="{{ content.content_images[0].url }}"
-                                         alt="{{ content.content_images[0].description }}"
-                                         class="artist-main-scalebox-image">
-                                </div>
-                                <p class="artist-main-text">{{ content.content_images[0].description }}</p>
-                            </div>
-                        </div>
-
-                        <div class="grid__item desk--one-third lap--one-half palm--one-whole">
-                            <div class="artist-main-galleryitem">
-                                <div class="artist-main-scalebox">
-                                    <img src="{{ content.content_images[1].url }}"
-                                         alt="{{ content.content_images[1].description }}"
-                                         class="artist-main-scalebox-image">
-                                </div>
-                                <p class="artist-main-text">{{ content.content_images[1].description }}</p>
-                            </div>
-                        </div>
-
-                        <div class="grid__item desk--one-third lap--one-half palm--one-whole">
-                            <div class="artist-main-galleryitem">
-                                <div class="artist-main-scalebox">
-                                    <img src="{{ content.content_images[2].url }}"
-                                         alt="{{ content.content_images[2].description }}"
-                                         class="artist-main-scalebox-image">
-                                </div>
-                                <p class="artist-main-text">{{ content.content_images[2].description }}</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    {{ content.content_text3 | raw }}#}
                 </div>
             </div>
 
@@ -112,9 +65,14 @@
                 <aside class="artist-sidemenu">
                     <h2 class="artist-sidemenu-heading">Our Artists</h2>
                     <ul class="artist-sidemenu-list">
-                        <li><a href="#">Example Category<i class="ion-ios-arrow-right"></i></a></li>
-                        <li><a href="#">Example Category<i class="ion-ios-arrow-right"></i></a></li>
-                        <li><a href="#">Example Category<i class="ion-ios-arrow-right"></i></a></li>
+                        {% for artist in artists|sulu_util_multisort('[title]', 'asc') %}
+                            <li>
+                                <a href="{{ artist.url }}">
+                                    {{ artist.title }}
+                                    <i class="ion-ios-arrow-right"></i>
+                                </a>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </aside>
             </div>

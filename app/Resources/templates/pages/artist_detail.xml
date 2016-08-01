@@ -6,7 +6,7 @@
     <key>artist_detail</key>
 
     <view>templates/artist_detail</view>
-    <controller>SuluWebsiteBundle:Default:index</controller>
+    <controller>AppBundle:Artist:index</controller>
     <cacheLifetime>604800</cacheLifetime>
 
     <meta>
@@ -36,6 +36,22 @@
                     </meta>
 
                     <tag name="sulu.rlp"/>
+                </property>
+            </properties>
+        </section>
+
+        <section name="tags">
+            <meta>
+                <title lang="en">Tags</title>
+                <title lang="de">Tags</title>
+            </meta>
+
+            <properties>
+                <property name="tags" type="tag_list">
+                    <meta>
+                        <title lang="en">Tags</title>
+                        <title lang="de">Tags</title>
+                    </meta>
                 </property>
             </properties>
         </section>
