@@ -2,6 +2,7 @@
 /app/bootstrap.php.cache
 /app/config/parameters.yml
 app/maintenance.php
+app/Resources/templates/pages/example.xml.dist
 
 # bin
 /bin/*

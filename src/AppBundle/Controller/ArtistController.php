@@ -8,7 +8,6 @@
 
 namespace AppBundle\Controller;
 
-
 use Sulu\Bundle\ContentBundle\Document\PageDocument;
 use Sulu\Bundle\WebsiteBundle\Controller\WebsiteController;
 use Sulu\Component\Content\Compat\StructureInterface;
