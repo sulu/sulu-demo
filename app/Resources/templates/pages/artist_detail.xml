@@ -47,7 +47,7 @@
             </meta>
 
             <properties>
-                <property name="tags" type="tag_list">
+                <property name="tags" type="tag_list" mandatory="true">
                     <meta>
                         <title lang="en">Tags</title>
                         <title lang="de">Tags</title>
@@ -63,7 +63,7 @@
             </meta>
 
             <properties>
-                <property name="headerImage" type="media_selection">
+                <property name="headerImage" type="media_selection" mandatory="true">
                     <meta>
                         <title lang="en">Header Image</title>
                         <title lang="de">Kopfbild</title>
@@ -93,21 +93,21 @@
             </meta>
 
             <properties>
-                <property name="contentHeading" type="text_line">
+                <property name="contentHeading" type="text_line" mandatory="true">
                     <meta>
                         <title lang="en">Heading</title>
                         <title lang="de">Überschrift</title>
                     </meta>
                 </property>
 
-                <property name="contentTitleimage" type="media_selection">
+                <property name="contentTitleimage" type="media_selection" mandatory="true">
                     <meta>
                         <title lang="en">Title Image</title>
                         <title lang="de">Titelbild</title>
                     </meta>
                 </property>
 
-                <property name="contentSubheading" type="text_area">
+                <property name="contentSubheading" type="text_area" mandatory="true">
                     <meta>
                         <title lang="en">Subheading</title>
                         <title lang="de">Unterüberschrift</title>
