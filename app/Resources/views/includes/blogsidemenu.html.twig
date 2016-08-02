@@ -4,37 +4,37 @@
             <div class="grid__item desk--one-whole lap--one-half palm--one-whole">
                 <h2 class="blog-sidemenu-heading">Our Artists</h2>
                 <ul class="blog-sidemenu-list">
-                    <li><a href="#">Example Category<i class="ion-ios-arrow-right"></i></a></li>
-                    <li><a href="#">Example Category<i class="ion-ios-arrow-right"></i></a></li>
-                    <li><a href="#">Example Category<i class="ion-ios-arrow-right"></i></a></li>
+                    <li>
+                        <a href="{{ link }}">
+                            None
+                            <i class="ion-ios-arrow-right"></i>
+                        </a>
+                    </li>
+
+                    {% for category in sulu_categories(request.locale) %}
+                        <li>
+                            <a href="{{ link }}?categories={{ category.id }}">
+                                {{ category.name }}
+                                <i class="ion-ios-arrow-right"></i>
+                            </a>
+                        </li>
+                    {% endfor %}
                 </ul>
             </div>
 
             <div class="grid__item desk--one-whole lap--one-half palm--one-whole">
                 <h2 class="blog-sidemenu-heading">Recent Blogs</h2>
-                <div class="blog-sidemenu-recent">
-                    <img src="/img/recentblog-img1.jpg"/>
-                    <div class="blog-sidemenu-recent-text">
-                        <p>25.07.2016</p>
-                        <h6>Are Lorem ipsum dolor onsectetu.</h6>
-                    </div>
-                </div>
 
-                <div class="blog-sidemenu-recent">
-                    <img src="/img/recentblog-img1.jpg"/>
-                    <div class="blog-sidemenu-recent-text">
-                        <p>25.07.2016</p>
-                        <h6>Are Lorem ipsum dolor onsectetur</h6>
+                {% for latestArticle in latestArticles %}
+                    {% set media = sulu_resolve_media(latestArticle.image.ids, request.locale) %}
+                    <div class="blog-sidemenu-recent">
+                        <img src="{{ media.url }}"/>
+                        <div class="blog-sidemenu-recent-text">
+                            <p>{{ latestArticle.creation.date|date("d.m.Y") }}</p>
+                            <a href="{{ latestArticle.url.value }}"> <h6>{{ latestArticle.heading.value }}</h6></a>
+                        </div>
                     </div>
-                </div>
-
-                <div class="blog-sidemenu-recent">
-                    <img src="/img/recentblog-img1.jpg"/>
-                    <div class="blog-sidemenu-recent-text">
-                        <p>25.07.2016</p>
-                        <h6>Are Lorem ipsum dolor onsectetur</h6>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </aside>

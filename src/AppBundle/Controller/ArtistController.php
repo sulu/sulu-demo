@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: rene.zumtobel
- * Date: 01.08.16
- * Time: 09:32
- */
 
 namespace AppBundle\Controller;
 

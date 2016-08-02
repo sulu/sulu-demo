@@ -6,7 +6,7 @@
     <key>blog</key>
 
     <view>templates/blog</view>
-    <controller>SuluWebsiteBundle:Default:index</controller>
+    <controller>AppBundle:Blog:Overview</controller>
     <cacheLifetime>604800</cacheLifetime>
 
     <meta>
@@ -40,11 +40,50 @@
             </properties>
         </section>
 
-        <property name="article" type="text_editor">
+        <section name="header">
             <meta>
-                <title lang="en">Article</title>
+                <title lang="en">Header</title>
+                <title lang="de">Header</title>
+            </meta>
+
+            <properties>
+                <property name="headerImage" type="media_selection" mandatory="true">
+                    <meta>
+                        <title lang="en">Header Image</title>
+                        <title lang="de">Headerbild</title>
+                    </meta>
+                </property>
+
+                <property name="headerHeading" type="text_line">
+                    <meta>
+                        <title lang="en">Header Heading</title>
+                        <title lang="de">Header - Überschrift</title>
+                    </meta>
+                </property>
+
+                <property name="headerSubheading" type="text_area">
+                    <meta>
+                        <title lang="en">Header Subheading</title>
+                        <title lang="de">Header - Unterüberschrift</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>
+
+        <property name="articles" type="smart_content" mandatory="true">
+            <meta>
+                <title lang="en">Articles</title>
                 <title lang="de">Artikel</title>
             </meta>
+
+            <params>
+                <param name="properties" type="collection">
+                    <param name="heading" value="contentHeading"/>
+                    <param name="text" value="contentSubheading"/>
+                    <param name="image" value="contentTitleimage"/>
+                    <param name="categories" value="excerpt.categories"/>
+                </param>
+            </params>
         </property>
     </properties>
 </template>

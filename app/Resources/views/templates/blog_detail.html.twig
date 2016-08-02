@@ -10,8 +10,6 @@
     'text': content.headerSubheading
     } %}
 
-    {{ dump() }}
-
     <section class="blogdetail">
         <div class="grid">
             <div class="grid__item desk--four-fifths portable--one-whole">
@@ -25,7 +23,7 @@
                     </div>
 
                     <div class="blogdetail-editor">
-                        <img src="/img/recentblog-img1.jpg"/>
+                        <img src="{{ sulu_resolve_media(sulu_resolve_contact(changer).avatar, request.locale).url }}"/>
 
                         <div class="blogdetail-editor-middle">
                             <span class="blogdetail-editor-middle-date">
@@ -33,16 +31,23 @@
                             </span>
 
                             <span class="blogdetail-editor-middle-editor">
-                                posted by <a href="#">Admin</a>
-                                <i class="ion-ios-arrow-forward">
-                                    {% for tag in content.tags %}
-                                        {% if loop.index != content.tags|length %}
-                                            {{ tag }},
-                                        {% else %}
-                                            {{ tag }}
+                                posted by <a href="#">{{ sulu_resolve_user(changer).contact.fullName }}</a>
+                                {% if extension.excerpt.categories|length >0 %}
+                                    <i class="ion-ios-arrow-forward"></i>
+                                    {% for category in extension.excerpt.categories %}
+                                        {% if loop.index != extension.excerpt.categories|length %}
+                                            <a href="{{ link }}?categories={{ category.id }}"
+                                               class="blogdetail-editor-middle-category">
+                                                    {{ category.name }},
+                                                </a>
+                                            {% else %}
+                                            <a href="{{ link }}?categories={{ category.id }}"
+                                               class="blogdetail-editor-middle-category">
+                                                    {{ category.name }}
+                                                </a>
                                         {% endif %}
                                     {% endfor %}
-                                </i>
+                                {% endif %}
                             </span>
                         </div>
 
@@ -101,21 +106,10 @@
                             <i class="ion-pricetag"></i> Post Tags
                         </span>
                         <ul class="blogdetail-tags-list">
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
+
+                            {% for tag in extension.excerpt.tags %}
+                                <li><a href="{{ link }}?tags={{ tag }}">{{ tag }}</a></li>
+                            {% endfor %}
                         </ul>
                     </div>
 
@@ -146,17 +140,36 @@
                     </div>
 
                     <div class="blogdetail-posts">
-                        <div class="blogdetail-posts-item cf">
-                            <img src="/img/blog-share-1.png"/>
-                            <span class="blogdetail-posts-item-date">26.07.2016</span>
-                            <a href="#"><h5>Next Post: Best of the diffren affable Shrugged hummingbird </h5></a>
-                        </div>
 
+                    {% if lastAndPrevArticle.prev is defined %}
+                        {% set media = sulu_resolve_media(lastAndPrevArticle.prev.image.ids, request.locale) %}
                         <div class="blogdetail-posts-item cf">
-                            <img src="/img/blog-share-1.png"/>
-                            <span class="blogdetail-posts-item-date">26.07.2016</span>
-                            <a href="#"><h5>Next Post: Best of the diffren affable Shrugged hummingbird </h5></a>
+                            <img src="{{ media.url }}"/>
+                            <span class="blogdetail-posts-item-date">
+                                {{ lastAndPrevArticle.prev.creation.date|date("d.m.Y") }}
+                            </span>
+                            <a href="{{ lastAndPrevArticle.prev.url.value }}">
+                                <h5>
+                                    Last Article: {{ lastAndPrevArticle.prev.heading.value }}
+                                </h5>
+                            </a>
                         </div>
+                    {% endif %}
+
+                    {% if lastAndPrevArticle.next is defined %}
+                        {% set media = sulu_resolve_media(lastAndPrevArticle.next.image.ids, request.locale) %}
+                        <div class="blogdetail-posts-item cf">
+                            <img src="{{ media.url }}"/>
+                            <span class="blogdetail-posts-item-date">
+                                {{ lastAndPrevArticle.next.creation.date|date("d.m.Y") }}
+                            </span>
+                            <a href="{{ lastAndPrevArticle.next.url.value }}">
+                                <h5>
+                                    Next Article: {{ lastAndPrevArticle.next.heading.value }}
+                                </h5>
+                            </a>
+                        </div>
+                    {% endif %}
                     </div>
 
                     <h4 class="heading heading--h4--border">255 Comments</h4>

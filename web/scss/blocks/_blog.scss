@@ -50,6 +50,11 @@
             a:hover {
                 color: $coloryellow;
             }
+
+            &-category{
+                color: $colorblack--lighter02 !important;
+                font-weight: normal !important;
+            }
         }
 
         &-button {
