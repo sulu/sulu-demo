@@ -12,7 +12,7 @@
 
     <section class="artists">
         <h4 class="heading--h3--border">Our Artists</h4>
-        
+
         <div class="grid">
             {% for artist in content.artists %}
                 <div class="grid__item desk--one-third lap--one-half palm--one-whole">
@@ -24,15 +24,17 @@
                         <div class="artists-item-text">
                             <h5 class="artists-item-text-heading heading--h5">{{ artist.heading }}</h5>
 
-                            <span class="artists-item-text-subheading">
-                                    {% for tag in artist.tags %}
-                                        {% if loop.index != artist.tags|length %}
-                                           {{ tag }},
+                            {% if  artist.categories|length >0 %}
+                                <span class="artists-item-text-subheading">
+                                    {% for category in artist.categories %}
+                                        {% if loop.index != artist.categories|length %}
+                                            <a href="{{ sulu_category_url(category) }}"> {{ category.name }}</a>,
                                         {% else %}
-                                            {{ tag }}
+                                            <a href="{{ sulu_category_url(category) }}"> {{ category.name }} </a>
                                         {% endif %}
                                     {% endfor %}
-                            </span>
+                                </span>
+                            {% endif %}
 
                             <p>
                                 {{ artist.text }}

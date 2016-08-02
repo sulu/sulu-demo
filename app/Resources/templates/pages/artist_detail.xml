@@ -40,22 +40,6 @@
             </properties>
         </section>
 
-        <section name="tags">
-            <meta>
-                <title lang="en">Tags</title>
-                <title lang="de">Tags</title>
-            </meta>
-
-            <properties>
-                <property name="tags" type="tag_list" mandatory="true">
-                    <meta>
-                        <title lang="en">Tags</title>
-                        <title lang="de">Tags</title>
-                    </meta>
-                </property>
-            </properties>
-        </section>
-
         <section name="header">
             <meta>
                 <title lang="en">Header</title>
