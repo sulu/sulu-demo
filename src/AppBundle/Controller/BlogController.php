@@ -84,7 +84,14 @@ class BlogController extends WebsiteController
 
         return $response;
     }
-
+    /**
+     * Takes all the articles and returns the lastest ones.
+     *
+     * @param array $articles
+     * @param int $anzArt
+     *
+     * @return array
+     */
     function getLatestArticel($articles, $anzArt){
         $lastarticles = [];
 
@@ -96,6 +103,14 @@ class BlogController extends WebsiteController
         return $lastarticles;
     }
 
+    /**
+     * Looks for the articles before and after the one with the uuid.
+     *
+     * @param array $articles
+     * @param string $uuid
+     *
+     * @return array
+     */
     function getPrevAndNextArticle($articles, $uuid){
         $result = [];
 
@@ -117,8 +132,14 @@ class BlogController extends WebsiteController
         return $result;
     }
 
+    /**
+     * Formats the array for the Response.
+     *
+     * @var PageDocument[] $article
+     *
+     * @return array
+     */
     function createDetailArticles($article){
-        /** @var PageDocument[] $article */
         $result = [];
 
         foreach($article as $key => $item) {
@@ -135,6 +156,13 @@ class BlogController extends WebsiteController
         return $result;
     }
 
+    /**
+     * Formats the array for the Response.
+     *
+     * @var array $article
+     *
+     * @return array
+     */
     function createOverviewArticles($article){
         $result = [];
 
