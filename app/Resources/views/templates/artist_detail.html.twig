@@ -1,108 +1,63 @@
 {% extends "master.html.twig" %}
 
 {% block content %}
+
     {# header image #}
     {% include(':includes:headerimge.html.twig') with {
-        'imagesrc' : '/img/subheader1.jpg',
+        'imagesrc' : content.headerImage[0].url,
         'kind' : 'headerimage-text--left',
         'headingposition' : 'heading--left',
-        'heading' : 'Artist',
-        'text': 'New album, Fallen Empires, arrives with a serious reputation attached. The Irish/Scottish five piece have sold over.'
+        'heading' : content.headerHeading,
+        'text': content.headerSubheading
     } %}
-
     <section class="artist">
         <div class="grid">
             <div class="grid__item desk--four-fifths portable--one-whole">
                 <div class="artist-main">
                     <h2 class="artist-main-heading">
-                        Best Ever arrives with a serious over Snow Patrol's new album
+                        {{ content.contentHeading }}
                     </h2>
 
                     <div class="artist-main-scalebox">
-                        <img src="/img/Blog-Detail_1.png" class="artist-main-scalebox-image"/>
+                        <img src="{{ content.contentTitleimage[0].url }}" class="artist-main-scalebox-image"/>
                     </div>
 
-                    <p>
-                        Arrives with a serious over. Snow Patrol's new album, Fallen Empires, arrives with a serious
-                        reputation attached. best The Irish/Scottish five piece have sold Fallen Empires, arrives with a
-                        serious over.
-                    </p>
-
-                    <p>
-                        Arrives with a serious over. Snow Patrol's new album, Fallen Empires, arrives with a serious
-                        reputation attached. best The Irish/Scottish five piece have sold Fallen Empires, arrives with a
-                        serious over. Snow Patrol's new album, Fallen Empires, arrives with a serious reputation
-                        attached. The Irish/Scottish five piece have sold Fallen Empires, arrives with a serious
-                        over.Snow Patrol's new album, Fallen Empires, arrives with a serious reputation attached.
-                    </p>
-
-                    <p>
-                        The Irish/Scottish five piece have sold Fallen Empires, arrives with a serious over. Snow
-                        Patrol's new album, Fallen Empires, arrives with a serious reputation attached. The
-                        Irish/Scottish five piece have sold Fallen Empires. The Irish/Scottish five piece have sold
-                        Fallen Empires, arrives with a serious over. Snow Patrol's new album, Fallen Empires, arrives
-                        with a serious reputation attached. The Irish/Scottish five piece have sold Fallen Empires.
-                    </p>
-
-                    <div class="artist-main-quote">
-                        <p>
-                            Woodpecker respectfully intensely beneath gave ouch diligently mounted by irrespective
-                            elephant
-                            this therefore happy more well onto much nightingale groaned less. beneath gave ouch
-                            diligently
-                            mounted by irrespective elephant this therefore
-                        </p>
+                    <div class="artist-main-subheading">
+                        {{ content.contentSubheading }}
                     </div>
 
-                    <p>
-                        Snow Patrol's new album, Fallen Empires, arrives with a serious reputation attached. The
-                        Irish/Scottish five piece have sold Fallen Empires, arrives with a serious over. Snow Patrol's
-                        new album, Fallen Empires, arrives with a serious reputation attached. The Irish/Scottish five
-                        piece have sold Fallen Empires, arrives with a serious over.
-                    </p>
+                    {% for block in content.blocks %}
+                        {% if block.type == "text" %}
 
-                    <div class="grid">
-                        <div class="grid__item desk--one-third lap--one-half palm--one-whole">
-                            <div class="artist-main-galleryitem">
-                                <div class="artist-main-scalebox">
-                                    <img src="/img/related-blog-1.png" class="artist-main-scalebox-image">
-                                </div>
-                                <p class="artist-main-text">Matthew on 'Hollyword' LA talk</p>
+                            {{ block.contentText | raw }}
+
+                        {% elseif block.type == "quote" %}
+
+                            <div class="artist-main-quote">
+                                <p>
+                                    {{ block.contentText }}
+                                </p>
                             </div>
-                        </div>
 
-                        <div class="grid__item desk--one-third lap--one-half palm--one-whole">
-                            <div class="artist-main-galleryitem">
-                                <div class="artist-main-scalebox">
-                                    <img src="/img/related-blog-1.png" class="artist-main-scalebox-image">
-                                </div>
-                                <p class="artist-main-text">Matthew on 'Hollyword' LA talk</p>
+                        {% elseif block.type == "media" and block.contentMedia|length >=3 %}
+
+                            <div class="grid">
+                                {% for i in 0..2 %}
+                                    <div class="grid__item desk--one-third lap--one-half palm--one-whole">
+                                        <div class="artist-main-galleryitem">
+                                            <div class="artist-main-scalebox">
+                                                <img src="{{ block.contentMedia[i].url }}"
+                                                     alt="{{ block.contentMedia[i].description }}"
+                                                     class="artist-main-scalebox-image">
+                                            </div>
+                                            <p class="artist-main-text">{{ block.contentMedia[i].description }}</p>
+                                        </div>
+                                    </div>
+                                {% endfor %}
                             </div>
-                        </div>
 
-                        <div class="grid__item desk--one-third lap--one-half palm--one-whole">
-                            <div class="artist-main-galleryitem">
-                                <div class="artist-main-scalebox">
-                                    <img src="/img/related-blog-1.png" class="artist-main-scalebox-image">
-                                </div>
-                                <p class="artist-main-text">Matthew on 'Hollyword' LA talk</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <p>
-                        Snow Patrol's new album, Fallen Empires, arrives with a serious reputation attached. The
-                        Irish/Scottish five piece have sold Fallen Empires, arrives with a serious over. Snow Patrol's
-                        new album, Fallen Empires, arrives with a serious reputation attached. The Irish/Scottish five
-                        piece have sold Fallen Empires, arrives with a serious over.
-                    </p>
-
-                    <p>
-                        Snow Patrol's new album, Fallen Empires, arrives with a serious reputation attached. The
-                        Irish/Scottish five piece have sold Fallen Empires, arrives with a serious over. Snow Patrol's
-                        new album, Fallen Empires, arrives with a serious reputation attached. The Irish/Scottish five
-                        piece have sold Fallen Empires, arrives with a serious over.
-                    </p>
+                        {% endif %}
+                    {% endfor %}
                 </div>
             </div>
 
@@ -110,9 +65,14 @@
                 <aside class="artist-sidemenu">
                     <h2 class="artist-sidemenu-heading">Our Artists</h2>
                     <ul class="artist-sidemenu-list">
-                        <li><a href="#">Example Category<i class="ion-ios-arrow-right"></i></a></li>
-                        <li><a href="#">Example Category<i class="ion-ios-arrow-right"></i></a></li>
-                        <li><a href="#">Example Category<i class="ion-ios-arrow-right"></i></a></li>
+                        {% for artist in artists|sulu_util_multisort('[title]', 'asc') %}
+                            <li>
+                                <a href="{{ artist.url }}">
+                                    {{ artist.title }}
+                                    <i class="ion-ios-arrow-right"></i>
+                                </a>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </aside>
             </div>
