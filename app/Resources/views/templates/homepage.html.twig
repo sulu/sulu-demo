@@ -6,7 +6,6 @@
     {% include('includes/slider.html.twig') %}#}
 
     {% for item in content.blocks %}
-        {{ dump(item) }}
         {% if item.type == "biography" %}
             {# Biography #}
             {% include('includes/biography.html.twig') with{
