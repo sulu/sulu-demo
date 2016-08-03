@@ -1,39 +1,32 @@
 <section class="discography">
     <div class="discography-frame">
         <h2 class="discography-frame-heading heading--h2--border">
-            Discography
+            {% if request.locale == "en" %}
+                Discography
+            {% else %}
+                Discographie
+            {% endif %}
         </h2>
+        <p>{{ discography.discographyHeading }}</p>
         <div class="grid">
-            <div class="grid__item desk--one-third lap--one-half palm--one-whole">
-                <div class="discography-frame-collum">
-                    <img class="discography-frame-collum-image" src="img/album-grid1.jpg"/>
-                    <a href="#">Rock Music</a>
-                    <h5 class="heading--h5">
-                        <a href="#">Trust boombastic</a>
-                    </h5>
-                    <a href="#" class="discography-frame-collum-button">10 Tracks</a>
-                </div>
-            </div>
-            <div class="grid__item desk--one-third lap--one-half palm--one-whole">
-                <div class="discography-frame-collum">
-                    <img class="discography-frame-collum-image" src="img/album-grid1.jpg"/>
-                    <a href="#">Rock Music</a>
-                    <h5 class="heading--h5">
-                        <a href="#">Trust boombastic</a>
-                    </h5>
-                    <a href="#" class="discography-frame-collum-button">10 Tracks</a>
-                </div>
-            </div>
-            <div class="grid__item desk--one-third lap--one-half palm--one-whole">
-                <div class="discography-frame-collum">
-                    <img class="discography-frame-collum-image" src="img/album-grid1.jpg"/>
-                    <a href="#">Rock Music</a>
-                    <h5 class="heading--h5">
-                        <a href="#">Trust boombastic</a>
-                    </h5>
-                    <a href="#" class="discography-frame-collum-button">10 Tracks</a>
-                </div>
-            </div>
+            {% for item in discography.discographyData %}
+                {% for category in item.categories if category.key == "discography" %}
+                    <div class="grid__item desk--one-third lap--one-half palm--one-whole">
+                        <div class="discography-frame-collum">
+                            <img class="discography-frame-collum-image" src="{{ item.image[0].url }}"/>
+                            {% for c in item.categories %}
+                                <a href="{{ sulu_content_load(item.parent).urls[request.locale] }}?category={{ c.id }}">
+                                    {{ c.name }}
+                                </a>
+                            {% endfor %}
+                            <h5 class="heading--h5">
+                                <a href="{{ item.url }}">{{ item.heading }}</a>
+                            </h5>
+                            <a href="{{ item.url }}" class="discography-frame-collum-button">Read More</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
         </div>
     </div>
 </section>

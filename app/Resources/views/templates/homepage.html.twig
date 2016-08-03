@@ -1,25 +1,45 @@
 {% extends "master.html.twig" %}
 
 {% block content %}
-    {# Slider #}
-    {% include('includes/slider.html.twig') %}
-    {{ dump() }}
 
-    {# Biography #}
-    {% include('includes/biography.html.twig') %}
+    {# Slider
+    {% include('includes/slider.html.twig') %}#}
 
-    {# Discography #}
-    {% include('includes/discography.html.twig') %}
+    {% for item in content.blocks %}
+        {{ dump(item) }}
+        {% if item.type == "biography" %}
+            {# Biography #}
+            {% include('includes/biography.html.twig') with{
+                "biography" : item
+            } %}
 
-    {# News #}
-    {% include('includes/news.html.twig') %}
+        {% elseif item.type == "discography" %}
+            {# Discography #}
+            {% include('includes/discography.html.twig') with {
+                "discography" : item
+            } %}
 
-    {# Team #}
-    {% include('includes/team.html.twig') with {
-        "background": "imagebackground",
-        "kind" : "heading--h2--border"
-    } %}
+        {% elseif item.type == "news" %}
+            {# News #}
+            {% include('includes/news.html.twig') with {
+                "news" : item
+            } %}
 
-    {# Partner #}
-    {% include('includes/partner.html.twig') %}
+        {% elseif item.type == "artists" %}
+            {# Artists #}
+            {% include('includes/team.html.twig') with {
+                "artists" : item,
+                "background": "imagebackground",
+                "backgroundImageUrl": item.artistsBackground[0].url,
+                "kind" : "heading--h2--border"
+            } %}
+
+        {% elseif item.type == "partner" %}
+            {# Partner #}
+            {% include('includes/partner.html.twig') with{
+                "partner" : item
+            } %}
+
+        {% endif %}
+    {% endfor %}
 {% endblock %}
