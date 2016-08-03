@@ -124,12 +124,12 @@ class BlogController extends WebsiteController
         foreach($article as $key => $item) {
             $structure = $item->getStructure();
 
-            $result[$key] = array(
+            $result[$key] = [
                 'image' => $structure->getProperty('contentTitleimage'),
                 'url' => $structure->getProperty('url'),
                 'heading' => $structure->getProperty('contentHeading'),
                 'creation' => $item->getChanged()
-            );
+            ];
         }
 
         return $result;
@@ -141,12 +141,12 @@ class BlogController extends WebsiteController
         foreach($article as $key => $item) {
             $structure = $item->getDocument()->getStructure();
 
-            $result[$key] = array(
+            $result[$key] = [
                 'image' => $structure->getProperty('contentTitleimage'),
                 'url' => $structure->getProperty('url'),
                 'heading' => $structure->getProperty('contentHeading'),
                 'creation' => $item->getChanged() 
-            );
+            ];
         }
 
         return $result;
