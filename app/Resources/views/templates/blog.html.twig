@@ -29,21 +29,23 @@
 
                                 <span class="blog-text-subheading">
                                     posted by <a href="#">{{ sulu_resolve_user(article.changer).contact.fullName }}</a>
+
                                     {% if article.categories|length >0 %}
                                         <i class="ion-ios-arrow-forward"></i>
+
                                         {% for category in article.categories %}
-                                            {% if loop.index != article.categories|length %}
-                                                <a href="{{ link }}?categories={{ category.id }}"
-                                                   class="blog-text-subheading-category">
-                                                            {{ category.name }},
+                                        {% if loop.index != article.categories|length %}
+                                            <a href="{{ link }}?categories={{ category.id }}"
+                                               class="blog-text-subheading-category">
+                                                    {{ category.name }},
                                                 </a>
                                                     {% else %}
-                                                <a href="{{ link }}?categories={{ category.id }}"
-                                                   class="blog-text-subheading-category">
-                                                            {{ category.name }}
+                                            <a href="{{ link }}?categories={{ category.id }}"
+                                               class="blog-text-subheading-category">
+                                                    {{ category.name }}
                                                 </a>
-                                            {% endif %}
-                                        {% endfor %}
+                                        {% endif %}
+                                    {% endfor %}
                                     {% endif %}
                                 </span>
 

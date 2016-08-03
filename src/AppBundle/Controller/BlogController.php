@@ -46,8 +46,8 @@ class BlogController extends WebsiteController
             $structure,
             [
                 'lastAndPrevArticle' => $this->createDetailArticles($this->getPrevAndNextArticle ($articles, $structure->getUuid())),
-                'latestArticles' => $this->createDetailArticles($this->getLatestArticel($articles,4 )),
-                'link' => $document->getParent()->getresourceSegment()
+                'latestArticles' => $this->createDetailArticles($this->getLatestArticel($articles, 4)),
+                'link' => $document->getParent()->getResourceSegment()
 
             ],
             $preview,
@@ -74,8 +74,7 @@ class BlogController extends WebsiteController
         $response = $this->renderStructure(
             $structure,
             [
-                'latestArticles' => $this->createOverviewArticles(
-                    $this->getLatestArticel($articles,4 )),
+                'latestArticles' => $this->createOverviewArticles($this->getLatestArticel($articles, 4)),
                 'link' => $structure->getPropertiesByTagName("sulu.rlp")[0]->getValue()
                 
             ],
@@ -87,59 +86,69 @@ class BlogController extends WebsiteController
     }
 
     function getLatestArticel($articles, $anzArt){
-        $lastarticles = array();
+        $lastarticles = [];
+
         for ($i = 1; $i <= ((count($articles) >= $anzArt)? $anzArt : count($articles)); $i++)
         {
             $lastarticles[$i] = $articles[count($articles)-$i];
         }
+
         return $lastarticles;
     }
 
     function getPrevAndNextArticle($articles, $uuid){
-        $result = array();
-        for ($i = 0; $i <= count($articles) -1; $i++)
+        $result = [];
+
+        for ($i = 0; $i <= count($articles) - 1; $i++)
         {
-            if($articles[$i]->getUuid() == $uuid)
-            {
-                if(array_key_exists ( $i -1 , $articles ) && array_key_exists ( $i +1 , $articles ))
-                    $result = array('prev' => $articles[$i-1],'next' => $articles[$i+1]);
-
-                elseif (array_key_exists ( $i -1 , $articles ))
-                    $result = array('prev' => $articles[$i-1]);
-
-                elseif (array_key_exists ( $i +1 , $articles ))
-                    $result = array('next' => $articles[$i+1]);
+            if ($articles[$i]->getUuid() == $uuid) {
+                if(array_key_exists ( $i - 1 , $articles) && array_key_exists ( $i + 1 , $articles)) {
+                    $result = array('prev' => $articles[$i - 1],'next' => $articles[$i+1]);
+                }
+                elseif (array_key_exists ( $i - 1 , $articles )) {
+                    $result = array('prev' => $articles[$i - 1]);
+                }
+                elseif (array_key_exists ( $i + 1 , $articles )) {
+                    $result = array('next' => $articles[$i + 1]);
+                }
             }
         }
+
         return $result;
     }
 
     function createDetailArticles($article){
         /** @var PageDocument[] $article */
-        $result = array();
+        $result = [];
+
         foreach($article as $key => $item) {
             $structure = $item->getStructure();
+
             $result[$key] = array(
                 'image' => $structure->getProperty('contentTitleimage'),
                 'url' => $structure->getProperty('url'),
                 'heading' => $structure->getProperty('contentHeading'),
                 'creation' => $item->getChanged()
-                );
+            );
         }
+
         return $result;
     }
 
     function createOverviewArticles($article){
         $result = array();
+
         foreach($article as $key => $item) {
             $structure = $item->getDocument()->getStructure();
+
             $result[$key] = array(
                 'image' => $structure->getProperty('contentTitleimage'),
                 'url' => $structure->getProperty('url'),
                 'heading' => $structure->getProperty('contentHeading'),
                 'creation' => $item->getChanged() 
-                );
+            );
         }
+
         return $result;
     }
 }

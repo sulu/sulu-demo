@@ -19,12 +19,17 @@
                     </h2>
 
                     <div class="blogdetail-scalebox">
-                        <img src="{{ content.contentTitleimage[0].url }}" class="blogdetail-scalebox-image"/>
+
+                        {% if contecontent.contentTitleimage[0] is defined %}
+                            <img src="{{ content.contentTitleimage[0].url }}" class="blogdetail-scalebox-image"/>
+                        {% endif %}
                     </div>
 
                     <div class="blogdetail-editor">
-                        <img src="{{ sulu_resolve_media(sulu_resolve_contact(changer).avatar, request.locale).url }}"/>
 
+                        {% if sulu_resolve_contact(changer).avatar is defined %}
+                            <img src="{{ sulu_resolve_media(sulu_resolve_contact(changer).avatar, request.locale).url }}"/>
+                        {% endif %}
                         <div class="blogdetail-editor-middle">
                             <span class="blogdetail-editor-middle-date">
                                 Posted on: <p>{{ published.date|date("d.m.Y") }}</p>
@@ -32,18 +37,20 @@
 
                             <span class="blogdetail-editor-middle-editor">
                                 posted by <a href="#">{{ sulu_resolve_user(changer).contact.fullName }}</a>
+
                                 {% if extension.excerpt.categories|length >0 %}
                                     <i class="ion-ios-arrow-forward"></i>
                                     {% for category in extension.excerpt.categories %}
+
                                         {% if loop.index != extension.excerpt.categories|length %}
                                             <a href="{{ link }}?categories={{ category.id }}"
                                                class="blogdetail-editor-middle-category">
-                                                    {{ category.name }},
+                                               {{ category.name }},
                                             </a>
                                             {% else %}
                                             <a href="{{ link }}?categories={{ category.id }}"
                                                class="blogdetail-editor-middle-category">
-                                                    {{ category.name }}
+                                               {{ category.name }}
                                             </a>
                                         {% endif %}
                                     {% endfor %}
@@ -266,7 +273,7 @@
 
                     <h4 class="heading heading--h4--border">Leave us a Comment</h4>
                     {% include(':includes:messageform.html.twig') with {
-                    'buttonposition':'left'
+                        'buttonposition':'left'
                     } %}
                 </div>
             </div>
