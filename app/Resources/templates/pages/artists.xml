@@ -81,7 +81,7 @@
                     <param name="heading" value="contentHeading"/>
                     <param name="text" value="contentSubheading"/>
                     <param name="image" value="contentTitleimage"/>
-                    <param name="tags" value="tags"/>
+                    <param name="categories" value="excerpt.categories"/>
                 </param>
             </params>
         </property>
