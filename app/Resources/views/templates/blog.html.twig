@@ -3,14 +3,12 @@
 {% block content %}
     {# header image #}
     {% include(':includes:headerimge.html.twig') with {
-    'imagesrc' : content.headerImage[0].url,
-    'kind' : 'headerimage-text--left',
-    'headingposition' : 'heading--left',
-    'heading' : content.headerHeading,
-    'text': content.headerSubheading
+        'imagesrc' : content.headerImage[0].url,
+        'kind' : 'headerimage-text--left',
+        'headingposition' : 'heading--left',
+        'heading' : content.headerHeading,
+        'text': content.headerSubheading
     } %}
-
-    {{ dump() }}
 
     <section class="blog">
         <div class="grid">
@@ -29,25 +27,25 @@
 
                                 <h5 class="heading--h5">{{ article.heading }}</h5>
 
-                            <span class="blog-text-subheading">
-                                posted by <a href="#">{{ sulu_resolve_user(article.changer).contact.fullName }}</a>
-                                {% if article.categories|length >0 %}
-                                    <i class="ion-ios-arrow-forward"></i>
-                                    {% for category in article.categories %}
-                                        {% if loop.index != article.categories|length %}
-                                            <a href="{{ link }}?categories={{ category.id }}"
-                                               class="blog-text-subheading-category">
-                                                    {{ category.name }},
+                                <span class="blog-text-subheading">
+                                    posted by <a href="#">{{ sulu_resolve_user(article.changer).contact.fullName }}</a>
+                                    {% if article.categories|length >0 %}
+                                        <i class="ion-ios-arrow-forward"></i>
+                                        {% for category in article.categories %}
+                                            {% if loop.index != article.categories|length %}
+                                                <a href="{{ link }}?categories={{ category.id }}"
+                                                   class="blog-text-subheading-category">
+                                                            {{ category.name }},
                                                 </a>
-                                            {% else %}
-                                            <a href="{{ link }}?categories={{ category.id }}"
-                                               class="blog-text-subheading-category">
-                                                    {{ category.name }}
+                                                    {% else %}
+                                                <a href="{{ link }}?categories={{ category.id }}"
+                                                   class="blog-text-subheading-category">
+                                                            {{ category.name }}
                                                 </a>
-                                        {% endif %}
-                                    {% endfor %}
-                                {% endif %}
-                            </span>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                </span>
 
                                 <p>
                                     {{ article.text }}

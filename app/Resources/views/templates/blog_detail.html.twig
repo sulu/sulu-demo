@@ -3,11 +3,11 @@
 {% block content %}
     {# header image #}
     {% include(':includes:headerimge.html.twig') with {
-    'imagesrc' : content.headerImage[0].url,
-    'kind' : 'headerimage-text--left',
-    'headingposition' : 'heading--left',
-    'heading' : content.headerHeading,
-    'text': content.headerSubheading
+        'imagesrc' : content.headerImage[0].url,
+        'kind' : 'headerimage-text--left',
+        'headingposition' : 'heading--left',
+        'heading' : content.headerHeading,
+        'text': content.headerSubheading
     } %}
 
     <section class="blogdetail">
@@ -39,12 +39,12 @@
                                             <a href="{{ link }}?categories={{ category.id }}"
                                                class="blogdetail-editor-middle-category">
                                                     {{ category.name }},
-                                                </a>
+                                            </a>
                                             {% else %}
                                             <a href="{{ link }}?categories={{ category.id }}"
                                                class="blogdetail-editor-middle-category">
                                                     {{ category.name }}
-                                                </a>
+                                            </a>
                                         {% endif %}
                                     {% endfor %}
                                 {% endif %}
@@ -108,7 +108,11 @@
                         <ul class="blogdetail-tags-list">
 
                             {% for tag in extension.excerpt.tags %}
-                                <li><a href="{{ link }}?tags={{ tag }}">{{ tag }}</a></li>
+                                <li>
+                                    <a href="{{ link }}?tags={{ tag }}">
+                                        {{ tag }}
+                                    </a>
+                                </li>
                             {% endfor %}
                         </ul>
                     </div>
