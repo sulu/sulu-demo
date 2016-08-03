@@ -136,7 +136,7 @@ class BlogController extends WebsiteController
     }
 
     function createOverviewArticles($article){
-        $result = array();
+        $result = [];
 
         foreach($article as $key => $item) {
             $structure = $item->getDocument()->getStructure();
