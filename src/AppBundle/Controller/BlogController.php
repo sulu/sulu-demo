@@ -33,19 +33,19 @@ class BlogController extends WebsiteController
 
         $articles = array();
 
-        foreach($parent->getChildren() as $item) {
+        foreach ($parent->getChildren() as $item) {
             array_push($articles, $item);
         }
 
         /** @var PageDocument[] $articles */
-        $articles = SortUtils::multisort($articles,'created');
+        $articles = SortUtils::multisort($articles, 'created');
 
         $document->getStructure()->getProperty('title');
 
         $response = $this->renderStructure(
             $structure,
             [
-                'lastAndPrevArticle' => $this->createDetailArticles($this->getPrevAndNextArticle ($articles, $structure->getUuid())),
+                'lastAndPrevArticle' => $this->createDetailArticles($this->getPrevAndNextArticle($articles, $structure->getUuid())),
                 'latestArticles' => $this->createDetailArticles($this->getLatestArticel($articles, 4)),
                 'link' => $document->getParent()->getResourceSegment()
 
@@ -69,14 +69,14 @@ class BlogController extends WebsiteController
      */
     public function overviewAction(StructureInterface $structure, $preview = false, $partial = false)
     {
-        $articles = SortUtils::multisort($structure->getChildren(),'created');
+        $articles = SortUtils::multisort($structure->getChildren(), 'created');
 
         $response = $this->renderStructure(
             $structure,
             [
                 'latestArticles' => $this->createOverviewArticles($this->getLatestArticel($articles, 4)),
                 'link' => $structure->getPropertiesByTagName("sulu.rlp")[0]->getValue()
-                
+
             ],
             $preview,
             $partial
@@ -84,6 +84,7 @@ class BlogController extends WebsiteController
 
         return $response;
     }
+
     /**
      * Takes all the articles and returns the lastest ones.
      *
@@ -92,12 +93,12 @@ class BlogController extends WebsiteController
      *
      * @return array
      */
-    function getLatestArticel($articles, $anzArt){
+    function getLatestArticel($articles, $anzArt)
+    {
         $lastarticles = [];
 
-        for ($i = 1; $i <= ((count($articles) >= $anzArt)? $anzArt : count($articles)); $i++)
-        {
-            $lastarticles[$i] = $articles[count($articles)-$i];
+        for ($i = 1; $i <= ((count($articles) >= $anzArt) ? $anzArt : count($articles)); $i++) {
+            $lastarticles[$i] = $articles[count($articles) - $i];
         }
 
         return $lastarticles;
@@ -111,17 +112,17 @@ class BlogController extends WebsiteController
      *
      * @return array
      */
-    function getPrevAndNextArticle($articles, $uuid){
+    function getPrevAndNextArticle($articles, $uuid)
+    {
         $result = [];
 
-        for ($i = 0; $i <= count($articles) - 1; $i++)
-        {
+        for ($i = 0; $i <= count($articles) - 1; $i++) {
             if ($articles[$i]->getUuid() == $uuid) {
-                if(array_key_exists ( $i - 1 , $articles) && array_key_exists ( $i + 1 , $articles)) {
-                    $result = array('prev' => $articles[$i - 1],'next' => $articles[$i+1]);
-                } elseif (array_key_exists ( $i - 1 , $articles )) {
+                if (array_key_exists($i - 1, $articles) && array_key_exists($i + 1, $articles)) {
+                    $result = array('prev' => $articles[$i - 1], 'next' => $articles[$i + 1]);
+                } elseif (array_key_exists($i - 1, $articles)) {
                     $result = array('prev' => $articles[$i - 1]);
-                } elseif (array_key_exists ( $i + 1 , $articles )) {
+                } elseif (array_key_exists($i + 1, $articles)) {
                     $result = array('next' => $articles[$i + 1]);
                 }
             }
@@ -137,10 +138,11 @@ class BlogController extends WebsiteController
      *
      * @return array
      */
-    function createDetailArticles($article){
+    function createDetailArticles($article)
+    {
         $result = [];
 
-        foreach($article as $key => $item) {
+        foreach ($article as $key => $item) {
             $structure = $item->getStructure();
 
             $result[$key] = [
@@ -161,17 +163,18 @@ class BlogController extends WebsiteController
      *
      * @return array
      */
-    function createOverviewArticles($article){
+    function createOverviewArticles($article)
+    {
         $result = [];
 
-        foreach($article as $key => $item) {
+        foreach ($article as $key => $item) {
             $structure = $item->getDocument()->getStructure();
 
             $result[$key] = [
                 'image' => $structure->getProperty('contentTitleimage'),
                 'url' => $structure->getProperty('url'),
                 'heading' => $structure->getProperty('contentHeading'),
-                'creation' => $item->getChanged() 
+                'creation' => $item->getChanged()
             ];
         }
 
