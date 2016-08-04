@@ -154,6 +154,38 @@
                         </property>
                     </properties>
                 </type>
+
+                <type name="discography">
+                    <meta>
+                        <title lang="de">Discographie</title>
+                        <title lang="en">Discography</title>
+                    </meta>
+
+                    <properties>
+                        <property name="discographyHeading" type="text_area">
+                            <meta>
+                                <title lang="en">Heading</title>
+                                <title lang="de">Überschrift</title>
+                            </meta>
+                        </property>
+
+                        <property name="discographyData" type="smart_content">
+                            <meta>
+                                <title lang="en">Choose Artcle</title>
+                                <title lang="de">Artikel wählen</title>
+                            </meta>
+
+                            <params>
+                                <param name="properties" type="collection">
+                                    <param name="heading" value="contentHeading"/>
+                                    <param name="image" value="contentTitleimage"/>
+                                    <param name="categories" value="excerpt.categories"/>
+                                    <param name="url" value="url"/>
+                                </param>
+                            </params>
+                        </property>
+                    </properties>
+                </type>
             </types>
         </block>
     </properties>
