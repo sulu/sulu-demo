@@ -118,9 +118,6 @@
         </div>
     </div>
 
-
-    {{ dump(content) }}
-
     {% if content.artistsBackground[0] is defined and content.artistsData[0] is defined %}
         {# Artists #}
         {% include('includes/team.html.twig') with {
@@ -140,6 +137,11 @@
         {% endif %}
     {% endfor %}
 
-        {# Partners #}{#
-        {% include(':includes:partner.html.twig') %}#}
+    {% if content.partnerData[0] is defined %}
+        {# Partner #}
+        {% include('includes/partner.html.twig') with{
+        "partner" : content
+        } %}
+    {% endif %}
+
 {% endblock %}
