@@ -40,11 +40,309 @@
             </properties>
         </section>
 
-        <property name="article" type="text_editor">
+        <section name="header">
             <meta>
-                <title lang="en">Article</title>
-                <title lang="de">Artikel</title>
+                <title lang="en">Header</title>
+                <title lang="de">Kopf</title>
             </meta>
-        </property>
+
+            <properties>
+                <property name="headerImage" type="media_selection" mandatory="true">
+                    <meta>
+                        <title lang="en">Header Image</title>
+                        <title lang="de">Kopfbild</title>
+                    </meta>
+                </property>
+
+                <property name="headerHeading" type="text_line">
+                    <meta>
+                        <title lang="en">Header Heading</title>
+                        <title lang="de">Kopf - Überschrift</title>
+                    </meta>
+                </property>
+
+                <property name="headerSubheading" type="text_area">
+                    <meta>
+                        <title lang="en">Header Subheading</title>
+                        <title lang="de">Kopf - Unterüberschrift</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>
+
+        <section name="content">
+            <meta>
+                <title lang="de">Inhalt</title>
+                <title lang="en">Content</title>
+            </meta>
+
+            <properties>
+                <block name="services" default-type="editor" minOccurs="0">
+                    <meta>
+                        <title lang="de">Unsere Dienste</title>
+                        <title lang="en">Our Services</title>
+                    </meta>
+
+                    <types>
+                        <type name="service">
+                            <meta>
+                                <title lang="de">Dienst</title>
+                                <title lang="en">Service</title>
+                            </meta>
+
+                            <properties>
+                                <property name="icon" type="single_select">
+                                    <meta>
+                                        <title lang="en">Icon</title>
+                                    </meta>
+                                    <params>
+                                        <param name="values" type="collection">
+                                            <param name="ion-mic-c">
+                                                <meta>
+                                                    <title lang="en">CD</title>
+                                                    <title lang="de">CD</title>
+                                                </meta>
+                                            </param>
+                                            <param name="ion-music-note">
+                                                <meta>
+                                                    <title lang="en">Music</title>
+                                                    <title lang="de">Musik</title>
+                                                </meta>
+                                            </param>
+                                            <param name="ion-mic-c">
+                                                <meta>
+                                                    <title lang="en">Microphone</title>
+                                                    <title lang="de">Mikrofon</title>
+                                                </meta>
+                                            </param>
+                                            <param name="ion-ios-world-outline">
+                                                <meta>
+                                                    <title lang="en">World Gutter</title>
+                                                    <title lang="de">Weltkugel Gitter</title>
+                                                </meta>
+                                            </param>
+                                            <param name="ion-play">
+                                                <meta>
+                                                    <title lang="en">Play Button</title>
+                                                    <title lang="de">Play Button</title>
+                                                </meta>
+                                            </param>
+                                            <param name="ion-trophy">
+                                                <meta>
+                                                    <title lang="en">Trophy</title>
+                                                    <title lang="de">Pokal</title>
+                                                </meta>
+                                            </param>
+                                            <param name="ion-ios-people">
+                                                <meta>
+                                                    <title lang="en">Group of People</title>
+                                                    <title lang="de">Menschenmenge</title>
+                                                </meta>
+                                            </param>
+                                            <param name="ion-earth">
+                                                <meta>
+                                                    <title lang="en">Earth</title>
+                                                    <title lang="de">Erde</title>
+                                                </meta>
+                                            </param>
+                                            <param name="ion-ios-monitor">
+                                                <meta>
+                                                    <title lang="en">TV</title>
+                                                    <title lang="de">TV</title>
+                                                </meta>
+                                            </param>
+                                            <param name="ion-heart">
+                                                <meta>
+                                                    <title lang="en">Heart</title>
+                                                    <title lang="de">Herz</title>
+                                                </meta>
+                                            </param>
+                                            <param name="ion-leaf">
+                                                <meta>
+                                                    <title lang="en">Leaf</title>
+                                                    <title lang="de">Blatt</title>
+                                                </meta>
+                                            </param>
+                                        </param>
+                                    </params>
+                                </property>
+
+                                <property name="heading" type="text_area">
+                                    <meta>
+                                        <title lang="en">Heading</title>
+                                        <title lang="de">Überschrift</title>
+                                    </meta>
+                                </property>
+
+                                <property name="text" type="text_editor">
+                                    <meta>
+                                        <title lang="en">Text</title>
+                                        <title lang="de">Text</title>
+                                    </meta>
+                                </property>
+                            </properties>
+                        </type>
+                    </types>
+                </block>
+
+                <property name="locationsHeading" type="text_area">
+                    <meta>
+                        <title lang="en">Heading</title>
+                        <title lang="de">Überschrift</title>
+                    </meta>
+                </property>
+
+                <property name="locationsSubheading" type="text_area">
+                    <meta>
+                        <title lang="en">Heading</title>
+                        <title lang="de">Überschrift</title>
+                    </meta>
+                </property>
+
+                <block name="locations" default-type="editor" minOccurs="0">
+                    <meta>
+                        <title lang="de">Orte</title>
+                        <title lang="en">Locations</title>
+                    </meta>
+
+                    <types>
+                        <type name="location">
+                            <meta>
+                                <title lang="de">Dienst</title>
+                                <title lang="en">Service</title>
+                            </meta>
+
+                            <properties>
+                                <property name="icon" type="single_select">
+                                    <meta>
+                                        <title lang="en">Icon</title>
+                                    </meta>
+                                    <params>
+                                        <param name="values" type="collection">
+                                            <param name="ion-mic-c">
+                                                <meta>
+                                                    <title lang="en">CD</title>
+                                                    <title lang="de">CD</title>
+                                                </meta>
+                                            </param>
+                                            <param name="ion-music-note">
+                                                <meta>
+                                                    <title lang="en">Music</title>
+                                                    <title lang="de">Musik</title>
+                                                </meta>
+                                            </param>
+                                            <param name="ion-mic-c">
+                                                <meta>
+                                                    <title lang="en">Microphone</title>
+                                                    <title lang="de">Mikrofon</title>
+                                                </meta>
+                                            </param>
+                                            <param name="ion-ios-world-outline">
+                                                <meta>
+                                                    <title lang="en">World Gutter</title>
+                                                    <title lang="de">Weltkugel Gitter</title>
+                                                </meta>
+                                            </param>
+                                            <param name="ion-play">
+                                                <meta>
+                                                    <title lang="en">Play Button</title>
+                                                    <title lang="de">Play Button</title>
+                                                </meta>
+                                            </param>
+                                            <param name="ion-trophy">
+                                                <meta>
+                                                    <title lang="en">Trophy</title>
+                                                    <title lang="de">Pokal</title>
+                                                </meta>
+                                            </param>
+                                            <param name="ion-ios-people">
+                                                <meta>
+                                                    <title lang="en">Group of People</title>
+                                                    <title lang="de">Menschenmenge</title>
+                                                </meta>
+                                            </param>
+                                            <param name="ion-earth">
+                                                <meta>
+                                                    <title lang="en">Earth</title>
+                                                    <title lang="de">Erde</title>
+                                                </meta>
+                                            </param>
+                                            <param name="ion-ios-monitor">
+                                                <meta>
+                                                    <title lang="en">TV</title>
+                                                    <title lang="de">TV</title>
+                                                </meta>
+                                            </param>
+                                            <param name="ion-heart">
+                                                <meta>
+                                                    <title lang="en">Heart</title>
+                                                    <title lang="de">Herz</title>
+                                                </meta>
+                                            </param>
+                                            <param name="ion-leaf">
+                                                <meta>
+                                                    <title lang="en">Leaf</title>
+                                                    <title lang="de">Blatt</title>
+                                                </meta>
+                                            </param>
+                                        </param>
+                                    </params>
+                                </property>
+
+                                <property name="heading" type="text_area">
+                                    <meta>
+                                        <title lang="en">Heading</title>
+                                        <title lang="de">Überschrift</title>
+                                    </meta>
+                                </property>
+
+                                <property name="text" type="text_editor">
+                                    <meta>
+                                        <title lang="en">Text</title>
+                                        <title lang="de">Text</title>
+                                    </meta>
+                                </property>
+                            </properties>
+                        </type>
+                    </types>
+                </block>
+
+                <property name="action" type="snippet">
+                    <meta>
+                        <title lang="de">Zum Buchen</title>
+                        <title lang="en">For Booking</title>
+                    </meta>
+
+                    <params>
+                        <param name="snippetType" value="action"/>
+                    </params>
+                </property>
+
+                <block name="quotes" default-type="editor" minOccurs="0">
+                    <meta>
+                        <title lang="de">Zitate</title>
+                        <title lang="en">Quotes</title>
+                    </meta>
+
+                    <types>
+                        <type name="quote">
+                            <meta>
+                                <title lang="de">Zitat</title>
+                                <title lang="en">Quote</title>
+                            </meta>
+
+                            <properties>
+                                <property name="contact" type="contact">
+                                    <meta>
+                                        <title lang="en">Contact</title>
+                                        <title lang="de">Kontakt</title>
+                                    </meta>
+                                </property>
+                            </properties>
+                        </type>
+                    </types>
+                </block>
+            </properties>
+        </section>
     </properties>
 </template>

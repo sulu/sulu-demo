@@ -11,20 +11,24 @@
                 five piece have sold over.'
     } %}
 
+    {{ dump() }}
+
     <section class="services">
         <div class="services-activities">
             <div class="grid">
-                <div class="grid__item desk--one-third lap--one-half palm--one-whole">
-                    <div class="services-activities-elem">
-                        <i class="ion-mic-c"></i>
-                        <h4>Live Concert</h4>
-                        <p>
-                            Estimated crowd of 200,000 fans. The album was a huge success, advance orders alone
-                            amounting to over 500,000. The following year saw two major US tours, the band.
-                        </p>
-                    </div>
-                </div>
 
+                {% for service in content.services %}
+                    <div class="grid__item desk--one-third lap--one-half palm--one-whole">
+                        <div class="services-activities-elem">
+                            <i class="ion-mic-c"></i>
+                            <h4>Live Concert</h4>
+                            <p>
+                                Estimated crowd of 200,000 fans. The album was a huge success, advance orders alone
+                                amounting to over 500,000. The following year saw two major US tours, the band.
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
                 <div class="grid__item desk--one-third lap--one-half palm--one-whole">
                     <div class="services-activities-elem">
                         <i class="ion-disc"></i>
