@@ -58,6 +58,10 @@
     }
 }
 
+.discography--nobackground {
+    background-color: #FFFFFF;
+}
+
 @media (max-width: $maxwidth + 20) {
     .discography {
         padding-left: 20px;

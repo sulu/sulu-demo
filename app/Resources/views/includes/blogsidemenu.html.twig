@@ -27,11 +27,14 @@
 
                 {% for latestArticle in latestArticles %}
                     {% set media = sulu_resolve_media(latestArticle.image.ids, request.locale) %}
+
                     <div class="blog-sidemenu-recent">
                         <img src="{{ media.url }}"/>
                         <div class="blog-sidemenu-recent-text">
                             <p>{{ latestArticle.creation.date|date("d.m.Y") }}</p>
-                            <a href="{{ latestArticle.url.value }}"> <h6>{{ latestArticle.heading.value }}</h6></a>
+                            <a href="{{ latestArticle.url.value }}">
+                                <h6>{{ latestArticle.heading.value }}</h6>
+                            </a>
                         </div>
                     </div>
                 {% endfor %}

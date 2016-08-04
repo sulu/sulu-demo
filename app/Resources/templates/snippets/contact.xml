@@ -6,8 +6,8 @@
     <key>contact</key>
 
     <meta>
-        <title lang="en">Default</title>
-        <title lang="de">Standard</title>
+        <title lang="en">Contact</title>
+        <title lang="de">Kontakt</title>
     </meta>
 
     <properties>
@@ -20,10 +20,10 @@
             <tag name="sulu.node.name"/>
         </property>
 
-        <property name="description" type="text_editor">
+        <property name="contact" type="contact">
             <meta>
-                <title lang="en">Description</title>
-                <title lang="de">Beschreibung</title>
+                <title lang="en">Contact</title>
+                <title lang="de">Kontakt</title>
             </meta>
         </property>
     </properties>

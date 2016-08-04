@@ -30,10 +30,11 @@ class ArtistController extends WebsiteController
         $response = $this->renderStructure(
             $structure,
             [
-                'artists' => $this->get('sulu_content.content_repository')->findByParentUuid($document->getParent()
-                    ->getUuid(), $structure->getLanguageCode(), $structure->getWebspaceKey(), MappingBuilder::create
-                ()->addProperties(['title'])
-                    ->getMapping())
+                'artists' => $this->get('sulu_content.content_repository')->findByParentUuid(
+                    $document->getParent()->getUuid(),
+                    $structure->getLanguageCode(),
+                    $structure->getWebspaceKey(),
+                    MappingBuilder::create()->addProperties(['title'])->getMapping())
             ],
             $preview,
             $partial

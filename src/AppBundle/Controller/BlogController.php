@@ -33,21 +33,21 @@ class BlogController extends WebsiteController
 
         $articles = array();
 
-        foreach($parent->getChildren() as $item) {
+        foreach ($parent->getChildren() as $item) {
             array_push($articles, $item);
         }
 
         /** @var PageDocument[] $articles */
-        $articles = SortUtils::multisort($articles,'created');
+        $articles = SortUtils::multisort($articles, 'created');
 
         $document->getStructure()->getProperty('title');
 
         $response = $this->renderStructure(
             $structure,
             [
-                'lastAndPrevArticle' => $this->createDetailArticles($this->getPrevAndNextArticle ($articles, $structure->getUuid())),
-                'latestArticles' => $this->createDetailArticles($this->getLatestArticel($articles,4 )),
-                'link' => $document->getParent()->getresourceSegment()
+                'lastAndPrevArticle' => $this->createDetailArticles($this->getPrevAndNextArticle($articles, $structure->getUuid())),
+                'latestArticles' => $this->createDetailArticles($this->getLatestArticel($articles, 4)),
+                'link' => $document->getParent()->getResourceSegment()
 
             ],
             $preview,
@@ -69,15 +69,14 @@ class BlogController extends WebsiteController
      */
     public function overviewAction(StructureInterface $structure, $preview = false, $partial = false)
     {
-        $articles = SortUtils::multisort($structure->getChildren(),'created');
+        $articles = SortUtils::multisort($structure->getChildren(), 'created');
 
         $response = $this->renderStructure(
             $structure,
             [
-                'latestArticles' => $this->createOverviewArticles(
-                    $this->getLatestArticel($articles,4 )),
+                'latestArticles' => $this->createOverviewArticles($this->getLatestArticel($articles, 4)),
                 'link' => $structure->getPropertiesByTagName("sulu.rlp")[0]->getValue()
-                
+
             ],
             $preview,
             $partial
@@ -86,60 +85,99 @@ class BlogController extends WebsiteController
         return $response;
     }
 
-    function getLatestArticel($articles, $anzArt){
-        $lastarticles = array();
-        for ($i = 1; $i <= ((count($articles) >= $anzArt)? $anzArt : count($articles)); $i++)
-        {
-            $lastarticles[$i] = $articles[count($articles)-$i];
+    /**
+     * Takes all the articles and returns the lastest ones.
+     *
+     * @param array $articles
+     * @param int $anzArt
+     *
+     * @return array
+     */
+    public function getLatestArticel($articles, $anzArt)
+    {
+        $lastarticles = [];
+
+        for ($i = 1; $i <= ((count($articles) >= $anzArt) ? $anzArt : count($articles)); $i++) {
+            $lastarticles[$i] = $articles[count($articles) - $i];
         }
+
         return $lastarticles;
     }
 
-    function getPrevAndNextArticle($articles, $uuid){
-        $result = array();
-        for ($i = 0; $i <= count($articles) -1; $i++)
-        {
-            if($articles[$i]->getUuid() == $uuid)
-            {
-                if(array_key_exists ( $i -1 , $articles ) && array_key_exists ( $i +1 , $articles ))
-                    $result = array('prev' => $articles[$i-1],'next' => $articles[$i+1]);
+    /**
+     * Looks for the articles before and after the one with the uuid.
+     *
+     * @param array $articles
+     * @param string $uuid
+     *
+     * @return array
+     */
+    public function getPrevAndNextArticle($articles, $uuid)
+    {
+        $result = [];
 
-                elseif (array_key_exists ( $i -1 , $articles ))
-                    $result = array('prev' => $articles[$i-1]);
-
-                elseif (array_key_exists ( $i +1 , $articles ))
-                    $result = array('next' => $articles[$i+1]);
+        for ($i = 0; $i <= count($articles) - 1; $i++) {
+            if ($articles[$i]->getUuid() == $uuid) {
+                if (array_key_exists($i - 1, $articles) && array_key_exists($i + 1, $articles)) {
+                    $result = array('prev' => $articles[$i - 1], 'next' => $articles[$i + 1]);
+                } elseif (array_key_exists($i - 1, $articles)) {
+                    $result = array('prev' => $articles[$i - 1]);
+                } elseif (array_key_exists($i + 1, $articles)) {
+                    $result = array('next' => $articles[$i + 1]);
+                }
             }
         }
+
         return $result;
     }
 
-    function createDetailArticles($article){
-        /** @var PageDocument[] $article */
-        $result = array();
-        foreach($article as $key => $item) {
+    /**
+     * Formats the array for the Response.
+     *
+     * @var PageDocument[] $article
+     *
+     * @return array
+     */
+    public function createDetailArticles($article)
+    {
+        $result = [];
+
+        foreach ($article as $key => $item) {
             $structure = $item->getStructure();
-            $result[$key] = array(
+
+            $result[$key] = [
                 'image' => $structure->getProperty('contentTitleimage'),
                 'url' => $structure->getProperty('url'),
                 'heading' => $structure->getProperty('contentHeading'),
                 'creation' => $item->getChanged()
-                );
+            ];
         }
+
         return $result;
     }
 
-    function createOverviewArticles($article){
-        $result = array();
-        foreach($article as $key => $item) {
+    /**
+     * Formats the array for the Response.
+     *
+     * @var array $article
+     *
+     * @return array
+     */
+    public function createOverviewArticles($article)
+    {
+        $result = [];
+
+        foreach ($article as $key => $item) {
             $structure = $item->getDocument()->getStructure();
-            $result[$key] = array(
+
+            $result[$key] = [
                 'image' => $structure->getProperty('contentTitleimage'),
                 'url' => $structure->getProperty('url'),
                 'heading' => $structure->getProperty('contentHeading'),
-                'creation' => $item->getChanged() 
-                );
+                'creation' => $item->getChanged()
+            ];
         }
+
         return $result;
     }
 }
