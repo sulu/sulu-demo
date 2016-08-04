@@ -93,7 +93,7 @@ class BlogController extends WebsiteController
      *
      * @return array
      */
-    function getLatestArticel($articles, $anzArt)
+    public function getLatestArticel($articles, $anzArt)
     {
         $lastarticles = [];
 
@@ -112,7 +112,7 @@ class BlogController extends WebsiteController
      *
      * @return array
      */
-    function getPrevAndNextArticle($articles, $uuid)
+    public function getPrevAndNextArticle($articles, $uuid)
     {
         $result = [];
 
@@ -138,7 +138,7 @@ class BlogController extends WebsiteController
      *
      * @return array
      */
-    function createDetailArticles($article)
+    public function createDetailArticles($article)
     {
         $result = [];
 
@@ -163,7 +163,7 @@ class BlogController extends WebsiteController
      *
      * @return array
      */
-    function createOverviewArticles($article)
+    public function createOverviewArticles($article)
     {
         $result = [];
 
