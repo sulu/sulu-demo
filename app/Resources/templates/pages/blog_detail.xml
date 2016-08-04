@@ -6,7 +6,7 @@
     <key>blog_detail</key>
 
     <view>templates/blog_detail</view>
-    <controller>SuluWebsiteBundle:Default:index</controller>
+    <controller>AppBundle:Blog:Detail</controller>
     <cacheLifetime>604800</cacheLifetime>
 
     <meta>
@@ -40,11 +40,124 @@
             </properties>
         </section>
 
-        <property name="article" type="text_editor">
+        <section name="header">
             <meta>
-                <title lang="en">Article</title>
-                <title lang="de">Artikel</title>
+                <title lang="en">Header</title>
+                <title lang="de">Kopf</title>
             </meta>
-        </property>
+
+            <properties>
+                <property name="headerImage" type="media_selection" mandatory="true">
+                    <meta>
+                        <title lang="en">Header Image</title>
+                        <title lang="de">Kopfbild</title>
+                    </meta>
+                </property>
+
+                <property name="headerHeading" type="text_line">
+                    <meta>
+                        <title lang="en">Header Heading</title>
+                        <title lang="de">Kopf - Überschrift</title>
+                    </meta>
+                </property>
+
+                <property name="headerSubheading" type="text_area">
+                    <meta>
+                        <title lang="en">Header Subheading</title>
+                        <title lang="de">Kopf - Unterüberschrift</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>
+
+        <section name="content">
+            <meta>
+                <title lang="de">Inhalt</title>
+                <title lang="en">Content</title>
+            </meta>
+
+            <properties>
+                <property name="contentHeading" type="text_line" mandatory="true">
+                    <meta>
+                        <title lang="en">Heading</title>
+                        <title lang="de">Überschrift</title>
+                    </meta>
+                </property>
+
+                <property name="contentTitleimage" type="media_selection" mandatory="true">
+                    <meta>
+                        <title lang="en">Title Image</title>
+                        <title lang="de">Titelbild</title>
+                    </meta>
+                </property>
+
+                <property name="contentSubheading" type="text_area" mandatory="true">
+                    <meta>
+                        <title lang="en">Subheading</title>
+                        <title lang="de">Unterüberschrift</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>
+
+        <block name="blocks" default-type="editor" minOccurs="0">
+            <meta>
+                <title lang="de">Inhalte</title>
+                <title lang="en">Content</title>
+            </meta>
+
+            <types>
+                <type name="text">
+                    <meta>
+                        <title lang="de">Text</title>
+                        <title lang="en">Text</title>
+                    </meta>
+
+                    <properties>
+                        <property name="contentText" type="text_editor">
+                            <meta>
+                                <title lang="en">Text</title>
+                                <title lang="de">Text</title>
+                            </meta>
+                        </property>
+                    </properties>
+                </type>
+
+                <type name="quote">
+                    <meta>
+                        <title lang="de">Quote</title>
+                        <title lang="en">Zitat</title>
+                    </meta>
+
+                    <properties>
+                        <property name="contentText" type="text_area">
+                            <meta>
+                                <title lang="en">Zitat</title>
+                                <title lang="de">Zitat</title>
+                            </meta>
+                        </property>
+                    </properties>
+                </type>
+
+                <type name="media">
+                    <meta>
+                        <title lang="de">Media</title>
+                        <title lang="en">Media</title>
+                    </meta>
+
+                    <properties>
+                        <property name="contentMedia" type="media_selection">
+                            <meta>
+                                <title lang="en">Media</title>
+                                <title lang="de">Medien</title>
+                            </meta>
+                            <params>
+                                <param name="types" value="image"/>
+                            </params>
+                        </property>
+                    </properties>
+                </type>
+            </types>
+        </block>
     </properties>
 </template>

@@ -3,11 +3,11 @@
 {% block content %}
     {# header image #}
     {% include(':includes:headerimge.html.twig') with {
-        'imagesrc' : '/img/subheader1.jpg',
+        'imagesrc' : content.headerImage[0].url,
         'kind' : 'headerimage-text--left',
         'headingposition' : 'heading--left',
-        'heading' : 'Our Artists',
-        'text': 'New album, Fallen Empires, arrives with a serious reputation attached. The Irish/Scottish five piece have sold over.'
+        'heading' : content.headerHeading,
+        'text': content.headerSubheading
     } %}
 
     <section class="blogdetail">
@@ -15,26 +15,46 @@
             <div class="grid__item desk--four-fifths portable--one-whole">
                 <div class="blogdetail-main">
                     <h2 class="blogdetail-heading">
-                        Best Ever arrives with a serious over Snow Patrol's new album
+                        {{ content.contentHeading }}
                     </h2>
 
                     <div class="blogdetail-scalebox">
-                        <img src="/img/Detail_1.png" class="blogdetail-scalebox-image"/>
+
+                        {% if contecontent.contentTitleimage[0] is defined %}
+                            <img src="{{ content.contentTitleimage[0].url }}" class="blogdetail-scalebox-image"/>
+                        {% endif %}
                     </div>
 
                     <div class="blogdetail-editor">
-                        <img src="/img/recentblog-img1.jpg"/>
 
+                        {% if sulu_resolve_contact(changer).avatar is defined %}
+                            <img src="{{ sulu_resolve_media(sulu_resolve_contact(changer).avatar, request.locale).url }}"/>
+                        {% endif %}
                         <div class="blogdetail-editor-middle">
                             <span class="blogdetail-editor-middle-date">
-                                Posted on: <p>25.07.2016</p>
+                                Posted on: <p>{{ published.date|date("d.m.Y") }}</p>
                             </span>
 
                             <span class="blogdetail-editor-middle-editor">
-                                posted by <a href="#">Admin</a>
-                                <i class="ion-ios-arrow-forward">
-                                    Music, Fun, Entertainment
-                                </i>
+                                posted by <a href="#">{{ sulu_resolve_user(changer).contact.fullName }}</a>
+
+                                {% if extension.excerpt.categories|length >0 %}
+                                    <i class="ion-ios-arrow-forward"></i>
+                                    {% for category in extension.excerpt.categories %}
+
+                                        {% if loop.index != extension.excerpt.categories|length %}
+                                            <a href="{{ link }}?categories={{ category.id }}"
+                                               class="blogdetail-editor-middle-category">
+                                               {{ category.name }},
+                                            </a>
+                                            {% else %}
+                                            <a href="{{ link }}?categories={{ category.id }}"
+                                               class="blogdetail-editor-middle-category">
+                                               {{ category.name }}
+                                            </a>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
                             </span>
                         </div>
 
@@ -51,109 +71,56 @@
 
                     <div class="blogdetail-subheading">
                         <p>
-                            Arrives with a serious over. Snow Patrol's new album, Fallen Empires, arrives with a serious
-                            reputation attached. best The Irish/Scottish five piece have sold Fallen Empires, arrives
-                            with a serious over.
+                            {{ content.headerSubheading }}
                         </p>
                     </div>
 
-                    <p>
-                        Arrives with a serious over. Snow Patrol's new album, Fallen Empires, arrives with a serious
-                        reputation attached. best The Irish/Scottish five piece have sold Fallen Empires, arrives with a
-                        serious over. Snow Patrol's new album, Fallen Empires, arrives with a serious reputation
-                        attached. The Irish/Scottish five piece have sold Fallen Empires, arrives with a serious
-                        over.Snow Patrol's new album, Fallen Empires, arrives with a serious reputation attached.
-                    </p>
+                    {% for block in content.blocks %}
+                        {% if block.type == "text" %}
 
-                    <p>
-                        The Irish/Scottish five piece have sold Fallen Empires, arrives with a serious over. Snow
-                        Patrol's new album, Fallen Empires, arrives with a serious reputation attached. The
-                        Irish/Scottish five piece have sold Fallen Empires. The Irish/Scottish five piece have sold
-                        Fallen Empires, arrives with a serious over. Snow Patrol's new album, Fallen Empires, arrives
-                        with a serious reputation attached. The Irish/Scottish five piece have sold Fallen Empires.
-                    </p>
+                            {{ block.contentText | raw }}
 
-                    <div class="blogdetail-quote">
-                        <p>
-                            Woodpecker respectfully intensely beneath gave ouch diligently mounted by irrespective
-                            elephant
-                            this therefore happy more well onto much nightingale groaned less. beneath gave ouch
-                            diligently
-                            mounted by irrespective elephant this therefore
-                        </p>
-                    </div>
+                        {% elseif block.type == "quote" %}
 
-                    <p>
-                        Snow Patrol's new album, Fallen Empires, arrives with a serious reputation attached. The
-                        Irish/Scottish five piece have sold Fallen Empires, arrives with a serious over. Snow Patrol's
-                        new album, Fallen Empires, arrives with a serious reputation attached. The Irish/Scottish five
-                        piece have sold Fallen Empires, arrives with a serious over.
-                    </p>
-
-                    <div class="grid">
-                        <div class="grid__item desk--one-third lap--one-half palm--one-whole">
-                            <div class="blogdetail-galleryitem">
-                                <div class="blogdetail-scalebox">
-                                    <img src="/img/related-blog-2.png" class="blogdetail-scalebox-image">
-                                </div>
-                                <p class="blogdetail-text">Matthew on 'Hollyword' LA talk</p>
+                            <div class="blogdetail-quote">
+                                <p>
+                                    {{ block.contentText }}
+                                </p>
                             </div>
-                        </div>
 
-                        <div class="grid__item desk--one-third lap--one-half palm--one-whole">
-                            <div class="blogdetail-galleryitem">
-                                <div class="blogdetail-scalebox">
-                                    <img src="/img/related-blog-2.png" class="blogdetail-scalebox-image">
-                                </div>
-                                <p class="blogdetail-text">Matthew on 'Hollyword' LA talk</p>
+                        {% elseif block.type == "media" and block.contentMedia|length >=3 %}
+
+                            <div class="grid">
+                                {% for i in 0..2 %}
+                                    <div class="grid__item desk--one-third lap--one-half palm--one-whole">
+                                        <div class="blogdetail-galleryitem">
+                                            <div class="blogdetail-scalebox">
+                                                <img src="{{ block.contentMedia[i].url }}"
+                                                     alt="{{ block.contentMedia[i].description }}"
+                                                     class="blogdetail-scalebox-image">
+                                            </div>
+                                            <p class="blogdetail-text">{{ block.contentMedia[i].description }}</p>
+                                        </div>
+                                    </div>
+                                {% endfor %}
                             </div>
-                        </div>
 
-                        <div class="grid__item desk--one-third lap--one-half palm--one-whole">
-                            <div class="blogdetail-galleryitem">
-                                <div class="blogdetail-scalebox">
-                                    <img src="/img/related-blog-2.png" class="blogdetail-scalebox-image">
-                                </div>
-                                <p class="blogdetail-text">Matthew on 'Hollyword' LA talk</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <p>
-                        Snow Patrol's new album, Fallen Empires, arrives with a serious reputation attached. The
-                        Irish/Scottish five piece have sold Fallen Empires, arrives with a serious over. Snow Patrol's
-                        new album, Fallen Empires, arrives with a serious reputation attached. The Irish/Scottish five
-                        piece have sold Fallen Empires, arrives with a serious over.
-                    </p>
-
-                    <p>
-                        Snow Patrol's new album, Fallen Empires, arrives with a serious reputation attached. The
-                        Irish/Scottish five piece have sold Fallen Empires, arrives with a serious over. Snow Patrol's
-                        new album, Fallen Empires, arrives with a serious reputation attached. The Irish/Scottish five
-                        piece have sold Fallen Empires, arrives with a serious over.
-                    </p>
+                        {% endif %}
+                    {% endfor %}
 
                     <div class="blogdetail-tags">
                         <span class="blogdetail-tags-heading">
                             <i class="ion-pricetag"></i> Post Tags
                         </span>
                         <ul class="blogdetail-tags-list">
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
-                            <li><a href="#">performer</a></li>
+
+                            {% for tag in extension.excerpt.tags %}
+                                <li>
+                                    <a href="{{ link }}?tags={{ tag }}">
+                                        {{ tag }}
+                                    </a>
+                                </li>
+                            {% endfor %}
                         </ul>
                     </div>
 
@@ -184,17 +151,36 @@
                     </div>
 
                     <div class="blogdetail-posts">
-                        <div class="blogdetail-posts-item cf">
-                            <img src="/img/blog-share-1.png"/>
-                            <span class="blogdetail-posts-item-date">26.07.2016</span>
-                            <a href="#"><h5>Next Post: Best of the diffren affable Shrugged hummingbird </h5></a>
-                        </div>
 
+                    {% if lastAndPrevArticle.prev is defined %}
+                        {% set media = sulu_resolve_media(lastAndPrevArticle.prev.image.ids, request.locale) %}
                         <div class="blogdetail-posts-item cf">
-                            <img src="/img/blog-share-1.png"/>
-                            <span class="blogdetail-posts-item-date">26.07.2016</span>
-                            <a href="#"><h5>Next Post: Best of the diffren affable Shrugged hummingbird </h5></a>
+                            <img src="{{ media.url }}"/>
+                            <span class="blogdetail-posts-item-date">
+                                {{ lastAndPrevArticle.prev.creation.date|date("d.m.Y") }}
+                            </span>
+                            <a href="{{ lastAndPrevArticle.prev.url.value }}">
+                                <h5>
+                                    Last Article: {{ lastAndPrevArticle.prev.heading.value }}
+                                </h5>
+                            </a>
                         </div>
+                    {% endif %}
+
+                    {% if lastAndPrevArticle.next is defined %}
+                        {% set media = sulu_resolve_media(lastAndPrevArticle.next.image.ids, request.locale) %}
+                        <div class="blogdetail-posts-item cf">
+                            <img src="{{ media.url }}"/>
+                            <span class="blogdetail-posts-item-date">
+                                {{ lastAndPrevArticle.next.creation.date|date("d.m.Y") }}
+                            </span>
+                            <a href="{{ lastAndPrevArticle.next.url.value }}">
+                                <h5>
+                                    Next Article: {{ lastAndPrevArticle.next.heading.value }}
+                                </h5>
+                            </a>
+                        </div>
+                    {% endif %}
                     </div>
 
                     <h4 class="heading heading--h4--border">255 Comments</h4>

@@ -3,74 +3,61 @@
 {% block content %}
     {# header image #}
     {% include(':includes:headerimge.html.twig') with {
-        'imagesrc' : '/img/subheader1.jpg',
+        'imagesrc' : content.headerImage[0].url,
         'kind' : 'headerimage-text--left',
         'headingposition' : 'heading--left',
-        'heading' : 'Our Artists',
-        'text': 'New album, Fallen Empires, arrives with a serious reputation attached. The Irish/Scottish five piece have sold over.'
+        'heading' : content.headerHeading,
+        'text': content.headerSubheading
     } %}
 
     <section class="blog">
         <div class="grid">
             <div class="grid__item desk--four-fifths portable--one-whole">
                 <h4 class="heading--h4--border">Blog</h4>
-                <div class="grid">
-                    <div class="grid__item desk--four-tenths lap--one-third palm--one-whole">
-                        <img src="/img/blog-medi.png" class="blog-image"/>
-                    </div>
 
-                    <div class="grid__item desk--six-tenths lap--two-thirds palm--one-whole">
-                        <div class="blog-text">
-                            <p class="blog-text-date">25.06.2016</p>
+                {% for article in content.articles %}
+                    <div class="grid">
+                        <div class="grid__item desk--four-tenths lap--one-third palm--one-whole">
+                            <img src="{{ article.image[0].url }}" class="blog-image"/>
+                        </div>
 
-                            <h5 class="heading--h5">Diffren affable jeez and We More to and shrugged hummingbird </h5>
+                        <div class="grid__item desk--six-tenths lap--two-thirds palm--one-whole">
+                            <div class="blog-text">
+                                <p class="blog-text-date">{{ article.published.date|date("d.m.Y") }}</p>
 
-                            <span class="blog-text-subheading">
-                                posted by <a href="#">Admin</a>
-                                <i class="ion-ios-arrow-forward">
-                                    Music, Fun, Entertainment
-                                </i>
-                            </span>
+                                <h5 class="heading--h5">{{ article.heading }}</h5>
 
-                            <p>
-                                We More to and shrugged hummingbird broke since immeasurable morbidly Best of the
-                                diffren affable jeez and We More to and shrugged hummingbird broke since immeasurable
-                                morbidly diffren affable jeez and unlike naughty Be the orthis pointedly by in shrank.
-                            </p>
+                                <span class="blog-text-subheading">
+                                    posted by <a href="#">{{ sulu_resolve_user(article.changer).contact.fullName }}</a>
 
-                            <a href="#" class="blog-text-button">Read More</a>
+                                    {% if article.categories|length >0 %}
+                                        <i class="ion-ios-arrow-forward"></i>
+
+                                        {% for category in article.categories %}
+                                        {% if loop.index != article.categories|length %}
+                                            <a href="{{ link }}?categories={{ category.id }}"
+                                               class="blog-text-subheading-category">
+                                                    {{ category.name }},
+                                                </a>
+                                                    {% else %}
+                                            <a href="{{ link }}?categories={{ category.id }}"
+                                               class="blog-text-subheading-category">
+                                                    {{ category.name }}
+                                                </a>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% endif %}
+                                </span>
+
+                                <p>
+                                    {{ article.text }}
+                                </p>
+
+                                <a href="{{ article.url }}" class="blog-text-button">Read More</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="grid">
-                    <div class="grid__item desk--four-tenths lap--one-third palm--one-whole">
-                        <img src="/img/blog-medi.png" class="blog-image"/>
-                    </div>
-
-                    <div class="grid__item desk--six-tenths lap--two-thirds palm--one-whole">
-                        <div class="blog-text">
-                            <p class="blog-text-date">25.06.2016</p>
-
-                            <h5 class="heading--h5">Diffren affable jeez and We More to and shrugged hummingbird </h5>
-
-                            <span class="blog-text-subheading">
-                                posted by <a href="#">Admin</a>
-                                <i class="ion-ios-arrow-forward">
-                                    Music, Fun, Entertainment
-                                </i>
-                            </span>
-
-                            <p>
-                                We More to and shrugged hummingbird broke since immeasurable morbidly Best of the
-                                diffren affable jeez and We More to and shrugged hummingbird broke since immeasurable
-                                morbidly diffren affable jeez and unlike naughty Be the orthis pointedly by in shrank.
-                            </p>
-
-                            <a href="#" class="blog-text-button">Read More</a>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
 
             {# Sidemenu #}
