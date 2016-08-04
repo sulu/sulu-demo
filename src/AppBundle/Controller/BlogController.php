@@ -119,11 +119,9 @@ class BlogController extends WebsiteController
             if ($articles[$i]->getUuid() == $uuid) {
                 if(array_key_exists ( $i - 1 , $articles) && array_key_exists ( $i + 1 , $articles)) {
                     $result = array('prev' => $articles[$i - 1],'next' => $articles[$i+1]);
-                }
-                elseif (array_key_exists ( $i - 1 , $articles )) {
+                } elseif (array_key_exists ( $i - 1 , $articles )) {
                     $result = array('prev' => $articles[$i - 1]);
-                }
-                elseif (array_key_exists ( $i + 1 , $articles )) {
+                } elseif (array_key_exists ( $i + 1 , $articles )) {
                     $result = array('next' => $articles[$i + 1]);
                 }
             }
