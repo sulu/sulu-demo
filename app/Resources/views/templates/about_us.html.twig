@@ -1,222 +1,91 @@
 {% extends "master.html.twig" %}
 
 {% block content %}
-    <header class="about-header">
-        <div class="about-header-frame">
-            <h2 class="heading--h2">Discover us</h2>
 
-            <p>
-                New album, Fallen Empires, arrives with a serious reputation attached. The Irish/Scottish five piece
-                have sold over.
-            </p>
+    {% if content.headerImage[0] is defined %}
+        <header class="about-header" style="background-image: url({{ content.headerImage[0].url}});">
+            <div class="about-header-frame">
 
-            <div class="about-header-frame-video">
-                <iframe src="https://player.vimeo.com/video/25924530"
-                        frameborder="0"
-                        webkitallowfullscreen
-                        mozallowfullscreen
-                        allowfullscreen>
-                </iframe>
+                {% if content.headerHeading != "" %}
+                    <h2 class="heading--h2">Discover us</h2>
+                {% endif %}
+
+                {% if content.headerSubheading != "" %}
+                    <p>{{ content.headerSubheading }}</p>
+                {% endif %}
             </div>
-        </div>
-    </header>
+        </header>
+    {% endif %}
 
     <section class="about">
         <div class="about-gallery">
             <div class="grid">
-                <div class="grid__item desk--one-third lap--one-half palm--one-whole">
-                    <img src="/img/gallery1.jpg"/>
-                </div>
-
-                <div class="grid__item desk--one-third lap--one-half palm--one-whole">
-                    <img src="/img/gallery1.jpg"/>
-                </div>
-
-                <div class="grid__item desk--one-third lap--one-half palm--one-whole">
-                    <img src="/img/gallery1.jpg"/>
-                </div>
+                {% for image in content.images %}
+                    <div class="grid__item desk--one-third lap--one-half palm--one-whole">
+                        <img src="{{ image.url }}" title="{{ image.name }}"/>
+                    </div>
+                {% endfor %}
             </div>
         </div>
 
-        <div class="about-history">
-            <h2 class="heading--h2">Discover us</h2>
+        {% if content.tabsHeading != "" and content.tabsSubheading != "" and content.tabsText != "" %}
+            <div class="about-history">
+                <h2 class="heading--h2">{{ content.tabsHeading }}</h2>
 
-            <p class="about-history-subheading">
-                Arrives with a serious reputation attached. The Irish/Scottish five piece have sold over.
-            </p>
+                <p class="about-history-subheading">{{ content.tabsSubheading }}</p>
 
-            <p>
-                Queen formed in 1971 and in 1973 signed their first recording contract for EMI. That year they released
-                their first album, QUEEN. The same year saw their first major UK tour, and in 1974 they released QUEEN
-                II as well as making their first UK headlining tour. They made their first US tour, and in November
-                released SHEER HEART ATTACK which was a hit on both sides of the Atlantic.1975 saw their new release, A
-                NIGHT AT THE OPERA, and – significantly – the single Bohemian Rhapsody. At 5’ 55” it should have been
-                too long for successful radio play but it became one of the greatest singles of all time, staying at No.
-                1 in the UK chart for nine weeks. The video, directed by Bruce Gowers, is credited with being the first
-                genuine promotional video. The song has regularly featured in all major pop polls and was recently named
-                again as the best single of all time. The success of A NIGHT AT THE OPERA was equally stunning, giving
-                the band their first platinum album.
-            </p>
+                {{ content.tabsText|raw }}
 
-            <p>
-                In 1976 they toured the US and Japan and by spring all four albums resided in the UK Top Twenty. Later
-                that year they released A DAY AT THE RACES, and gave a free concert in Hyde Park to an estimated crowd
-                of 200,000 fans. The album was a huge success, advance orders alone amounting to over 500,000. The
-                following year saw two major US tours, the band’s sixth album, NEWS OF THE WORLD and the legendary
-                double A side single.
-            </p>
 
-            <div class="about-history-tabs">
-                <ul class="about-history-tabs-links">
-                    <li class="active"><a href="#about-history-tabs-content-tab1">Our History</a></li>
-                    <li><a href="#about-history-tabs-content-tab2">Our Legacy</a></li>
-                    <li><a href="#about-history-tabs-content-tab3">Our Team</a></li>
-                    <li><a href="#about-history-tabs-content-tab4">Our Challanges</a></li>
-                </ul>
+                <div class="about-history-tabs">
+                    <ul class="about-history-tabs-links">
 
-                <div class="about-history-tabs-content">
-                    <div id="about-history-tabs-content-tab1" class="about-history-tabs-content-tab active">
-                        <div class="about-history-tabs-content-tab-heading">
-                            <p>
-                                Arrives with a serious over. Snow Patrol's new album, Fallen Empires, arrives with a
-                                serious reputation best The Irish/Scottish five piece have sold Fallen Empires,
-                                arrives with a serious over.
-                            </p>
-                        </div>
+                        {% for tab in content.tabs %}
+                            {% if loop.index == 1 %}
+                                <li class="active">
+                            {% else %}
+                                <li>
+                            {% endif %}
+                                    {% if content.tabs|length >= 3 and (loop.index == 2 or loop.index == 1) %}
+                                        <style>
+                                            @media (max-width: 680px) {
+                                                #about-history-tabs-links-{{ loop.index }}::before{
+                                                    height: 0px;
+                                                }
+                                            }
+                                        </style>
+                                    {% endif %}
+                                    <a id="about-history-tabs-links-{{ loop.index }}"
+                                       href="#about-history-tabs-content-tab{{ loop.index }}">
+                                        {{ tab.tabName }}
+                                    </a>
+                                </li>
 
-                        <div class="about-history-tabs-content-tab-text">
-                            <p>
-                                Queen formed in 1971 and in 1973 signed their first recording contract for EMI. That
-                                year they released their first album, QUEEN. The same year saw their first major UK
-                                tour, and in 1974 they released QUEEN II as well as making their first UK headlining
-                                tour. They made their first US tour, and in November released SHEER HEART ATTACK which
-                                was a hit on both sides of the Atlantic.1975 saw their new release, A NIGHT AT THE
-                                OPERA, and – significantly – the single Bohemian Rhapsody. At 5’ 55” it should have been
-                                too long for successful radio play but it became one of the greatest singles of all
-                                time, staying at No. 1 in the UK chart for nine weeks. The video, directed by Bruce
-                                Gowers, is credited with being the first genuine promotional video. The song has
-                                regularly featured in all major pop polls and was recently named again as the best
-                                single of all time. The success of A NIGHT AT THE OPERA was equally stunning, giving the
-                                band their first platinum album.
-                            </p>
+                        {% endfor %}
 
-                            <p>
-                                In 1976 they toured the US and Japan and by spring all four albums resided in the UK Top
-                                Twenty. Later that year they released A DAY AT THE RACES, and gave a free concert in
-                                Hyde Park to an estimated crowd of 200,000 fans. The album was a huge success, advance
-                                orders alone amounting to over 500,000. The following year saw two major US tours, the
-                                band’s sixth album, NEWS OF THE WORLD and the legendary double A side single.
-                            </p>
-                        </div>
-                    </div>
+                    </ul>
 
-                    <div id="about-history-tabs-content-tab2" class="about-history-tabs-content-tab">
-                        <div class="about-history-tabs-content-tab-heading">
-                            <p>
-                                Arrives with a serious over. Snow Patrol's new album, Fallen Empires, arrives with a
-                                serious reputation best The Irish/Scottish five piece have sold Fallen Empires,
-                                arrives with a serious over.
-                            </p>
-                        </div>
+                    <div class="about-history-tabs-content">
+                        {% for tab in content.tabs %}
 
-                        <div class="about-history-tabs-content-tab-text">
-                            <p>
-                                Queen formed in 1971 and in 1973 signed their first recording contract for EMI. That
-                                year they released their first album, QUEEN. The same year saw their first major UK
-                                tour, and in 1974 they released QUEEN II as well as making their first UK headlining
-                                tour. They made their first US tour, and in November released SHEER HEART ATTACK which
-                                was a hit on both sides of the Atlantic.1975 saw their new release, A NIGHT AT THE
-                                OPERA, and – significantly – the single Bohemian Rhapsody. At 5’ 55” it should have been
-                                too long for successful radio play but it became one of the greatest singles of all
-                                time, staying at No. 1 in the UK chart for nine weeks. The video, directed by Bruce
-                                Gowers, is credited with being the first genuine promotional video. The song has
-                                regularly featured in all major pop polls and was recently named again as the best
-                                single of all time. The success of A NIGHT AT THE OPERA was equally stunning, giving the
-                                band their first platinum album.
-                            </p>
+                            {% if loop.index == 1 %}
+                                <div id="about-history-tabs-content-tab{{ loop.index }}" class="about-history-tabs-content-tab active">
+                            {% else %}
+                                <div id="about-history-tabs-content-tab{{ loop.index }}" class="about-history-tabs-content-tab">
+                            {% endif %}
+                                    <div class="about-history-tabs-content-tab-heading">
+                                        {{ tab.heading }}
+                                    </div>
 
-                            <p>
-                                In 1976 they toured the US and Japan and by spring all four albums resided in the UK Top
-                                Twenty. Later that year they released A DAY AT THE RACES, and gave a free concert in
-                                Hyde Park to an estimated crowd of 200,000 fans. The album was a huge success, advance
-                                orders alone amounting to over 500,000. The following year saw two major US tours, the
-                                band’s sixth album, NEWS OF THE WORLD and the legendary double A side single.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div id="about-history-tabs-content-tab3" class="about-history-tabs-content-tab">
-                        <div class="about-history-tabs-content-tab-heading">
-                            <p>
-                                Arrives with a serious over. Snow Patrol's new album, Fallen Empires, arrives with a
-                                serious reputation best The Irish/Scottish five piece have sold Fallen Empires,
-                                arrives with a serious over.
-                            </p>
-                        </div>
-
-                        <div class="about-history-tabs-content-tab-text">
-                            <p>
-                                Queen formed in 1971 and in 1973 signed their first recording contract for EMI. That
-                                year they released their first album, QUEEN. The same year saw their first major UK
-                                tour, and in 1974 they released QUEEN II as well as making their first UK headlining
-                                tour. They made their first US tour, and in November released SHEER HEART ATTACK which
-                                was a hit on both sides of the Atlantic.1975 saw their new release, A NIGHT AT THE
-                                OPERA, and – significantly – the single Bohemian Rhapsody. At 5’ 55” it should have been
-                                too long for successful radio play but it became one of the greatest singles of all
-                                time, staying at No. 1 in the UK chart for nine weeks. The video, directed by Bruce
-                                Gowers, is credited with being the first genuine promotional video. The song has
-                                regularly featured in all major pop polls and was recently named again as the best
-                                single of all time. The success of A NIGHT AT THE OPERA was equally stunning, giving the
-                                band their first platinum album.
-                            </p>
-
-                            <p>
-                                In 1976 they toured the US and Japan and by spring all four albums resided in the UK Top
-                                Twenty. Later that year they released A DAY AT THE RACES, and gave a free concert in
-                                Hyde Park to an estimated crowd of 200,000 fans. The album was a huge success, advance
-                                orders alone amounting to over 500,000. The following year saw two major US tours, the
-                                band’s sixth album, NEWS OF THE WORLD and the legendary double A side single.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div id="about-history-tabs-content-tab4" class="about-history-tabs-content-tab">
-                        <div class="about-history-tabs-content-tab-heading">
-                            <p>
-                                Arrives with a serious over. Snow Patrol's new album, Fallen Empires, arrives with a
-                                serious reputation best The Irish/Scottish five piece have sold Fallen Empires,
-                                arrives with a serious over.
-                            </p>
-                        </div>
-
-                        <div class="about-history-tabs-content-tab-text">
-                            <p>
-                                Queen formed in 1971 and in 1973 signed their first recording contract for EMI. That
-                                year they released their first album, QUEEN. The same year saw their first major UK
-                                tour, and in 1974 they released QUEEN II as well as making their first UK headlining
-                                tour. They made their first US tour, and in November released SHEER HEART ATTACK which
-                                was a hit on both sides of the Atlantic.1975 saw their new release, A NIGHT AT THE
-                                OPERA, and – significantly – the single Bohemian Rhapsody. At 5’ 55” it should have been
-                                too long for successful radio play but it became one of the greatest singles of all
-                                time, staying at No. 1 in the UK chart for nine weeks. The video, directed by Bruce
-                                Gowers, is credited with being the first genuine promotional video. The song has
-                                regularly featured in all major pop polls and was recently named again as the best
-                                single of all time. The success of A NIGHT AT THE OPERA was equally stunning, giving the
-                                band their first platinum album.
-                            </p>
-
-                            <p>
-                                In 1976 they toured the US and Japan and by spring all four albums resided in the UK Top
-                                Twenty. Later that year they released A DAY AT THE RACES, and gave a free concert in
-                                Hyde Park to an estimated crowd of 200,000 fans. The album was a huge success, advance
-                                orders alone amounting to over 500,000. The following year saw two major US tours, the
-                                band’s sixth album, NEWS OF THE WORLD and the legendary double A side single.
-                            </p>
-                        </div>
+                                    <div class="about-history-tabs-content-tab-text">
+                                        {{ tab.text|raw }}
+                                    </div>
+                                </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
-        </div>
+        {% endif %}
     </section>
 
     <div class="about-numbers js-numbers">
@@ -249,18 +118,28 @@
         </div>
     </div>
 
-    {# Team #}
-    {% include(':includes:team.html.twig')  with {
-        "background" : "nobackground",
-        "kind" : "heading--h2"
-    } %}
 
-    {# for Booking #}
-    {% include(':includes:forbooking.html.twig') with{
-        "frame" : "forbooking--frame",
-        "imagepath" : "/img/bg-cell.jpg"
-    } %}
+    {{ dump(content) }}
 
-    {# Partners #}
-    {% include(':includes:partner.html.twig') %}
+    {% if content.artistsBackground[0] is defined and content.artistsData[0] is defined %}
+        {# Artists #}
+        {% include('includes/team.html.twig') with {
+            "artists" : content,
+            "background": "imagebackground",
+            "backgroundImageUrl": content.artistsBackground[0].url,
+            "kind" : "heading--h2--border"
+        } %}
+    {% endif %}
+
+    {% for item in content.action %}
+        {%  if item.title != "" and item.text != "" and item.image is defined and item.link != "" %}
+            {# for booking #}
+            {% include(':includes:forbooking.html.twig') with{
+            "action" : item
+            } %}
+        {% endif %}
+    {% endfor %}
+
+        {# Partners #}{#
+        {% include(':includes:partner.html.twig') %}#}
 {% endblock %}

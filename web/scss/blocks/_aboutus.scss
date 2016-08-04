@@ -3,7 +3,6 @@
     margin: 0 auto;
 
     &-header {
-        background-image: url('/img/bg-discover.jpg');
         background-size: cover;
 
         &-frame {
@@ -196,10 +195,7 @@
         width: 50%;
         margin-top: 15px;
     }
-
-    .about-history-tabs-links li:first-of-type a::before,
-    .about-history-tabs-links li:nth-of-type(2) a::before {
-        height: 0px;
-    }
-
 }
+
+
+
