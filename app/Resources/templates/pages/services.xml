@@ -167,7 +167,7 @@
                                     </params>
                                 </property>
 
-                                <property name="heading" type="text_area">
+                                <property name="heading" type="text_line">
                                     <meta>
                                         <title lang="en">Heading</title>
                                         <title lang="de">Überschrift</title>
@@ -185,7 +185,7 @@
                     </types>
                 </block>
 
-                <property name="locationsHeading" type="text_area">
+                <property name="locationsHeading" type="text_line">
                     <meta>
                         <title lang="en">Heading</title>
                         <title lang="de">Überschrift</title>
@@ -194,8 +194,8 @@
 
                 <property name="locationsSubheading" type="text_area">
                     <meta>
-                        <title lang="en">Heading</title>
-                        <title lang="de">Überschrift</title>
+                        <title lang="en">Subheading</title>
+                        <title lang="de">Unter Überschrift</title>
                     </meta>
                 </property>
 
@@ -289,7 +289,7 @@
                                     </params>
                                 </property>
 
-                                <property name="heading" type="text_area">
+                                <property name="heading" type="text_line">
                                     <meta>
                                         <title lang="en">Heading</title>
                                         <title lang="de">Überschrift</title>

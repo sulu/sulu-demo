@@ -27,6 +27,13 @@
             </meta>
         </property>
 
+        <property name="image" type="media_selection">
+            <meta>
+                <title lang="en">Image</title>
+                <title lang="de">image</title>
+            </meta>
+        </property>
+
         <property name="link" type="single_internal_link">
             <meta>
                 <title lang="en">Link</title>
