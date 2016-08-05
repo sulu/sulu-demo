@@ -19,11 +19,7 @@
                 <span class="news-item-text-category">
                     <i class="ion-ios-arrow-forward">
                         {% for category in item.categories %}
-                            {% if loop.index != item.categories|length %}
-                                {{ category.name }},
-                            {% else %}
-                                {{ category.name }}
-                            {% endif %}
+                            {{ category.name ~ (not loop.last ? ',' : '') }}
                         {% endfor %}
                     </i>
                 </span>

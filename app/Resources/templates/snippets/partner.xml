@@ -27,7 +27,7 @@
             </meta>
 
             <params>
-                <param name="types" value="image,video"/>
+                <param name="types" value="image"/>
             </params>
         </property>
     </properties>

@@ -61,7 +61,14 @@
                             </meta>
 
                             <properties>
-                                <property name="biographyHeading" type="text_area">
+                                <property name="biographyTitle" type="text_line">
+                                    <meta>
+                                        <title lang="en">Title</title>
+                                        <title lang="de">Titel</title>
+                                    </meta>
+                                </property>
+
+                                <property name="biographyHeading" type="text_line">
                                     <meta>
                                         <title lang="en">Heading</title>
                                         <title lang="de">Überschrift</title>
@@ -82,7 +89,7 @@
                                     </meta>
 
                                     <params>
-                                        <param name="types" value="image,video"/>
+                                        <param name="types" value="image"/>
                                     </params>
                                 </property>
 
@@ -102,6 +109,13 @@
                             </meta>
 
                             <properties>
+                                <property name="discographyTitle" type="text_line">
+                                    <meta>
+                                        <title lang="en">Title</title>
+                                        <title lang="de">Titel</title>
+                                    </meta>
+                                </property>
+
                                 <property name="discographyHeading" type="text_area">
                                     <meta>
                                         <title lang="en">Heading</title>
@@ -134,6 +148,13 @@
                             </meta>
 
                             <properties>
+                                <property name="artistsTitle" type="text_line">
+                                    <meta>
+                                        <title lang="en">Title</title>
+                                        <title lang="de">Titel</title>
+                                    </meta>
+                                </property>
+
                                 <property name="artistsBackground" type="media_selection">
                                     <meta>
                                         <title lang="en">Background</title>
@@ -141,7 +162,7 @@
                                     </meta>
 
                                     <params>
-                                        <param name="types" value="image,video"/>
+                                        <param name="types" value="image"/>
                                     </params>
                                 </property>
 
