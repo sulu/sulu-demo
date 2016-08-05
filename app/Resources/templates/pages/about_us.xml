@@ -161,6 +161,13 @@
             </meta>
 
             <properties>
+                <property name="artistsTitle" type="text_line">
+                    <meta>
+                        <title lang="en">Tab Name</title>
+                        <title lang="de">Name des Tabs</title>
+                    </meta>
+                </property>
+
                 <property name="artistsBackground" type="media_selection">
                     <meta>
                         <title lang="en">Background</title>

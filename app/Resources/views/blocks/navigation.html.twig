@@ -19,6 +19,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
+
             {% for item in sulu_navigation_root_tree('main') %}
                 <li>
                     <a href="{{ sulu_content_path(item.url) }}"
@@ -27,15 +28,14 @@
                     </a>
                 </li>
             {% endfor %}
+
             <li>
+
                 {% if request.locale == "de" %}
-                    <a href="/en">
-                        en
-                    </a>
+                    <a href="/en">en</a>
+
                 {% else %}
-                    <a href="/de">
-                        de
-                    </a>
+                    <a href="/de">de</a>
                 {% endif %}
             </li>
         </ul>

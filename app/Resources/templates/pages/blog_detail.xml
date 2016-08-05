@@ -151,6 +151,9 @@
                                 <title lang="en">Media</title>
                                 <title lang="de">Medien</title>
                             </meta>
+                            <params>
+                                <param name="types" value="image"/>
+                            </params>
                         </property>
                     </properties>
                 </type>

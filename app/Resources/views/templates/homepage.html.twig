@@ -7,25 +7,25 @@
 
     {% for item in content.blocks %}
         {% if item.type == "biography" %}
-            {# Biography #}
+
             {% include('includes/biography.html.twig') with{
                 "biography" : item
             } %}
 
         {% elseif item.type == "discography" %}
-            {# Discography #}
+
             {% include('includes/discography.html.twig') with {
                 "discography" : item
             } %}
 
         {% elseif item.type == "news" %}
-            {# News #}
+
             {% include('includes/news.html.twig') with {
                 "news" : item
             } %}
 
         {% elseif item.type == "artists" %}
-            {# Artists #}
+
             {% include('includes/team.html.twig') with {
                 "artists" : item,
                 "background": "imagebackground",
@@ -34,7 +34,7 @@
             } %}
 
         {% elseif item.type == "partner" %}
-            {# Partner #}
+
             {% include('includes/partner.html.twig') with{
                 "partner" : item
             } %}

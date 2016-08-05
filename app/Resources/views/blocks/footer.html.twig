@@ -13,6 +13,7 @@
             <div class="grid__item desk--two-tenths lap--four-tenths">
                 <div class="footer-elem">
                     <h6 class="heading--h6">quick links</h6>
+
                     {% for item in sulu_navigation_root_tree('footer') %}
                         <a href="{{ sulu_content_path(item.url) }}"
                            title="{{ item.title }}">
