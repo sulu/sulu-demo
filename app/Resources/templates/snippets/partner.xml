@@ -25,6 +25,10 @@
                 <title lang="en">Images</title>
                 <title lang="de">Bilder</title>
             </meta>
+
+            <params>
+                <param name="types" value="image,video"/>
+            </params>
         </property>
     </properties>
 </template>

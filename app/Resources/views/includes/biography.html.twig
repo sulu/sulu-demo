@@ -3,21 +3,26 @@
         <div class="grid__item desk--one-half">
             <div class="biography-text">
                 <h2 class="heading--h2--border">
+
                     {% if request.locale == "en" %}
                         Biography
                     {% else %}
                         Biographie
                     {% endif %}
                 </h2>
+
                 <h3 class="heading--h3">
                     {{ biography.biographyHeading }}
                 </h3>
+
                 {{ biography.biographyText|raw }}
+
                 <a class="biography-text-button" href="{{ sulu_content_load(biography.biographyLink).path }}">
                     Read More
                 </a>
             </div>
         </div>
+
         <img class="biography-image grid__item desk--one-half" src="{{ biography.biographyImage[0].url }}"/>
     </div>
 </section>

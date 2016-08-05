@@ -40,22 +40,6 @@
             </properties>
         </section>
 
-        <section name="slider">
-            <meta>
-                <title lang="de">Slider</title>
-                <title lang="en">Slider</title>
-            </meta>
-
-            <properties>
-                <property name="slides" type="media_selection">
-                    <meta>
-                        <title lang="en">Slides</title>
-                        <title lang="de">Slides</title>
-                    </meta>
-                </property>
-            </properties>
-        </section>
-
         <section name="blocks">
             <meta>
                 <title lang="de">Blöcke</title>
@@ -96,6 +80,10 @@
                                         <title lang="en">Image</title>
                                         <title lang="de">Bild</title>
                                     </meta>
+
+                                    <params>
+                                        <param name="types" value="image,video"/>
+                                    </params>
                                 </property>
 
                                 <property name="biographyLink" type="single_internal_link">
@@ -151,6 +139,10 @@
                                         <title lang="en">Background</title>
                                         <title lang="de">Hindergrundbild</title>
                                     </meta>
+
+                                    <params>
+                                        <param name="types" value="image,video"/>
+                                    </params>
                                 </property>
 
                                 <property name="artistsData" type="smart_content">
@@ -215,8 +207,6 @@
                                 </property>
                             </properties>
                         </type>
-
-
                     </types>
                 </block>
             </properties>

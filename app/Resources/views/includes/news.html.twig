@@ -2,15 +2,20 @@
     <h2 class="news-heading heading--h2--border">
         News
     </h2>
+
     {% for item in news.newsData %}
         <div class="news-item" onclick="location.href='{{ item.url }}'">
             <img class="news-item-image" src="{{ item.image[0].url }}">
+
             <div class="news-item-text">
                 by <a href="#">{{ sulu_resolve_user(item.creator).contact.fullName }}</a>
+
                 <h3 class="heading--h3">{{ item.heading }}</h3>
+
                 <span class="news-item-text-date">
                     <i class="ion-ios-arrow-forward"></i> {{ item.published.date|date("d.m.Y") }}
                 </span>
+
                 <span class="news-item-text-category">
                     <i class="ion-ios-arrow-forward">
                         {% for category in item.categories %}
