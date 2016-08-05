@@ -1,11 +1,7 @@
 <section class="discography">
     <div class="discography-frame">
         <h2 class="discography-frame-heading heading--h2--border">
-            {% if request.locale == "en" %}
-                Discography
-            {% else %}
-                Discographie
-            {% endif %}
+            {{ discography.discographyTitle }}
         </h2>
         <p>{{ discography.discographyHeading }}</p>
         <div class="grid">
@@ -13,16 +9,23 @@
                 {% for category in item.categories if category.key == "discography" %}
                     <div class="grid__item desk--one-third lap--one-half palm--one-whole">
                         <div class="discography-frame-collum">
-                            <img class="discography-frame-collum-image" src="{{ item.image[0].url }}"/>
+                            {% if item.image|length > 0 %}
+                                <img class="discography-frame-collum-image" src="{{ item.image[0].url }}"/>
+                            {% endif %}
+
                             {% for c in item.categories %}
                                 <a href="{{ sulu_content_load(item.parent).urls[request.locale] }}?category={{ c.id }}">
                                     {{ c.name }}
                                 </a>
                             {% endfor %}
+
                             <h5 class="heading--h5">
                                 <a href="{{ item.url }}">{{ item.heading }}</a>
                             </h5>
-                            <a href="{{ item.url }}" class="discography-frame-collum-button">Read More</a>
+
+                            <a href="{{ item.url }}" class="discography-frame-collum-button">
+                                Read More
+                            </a>
                         </div>
                     </div>
                 {% endfor %}
