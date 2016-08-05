@@ -1,0 +1,16 @@
+<ul class="sidemap-item-list">
+    <li>
+        {% if base == "false" %}
+            <i class="ion-ios-arrow-forward"></i>
+            <a href="{{ child.url }}">{{ child.title }}</a>
+        {% endif %}
+        {% if child.children[0] is defined %}
+            {% for item in child.children %}
+                {% include(':includes:sitemap_list.html.twig') with {
+                    "child" : item,
+                    "base" : "false"
+                } %}
+            {% endfor %}
+        {% endif %}
+    </li>
+</ul>

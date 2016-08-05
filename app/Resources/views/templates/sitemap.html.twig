@@ -1,132 +1,24 @@
 {% extends "master.html.twig" %}
 
 {% block content %}
-    {# headerimage #}
-    {% include(':includes:headerimge.html.twig') with {
-        'imagesrc' : '/img/Sitemap_banner.png',
-        'kind' : 'headerimage-text--middle-middle',
-        'headingposition' : 'heading--middle',
-        'heading' : 'Sitemap',
-        'text': 'New album, Fallen Empires, arrives with a serious reputation attached. The Irish/Scottish five piece have sold over.'
-    } %}
-
     <section class="sidemap">
         <h4 class="title heading--h4--border">Sitemap</h4>
         <div class="grid">
-            <div class="grid__item desk--one-quarter lap--one-half palm--one-whole">
-                <div class="sidemap-item">
-                    <h5 class="sidemap-item-subtitle heading--h5">Desk References</h5>
-                    <ul class="sidemap-item-list">
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                    </ul>
 
-                    <h5 class="sidemap-item-subtitle heading--h5">References</h5>
-                    <ul class="sidemap-item-list">
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                    </ul>
+            {% for site in sulu_sitemap().children %}
+                <div class="grid__item desk--one-quarter lap--one-half palm--one-whole">
+                    <div class="sidemap-item">
+                        <h5 class="sidemap-item-subtitle heading--h5"><a href="{{ site.path }}">{{ site.title }}</a></h5>
+
+                        {% if site.children[0] is defined %}
+                            {% include(':includes:sitemap_list.html.twig') with {
+                                "child" : site,
+                                "base" : "true"
+                            } %}
+                        {% endif %}
+                    </div>
                 </div>
-            </div>
-
-            <div class="grid__item desk--one-quarter lap--one-half palm--one-whole">
-                <div class="sidemap-item">
-                    <h5 class="sidemap-item-subtitle heading--h5">Desk References</h5>
-                    <ul class="sidemap-item-list">
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                    </ul>
-
-                    <h5 class="sidemap-item-subtitle heading--h5">References</h5>
-                    <ul class="sidemap-item-list">
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="grid__item desk--one-quarter lap--one-half palm--one-whole">
-                <div class="sidemap-item">
-                    <h5 class="sidemap-item-subtitle heading--h5">Desk References</h5>
-                    <ul class="sidemap-item-list">
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="grid__item desk--one-quarter lap--one-half palm--one-whole">
-                <div class="sidemap-item">
-                    <h5 class="sidemap-item-subtitle heading--h5">Desk References</h5>
-                    <ul class="sidemap-item-list">
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                    </ul>
-
-                    <h5 class="sidemap-item-subtitle heading--h5">References</h5>
-                    <ul class="sidemap-item-list">
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                        <li><i class="ion-ios-arrow-forward"></i> <a href="#">Overview</a></li>
-                    </ul>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </section>
 {% endblock %}
