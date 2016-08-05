@@ -135,6 +135,11 @@ dubture_f_fmpeg:
     binary_timeout: 300 # Use 0 for infinite
     threads_count: 4
 
+sulu_snippet:
+    types:
+        snippet:
+            default_enabled: true
+
 # Just a dirty hack to get the jms serializer bundle correctly working
 # https://github.com/schmittjoh/JMSSerializerBundle/pull/270#issuecomment-21171800
 services:
