@@ -20,6 +20,10 @@
             li {
                 list-style-type: none;
 
+                >ul{
+                    padding-left: 20px;
+                }
+
                 i,
                 a {
                     padding: 7px 5px;
