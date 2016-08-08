@@ -6,7 +6,7 @@
 
         {% for artist in artists.artistsData %}
             <div class="grid__item desk--one-third team-member lap--one-half palm--one-whole">
-                <img class="team-member-image" src="{{ artist.image[0].url }}"/>
+                <img class="team-member-image" src="{{ artist.image[0].formats['400x400'] }}"/>
 
                 <span class="team-member-socials">
                     <i class="team-member-socials-twitter ion-social-twitter" onclick="location.href='#'"></i>

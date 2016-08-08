@@ -9,6 +9,7 @@
 
         .slick-list{
             height:130px;
+            border-right: 1px solid $colorblack--lighter03;
         }
 
         .slick-prev,
@@ -38,10 +39,5 @@
     .partner {
         padding-left: 20px;
         padding-right: 20px;
-
-
-        .slick-list{
-            border-right: 1px solid $colorblack--lighter03;
-        }
     }
 }

@@ -2,7 +2,9 @@
     <aside class="blog-sidemenu">
         <div class="grid">
             <div class="grid__item desk--one-whole lap--one-half palm--one-whole">
-                <h2 class="blog-sidemenu-heading">Our Artists</h2>
+                <h2 class="blog-sidemenu-heading">
+                    {{ request.locale == "en" ? "Categories" : "Kategorien" }}
+                </h2>
 
                 <ul class="blog-sidemenu-list">
                     <li>
