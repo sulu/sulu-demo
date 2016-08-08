@@ -187,15 +187,14 @@
     }
 }
 
-@media (max-width: 480px){
+@media (max-width: 480px) {
     .services-carousel {
         &-item {
-            p{
+            p {
                 margin-top: 80px;
             }
 
             &-line {
-
                 display: none;
             }
 
@@ -210,6 +209,4 @@
             }
         }
     }
-
-
 }

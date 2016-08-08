@@ -56,7 +56,7 @@
     {% for item in content.action %}
         {%  if item.title != "" and item.text != "" and item.image is defined and item.link != "" %}
             {# for booking #}
-            {% include(':includes:forbooking.html.twig') with{
+            {% include(':includes:forbooking.html.twig') with {
                 "action" : item
             } %}
         {% endif %}
@@ -66,22 +66,23 @@
         <div class="services-carousel js-services-carousel" data-slick='{"slidesToShow": 1, "slidesToScroll": 1}'>
             {% for quote in content.quotes  %}
                 {% if quote.contact[0] is defined %}
-                    {% if quote.contact[0].notes[0] is defined %}
+                    {% set contact = quote.contact[0] %}
+                    {% if contact.notes[0] is defined %}
                         <div class="services-carousel-item">
                             <div class="services-carousel-item-line"></div>
-                            {% if quote.contact[0].avatar is defined %}
-                                <img src="{{ quote.contact[0].avatar.url }}"/>
+                            {% if contact.avatar is defined %}
+                                <img src="{{ contact.avatar.url }}"/>
                             {% endif %}
 
                             <p>
-                                {{ quote.contact[0].notes[0].value }}
+                                {{ contact.notes[0].value }}
                             </p>
 
-                            <span class="services-carousel-item-author">{{ quote.contact[0].fullName }}</span>
+                            <span class="services-carousel-item-author">{{ contact.fullName }}</span>
 
-                            {% if quote.contact[0].account[0] is defined %}
+                            {% if contact.account[0] is defined %}
                                 <span class="services-carousel-item-corporation">
-                                    {{ quote.contact[0].account[0].name }}
+                                    {{ contact.account[0].name }}
                                 </span>
                             {% endif %}
                         </div>
