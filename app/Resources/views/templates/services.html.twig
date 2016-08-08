@@ -54,7 +54,7 @@
     </section>
 
     {% for item in content.action %}
-        {%  if item.title != "" and item.text != "" and item.image is defined and item.link != "" %}
+        {% if item.title|default('') and item.image|default([]) and item.link|default('') %}
             {# for booking #}
             {% include(':includes:forbooking.html.twig') with {
                 "action" : item
