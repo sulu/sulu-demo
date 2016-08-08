@@ -10,6 +10,7 @@
         'heading' : content.headerHeading,
         'text': content.headerSubheading
     } %}
+
     <section class="artist">
         <div class="grid">
             <div class="grid__item desk--four-fifths portable--one-whole">
@@ -70,7 +71,17 @@
 
             <div class="grid__item desk--one-fifth">
                 <aside class="artist-sidemenu">
-                    <h2 class="artist-sidemenu-heading">Our Artists</h2>
+                    <h2 class="artist-sidemenu-heading">
+                        {% set isdiscography = "false" %}
+
+                        {% for category in extension.excerpt.categories %}
+                            {% if category.key == "discography" %}
+                                {% set isdiscography = "true" %}
+                            {% endif %}
+                        {% endfor %}
+                        
+                        {{ isdiscography == "true" ? "Our Albums" : "Our Artists" }}
+                    </h2>
                     <ul class="artist-sidemenu-list">
                         {% for artist in artists|sulu_util_multisort('[title]', 'asc') %}
                             <li>

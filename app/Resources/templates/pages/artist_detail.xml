@@ -162,7 +162,7 @@
                     </meta>
 
                     <properties>
-                        <property name="discographyTitle" type="text_line" mandatory="true">
+                        <property name="discographyTitle" type="text_line">
                             <meta>
                                 <title lang="en">Heading</title>
                                 <title lang="de">Überschrift</title>
