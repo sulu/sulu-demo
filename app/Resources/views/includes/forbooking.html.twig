@@ -1,6 +1,23 @@
 <section class="forbooking {{ frame|default('') }}">
-    <img src="{{ action.image[0].url }}" alt="{{ action.image[0].title }}" class="forbooking-image"/>
-    
+    <picture>
+        <source media="(min-width: 1024px)"
+                srcset="{{ action.image[0].thumbnails['1600x'] }}"
+                class="forbooking-image">
+
+        <source media="(min-width: 481px) and (max-width: 1023px)"
+                srcset="{{ action.image[0].thumbnails['800x300'] }}"
+                class="forbooking-image">
+
+        <source media="(max-width: 480px)"
+                srcset="{{ action.image[0].thumbnails['480x300'] }}"
+                class="forbooking-image">
+
+        <!---Fallback--->
+        <img src="{{ action.image[0].thumbnails['1600x'] }}"
+             alt="{{ action.image[0].title }}"
+             class="forbooking-image"/>
+    </picture>
+
     <div class="forbooking-text">
         <h2 class="heading--h2">{{ action.title }}</h2>
 

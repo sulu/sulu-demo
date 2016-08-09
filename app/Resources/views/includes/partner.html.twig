@@ -7,7 +7,7 @@
         {% for item in partner.partnerData %}
             {% for image in item.images %}
                 <div class="partner-carousel-item">
-                    <img src="{{ image.url }}" alt="{{ image.name }}">
+                    <img src="{{ image.thumbnails['140x70'] }}" alt="{{ image.name }}">
                 </div>
             {% endfor %}
         {% endfor %}
