@@ -1,5 +1,22 @@
 {% extends "master.html.twig" %}
 
+{% macro recursiveSitemap(child, base) %}
+    {% if base == "false" %}
+        <i class="ion-ios-arrow-forward"></i>
+        <a href="{{ child.url }}">{{ child.title }}</a>
+    {% endif %}
+
+    {% if child.children|length %}
+        <ul class="sidemap-item-list">
+            {% for item in child.children %}
+                <li>
+                    {{ _self.recursiveSitemap(item, "false") }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endmacro %}
+
 {% block content %}
     <section class="sidemap">
         <h4 class="title heading--h4--border">Sitemap</h4>
@@ -9,11 +26,8 @@
                     <div class="sidemap-item">
                         <h5 class="sidemap-item-subtitle heading--h5"><a href="{{ site.path }}">{{ site.title }}</a></h5>
 
-                        {% if site.children[0] is defined %}
-                            {% include(':includes:sitemap_list.html.twig') with {
-                                "child" : site,
-                                "base" : "true"
-                            } %}
+                        {% if site.children|length %}
+                            {{ _self.recursiveSitemap(site, "true") }}
                         {% endif %}
                     </div>
                 </div>
