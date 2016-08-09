@@ -1,14 +1,15 @@
 {% extends "master.html.twig" %}
 
 {% block content %}
-    {# header image #}
-    {% include(':includes:headerimge.html.twig') with {
-        'imagesrc' : content.headerImage[0].thumbnails['1600x'],
-        'kind' : 'headerimage-text--left',
-        'headingposition' : 'heading--left',
-        'heading' : content.headerHeading,
-        'text': content.headerSubheading
-    } %}
+    {% if content.headerImage|length %}
+        {% include(':includes:headerimage.html.twig') with {
+            'image' : content.headerImage[0],
+            'kind' : 'headerimage-text--left',
+            'headingposition' : 'heading--left',
+            'heading' : content.headerHeading,
+            'text': content.headerSubheading
+        } %}
+    {% endif %}
 
     <section class="blogdetail">
         <div class="grid">
