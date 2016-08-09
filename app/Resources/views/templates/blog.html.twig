@@ -18,7 +18,7 @@
                 {% for article in content.articles %}
                     <div class="grid">
                         <div class="grid__item desk--four-tenths lap--one-third palm--one-whole">
-                            <img src="{{ article.image[0].url }}" class="blog-image"/>
+                            <img src="{{ article.image[0].thumbnails['480x'] }}" class="blog-image"/>
                         </div>
 
                         <div class="grid__item desk--six-tenths lap--two-thirds palm--one-whole">

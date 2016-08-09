@@ -20,7 +20,20 @@
                     </h2>
 
                     <div class="artist-main-scalebox">
-                        <img src="{{ content.contentTitleimage[0].url }}" class="artist-main-scalebox-image"/>
+                        <picture>
+                            <source media="(min-width: 481px)"
+                                    srcset="{{ content.contentTitleimage[0].thumbnails['800x'] }}"
+                                    class="artist-main-scalebox-image">
+
+                            <source media="(max-width: 480px)"
+                                    srcset="{{ content.contentTitleimage[0].thumbnails['480x'] }}"
+                                    class="artist-main-scalebox-image">
+
+                            <!---Fallback--->
+                            <img src="{{ content.contentTitleimage[0].thumbnails['800x'] }}"
+                                 class="artist-main-scalebox-image"/>
+                        </picture>
+
                     </div>
 
                     <div class="artist-main-subheading">
@@ -47,7 +60,7 @@
                                     <div class="grid__item desk--one-third lap--one-half palm--one-whole">
                                         <div class="artist-main-galleryitem">
                                             <div class="artist-main-scalebox">
-                                                <img src="{{ block.contentMedia[i].url }}"
+                                                <img src="{{ block.contentMedia[i].thumbnails['480x'] }}"
                                                      alt="{{ block.contentMedia[i].description }}"
                                                      class="artist-main-scalebox-image">
                                             </div>

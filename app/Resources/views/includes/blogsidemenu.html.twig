@@ -32,7 +32,7 @@
                     {% set media = sulu_resolve_media(latestArticle.image.ids, request.locale) %}
 
                     <div class="blog-sidemenu-recent">
-                        <img src="{{ media.url }}"/>
+                        <img src="{{ media.thumbnails['140x70'] }}"/>
                         <div class="blog-sidemenu-recent-text">
                             <p>{{ latestArticle.creation.date|date("d.m.Y") }}</p>
                             <a href="{{ latestArticle.url.value }}">

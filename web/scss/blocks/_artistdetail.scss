@@ -123,12 +123,18 @@
 }
 
 @media (max-width: 1023px) {
-    .artist-sidemenu-list li {
-        a {
-            text-align: center;
+    .artist {
+        &-main {
+            margin-right: 0px;
+        }
 
-            i {
-                padding-left: 12px;
+        &-sidemenu-list li {
+            a {
+                text-align: center;
+
+                i {
+                    padding-left: 12px;
+                }
             }
         }
     }

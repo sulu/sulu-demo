@@ -19,15 +19,18 @@
             </div>
         </div>
         {% if biography.biographyImage|length > 0 %}
-            <picture class="biography-image grid__item desk--one-half">
+            <picture class="grid__item desk--one-half">
                 <source media="(min-width: 1024px)"
-                        srcset="{{ biography.biographyImage[0].thumbnails['800x800-inset'] }}">
+                        srcset="{{ biography.biographyImage[0].thumbnails['800x800-inset'] }}"
+                        class="biography-image">
 
                 <source media="(max-width: 1024px)"
-                        srcset="{{ biography.biographyImage[0].thumbnails['400x400-inset'] }}">
+                        srcset="{{ biography.biographyImage[0].thumbnails['400x400-inset'] }}"
+                        class="biography-image">
 
                 <!---Fallback--->
-                <img rc="{{ biography.biographyImage[0].thumbnails['800x800-inset'] }}"/>
+                <img src="{{ biography.biographyImage[0].thumbnails['800x800-inset'] }}"
+                     class="biography-image">
             </picture>
         {% endif %}
     </div>

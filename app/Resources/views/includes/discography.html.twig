@@ -10,7 +10,8 @@
                     <div class="grid__item desk--one-third lap--one-half palm--one-whole">
                         <div class="discography-frame-collum">
                             {% if item.image|length > 0 %}
-                                <img class="discography-frame-collum-image" src="{{ item.image[0].url }}"/>
+                                <img src="{{ item.image[0].thumbnails['400x400-inset'] }}"
+                                     class="discography-frame-collum-image"/>
                             {% endif %}
 
                             {% for c in item.categories %}

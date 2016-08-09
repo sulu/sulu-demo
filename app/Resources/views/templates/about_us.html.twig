@@ -1,7 +1,6 @@
 {% extends "master.html.twig" %}
 
 {% block content %}
-{{ dump(content) }}
     {% if content.headerImage[0] is defined %}
         <header class="about-header"
                 style="background-image: url({{ content.headerImage[0].thumbnails['800x']}});">

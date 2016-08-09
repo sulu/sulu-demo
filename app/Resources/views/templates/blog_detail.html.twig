@@ -3,7 +3,7 @@
 {% block content %}
     {# header image #}
     {% include(':includes:headerimge.html.twig') with {
-        'imagesrc' : content.headerImage[0].url,
+        'imagesrc' : content.headerImage[0].thumbnails['1600x'],
         'kind' : 'headerimage-text--left',
         'headingposition' : 'heading--left',
         'heading' : content.headerHeading,
@@ -20,8 +20,20 @@
 
                     <div class="blogdetail-scalebox">
 
-                        {% if contecontent.contentTitleimage[0] is defined %}
-                            <img src="{{ content.contentTitleimage[0].url }}" class="blogdetail-scalebox-image"/>
+                        {% if content.contentTitleimage|length %}
+                            <picture>
+                                <source media="(min-width: 481px)"
+                                        srcset="{{ content.contentTitleimage[0].thumbnails['800x'] }}"
+                                        class="blogdetail-scalebox-image">
+
+                                <source media="(max-width: 480px)"
+                                        srcset="{{ content.contentTitleimage[0].thumbnails['480x'] }}"
+                                        class="blogdetail-scalebox-image">
+
+                                <!---Fallback--->
+                                <img src="{{ content.contentTitleimage[0].thumbnails['800x'] }}"
+                                     class="blogdetail-scalebox-image"/>
+                            </picture>
                         {% endif %}
                     </div>
 
@@ -95,7 +107,7 @@
                                     <div class="grid__item desk--one-third lap--one-half palm--one-whole">
                                         <div class="blogdetail-galleryitem">
                                             <div class="blogdetail-scalebox">
-                                                <img src="{{ block.contentMedia[i].url }}"
+                                                <img src="{{ block.contentMedia[i].thumbnails['100x100-inset'] }}"
                                                      alt="{{ block.contentMedia[i].description }}"
                                                      class="blogdetail-scalebox-image">
                                             </div>

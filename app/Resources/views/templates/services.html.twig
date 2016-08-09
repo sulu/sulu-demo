@@ -71,7 +71,7 @@
                         <div class="services-carousel-item">
                             <div class="services-carousel-item-line"></div>
                             {% if contact.avatar is defined %}
-                                <img src="{{ contact.avatar.url }}"/>
+                                <img src="{{ contact.avatar.thumbnails['100x100'] }}"/>
                             {% endif %}
 
                             <p>

@@ -5,6 +5,22 @@
 
     {% for item in news.newsData %}
         <div class="news-item" onclick="location.href='{{ item.url }}'">
+            <picture>
+                <source media="(min-width: 1024px)"
+                        srcset="{{ item.image[0].thumbnails['1080x200-inset'] }}"
+                        class="news-item-image">
+
+                <source media="(min-width: 481px) and (max-width: 1023px)"
+                        srcset="{{ item.image[0].thumbnails['800x200-inset'] }}"
+                        class="news-item-image">
+
+                <source media="(max-width: 480px)"
+                        srcset="{{ item.image[0].thumbnails['480x200-inset'] }}"
+                        class="news-item-image">
+
+                <!---Fallback--->
+                <img class="news-item-image" src="{{ item.image[0].thumbnails['800x200-inset'] }}">
+            </picture>
             <img class="news-item-image" src="{{ item.image[0].url }}">
 
             <div class="news-item-text">
