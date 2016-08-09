@@ -3,7 +3,7 @@
 {% block content %}
     {% if content.headerImage|length %}
         {% include(':includes:headerimage.html.twig') with {
-            'image' : content.headerImage[0],
+            'image' : content.headerImage|first,
             'kind' : 'headerimage-text--left',
             'headingposition' : 'heading--left',
             'heading' : content.headerHeading,
@@ -25,15 +25,15 @@
                         <div class="artist-main-scalebox">
                             <picture>
                                 <source media="(min-width: 481px)"
-                                        srcset="{{ content.contentTitleimage[0].thumbnails['800x'] }}"
+                                        srcset="{{ content.contentTitleimage|first.thumbnails['800x'] }}"
                                         class="artist-main-scalebox-image">
 
                                 <source media="(max-width: 480px)"
-                                        srcset="{{ content.contentTitleimage[0].thumbnails['480x'] }}"
+                                        srcset="{{ content.contentTitleimage|first.thumbnails['480x'] }}"
                                         class="artist-main-scalebox-image">
 
                                 <!---Fallback--->
-                                <img src="{{ content.contentTitleimage[0].thumbnails['800x'] }}"
+                                <img src="{{ content.contentTitleimage|first.thumbnails['800x'] }}"
                                      class="artist-main-scalebox-image"/>
                             </picture>
 
@@ -76,7 +76,7 @@
 
                         {% elseif block.type == "discography" %}
                             {# Discography #}
-                            {% include('includes/discography.html.twig') with {
+                            {% include("includes/discography.html.twig") with {
                                 "discography" : block,
                                 "background" : "discography--nobackground"
                             } %}
@@ -89,15 +89,18 @@
             <div class="grid__item desk--one-fifth">
                 <aside class="artist-sidemenu">
                     <h2 class="artist-sidemenu-heading">
-                        {% set isdiscography = "false" %}
+                        {% set isdiscography = false %}
 
                         {% for category in extension.excerpt.categories %}
                             {% if category.key == "discography" %}
-                                {% set isdiscography = "true" %}
+                                {% set isdiscography %}
                             {% endif %}
                         {% endfor %}
-
-                        {{ isdiscography == "true" ? "Our Albums" : "Our Artists" }}
+                        {% if request.locale == "de" %}
+                            {{ isdiscography ? "Unsere Alben" : "Unsere Künstler" }}
+                        {% else %}
+                            {{ isdiscography ? "Our Albums" : "Our Artists" }}
+                        {% endif %}
                     </h2>
                     <ul class="artist-sidemenu-list">
                         {% for artist in artists|sulu_util_multisort('[title]', 'asc') %}

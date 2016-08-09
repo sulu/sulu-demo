@@ -7,7 +7,7 @@
         {% for artist in artists.artistsData %}
             <div class="grid__item desk--one-third team-member lap--one-half palm--one-whole">
                 {% if artist.image|length %}
-                    <img src="{{ artist.image[0].formats['400x400'] }}" class="team-member-image" />
+                    <img src="{{ artist.image|first.formats['400x400'] }}" class="team-member-image" />
                 {% endif %}
 
                 <span class="team-member-socials">
@@ -20,7 +20,8 @@
 
                 <div class="team-member-text">
                     {% if artist.heading|default('') %}
-                        <a class="team-member-text-name" href="{{ artist.url }}">{{ artist.heading }}</a>
+                        <a class="team-member-text-name" href="{{ sulu_content_path(artist.url) }}">{{ artist.heading
+                            }}</a>
                     {% endif %}
                 </div>
             </div>

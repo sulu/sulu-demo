@@ -3,7 +3,7 @@
 {% block content %}
     {% if content.headerImage|length %}
         {% include(':includes:headerimage.html.twig') with {
-            'image' : content.headerImage[0],
+            'image' : content.headerImage|first,
             'kind' : 'headerimage-text--left',
             'headingposition' : 'heading--left',
             'heading' : content.headerHeading,
@@ -19,7 +19,7 @@
                 {% for article in content.articles %}
                     <div class="grid">
                         <div class="grid__item desk--four-tenths lap--one-third palm--one-whole">
-                            <img src="{{ article.image[0].thumbnails['480x'] }}" class="blog-image"/>
+                            <img src="{{ article.image|first.thumbnails['480x'] }}" class="blog-image"/>
                         </div>
 
                         <div class="grid__item desk--six-tenths lap--two-thirds palm--one-whole">
