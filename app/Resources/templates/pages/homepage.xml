@@ -40,11 +40,197 @@
             </properties>
         </section>
 
-        <property name="article" type="text_editor">
+        <section name="blocks">
             <meta>
-                <title lang="en">Article</title>
-                <title lang="de">Artikel</title>
+                <title lang="de">Blöcke</title>
+                <title lang="en">Blocks</title>
             </meta>
-        </property>
+
+            <properties>
+                <block name="blocks" default-type="editor" minOccurs="0">
+                    <meta>
+                        <title lang="de">Inhalte</title>
+                        <title lang="en">Content</title>
+                    </meta>
+
+                    <types>
+                        <type name="biography">
+                            <meta>
+                                <title lang="de">Biographie</title>
+                                <title lang="en">Biography</title>
+                            </meta>
+
+                            <properties>
+                                <property name="biographyTitle" type="text_line">
+                                    <meta>
+                                        <title lang="en">Title</title>
+                                        <title lang="de">Titel</title>
+                                    </meta>
+                                </property>
+
+                                <property name="biographyHeading" type="text_line">
+                                    <meta>
+                                        <title lang="en">Heading</title>
+                                        <title lang="de">Überschrift</title>
+                                    </meta>
+                                </property>
+
+                                <property name="biographyText" type="text_editor">
+                                    <meta>
+                                        <title lang="en">Text</title>
+                                        <title lang="de">Text</title>
+                                    </meta>
+                                </property>
+
+                                <property name="biographyImage" type="media_selection">
+                                    <meta>
+                                        <title lang="en">Image</title>
+                                        <title lang="de">Bild</title>
+                                    </meta>
+
+                                    <params>
+                                        <param name="types" value="image"/>
+                                    </params>
+                                </property>
+
+                                <property name="biographyLink" type="single_internal_link">
+                                    <meta>
+                                        <title lang="en">Link</title>
+                                        <title lang="de">Link</title>
+                                    </meta>
+                                </property>
+                            </properties>
+                        </type>
+
+                        <type name="discography">
+                            <meta>
+                                <title lang="de">Discographie</title>
+                                <title lang="en">Discography</title>
+                            </meta>
+
+                            <properties>
+                                <property name="discographyTitle" type="text_line">
+                                    <meta>
+                                        <title lang="en">Title</title>
+                                        <title lang="de">Titel</title>
+                                    </meta>
+                                </property>
+
+                                <property name="discographyHeading" type="text_area">
+                                    <meta>
+                                        <title lang="en">Heading</title>
+                                        <title lang="de">Überschrift</title>
+                                    </meta>
+                                </property>
+
+                                <property name="discographyData" type="smart_content">
+                                    <meta>
+                                        <title lang="en">Choose Artcle</title>
+                                        <title lang="de">Artikel wählen</title>
+                                    </meta>
+
+                                    <params>
+                                        <param name="properties" type="collection">
+                                            <param name="heading" value="contentHeading"/>
+                                            <param name="image" value="contentTitleimage"/>
+                                            <param name="categories" value="excerpt.categories"/>
+                                            <param name="url" value="url"/>
+                                        </param>
+                                    </params>
+                                </property>
+                            </properties>
+                        </type>
+
+                        <type name="artists">
+                            <meta>
+                                <title lang="de">Künstler</title>
+                                <title lang="en">Artists</title>
+                            </meta>
+
+                            <properties>
+                                <property name="artistsTitle" type="text_line">
+                                    <meta>
+                                        <title lang="en">Title</title>
+                                        <title lang="de">Titel</title>
+                                    </meta>
+                                </property>
+
+                                <property name="artistsBackground" type="media_selection">
+                                    <meta>
+                                        <title lang="en">Background</title>
+                                        <title lang="de">Hindergrundbild</title>
+                                    </meta>
+
+                                    <params>
+                                        <param name="types" value="image"/>
+                                    </params>
+                                </property>
+
+                                <property name="artistsData" type="smart_content">
+                                    <meta>
+                                        <title lang="en">Artists</title>
+                                        <title lang="de">Künstler</title>
+                                    </meta>
+
+                                    <params>
+                                        <param name="properties" type="collection">
+                                            <param name="heading" value="contentHeading"/>
+                                            <param name="image" value="contentTitleimage"/>
+                                            <param name="url" value="url"/>
+                                        </param>
+                                    </params>
+                                </property>
+                            </properties>
+                        </type>
+
+                        <type name="news">
+                            <meta>
+                                <title lang="de">Neuigkeiten</title>
+                                <title lang="en">News</title>
+                            </meta>
+
+                            <properties>
+                                <property name="newsData" type="smart_content">
+                                    <meta>
+                                        <title lang="en">Blog</title>
+                                        <title lang="de">Blog</title>
+                                    </meta>
+
+                                    <params>
+                                        <param name="properties" type="collection">
+                                            <param name="heading" value="contentHeading"/>
+                                            <param name="text" value="contentSubheading"/>
+                                            <param name="image" value="headerImage"/>
+                                            <param name="categories" value="excerpt.categories"/>
+                                            <param name="url" value="url"/>
+                                        </param>
+                                    </params>
+                                </property>
+                            </properties>
+                        </type>
+
+                        <type name="partner">
+                            <meta>
+                                <title lang="de">Unsere Partner</title>
+                                <title lang="en">Our Partners</title>
+                            </meta>
+
+                            <properties>
+                                <property name="partnerData" type="snippet">
+                                    <meta>
+                                        <title lang="de">Partner</title>
+                                        <title lang="en">Partner</title>
+                                    </meta>
+
+                                    <params>
+                                        <param name="snippetType" value="partner"/>
+                                    </params>
+                                </property>
+                            </properties>
+                        </type>
+                    </types>
+                </block>
+            </properties>
+        </section>
     </properties>
 </template>

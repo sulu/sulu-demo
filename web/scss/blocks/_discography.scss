@@ -23,7 +23,13 @@
             > a {
                 color: $colorblack--lighter01;
                 margin-top: 10px;
-                display: block;
+                display: inline-block;
+            }
+
+            > a:hover {
+                color: $coloryellow;
+                margin-top: 10px;
+                display: inline-block;
             }
 
             h5 {

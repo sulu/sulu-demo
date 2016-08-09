@@ -16,10 +16,10 @@
         <default-template type="home">homepage</default-template>
     </default-templates>
 
-    <error-templates>
-        <error-template default="true">error/default.html.twig</error-template>
-        <error-template code="404">error/404.html.twig</error-template>
-    </error-templates>
+    <templates>
+        <template type="error">error/default.html.twig</template>
+        <template type="error-404">error/404.html.twig</template>
+    </templates>
 
     <navigation>
         <contexts>
@@ -29,6 +29,12 @@
                     <title lang="de">Hauptnavigation</title>
                 </meta>
             </context>
+            <context key="footer">
+                <meta>
+                    <title lang="en">Footernavigation</title>
+                    <title lang="de">Footernavigation</title>
+                </meta>
+            </context>
         </contexts>
     </navigation>
 
@@ -36,9 +42,6 @@
         <portal>
             <name>demo.sulu.io</name>
             <key>sulu_demo</key>
-            <resource-locator>
-                <strategy>tree</strategy>
-            </resource-locator>
 
             <environments>
                 <environment type="prod">

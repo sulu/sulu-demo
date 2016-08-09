@@ -141,6 +141,7 @@
                 top: -37px;
                 left: -65px;
                 margin-left: 50%;
+                background-color: #FFF;
             }
 
             p {
@@ -183,5 +184,29 @@
 
     .services-location-elem {
         height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-carousel {
+        &-item {
+            p {
+                margin-top: 80px;
+            }
+
+            &-line {
+                display: none;
+            }
+
+            &-prev {
+                margin-left: 50%;
+                left: -140px;
+            }
+
+            &-next {
+                margin-right: 50%;
+                right: -140px;
+            }
+        }
     }
 }

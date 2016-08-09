@@ -4,20 +4,12 @@
     </h2>
 
     <div class="partner-carousel js-partner-carousel" data-slick='{"slidesToShow": 5, "slidesToScroll": 5}'>
-        <div class="partner-carousel-item">
-            <img src="/img/partner-3.jpg" alt="partner1">
-        </div>
-        <div class="partner-carousel-item">
-            <img src="/img/partner-3.jpg" alt="partner2">
-        </div>
-        <div class="partner-carousel-item">
-            <img src="/img/partner-3.jpg" alt="partner3">
-        </div>
-        <div class="partner-carousel-item">
-            <img src="/img/partner-3.jpg" alt="partner4">
-        </div>
-        <div class="partner-carousel-item">
-            <img src="/img/partner-3.jpg" alt="partner5">
-        </div>
+        {% for item in partner.partnerData %}
+            {% for image in item.images %}
+                <div class="partner-carousel-item">
+                    <img src="{{ image.url }}" alt="{{ image.name }}">
+                </div>
+            {% endfor %}
+        {% endfor %}
     </div>
 </section>
