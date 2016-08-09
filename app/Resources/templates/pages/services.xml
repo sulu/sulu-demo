@@ -52,6 +52,9 @@
                         <title lang="en">Header Image</title>
                         <title lang="de">Kopfbild</title>
                     </meta>
+                    <params>
+                        <param name="types" value="image"/>
+                    </params>
                 </property>
 
                 <property name="headerHeading" type="text_line">
@@ -307,7 +310,7 @@
                     </types>
                 </block>
 
-                <property name="action" type="snippet">
+                <property name="action" type="snippet" mandatory="true">
                     <meta>
                         <title lang="de">Zum Buchen</title>
                         <title lang="en">For Booking</title>

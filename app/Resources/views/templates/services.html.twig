@@ -15,9 +15,7 @@
     <section class="services">
         <div class="services-activities">
             <div class="grid">
-
                 {% for service in content.services %}
-
                     {% if service.icon != "" and service.heading != "" and service.text != "" %}
                         <div class="grid__item desk--one-third lap--one-half palm--one-whole">
                             <div class="services-activities-elem">
@@ -38,9 +36,7 @@
             {% endif %}
 
             <div class="grid">
-
                 {% for location in content.locations %}
-
                     {% if location.icon != "" and location.heading != "" and location.text != "" %}
                         <div class="grid__item desk--one-third lap--one-half palm--one-whole">
                             <div class="services-location-elem">
@@ -52,16 +48,15 @@
                             </div>
                         </div>
                     {% endif %}
-
                 {% endfor %}
             </div>
         </div>
     </section>
 
     {% for item in content.action %}
-        {%  if item.title != "" and item.text != "" and item.image is defined and item.link != "" %}
+        {% if item.title|default('') and item.image|default([]) and item.link|default('') %}
             {# for booking #}
-            {% include(':includes:forbooking.html.twig') with{
+            {% include(':includes:forbooking.html.twig') with {
                 "action" : item
             } %}
         {% endif %}
@@ -70,45 +65,30 @@
     <section class="services">
         <div class="services-carousel js-services-carousel" data-slick='{"slidesToShow": 1, "slidesToScroll": 1}'>
             {% for quote in content.quotes  %}
-
                 {% if quote.contact[0] is defined %}
-                    {% if quote.contact[0].notes[0] is defined %}
+                    {% set contact = quote.contact[0] %}
+                    {% if contact.notes[0] is defined %}
                         <div class="services-carousel-item">
                             <div class="services-carousel-item-line"></div>
-
-                            {% if quote.contact[0].avatar is defined %}
-                                <img src="{{ quote.contact[0].avatar.url }}"/>
+                            {% if contact.avatar is defined %}
+                                <img src="{{ contact.avatar.url }}"/>
                             {% endif %}
 
                             <p>
-                                {{ quote.contact[0].notes[0].value }}
+                                {{ contact.notes[0].value }}
                             </p>
 
-                            <span class="services-carousel-item-author">{{ quote.contact[0].fullName }}</span>
+                            <span class="services-carousel-item-author">{{ contact.fullName }}</span>
 
-                            {% if quote.contact[0].account[0] is defined %}
+                            {% if contact.account[0] is defined %}
                                 <span class="services-carousel-item-corporation">
-                                    {{ quote.contact[0].account[0].name }}
+                                    {{ contact.account[0].name }}
                                 </span>
                             {% endif %}
                         </div>
                     {% endif %}
                 {% endif %}
             {% endfor %}
-
-            <div class="services-carousel-item">
-                <div class="services-carousel-item-line"></div>
-                <img src="/img/person.jpg"/>
-                <p>
-                    “ Regarding and more overlaid along with jeepers opposite instead frailly including so one
-                    suspicious saw otter groaned however intole be to rable on scowled through alas whale out some.
-                    including so one suspicious saw otter groaned however intolerable on scowled through alas whale out
-                    some instead frailly including so one suspic ious saw otter groaned however intole ”
-                </p>
-                <span class="services-carousel-item-author">Trump</span>
-                <span class="services-carousel-item-corporation">Rosmen Corporation</span>
-            </div>
         </div>
     </section>
-
 {% endblock %}
