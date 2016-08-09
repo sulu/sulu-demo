@@ -1,10 +1,9 @@
 {% extends "master.html.twig" %}
 
 {% block content %}
-    {% if content.headerImage[0] is defined %}
-        {# header image #}
-        {% include(':includes:headerimge.html.twig') with {
-            'imagesrc' : content.headerImage[0].url,
+    {% if content.headerImage|length %}
+        {% include(':includes:headerimage.html.twig') with {
+            'image' : content.headerImage|first,
             'kind' : 'headerimage-text--middle-middle',
             'headingposition' : 'heading--middle',
             'heading' : content.headerHeading,
@@ -57,7 +56,7 @@
         {% if item.title|default('') and item.image|default([]) and item.link|default('') %}
             {# for booking #}
             {% include(':includes:forbooking.html.twig') with {
-                "action" : item
+                'action' : item
             } %}
         {% endif %}
     {% endfor %}
@@ -71,7 +70,7 @@
                         <div class="services-carousel-item">
                             <div class="services-carousel-item-line"></div>
                             {% if contact.avatar is defined %}
-                                <img src="{{ contact.avatar.url }}"/>
+                                <img src="{{ contact.avatar.thumbnails['100x100'] }}"/>
                             {% endif %}
 
                             <p>

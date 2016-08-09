@@ -1,14 +1,15 @@
 {% extends "master.html.twig" %}
 
 {% block content %}
-    {# header image #}
-    {#{% include(':includes:headerimge.html.twig') with {
-        'imagesrc' : content.headerImage[0].url,
-        'kind' : 'headerimage-text--left',
-        'headingposition' : 'heading--left',
-        'heading' : content.headerHeading,
-        'text': content.headerSubheading
-    } %}#}
+    {% if content.headerImage|length %}
+        {% include(':includes:headerimage.html.twig') with {
+            'image' : content.headerImage|first,
+            'kind' : 'headerimage-text--left',
+            'headingposition' : 'heading--left',
+            'heading' : content.headerHeading,
+            'text': content.headerSubheading
+        } %}
+    {% endif %}
 
     <section class="artists">
         <h4 class="heading--h3--border">Our Artists</h4>
@@ -18,7 +19,7 @@
                 <div class="grid__item desk--one-third lap--one-half palm--one-whole">
                     <div class="artists-item">
                         <div class="artists-item--scalebox">
-                            <img src="{{ artist.image[0].url }}" class="artists-item-image">
+                            <img src="{{ artist.image|first.thumbnails('480x') }}" class="artists-item-image">
                         </div>
 
                         <div class="artists-item-text">

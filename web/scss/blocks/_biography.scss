@@ -2,6 +2,10 @@
     max-width: $maxwidth;
     margin: 60px auto;
 
+    &-image {
+        width: 100%;
+    }
+
     &-text {
         padding-top: 10px;
         padding-right: 60px;

@@ -1,26 +1,44 @@
 {% extends "master.html.twig" %}
 
 {% block content %}
+    {% if content.headerImage|length %}
+        {% include(':includes:headerimage.html.twig') with {
+            'image' : content.headerImage|first,
+            'kind' : 'headerimage-text--left',
+            'headingposition' : 'heading--left',
+            'heading' : content.headerHeading,
+            'text': content.headerSubheading
+        } %}
+    {% endif %}
 
-    {# header image #}
-    {% include(':includes:headerimge.html.twig') with {
-        'imagesrc' : content.headerImage[0].url,
-        'kind' : 'headerimage-text--left',
-        'headingposition' : 'heading--left',
-        'heading' : content.headerHeading,
-        'text': content.headerSubheading
-    } %}
     <section class="artist">
         <div class="grid">
             <div class="grid__item desk--four-fifths portable--one-whole">
                 <div class="artist-main">
-                    <h2 class="artist-main-heading">
-                        {{ content.contentHeading }}
-                    </h2>
+                    {% if content.contentHeading|default('') %}
+                        <h2 class="artist-main-heading">
+                            {{ content.contentHeading }}
+                        </h2>
+                    {% endif %}
 
-                    <div class="artist-main-scalebox">
-                        <img src="{{ content.contentTitleimage[0].url }}" class="artist-main-scalebox-image"/>
-                    </div>
+                    {% if content.contentTitleimage|length %}
+                        <div class="artist-main-scalebox">
+                            <picture>
+                                <source media="(min-width: 481px)"
+                                        srcset="{{ content.contentTitleimage|first.thumbnails['800x'] }}"
+                                        class="artist-main-scalebox-image">
+
+                                <source media="(max-width: 480px)"
+                                        srcset="{{ content.contentTitleimage|first.thumbnails['480x'] }}"
+                                        class="artist-main-scalebox-image">
+
+                                <!---Fallback--->
+                                <img src="{{ content.contentTitleimage|first.thumbnails['800x'] }}"
+                                     class="artist-main-scalebox-image"/>
+                            </picture>
+
+                        </div>
+                    {% endif %}
 
                     <div class="artist-main-subheading">
                         {{ content.contentSubheading }}
@@ -46,7 +64,7 @@
                                     <div class="grid__item desk--one-third lap--one-half palm--one-whole">
                                         <div class="artist-main-galleryitem">
                                             <div class="artist-main-scalebox">
-                                                <img src="{{ block.contentMedia[i].url }}"
+                                                <img src="{{ block.contentMedia[i].thumbnails['480x'] }}"
                                                      alt="{{ block.contentMedia[i].description }}"
                                                      class="artist-main-scalebox-image">
                                             </div>
@@ -56,6 +74,13 @@
                                 {% endfor %}
                             </div>
 
+                        {% elseif block.type == 'discography' %}
+                            {# Discography #}
+                            {% include('includes/discography.html.twig') with {
+                                'discography' : block,
+                                'background' : 'discography--nobackground'
+                            } %}
+
                         {% endif %}
                     {% endfor %}
                 </div>
@@ -63,7 +88,17 @@
 
             <div class="grid__item desk--one-fifth">
                 <aside class="artist-sidemenu">
-                    <h2 class="artist-sidemenu-heading">Our Artists</h2>
+                    <h2 class="artist-sidemenu-heading">
+                        {% set isdiscography = false %}
+
+                        {% for category in extension.excerpt.categories %}
+                            {% if category.key == "discography" %}
+                                {% set isdiscography %}
+                            {% endif %}
+                        {% endfor %}
+                                    
+                        {{ isdiscography ? 'our_albums'|trans : 'our_artists'|trans }}
+                    </h2>
                     <ul class="artist-sidemenu-list">
                         {% for artist in artists|sulu_util_multisort('[title]', 'asc') %}
                             <li>

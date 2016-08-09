@@ -1,0 +1,34 @@
+{% if image|default('') %}
+    <section class="headerimage">
+        <picture>
+            <source media="(min-width: 1024px)"
+                    srcset="{{ image.thumbnails['1600x'] }}"
+                    class="headerimage-image">
+
+            <source media="(min-width: 481px) and (max-width: 1023px)"
+                    srcset="{{ image.thumbnails['800x300'] }}"
+                    class="headerimage-image">
+
+            <source media="(max-width: 480px)"
+                    srcset="{{ image.thumbnails['480x300'] }}"
+                    class="headerimage-image">
+
+            <!---Fallback--->
+            <img src="{{ image.thumbnails['1600x'] }}"
+                 alt="{{ image.title }}"
+                 class="headerimage-image"/>
+        </picture>
+
+        {% if kind|default('') and (heading|default('') or text|default('')) %}
+            <div class="headerimage-text {{ kind }}">
+                {% if headingposition|default('') and heading|default('') %}
+                    <h1 class="heading {{ headingposition }}">{{ heading }}</h1>
+                {% endif %}
+
+                {% if text|default('') %}
+                    <p>{{ text }}</p>
+                {% endif %}
+            </div>
+        {% endif %}
+    </section>
+{% endif %}

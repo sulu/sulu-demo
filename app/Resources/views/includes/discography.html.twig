@@ -1,4 +1,4 @@
-<section class="discography">
+<section class="discography {{ background|default('') }}">
     <div class="discography-frame">
         <h2 class="discography-frame-heading heading--h2--border">
             {{ discography.discographyTitle }}
@@ -9,8 +9,9 @@
                 {% for category in item.categories if category.key == "discography" %}
                     <div class="grid__item desk--one-third lap--one-half palm--one-whole">
                         <div class="discography-frame-collum">
-                            {% if item.image|length > 0 %}
-                                <img class="discography-frame-collum-image" src="{{ item.image[0].url }}"/>
+                            {% if item.image|length %}
+                                <img src="{{ item.image|first.thumbnails['400x400-inset'] }}"
+                                     class="discography-frame-collum-image"/>
                             {% endif %}
 
                             {% for c in item.categories %}
