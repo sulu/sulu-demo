@@ -96,11 +96,7 @@
                                 {% set isdiscography %}
                             {% endif %}
                         {% endfor %}
-                        {% if request.locale == "de" %}
-                            {{ isdiscography ? "Unsere Alben" : "Unsere Künstler" }}
-                        {% else %}
-                            {{ isdiscography ? "Our Albums" : "Our Artists" }}
-                        {% endif %}
+                            {{ isdiscography ? 'our_albums'|trans : 'our_artists'|trans }}
                     </h2>
                     <ul class="artist-sidemenu-list">
                         {% for artist in artists|sulu_util_multisort('[title]', 'asc') %}

@@ -26,7 +26,7 @@
             </div>
 
             <div class="grid__item desk--one-whole lap--one-half palm--one-whole">
-                <h2 class="blog-sidemenu-heading">Recent Blogs</h2>
+                <h2 class="blog-sidemenu-heading">{{ 'recent_articles'|trans }}</h2>
 
                 {% for latestArticle in latestArticles %}
                     {% set media = sulu_resolve_media(latestArticle.image.ids, request.locale) %}
