@@ -3,7 +3,9 @@
 {% macro recursiveSitemap(child, base) %}
     {% if base == "false" %}
         <i class="ion-ios-arrow-forward"></i>
-        <a href="{{ child.url }}">{{ child.title }}</a>
+        <a href="{{ sulu_content_path(child.url) }}">
+            {{ child.title }}
+        </a>
     {% endif %}
 
     {% if child.children|length %}
@@ -24,7 +26,11 @@
             {% for site in sulu_sitemap().children %}
                 <div class="grid__item desk--one-quarter lap--one-half palm--one-whole">
                     <div class="sidemap-item">
-                        <h5 class="sidemap-item-subtitle heading--h5"><a href="{{ site.path }}">{{ site.title }}</a></h5>
+                        <h5 class="sidemap-item-subtitle heading--h5">
+                            <a href="{{ site.url }}">
+                                {{ site.title }}
+                            </a>
+                        </h5>
 
                         {% if site.children|length %}
                             {{ _self.recursiveSitemap(site, "true") }}
