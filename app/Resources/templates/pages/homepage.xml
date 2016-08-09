@@ -190,6 +190,13 @@
                             </meta>
 
                             <properties>
+                                <property name="title" type="text_line">
+                                    <meta>
+                                        <title lang="en">Title</title>
+                                        <title lang="de">Titel</title>
+                                    </meta>
+                                </property>
+
                                 <property name="newsData" type="smart_content">
                                     <meta>
                                         <title lang="en">Blog</title>

@@ -15,26 +15,30 @@
         <div class="grid">
             <div class="grid__item desk--four-fifths portable--one-whole">
                 <div class="artist-main">
-                    <h2 class="artist-main-heading">
-                        {{ content.contentHeading }}
-                    </h2>
+                    {% if content.contentHeading|default('') %}
+                        <h2 class="artist-main-heading">
+                            {{ content.contentHeading }}
+                        </h2>
+                    {% endif %}
 
-                    <div class="artist-main-scalebox">
-                        <picture>
-                            <source media="(min-width: 481px)"
-                                    srcset="{{ content.contentTitleimage[0].thumbnails['800x'] }}"
-                                    class="artist-main-scalebox-image">
+                    {% if content.contentTitleimage|length %}
+                        <div class="artist-main-scalebox">
+                            <picture>
+                                <source media="(min-width: 481px)"
+                                        srcset="{{ content.contentTitleimage[0].thumbnails['800x'] }}"
+                                        class="artist-main-scalebox-image">
 
-                            <source media="(max-width: 480px)"
-                                    srcset="{{ content.contentTitleimage[0].thumbnails['480x'] }}"
-                                    class="artist-main-scalebox-image">
+                                <source media="(max-width: 480px)"
+                                        srcset="{{ content.contentTitleimage[0].thumbnails['480x'] }}"
+                                        class="artist-main-scalebox-image">
 
-                            <!---Fallback--->
-                            <img src="{{ content.contentTitleimage[0].thumbnails['800x'] }}"
-                                 class="artist-main-scalebox-image"/>
-                        </picture>
+                                <!---Fallback--->
+                                <img src="{{ content.contentTitleimage[0].thumbnails['800x'] }}"
+                                     class="artist-main-scalebox-image"/>
+                            </picture>
 
-                    </div>
+                        </div>
+                    {% endif %}
 
                     <div class="artist-main-subheading">
                         {{ content.contentSubheading }}

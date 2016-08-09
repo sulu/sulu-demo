@@ -1,9 +1,11 @@
 <section class="news">
-    <h2 class="news-heading heading--h2--border">
-        News
-    </h2>
+    {% if title|default('') %}
+        <h2 class="news-heading heading--h2--border">
+            {{ title }}
+        </h2>
+    {% endif %}
 
-    {% for item in news.newsData %}
+    {% for item in news.newsData|slice(0,3) %}
         <div class="news-item" onclick="location.href='{{ item.url }}'">
             <picture>
                 <source media="(min-width: 1024px)"
@@ -21,7 +23,6 @@
                 <!---Fallback--->
                 <img class="news-item-image" src="{{ item.image[0].thumbnails['800x200-inset'] }}">
             </picture>
-            <img class="news-item-image" src="{{ item.image[0].url }}">
 
             <div class="news-item-text">
                 by <a href="#">{{ sulu_resolve_user(item.creator).contact.fullName }}</a>
