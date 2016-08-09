@@ -74,11 +74,11 @@
                                 {% endfor %}
                             </div>
 
-                        {% elseif block.type == "discography" %}
+                        {% elseif block.type == 'discography' %}
                             {# Discography #}
-                            {% include("includes/discography.html.twig") with {
-                                "discography" : block,
-                                "background" : "discography--nobackground"
+                            {% include('includes/discography.html.twig') with {
+                                'discography' : block,
+                                'background' : 'discography--nobackground'
                             } %}
 
                         {% endif %}

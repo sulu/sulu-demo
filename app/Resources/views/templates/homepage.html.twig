@@ -5,37 +5,37 @@
     {% include('includes/slider.html.twig') %}#}
 
     {% for item in content.blocks %}
-        {% if item.type == "biography" %}
+        {% if item.type == 'biography' %}
 
             {% include('includes/biography.html.twig') with{
-                "biography" : item
+                'biography' : item
             } %}
 
-        {% elseif item.type == "discography" %}
+        {% elseif item.type == 'discography' %}
 
             {% include('includes/discography.html.twig') with {
-                "discography" : item
+                'discography' : item
             } %}
 
-        {% elseif item.type == "news" %}
+        {% elseif item.type == 'news' %}
 
             {% include('includes/news.html.twig') with {
                 "news" : item
             } %}
 
-        {% elseif item.type == "artists" %}
+        {% elseif item.type == 'artists' %}
 
             {% include('includes/team.html.twig') with {
-                "artists" : item,
-                "background": "imagebackground",
-                "backgroundImageUrl": item.artistsBackground[0].url,
-                "kind" : "heading--h2--border"
+                'artists' : item,
+                'background' : 'imagebackground',
+                'backgroundImageUrl' : item.artistsBackground[0].url,
+                'kind' : 'heading--h2--border'
             } %}
 
-        {% elseif item.type == "partner" %}
+        {% elseif item.type == 'partner' %}
 
             {% include('includes/partner.html.twig') with{
-                "partner" : item
+                'partner' : item
             } %}
 
         {% endif %}
