@@ -11,50 +11,70 @@
             'text': 'New album, Fallen Empires, arrives with a serious reputation attached. The Irish/Scottish five piece have sold over.'
         } %}
 
-        {{ dump(sulu_snippet_load_default('contact')) }}
-
         <div class="contact-data">
             <div class="grid">
-                <div class="grid__item desk--three-twelfths portable--one-whole">
-                    <h4 class="heading--h4--border">Contact Us</h4>
-                    <div class="grid">
-                        <div class="grid__item desk--one-whole lap--one-half palm--one-whole">
-                            <div class="contact-data-elem">
-                                <i class="ion-email contact-data-elem-icon"></i>
-                                <div class="contact-data-elem-text">
-                                    <p>Adress</p>
-                                    <h6>Steinebach 16 6850 Dornbirn, Austria</h6>
-                                </div>
-                            </div>
+                {% set snippets = sulu_snippet_load_default('contact') %}
 
-                            <div class="contact-data-elem">
-                                <i class="ion-ios-telephone contact-data-elem-icon"></i>
-                                <div class="contact-data-elem-text">
-                                    <p>Telephone</p>
-                                    <h6>+43 (5572) 906090</h6>
+                {% if snippets|length %}
+                    {% for contact in snippets|first.content.contact|slice(0) %}
+                        <div class="grid__item desk--three-twelfths portable--one-whole">
+                            <h4 class="heading--h4--border">{{ 'contact'|trans }}</h4>
+                            <div class="grid">
+                                <div class="grid__item desk--one-whole lap--one-half palm--one-whole">
+                                    {% if contact.mainAddress|length %}
+                                        <div class="contact-data-elem">
+                                            <i class="ion-email contact-data-elem-icon"></i>
+                                            <div class="contact-data-elem-text">
+                                                <p>{{ 'address'|trans }}</p>
+                                                <h6>
+                                                    {{ contact.mainAddress.street }}
+                                                    {{ contact.mainAddress.number }},
+                                                    {{ contact.mainAddress.zip }}
+                                                    {{ contact.mainAddress.city }},
+                                                    {% if contact.mainAddress.country|length %}
+                                                        {{ contact.mainAddress.country.name }}
+                                                    {% endif %}
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+
+                                    {% if contact.mainPhone|default('') %}
+                                        <div class="contact-data-elem">
+                                            <i class="ion-ios-telephone contact-data-elem-icon"></i>
+                                            <div class="contact-data-elem-text">
+                                                <p>{{ 'phone'|trans }}</p>
+                                                <h6>{{ contact.mainPhone }}</h6>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="grid__item desk--one-whole lap--one-half palm--one-whole">
+                                    {% if contact.emails|length %}
+                                        <div class="contact-data-elem">
+                                            <i class="ion-email contact-data-elem-icon"></i>
+                                            <div class="contact-data-elem-text">
+                                                <p>{{ 'email|tans' }}</p>
+                                                <h6>{{ contact.emails|first.email }}</h6>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+
+                                    {% if contact.notes|length %}
+                                        <div class="contact-data-elem">
+                                            <i class="ion-android-time contact-data-elem-icon"></i>
+                                            <div class="contact-data-elem-text">
+                                                <p>{{ 'hours'|trans }}</p>
+                                                <h6>{{ contact.notes|first.value }}</h6>
+                                            </div>
+                                        </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
-
-                        <div class="grid__item desk--one-whole lap--one-half palm--one-whole">
-                            <div class="contact-data-elem">
-                                <i class="ion-email contact-data-elem-icon"></i>
-                                <div class="contact-data-elem-text">
-                                    <p>Email Adress</p>
-                                    <h6>webservices@massiveart.com</h6>
-                                </div>
-                            </div>
-
-                            <div class="contact-data-elem">
-                                <i class="ion-android-time contact-data-elem-icon"></i>
-                                <div class="contact-data-elem-text">
-                                    <p>Opening Hours</p>
-                                    <h6>Monday to Friday 08:00 - 17:00</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    {% endfor %}
+                {% endif %}
 
                 <div class="grid__item desk--one-twelfth">
                     {# Empty space #}

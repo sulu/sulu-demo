@@ -1,18 +1,54 @@
 <div class="footer">
     <div class="footer--frame">
         <div class="grid">
-            <div class="grid__item desk--three-tenths lap--six-tenths palm--one-whole">
-                <div class="footer-elem">
-                    <h6 class="heading--h6">for booking</h6>
-                    <span><i class="ion-email"></i> Steinebach 16 <br/> 6850 Dornbirn, <br/> Austria</span>
-                    <span><i class="ion-ios-telephone"></i> +43 (5572) 906 090</span>
-                    <span><i class="ion-email"></i> webservices@massiveart.com</span>
-                    <span><i class="ion-android-time"></i> Monday to Friday 08:00 - 17:00</span>
-                </div>
-            </div>
+            {% set snippets = sulu_snippet_load_default('contact') %}
+
+            {% if snippets|length %}
+                {% for contact in snippets|first.content.contact|slice(0) %}
+                    <div class="grid__item desk--three-tenths lap--six-tenths palm--one-whole">
+                        <div class="footer-elem">
+                            <h6 class="heading--h6">{{ 'contact'|trans }}</h6>
+                            {% if contact.mainAddress|length %}
+                                <span>
+                                    <i class="ion-email"></i>
+                                    {{ contact.mainAddress.street }}
+                                    {{ contact.mainAddress.number }}, <br/>
+                                    {{ contact.mainAddress.zip }}
+                                    {{ contact.mainAddress.city }}, <br/>
+                                    {% if contact.mainAddress.country|length %}
+                                        {{ contact.mainAddress.country.name }}
+                                    {% endif %}
+                                </span>
+                            {% endif %}
+
+                            {% if contact.mainPhone|default('') %}
+                                <span>
+                                    <i class="ion-ios-telephone"></i>
+                                    {{ contact.mainPhone }}
+                                </span>
+                            {% endif %}
+
+                            {% if contact.emails|length %}
+                                <span>
+                                    <i class="ion-email"></i>
+                                    {{ contact.emails|first.email }}
+                                </span>
+                            {% endif %}
+
+                            {% if contact.notes|length %}
+                                <span>
+                                    <i class="ion-android-time"></i>
+                                    {{ contact.notes|first.value }}
+                                </span>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
             <div class="grid__item desk--two-tenths lap--four-tenths">
                 <div class="footer-elem">
-                    <h6 class="heading--h6">quick links</h6>
+                    <h6 class="heading--h6">{{ 'quick_links'|trans }}</h6>
 
                     {% for item in sulu_navigation_root_tree('footer') %}
                         <a href="{{ sulu_content_path(item.url) }}"
@@ -25,7 +61,7 @@
             </div>
             <div class="grid__item desk--five-tenths portable--one-whole">
                 <div class="footer-elem">
-                    <h6 class="heading--h6">Sign up for newsletter</h6>
+                    <h6 class="heading--h6">{{ 'subscribe_newsletter'|trans }}</h6>
                     <p>
                         We provide a wide array of software design and development services from Mobile applications and
                         Web applications to User interface design.

@@ -18,6 +18,38 @@
                 <source>our_artists</source>
                 <target>Our Artists</target>
             </trans-unit>
+            <trans-unit id="5">
+                <source>address</source>
+                <target>Address</target>
+             </trans-unit>
+            <trans-unit id="6">
+                <source>phone</source>
+                <target>Telephone</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>email</source>
+                <target>Email Address</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>hours</source>
+                <target>Opening Hours</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>contact</source>
+                <target>Contact</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>quick_links</source>
+                <target>Quick Links</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>subscribe_newsletter</source>
+                <target>Sign up for the Newsletter</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>newsletter_text</source>
+                <target>We provide a wide array of software design and development services from Mobile applications and Web applications to User interface design. </target>
+            </trans-unit>
 		</body>
     </file>
 </xliff>

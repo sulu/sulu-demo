@@ -18,6 +18,37 @@
                 <source>our_artists</source>
                 <target>Unsere Künstler</target>
             </trans-unit>
+            <trans-unit id="5">
+                <source>address</source>
+                <target>Adresse</target>
+             </trans-unit>
+            <trans-unit id="6">
+                <source>phone</source>
+                <target>Telefon</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>email</source>
+                <target>Email Adresse</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>hours</source>
+                <target>Öffnungszeiten</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>contact</source>
+                <target>Kontakt</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>quick_links</source>
+                <target>Quick Links</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>subscribe_newsletter</source>
+                <target>Für den Newsletter eintragen</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>newsletter_text</source>
+                <target>Von uns erhalten Sie intessante Informationen.</target>
 		</body>
     </file>
 </xliff>
