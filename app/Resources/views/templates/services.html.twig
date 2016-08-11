@@ -1,48 +1,71 @@
 {% extends "master.html.twig" %}
 
 {% block content %}
-    {% if content.headerImage|length %}
-        {% include(':includes:headerimage.html.twig') with {
-            'image' : content.headerImage|first,
-            'kind' : 'headerimage-text--middle-middle',
-            'headingposition' : 'heading--middle',
-            'heading' : content.headerHeading,
-            'text': content.headerSubheading
-        } %}
-    {% endif %}
+
+    <div property="headerImage">
+        <div property="headerHeading">
+            <div property="headerSubheading">
+                {% if content.headerImage|length %}
+                    {% include(':includes:headerimage.html.twig') with {
+                        'image' : content.headerImage|first,
+                        'kind' : 'headerimage-text--middle-middle',
+                        'headingposition' : 'heading--middle',
+                        'heading' : content.headerHeading,
+                        'text': content.headerSubheading
+                    } %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
 
     <section class="services">
         <div class="services-activities">
-            <div class="grid">
+            <div property="services" typeof="collection" class="grid">
                 {% for service in content.services %}
-                    {% if service.icon != "" and service.heading != "" and service.text != "" %}
-                        <div class="grid__item desk--one-third lap--one-half palm--one-whole">
-                            <div class="services-activities-elem">
-                                <i class="{{ service.icon }}"></i>
-                                <h4>{{ service.heading }}</h4>
-                                {{ service.text|raw }}
+                    <div rel="services" typeof="block">
+                        <div property="icon">
+                            <div property="heading">
+                                <div property="text">
+                                    {% if service.icon != "" and service.heading != "" and service.text != "" %}
+                                        <div class="grid__item desk--one-third lap--one-half palm--one-whole">
+                                            <div class="services-activities-elem">
+                                                <i class="{{ service.icon }}"></i>
+                                                <h4>{{ service.heading }}</h4>
+                                                {{ service.text|raw }}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
-                    {% endif %}
+                    </div>
                 {% endfor %}
             </div>
         </div>
 
         <div class="services-location">
             {% if content.locationsHeading != "" and content.locationsSubheading != "" %}
-                <h2 class="heading--h2">{{ content.locationsHeading }}</h2>
-                <p>{{ content.locationsSubheading }}</p>
+                <h2 property="locationsHeading" class="heading--h2">{{ content.locationsHeading }}</h2>
+                <p property="locationsSubheading">{{ content.locationsSubheading }}</p>
             {% endif %}
 
-            <div class="grid">
+            <div property="locations" typeof="collection" class="grid">
                 {% for location in content.locations %}
                     {% if location.icon != "" and location.heading != "" and location.text != "" %}
-                        <div class="grid__item desk--one-third lap--one-half palm--one-whole">
-                            <div class="services-location-elem">
-                                <i class="{{ location.icon }} services-location-elem-icon"></i>
-                                <div class="services-location-elem-text">
-                                    <h4>{{ location.heading }}</h4>
-                                    {{ location.text|raw }}
+                        <div rel="locations"
+                             typeof="block"
+                             class="grid__item desk--one-third lap--one-half palm--one-whole">
+                            <div property="icon">
+                                <div property="heading">
+                                    <div property="text">
+                                        <div class="services-location-elem">
+                                            <i class="{{ location.icon }} services-location-elem-icon"></i>
+                                            <div class="services-location-elem-text">
+                                                <h4>{{ location.heading }}</h4>
+                                                {{ location.text|raw }}
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -52,41 +75,49 @@
         </div>
     </section>
 
-    {% for item in content.action %}
-        {% if item.title|default('') and item.image|default([]) and item.link|default('') %}
-            {# for booking #}
-            {% include(':includes:forbooking.html.twig') with {
-                'action' : item
-            } %}
-        {% endif %}
-    {% endfor %}
+    <div property="action">
+        {% for item in content.action %}
+            {% if item.title|default('') and item.image|default([]) and item.link|default('') %}
+                {% include(':includes:forbooking.html.twig') with {
+                    'action' : item
+                } %}
+            {% endif %}
+        {% endfor %}
+    </div>
 
     <section class="services">
-        <div class="services-carousel js-services-carousel" data-slick='{"slidesToShow": 1, "slidesToScroll": 1}'>
+        <div property="quotes"
+             typeof="collection"
+             class="services-carousel js-services-carousel"
+             data-slick='{"slidesToShow": 1, "slidesToScroll": 1}'>
             {% for quote in content.quotes  %}
-                {% if quote.contact[0] is defined %}
-                    {% set contact = quote.contact[0] %}
-                    {% if contact.notes[0] is defined %}
-                        <div class="services-carousel-item">
-                            <div class="services-carousel-item-line"></div>
-                            {% if contact.avatar is defined %}
-                                <img src="{{ contact.avatar.thumbnails['100x100'] }}"/>
-                            {% endif %}
+                <div rel="quotes" typeof="block">
+                <div property="contact">
+                    {% if quote.contact|length %}
+                        {% set contact = quote.contact|first %}
+                        {% if contact.notes|length %}
+                            <div class="services-carousel-item">
+                                <div class="services-carousel-item-line"></div>
+                                {% if contact.avatar is defined %}
+                                    <img src="{{ contact.avatar.thumbnails['100x100'] }}"/>
+                                {% endif %}
 
-                            <p>
-                                {{ contact.notes[0].value }}
-                            </p>
+                                <p>
+                                    {{ contact.notes|first.value }}
+                                </p>
 
-                            <span class="services-carousel-item-author">{{ contact.fullName }}</span>
+                                <span class="services-carousel-item-author">{{ contact.fullName }}</span>
 
-                            {% if contact.account[0] is defined %}
-                                <span class="services-carousel-item-corporation">
-                                    {{ contact.account[0].name }}
-                                </span>
-                            {% endif %}
-                        </div>
+                                {% if contact.account|length %}
+                                    <span class="services-carousel-item-corporation">
+                                        {{ contact.account.name }}
+                                    </span>
+                                {% endif %}
+                            </div>
+                        {% endif %}
                     {% endif %}
-                {% endif %}
+                </div>
+                </div>
             {% endfor %}
         </div>
     </section>

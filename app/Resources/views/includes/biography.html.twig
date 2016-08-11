@@ -1,35 +1,38 @@
-<section class="biography">
+<section class="biography" rel="blocks" typeof="block">
     <div class="grid">
         <div class="grid__item desk--one-half">
             <div class="biography-text">
-                <h2 class="heading--h2--border">
+                <h2 property="biographyTitle" class="heading--h2--border">
                     {{ biography.biographyTitle }}
                 </h2>
 
-                <h3 class="heading--h3">
+                <h3 property="biographyHeading" class="heading--h3">
                     {{ biography.biographyHeading }}
                 </h3>
 
-                {{ biography.biographyText|raw }}
+                <div property="biographyText">
+                    {{ biography.biographyText|raw }}
+                </div>
 
-                <a class="biography-text-button"
+                <a property="biographyLink"
+                   class="biography-text-button"
                    href="{{ sulu_content_load(biography.biographyLink).urls[request.locale] }}">
                     Read More
                 </a>
             </div>
         </div>
-        {% if biography.biographyImage|length > 0 %}
-            <picture class="grid__item desk--one-half">
+        {% if biography.biographyImage|length %}
+            <picture property="biographyImage" class="grid__item desk--one-half">
                 <source media="(min-width: 1024px)"
-                        srcset="{{ biography.biographyImage[0].thumbnails['800x800-inset'] }}"
+                        srcset="{{ biography.biographyImage|first.thumbnails['800x800-inset'] }}"
                         class="biography-image">
 
                 <source media="(max-width: 1024px)"
-                        srcset="{{ biography.biographyImage[0].thumbnails['400x400-inset'] }}"
+                        srcset="{{ biography.biographyImage|first.thumbnails['400x400-inset'] }}"
                         class="biography-image">
 
                 <!---Fallback--->
-                <img src="{{ biography.biographyImage[0].thumbnails['800x800-inset'] }}"
+                <img src="{{ biography.biographyImage|first.thumbnails['800x800-inset'] }}"
                      class="biography-image">
             </picture>
         {% endif %}

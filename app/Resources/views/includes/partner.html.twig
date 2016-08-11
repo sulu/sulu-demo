@@ -1,9 +1,11 @@
-<section class="partner">
-    <h2 class="partner-item--heading heading--h2--border">
-        Partners
+<section class="partner"  rel="blocks" typeof="block">
+    <h2 property="title" class="partner-item--heading heading--h2--border">
+        {{ partner.title }}
     </h2>
 
-    <div class="partner-carousel js-partner-carousel" data-slick='{"slidesToShow": 5, "slidesToScroll": 5}'>
+    <div property="partnerData"
+         class="partner-carousel js-partner-carousel"
+         data-slick='{"slidesToShow": 5, "slidesToScroll": 5}'>
         {% for item in partner.partnerData %}
             {% for image in item.images %}
                 <div class="partner-carousel-item">
