@@ -49,6 +49,7 @@
             <trans-unit id="12">
                 <source>newsletter_text</source>
                 <target>Von uns erhalten Sie intessante Informationen.</target>
+            </trans-unit>
 		</body>
     </file>
 </xliff>
