@@ -7,7 +7,9 @@
                 {% for contact in snippets|first.content.contact|slice(0) %}
                     <div class="grid__item desk--three-tenths lap--six-tenths palm--one-whole">
                         <div class="footer-elem">
-                            <h6 class="heading--h6">{{ 'contact'|trans }}</h6>
+                            <h6 class="heading--h6">
+                                {{ 'contact'|trans }}
+                            </h6>
                             {% if contact.mainAddress|length %}
                                 <span>
                                     <i class="ion-email"></i>

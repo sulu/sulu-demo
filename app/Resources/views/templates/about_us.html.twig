@@ -8,7 +8,6 @@
                     <header class="about-header"
                             style="background-image: url({{ content.headerImage[0].thumbnails['800x']}});">
                         <div class="about-header-frame">
-
                             {% if content.headerHeading != "" %}
                                 <h2 class="heading--h2">{{ content.headerHeading }}</h2>
                             {% endif %}
@@ -38,7 +37,10 @@
             <div class="about-history">
                 <h2 property="tabsHeading" class="heading--h2">{{ content.tabsHeading }}</h2>
 
-                <p property="tabsSubheading" class="about-history-subheading">{{ content.tabsSubheading }}</p>
+                <p property="tabsSubheading" class="about-history-subheading">
+                    {{ content.tabsSubheading }}
+                </p>
+
                 <div property="tabsText">
                     {{ content.tabsText|raw }}
                 </div>

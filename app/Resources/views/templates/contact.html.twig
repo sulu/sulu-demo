@@ -84,10 +84,7 @@
 
                 <div class="grid__item desk--eight-twelfths portable--one-whole">
 
-                    {% if content.location.title|default('') and
-                          content.location.lat|default('') and
-                          content.location.zoom|default('') and
-                          content.location.long|default('') %}
+                    {% if content.location.title|default('') %}
                         <h4 class="heading--h4--border">{{ content.location.title }}</h4>
                         <div id="js-googleMap"></div>
                     {% endif %}
@@ -113,6 +110,7 @@
 {% block javascripts %}
     {{ parent() }}
         <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBjtPJfpPh9FEwonUW0Lte5Ayshi2FVCKc"></script>
+
         {% if content.location.lat|default('') and
               content.location.zoom|default('') and
               content.location.long|default('') %}

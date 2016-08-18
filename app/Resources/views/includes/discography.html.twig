@@ -3,7 +3,11 @@
         <h2 property="discographyTitle" class="discography-frame-heading heading--h2--border">
             {{ discography.discographyTitle }}
         </h2>
-        <p property="discographyHeading">{{ discography.discographyHeading }}</p>
+
+        <p property="discographyHeading">
+            {{ discography.discographyHeading }}
+        </p>
+
         <div property="dicographyData" class="grid">
             {% for item in discography.discographyData %}
                 {% for category in item.categories if category.key == "discography" %}

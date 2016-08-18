@@ -13,17 +13,18 @@
                     {% endif %}
 
                     <span class="team-member-socials">
-                        <i class="team-member-socials-twitter ion-social-twitter" onclick="location.href='#'"></i>
-                        <i class="team-member-socials-facebook ion-social-facebook" onclick="location.href='#'"></i>
-                        <i class="team-member-socials-googleplus ion-social-googleplus" onclick="location.href='#'"></i>
-                        <i class="team-member-socials-linkedin ion-social-linkedin" onclick="location.href='#'"></i>
-                        <i class="team-member-socials-instagram ion-social-instagram" onclick="location.href='#'"></i>
+                        <a class="team-member-socials-twitter ion-social-twitter" href="#"></a>
+                        <a class="team-member-socials-facebook ion-social-facebook" href="#"></a>
+                        <a class="team-member-socials-googleplus ion-social-googleplus" href="#"></a>
+                        <a class="team-member-socials-linkedin ion-social-linkedin" href="#"></a>
+                        <a class="team-member-socials-instagram ion-social-instagram" href="#"></a>
                     </span>
 
                     <div class="team-member-text">
                         {% if artist.heading|default('') %}
-                            <a class="team-member-text-name" href="{{ sulu_content_path(artist.url) }}">{{ artist.heading
-                                }}</a>
+                            <a class="team-member-text-name" href="{{ sulu_content_path(artist.url) }}">
+                                {{ artist.heading }}
+                            </a>
                         {% endif %}
                     </div>
                 </div>
