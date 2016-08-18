@@ -46,7 +46,13 @@
                 </div>
 
                 <div property="tabs" typeof="collection" class="about-history-tabs">
-                    <ul  rel="tab" typeof="block" class="about-history-tabs-links">
+                    {% set tabClass = 'about-history-tabs-links' %}
+
+                    {% if content.tabs|length >= 3 %}
+                        {% set tabClass = tabClass ~ ' rows' %}
+                    {% endif %}
+
+                    <ul rel="tab" typeof="block" class="{{ tabClass }}">
                         {% for tab in content.tabs %}
                                 {% set attrClass = '' %}
 
@@ -54,16 +60,7 @@
                                     {% set attrClass = ' class="active"' %}
                                 {% endif %}
 
-                                <li{{ attrClass|raw }}>
-                                    {% if content.tabs|length >= 3 and (loop.index == 2 or loop.index == 1) %}
-                                        <style>
-                                            @media (max-width: 680px) {
-                                                #about-history-tabs-links-{{ loop.index }}::before {
-                                                    height: 0px;
-                                                }
-                                            }
-                                        </style>
-                                    {% endif %}
+                                <li {{ attrClass|raw }}>
                                     <a property="tabName"
                                        id="about-history-tabs-links-{{ loop.index }}"
                                        href="#about-history-tabs-content-tab{{ loop.index }}">

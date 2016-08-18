@@ -8,21 +8,18 @@
     <div property="newsData">
         {% for item in news.newsData|slice(0,3) %}
             <div class="news-item" onclick="location.href='{{ item.url }}'">
-                <picture>
+                <picture class="news-item-image">
                     <source media="(min-width: 1024px)"
-                            srcset="{{ item.image|first.thumbnails['1080x200-inset'] }}"
-                            class="news-item-image">
+                            srcset="{{ item.image|first.thumbnails['1080x200-inset'] }}">
 
                     <source media="(min-width: 481px) and (max-width: 1023px)"
-                            srcset="{{ item.image|first.thumbnails['800x200-inset'] }}"
-                            class="news-item-image">
+                            srcset="{{ item.image|first.thumbnails['800x200-inset'] }}">
 
                     <source media="(max-width: 480px)"
-                            srcset="{{ item.image|first.thumbnails['480x200-inset'] }}"
-                            class="news-item-image">
+                            srcset="{{ item.image|first.thumbnails['480x200-inset'] }}">
 
                     <!---Fallback--->
-                    <img class="news-item-image" src="{{ item.image|first.thumbnails['800x200-inset'] }}">
+                    <img src="{{ item.image|first.thumbnails['800x200-inset'] }}">
                 </picture>
 
                 <div class="news-item-text">

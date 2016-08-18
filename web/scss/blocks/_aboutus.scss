@@ -195,4 +195,8 @@
         width: 50%;
         margin-top: 15px;
     }
+    .rows #about-history-tabs-links-1::before,
+    .rows #about-history-tabs-links-2::before{
+        height: 0px;
+    }
 }
