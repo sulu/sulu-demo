@@ -2,24 +2,30 @@
 
 {% block content %}
     {% if content.headerImage|length %}
-        {% include(':includes:headerimage.html.twig') with {
-            'image' : content.headerImage|first,
-            'kind' : 'headerimage-text--left',
-            'headingposition' : 'heading--left',
-            'heading' : content.headerHeading,
-            'text': content.headerSubheading
-        } %}
+        <div property="headerImage">
+            <div property="headerHeading">
+                <div property="headerSubheading">
+                    {% include(':includes:headerimage.html.twig') with {
+                        'image' : content.headerImage|first,
+                        'kind' : 'headerimage-text--left',
+                        'headingposition' : 'heading--left',
+                        'heading' : content.headerHeading,
+                        'text': content.headerSubheading
+                    } %}
+                </div>
+            </div>
+        </div>
     {% endif %}
 
     <section class="artists">
-        <h4 class="heading--h3--border">Our Artists</h4>
+        <h4 property="title" class="heading--h3--border">{{ content.title }}</h4>
 
-        <div class="grid">
+        <div class="grid" property="artists">
             {% for artist in content.artists %}
                 <div class="grid__item desk--one-third lap--one-half palm--one-whole">
                     <div class="artists-item">
                         <div class="artists-item--scalebox">
-                            <img src="{{ artist.image|first.thumbnails('480x') }}" class="artists-item-image">
+                            <img src="{{ artist.image|first.thumbnails['480x'] }}" class="artists-item-image">
                         </div>
 
                         <div class="artists-item-text">

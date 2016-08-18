@@ -1,30 +1,34 @@
-<section style="background-image: url({{ backgroundImageUrl }});" class="team team--{{ background }}">
+<section style="background-image: url({{ backgroundImageUrl }});"
+         class="team team--{{ background }}">
     <div class="grid">
-        <h2 class="team-heading team--{{ kind }}">
+        <h2 property="artistsTitle" class="team-heading team--{{ kind }}">
             {{ artists.artistsTitle }}
         </h2>
 
-        {% for artist in artists.artistsData %}
-            <div class="grid__item desk--one-third team-member lap--one-half palm--one-whole">
-                {% if artist.image|length %}
-                    <img src="{{ artist.image|first.formats['400x400'] }}" class="team-member-image" />
-                {% endif %}
-
-                <span class="team-member-socials">
-                    <i class="team-member-socials-twitter ion-social-twitter" onclick="location.href='#'"></i>
-                    <i class="team-member-socials-facebook ion-social-facebook" onclick="location.href='#'"></i>
-                    <i class="team-member-socials-googleplus ion-social-googleplus" onclick="location.href='#'"></i>
-                    <i class="team-member-socials-linkedin ion-social-linkedin" onclick="location.href='#'"></i>
-                    <i class="team-member-socials-instagram ion-social-instagram" onclick="location.href='#'"></i>
-                </span>
-
-                <div class="team-member-text">
-                    {% if artist.heading|default('') %}
-                        <a class="team-member-text-name" href="{{ sulu_content_path(artist.url) }}">{{ artist.heading
-                            }}</a>
+        <div property="artistsData">
+            {% for artist in artists.artistsData %}
+                <div class="grid__item desk--one-third team-member lap--one-half palm--one-whole">
+                    {% if artist.image|length %}
+                        <img src="{{ artist.image|first.formats['400x400'] }}" class="team-member-image" />
                     {% endif %}
+
+                    <span class="team-member-socials">
+                        <a class="team-member-socials-twitter ion-social-twitter" href="#"></a>
+                        <a class="team-member-socials-facebook ion-social-facebook" href="#"></a>
+                        <a class="team-member-socials-googleplus ion-social-googleplus" href="#"></a>
+                        <a class="team-member-socials-linkedin ion-social-linkedin" href="#"></a>
+                        <a class="team-member-socials-instagram ion-social-instagram" href="#"></a>
+                    </span>
+
+                    <div class="team-member-text">
+                        {% if artist.heading|default('') %}
+                            <a class="team-member-text-name" href="{{ sulu_content_path(artist.url) }}">
+                                {{ artist.heading }}
+                            </a>
+                        {% endif %}
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 </section>

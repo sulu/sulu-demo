@@ -40,10 +40,10 @@
             </properties>
         </section>
 
-        <property name="article" type="text_editor">
+        <property name="location" type="location">
             <meta>
-                <title lang="en">Article</title>
-                <title lang="de">Artikel</title>
+                <title lang="en">Location</title>
+                <title lang="de">Standort</title>
             </meta>
         </property>
     </properties>

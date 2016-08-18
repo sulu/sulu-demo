@@ -1,10 +1,14 @@
-<section class="discography {{ background|default('') }}">
+<section  rel="blocks" typeof="block" class="discography {{ background|default('') }}">
     <div class="discography-frame">
-        <h2 class="discography-frame-heading heading--h2--border">
+        <h2 property="discographyTitle" class="discography-frame-heading heading--h2--border">
             {{ discography.discographyTitle }}
         </h2>
-        <p>{{ discography.discographyHeading }}</p>
-        <div class="grid">
+
+        <p property="discographyHeading">
+            {{ discography.discographyHeading }}
+        </p>
+
+        <div property="dicographyData" class="grid">
             {% for item in discography.discographyData %}
                 {% for category in item.categories if category.key == "discography" %}
                     <div class="grid__item desk--one-third lap--one-half palm--one-whole">

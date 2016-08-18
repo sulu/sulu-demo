@@ -2,13 +2,19 @@
 
 {% block content %}
     {% if content.headerImage|length %}
-        {% include(':includes:headerimage.html.twig') with {
-            'image' : content.headerImage|first,
-            'kind' : 'headerimage-text--left',
-            'headingposition' : 'heading--left',
-            'heading' : content.headerHeading,
-            'text': content.headerSubheading
-        } %}
+        <div property="headerImage">
+            <div property="headerHeading">
+                <div property="headerSubheading">
+                    {% include(':includes:headerimage.html.twig') with {
+                        'image' : content.headerImage|first,
+                        'kind' : 'headerimage-text--left',
+                        'headingposition' : 'heading--left',
+                        'heading' : content.headerHeading,
+                        'text': content.headerSubheading
+                    } %}
+                </div>
+            </div>
+        </div>
     {% endif %}
 
     <section class="artist">
@@ -16,14 +22,14 @@
             <div class="grid__item desk--four-fifths portable--one-whole">
                 <div class="artist-main">
                     {% if content.contentHeading|default('') %}
-                        <h2 class="artist-main-heading">
+                        <h2 property="contentHeading" class="artist-main-heading">
                             {{ content.contentHeading }}
                         </h2>
                     {% endif %}
 
                     {% if content.contentTitleimage|length %}
                         <div class="artist-main-scalebox">
-                            <picture>
+                            <picture property="contentTitleimage">
                                 <source media="(min-width: 481px)"
                                         srcset="{{ content.contentTitleimage|first.thumbnails['800x'] }}"
                                         class="artist-main-scalebox-image">
@@ -40,49 +46,56 @@
                         </div>
                     {% endif %}
 
-                    <div class="artist-main-subheading">
+                    <div property="contentSubheading" class="artist-main-subheading">
                         {{ content.contentSubheading }}
                     </div>
 
-                    {% for block in content.blocks %}
-                        {% if block.type == "text" %}
-
-                            {{ block.contentText | raw }}
-
-                        {% elseif block.type == "quote" %}
-
-                            <div class="artist-main-quote">
-                                <p>
-                                    {{ block.contentText }}
-                                </p>
-                            </div>
-
-                        {% elseif block.type == "media" and block.contentMedia|length >=3 %}
-
-                            <div class="grid">
-                                {% for i in 0..2 %}
-                                    <div class="grid__item desk--one-third lap--one-half palm--one-whole">
-                                        <div class="artist-main-galleryitem">
-                                            <div class="artist-main-scalebox">
-                                                <img src="{{ block.contentMedia[i].thumbnails['480x'] }}"
-                                                     alt="{{ block.contentMedia[i].description }}"
-                                                     class="artist-main-scalebox-image">
-                                            </div>
-                                            <p class="artist-main-text">{{ block.contentMedia[i].description }}</p>
-                                        </div>
+                    <div property="blocks" typeof="collection">
+                        {% for block in content.blocks %}
+                            {% if block.type == "text" %}
+                                <div rel="blocks" typeof="block">
+                                    <div property="contentText">
+                                        {{ block.contentText | raw }}
                                     </div>
-                                {% endfor %}
-                            </div>
+                                </div>
 
-                        {% elseif block.type == 'discography' %}
-                            {# Discography #}
-                            {% include('includes/discography.html.twig') with {
-                                'discography' : block,
-                                'background' : 'discography--nobackground'
-                            } %}
+                            {% elseif block.type == "quote" %}
+                                <div rel="blocks" typeof="block">
+                                    <div class="artist-main-quote">
+                                        <p property="contentText">
+                                            {{ block.contentText }}
+                                        </p>
+                                    </div>
+                                </div>
 
-                        {% endif %}
-                    {% endfor %}
+                            {% elseif block.type == "media" and block.contentMedia|length >=3 %}
+                                <div rel="blocks" typeof="block">
+                                    <div class="grid">
+                                        {% for i in 0..2 %}
+                                            <div class="grid__item desk--one-third lap--one-half palm--one-whole">
+                                                <div class="artist-main-galleryitem">
+                                                    <div property="contentMedia" class="artist-main-scalebox">
+                                                        <img src="{{ block.contentMedia[i].thumbnails['480x'] }}"
+                                                             alt="{{ block.contentMedia[i].description }}"
+                                                             class="artist-main-scalebox-image">
+                                                    </div>
+                                                    <p class="artist-main-text">{{ block.contentMedia[i].description }}</p>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+                            {% elseif block.type == 'discography' %}
+                                {# Discography #}
+                                {% include('includes/discography.html.twig') with {
+                                    'discography' : block,
+                                    'background' : 'discography--nobackground'
+                                } %}
+
+                            {% endif %}
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
 
@@ -93,10 +106,10 @@
 
                         {% for category in extension.excerpt.categories %}
                             {% if category.key == "discography" %}
-                                {% set isdiscography %}
+                                {% set isdiscography = true %}
                             {% endif %}
                         {% endfor %}
-                                    
+
                         {{ isdiscography ? 'our_albums'|trans : 'our_artists'|trans }}
                     </h2>
                     <ul class="artist-sidemenu-list">
