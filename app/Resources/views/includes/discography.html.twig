@@ -8,7 +8,7 @@
             {{ discography.discographyHeading }}
         </p>
 
-        <div property="dicographyData" class="grid">
+        <div property="discographyData" class="grid">
             {% for item in discography.discographyData %}
                 {% for category in item.categories if category.key == "discography" %}
                     <div class="grid__item desk--one-third lap--one-half palm--one-whole">

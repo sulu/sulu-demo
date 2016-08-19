@@ -2,25 +2,30 @@
 
 {% block content %}
     {% if content.headerImage|length %}
-        {% include(':includes:headerimage.html.twig') with {
-            'image' : content.headerImage[0],
-            'kind' : 'headerimage-text--left',
-            'headingposition' : 'heading--left',
-            'heading' : content.headerHeading,
-            'text': content.headerSubheading
-        } %}
+        <div property="headerImage">
+            <div property="headerHeading">
+                <div property="headerSubheading">
+                    {% include(':includes:headerimage.html.twig') with {
+                        'image' : content.headerImage[0],
+                        'kind' : 'headerimage-text--left',
+                        'headingposition' : 'heading--left',
+                        'heading' : content.headerHeading,
+                        'text': content.headerSubheading
+                    } %}
+                </div>
+            </div>
+        </div>
     {% endif %}
 
     <section class="blogdetail">
         <div class="grid">
             <div class="grid__item desk--four-fifths portable--one-whole">
                 <div class="blogdetail-main">
-                    <h2 class="blogdetail-heading">
+                    <h2 property="contentHeading" class="blogdetail-heading">
                         {{ content.contentHeading }}
                     </h2>
 
-                    <div class="blogdetail-scalebox">
-
+                    <div property="contentTitleimage" class="blogdetail-scalebox">
                         {% if content.contentTitleimage|length %}
                             <picture>
                                 <source media="(min-width: 481px)"
@@ -37,19 +42,25 @@
                             </picture>
                         {% endif %}
                     </div>
+                    <div property="author" class="blogdetail-editor">
 
-                    <div class="blogdetail-editor">
+                        {% set author = sulu_resolve_contact(creator) %}
 
-                        {% if sulu_resolve_contact(changer).avatar is defined %}
-                            <img src="{{ sulu_resolve_media(sulu_resolve_contact(changer).avatar, request.locale).url }}"/>
+                        {% if content.author|length %}
+                            {% set author = content.author|first %}
                         {% endif %}
+
+                        {% if author.avatar.url is defined %}
+                            <img src="{{ author.avatar.url }}"/>
+                        {% endif %}
+
                         <div class="blogdetail-editor-middle">
                             <span class="blogdetail-editor-middle-date">
-                                Posted on: <p>{{ published.date|date("d.m.Y") }}</p>
+                                Posted on: <p>{{ published|date('d.m.Y') }}</p>
                             </span>
 
                             <span class="blogdetail-editor-middle-editor">
-                                posted by <a href="#">{{ sulu_resolve_user(changer).contact.fullName }}</a>
+                                posted by <a href="#">{{ author.fullName }}</a>
 
                                 {% if extension.excerpt.categories|length >0 %}
                                     <i class="ion-ios-arrow-forward"></i>
@@ -83,43 +94,45 @@
                     </div>
 
                     <div class="blogdetail-subheading">
-                        <p>
-                            {{ content.headerSubheading }}
+                        <p property="contentSubheading">
+                            {{ content.contentSubheading }}
                         </p>
                     </div>
-
-                    {% for block in content.blocks %}
-                        {% if block.type == "text" %}
-
-                            {{ block.contentText | raw }}
-
-                        {% elseif block.type == "quote" %}
-
-                            <div class="blogdetail-quote">
-                                <p>
-                                    {{ block.contentText }}
-                                </p>
-                            </div>
-
-                        {% elseif block.type == "media" and block.contentMedia|length >=3 %}
-
-                            <div class="grid">
-                                {% for i in 0..2 %}
-                                    <div class="grid__item desk--one-third lap--one-half palm--one-whole">
-                                        <div class="blogdetail-galleryitem">
-                                            <div class="blogdetail-scalebox">
-                                                <img src="{{ block.contentMedia[i].thumbnails['100x100-inset'] }}"
-                                                     alt="{{ block.contentMedia[i].description }}"
-                                                     class="blogdetail-scalebox-image">
-                                            </div>
-                                            <p class="blogdetail-text">{{ block.contentMedia[i].description }}</p>
+                    <div property="blocks" typeof="collection">
+                        {% for block in content.blocks %}
+                            <div rel="blocks" typeof="block">
+                                {% if block.type == "text" %}
+                                        <div property="contentText">
+                                            {{ block.contentText | raw }}
                                         </div>
-                                    </div>
-                                {% endfor %}
-                            </div>
+                                {% elseif block.type == "quote" %}
 
-                        {% endif %}
-                    {% endfor %}
+                                    <div class="blogdetail-quote">
+                                        <p property="contentText">
+                                            {{ block.contentText }}
+                                        </p>
+                                    </div>
+
+                                {% elseif block.type == "media" and block.contentMedia|length >=1 %}
+
+                                    <div property="contentMedia" class="grid">
+                                        {% for media in block.contentMedia %}
+                                            <div class="grid__item desk--one-third lap--one-half palm--one-whole">
+                                                <div class="blogdetail-galleryitem">
+                                                    <div class="blogdetail-scalebox">
+                                                        <img src="{{ media.thumbnails['100x100-inset'] }}"
+                                                             alt="{{ media.description }}"
+                                                             class="blogdetail-scalebox-image">
+                                                    </div>
+                                                    <p class="blogdetail-text">{{ media.description }}</p>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
 
                     <div class="blogdetail-tags">
                         <span class="blogdetail-tags-heading">
