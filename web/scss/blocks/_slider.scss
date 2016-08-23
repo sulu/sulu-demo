@@ -5,7 +5,7 @@
     .slides {
         &-images {
             width: 100%;
-            height: inherit;
+            height: auto;
             display: block;
             z-index: 1;
         }
@@ -13,10 +13,9 @@
         &-text {
             width: 450px;
             left: 18%;
-            top: -450px;
-            margin-bottom: -400px;
+            bottom: 75px;
             z-index: 2;
-            position: relative;
+            position: absolute;
 
             h2,
             p,
@@ -54,12 +53,11 @@
     }
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1350px) {
     .slider {
         .slides {
             &-text {
-                top: -400px;
-                margin-bottom: -390px;
+                bottom: 25px;
             }
         }
     }

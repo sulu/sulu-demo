@@ -1,8 +1,15 @@
 {% extends "master.html.twig" %}
 
 {% block content %}
-    {# Slider
-    {% include('includes/slider.html.twig') %}#}
+
+    {% if content.slides|length %}
+        <div property="slides">
+            {% include('includes/slider.html.twig') with {
+                'slides': content.slides
+            } %}
+        </div>
+    {% endif %}
+
     <div property="blocks" typeof="collection">
         {% for item in content.blocks %}
             {% if item.type == 'biography' %}
