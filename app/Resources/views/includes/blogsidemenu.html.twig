@@ -27,20 +27,21 @@
 
             <div class="grid__item desk--one-whole lap--one-half palm--one-whole">
                 <h2 class="blog-sidemenu-heading">{{ 'recent_articles'|trans }}</h2>
+                {% if latestArticles is defined %}
+                    {% for latestArticle in latestArticles %}
+                        {% set media = sulu_resolve_media(latestArticle.image.ids, request.locale) %}
 
-                {% for latestArticle in latestArticles %}
-                    {% set media = sulu_resolve_media(latestArticle.image.ids, request.locale) %}
-
-                    <div class="blog-sidemenu-recent">
-                        <img src="{{ media.thumbnails['140x70'] }}"/>
-                        <div class="blog-sidemenu-recent-text">
-                            <p>{{ latestArticle.creation.date|date("d.m.Y") }}</p>
-                            <a href="{{ latestArticle.url.value }}">
-                                <h6>{{ latestArticle.heading.value }}</h6>
-                            </a>
+                        <div class="blog-sidemenu-recent">
+                            <img src="{{ media.thumbnails['140x70'] }}"/>
+                            <div class="blog-sidemenu-recent-text">
+                                <p>{{ latestArticle.creation.date|date("d.m.Y") }}</p>
+                                <a href="{{ latestArticle.url.value }}">
+                                    <h6>{{ latestArticle.heading.value }}</h6>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
     </aside>

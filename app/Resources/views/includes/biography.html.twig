@@ -2,23 +2,31 @@
     <div class="grid">
         <div class="grid__item desk--one-half">
             <div class="biography-text">
-                <h2 property="biographyTitle" class="heading--h2--border">
-                    {{ biography.biographyTitle }}
-                </h2>
+                {% if biography.biographyTitle|default('') %}
+                    <h2 property="biographyTitle" class="heading--h2--border">
+                        {{ biography.biographyTitle }}
+                    </h2>
+                {% endif %}
 
-                <h3 property="biographyHeading" class="heading--h3">
-                    {{ biography.biographyHeading }}
-                </h3>
+                {% if biography.biographyHeading|default('') %}
+                    <h3 property="biographyHeading" class="heading--h3">
+                        {{ biography.biographyHeading }}
+                    </h3>
+                {% endif %}
 
-                <div property="biographyText">
-                    {{ biography.biographyText|raw }}
-                </div>
-
-                <a property="biographyLink"
-                   class="biography-text-button"
-                   href="{{ sulu_content_load(biography.biographyLink).urls[request.locale] }}">
-                    Read More
-                </a>
+                {% if biography.biographyText|default('') %}
+                    <div property="biographyText">
+                        {{ biography.biographyText|raw }}
+                    </div>
+                {% endif %}
+                
+                {% if biography.biographyLink|default('') %}
+                    <a property="biographyLink"
+                       class="biography-text-button"
+                       href="{{ sulu_content_load(biography.biographyLink).urls[request.locale] }}">
+                        Read More
+                    </a>
+                {% endif %}
             </div>
         </div>
         {% if biography.biographyImage|length %}

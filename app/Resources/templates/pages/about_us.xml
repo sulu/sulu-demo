@@ -111,7 +111,7 @@
                     </meta>
                 </property>
 
-                <block name="tabs" default-type="editor" maxOccurs="4">
+                <block name="tabs" default-type="tab" maxOccurs="4">
                     <meta>
                         <title lang="de">Tab</title>
                         <title lang="en">Tab</title>
