@@ -77,6 +77,13 @@
             </meta>
 
             <properties>
+                <property name="author" type="contact">
+                    <meta>
+                        <title lang="en">Author</title>
+                        <title lang="de">Autor</title>
+                    </meta>
+                </property>
+
                 <property name="contentHeading" type="text_line" mandatory="true">
                     <meta>
                         <title lang="en">Heading</title>
@@ -125,8 +132,8 @@
 
                 <type name="quote">
                     <meta>
-                        <title lang="de">Quote</title>
-                        <title lang="en">Zitat</title>
+                        <title lang="de">Zitat</title>
+                        <title lang="en">Quote</title>
                     </meta>
 
                     <properties>

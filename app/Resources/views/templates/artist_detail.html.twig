@@ -68,18 +68,18 @@
                                     </div>
                                 </div>
 
-                            {% elseif block.type == "media" and block.contentMedia|length >=3 %}
+                            {% elseif block.type == "media" and block.contentMedia|length >=1 %}
                                 <div rel="blocks" typeof="block">
                                     <div class="grid">
-                                        {% for i in 0..2 %}
+                                        {% for media in block.contentMedia %}
                                             <div class="grid__item desk--one-third lap--one-half palm--one-whole">
                                                 <div class="artist-main-galleryitem">
                                                     <div property="contentMedia" class="artist-main-scalebox">
-                                                        <img src="{{ block.contentMedia[i].thumbnails['480x'] }}"
-                                                             alt="{{ block.contentMedia[i].description }}"
+                                                        <img src="{{ media.thumbnails['480x'] }}"
+                                                             alt="{{ media.description }}"
                                                              class="artist-main-scalebox-image">
                                                     </div>
-                                                    <p class="artist-main-text">{{ block.contentMedia[i].description }}</p>
+                                                    <p class="artist-main-text">{{ media.description }}</p>
                                                 </div>
                                             </div>
                                         {% endfor %}

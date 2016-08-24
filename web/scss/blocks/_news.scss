@@ -20,7 +20,7 @@
             @include transition(all, .3s, ease-in-out);
         }
 
-        &:hover > &-image {
+        &:hover &-image {
             width: 102%;
             margin-left: -1%;
         }
