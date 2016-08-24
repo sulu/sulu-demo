@@ -3,28 +3,29 @@
         <div class="grid__item desk--one-half">
             <div class="biography-text">
                 {% if biography.biographyTitle|default('') %}
-                <h2 property="biographyTitle" class="heading--h2--border">
-                    {{ biography.biographyTitle }}
-                </h2>
+                    <h2 property="biographyTitle" class="heading--h2--border">
+                        {{ biography.biographyTitle }}
+                    </h2>
                 {% endif %}
 
                 {% if biography.biographyHeading|default('') %}
-                <h3 property="biographyHeading" class="heading--h3">
-                    {{ biography.biographyHeading }}
-                </h3>
+                    <h3 property="biographyHeading" class="heading--h3">
+                        {{ biography.biographyHeading }}
+                    </h3>
                 {% endif %}
 
                 {% if biography.biographyText|default('') %}
-                <div property="biographyText">
-                    {{ biography.biographyText|raw }}
-                </div>
+                    <div property="biographyText">
+                        {{ biography.biographyText|raw }}
+                    </div>
                 {% endif %}
+                
                 {% if biography.biographyLink|default('') %}
-                <a property="biographyLink"
-                   class="biography-text-button"
-                   href="{{ sulu_content_load(biography.biographyLink).urls[request.locale] }}">
-                    Read More
-                </a>
+                    <a property="biographyLink"
+                       class="biography-text-button"
+                       href="{{ sulu_content_load(biography.biographyLink).urls[request.locale] }}">
+                        Read More
+                    </a>
                 {% endif %}
             </div>
         </div>
