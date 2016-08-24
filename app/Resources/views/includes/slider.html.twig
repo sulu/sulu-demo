@@ -1,44 +1,42 @@
 <section class="slider">
     <div class="js-slider" data-slick='{"slidesToShow": 1, "slidesToScroll": 1}'>
-        {% for slide in slides %}
-            {% if slide.mediaId is not null %}
-                <div>
-                    {% set image = sulu_resolve_media(slide.mediaId, request.locale) %}
+        {% for slide in slides if slide.mediaId is not null %}
+            <div>
+                {% set image = sulu_resolve_media(slide.mediaId, request.locale) %}
 
-                    <picture>
-                        <source media="(min-width: 1024px)"
-                                srcset="{{ image.thumbnails['1600x'] }}"
-                                class="slides-images">
+                <picture>
+                    <source media="(min-width: 1024px)"
+                            srcset="{{ image.thumbnails['1600x'] }}"
+                            class="slides-images">
 
-                        <source media="(min-width: 481px) and (max-width: 1023px)"
-                                srcset="{{ image.thumbnails['800x'] }}"
-                                class="slides-images">
+                    <source media="(min-width: 481px) and (max-width: 1023px)"
+                            srcset="{{ image.thumbnails['800x'] }}"
+                            class="slides-images">
 
-                        <source media="(max-width: 480px)"
-                                srcset="{{ image.thumbnails['480x'] }}"
-                                class="slides-images">
+                    <source media="(max-width: 480px)"
+                            srcset="{{ image.thumbnails['480x'] }}"
+                            class="slides-images">
 
-                        <!---Fallback--->
-                        <img src="{{ image.thumbnails['1600x'] }}"
-                             alt="{{ image.title }}"
-                             class="slides-images"/>
-                    </picture>
+                    <!---Fallback--->
+                    <img src="{{ image.thumbnails['1600x'] }}"
+                         alt="{{ image.title }}"
+                         class="slides-images"/>
+                </picture>
 
-                    <div class="slides-text">
-                        {%  if slide.title|default("") %}
-                            <h2 class="heading--h2">
-                                {{ slide.title }}
-                            </h2>
-                        {% endif %}
+                <div class="slides-text">
+                    {% if slide.title|default("") %}
+                        <h2 class="heading--h2">
+                            {{ slide.title }}
+                        </h2>
+                    {% endif %}
 
-                        {% if slide.description|default("") %}
-                            {{ slide.description|raw }}
-                        {% endif %}
+                    {% if slide.description|default("") %}
+                        {{ slide.description|raw }}
+                    {% endif %}
 
-                        <a href="{{ slide.url }}" class="slides-text-button">Read More</a>
-                    </div>
+                    <a href="{{ slide.url }}" class="slides-text-button">Read More</a>
                 </div>
-            {% endif %}
+            </div>
         {% endfor %}
     </div>
 </section>
