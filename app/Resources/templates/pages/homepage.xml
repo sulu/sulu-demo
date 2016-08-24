@@ -40,6 +40,22 @@
             </properties>
         </section>
 
+        <section name="slider">
+            <meta>
+                <title lang="de">Slider</title>
+                <title lang="en">Slider</title>
+            </meta>
+
+            <properties>
+                <property name="slides" type="teaser_selection">
+                    <meta>
+                        <title lang="en">Slides</title>
+                        <title lang="de">Slides</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>
+
         <section name="blocks">
             <meta>
                 <title lang="de">Blöcke</title>
