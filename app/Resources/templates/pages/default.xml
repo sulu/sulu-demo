@@ -47,6 +47,13 @@
             </meta>
         </property>
 
+        <property name="link" type="single_internal_link">
+            <meta>
+                <title lang="de">Interne Links</title>
+                <title lang="en">Internal links</title>
+            </meta>
+        </property>
+
         <property name="images" type="media_selection">
             <tag name="sulu.search.field" role="image" index="false"/>
             <meta>

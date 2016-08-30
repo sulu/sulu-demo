@@ -69,13 +69,21 @@ class BlogController extends WebsiteController
      */
     public function overviewAction(StructureInterface $structure, $preview = false, $partial = false)
     {
-        $articles = SortUtils::multisort($structure->getChildren(), 'created');
+        $latestArticles = array();
+        $link = "";
+
+        if (!empty($structure->getDocument()->getChildren())) {
+            $children = $structure->getChildren();
+            $articles = SortUtils::multisort($children, 'created');
+            $latestArticles = $this->createOverviewArticles($this->getLatestArticel($articles, 4));
+            $link = $structure->getPropertiesByTagName("sulu.rlp")[0]->getValue();
+        }
 
         $response = $this->renderStructure(
             $structure,
             [
-                'latestArticles' => $this->createOverviewArticles($this->getLatestArticel($articles, 4)),
-                'link' => $structure->getPropertiesByTagName("sulu.rlp")[0]->getValue()
+                'latestArticles' => $latestArticles,
+                'link' => $link
 
             ],
             $preview,
