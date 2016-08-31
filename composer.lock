@@ -2374,12 +2374,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/massiveart/MassiveSearchBundle.git",
-                "reference": "04a7f025ca851f965d394dfb7f42a2bf02d26ce8"
+                "reference": "47d6ab1688a1c66d3c539d9201c760052245e18b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/massiveart/MassiveSearchBundle/zipball/04a7f025ca851f965d394dfb7f42a2bf02d26ce8",
-                "reference": "04a7f025ca851f965d394dfb7f42a2bf02d26ce8",
+                "url": "https://api.github.com/repos/massiveart/MassiveSearchBundle/zipball/47d6ab1688a1c66d3c539d9201c760052245e18b",
+                "reference": "47d6ab1688a1c66d3c539d9201c760052245e18b",
                 "shasum": ""
             },
             "require": {
@@ -2432,7 +2432,7 @@
                 }
             ],
             "description": "Massive Search Bundle",
-            "time": "2016-08-16 05:40:22"
+            "time": "2016-08-29 06:08:55"
         },
         {
             "name": "monolog/monolog",
@@ -3622,12 +3622,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sulu/sulu.git",
-                "reference": "ca4875f72c11a33838b654990fb36a5082e5f679"
+                "reference": "236010711cc5cb1d0d128f4e1cee211b2283f807"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sulu/sulu/zipball/ca4875f72c11a33838b654990fb36a5082e5f679",
-                "reference": "ca4875f72c11a33838b654990fb36a5082e5f679",
+                "url": "https://api.github.com/repos/sulu/sulu/zipball/236010711cc5cb1d0d128f4e1cee211b2283f807",
+                "reference": "236010711cc5cb1d0d128f4e1cee211b2283f807",
                 "shasum": ""
             },
             "require": {
@@ -3722,7 +3722,7 @@
                 "core",
                 "sulu"
             ],
-            "time": "2016-08-23 08:13:24"
+            "time": "2016-08-30 09:31:42"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5306,16 +5306,16 @@
     "packages-dev": [
         {
             "name": "dantleech/glob-finder",
-            "version": "0.3",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dantleech/glob.git",
-                "reference": "d810c78826ed5140f941269c7ecf5f3ef7703df0"
+                "reference": "1f618e6b77a5de4c6b0538d82572fe19cbb1c446"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dantleech/glob/zipball/d810c78826ed5140f941269c7ecf5f3ef7703df0",
-                "reference": "d810c78826ed5140f941269c7ecf5f3ef7703df0",
+                "url": "https://api.github.com/repos/dantleech/glob/zipball/1f618e6b77a5de4c6b0538d82572fe19cbb1c446",
+                "reference": "1f618e6b77a5de4c6b0538d82572fe19cbb1c446",
                 "shasum": ""
             },
             "require-dev": {
@@ -5329,11 +5329,6 @@
                 "doctrine/phpcr-odm": "To enable support for the PHPCR ODM documents"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "DTL\\Glob\\": "lib/DTL/Glob"
@@ -5351,52 +5346,53 @@
             ],
             "description": "Library offering object location from hierarchrical persistent storage systems using globs",
             "homepage": "http://www.github.com/dantleech/glob",
-            "time": "2015-03-18 08:13:31"
+            "time": "2016-08-23 14:48:07"
         },
         {
             "name": "phpcr/phpcr-shell",
-            "version": "1.0.0-beta1",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpcr/phpcr-shell.git",
-                "reference": "c60a899148a150f8dc88cb3208d9be40a1450ff8"
+                "reference": "8af797e455c433e95f0ffb66ee7f2efd02faf19e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpcr/phpcr-shell/zipball/c60a899148a150f8dc88cb3208d9be40a1450ff8",
-                "reference": "c60a899148a150f8dc88cb3208d9be40a1450ff8",
+                "url": "https://api.github.com/repos/phpcr/phpcr-shell/zipball/8af797e455c433e95f0ffb66ee7f2efd02faf19e",
+                "reference": "8af797e455c433e95f0ffb66ee7f2efd02faf19e",
                 "shasum": ""
             },
             "require": {
-                "dantleech/glob-finder": "~0.1",
+                "dantleech/glob-finder": "~1.0",
                 "jackalope/jackalope": "~1.1",
                 "phpcr/phpcr": "~2.1",
                 "phpcr/phpcr-utils": "~1.2",
-                "symfony/console": "~2.3",
-                "symfony/dependency-injection": "~2.3",
-                "symfony/finder": "~2.3",
-                "symfony/serializer": "~2.3",
-                "symfony/yaml": "~2.3"
+                "symfony/console": "~2.8|~3.0",
+                "symfony/dependency-injection": "~2.8|~3.0",
+                "symfony/expression-language": "~2.8|~3.0",
+                "symfony/finder": "~2.8|~3.0",
+                "symfony/serializer": "~2.8|~3.0",
+                "symfony/yaml": "~2.8|~3.0"
             },
             "conflict": {
                 "doctrine/phpcr-bundle": "<=1.2.1"
             },
             "require-dev": {
-                "behat/behat": "~3.0.0",
+                "behat/behat": "~3.0",
                 "jackalope/jackalope-doctrine-dbal": "~1.1",
-                "jackalope/jackalope-fs": "dev-master",
                 "jackalope/jackalope-jackrabbit": "~1.1",
-                "phpspec/phpspec": "2.0",
-                "phpunit/phpunit": "~3.7.28",
-                "symfony/filesystem": "~2.3",
-                "symfony/process": "~2.3",
-                "symfony/symfony": "2.6"
+                "phpspec/phpspec": "3.0",
+                "phpunit/phpunit": "~4.0",
+                "symfony/symfony": "~2.8|~3.0"
             },
             "suggest": {
                 "jackalope/jackalope-doctrine-dbal": "To connect to jackalope doctrine-dbal",
                 "jackalope/jackalope-jackrabbit": "To connect to jackalope jackrabbit",
                 "jackalope/jackalope-jackrabbit-fs": "To connect to jackalope jackalope-fs"
             },
+            "bin": [
+                "bin/phpcrsh"
+            ],
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -5419,7 +5415,7 @@
                 }
             ],
             "description": "Shell for PHPCR",
-            "time": "2015-01-05 11:11:50"
+            "time": "2016-08-23 16:07:50"
         },
         {
             "name": "sensio/generator-bundle",
