@@ -20,7 +20,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
 
-            {% for item in sulu_navigation_root_tree('main') %}
+            {% for item in sulu_navigation_root_flat('main') %}
                 <li>
                     <a href="{{ sulu_content_path(item.url) }}"
                        title="{{ item.title }}">

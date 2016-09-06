@@ -6,7 +6,7 @@
         </h2>
 
         <div property="artistsData">
-            {% for artist in artists.artistsData %}
+            {% for artist in artists.artistsData if artist.template == "artist_detail" %}
                 <div class="grid__item desk--one-third team-member lap--one-half palm--one-whole">
                     {% if artist.image|length %}
                         <img src="{{ artist.image|first.formats['400x400'] }}" class="team-member-image" />

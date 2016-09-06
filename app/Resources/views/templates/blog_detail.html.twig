@@ -60,7 +60,11 @@
                             </span>
 
                             <span class="blogdetail-editor-middle-editor">
-                                posted by <a href="#">{{ author.fullName }}</a>
+                                posted by <a href="#">
+                                    {% if author.fullName is defined %}
+                                        {{ author.fullName }}
+                                    {% endif %}
+                                </a>
 
                                 {% if extension.excerpt.categories|length >0 %}
                                     <i class="ion-ios-arrow-forward"></i>

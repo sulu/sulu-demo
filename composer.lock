@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3fdec478367d8d91c38bd7eeca50138f",
-    "content-hash": "b10fbe65fc640a889d07a9d8e97c4d28",
+    "hash": "8926df40643febfa21c137a93fc5b178",
+    "content-hash": "1044af039d62c656126c77e23aa568bf",
     "packages": [
         {
             "name": "aferrandini/urlizer",
@@ -3351,16 +3351,16 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v5.0.8",
+            "version": "v5.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "f8ace5c71ee309492b027ef71215577f5a52b4ea"
+                "reference": "e5e0d8d06b07864b2752bd865537b0817edf4c5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/f8ace5c71ee309492b027ef71215577f5a52b4ea",
-                "reference": "f8ace5c71ee309492b027ef71215577f5a52b4ea",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/e5e0d8d06b07864b2752bd865537b0817edf4c5a",
+                "reference": "e5e0d8d06b07864b2752bd865537b0817edf4c5a",
                 "shasum": ""
             },
             "require": {
@@ -3399,7 +3399,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2016-08-17 18:16:49"
+            "time": "2016-09-06 01:05:01"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -3622,12 +3622,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sulu/sulu.git",
-                "reference": "236010711cc5cb1d0d128f4e1cee211b2283f807"
+                "reference": "2c3a61dc498974c786f2bb31a8bc9f43764118e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sulu/sulu/zipball/236010711cc5cb1d0d128f4e1cee211b2283f807",
-                "reference": "236010711cc5cb1d0d128f4e1cee211b2283f807",
+                "url": "https://api.github.com/repos/sulu/sulu/zipball/2c3a61dc498974c786f2bb31a8bc9f43764118e7",
+                "reference": "2c3a61dc498974c786f2bb31a8bc9f43764118e7",
                 "shasum": ""
             },
             "require": {
@@ -3722,7 +3722,7 @@
                 "core",
                 "sulu"
             ],
-            "time": "2016-08-30 09:31:42"
+            "time": "2016-09-01 18:38:11"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4778,16 +4778,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.24.1",
+            "version": "v1.24.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "3566d311a92aae4deec6e48682dc5a4528c4a512"
+                "reference": "33093f6e310e6976baeac7b14f3a6ec02f2d79b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3566d311a92aae4deec6e48682dc5a4528c4a512",
-                "reference": "3566d311a92aae4deec6e48682dc5a4528c4a512",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/33093f6e310e6976baeac7b14f3a6ec02f2d79b7",
+                "reference": "33093f6e310e6976baeac7b14f3a6ec02f2d79b7",
                 "shasum": ""
             },
             "require": {
@@ -4835,7 +4835,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-05-30 09:11:59"
+            "time": "2016-09-01 17:50:53"
         },
         {
             "name": "willdurand/hateoas",
@@ -5419,16 +5419,16 @@
         },
         {
             "name": "sensio/generator-bundle",
-            "version": "v3.0.7",
+            "version": "v3.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioGeneratorBundle.git",
-                "reference": "d1be460925376703a470a3ac6ec034eb7eab3892"
+                "reference": "3c20d16512f37d2be159eca0411b99a141b90fa4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/d1be460925376703a470a3ac6ec034eb7eab3892",
-                "reference": "d1be460925376703a470a3ac6ec034eb7eab3892",
+                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/3c20d16512f37d2be159eca0411b99a141b90fa4",
+                "reference": "3c20d16512f37d2be159eca0411b99a141b90fa4",
                 "shasum": ""
             },
             "require": {
@@ -5467,7 +5467,7 @@
                 }
             ],
             "description": "This bundle generates code for you",
-            "time": "2016-06-20 05:58:05"
+            "time": "2016-09-06 01:30:19"
         }
     ],
     "aliases": [],

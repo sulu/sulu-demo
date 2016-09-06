@@ -4,13 +4,12 @@
             {{ discography.discographyTitle }}
         </h2>
 
-        <p property="discographyHeading">
-            {{ discography.discographyHeading }}
-        </p>
+        <div property="discographyHeading">
+            {{ discography.discographyHeading|raw }}
+        </div>
 
         <div property="discographyData" class="grid">
-            {% for item in discography.discographyData %}
-                {% for category in item.categories if category.key == "discography" %}
+            {% for item in discography.discographyData if item.template == "discography" %}
                     <div class="grid__item desk--one-third lap--one-half palm--one-whole">
                         <div class="discography-frame-collum">
                             {% if item.image|length %}
@@ -18,7 +17,7 @@
                                      class="discography-frame-collum-image"/>
                             {% endif %}
 
-                            {% for c in item.categories %}
+                            {% for category in item.categories %}
                                 <a href="{{ sulu_content_load(item.parent).urls[request.locale] }}?category={{ c.id }}">
                                     {{ c.name }}
                                 </a>
@@ -34,7 +33,6 @@
                         </div>
                     </div>
                 {% endfor %}
-            {% endfor %}
         </div>
     </div>
 </section>
