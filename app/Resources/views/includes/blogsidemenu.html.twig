@@ -29,13 +29,15 @@
                 <h2 class="blog-sidemenu-heading">{{ 'recent_articles'|trans }}</h2>
                 {% if latestArticles is defined %}
                     {% for latestArticle in latestArticles %}
+                        {% set medias = [] %}
+
                         {% if latestArticle.image.ids|length %}
-                            {% set media = sulu_resolve_medias(latestArticle.image.ids, request.locale) %}
+                            {% set medias = sulu_resolve_medias(latestArticle.image.ids, request.locale) %}
                         {% endif %}
 
-                        {% if media is defined%}
+                        {% if medias|default([]) %}
                             <div class="blog-sidemenu-recent">
-                                <img src="{{ media|first.thumbnails['140x70'] }}"/>
+                                <img src="{{ medias|first.thumbnails['140x70'] }}"/>
                                 <div class="blog-sidemenu-recent-text">
                                     <p>{{ latestArticle.creation.date|date("d.m.Y") }}</p>
                                     <a href="{{ latestArticle.url.value }}">

@@ -10,7 +10,7 @@
                 <div property="artistsData">
                     {% for artist in artists.artistsData if artist.template == "artist_detail" %}
                         <div class="grid__item desk--one-third team-member lap--one-half palm--one-whole">
-                            {% if artist.image|length %}
+                            {% if artist.image|length and artist.image|first.formats['400x400'] is defined %}
                                 <img src="{{ artist.image|first.formats['400x400'] }}" class="team-member-image" />
                             {% endif %}
 

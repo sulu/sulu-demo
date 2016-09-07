@@ -8,7 +8,7 @@
     <div property="newsData">
         {% for item in news.newsData %}
             <div class="news-item" onclick="location.href='{{ item.url }}'">
-                {% if item.image|length() %}
+                {% if item.image|length and item.image|first.thumbnails['800x200-inset'] is defined %}
                     <picture>
                         <source class="news-item-image"
                                 media="(min-width: 1024px)"

@@ -35,19 +35,19 @@
 
         <div class="about-history">
             <h2 property="tabsHeading" class="heading--h2">
-                {% if content.tabsHeading|length() %}
+                {% if content.tabsHeading|length %}
                     {{ content.tabsHeading }}
                 {% endif %}
             </h2>
 
             <p property="tabsSubheading" class="about-history-subheading">
-                {% if content.tabsHeading|length() %}
+                {% if content.tabsHeading|length %}
                     {{ content.tabsSubheading }}
                 {% endif %}
             </p>
 
             <div property="tabsText">
-                {% if content.tabsHeading|length() %}
+                {% if content.tabsHeading|length %}
                     {{ content.tabsText|raw }}
                 {% endif %}
             </div>
@@ -59,7 +59,7 @@
                     {% set tabClass = tabClass ~ ' rows' %}
                 {% endif %}
 
-                {% if content.tabs|length() %}
+                {% if content.tabs|length %}
                     {% if content.tabs|first.tabName|default("") and
                     (content.tabs|first.heading|default("") or content.tabs|first.heading|default("")) %}
                         <div rel="tabs" typeof="block">
