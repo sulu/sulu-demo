@@ -1,10 +1,10 @@
 {% extends "master.html.twig" %}
 
 {% block content %}
-    {% if content.headerImage|length %}
-        <div property="headerImage">
-            <div property="headerHeading">
-                <div property="headerSubheading">
+    <div property="headerImage">
+        <div property="headerHeading">
+            <div property="headerSubheading">
+                {% if content.headerImage|length %}
                     {% include(':includes:headerimage.html.twig') with {
                         'image' : content.headerImage|first,
                         'kind' : 'headerimage-text--left',
@@ -12,39 +12,41 @@
                         'heading' : content.headerHeading,
                         'text': content.headerSubheading
                     } %}
-                </div>
+                {% endif %}
             </div>
         </div>
-    {% endif %}
+    </div>
 
     <section class="artist">
         <div class="grid">
             <div class="grid__item desk--four-fifths portable--one-whole">
                 <div class="artist-main">
-                    {% if content.contentHeading|default('') %}
-                        <h2 property="contentHeading" class="artist-main-heading">
+                    <h2 property="contentHeading" class="artist-main-heading">
+                        {% if content.contentHeading|default('') %}
                             {{ content.contentHeading }}
-                        </h2>
-                    {% endif %}
+                        {% endif %}
+                    </h2>
 
-                    {% if content.contentTitleimage|length %}
-                        <div class="artist-main-scalebox">
-                            <picture property="contentTitleimage">
-                                <source media="(min-width: 481px)"
-                                        srcset="{{ content.contentTitleimage|first.thumbnails['800x'] }}"
-                                        class="artist-main-scalebox-image">
+                    <div property="contentTitleimage">
+                        {% if content.contentTitleimage|length %}
+                            <div class="artist-main-scalebox">
+                                <picture property="">
+                                    <source media="(min-width: 481px)"
+                                            srcset="{{ content.contentTitleimage|first.thumbnails['800x'] }}"
+                                            class="artist-main-scalebox-image">
 
-                                <source media="(max-width: 480px)"
-                                        srcset="{{ content.contentTitleimage|first.thumbnails['480x'] }}"
-                                        class="artist-main-scalebox-image">
+                                    <source media="(max-width: 480px)"
+                                            srcset="{{ content.contentTitleimage|first.thumbnails['480x'] }}"
+                                            class="artist-main-scalebox-image">
 
-                                <!---Fallback--->
-                                <img src="{{ content.contentTitleimage|first.thumbnails['800x'] }}"
-                                     class="artist-main-scalebox-image"/>
-                            </picture>
+                                    <!---Fallback--->
+                                    <img src="{{ content.contentTitleimage|first.thumbnails['800x'] }}"
+                                         class="artist-main-scalebox-image"/>
+                                </picture>
 
-                        </div>
-                    {% endif %}
+                            </div>
+                        {% endif %}
+                    </div>
 
                     <div property="contentSubheading" class="artist-main-subheading">
                         {{ content.contentSubheading }}

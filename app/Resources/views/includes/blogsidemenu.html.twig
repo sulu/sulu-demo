@@ -33,15 +33,17 @@
                             {% set media = sulu_resolve_medias(latestArticle.image.ids, request.locale) %}
                         {% endif %}
 
-                        <div class="blog-sidemenu-recent">
-                            <img src="{{ media|first.thumbnails['140x70'] }}"/>
-                            <div class="blog-sidemenu-recent-text">
-                                <p>{{ latestArticle.creation.date|date("d.m.Y") }}</p>
-                                <a href="{{ latestArticle.url.value }}">
-                                    <h6>{{ latestArticle.heading.value }}</h6>
-                                </a>
+                        {% if media is defined%}
+                            <div class="blog-sidemenu-recent">
+                                <img src="{{ media|first.thumbnails['140x70'] }}"/>
+                                <div class="blog-sidemenu-recent-text">
+                                    <p>{{ latestArticle.creation.date|date("d.m.Y") }}</p>
+                                    <a href="{{ latestArticle.url.value }}">
+                                        <h6>{{ latestArticle.heading.value }}</h6>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                        {% endif %}
                     {% endfor %}
                 {% endif %}
             </div>

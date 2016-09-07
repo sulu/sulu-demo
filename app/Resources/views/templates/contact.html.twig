@@ -4,15 +4,6 @@
 
 {% block content %}
     <section class="contact">
-        {# header image #}
-        {% include(':includes:headerimage.html.twig') with {
-            'imagesrc' : '/img/subheader1.jpg',
-            'kind' : 'headerimage-text--left',
-            'headingposition' : 'heading--left',
-            'heading' : 'Our Artists',
-            'text': 'New album, Fallen Empires, arrives with a serious reputation attached. The Irish/Scottish five piece have sold over.'
-        } %}
-
         <div class="contact-data">
             <div class="grid">
                 {% set snippets = sulu_snippet_load_default('contact') %}
@@ -83,12 +74,13 @@
                 </div>
 
                 <div class="grid__item desk--eight-twelfths portable--one-whole">
+                    <h4 property="location" class="heading--h4--border">
+                        {% if content.location.title|default('') %}
+                            {{ content.location.title }}
+                        {% endif %}
+                    </h4>
 
-                    {% if content.location.title|default('') %}
-                        <h4 class="heading--h4--border">{{ content.location.title }}</h4>
-                        <div id="js-googleMap"></div>
-                    {% endif %}
-
+                    <div id="js-googleMap"></div>
                 </div>
             </div>
         </div>
