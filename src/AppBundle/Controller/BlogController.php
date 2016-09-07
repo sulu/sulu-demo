@@ -151,12 +151,40 @@ class BlogController extends WebsiteController
 
         foreach ($article as $key => $item) {
             $structure = $item->getStructure();
+            $image = null;
+            $url = null;
+            $heading = null;
+            $creation = null;
+
+            try {
+                $image = $structure->getProperty('contentTitleimage');
+            } catch (\InvalidArgumentException $e) {
+                $image = null;
+            }
+
+            try {
+                $url = $structure->getProperty('url');
+            } catch (\InvalidArgumentException $e) {
+                $url = null;
+            }
+
+            try {
+                $heading = $structure->getProperty('contentHeading');
+            } catch (\InvalidArgumentException $e) {
+                $heading = null;
+            }
+
+            try {
+                $creation = $item->getChanged();
+            } catch (\InvalidArgumentException $e) {
+                $creation = null;
+            }
 
             $result[$key] = [
-                'image' => $structure->getProperty('contentTitleimage'),
-                'url' => $structure->getProperty('url'),
-                'heading' => $structure->getProperty('contentHeading'),
-                'creation' => $item->getChanged()
+                'image' => $image,
+                'url' => $url,
+                'heading' => $heading,
+                'creation' => $creation
             ];
         }
 

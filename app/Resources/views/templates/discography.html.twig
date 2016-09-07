@@ -1,50 +1,51 @@
 {% extends "master.html.twig" %}
 
 {% block content %}
-    {% if content.headerImage|length %}
-        <div property="headerImage">
-            <div property="headerHeading">
-                <div property="headerSubheading">
+    <div property="headerImage">
+        <div property="headerHeading">
+            <div property="headerSubheading">
+                {% if content.headerImage|length %}
                     {% include(':includes:headerimage.html.twig') with {
-                        'image' : content.headerImage|first,
-                        'kind' : 'headerimage-text--left',
-                        'headingposition' : 'heading--left',
-                        'heading' : content.headerHeading,
-                        'text': content.headerSubheading
+                    'image' : content.headerImage|first,
+                    'kind' : 'headerimage-text--left',
+                    'headingposition' : 'heading--left',
+                    'heading' : content.headerHeading,
+                    'text': content.headerSubheading
                     } %}
-                </div>
+                {% endif %}
             </div>
         </div>
-    {% endif %}
+    </div>
 
     <section class="artist">
         <div class="grid">
             <div class="grid__item desk--four-fifths portable--one-whole">
                 <div class="artist-main">
-                    {% if content.contentHeading|default('') %}
-                        <h2 property="contentHeading" class="artist-main-heading">
+                    <h2 property="contentHeading" class="artist-main-heading">
+                        {% if content.contentHeading|default('') %}
                             {{ content.contentHeading }}
-                        </h2>
-                    {% endif %}
+                        {% endif %}
+                    </h2>
 
-                    {% if content.contentTitleimage|length and content.contentTitleimage|first.thumbnails['800x'] is defined %}
-                        <div class="artist-main-scalebox">
-                            <picture property="contentTitleimage">
-                                <source media="(min-width: 481px)"
-                                        srcset="{{ content.contentTitleimage|first.thumbnails['800x'] }}"
-                                        class="artist-main-scalebox-image">
+                    <div property="contentTitleimage">
+                        {% if content.contentTitleimage|length and content.contentTitleimage|first.thumbnails['800x'] is defined %}
+                            <div class="artist-main-scalebox">
+                                <picture property="contentTitleimage">
+                                    <source media="(min-width: 481px)"
+                                            srcset="{{ content.contentTitleimage|first.thumbnails['800x'] }}"
+                                            class="artist-main-scalebox-image">
 
-                                <source media="(max-width: 480px)"
-                                        srcset="{{ content.contentTitleimage|first.thumbnails['480x'] }}"
-                                        class="artist-main-scalebox-image">
+                                    <source media="(max-width: 480px)"
+                                            srcset="{{ content.contentTitleimage|first.thumbnails['480x'] }}"
+                                            class="artist-main-scalebox-image">
 
-                                <!---Fallback--->
-                                <img src="{{ content.contentTitleimage|first.thumbnails['800x'] }}"
-                                     class="artist-main-scalebox-image"/>
-                            </picture>
-
-                        </div>
-                    {% endif %}
+                                    <!---Fallback--->
+                                    <img src="{{ content.contentTitleimage|first.thumbnails['800x'] }}"
+                                         class="artist-main-scalebox-image"/>
+                                </picture>
+                            </div>
+                        {% endif %}
+                    </div>
 
                     <div property="contentSubheading" class="artist-main-subheading">
                         {{ content.contentSubheading }}
@@ -68,21 +69,23 @@
                                     </div>
                                 </div>
 
-                            {% elseif block.type == "media" and block.contentMedia|length >=1 %}
+                            {% elseif block.type == "media" %}
                                 <div rel="blocks" typeof="block">
-                                    <div class="grid">
-                                        {% for media in block.contentMedia %}
-                                            <div class="grid__item desk--one-third lap--one-half palm--one-whole">
-                                                <div class="artist-main-galleryitem">
-                                                    <div property="contentMedia" class="artist-main-scalebox">
-                                                        <img src="{{ media.thumbnails['480x'] }}"
-                                                             alt="{{ media.description }}"
-                                                             class="artist-main-scalebox-image">
+                                    <div property="contentMedia" class="grid">
+                                        {% if block.contentMedia|length %}
+                                            {% for media in block.contentMedia %}
+                                                <div class="grid__item desk--one-third lap--one-half palm--one-whole">
+                                                    <div class="artist-main-galleryitem">
+                                                        <div class="artist-main-scalebox">
+                                                            <img src="{{ media.thumbnails['480x'] }}"
+                                                                 alt="{{ media.description }}"
+                                                                 class="artist-main-scalebox-image">
+                                                        </div>
+                                                        <p class="artist-main-text">{{ media.description }}</p>
                                                     </div>
-                                                    <p class="artist-main-text">{{ media.description }}</p>
                                                 </div>
-                                            </div>
-                                        {% endfor %}
+                                            {% endfor %}
+                                        {% endif %}
                                     </div>
                                 </div>
                             {% endif %}

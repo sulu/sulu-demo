@@ -31,8 +31,10 @@
                     {% for latestArticle in latestArticles %}
                         {% set medias = [] %}
 
-                        {% if latestArticle.image.ids|length %}
-                            {% set medias = sulu_resolve_medias(latestArticle.image.ids, request.locale) %}
+                        {% if latestArticle.image|length %}
+                            {% if latestArticle.image.ids|length %}
+                                {% set medias = sulu_resolve_medias(latestArticle.image.ids, request.locale) %}
+                            {% endif %}
                         {% endif %}
 
                         {% if medias|default([]) %}
