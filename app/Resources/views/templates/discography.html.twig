@@ -27,7 +27,7 @@
                         </h2>
                     {% endif %}
 
-                    {% if content.contentTitleimage|length %}
+                    {% if content.contentTitleimage|length and content.contentTitleimage|first.thumbnails['800x'] is defined %}
                         <div class="artist-main-scalebox">
                             <picture property="contentTitleimage">
                                 <source media="(min-width: 481px)"

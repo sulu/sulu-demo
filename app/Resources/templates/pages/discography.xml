@@ -132,7 +132,7 @@
                     <properties>
                         <property name="contentText" type="text_area">
                             <meta>
-                                <title lang="en">Zitat</title>
+                                <title lang="en">Quote</title>
                                 <title lang="de">Zitat</title>
                             </meta>
                         </property>
@@ -140,7 +140,7 @@
                 </type>
                 <type name="media">
                     <meta>
-                        <title lang="de">Media</title>
+                        <title lang="de">Medien</title>
                         <title lang="en">Media</title>
                     </meta>
 
