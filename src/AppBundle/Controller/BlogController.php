@@ -154,30 +154,18 @@ class BlogController extends WebsiteController
             $image = null;
             $url = null;
             $heading = null;
-            $creation = null;
+            $creation = $creation = $item->getChanged();
 
-            try {
+            if ($structure->hasProperty('contentTitleimage')) {
                 $image = $structure->getProperty('contentTitleimage');
-            } catch (\InvalidArgumentException $e) {
-                $image = null;
             }
 
-            try {
+            if ($structure->hasProperty('url')) {
                 $url = $structure->getProperty('url');
-            } catch (\InvalidArgumentException $e) {
-                $url = null;
             }
 
-            try {
+            if ($structure->hasProperty('contentHeading')) {
                 $heading = $structure->getProperty('contentHeading');
-            } catch (\InvalidArgumentException $e) {
-                $heading = null;
-            }
-
-            try {
-                $creation = $item->getChanged();
-            } catch (\InvalidArgumentException $e) {
-                $creation = null;
             }
 
             $result[$key] = [
