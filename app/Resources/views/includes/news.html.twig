@@ -8,22 +8,24 @@
     <div property="newsData">
         {% for item in news.newsData %}
             <div class="news-item" onclick="location.href='{{ item.url }}'">
-                <picture>
-                    <source class="news-item-image"
-                            media="(min-width: 1024px)"
-                            srcset="{{ item.image|first.thumbnails['1080x200-inset'] }}">
+                {% if item.image|length and item.image|first.thumbnails['800x200-inset'] is defined %}
+                    <picture>
+                        <source class="news-item-image"
+                                media="(min-width: 1024px)"
+                                srcset="{{ item.image|first.thumbnails['1080x200-inset'] }}">
 
-                    <source class="news-item-image"
-                            media="(min-width: 481px) and (max-width: 1023px)"
-                            srcset="{{ item.image|first.thumbnails['800x200-inset'] }}">
+                        <source class="news-item-image"
+                                media="(min-width: 481px) and (max-width: 1023px)"
+                                srcset="{{ item.image|first.thumbnails['800x200-inset'] }}">
 
-                    <source class="news-item-image"
-                            media="(max-width: 480px)"
-                            srcset="{{ item.image|first.thumbnails['480x200-inset'] }}">
+                        <source class="news-item-image"
+                                media="(max-width: 480px)"
+                                srcset="{{ item.image|first.thumbnails['480x200-inset'] }}">
 
-                    <!---Fallback--->
-                    <img class="news-item-image" src="{{ item.image|first.thumbnails['800x200-inset'] }}">
-                </picture>
+                        <!---Fallback--->
+                        <img class="news-item-image" src="{{ item.image|first.thumbnails['800x200-inset'] }}">
+                    </picture>
+                {% endif %}
 
                 <div class="news-item-text">
                     by <a href="#">{{ sulu_resolve_user(item.creator).contact.fullName }}</a>

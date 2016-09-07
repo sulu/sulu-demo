@@ -43,14 +43,14 @@
         <section name="header">
             <meta>
                 <title lang="en">Header</title>
-                <title lang="de">Header</title>
+                <title lang="de">Kopf</title>
             </meta>
 
             <properties>
                 <property name="headerImage" type="media_selection" mandatory="true">
                     <meta>
                         <title lang="en">Header Image</title>
-                        <title lang="de">Kopfbild</title>
+                        <title lang="de">Kopf - Bild</title>
                     </meta>
                 </property>
 
@@ -64,7 +64,7 @@
                 <property name="headerSubheading" type="text_area">
                     <meta>
                         <title lang="en">Header Subheading</title>
-                        <title lang="de">Kopf - Unterüberschrift</title>
+                        <title lang="de">Kopf - Unter Überschrift</title>
                     </meta>
                 </property>
             </properties>
@@ -94,7 +94,7 @@
                 <property name="contentSubheading" type="text_area" mandatory="true">
                     <meta>
                         <title lang="en">Subheading</title>
-                        <title lang="de">Unterüberschrift</title>
+                        <title lang="de">Unter Überschrift</title>
                     </meta>
                 </property>
             </properties>
@@ -132,7 +132,7 @@
                     <properties>
                         <property name="contentText" type="text_area">
                             <meta>
-                                <title lang="en">Zitat</title>
+                                <title lang="en">Quote</title>
                                 <title lang="de">Zitat</title>
                             </meta>
                         </property>
@@ -141,7 +141,7 @@
 
                 <type name="media">
                     <meta>
-                        <title lang="de">Media</title>
+                        <title lang="de">Medien</title>
                         <title lang="en">Media</title>
                     </meta>
 
@@ -164,8 +164,8 @@
                     <properties>
                         <property name="discographyTitle" type="text_line">
                             <meta>
-                                <title lang="en">Heading</title>
-                                <title lang="de">Überschrift</title>
+                                <title lang="en">Title</title>
+                                <title lang="de">Titel</title>
                             </meta>
                         </property>
 

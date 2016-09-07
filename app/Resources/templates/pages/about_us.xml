@@ -50,7 +50,7 @@
                 <property name="headerImage" type="media_selection" mandatory="true">
                     <meta>
                         <title lang="en">Header Image</title>
-                        <title lang="de">Kopfbild</title>
+                        <title lang="de">Kopf - Bild</title>
                     </meta>
                     <params>
                         <param name="types" value="image"/>
@@ -67,7 +67,7 @@
                 <property name="headerSubheading" type="text_area">
                     <meta>
                         <title lang="en">Header Subheading</title>
-                        <title lang="de">Kopf - Unterüberschrift</title>
+                        <title lang="de">Kopf - Unter Überschrift</title>
                     </meta>
                 </property>
             </properties>
@@ -75,7 +75,7 @@
 
         <property name="images" type="media_selection">
             <meta>
-                <title lang="en">Gallery</title>
+                <title lang="en">Pictures</title>
                 <title lang="de">Fotos</title>
             </meta>
             <params>
@@ -111,7 +111,7 @@
                     </meta>
                 </property>
 
-                <block name="tabs" default-type="tab" maxOccurs="4">
+                <block name="tabs" default-type="tab" minOccurs="0" maxOccurs="4">
                     <meta>
                         <title lang="de">Tab</title>
                         <title lang="en">Tab</title>

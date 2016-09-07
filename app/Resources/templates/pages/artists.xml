@@ -50,7 +50,7 @@
                 <property name="headerImage" type="media_selection" mandatory="true">
                     <meta>
                         <title lang="en">Header Image</title>
-                        <title lang="de">Kopfbild</title>
+                        <title lang="de">Kopf - Bild</title>
                     </meta>
                 </property>
 
@@ -64,7 +64,7 @@
                 <property name="headerSubheading" type="text_area">
                     <meta>
                         <title lang="en">Header Subheading</title>
-                        <title lang="de">Kopf - Unterüberschrift</title>
+                        <title lang="de">Kopf - Unter Überschrift</title>
                     </meta>
                 </property>
             </properties>

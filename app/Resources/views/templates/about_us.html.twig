@@ -6,7 +6,7 @@
             <div property="headerSubheading">
                 {% if content.headerImage[0] is defined %}
                     <header class="about-header"
-                            style="background-image: url({{ content.headerImage[0].thumbnails['800x']}});">
+                            style="min-height:350px; background-image: url({{ content.headerImage[0].thumbnails['800x']}});">
                         <div class="about-header-frame">
                             {% if content.headerHeading != "" %}
                                 <h2 class="heading--h2">{{ content.headerHeading }}</h2>
@@ -33,27 +33,38 @@
             </div>
         </div>
 
-        {% if content.tabsHeading != "" and content.tabsSubheading != "" and content.tabsText != "" %}
-            <div class="about-history">
-                <h2 property="tabsHeading" class="heading--h2">{{ content.tabsHeading }}</h2>
+        <div class="about-history">
+            <h2 property="tabsHeading" class="heading--h2">
+                {% if content.tabsHeading|length %}
+                    {{ content.tabsHeading }}
+                {% endif %}
+            </h2>
 
-                <p property="tabsSubheading" class="about-history-subheading">
+            <p property="tabsSubheading" class="about-history-subheading">
+                {% if content.tabsHeading|length %}
                     {{ content.tabsSubheading }}
-                </p>
+                {% endif %}
+            </p>
 
-                <div property="tabsText">
+            <div property="tabsText">
+                {% if content.tabsHeading|length %}
                     {{ content.tabsText|raw }}
-                </div>
+                {% endif %}
+            </div>
 
-                <div property="tabs" typeof="collection" class="about-history-tabs">
-                    {% set tabClass = 'about-history-tabs-links' %}
+            <div property="tabs" typeof="collection" class="about-history-tabs">
+                {% set tabClass = 'about-history-tabs-links' %}
 
-                    {% if content.tabs|length >= 3 %}
-                        {% set tabClass = tabClass ~ ' rows' %}
-                    {% endif %}
-                    <div rel="tabs" typeof="block">
-                        <ul class="{{ tabClass }}">
-                            {% for tab in content.tabs %}
+                {% if content.tabs|length >= 3 %}
+                    {% set tabClass = tabClass ~ ' rows' %}
+                {% endif %}
+
+                {% if content.tabs|length %}
+                    {% if content.tabs|first.tabName|default("") and
+                    (content.tabs|first.heading|default("") or content.tabs|first.heading|default("")) %}
+                        <div rel="tabs" typeof="block">
+                            <ul class="{{ tabClass }}">
+                                {% for tab in content.tabs %}
                                     {% set attrClass = '' %}
 
                                     {% if loop.first %}
@@ -67,27 +78,28 @@
                                             {{ tab.tabName }}
                                         </a>
                                     </li>
-                            {% endfor %}
-                        </ul>
+                                {% endfor %}
+                            </ul>
 
-                        <div class="about-history-tabs-content">
-                            {% for tab in content.tabs %}
-                                <div id="about-history-tabs-content-tab{{ loop.index }}"
-                                     class="about-history-tabs-content-tab {{ loop.first ? "active" : "" }}">
-                                    <div property="heading" class="about-history-tabs-content-tab-heading">
-                                        {{ tab.heading }}
-                                    </div>
+                            <div class="about-history-tabs-content">
+                                {% for tab in content.tabs %}
+                                    <div id="about-history-tabs-content-tab{{ loop.index }}"
+                                         class="about-history-tabs-content-tab {{ loop.first ? "active" : "" }}">
+                                        <div property="heading" class="about-history-tabs-content-tab-heading">
+                                            {{ tab.heading }}
+                                        </div>
 
-                                    <div property="text" class="about-history-tabs-content-tab-text">
-                                        {{ tab.text|raw }}
+                                        <div property="text" class="about-history-tabs-content-tab-text">
+                                            {{ tab.text|raw }}
+                                        </div>
                                     </div>
-                                </div>
-                            {% endfor %}
+                                {% endfor %}
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    {% endif %}
+                {% endif %}
             </div>
-        {% endif %}
+        </div>
     </section>
 
     <div class="about-numbers js-numbers">
@@ -120,18 +132,20 @@
         </div>
     </div>
 
-    {% if content.artistsBackground[0] is defined and content.artistsData[0] is defined %}
-        <div rel="blocks" typeof="block">
-            <div property="artistsBackground">
-                {% include('includes/artists.html.twig') with {
-                    "artists" : content,
-                    "background": "imagebackground",
-                    "backgroundImageUrl": content.artistsBackground[0].thumbnails['1600x'],
-                    "kind" : "heading--h2--border"
-                } %}
-            </div>
-        </div>
-    {% endif %}
+    <div property="artistsBackground">
+        {% set backgroundImage = "" %}
+
+        {% if content.artistsBackground|length %}
+            {% set backgroundImage = content.artistsBackground|first.thumbnails['1600x'] %}
+        {% endif %}
+
+        {% include('includes/artists.html.twig') with {
+            "artists" : content,
+            "background": "imagebackground",
+            "backgroundImageUrl" : backgroundImage,
+            "kind" : "heading--h2--border"
+        } %}
+    </div>
 
     <div property="action">
         {% for item in content.action %}
