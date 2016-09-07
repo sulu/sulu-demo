@@ -1,12 +1,12 @@
 <section class="news" rel="blocks" typeof="block">
-    {% if item.title|default('') %}
-        <h2 property="title" class="news-heading heading--h2--border">
+    <h2 property="title" class="news-heading heading--h2--border">
+        {% if item.title|default('') %}
             {{ item.title }}
-        </h2>
-    {% endif %}
+        {% endif %}
+    </h2>
 
     <div property="newsData">
-        {% for item in news.newsData|slice(0,3) %}
+        {% for item in news.newsData %}
             <div class="news-item" onclick="location.href='{{ item.url }}'">
                 <picture>
                     <source class="news-item-image"

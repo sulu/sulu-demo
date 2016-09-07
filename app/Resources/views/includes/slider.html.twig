@@ -24,11 +24,11 @@
                 </picture>
 
                 <div class="slides-text">
-                    {% if slide.title|default("") %}
-                        <h2 class="heading--h2">
+                    <h2 class="heading--h2">
+                        {% if slide.title|default("") %}
                             {{ slide.title }}
-                        </h2>
-                    {% endif %}
+                        {% endif %}
+                    </h2>
 
                     {% if slide.description|default("") %}
                         {{ slide.description|raw }}

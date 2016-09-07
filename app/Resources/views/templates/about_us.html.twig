@@ -123,7 +123,7 @@
     {% if content.artistsBackground[0] is defined and content.artistsData[0] is defined %}
         <div rel="blocks" typeof="block">
             <div property="artistsBackground">
-                {% include('includes/team.html.twig') with {
+                {% include('includes/artists.html.twig') with {
                     "artists" : content,
                     "background": "imagebackground",
                     "backgroundImageUrl": content.artistsBackground[0].thumbnails['1600x'],

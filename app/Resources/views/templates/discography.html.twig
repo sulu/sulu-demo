@@ -27,7 +27,7 @@
                         </h2>
                     {% endif %}
 
-                    {% if content.contentTitleimage|length %}
+                    {% if content.contentTitleimage|length and content.contentTitleimage|first.thumbnails['800x'] is defined %}
                         <div class="artist-main-scalebox">
                             <picture property="contentTitleimage">
                                 <source media="(min-width: 481px)"
@@ -85,14 +85,6 @@
                                         {% endfor %}
                                     </div>
                                 </div>
-
-                            {% elseif block.type == 'discography' %}
-                                {# Discography #}
-                                {% include('includes/discography_element.html.twig') with {
-                                    'discography' : block,
-                                    'background' : 'discography--nobackground'
-                                } %}
-
                             {% endif %}
                         {% endfor %}
                     </div>
@@ -102,7 +94,7 @@
             <div class="grid__item desk--one-fifth">
                 <aside class="artist-sidemenu">
                     <h2 class="artist-sidemenu-heading">
-                        {{ 'our_artists'|trans }}
+                        {{ 'our_albums'|trans }}
                     </h2>
                     <ul class="artist-sidemenu-list">
                         {% for artist in artists|sulu_util_multisort('[title]', 'asc') %}

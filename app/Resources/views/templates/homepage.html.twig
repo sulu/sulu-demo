@@ -2,13 +2,13 @@
 
 {% block content %}
 
+    <div property="slides">
     {% if content.slides|length %}
-        <div property="slides">
-            {% include('includes/slider.html.twig') with {
-                'slides': content.slides
-            } %}
-        </div>
+        {% include('includes/slider.html.twig') with {
+            'slides': content.slides
+        } %}
     {% endif %}
+    </div>
 
     <div property="blocks" typeof="collection">
         {% for item in content.blocks %}
@@ -20,7 +20,7 @@
 
             {% elseif item.type == 'discography' %}
 
-                {% include('includes/discography.html.twig') with {
+                {% include('includes/discography_element.html.twig') with {
                     'discography' : item
                 } %}
 
@@ -33,10 +33,16 @@
             {% elseif item.type == 'artists' %}
                 <div rel="blocks" typeof="block">
                     <div property="artistsBackground">
-                        {% include('includes/team.html.twig') with {
+                        {% set backgroundImage = "" %}
+
+                        {% if item.artistsBackground|length %}
+                            {% set backgroundImage = item.artistsBackground|first.url %}
+                        {% endif %}
+
+                        {% include('includes/artists.html.twig') with {
                             'artists' : item,
                             'background' : 'imagebackground',
-                            'backgroundImageUrl' : item.artistsBackground|first.url,
+                            'backgroundImageUrl' : backgroundImage,
                             'kind' : 'heading--h2--border'
                         } %}
                     </div>

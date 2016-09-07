@@ -2,47 +2,50 @@
     <div class="grid">
         <div class="grid__item desk--one-half">
             <div class="biography-text">
-                {% if biography.biographyTitle|default('') %}
-                    <h2 property="biographyTitle" class="heading--h2--border">
+                <h2 property="biographyTitle" class="heading--h2--border">
+                    {% if biography.biographyTitle|default('') %}
                         {{ biography.biographyTitle }}
-                    </h2>
-                {% endif %}
+                    {% endif %}
+                </h2>
 
-                {% if biography.biographyHeading|default('') %}
-                    <h3 property="biographyHeading" class="heading--h3">
-                        {{ biography.biographyHeading }}
-                    </h3>
-                {% endif %}
+                <div property="biographyHeading">
+                    {% if biography.biographyHeading|default('') %}
+                        {{ biography.biographyHeading|raw }}
+                    {% endif %}
+                </div>
 
-                {% if biography.biographyText|default('') %}
-                    <div property="biographyText">
+                <div property="biographyText">
+                    {% if biography.biographyText|default('') %}
                         {{ biography.biographyText|raw }}
-                    </div>
-                {% endif %}
-                
-                {% if biography.biographyLink|default('') %}
-                    <a property="biographyLink"
-                       class="biography-text-button"
-                       href="{{ sulu_content_load(biography.biographyLink).urls[request.locale] }}">
-                        Read More
-                    </a>
-                {% endif %}
-            </div>
+                    {% endif %}
+                </div>
+
+                <div property="biographyLink">
+                    {% if biography.biographyLink|default('') %}
+                        <a class="biography-text-button"
+                           href="{{ sulu_content_load(biography.biographyLink).urls[request.locale] }}">
+                            Read More
+                        </a>
+                    {% endif %}
+                </div>
         </div>
-        {% if biography.biographyImage|length %}
-            <picture property="biographyImage" class="grid__item desk--one-half">
-                <source media="(min-width: 1024px)"
-                        srcset="{{ biography.biographyImage|first.thumbnails['800x800-inset'] }}"
-                        class="biography-image">
+        </div>
+        <div property="biographyImage" class="grid__item desk--one-half">
+            {% if biography.biographyImage|length %}
+                <picture>
+                    <source media="(min-width: 1024px)"
+                            srcset="{{ biography.biographyImage|first.thumbnails['800x800-inset'] }}"
+                            class="biography-image">
 
-                <source media="(max-width: 1024px)"
-                        srcset="{{ biography.biographyImage|first.thumbnails['400x400-inset'] }}"
-                        class="biography-image">
+                    <source media="(max-width: 1024px)"
+                            srcset="{{ biography.biographyImage|first.thumbnails['400x400-inset'] }}"
+                            class="biography-image">
 
-                <!---Fallback--->
-                <img src="{{ biography.biographyImage|first.thumbnails['800x800-inset'] }}"
-                     class="biography-image">
-            </picture>
-        {% endif %}
+                    <!---Fallback--->
+                    <img src="{{ biography.biographyImage|first.thumbnails['800x800-inset'] }}"
+                         class="biography-image">
+                </picture>
+            {% endif %}
+        </div>
     </div>
 </section>

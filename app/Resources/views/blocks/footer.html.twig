@@ -52,7 +52,7 @@
                 <div class="footer-elem">
                     <h6 class="heading--h6">{{ 'quick_links'|trans }}</h6>
 
-                    {% for item in sulu_navigation_root_tree('footer') %}
+                    {% for item in sulu_navigation_root_flat('footer', 3) %}
                         <a href="{{ sulu_content_path(item.url) }}"
                            title="{{ item.title }}">
                             <i class="ion-ios-arrow-forward"></i>

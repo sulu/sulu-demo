@@ -84,7 +84,7 @@
                                     </meta>
                                 </property>
 
-                                <property name="biographyHeading" type="text_line">
+                                <property name="biographyHeading" type="text_editor">
                                     <meta>
                                         <title lang="en">Heading</title>
                                         <title lang="de">Überschrift</title>
@@ -132,7 +132,7 @@
                                     </meta>
                                 </property>
 
-                                <property name="discographyHeading" type="text_area">
+                                <property name="discographyHeading" type="text_editor">
                                     <meta>
                                         <title lang="en">Heading</title>
                                         <title lang="de">Überschrift</title>
@@ -141,8 +141,8 @@
 
                                 <property name="discographyData" type="smart_content">
                                     <meta>
-                                        <title lang="en">Choose Artcle</title>
-                                        <title lang="de">Artikel wählen</title>
+                                        <title lang="en">Discography</title>
+                                        <title lang="de">Discographie</title>
                                     </meta>
 
                                     <params>
@@ -215,8 +215,8 @@
 
                                 <property name="newsData" type="smart_content">
                                     <meta>
-                                        <title lang="en">Blog</title>
-                                        <title lang="de">Blog</title>
+                                        <title lang="en">Articles</title>
+                                        <title lang="de">Artikel</title>
                                     </meta>
 
                                     <params>

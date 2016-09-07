@@ -3,15 +3,15 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
 
-    <key>artist_detail</key>
+    <key>discography</key>
 
-    <view>templates/artist_detail</view>
+    <view>templates/discography</view>
     <controller>AppBundle:Artist:index</controller>
     <cacheLifetime>604800</cacheLifetime>
 
     <meta>
-        <title lang="en">Artist Detail</title>
-        <title lang="de">Artist Detail</title>
+        <title lang="en">Discography</title>
+        <title lang="de">Discography</title>
     </meta>
 
     <properties>
@@ -132,16 +132,15 @@
                     <properties>
                         <property name="contentText" type="text_area">
                             <meta>
-                                <title lang="en">Zitat</title>
+                                <title lang="en">Quote</title>
                                 <title lang="de">Zitat</title>
                             </meta>
                         </property>
                     </properties>
                 </type>
-
                 <type name="media">
                     <meta>
-                        <title lang="de">Media</title>
+                        <title lang="de">Medien</title>
                         <title lang="en">Media</title>
                     </meta>
 
@@ -151,45 +150,6 @@
                                 <title lang="en">Media</title>
                                 <title lang="de">Medien</title>
                             </meta>
-                        </property>
-                    </properties>
-                </type>
-
-                <type name="discography">
-                    <meta>
-                        <title lang="de">Discographie</title>
-                        <title lang="en">Discography</title>
-                    </meta>
-
-                    <properties>
-                        <property name="discographyTitle" type="text_line">
-                            <meta>
-                                <title lang="en">Heading</title>
-                                <title lang="de">Überschrift</title>
-                            </meta>
-                        </property>
-
-                        <property name="discographyHeading" type="text_area">
-                            <meta>
-                                <title lang="en">Heading</title>
-                                <title lang="de">Überschrift</title>
-                            </meta>
-                        </property>
-
-                        <property name="discographyData" type="smart_content">
-                            <meta>
-                                <title lang="en">Discography</title>
-                                <title lang="de">Discographie</title>
-                            </meta>
-
-                            <params>
-                                <param name="properties" type="collection">
-                                    <param name="heading" value="contentHeading"/>
-                                    <param name="image" value="contentTitleimage"/>
-                                    <param name="categories" value="excerpt.categories"/>
-                                    <param name="url" value="url"/>
-                                </param>
-                            </params>
                         </property>
                     </properties>
                 </type>
