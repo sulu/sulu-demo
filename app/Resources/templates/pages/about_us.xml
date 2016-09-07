@@ -75,7 +75,7 @@
 
         <property name="images" type="media_selection">
             <meta>
-                <title lang="en">Pictures</title>
+                <title lang="en">Images</title>
                 <title lang="de">Fotos</title>
             </meta>
             <params>

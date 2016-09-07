@@ -43,7 +43,6 @@
                                     <img src="{{ content.contentTitleimage|first.thumbnails['800x'] }}"
                                          class="artist-main-scalebox-image"/>
                                 </picture>
-
                             </div>
                         {% endif %}
                     </div>
@@ -70,21 +69,23 @@
                                     </div>
                                 </div>
 
-                            {% elseif block.type == "media" and block.contentMedia|length >=1 %}
+                            {% elseif block.type == "media" %}
                                 <div rel="blocks" typeof="block">
-                                    <div class="grid">
-                                        {% for media in block.contentMedia %}
-                                            <div class="grid__item desk--one-third lap--one-half palm--one-whole">
-                                                <div class="artist-main-galleryitem">
-                                                    <div property="contentMedia" class="artist-main-scalebox">
-                                                        <img src="{{ media.thumbnails['480x'] }}"
-                                                             alt="{{ media.description }}"
-                                                             class="artist-main-scalebox-image">
+                                    <div property="contentMedia" class="grid">
+                                        {% if block.contentMedia|length %}
+                                            {% for media in block.contentMedia %}
+                                                <div class="grid__item desk--one-third lap--one-half palm--one-whole">
+                                                    <div class="artist-main-galleryitem">
+                                                        <div class="artist-main-scalebox">
+                                                            <img src="{{ media.thumbnails['480x'] }}"
+                                                                 alt="{{ media.description }}"
+                                                                 class="artist-main-scalebox-image">
+                                                        </div>
+                                                        <p class="artist-main-text">{{ media.description }}</p>
                                                     </div>
-                                                    <p class="artist-main-text">{{ media.description }}</p>
                                                 </div>
-                                            </div>
-                                        {% endfor %}
+                                            {% endfor %}
+                                        {% endif %}
                                     </div>
                                 </div>
 

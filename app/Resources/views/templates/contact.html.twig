@@ -13,8 +13,8 @@
                         <div class="grid__item desk--three-twelfths portable--one-whole">
                             <h4 class="heading--h4--border">{{ 'contact'|trans }}</h4>
                             <div class="grid">
-                                <div class="grid__item desk--one-whole lap--one-half palm--one-whole">
-                                    {% if contact.mainAddress|length %}
+                                {% if contact.mainAddress|length %}
+                                    <div class="grid__item desk--one-whole lap--one-half palm--one-whole">
                                         <div class="contact-data-elem">
                                             <i class="ion-email contact-data-elem-icon"></i>
                                             <div class="contact-data-elem-text">
@@ -30,9 +30,11 @@
                                                 </h6>
                                             </div>
                                         </div>
-                                    {% endif %}
+                                    </div>
+                                {% endif %}
 
-                                    {% if contact.mainPhone|default('') %}
+                                {% if contact.mainPhone|default('') %}
+                                    <div class="grid__item desk--one-whole lap--one-half palm--one-whole">
                                         <div class="contact-data-elem">
                                             <i class="ion-ios-telephone contact-data-elem-icon"></i>
                                             <div class="contact-data-elem-text">
@@ -40,11 +42,11 @@
                                                 <h6>{{ contact.mainPhone }}</h6>
                                             </div>
                                         </div>
-                                    {% endif %}
-                                </div>
+                                    </div>
+                                {% endif %}
 
-                                <div class="grid__item desk--one-whole lap--one-half palm--one-whole">
-                                    {% if contact.emails|length %}
+                                {% if contact.emails|length %}
+                                    <div class="grid__item desk--one-whole lap--one-half palm--one-whole">
                                         <div class="contact-data-elem">
                                             <i class="ion-email contact-data-elem-icon"></i>
                                             <div class="contact-data-elem-text">
@@ -52,9 +54,11 @@
                                                 <h6>{{ contact.emails|first.email }}</h6>
                                             </div>
                                         </div>
-                                    {% endif %}
+                                    </div>
+                                {% endif %}
 
-                                    {% if contact.notes|length %}
+                                {% if contact.notes|length %}
+                                    <div class="grid__item desk--one-whole lap--one-half palm--one-whole">
                                         <div class="contact-data-elem">
                                             <i class="ion-android-time contact-data-elem-icon"></i>
                                             <div class="contact-data-elem-text">
@@ -62,8 +66,8 @@
                                                 <h6>{{ contact.notes|first.value }}</h6>
                                             </div>
                                         </div>
-                                    {% endif %}
-                                </div>
+                                    </div>
+                                {% endif %}
                             </div>
                         </div>
                     {% endfor %}

@@ -183,33 +183,43 @@
                     <div class="blogdetail-posts">
 
                     {% if lastAndPrevArticle.prev is defined %}
-                        {% set media = sulu_resolve_media(lastAndPrevArticle.prev.image.ids, request.locale) %}
-                        <div class="blogdetail-posts-item cf">
-                            <img src="{{ media.url }}"/>
-                            <span class="blogdetail-posts-item-date">
-                                {{ lastAndPrevArticle.prev.creation.date|date("d.m.Y") }}
-                            </span>
-                            <a href="{{ lastAndPrevArticle.prev.url.value }}">
-                                <h5>
-                                    Last Article: {{ lastAndPrevArticle.prev.heading.value }}
-                                </h5>
-                            </a>
-                        </div>
+                        {% if lastAndPrevArticle.prev.image|length and lastAndPrevArticle.prev.image.thumbnails['140x70'] is defined %}
+                            {% set media = sulu_resolve_media(lastAndPrevArticle.prev.image.ids, request.locale) %}
+
+                            <div class="blogdetail-posts-item cf">
+                                <img src="{{ media.thumbnails['140x70'] }}"/>
+
+                                <span class="blogdetail-posts-item-date">
+                                    {{ lastAndPrevArticle.prev.creation.date|date("d.m.Y") }}
+                                </span>
+
+                                <a href="{{ lastAndPrevArticle.prev.url.value }}">
+                                    <h5>
+                                        Last Article: {{ lastAndPrevArticle.prev.heading.value }}
+                                    </h5>
+                                </a>
+                            </div>
+                        {% endif %}
                     {% endif %}
 
                     {% if lastAndPrevArticle.next is defined %}
-                        {% set media = sulu_resolve_media(lastAndPrevArticle.next.image.ids, request.locale) %}
-                        <div class="blogdetail-posts-item cf">
-                            <img src="{{ media.url }}"/>
-                            <span class="blogdetail-posts-item-date">
-                                {{ lastAndPrevArticle.next.creation.date|date("d.m.Y") }}
-                            </span>
-                            <a href="{{ lastAndPrevArticle.next.url.value }}">
-                                <h5>
-                                    Next Article: {{ lastAndPrevArticle.next.heading.value }}
-                                </h5>
-                            </a>
-                        </div>
+                        {% if lastAndPrevArticle.next.image|length and lastAndPrevArticle.next.image.thumbnails['140x70'] is defined %}
+                            {% set media = sulu_resolve_media(lastAndPrevArticle.next.image.ids, request.locale) %}
+
+                            <div class="blogdetail-posts-item cf">
+                                <img src="{{ media.thumbnails['140x70'] }}"/>
+
+                                <span class="blogdetail-posts-item-date">
+                                    {{ lastAndPrevArticle.next.creation.date|date("d.m.Y") }}
+                                </span>
+
+                                <a href="{{ lastAndPrevArticle.next.url.value }}">
+                                    <h5>
+                                        Next Article: {{ lastAndPrevArticle.next.heading.value }}
+                                    </h5>
+                                </a>
+                            </div>
+                        {% endif %}
                     {% endif %}
                     </div>
 

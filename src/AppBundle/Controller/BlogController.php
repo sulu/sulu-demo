@@ -151,12 +151,28 @@ class BlogController extends WebsiteController
 
         foreach ($article as $key => $item) {
             $structure = $item->getStructure();
+            $image = null;
+            $url = null;
+            $heading = null;
+            $creation = $creation = $item->getChanged();
+
+            if ($structure->hasProperty('contentTitleimage')) {
+                $image = $structure->getProperty('contentTitleimage');
+            }
+
+            if ($structure->hasProperty('url')) {
+                $url = $structure->getProperty('url');
+            }
+
+            if ($structure->hasProperty('contentHeading')) {
+                $heading = $structure->getProperty('contentHeading');
+            }
 
             $result[$key] = [
-                'image' => $structure->getProperty('contentTitleimage'),
-                'url' => $structure->getProperty('url'),
-                'heading' => $structure->getProperty('contentHeading'),
-                'creation' => $item->getChanged()
+                'image' => $image,
+                'url' => $url,
+                'heading' => $heading,
+                'creation' => $creation
             ];
         }
 
