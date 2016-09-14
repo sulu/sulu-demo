@@ -1,14 +1,26 @@
-// Numbers
-$maxwidth: 1080px;
+// Breakpoints
+$mobile: 480px;
+$tablet: 1023px;
+$desktop: 1024px;
+
+// Color -- Red
+$colorred: #B61D1D;
+$colorred--lighter01: #B61D1D;
+$colorred--lighter02: #C94545;
+
+// Color -- Black
+$colorblack: #000000;
+$colorblack--lighter01: #202020;
+$colorblack--lighter02: #313131;
+$colorblack--lighter03: #898989;
+$colorblack--lighter04: #D8D8D8;
+
+// Color -- White
+$colorwhite: #FFFFFF;
 
 // Fonts
-$fonthind: "Hind", sans-serif;
-$fontoswald: "Oswald", sans-serif;
+$fontregular: 'Karla', sans-serif;
+$fontfancy: 'Broken Wings', sans-serif;
 
-// Colors
-$coloryellow: #FFC600;
-$colorblack: #282828;
-$colorblack--lighter01: #666;
-$colorblack--lighter02: #999;
-$colorblack--lighter03: #DBDEE5;
-$colorblack--lighter04: #F3F3F3;
+// Numbers
+$maxwidth: 1180px;

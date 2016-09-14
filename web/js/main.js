@@ -1,10 +1,31 @@
+$("#js-nav-button").click(function () {
+    if($(".nav").hasClass('open')) {
+        $(".nav-elem--items").fadeOut();
+        $(".nav").removeClass('open');
+        $(".nav-elem--button").fadeTo(500, 0, function () {
+            $(".ion-close-round").addClass('ion-navicon-round');
+            $(".ion-close-round").removeClass('ion-close-round');
+            $(".nav-elem--button").fadeTo(500, 1);
+        });
+    } else {
+        $(".nav-elem--items").fadeIn();
+        $(".nav").addClass('open');
+        $(".nav-elem--button").fadeTo(500, 0, function () {
+            $(".ion-navicon-round").addClass('ion-close-round');
+            $(".ion-navicon-round").removeClass('ion-navicon-round');
+            $(".nav-elem--button").fadeTo(500, 1);
+        });
+    }
+});
+
+
 $(".js-slider").slick({
     infinite: true,
     arrows: false,
     autoplay: true,
     autoplaySpeed: 10000
 });
-
+/*
 $(".js-partner-carousel").slick({
     // normal options
     infinite: true,
@@ -90,3 +111,4 @@ function initializeMap(lat, lng, zoom, id) {
     var map = new google.maps.Map(document.getElementById(id),mapProp);
 }
 
+*/

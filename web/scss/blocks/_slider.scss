@@ -2,11 +2,16 @@
     height: auto;
     position: relative;
 
-    .slick-active{
+    &-item {
         position: relative;
     }
 
     .slides {
+
+        &-item {
+            overflow: hidden;
+        }
+
         &-images {
             width: 100%;
             height: auto;
@@ -15,64 +20,115 @@
         }
 
         &-text {
-            width: 450px;
-            left: 18%;
-            bottom: 75px;
             z-index: 2;
             position: absolute;
+            width: 100%;
+            max-width: $maxwidth;
+            height: 90%;
+            left: 0;
+            bottom: 0;
+            padding: 0 80px;
+            overflow: hidden;
 
-            h2,
-            p,
-            a {
+            .heading--h1,
+            .heading--h1--description {
+                @include vertical-align(relative);
                 color: #fff;
+                margin: 0;
+                padding: 0;
+
             }
 
-            h2 {
-                font-weight: bold;
-                font-size: 57px;
-                line-height: 59px;
-                margin-bottom: 31px;
+            .heading--h1 {
+                word-spacing: 9999999px;
             }
+
+            .heading--h1--description {
+                margin-top: -30px;
+                width: 35%;
+
+                p {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .slider .slides-text .heading--h1--description {
+        width: 45%;
+    }
+}
+
+@media (max-width: $tablet) {
+    .slider .slides-text {
+        padding: 0 20px;
+
+        .heading--h1,
+        .heading--h1--description p {
+            text-align: center;
+        }
+
+        .heading--h1--description {
+            width: 100%;
+            margin-top: -40px;
 
             p {
-                font-size: 16px;
-                line-height: 24px;
-            }
-
-            &-button {
-                background-color: $colorblack;
-                display: inline-block;
-                font-family: $fontoswald;
-                font-size: 14px;
-                line-height: 24px;
-                letter-spacing: 3px;
-                text-transform: uppercase;
-                padding: 12px 29px 11px 32px;
-            }
-
-            &-button:hover {
-                color: $coloryellow
+                padding: 0 100px;
             }
         }
     }
 }
 
-@media (max-width: 1350px) {
-    .slider {
-        .slides {
-            &-text {
-                bottom: 25px;
+@media (max-width: 800px) {
+    .slider-item {
+        display: block;
+        position: relative;
+        height: 450px;
+
+        picture {
+            display: block;
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .slick-active .slides-images {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        height: 100%;
+        width: auto;
+        margin-left: -400px;
+    }
+}
+
+@media (max-width: 700px) and (min-width: $mobile) {
+    .slider .slides-text .heading--h1 {
+        font-size: 75px;
+        line-height: 58px;
+
+        &--description {
+            width: 100%;
+            margin-top: -25px;
+
+            p {
+                padding: 0 80px;
             }
         }
     }
 }
 
-@media (max-width: 1040px) {
-    .slider {
-        .slides {
-            &-text {
-                display: none;
-            }
+@media (max-width: $mobile) {
+    .slider .slides-text .heading--h1--description {
+        margin-top: -10px;
+
+        p {
+            padding: 0 40px;
+
         }
     }
 }
+

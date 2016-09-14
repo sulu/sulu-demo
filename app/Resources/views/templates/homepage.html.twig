@@ -18,7 +18,7 @@
                     'biography' : item
                 } %}
 
-            {% elseif item.type == 'discography' %}
+            {#{% elseif item.type == 'discography' %}
 
                 {% include('includes/discography_element.html.twig') with {
                     'discography' : item
@@ -51,7 +51,7 @@
 
                 {% include('includes/partner.html.twig') with{
                     'partner' : item
-                } %}
+                } %}#}
 
             {% endif %}
         {% endfor %}
