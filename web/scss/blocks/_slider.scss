@@ -27,7 +27,7 @@
             height: 90%;
             left: 0;
             bottom: 0;
-            padding: 0 80px;
+            padding: 0 0 0 120px;
             overflow: hidden;
 
             .heading--h1,
@@ -52,6 +52,12 @@
                 }
             }
         }
+    }
+}
+
+@media (max-width: 1400px) {
+    .slider .slides-text {
+        padding: 0 40px;
     }
 }
 
@@ -87,7 +93,7 @@
         position: relative;
         height: 450px;
 
-        picture {
+        &-frame {
             display: block;
             position: relative;
             height: 100%;
@@ -128,6 +134,21 @@
         p {
             padding: 0 40px;
 
+        }
+    }
+}
+
+@media (max-width: 380px) {
+    .slider .slides-text .heading--h1 {
+        font-size: 45px;
+        line-height: 35px;
+
+        &--description {
+            margin-top: 15px;
+
+            p {
+                padding: 0 25px;
+            }
         }
     }
 }

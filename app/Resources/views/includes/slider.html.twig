@@ -4,24 +4,11 @@
             <div class="slider-item">
                 {% set image = sulu_resolve_media(slide.mediaId, request.locale) %}
 
-                <picture>
-                    <source media="(min-width: 1024px)"
-                            srcset="{{ image.thumbnails['1920x1080'] }}"
-                            class="slides-images">
-
-                    <source media="(min-width: 481px) and (max-width: 1023px)"
-                            srcset="{{ image.thumbnails['960x540'] }}"
-                            class="slides-images">
-
-                    <source media="(max-width: 480px)"
-                            srcset="{{ image.thumbnails['480x270'] }}"
-                            class="slides-images">
-
-                    <!---Fallback--->
-                    <img srcset="{{ image.thumbnails['1920x1080'] }}"
+                <div class="slider-frame">
+                    <img src="{{ image.thumbnails['1920x1080'] }}"
                          alt="{{ image.title }}"
                          class="slides-images"/>
-                </picture>
+                </div>
 
                 <div class="slides-text">
                     <h1 class="heading--h1">

@@ -2,13 +2,13 @@
     <div class="grid">
         <div class="grid__item desk--one-half">
             <div class="biography-text">
-                <h2 property="biographyTitle" class="heading--h2--border">
+                <h2 property="biographyTitle" class="heading--h2 biography-text-heading">
                     {% if biography.biographyTitle|default('') %}
                         {{ biography.biographyTitle }}
                     {% endif %}
                 </h2>
 
-                <div property="biographyHeading">
+                <div property="biographyHeading" class="biography-text-subheading">
                     {% if biography.biographyHeading|default('') %}
                         {{ biography.biographyHeading|raw }}
                     {% endif %}
@@ -22,7 +22,7 @@
 
                 <div property="biographyLink">
                     {% if biography.biographyLink|default('') %}
-                        <a class="biography-text-button"
+                        <a class="button"
                            href="{{ sulu_content_load(biography.biographyLink).urls[request.locale] }}">
                             Read More
                         </a>
@@ -31,20 +31,8 @@
         </div>
         </div>
         <div property="biographyImage" class="grid__item desk--one-half">
-            {% if biography.biographyImage|length %}
-                <picture>
-                    <source media="(min-width: 1024px)"
-                            srcset="{{ biography.biographyImage|first.thumbnails['800x800-inset'] }}"
-                            class="biography-image">
-
-                    <source media="(max-width: 1024px)"
-                            srcset="{{ biography.biographyImage|first.thumbnails['400x400-inset'] }}"
-                            class="biography-image">
-
-                    <!---Fallback--->
-                    <img src="{{ biography.biographyImage|first.thumbnails['800x800-inset'] }}"
-                         class="biography-image">
-                </picture>
+            {% if biography.biographyImage|length and biography.biographyImage|first.thumbnails['580x400'] is defined%}
+                    <img src="{{ biography.biographyImage|first.thumbnails['580x400'] }}" class="biography-image">
             {% endif %}
         </div>
     </div>

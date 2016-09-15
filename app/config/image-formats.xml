@@ -4,24 +4,10 @@
          xsi:schemaLocation="http://schemas.sulu.io/media/formats http://schemas.sulu.io/media/formats-1.1.xsd">
     <format key="1920x1080">
         <meta>
-            <title lang="de">Teaser Bild groß</title>
-            <title lang="en">Teaser Image large</title>
+            <title lang="de">Teaser Bild</title>
+            <title lang="en">Teaser Image</title>
         </meta>
         <scale x="1920" y="1080"/>
-    </format>
-    <format key="960x540">
-        <meta>
-            <title lang="de">Teaser Bild mittel</title>
-            <title lang="en">Teaser Image medium</title>
-        </meta>
-        <scale x="960" y="540"/>
-    </format>
-    <format key="480x270">
-        <meta>
-            <title lang="de">Teaser Bild klein</title>
-            <title lang="en">Teaser Image small</title>
-        </meta>
-        <scale x="480" y="270"/>
     </format>
     <format key="580x400">
         <meta>

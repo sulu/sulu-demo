@@ -1,20 +1,30 @@
 $("#js-nav-button").click(function () {
+
+    $(".nav-elem--admin").fadeToggle();
+    $(".nav-elem--items").fadeToggle();
     if($(".nav").hasClass('open')) {
-        $(".nav-elem--items").fadeOut();
         $(".nav").removeClass('open');
         $(".nav-elem--button").fadeTo(500, 0, function () {
-            $(".ion-close-round").addClass('ion-navicon-round');
-            $(".ion-close-round").removeClass('ion-close-round');
+            $(".ion-close").addClass('ion-navicon').css('font-size','38px');
+            $(".ion-close").removeClass('ion-close');
             $(".nav-elem--button").fadeTo(500, 1);
         });
     } else {
-        $(".nav-elem--items").fadeIn();
         $(".nav").addClass('open');
         $(".nav-elem--button").fadeTo(500, 0, function () {
-            $(".ion-navicon-round").addClass('ion-close-round');
-            $(".ion-navicon-round").removeClass('ion-navicon-round');
+            $(".ion-navicon").addClass('ion-close').css('font-size','28px');
+            $(".ion-navicon").removeClass('ion-navicon');
             $(".nav-elem--button").fadeTo(500, 1);
         });
+    }
+});
+
+$(window).scroll(function() {
+    var scroll = $(window).scrollTop();
+    if (scroll >= 10) {
+        $(".nav").addClass("sticky");
+    } else {
+        $(".nav").removeClass("sticky");
     }
 });
 
