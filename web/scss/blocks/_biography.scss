@@ -7,43 +7,20 @@
     }
 
     &-text {
-        padding-top: 10px;
-        padding-right: 60px;
+        width: 80%;
 
-        h3 {
-            font-size: 19px;
-            line-height: 28px;
-        }
-
-        p {
-            color: $colorblack--lighter01;
-            padding-bottom: 22px;
-        }
-
-        &-button {
-            background-color: $colorblack--lighter01;
-            display: inline-block;
-            font-family: $fonthind;
-            font-size: 14px;
-            line-height: 24px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            padding: 12px 29px 11px 32px;
-            color: #fff;
+        &-heading {
             margin-bottom: 20px;
         }
 
-        &-button:first-of-type {
-            margin-right: 10px;
-        }
-
-        &-button:hover {
-            color: $coloryellow;
+        &-subheading p {
+            font-size: 18px;
+            font-weight: bold;
         }
     }
 }
 
-@media (max-width: $maxwidth + 20) {
+@media (max-width: $maxwidth + 20) and (min-width: $tablet) {
     .biography {
         padding: 0 20px;
 
@@ -53,12 +30,23 @@
     }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: $tablet) {
     .biography {
         margin: 40px auto;
 
-        .biography-text {
-            padding-top: 0px;
+        &-text {
+            padding: 0 20px;
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: $mobile) {
+    .biography {
+        margin: 40px auto;
+
+        &-text-heading {
+            margin: 10px 0;
         }
     }
 }
