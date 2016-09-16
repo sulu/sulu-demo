@@ -139,7 +139,7 @@
             {% set backgroundImage = content.artistsBackground|first.thumbnails['1600x'] %}
         {% endif %}
 
-        {% include('includes/artists.html.twig') with {
+        {% include('includes/discography_elements.html.twig') with {
             "artists" : content,
             "background": "imagebackground",
             "backgroundImageUrl" : backgroundImage,

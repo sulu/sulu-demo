@@ -42,6 +42,7 @@ a {
         line-height: 72px;
         color: $colorred--lighter01;
         letter-spacing: 0;
+        font-weight: bold;
 
         &--underline {
             font-family: $fontregular;
@@ -107,6 +108,7 @@ a {
         margin: 18px 0;
         line-height: 38px;
         background-color: $colorred;
+
     }
 }
 
@@ -198,6 +200,8 @@ a {
     margin-left: 0;
     padding: 0;
 }
+
+*:focus {outline:0;}
 
 .cf:before,
 .cf:after {

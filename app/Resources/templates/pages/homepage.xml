@@ -142,35 +142,25 @@
                             </properties>
                         </type>
 
-                       <!-- <type name="artists">
+
+                       <type name="discography">
                             <meta>
-                                <title lang="de">Künstler</title>
-                                <title lang="en">Artists</title>
+                                <title lang="de">Discography</title>
+                                <title lang="en">Discography</title>
                             </meta>
 
                             <properties>
-                                <property name="artistsTitle" type="text_line">
+                                <property name="discographyTitle" type="text_line">
                                     <meta>
                                         <title lang="en">Title</title>
                                         <title lang="de">Titel</title>
                                     </meta>
                                 </property>
 
-                                <property name="artistsBackground" type="media_selection">
+                                <property name="discographyData" type="smart_content">
                                     <meta>
-                                        <title lang="en">Background</title>
-                                        <title lang="de">Hindergrundbild</title>
-                                    </meta>
-
-                                    <params>
-                                        <param name="types" value="image"/>
-                                    </params>
-                                </property>
-
-                                <property name="artistsData" type="smart_content">
-                                    <meta>
-                                        <title lang="en">Artists</title>
-                                        <title lang="de">Künstler</title>
+                                        <title lang="en">Albums</title>
+                                        <title lang="de">Alben</title>
                                     </meta>
 
                                     <params>
@@ -182,7 +172,7 @@
                                     </params>
                                 </property>
                             </properties>
-                        </type>-->
+                        </type>
 
                         <type name="news">
                             <meta>

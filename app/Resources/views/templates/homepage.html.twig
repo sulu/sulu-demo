@@ -18,6 +18,7 @@
                 } %}
 
             {% elseif item.type == 'artists' %}
+
                 {% include('includes/artists_element.html.twig') with {
                     'artists' : item
                 } %}
@@ -26,29 +27,18 @@
                  {% include('includes/news.html.twig') with {
                     "news" : item
                 } %}
-                {#
-                            {% elseif item.type == 'artists' %}
-                                <div rel="blocks" typeof="block">
-                                    <div property="artistsBackground">
-                                        {% set backgroundImage = "" %}
 
-                                        {% if item.artistsBackground|length %}
-                                            {% set backgroundImage = item.artistsBackground|first.url %}
-                                        {% endif %}
+                {% elseif item.type == 'discography' %}
+                    <div rel="blocks" typeof="block">
+                        {% include('includes/discography_elements.html.twig') with {
+                            'discography' : item
+                        } %}
+                    </div>
+                {# {% elseif item.type == 'partner' %}
 
-                                        {% include('includes/artists.html.twig') with {
-                                            'artists' : item,
-                                            'background' : 'imagebackground',
-                                            'backgroundImageUrl' : backgroundImage,
-                                            'kind' : 'heading--h2--border'
-                                        } %}
-                                    </div>
-                                </div>
-                            {% elseif item.type == 'partner' %}
-
-                                {% include('includes/partner.html.twig') with{
-                                    'partner' : item
-                                } %} #}
+                    {% include('includes/partner.html.twig') with{
+                        'partner' : item
+                    } %}#}
 
             {% endif %}
         {% endfor %}
