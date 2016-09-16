@@ -50,6 +50,10 @@
                 <source>newsletter_text</source>
                 <target>Von uns erhalten Sie intessante Informationen.</target>
             </trans-unit>
+            <trans-unit id="13">
+                <source>read_more</source>
+                <target>Mehr Lesen</target>
+            </trans-unit>
 		</body>
     </file>
 </xliff>

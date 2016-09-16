@@ -1,5 +1,5 @@
 <section class="slider">
-    <div class="js-slider" data-slick='{"slidesToShow": 1, "slidesToScroll": 1}'>
+    <div class="js-slider" data-slick='{"slidesToScroll": 1, "slidesToShow": 1}'>
         {% for slide in slides if slide.mediaId is not null %}
             <div class="slider-item">
                 {% set image = sulu_resolve_media(slide.mediaId, request.locale) %}

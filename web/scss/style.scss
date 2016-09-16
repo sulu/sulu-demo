@@ -1,6 +1,7 @@
 // BASE
+@import 'base/fonts';
 @import 'base/variables';
-@import 'base/_mixin.scss';
+@import 'base/mixin';
 
 // VENDOR
 @import 'vendor/csswizardry-grids';
@@ -43,10 +44,6 @@
 // BLOCKS - SERVICES
 //@import 'blocks/services';
 //@import 'blocks/forbooking';
-
-// FONTS
-@import url(https://fonts.googleapis.com/css?family=Karla:400,400i,700);
-@font-face { font-family: 'Broken Wings';src: url('/web/fonts/BrokenWings.otf') format('opentype'); }
 
 // IMPORTS
 @import '/css/normalize.css';

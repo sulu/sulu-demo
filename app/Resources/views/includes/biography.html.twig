@@ -24,15 +24,18 @@
                     {% if biography.biographyLink|default('') %}
                         <a class="button"
                            href="{{ sulu_content_load(biography.biographyLink).urls[request.locale] }}">
-                            Read More
+                            {{ 'read_more'|trans }}
                         </a>
                     {% endif %}
                 </div>
+            </div>
         </div>
-        </div>
+        
         <div property="biographyImage" class="grid__item desk--one-half">
-            {% if biography.biographyImage|length and biography.biographyImage|first.thumbnails['580x400'] is defined%}
-                    <img src="{{ biography.biographyImage|first.thumbnails['580x400'] }}" class="biography-image">
+            {% if biography.biographyImage|first.thumbnails['750x500'] is defined %}
+                <img src="{{ biography.biographyImage|first.thumbnails['750x500'] }}"
+                     alt="{{ biography.biographyImage|first.title }}"
+                     class="biography-image">
             {% endif %}
         </div>
     </div>

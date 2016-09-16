@@ -20,11 +20,11 @@
         </div>
 
         <div class="nav-elem nav-elem--language">
-            {% if request.locale == "de" %}
-                <a href="/en">en</a>
-            {% else %}
-                <a href="/de">de</a>
-            {% endif %}
+            {% for key, value in urls if key != request.locale %}
+                <a href="{{ sulu_content_path(value, request.webspaceKey, key) }}">
+                    {{ key }}
+                </a>
+            {% endfor %}
         </div>
 
         <a id="js-nav-button" class="nav-elem nav-elem--button">

@@ -116,6 +116,7 @@
 
 @media(min-width: $tablet) {
     .nav-elem {
+        /* are both needed because the navigation is animated via js */
         &--admin {
             display: inline-block !important;
         }
@@ -158,7 +159,6 @@
 }
 
 @media(max-width: 1200px) {
-
     .nav-elem--items li a {
         padding: 25px 15px;
     }
@@ -171,7 +171,6 @@
         }
 
         &-elem {
-
             &--items {
                 height: auto;
                 display: none;
@@ -209,6 +208,7 @@
                     left: 0;
                     width: 100%;
                     text-align: center;
+                    background-color: $colorred--lighter01;
                 }
             }
 
@@ -237,7 +237,6 @@
 @media (max-width: $mobile) {
     .nav-elem {
         &--items {
-
             li a {
                 font-size: 25px;
                 line-height: 45px;
