@@ -9,11 +9,20 @@
         </meta>
         <scale x="1920" y="1080"/>
     </format>
+
     <format key="580x400">
         <meta>
             <title lang="de">Biography Bild</title>
             <title lang="en">Biography Image</title>
         </meta>
         <scale x="580" y="400"/>
+    </format>
+
+    <format key="400x400">
+        <meta>
+            <title lang="de">Künstler Gallery Bild</title>
+            <title lang="en">Artist Collection Image</title>
+        </meta>
+        <scale x="400" y="400"/>
     </format>
 </formats>

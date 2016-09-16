@@ -1,0 +1,26 @@
+<section rel="blocks" typeof="block" class="artist--element {{ background|default('') }}">
+    <div property="artistsData"
+         class="artist--element-frame js-artist--element-collection"
+         data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
+        {% for item in artists.artistsData if item.template == "artist_detail" %}
+            <div class="artist--element-frame-item">
+                {% if item.image|length and item.image|first.thumbnails['400x400'] is defined %}
+                    <img src="{{ item.image|first.thumbnails['400x400'] }}"
+                         class="artist--element-frame-item-image"/>
+                {% endif %}
+
+                <a href="{{ item.url }}" class="artist--element-frame-item-link heading--h3">
+                    {{ item.heading }}
+                </a>
+
+                {% if item.image|length and item.image|first.thumbnails['400x400'] is defined %}
+                    <div class="artist--element-frame-item--hover">
+                        <a href="{{ item.url }}" class="button--small">
+                            More
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</section>

@@ -35,6 +35,32 @@ $(".js-slider").slick({
     autoplay: true,
     autoplaySpeed: 10000
 });
+
+$(".js-artist--element-collection").slick({
+    // normal options
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    arrows: false,
+    draggable: true,
+
+    // responsive
+    responsive: [{
+        breakpoint: 1023,
+        settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            dots: true
+        }
+    }, {
+        breakpoint: 480,
+        settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: true
+        }
+    }]
+});
 /*
 $(".js-partner-carousel").slick({
     // normal options

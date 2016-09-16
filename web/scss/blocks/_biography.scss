@@ -32,7 +32,7 @@
 
 @media (max-width: $tablet) {
     .biography {
-        margin: 40px auto;
+        margin: 40px auto 0 auto;
 
         &-text {
             padding: 0 20px;
@@ -42,11 +42,8 @@
 }
 
 @media (max-width: $mobile) {
-    .biography {
-        margin: 40px auto;
-
-        &-text-heading {
-            margin: 10px 0;
-        }
+    .biography-text-heading {
+        margin: 10px 0;
     }
+
 }
