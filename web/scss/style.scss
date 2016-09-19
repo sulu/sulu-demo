@@ -1,6 +1,7 @@
 // BASE
+@import 'base/fonts';
 @import 'base/variables';
-@import 'base/_mixin.scss';
+@import 'base/mixin';
 
 // VENDOR
 @import 'vendor/csswizardry-grids';
@@ -8,45 +9,41 @@
 // BLOCKS - GENERAL
 @import 'blocks/general';
 @import 'blocks/navigation';
-@import 'blocks/footer';
-@import 'blocks/headerimage';
+//@import 'blocks/footer';
+//@import 'blocks/headerimage';
 
 // BLOCKS - HOME
 @import 'blocks/slider';
-@import 'blocks/news';
-@import 'blocks/partner';
 @import 'blocks/biography';
-@import 'blocks/team';
-@import 'blocks/discography';
+//@import 'blocks/news';
+//@import 'blocks/partner';
+//@import 'blocks/team';
+//@import 'blocks/discography';
 
 // BLOCKS - BLOG
-@import 'blocks/blog';
-@import 'blocks/blogsidemeu';
-@import 'blocks/blogdetail';
-@import 'blocks/messageform';
+//@import 'blocks/blog';
+//@import 'blocks/blogsidemeu';
+//@import 'blocks/blogdetail';
+//@import 'blocks/messageform';
 
 // BLOCKS - ARTISTS
-@import 'blocks/artists';
+//@import 'blocks/artists';
 
 // BLOCKS - ARTIST - DETAIL
-@import 'blocks/artistdetail';
+//@import 'blocks/artistdetail';
 
 // BLOCKS - SITEMAP
-@import 'blocks/sitemap';
+//@import 'blocks/sitemap';
 
 // BLOCKS - ABOUT US
-@import 'blocks/aboutus';
+//@import 'blocks/aboutus';
 
 // BLOCKS - CONTACT
-@import 'blocks/contact';
+//@import 'blocks/contact';
 
 // BLOCKS - SERVICES
-@import 'blocks/services';
-@import 'blocks/forbooking';
-
-// FONTS
-@import url(https://fonts.googleapis.com/css?family=Hind:300,400,700);
-@import url(https://fonts.googleapis.com/css?family=Oswald:400,700);
+//@import 'blocks/services';
+//@import 'blocks/forbooking';
 
 // IMPORTS
 @import '/css/normalize.css';

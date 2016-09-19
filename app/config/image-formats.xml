@@ -1,168 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <formats xmlns="http://schemas.sulu.io/media/formats"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://schemas.sulu.io/media/formats http://schemas.sulu.io/media/formats-1.0.xsd">
-    <format>
-        <name>1600x</name>
-        <commands>
-            <command>
-                <action>scale</action>
-                <parameters>
-                    <parameter name="x">1600</parameter>
-                    <parameter name="mode">inset</parameter>
-                </parameters>
-            </command>
-        </commands>
-        <options>
-            <option name="jpeg_quality">100</option>
-            <option name="png_compression_level">4</option>
-        </options>
+         xsi:schemaLocation="http://schemas.sulu.io/media/formats http://schemas.sulu.io/media/formats-1.1.xsd">
+    <format key="1920x1080">
+        <meta>
+            <title lang="de">Teaser Bild</title>
+            <title lang="en">Teaser Image</title>
+        </meta>
+        <scale x="1920" y="1080"/>
     </format>
-    <format>
-        <name>800x</name>
-        <commands>
-            <command>
-                <action>scale</action>
-                <parameters>
-                    <parameter name="x">800</parameter>
-                    <parameter name="mode">inset</parameter>
-                </parameters>
-            </command>
-        </commands>
-        <options>
-            <option name="jpeg_quality">100</option>
-            <option name="png_compression_level">4</option>
-        </options>
-    </format>
-    <format>
-        <name>480x</name>
-        <commands>
-            <command>
-                <action>scale</action>
-                <parameters>
-                    <parameter name="x">480</parameter>
-                    <parameter name="mode">inset</parameter>
-                </parameters>
-            </command>
-        </commands>
-        <options>
-            <option name="jpeg_quality">100</option>
-            <option name="png_compression_level">4</option>
-        </options>
-    </format>
-    <format>
-        <name>1600x400</name>
-        <commands>
-            <command>
-                <action>scale</action>
-                <parameters>
-                    <parameter name="x">1600</parameter>
-                    <parameter name="y">400</parameter>
-                    <parameter name="mode">inset</parameter>
-                </parameters>
-            </command>
-        </commands>
-        <options>
-            <option name="jpeg_quality">100</option>
-            <option name="png_compression_level">4</option>
-        </options>
-    </format>
-    <format>
-        <name>800x300</name>
-        <commands>
-            <command>
-                <action>scale</action>
-                <parameters>
-                    <parameter name="x">800</parameter>
-                    <parameter name="y">300</parameter>
-                    <parameter name="mode">inset</parameter>
-                </parameters>
-            </command>
-        </commands>
-        <options>
-            <option name="jpeg_quality">100</option>
-            <option name="png_compression_level">4</option>
-        </options>
-    </format>
-    <format>
-        <name>480x300</name>
-        <commands>
-            <command>
-                <action>scale</action>
-                <parameters>
-                    <parameter name="x">480</parameter>
-                    <parameter name="y">300</parameter>
-                    <parameter name="mode">inset</parameter>
-                </parameters>
-            </command>
-        </commands>
-        <options>
-            <option name="jpeg_quality">100</option>
-            <option name="png_compression_level">4</option>
-        </options>
-    </format>
-    <format>
-        <name>140x70</name>
-        <commands>
-            <command>
-                <action>scale</action>
-                <parameters>
-                    <parameter name="x">140</parameter>
-                    <parameter name="y">70</parameter>
-                </parameters>
-            </command>
-        </commands>
-    </format>
-    <format>
-        <name>800x800-inset</name>
-        <commands>
-            <command>
-                <action>scale</action>
-                <parameters>
-                    <parameter name="x">800</parameter>
-                    <parameter name="y">800</parameter>
-                    <parameter name="mode">inset</parameter>
-                </parameters>
-            </command>
-        </commands>
-    </format>
-    <format>
-        <name>1080x200-inset</name>
-        <commands>
-            <command>
-                <action>scale</action>
-                <parameters>
-                    <parameter name="x">1080</parameter>
-                    <parameter name="y">200</parameter>
-                    <parameter name="mode">inset</parameter>
-                </parameters>
-            </command>
-        </commands>
-    </format>
-    <format>
-        <name>800x200-inset</name>
-        <commands>
-            <command>
-                <action>scale</action>
-                <parameters>
-                    <parameter name="x">800</parameter>
-                    <parameter name="y">200</parameter>
-                    <parameter name="mode">inset</parameter>
-                </parameters>
-            </command>
-        </commands>
-    </format>
-    <format>
-        <name>480x200-inset</name>
-        <commands>
-            <command>
-                <action>scale</action>
-                <parameters>
-                    <parameter name="x">480</parameter>
-                    <parameter name="y">200</parameter>
-                    <parameter name="mode">inset</parameter>
-                </parameters>
-            </command>
-        </commands>
+
+    <format key="750x500">
+        <meta>
+            <title lang="de">Biography Bild</title>
+            <title lang="en">Biography Image</title>
+        </meta>
+        <scale x="750" y="500"/>
     </format>
 </formats>

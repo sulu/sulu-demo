@@ -1,8 +1,8 @@
-@mixin scale-elem($factor) {
-    -webkit-transform: scale($factor);
-    -moz-transform: scale($factor);
-    -ms-transform: scale($factor);
-    transform: scale($factor);
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
 }
 
 @mixin transition($form, $time, $kind) {
@@ -10,13 +10,6 @@
     -moz-transition: $form $time $kind;
     -ms-transition: $form $time $kind;
     transition: $form $time $kind;
-}
-
-@mixin border-radius($radius) {
-    -webkit-border-radius: $radius;
-    -moz-border-radius: $radius;
-    -ms-border-radius: $radius;
-    border-radius: $radius;
 }
 
 @mixin vertical-align($position: relative) {

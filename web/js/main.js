@@ -1,10 +1,41 @@
+$("#js-nav-button").click(function () {
+
+    $(".nav-elem--admin").fadeToggle();
+    $(".nav-elem--items").fadeToggle();
+    if($(".nav").hasClass('open')) {
+        $(".nav").removeClass('open');
+        $(".nav-elem--button").fadeTo(500, 0, function () {
+            $(".ion-close").addClass('ion-navicon').css('font-size','38px');
+            $(".ion-close").removeClass('ion-close');
+            $(".nav-elem--button").fadeTo(500, 1);
+        });
+    } else {
+        $(".nav").addClass('open');
+        $(".nav-elem--button").fadeTo(500, 0, function () {
+            $(".ion-navicon").addClass('ion-close').css('font-size','28px');
+            $(".ion-navicon").removeClass('ion-navicon');
+            $(".nav-elem--button").fadeTo(500, 1);
+        });
+    }
+});
+
+$(window).scroll(function() {
+    var scroll = $(window).scrollTop();
+    if (scroll >= 10) {
+        $(".nav").addClass("sticky");
+    } else {
+        $(".nav").removeClass("sticky");
+    }
+});
+
+
 $(".js-slider").slick({
     infinite: true,
     arrows: false,
     autoplay: true,
     autoplaySpeed: 10000
 });
-
+/*
 $(".js-partner-carousel").slick({
     // normal options
     infinite: true,
@@ -90,3 +121,4 @@ function initializeMap(lat, lng, zoom, id) {
     var map = new google.maps.Map(document.getElementById(id),mapProp);
 }
 
+*/

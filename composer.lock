@@ -2374,12 +2374,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/massiveart/MassiveSearchBundle.git",
-                "reference": "47d6ab1688a1c66d3c539d9201c760052245e18b"
+                "reference": "84937f9c58005aa26a5066a97dc6b2dba4176d42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/massiveart/MassiveSearchBundle/zipball/47d6ab1688a1c66d3c539d9201c760052245e18b",
-                "reference": "47d6ab1688a1c66d3c539d9201c760052245e18b",
+                "url": "https://api.github.com/repos/massiveart/MassiveSearchBundle/zipball/84937f9c58005aa26a5066a97dc6b2dba4176d42",
+                "reference": "84937f9c58005aa26a5066a97dc6b2dba4176d42",
                 "shasum": ""
             },
             "require": {
@@ -2432,7 +2432,7 @@
                 }
             ],
             "description": "Massive Search Bundle",
-            "time": "2016-08-29 06:08:55"
+            "time": "2016-09-07 19:51:12"
         },
         {
             "name": "monolog/monolog",
@@ -3622,12 +3622,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sulu/sulu.git",
-                "reference": "2c3a61dc498974c786f2bb31a8bc9f43764118e7"
+                "reference": "c9eb4167c7ec05c1cab50dd1ae46d9a2c154e59e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sulu/sulu/zipball/2c3a61dc498974c786f2bb31a8bc9f43764118e7",
-                "reference": "2c3a61dc498974c786f2bb31a8bc9f43764118e7",
+                "url": "https://api.github.com/repos/sulu/sulu/zipball/c9eb4167c7ec05c1cab50dd1ae46d9a2c154e59e",
+                "reference": "c9eb4167c7ec05c1cab50dd1ae46d9a2c154e59e",
                 "shasum": ""
             },
             "require": {
@@ -3651,7 +3651,7 @@
                 "sulu/document-manager": "0.8.*",
                 "symfony-cmf/routing-bundle": "1.2.*",
                 "symfony/swiftmailer-bundle": "~2.3",
-                "symfony/symfony": "~2.8.7",
+                "symfony/symfony": "~2.8.7, !=2.8.10",
                 "willdurand/hateoas-bundle": "0.3.*"
             },
             "replace": {
@@ -3722,7 +3722,7 @@
                 "core",
                 "sulu"
             ],
-            "time": "2016-09-01 18:38:11"
+            "time": "2016-09-07 18:21:20"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4592,16 +4592,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.8.9",
+            "version": "v2.8.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "df02dd5d3f7decb3a05c6d0f31054b4263625dcb"
+                "reference": "f588c92c3e263b2eaa2f96a7b1359199eb209b3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/df02dd5d3f7decb3a05c6d0f31054b4263625dcb",
-                "reference": "df02dd5d3f7decb3a05c6d0f31054b4263625dcb",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/f588c92c3e263b2eaa2f96a7b1359199eb209b3d",
+                "reference": "f588c92c3e263b2eaa2f96a7b1359199eb209b3d",
                 "shasum": ""
             },
             "require": {
@@ -4722,7 +4722,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2016-07-30 08:48:52"
+            "time": "2016-09-07 02:04:25"
         },
         {
             "name": "twig/extensions",

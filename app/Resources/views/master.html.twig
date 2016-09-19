@@ -18,9 +18,7 @@
     <body>
         <header>
             {% block header %}
-                <nav>
-                    {% include('blocks/navigation.html.twig') %}
-                </nav>
+                {% include('blocks/navigation.html.twig') %}
             {% endblock %}
         </header>
 
@@ -34,6 +32,7 @@
 
         <footer>
             {% block footer %}
+                {% include('blocks/footer.html.twig') %}
                 {% include('blocks/footer.html.twig') %}
             {% endblock %}
         </footer>
