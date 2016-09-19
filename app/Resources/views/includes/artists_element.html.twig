@@ -9,14 +9,14 @@
                          class="artist--element-frame-item-image"/>
                 {% endif %}
 
-                <a href="{{ item.url }}" class="artist--element-frame-item-link heading--h3">
+                <a href="{{ sulu_content_path(item.url) }}" class="artist--element-frame-item-link heading--h3">
                     {{ item.heading }}
                 </a>
 
                 {% if item.image|length and item.image|first.thumbnails['400x400'] is defined %}
                     <div class="artist--element-frame-item--hover">
-                        <a href="{{ item.url }}" class="button--small">
-                            More
+                        <a href="{{ sulu_content_path(item.url) }}" class="button--small">
+                            {{ "more" }}
                         </a>
                     </div>
                 {% endif %}

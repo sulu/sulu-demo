@@ -37,14 +37,11 @@ $(".js-slider").slick({
 });
 
 $(".js-artist--element-collection").slick({
-    // normal options
     infinite: true,
     autoplay: true,
     autoplaySpeed: 5000,
     arrows: false,
     draggable: true,
-
-    // responsive
     responsive: [{
         breakpoint: 1023,
         settings: {
