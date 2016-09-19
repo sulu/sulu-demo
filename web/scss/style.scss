@@ -16,10 +16,10 @@
 @import 'vendor/csswizardry-grids';
 
 // BLOCKS - GENERAL
-//@import 'blocks/footer';
 @import 'blocks/general';
-//@import 'blocks/headerimage';
 @import 'blocks/navigation';
+@import 'blocks/footer';
+//@import 'blocks/headerimage';
 
 // BLOCKS - HOME
 @import 'blocks/biography';

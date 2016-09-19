@@ -80,7 +80,6 @@ a {
 .button {
     font-family: $fontregular;
     font-size: 14px;
-    background-color: $colorred;
     color: $colorwhite;
     text-align: center;
     vertical-align: middle;
@@ -99,6 +98,7 @@ a {
         @extend .button;
         width: 125px;
         line-height: 33px;
+        background-color: $colorred--lighter01;
     }
 
     &--medium {
@@ -106,6 +106,7 @@ a {
         width: 220px;
         margin: 18px 0;
         line-height: 38px;
+        background-color: $colorred;
     }
 }
 
