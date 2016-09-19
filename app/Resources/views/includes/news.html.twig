@@ -1,50 +1,29 @@
 <section class="news" rel="blocks" typeof="block">
-    <h2 property="title" class="news-heading heading--h2--border">
-        {% if item.title|default('') %}
-            {{ item.title }}
-        {% endif %}
-    </h2>
+    <div class="news-content">
+        <h1 property="title" class="news-content-title heading--h2">
+            {% if item.title|default('') %}
+                {{ item.title }}
+            {% endif %}
+        </h1>
 
-    <div property="newsData">
-        {% for item in news.newsData %}
-            <div class="news-item" onclick="location.href='{{ item.url }}'">
-                {% if item.image|length and item.image|first.thumbnails['800x200-inset'] is defined %}
-                    <picture>
-                        <source class="news-item-image"
-                                media="(min-width: 1024px)"
-                                srcset="{{ item.image|first.thumbnails['1080x200-inset'] }}">
+        <div property="newsData">
+            {% for item in news.newsData %}
+                <span class="news-content-heading">
+                    <p class="news-content-heading-creator" href="#">
+                        by {{ sulu_resolve_user(item.creator).contact.fullName }}
+                    </p>
 
-                        <source class="news-item-image"
-                                media="(min-width: 481px) and (max-width: 1023px)"
-                                srcset="{{ item.image|first.thumbnails['800x200-inset'] }}">
+                    <p class="news-content-heading-date cf">
+                        {{ item.published.date|date("d.m.Y") }}
+                    </p>
+                </span>
 
-                        <source class="news-item-image"
-                                media="(max-width: 480px)"
-                                srcset="{{ item.image|first.thumbnails['480x200-inset'] }}">
+                <a href="{{ item.url }}" class="news-content-link">
+                    {{ item.heading }}
 
-                        <!---Fallback--->
-                        <img class="news-item-image" src="{{ item.image|first.thumbnails['800x200-inset'] }}">
-                    </picture>
-                {% endif %}
-
-                <div class="news-item-text">
-                    by <a href="#">{{ sulu_resolve_user(item.creator).contact.fullName }}</a>
-
-                    <h3 class="heading--h3">{{ item.heading }}</h3>
-
-                    <span class="news-item-text-date">
-                        <i class="ion-ios-arrow-forward"></i> {{ item.published.date|date("d.m.Y") }}
-                    </span>
-
-                    <span class="news-item-text-category">
-                        <i class="ion-ios-arrow-forward">
-                            {% for category in item.categories %}
-                                {{ category.name ~ (not loop.last ? ',' : '') }}
-                            {% endfor %}
-                        </i>
-                    </span>
-                </div>
-            </div>
-        {% endfor %}
+                    <i class="ion-ios-arrow-thin-right"></i>
+                </a>
+            {% endfor %}
+        </div>
     </div>
 </section>

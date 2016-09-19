@@ -1,98 +1,99 @@
 .news {
-    padding: 40px 0;
+    background-color: $colorred--lighter01;
 
-    &-heading {
+    &-content {
         max-width: $maxwidth;
-        margin: 0 auto 30px auto;
-    }
+        margin: 0 auto;
+        padding: 100px 0;
 
-    &-item {
-        max-width: $maxwidth;
-        margin: 5px auto;
-        position: relative;
-        height: 200px;
-        width: 100%;
+        &-title {
+            color: $colorwhite;
+            margin: 0 0 20px 0;
+        }
 
-        &-image {
+        &-heading {
+            display: block;
             width: 100%;
-            height: 200px;
-            position: absolute;
-            @include transition(all, .3s, ease-in-out);
-        }
 
-        &:hover &-image {
-            width: 102%;
-            margin-left: -1%;
-        }
-
-        &:hover &-text h3 {
-            color: $coloryellow;
-        }
-
-        &-text {
-            position: absolute;
-            z-index: 2;
-            top: 55px;
-            height: 70px;
-            padding-left: 50px;
-            color: #fff;
-            vertical-align: middle;
-            font-size: 12px;
-            letter-spacing: normal;
-            font-family: $fonthind;
-
-            p,
-            h3,
-            i {
-                color: #fff;
-                font-size: 12px;
+            &-creator, &-date {
+                display: inline;
+                color: $colorwhite;
+                font-size: 14px;
             }
 
-            a {
-                color: $coloryellow;
-                font-family: $fonthind;
+            &-date {
+                float: right;
             }
-
-            h3 {
-                margin: 10px 0;
-                font-size: 34px;
-            }
-
         }
-    }
-}
 
-@media (max-width: $maxwidth + 20) {
-    .news {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-}
+        &-link {
+            position: relative;
+            display: block;
+            width: 100%;
+            color: $colorwhite;
+            font-size: 40px;
+            border-top: 2px solid $colorwhite;
+            border-top: 2px solid $colorwhite;
+            margin-bottom: 30px;
 
-@media (max-width: 735px) {
-    .news {
+            .no-touchevents &:hover {
+                color: $colorwhite;
+                text-decoration: none;
 
-        &-item {
-
-            &-text {
-
-                h3 {
-                    margin: 10px 0;
-                    font-size: 20px;
+                i {
+                    opacity: 1;
                 }
             }
+
+            i {
+                right: 30px;
+                top: 0;
+                position: absolute;
+                color: $colorwhite;
+                opacity: 0;
+                @include transition(opacity, 0.4s, linear);
+            }
         }
     }
 }
 
-@media (max-width: 448px) {
-    .news {
+@media (max-width: $maxwidth + 20px) {
+    .news-content {
+        padding: 100px 20px;
+    }
+}
 
-        &-item {
+@media (max-width: $maxwidth) {
+    .news-content {
+        padding: 75px;
+    }
+}
 
-            &-text {
-                top: 37.5px;
-            }
+@media (max-width: $tablet) {
+    .news-content-link {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 700px) {
+    .news-content {
+        padding: 30px 15px 75px 15px;
+    }
+}
+
+@media (max-width: $mobile) {
+    .news-content {
+        &-title {
+            margin-bottom: 55px;
+        }
+
+        &-heading-date, &-link i {
+            display: none;
+        }
+
+        &-link {
+            margin-bottom: 25px;
+            font-size: 28px;
         }
     }
 }

@@ -13,45 +13,42 @@
     <div property="blocks" typeof="collection">
         {% for item in content.blocks %}
             {% if item.type == 'biography' %}
-
                 {% include('includes/biography.html.twig') with{
                     'biography' : item
                 } %}
 
             {% elseif item.type == 'artists' %}
-
                 {% include('includes/artists_element.html.twig') with {
                     'artists' : item
                 } %}
 
-                {#{% elseif item.type == 'news' %}
+            {% elseif item.type == 'news' %}
+                 {% include('includes/news.html.twig') with {
+                    "news" : item
+                } %}
+                {#
+                            {% elseif item.type == 'artists' %}
+                                <div rel="blocks" typeof="block">
+                                    <div property="artistsBackground">
+                                        {% set backgroundImage = "" %}
 
-                    {% include('includes/news.html.twig') with {
-                        "news" : item
-                    } %}
+                                        {% if item.artistsBackground|length %}
+                                            {% set backgroundImage = item.artistsBackground|first.url %}
+                                        {% endif %}
 
-                {% elseif item.type == 'artists' %}
-                    <div rel="blocks" typeof="block">
-                        <div property="artistsBackground">
-                            {% set backgroundImage = "" %}
+                                        {% include('includes/artists.html.twig') with {
+                                            'artists' : item,
+                                            'background' : 'imagebackground',
+                                            'backgroundImageUrl' : backgroundImage,
+                                            'kind' : 'heading--h2--border'
+                                        } %}
+                                    </div>
+                                </div>
+                            {% elseif item.type == 'partner' %}
 
-                            {% if item.artistsBackground|length %}
-                                {% set backgroundImage = item.artistsBackground|first.url %}
-                            {% endif %}
-
-                            {% include('includes/artists.html.twig') with {
-                                'artists' : item,
-                                'background' : 'imagebackground',
-                                'backgroundImageUrl' : backgroundImage,
-                                'kind' : 'heading--h2--border'
-                            } %}
-                        </div>
-                    </div>
-                {% elseif item.type == 'partner' %}
-
-                    {% include('includes/partner.html.twig') with{
-                        'partner' : item
-                    } %}#}
+                                {% include('includes/partner.html.twig') with{
+                                    'partner' : item
+                                } %} #}
 
             {% endif %}
         {% endfor %}
