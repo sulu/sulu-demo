@@ -133,7 +133,21 @@
 
         p {
             padding: 0 40px;
+        }
+    }
+}
 
+@media (max-width: 380px) {
+    .slider .slides-text .heading--h1 {
+        font-size: 45px;
+        line-height: 35px;
+
+        &--description {
+            margin-top: 15px;
+
+            p {
+                padding: 0 25px;
+            }
         }
     }
 }

@@ -50,6 +50,10 @@
                 <source>newsletter_text</source>
                 <target>We provide a wide array of software design and development services from Mobile applications and Web applications to User interface design. </target>
             </trans-unit>
+            <trans-unit id="13">
+                <source>read_more</source>
+                <target>Read More</target>
+            </trans-unit>
 		</body>
     </file>
 </xliff>
