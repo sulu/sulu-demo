@@ -133,7 +133,7 @@
 
                                     <params>
                                         <param name="properties" type="collection">
-                                            <param name="heading" value="contentHeading"/>
+                                            <param name="heading" value="title"/>
                                             <param name="image" value="contentTitleimage"/>
                                             <param name="url" value="url"/>
                                         </param>
@@ -214,13 +214,6 @@
                             </meta>
 
                             <properties>
-                                <property name="title" type="text_line">
-                                    <meta>
-                                        <title lang="en">Title</title>
-                                        <title lang="de">Titel</title>
-                                    </meta>
-                                </property>
-
                                 <property name="partnerData" type="snippet">
                                     <meta>
                                         <title lang="de">Partner</title>

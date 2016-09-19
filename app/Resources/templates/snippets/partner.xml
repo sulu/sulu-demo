@@ -30,5 +30,16 @@
                 <param name="types" value="image"/>
             </params>
         </property>
+
+        <property name="background" type="media_selection">
+            <meta>
+                <title lang="en">Background Image</title>
+                <title lang="de">Hintergrundbild</title>
+            </meta>
+
+            <params>
+                <param name="types" value="image"/>
+            </params>
+        </property>
     </properties>
 </template>

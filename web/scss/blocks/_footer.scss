@@ -1,5 +1,5 @@
 .footer {
-    background-color: $colorblack--lighter01;
+    background-color: $colorblack--lighter02;
 
     &--frame {
         max-width: $maxwidth;
@@ -54,11 +54,12 @@
 
                     &-input {
                         margin-top: 15px;
-                        background-color: $colorblack--lighter02;
+                        background-color: $colorblack--lighter03;
                         border: none;
                         color: $colorwhite;
                         height: 37px;
                         border-radius: 19px;
+                        font-size: 14px;
                         padding: 0 21px;
                         font-family: $fontregular;
                         font-weight: bold;
@@ -87,7 +88,8 @@
     }
 
     &-imprint {
-        margin-top: 130px;
+        max-width: $maxwidth;
+        margin: 130px auto 0 auto;
         padding-bottom: 35px;
         font-size: 0px;
 
@@ -122,7 +124,7 @@
     }
 
     &--socials {
-        background-color: $colorblack;
+        background-color: $colorblack--lighter01;
         border-top: 1px $colorwhite solid;
 
         &-frame {

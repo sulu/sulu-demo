@@ -1,17 +1,35 @@
-<section class="partner"  rel="blocks" typeof="block">
-    <h2 property="title" class="partner-item--heading heading--h2--border">
-        {{ partner.title }}
-    </h2>
+<div rel="blocks" typeof="block">
+    <div property="partnerData">
+        {% set background = "" %}
 
-    <div property="partnerData"
-         class="partner-carousel js-partner-carousel"
-         data-slick='{"slidesToShow": 5, "slidesToScroll": 5}'>
-        {% for item in partner.partnerData %}
-            {% for image in item.images %}
-                <div class="partner-carousel-item">
-                    <img src="{{ image.thumbnails['140x70'] }}" alt="{{ image.name }}">
+        {% if partner.partnerData|length
+        and partner.partnerData|first.background|length
+        and partner.partnerData|first.background|first.thumbnails['1920x1080'] is defined %}
+            {% set background = partner.partnerData|first.background|first.thumbnails['1920x1080'] %}
+        {% endif %}
+
+        <section class="partner" style="background-image: url('{{ background }}')">
+            <div class="partner-frame">
+                <div class="partner-frame-content">
+                    {% if partner.partnerData|length %}
+                        {% if partner.partnerData|first.title|default("") %}
+                            <p class="partner-frame-content-heading">
+                                {{ partner.partnerData|first.title }}
+                            </p>
+                        {% endif %}
+
+                        <div class="partner-frame-content-scroll">
+                            <div class="partner-frame-content-scroll-images">
+                                {% for image in partner.partnerData|first.images if image.thumbnails["x80"] is defined %}
+                                    <img src="{{ image.thumbnails["x80"] }}"
+                                         alt="{{ image.title }}"
+                                         class="partner-frame-content-scroll-images-image"/>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
-            {% endfor %}
-        {% endfor %}
+            </div>
+        </section>
     </div>
-</section>
+</div>

@@ -18,11 +18,20 @@
         <scale x="750" y="500"/>
     </format>
 
+
     <format key="400x400">
         <meta>
             <title lang="de">Galerie Bild</title>
             <title lang="en">Gallery Image</title>
         </meta>
         <scale x="400" y="400"/>
+    </format>
+
+    <format key="x80">
+        <meta>
+            <title lang="de">Partner Icon</title>
+            <title lang="en">Partner Icon</title>
+        </meta>
+        <scale y="80"/>
     </format>
 </formats>
