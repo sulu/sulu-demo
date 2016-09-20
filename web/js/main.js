@@ -1,5 +1,4 @@
 $("#js-nav-button").click(function () {
-
     $(".nav-elem--admin").fadeToggle();
     $(".nav-elem--items").fadeToggle();
     if($(".nav").hasClass('open')) {

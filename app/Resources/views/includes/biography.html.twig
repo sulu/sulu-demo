@@ -22,7 +22,7 @@
 
                 <div property="biographyLink">
                     {% if biography.biographyLink|default('') %}
-                        <a class="button--medium"
+                        <a class="button--medium no-touchevent"
                            href="{{ sulu_content_load(biography.biographyLink).urls[request.locale] }}">
                             {{ 'read_more'|trans }}
                         </a>
