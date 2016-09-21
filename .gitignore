@@ -45,3 +45,4 @@ app/maintenance.php
 # System files
 .DS_Store
 node_modules
+.sass-cache

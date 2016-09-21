@@ -1,8 +1,16 @@
-// BASE
+// COMPASS
+@import 'compass';
+@import 'compass/reset';
+@import 'compass/css3/appearance';
 
+// BASE
 @import 'base/fonts';
 @import 'base/variables';
 @import 'base/mixin';
+
+// IMPORTS
+@import '../../node_modules/slick-carousel/slick/slick';
+@import '../../node_modules/ionicons-npm/scss/ionicons';
 
 // VENDOR
 @import 'vendor/csswizardry-grids';
@@ -45,9 +53,3 @@
 // BLOCKS - SERVICES
 //@import 'blocks/services';
 //@import 'blocks/forbooking';
-
-// IMPORTS
-@import '/css/normalize.css';
-@import url(http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
-@import '/css/bootstrap.min.css';
-@import '/css/slick.css';

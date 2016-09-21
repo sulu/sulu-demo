@@ -45,7 +45,7 @@
                     font-weight: bold;
                 }
 
-                a:hover {
+                .no-touchevents a:hover {
                     color: $coloryellow;
                 }
             }
@@ -67,7 +67,7 @@
                 line-height: 28px;
             }
 
-            &-button:hover {
+            .no-touchevents &-button:hover {
                 color: #fff;
                 background: $coloryellow
             }

@@ -13,6 +13,11 @@ p {
     letter-spacing: 0;
 }
 
+a {
+    text-decoration: none;
+    font-family: $fontregular;
+}
+
 .heading {
     &--h1 {
         font-family: $fontfancy;
@@ -86,7 +91,7 @@ p {
     border-radius: 19px;
     letter-spacing: 2px;
 
-    &:hover {
+    .no-touchevents &:hover {
         background-color: $colorred--lighter01;
         color: $colorwhite;
         text-decoration: none;

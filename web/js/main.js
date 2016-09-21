@@ -1,3 +1,7 @@
+var $ = require('jquery');
+
+require('slick-carousel');
+
 $("#js-nav-button").click(function () {
     $(".nav-elem--admin").fadeToggle();
     $(".nav-elem--items").fadeToggle();
@@ -57,6 +61,7 @@ $(".js-artist--element-collection").slick({
         }
     }]
 });
+
 /*
 $(".js-partner-carousel").slick({
     // normal options
