@@ -54,6 +54,10 @@
                 <source>read_more</source>
                 <target>Read More</target>
             </trans-unit>
+            <trans-unit id="14">
+                <source>more</source>
+                <target>More</target>
+            </trans-unit>
 		</body>
     </file>
 </xliff>

@@ -10,8 +10,8 @@
     <cacheLifetime>604800</cacheLifetime>
 
     <meta>
-        <title lang="en">Disk</title>
-        <title lang="de">Album</title>
+        <title lang="en">Albums</title>
+        <title lang="de">Alben</title>
     </meta>
 
     <properties>

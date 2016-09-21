@@ -1,5 +1,8 @@
-$("#js-nav-button").click(function () {
+var $ = require('jquery');
 
+require('slick-carousel');
+
+$("#js-nav-button").click(function () {
     $(".nav-elem--admin").fadeToggle();
     $(".nav-elem--items").fadeToggle();
     if($(".nav").hasClass('open')) {
@@ -35,6 +38,30 @@ $(".js-slider").slick({
     autoplay: true,
     autoplaySpeed: 10000
 });
+
+$(".js-artist--element-collection").slick({
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    arrows: false,
+    draggable: true,
+    responsive: [{
+        breakpoint: 1023,
+        settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            dots: true
+        }
+    }, {
+        breakpoint: 480,
+        settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: true
+        }
+    }]
+});
+
 /*
 $(".js-partner-carousel").slick({
     // normal options

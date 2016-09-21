@@ -43,10 +43,10 @@
                     color: $colorblack--lighter01;
                     font-size: 13px;
                     font-weight: bold;
-                }
 
-                a:hover {
-                    color: $coloryellow;
+                    .no-touchevents &:hover {
+                        color: $coloryellow;
+                    }
                 }
             }
 
@@ -65,11 +65,11 @@
                 font-family: $fonthind;
                 font-size: 12px;
                 line-height: 28px;
-            }
 
-            &-button:hover {
-                color: #fff;
-                background: $coloryellow
+                .no-touchevents &:hover {
+                    color: #fff;
+                    background: $coloryellow
+                }
             }
         }
     }

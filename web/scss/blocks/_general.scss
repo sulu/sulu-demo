@@ -12,6 +12,11 @@ p {
     letter-spacing: 0;
 }
 
+a {
+    text-decoration: none;
+    font-family: $fontregular;
+}
+
 .heading {
     &--h1 {
         font-family: $fontfancy;
@@ -73,13 +78,10 @@ p {
 }
 
 .button {
-    margin: 18px 0;
     font-family: $fontregular;
     font-size: 14px;
-    line-height: 38px;
     background-color: $colorred;
     color: $colorwhite;
-    width: 220px;
     text-align: center;
     vertical-align: middle;
     text-transform: uppercase;
@@ -87,10 +89,23 @@ p {
     border-radius: 19px;
     letter-spacing: 2px;
 
-    &:hover {
+    .no-touchevents &:hover {
         background-color: $colorred--lighter01;
         color: $colorwhite;
         text-decoration: none;
+    }
+
+    &--small {
+        @extend .button;
+        width: 125px;
+        line-height: 33px;
+    }
+
+    &--medium {
+        @extend .button;
+        width: 220px;
+        margin: 18px 0;
+        line-height: 38px;
     }
 }
 

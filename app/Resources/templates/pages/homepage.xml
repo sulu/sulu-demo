@@ -118,38 +118,23 @@
                             </properties>
                         </type>
 
-                        <type name="discography">
+                        <type name="artists">
                             <meta>
-                                <title lang="de">Discographie</title>
-                                <title lang="en">Discography</title>
+                                <title lang="de">Künstler</title>
+                                <title lang="en">Artists</title>
                             </meta>
 
                             <properties>
-                                <property name="discographyTitle" type="text_line">
+                                <property name="artistsData" type="smart_content">
                                     <meta>
-                                        <title lang="en">Title</title>
-                                        <title lang="de">Titel</title>
-                                    </meta>
-                                </property>
-
-                                <property name="discographyHeading" type="text_editor">
-                                    <meta>
-                                        <title lang="en">Heading</title>
-                                        <title lang="de">Überschrift</title>
-                                    </meta>
-                                </property>
-
-                                <property name="discographyData" type="smart_content">
-                                    <meta>
-                                        <title lang="en">Discography</title>
-                                        <title lang="de">Discographie</title>
+                                        <title lang="en">Artists</title>
+                                        <title lang="de">Künstler</title>
                                     </meta>
 
                                     <params>
                                         <param name="properties" type="collection">
                                             <param name="heading" value="contentHeading"/>
                                             <param name="image" value="contentTitleimage"/>
-                                            <param name="categories" value="excerpt.categories"/>
                                             <param name="url" value="url"/>
                                         </param>
                                     </params>
@@ -157,7 +142,7 @@
                             </properties>
                         </type>
 
-                        <type name="artists">
+                       <!-- <type name="artists">
                             <meta>
                                 <title lang="de">Künstler</title>
                                 <title lang="en">Artists</title>
@@ -197,7 +182,7 @@
                                     </params>
                                 </property>
                             </properties>
-                        </type>
+                        </type>-->
 
                         <type name="news">
                             <meta>
