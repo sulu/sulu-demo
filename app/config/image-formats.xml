@@ -20,8 +20,8 @@
 
     <format key="400x400">
         <meta>
-            <title lang="de">Künstler Gallery Bild</title>
-            <title lang="en">Artist Collection Image</title>
+            <title lang="de">Galerie Bild</title>
+            <title lang="en">Gallery Image</title>
         </meta>
         <scale x="400" y="400"/>
     </format>

@@ -13,7 +13,7 @@
                 text-align: center;
                 z-index: 1;
 
-                &:hover {
+                .no-touchevents &:hover {
                     color: $colorwhite;
                     text-decoration: none;
                 }
@@ -25,6 +25,8 @@
                 width: inherit;
                 height: inherit;
                 display: none;
+                padding: 20px;
+                box-sizing: border-box;
 
                 .button--small {
                     @include vertical-align(relative);
@@ -43,7 +45,7 @@
                 }
             }
 
-            &:hover {
+            .no-touchevents &:hover {
                 .artist--element-frame-item--hover {
                     display: block;
                 }
