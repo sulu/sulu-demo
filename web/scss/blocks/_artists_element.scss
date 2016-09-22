@@ -89,6 +89,12 @@
     }
 }
 
+@media (max-width: $maxwidth + 20) and (min-width: $tablet) {
+    .artist--element {
+        padding: 0 20px;
+    }
+}
+
 @media(max-width: $tablet) {
     .artist--element {
         padding: 75px 75px 0 75px;
@@ -102,7 +108,7 @@
         .slick-dots {
             margin: 0;
 
-            li {
+            li{
                 margin: 6px;
             }
         }

@@ -45,7 +45,7 @@
 
             .heading--h1--description {
                 margin-top: -30px;
-                width: 35%;
+                width: 40%;
 
                 p {
                     color: #fff;
@@ -70,6 +70,7 @@
 @media (max-width: $tablet) {
     .slider .slides-text {
         padding: 0 20px;
+        box-sizing: border-box;
 
         .heading--h1,
         .heading--h1--description p {
@@ -80,7 +81,7 @@
             width: 100%;
             margin-top: -40px;
 
-            p {
+            p, b, h1 {
                 padding: 0 100px;
             }
         }
@@ -118,10 +119,13 @@
 
         &--description {
             width: 100%;
-            margin-top: -25px;
+            margin-top: -20px;
 
-            p {
-                padding: 0 80px;
+            p,
+            h1
+            ,b {
+                padding: 0 70px;
+                font-size: 16px;
             }
         }
     }
@@ -131,8 +135,11 @@
     .slider .slides-text .heading--h1--description {
         margin-top: -10px;
 
-        p {
-            padding: 0 40px;
+        p,
+        b,
+        h1 {
+            padding: 0 35px;
+            font-size: 15px;
         }
     }
 }
@@ -143,7 +150,7 @@
         line-height: 35px;
 
         &--description {
-            margin-top: 15px;
+            margin-top: 14px;
 
             p {
                 padding: 0 25px;

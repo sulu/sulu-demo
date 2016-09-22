@@ -1,102 +1,121 @@
 <div class="footer">
     <div class="footer--frame">
-        <div class="grid">
+        <div class="footer-main">
             {% set snippets = sulu_snippet_load_default('contact') %}
 
-            {% if snippets|length %}
-                {% for contact in snippets|first.content.contact|slice(0) %}
-                    <div class="grid__item desk--three-tenths lap--six-tenths palm--one-whole">
-                        <div class="footer-elem">
-                            <h6 class="heading--h6">
-                                {{ 'contact'|trans }}
-                            </h6>
-                            {% if contact.mainAddress|length %}
-                                <span>
-                                    <i class="ion-email"></i>
-                                    {{ contact.mainAddress.street }}
-                                    {{ contact.mainAddress.number }}, <br/>
-                                    {{ contact.mainAddress.zip }}
-                                    {{ contact.mainAddress.city }}, <br/>
-                                    {% if contact.mainAddress.country|length %}
-                                        {{ contact.mainAddress.country.name }}
-                                    {% endif %}
-                                </span>
-                            {% endif %}
+            <div class="footer-main-elem footer-main-elem--first">
+                {% if snippets|length %}
+                    {% set contact = snippets|first.content.contact|first %}
 
-                            {% if contact.mainPhone|default('') %}
-                                <span>
-                                    <i class="ion-ios-telephone"></i>
-                                    {{ contact.mainPhone }}
-                                </span>
-                            {% endif %}
+                    <div class="footer-main-elem-content footer-main-elem-content--left">
+                        <h4 class="heading--h4">
+                            {{ 'contact'|trans }}
+                        </h4>
 
-                            {% if contact.emails|length %}
-                                <span>
-                                    <i class="ion-email"></i>
-                                    {{ contact.emails|first.email }}
-                                </span>
-                            {% endif %}
+                        {% if contact.mainAddress|length %}
+                            <p>
+                                {{ contact.mainAddress.street }} {{ contact.mainAddress.number }}, <br/>
+                                {{ contact.mainAddress.zip }} {{ contact.mainAddress.city }}, <br/>
 
-                            {% if contact.notes|length %}
-                                <span>
-                                    <i class="ion-android-time"></i>
-                                    {{ contact.notes|first.value }}
-                                </span>
-                            {% endif %}
-                        </div>
+                                {% if contact.mainAddress.country|length %}
+                                    {{ contact.mainAddress.country.name }}
+                                {% endif %}
+                            </p>
+                        {% endif %}
+
+                        {% if contact.mainPhone|default('') %}
+                            <p>{{ contact.mainPhone }}</p>
+                        {% endif %}
+
+                        {% if contact.emails|length %}
+                            <p>{{ contact.emails|first.email }}</p>
+                        {% endif %}
+
+                        {% if contact.notes|length %}
+                            <p>{{ contact.notes|first.value }}</p>
+                        {% endif %}
                     </div>
-                {% endfor %}
-            {% endif %}
+                {% endif %}
 
-            <div class="grid__item desk--two-tenths lap--four-tenths">
-                <div class="footer-elem">
-                    <h6 class="heading--h6">{{ 'quick_links'|trans }}</h6>
+                <div class="footer-main-elem-content footer-main-elem-content--middle">
+                    <h4 class="heading--h4">{{ 'quick_links'|trans }}</h4>
 
-                    {% for item in sulu_navigation_root_flat('footer', 3) %}
+                    {% for item in sulu_navigation_root_flat('footer', 20) %}
                         <a href="{{ sulu_content_path(item.url) }}"
                            title="{{ item.title }}">
-                            <i class="ion-ios-arrow-forward"></i>
                             {{ item.title }}
                         </a>
                     {% endfor %}
                 </div>
             </div>
-            <div class="grid__item desk--five-tenths portable--one-whole">
-                <div class="footer-elem">
-                    <h6 class="heading--h6">{{ 'subscribe_newsletter'|trans }}</h6>
+
+            <div class="footer-main-elem footer-main-elem--last">
+                <div class="footer-main-elem-content footer-main-elem-content--right">
+                    <h4 class="heading--h4">{{ 'subscribe_newsletter'|trans }}</h4>
                     <p>
-                        We provide a wide array of software design and development services from Mobile applications and
-                        Web applications to User interface design.
+                        {{ 'newsletter_text'|trans }}
                     </p>
                     <form>
-                        <label class="footer-elem-emaillabel">
-                            <i class="ion-android-mail footer-elem-emaillabel-icon"></i>
-                            <input class="footer-elem-emaillabel-input"
+                        <label class="footer-main-elem-content-email">
+                            <input class="footer-main-elem-content-email-input"
                                    type="text"
-                                   placeholder="Enter your email address"
-                                   required="">
+                                   placeholder="E-Mail"
+                                   required>
                         </label>
-                        <input class="footer-elem-button" type="submit" value="Signup">
+                        <input class="footer-main-elem-content-button button--small cf" type="submit" value="Sign up">
                     </form>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="grid footer-socials">
-            <a href="#" class="grid__item desk--three-twelfths lap--one-half palm--one-whole footer-socials-facebook">
-                <i class="ion-social-facebook"></i> Facebook
-            </a>
-            <a href="#" class="grid__item desk--three-twelfths lap--one-half palm--one-whole footer-socials-twitter">
-                <i class="ion-social-twitter"></i> Twitter
-            </a>
-            <a href="#" class="grid__item desk--three-twelfths lap--one-half palm--one-whole footer-socials-googleplus">
-                <i class="ion-social-googleplus"></i> Google+
-            </a>
-            <a href="#" class="grid__item desk--three-twelfths lap--one-half palm--one-whole footer-socials-github">
-                <i class="ion-social-github"></i> Github
-            </a>
+    <div class="footer-imprint">
+            <span class="footer-imprint-elem footer-imprint-elem--imprint">
+                &copy; Soundmanagment Corporation {{ "now"|date("Y") }}
+            </span>
+
+        <a href="#" class="footer-imprint-elem footer-imprint-elem--data">
+            Datenschutz und Nutzungsbedingungen
+        </a>
+
+        <a href="#" class="footer-imprint-elem footer-imprint-elem--cookie">
+            Cookie-richtlinien
+        </a>
+
+        <a href="#" class="footer-imprint-elem footer-imprint-elem--security">
+            Sicherheitshinweise & Rückrufe
+        </a>
+    </div>
+</div>
+
+<div class="footer footer--socials">
+    <div class="footer--socials-frame">
+        <div class="grid">
+            <div class="grid__item desk--six-tenths lap--six-tenths"></div>
+
+            <div class="grid__item desk--one-tenth lap--one-tenth palm--one-quarter">
+                <a href="#" class="footer--socials-frame-elem">
+                    <img src="{{ asset('/img/Facebook.png') }}" alt="Facebook"/>
+                </a>
+            </div>
+
+            <div class="grid__item desk--one-tenth lap--one-tenth palm--one-quarter">
+                <a href="#" class="footer--socials-frame-elem">
+                    <img src="{{ asset('/img/Instagram.png') }}" alt="Instagram"/>
+                </a>
+            </div>
+
+            <div class="grid__item desk--one-tenth lap--one-tenth palm--one-quarter">
+                <a href="#" class="footer--socials-frame-elem">
+                    <img src="{{ asset('/img/YouTube.png') }}" alt="You Tube"/>
+                </a>
+            </div>
+
+            <div class="grid__item desk--one-tenth lap--one-tenth palm--one-quarter">
+                <a href="#" class="footer--socials-frame-elem">
+                    <img src="{{ asset('/img/Spotify.png') }}" alt="Spotify"/>
+                </a>
+            </div>
         </div>
-
-        <span class="footer-imprint">&copy; 2016 MassiveArt</span>
     </div>
 </div>

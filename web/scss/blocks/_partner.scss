@@ -1,44 +1,63 @@
 .partner {
-    max-width: $maxwidth;
-    margin: 0 auto;
-    padding-bottom: 40px;
-    padding-top: 20px;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 300px;
+    position: relative;
+    overflow: hidden;
 
-    &-carousel {
-        height:130px;
+    &-frame {
+        max-width: $maxwidth;
+        height: 100%;
+        width: 100%;
+        margin: 0 auto;
 
-        .slick-list{
-            height:130px;
-            border-right: 1px solid $colorblack--lighter03;
-        }
+        &-content {
+            @include vertical-align(absolute);
+            width: 100%;
 
-        .slick-prev,
-        .slick-next,
-        .slick-dots {
-            display: none !important;
-        }
-
-        &-item {
-            box-sizing: border-box;
-            padding: 30px 0;
-            border: 1px solid $colorblack--lighter03;
-            border-left: 0px;
-            outline: none;
-
-            img {
-                margin: auto;
+            &-heading {
+                text-transform: uppercase;
+                font-size: 18px;
+                color: $colorblack;
+                margin-bottom: 20px;
             }
-        }
 
-        &-item:first-of-type {
-            border-left: 1px solid $colorblack--lighter03;
+            &-scroll {
+                height: 60px;
+
+                &-images {
+                    width: 100%;
+                    overflow-x: scroll;
+                    overflow-y: hidden;
+                    white-space: nowrap;
+                    padding: 0 50px 100px 0;
+
+
+                    &-image {
+                        display: inline-block;
+                        margin: 10px 22px;
+                        height: 60px;
+                    }
+                }
+            }
         }
     }
 }
 
 @media (max-width: $maxwidth + 20) {
     .partner {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: $tablet) and (min-width: 700px) {
+    .partner {
+        padding: 0 75px;
+    }
+}
+
+@media (max-width: $mobile){
+    .partner-frame-content-scroll-images-image {
+        height: 45px;
     }
 }

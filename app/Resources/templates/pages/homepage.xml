@@ -118,7 +118,7 @@
                             </properties>
                         </type>
 
-                        <type name="artists">
+                        <type name="artists_element">
                             <meta>
                                 <title lang="de">Künstler</title>
                                 <title lang="en">Artists</title>
@@ -129,6 +129,37 @@
                                     <meta>
                                         <title lang="en">Artists</title>
                                         <title lang="de">Künstler</title>
+                                    </meta>
+
+                                    <params>
+                                        <param name="properties" type="collection">
+                                            <param name="heading" value="title"/>
+                                            <param name="image" value="contentTitleimage"/>
+                                            <param name="url" value="url"/>
+                                        </param>
+                                    </params>
+                                </property>
+                            </properties>
+                        </type>
+
+                       <type name="discography_element">
+                            <meta>
+                                <title lang="de">Discographie</title>
+                                <title lang="en">Discography</title>
+                            </meta>
+
+                            <properties>
+                                <property name="discographyTitle" type="text_line">
+                                    <meta>
+                                        <title lang="en">Title</title>
+                                        <title lang="de">Titel</title>
+                                    </meta>
+                                </property>
+
+                                <property name="discographyData" type="smart_content">
+                                    <meta>
+                                        <title lang="en">Albums</title>
+                                        <title lang="de">Alben</title>
                                     </meta>
 
                                     <params>
@@ -141,48 +172,6 @@
                                 </property>
                             </properties>
                         </type>
-
-                       <!-- <type name="artists">
-                            <meta>
-                                <title lang="de">Künstler</title>
-                                <title lang="en">Artists</title>
-                            </meta>
-
-                            <properties>
-                                <property name="artistsTitle" type="text_line">
-                                    <meta>
-                                        <title lang="en">Title</title>
-                                        <title lang="de">Titel</title>
-                                    </meta>
-                                </property>
-
-                                <property name="artistsBackground" type="media_selection">
-                                    <meta>
-                                        <title lang="en">Background</title>
-                                        <title lang="de">Hindergrundbild</title>
-                                    </meta>
-
-                                    <params>
-                                        <param name="types" value="image"/>
-                                    </params>
-                                </property>
-
-                                <property name="artistsData" type="smart_content">
-                                    <meta>
-                                        <title lang="en">Artists</title>
-                                        <title lang="de">Künstler</title>
-                                    </meta>
-
-                                    <params>
-                                        <param name="properties" type="collection">
-                                            <param name="heading" value="contentHeading"/>
-                                            <param name="image" value="contentTitleimage"/>
-                                            <param name="url" value="url"/>
-                                        </param>
-                                    </params>
-                                </property>
-                            </properties>
-                        </type>-->
 
                         <type name="news">
                             <meta>
@@ -224,13 +213,6 @@
                             </meta>
 
                             <properties>
-                                <property name="title" type="text_line">
-                                    <meta>
-                                        <title lang="en">Title</title>
-                                        <title lang="de">Titel</title>
-                                    </meta>
-                                </property>
-
                                 <property name="partnerData" type="snippet">
                                     <meta>
                                         <title lang="de">Partner</title>

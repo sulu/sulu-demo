@@ -3,27 +3,27 @@
         <div class="grid__item desk--one-half">
             <div class="biography-text">
                 <h2 property="biographyTitle" class="heading--h2 biography-text-heading">
-                    {% if biography.biographyTitle|default('') %}
-                        {{ biography.biographyTitle }}
+                    {% if block.biographyTitle|default('') %}
+                        {{ block.biographyTitle }}
                     {% endif %}
                 </h2>
 
                 <div property="biographyHeading" class="biography-text-subheading">
-                    {% if biography.biographyHeading|default('') %}
-                        {{ biography.biographyHeading|raw }}
+                    {% if block.biographyHeading|default('') %}
+                        {{ block.biographyHeading|raw }}
                     {% endif %}
                 </div>
 
                 <div property="biographyText">
-                    {% if biography.biographyText|default('') %}
-                        {{ biography.biographyText|raw }}
+                    {% if block.biographyText|default('') %}
+                        {{ block.biographyText|raw }}
                     {% endif %}
                 </div>
 
                 <div property="biographyLink">
-                    {% if biography.biographyLink|default('') %}
-                        <a class="button--medium no-touchevent"
-                           href="{{ sulu_content_load(biography.biographyLink).urls[request.locale] }}">
+                    {% if block.biographyLink|default('') %}
+                        <a class="button--medium"
+                           href="{{ sulu_content_load(block.biographyLink).urls[request.locale] }}">
                             {{ 'read_more'|trans }}
                         </a>
                     {% endif %}
@@ -32,9 +32,9 @@
         </div>
         
         <div property="biographyImage" class="grid__item desk--one-half">
-            {% if biography.biographyImage|first.thumbnails['750x500'] is defined %}
-                <img src="{{ biography.biographyImage|first.thumbnails['750x500'] }}"
-                     alt="{{ biography.biographyImage|first.title }}"
+            {% if block.biographyImage|first.thumbnails['750x500'] is defined %}
+                <img src="{{ block.biographyImage|first.thumbnails['750x500'] }}"
+                     alt="{{ block.biographyImage|first.title }}"
                      class="biography-image">
             {% endif %}
         </div>

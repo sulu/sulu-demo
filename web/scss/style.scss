@@ -16,18 +16,18 @@
 @import 'vendor/csswizardry-grids';
 
 // BLOCKS - GENERAL
-//@import 'blocks/footer';
 @import 'blocks/general';
-//@import 'blocks/headerimage';
 @import 'blocks/navigation';
+@import 'blocks/footer';
+//@import 'blocks/headerimage';
 
 // BLOCKS - HOME
 @import 'blocks/biography';
 @import 'blocks/artists_element';
-//@import 'blocks/news';
-//@import 'blocks/partner';
+@import 'blocks/news';
+@import 'blocks/partner';
 @import 'blocks/slider';
-//@import 'blocks/team';
+@import 'blocks/discography_elements';
 
 // BLOCKS - BLOG
 //@import 'blocks/blog';

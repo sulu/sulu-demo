@@ -33,6 +33,18 @@ a {
             line-height: 26px;
             color: $colorwhite;
             letter-spacing: 0px;
+            font-weight: bold;
+
+            p,
+            b,
+            h1 {
+                font-family: $fontregular;
+                font-size: 18px;
+                line-height: 26px;
+                color: $colorwhite;
+                letter-spacing: 0px;
+                font-weight: bold;
+            }
         }
     }
 
@@ -42,6 +54,7 @@ a {
         line-height: 72px;
         color: $colorred--lighter01;
         letter-spacing: 0;
+        font-weight: bold;
 
         &--underline {
             font-family: $fontregular;
@@ -80,12 +93,12 @@ a {
 .button {
     font-family: $fontregular;
     font-size: 14px;
-    background-color: $colorred;
     color: $colorwhite;
     text-align: center;
     vertical-align: middle;
     text-transform: uppercase;
     display: block;
+    background-color: $colorred;
     border-radius: 19px;
     letter-spacing: 2px;
 
