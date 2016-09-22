@@ -118,7 +118,7 @@
                             </properties>
                         </type>
 
-                        <type name="artists">
+                        <type name="artists_element">
                             <meta>
                                 <title lang="de">Künstler</title>
                                 <title lang="en">Artists</title>
@@ -142,10 +142,9 @@
                             </properties>
                         </type>
 
-
-                       <type name="discography">
+                       <type name="discography_element">
                             <meta>
-                                <title lang="de">Discography</title>
+                                <title lang="de">Discographie</title>
                                 <title lang="en">Discography</title>
                             </meta>
 

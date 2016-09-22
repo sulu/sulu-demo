@@ -2,25 +2,25 @@
     <div property="partnerData">
         {% set background = "" %}
 
-        {% if partner.partnerData|length
-        and partner.partnerData|first.background|length
-        and partner.partnerData|first.background|first.thumbnails['1920x1080'] is defined %}
-            {% set background = partner.partnerData|first.background|first.thumbnails['1920x1080'] %}
+        {% if block.partnerData|length
+            and block.partnerData|first.background|length
+            and block.partnerData|first.background|first.thumbnails['1920x1080'] is defined %}
+            {% set background = block.partnerData|first.background|first.thumbnails['1920x1080'] %}
         {% endif %}
 
         <section class="partner" style="background-image: url('{{ background }}')">
             <div class="partner-frame">
                 <div class="partner-frame-content">
-                    {% if partner.partnerData|length %}
-                        {% if partner.partnerData|first.title|default("") %}
+                    {% if block.partnerData|length %}
+                        {% if block.partnerData|first.title|default("") %}
                             <p class="partner-frame-content-heading">
-                                {{ partner.partnerData|first.title }}
+                                {{ block.partnerData|first.title }}
                             </p>
                         {% endif %}
 
                         <div class="partner-frame-content-scroll">
                             <div class="partner-frame-content-scroll-images">
-                                {% for image in partner.partnerData|first.images if image.thumbnails["x80"] is defined %}
+                                {% for image in block.partnerData|first.images if image.thumbnails["x80"] is defined %}
                                     <img src="{{ image.thumbnails["x80"] }}"
                                          alt="{{ image.title }}"
                                          class="partner-frame-content-scroll-images-image"/>

@@ -1,13 +1,13 @@
 <section class="news" rel="blocks" typeof="block">
     <div class="news-content">
-        <h1 property="title" class="news-content-title heading--h2">
-            {% if item.title|default('') %}
-                {{ item.title }}
+        <h2 property="title" class="news-content-title heading--h2">
+            {% if block.title|default('') %}
+                {{ block.title }}
             {% endif %}
-        </h1>
+        </h2>
 
         <div property="newsData">
-            {% for item in news.newsData %}
+            {% for item in block.newsData %}
                 <span class="news-content-heading">
                     <p class="news-content-heading-creator" href="#">
                         by {{ sulu_resolve_user(item.creator).contact.fullName }}

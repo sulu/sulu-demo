@@ -35,7 +35,9 @@ a {
             letter-spacing: 0px;
             font-weight: bold;
 
-            p, b, h1 {
+            p,
+            b,
+            h1 {
                 font-family: $fontregular;
                 font-size: 18px;
                 line-height: 26px;
@@ -117,7 +119,6 @@ a {
         width: 220px;
         margin: 18px 0;
         line-height: 38px;
-
     }
 }
 
@@ -209,8 +210,6 @@ a {
     margin-left: 0;
     padding: 0;
 }
-
-*:focus {outline:0;}
 
 .cf:before,
 .cf:after {

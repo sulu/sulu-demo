@@ -66,10 +66,7 @@
                         box-sizing: border-box;
                         width: calc(100% - 145px);
                         display: inline-block;
-
-                        &:focus {
-                            outline: 0;
-                        }
+                        outline: 0;
                     }
                 }
 
@@ -78,10 +75,7 @@
                     border: none;
                     float: right;
                     display: inline-block;
-
-                    &:focus {
-                        outline: 0;
-                    }
+                    outline: 0;
                 }
             }
         }
@@ -93,7 +87,8 @@
         padding-bottom: 35px;
         font-size: 0px;
 
-        span, a {
+        span,
+        a {
             font-family: $fontregular;
             color: $colorwhite;
             font-size: 11px;
@@ -211,14 +206,13 @@
             }
 
             &-content {
-
                 &--left {
                     width: 50%;
                 }
 
                 &--middle {
                     width: 50%;
-                    padding-left:15px;
+                    padding-left: 15px;
                     box-sizing: border-box;
                 }
 

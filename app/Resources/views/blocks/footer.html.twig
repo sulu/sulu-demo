@@ -3,44 +3,44 @@
         <div class="footer-main">
             {% set snippets = sulu_snippet_load_default('contact') %}
 
-            {% if snippets|length %}
-            {% for contact in snippets|first.content.contact|slice(0) %}
             <div class="footer-main-elem footer-main-elem--first">
-                <div class="footer-main-elem-content footer-main-elem-content--left">
-                    <h4 class="heading--h4">
-                        {{ 'contact'|trans }}
-                    </h4>
-                    {% if contact.mainAddress|length %}
-                        <p>
-                            {{ contact.mainAddress.street }}
-                            {{ contact.mainAddress.number }}, <br/>
-                            {{ contact.mainAddress.zip }}
-                            {{ contact.mainAddress.city }}, <br/>
-                            {% if contact.mainAddress.country|length %}
-                                {{ contact.mainAddress.country.name }}
-                            {% endif %}
-                        </p>
-                    {% endif %}
+                {% if snippets|length %}
+                    {% set contact = snippets|first.content.contact|first %}
 
-                    {% if contact.mainPhone|default('') %}
-                        <p>{{ contact.mainPhone }}</p>
-                    {% endif %}
+                    <div class="footer-main-elem-content footer-main-elem-content--left">
+                        <h4 class="heading--h4">
+                            {{ 'contact'|trans }}
+                        </h4>
 
-                    {% if contact.emails|length %}
-                        <p>{{ contact.emails|first.email }}</p>
-                    {% endif %}
+                        {% if contact.mainAddress|length %}
+                            <p>
+                                {{ contact.mainAddress.street }} {{ contact.mainAddress.number }}, <br/>
+                                {{ contact.mainAddress.zip }} {{ contact.mainAddress.city }}, <br/>
 
-                    {% if contact.notes|length %}
-                        <p>{{ contact.notes|first.value }}</p>
-                    {% endif %}
-                </div>
-                {% endfor %}
+                                {% if contact.mainAddress.country|length %}
+                                    {{ contact.mainAddress.country.name }}
+                                {% endif %}
+                            </p>
+                        {% endif %}
+
+                        {% if contact.mainPhone|default('') %}
+                            <p>{{ contact.mainPhone }}</p>
+                        {% endif %}
+
+                        {% if contact.emails|length %}
+                            <p>{{ contact.emails|first.email }}</p>
+                        {% endif %}
+
+                        {% if contact.notes|length %}
+                            <p>{{ contact.notes|first.value }}</p>
+                        {% endif %}
+                    </div>
                 {% endif %}
 
                 <div class="footer-main-elem-content footer-main-elem-content--middle">
                     <h4 class="heading--h4">{{ 'quick_links'|trans }}</h4>
 
-                    {% for item in sulu_navigation_root_flat('footer', 4) %}
+                    {% for item in sulu_navigation_root_flat('footer', 20) %}
                         <a href="{{ sulu_content_path(item.url) }}"
                            title="{{ item.title }}">
                             {{ item.title }}
@@ -60,7 +60,7 @@
                             <input class="footer-main-elem-content-email-input"
                                    type="text"
                                    placeholder="E-Mail"
-                                   required="">
+                                   required>
                         </label>
                         <input class="footer-main-elem-content-button button--small cf" type="submit" value="Sign up">
                     </form>
@@ -71,7 +71,7 @@
 
     <div class="footer-imprint">
             <span class="footer-imprint-elem footer-imprint-elem--imprint">
-                &copy; Soundmanagment Corporation 2016
+                &copy; Soundmanagment Corporation {{ "now"|date("Y") }}
             </span>
 
         <a href="#" class="footer-imprint-elem footer-imprint-elem--data">

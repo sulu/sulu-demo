@@ -121,7 +121,9 @@
             width: 100%;
             margin-top: -20px;
 
-            p, h1 ,b {
+            p,
+            h1
+            ,b {
                 padding: 0 70px;
                 font-size: 16px;
             }
@@ -133,7 +135,9 @@
     .slider .slides-text .heading--h1--description {
         margin-top: -10px;
 
-        p, b, h1 {
+        p,
+        b,
+        h1 {
             padding: 0 35px;
             font-size: 15px;
         }

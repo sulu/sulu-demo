@@ -14,7 +14,6 @@
                 z-index: 1;
 
                 .no-touchevents &:hover {
-
                     color: $colorwhite;
                     text-decoration: none;
                 }
@@ -48,7 +47,6 @@
 
             .no-touchevents &:hover {
                 .artist--element-frame-item--hover {
-
                     display: block;
                 }
             }
