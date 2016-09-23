@@ -224,6 +224,18 @@
     }
 }
 
+@media (max-width: 800px) and (min-width: $mobile) {
+    .footer-main-elem-content {
+        &-email-input {
+            width: calc(100% - 145px);
+        }
+
+        &-button {
+            float: right;
+        }
+    }
+}
+
 @media (max-width: 700px) {
     .footer {
         padding: 0 15px;

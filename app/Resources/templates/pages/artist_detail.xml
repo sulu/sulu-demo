@@ -70,7 +70,7 @@
             </properties>
         </section>
 
-        <section name="content">
+        <!--<section name="content">
             <meta>
                 <title lang="de">Inhalt</title>
                 <title lang="en">Content</title>
@@ -194,6 +194,6 @@
                     </properties>
                 </type>
             </types>
-        </block>
+        </block>-->
     </properties>
 </template>

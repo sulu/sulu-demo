@@ -10,6 +10,14 @@
         <scale x="1920" y="1080"/>
     </format>
 
+    <format key="1920x670">
+        <meta>
+            <title lang="de">Header Image</title>
+            <title lang="en">Header Image</title>
+        </meta>
+        <scale x="1920" y="670"/>
+    </format>
+
     <format key="750x500">
         <meta>
             <title lang="de">Biography Bild</title>

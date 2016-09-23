@@ -1,23 +1,13 @@
 {% extends "master.html.twig" %}
 
-{% block content %}
-    <div property="headerImage">
-        <div property="headerHeading">
-            <div property="headerSubheading">
-                {% if content.headerImage|length %}
-                    {% include(':includes:headerimage.html.twig') with {
-                        'image' : content.headerImage|first,
-                        'kind' : 'headerimage-text--left',
-                        'headingposition' : 'heading--left',
-                        'heading' : content.headerHeading,
-                        'text': content.headerSubheading
-                    } %}
-                {% endif %}
-            </div>
-        </div>
-    </div>
+{% block header %}
+    {{ parent() }}
 
-    <section class="artist">
+    {% include(':includes:headerimage.html.twig') %}
+{% endblock %}
+
+{% block content %}
+    {# <section class="artist">
         <div class="grid">
             <div class="grid__item desk--four-fifths portable--one-whole">
                 <div class="artist-main">
@@ -90,10 +80,10 @@
                                 </div>
 
                             {% elseif block.type == 'discography' %}
-                                {# Discography #}
+
                                 {% include('includes/artists_element.html.twig') with {
-                                    'discography' : block,
-                                    'background' : 'discography--nobackground'
+                                'discography' : block,
+                                'background' : 'discography--nobackground'
                                 } %}
 
                             {% endif %}
@@ -120,5 +110,5 @@
                 </aside>
             </div>
         </div>
-    </section>
+    </section> #}
 {% endblock %}
