@@ -1,4 +1,9 @@
 .artist--element {
+    &-heading {
+        max-width: $maxwidth;
+        margin: 65px auto 35px auto;
+    }
+
     &-frame {
         &-item {
             &-image {

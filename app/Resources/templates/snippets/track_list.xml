@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>track_list</key>
+
+    <meta>
+        <title lang="en">Track List</title>
+        <title lang="de">Song Liste</title>
+    </meta>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Title</title>
+                <title lang="de">Titel</title>
+            </meta>
+
+            <tag name="sulu.node.name"/>
+        </property>
+
+        <property name="heading" type="text_line">
+            <meta>
+                <title lang="en">Heading</title>
+                <title lang="de">Überschrift</title>
+            </meta>
+        </property>
+
+        <block name="tracks" default-type="editor" minOccurs="0">
+            <meta>
+                <title lang="de">Inhalte</title>
+                <title lang="en">Content</title>
+            </meta>
+            <types>
+                <type name="track">
+                    <meta>
+                        <title lang="en">Titel</title>
+                        <title lang="de">Track</title>
+                    </meta>
+                    <properties>
+                        <property name="title" type="text_line">
+                            <meta>
+                                <title lang="en">Title</title>
+                                <title lang="de">Titel</title>
+                            </meta>
+                        </property>
+
+                        <property name="length" type="text_line">
+                            <meta>
+                                <title lang="en">Length</title>
+                                <title lang="de">Länge</title>
+                            </meta>
+                        </property>
+
+                        <property name="price" type="text_line">
+                            <meta>
+                                <title lang="en">Price</title>
+                                <title lang="de">Peis</title>
+                            </meta>
+                        </property>
+                    </properties>
+                </type>
+            </types>
+        </block>
+    </properties>
+</template>

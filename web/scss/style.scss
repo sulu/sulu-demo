@@ -9,7 +9,7 @@
 @import 'base/mixin';
 
 // TEMPLATES
-@import 'templates/artistdetail';
+@import 'includes/general/general_content';
 
 // IMPORTS
 @import '../../node_modules/slick-carousel/slick/slick';
@@ -32,6 +32,7 @@
 @import 'includes/detail_pages/media_gallery';
 @import 'includes/detail_pages/flash_news';
 @import 'includes/detail_pages/action';
+@import 'includes/detail_pages/track_lists';
 
 // INCLUDES - HOME
 @import 'includes/home/biography';

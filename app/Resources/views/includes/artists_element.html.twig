@@ -1,4 +1,10 @@
 <section rel="blocks" typeof="block" class="artist--element {{ background|default('') }}">
+    <h2 property="heading" class="artist--element-heading heading--h2">
+        {% if block.heading|default('') %}
+            {{ block.heading }}
+        {% endif %}
+    </h2>
+
     <div property="artistsData"
          class="artist--element-frame js-artist--element-collection"
          data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>

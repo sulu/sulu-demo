@@ -125,6 +125,13 @@
                             </meta>
 
                             <properties>
+                                <property name="heading" type="text_line">
+                                    <meta>
+                                        <title lang="en">Heading</title>
+                                        <title lang="de">Überschrift</title>
+                                    </meta>
+                                </property>
+
                                 <property name="artistsData" type="smart_content">
                                     <meta>
                                         <title lang="en">Artists</title>
@@ -134,7 +141,7 @@
                                     <params>
                                         <param name="properties" type="collection">
                                             <param name="heading" value="title"/>
-                                            <param name="image" value="contentTitleimage"/>
+                                            <param name="image" value="headerImage"/>
                                             <param name="url" value="url"/>
                                         </param>
                                     </params>
@@ -165,7 +172,7 @@
                                     <params>
                                         <param name="properties" type="collection">
                                             <param name="heading" value="contentHeading"/>
-                                            <param name="image" value="contentTitleimage"/>
+                                            <param name="image" value="headerImage"/>
                                             <param name="url" value="url"/>
                                         </param>
                                     </params>

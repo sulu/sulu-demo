@@ -10,8 +10,8 @@
     <cacheLifetime>604800</cacheLifetime>
 
     <meta>
-        <title lang="en">Albums</title>
-        <title lang="de">Alben</title>
+        <title lang="en">Album</title>
+        <title lang="de">Album</title>
     </meta>
 
     <properties>
@@ -47,7 +47,7 @@
             </meta>
 
             <properties>
-                <property name="headerImage" type="media_selection" mandatory="true">
+                <property name="headerImage" type="media_selection">
                     <meta>
                         <title lang="en">Header Image</title>
                         <title lang="de">Kopf - Bild</title>
@@ -61,7 +61,7 @@
                     </meta>
                 </property>
 
-                <property name="headerSubheading" type="text_area">
+                <property name="headerSubheading" type="text_editor">
                     <meta>
                         <title lang="en">Header Subheading</title>
                         <title lang="de">Kopf - Unter Überschrift</title>
@@ -77,21 +77,14 @@
             </meta>
 
             <properties>
-                <property name="contentHeading" type="text_line" mandatory="true">
+                <property name="contentHeading" type="text_line">
                     <meta>
                         <title lang="en">Heading</title>
                         <title lang="de">Überschrift</title>
                     </meta>
                 </property>
 
-                <property name="contentTitleimage" type="media_selection" mandatory="true">
-                    <meta>
-                        <title lang="en">Title Image</title>
-                        <title lang="de">Titelbild</title>
-                    </meta>
-                </property>
-
-                <property name="contentSubheading" type="text_area" mandatory="true">
+                <property name="contentSubheading" type="text_editor">
                     <meta>
                         <title lang="en">Subheading</title>
                         <title lang="de">Unter Überschrift</title>
@@ -114,7 +107,7 @@
                     </meta>
 
                     <properties>
-                        <property name="contentText" type="text_editor">
+                        <property name="text" type="text_editor">
                             <meta>
                                 <title lang="en">Text</title>
                                 <title lang="de">Text</title>
@@ -130,7 +123,7 @@
                     </meta>
 
                     <properties>
-                        <property name="contentText" type="text_area">
+                        <property name="quote" type="text_editor">
                             <meta>
                                 <title lang="en">Quote</title>
                                 <title lang="de">Zitat</title>
@@ -138,18 +131,70 @@
                         </property>
                     </properties>
                 </type>
-                <type name="media">
+
+                <type name="media_gallery">
                     <meta>
                         <title lang="de">Medien</title>
                         <title lang="en">Media</title>
                     </meta>
 
                     <properties>
-                        <property name="contentMedia" type="media_selection">
+                        <property name="medias" type="media_selection">
                             <meta>
                                 <title lang="en">Media</title>
                                 <title lang="de">Medien</title>
                             </meta>
+                        </property>
+                    </properties>
+                </type>
+
+                <type name="track_lists">
+                    <meta>
+                        <title lang="de">Song Listen</title>
+                        <title lang="en">Track Lists</title>
+                    </meta>
+
+                    <properties>
+                        <property name="lists" type="snippet">
+                            <meta>
+                                <title lang="en">Track Lists</title>
+                                <title lang="de">Song Listen</title>
+                            </meta>
+
+                            <params>
+                                <param name="snippetType" value="track_list"/>
+                            </params>
+                        </property>
+                    </properties>
+                </type>
+
+                <type name="artists_element">
+                    <meta>
+                        <title lang="de">Künstler</title>
+                        <title lang="en">Artists</title>
+                    </meta>
+
+                    <properties>
+                        <property name="heading" type="text_line">
+                            <meta>
+                                <title lang="en">Heading</title>
+                                <title lang="de">Überschrift</title>
+                            </meta>
+                        </property>
+
+                        <property name="artistsData" type="smart_content">
+                            <meta>
+                                <title lang="en">Artists</title>
+                                <title lang="de">Künstler</title>
+                            </meta>
+
+                            <params>
+                                <param name="properties" type="collection">
+                                    <param name="heading" value="title"/>
+                                    <param name="image" value="headerImage"/>
+                                    <param name="url" value="url"/>
+                                </param>
+                            </params>
                         </property>
                     </properties>
                 </type>

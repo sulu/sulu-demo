@@ -1,0 +1,102 @@
+.tracks {
+    background: $colorblack--lighter05;
+
+    &-content {
+        max-width: $maxwidth;
+        width: 100%;
+        margin: 0 auto;
+        padding: 75px;
+
+        &-heading {
+            color: $colorblack;
+            font-family: $fontregular;
+            font-size: 18px;
+            line-height: 26px;
+            font-weight: bold;
+            max-width: 460px;
+            width: 100%;
+            padding: 75px 0 15px 0;
+        }
+
+        &-table {
+            width: 100%;
+
+            td,
+            th {
+                font-family: $fontregular;
+                font-size: 14px;
+
+            }
+
+            &-head {
+                line-height: 18px;
+                vertical-align: middle;
+                border-top: 1px solid $colorblack--lighter03;
+                border-bottom: 1px solid $colorblack--lighter03;
+
+                th {
+                    text-transform: uppercase;
+                    color: $colorblack--lighter03;
+                    width: 10%;
+                    text-align: center;
+
+                    &:first-child {
+                        width: 80%;
+                        text-align: left;
+                    }
+                }
+            }
+
+            &-data {
+                line-height: 28px;
+                vertical-align: middle;
+                border-bottom: 1px solid $colorblack--lighter04;
+
+                &:last-child {
+                    border-bottom: 1px solid $colorblack--lighter03;
+                }
+
+                &-button {
+                    background-color: $colorblack--lighter04;
+                    color: $colorblack;
+                    display: block;
+                    height: 20px;
+                    line-height: 20px;
+                    border-radius: 10px;
+
+                    .no-touchevents &:hover {
+                        background-color: $colorblack--lighter03;
+                    }
+                }
+
+                td {
+                    width: 10%;
+                    text-align: center;
+
+                    &:first-child {
+                        width: 80%;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $maxwidth--text + 20px) {
+    .tracks-content {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: $tablet) {
+    .tracks-content {
+        padding: 75px;
+    }
+}
+
+@media (max-width: 700px) {
+    .tracks-content {
+        padding: 30px;
+    }
+}
