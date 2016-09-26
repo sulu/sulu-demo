@@ -1,0 +1,35 @@
+.quote {
+    width: 100%;
+    max-width: $maxwidth--text;
+    margin: 0 calc((100% - #{$maxwidth--text}) / 5 * 3) 0 calc((100% - #{$maxwidth--text}) / 5 * 2);
+    box-sizing: border-box;
+
+    &-content {
+        border-left: 14px solid $colorred--lighter01;
+        margin: 30px 0 30px 45px;
+        padding: 25px 0 25px 30px;
+    }
+}
+
+@media (max-width: $maxwidth--text + 20px) {
+    .quote {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: $tablet) {
+    .quote {
+        margin: 0;
+        padding: 0 75px;
+    }
+}
+
+@media (max-width: 700px) {
+    .quote {
+        padding: 0 30px;
+
+        &-content {
+            margin: 25px 0;
+        }
+    }
+}

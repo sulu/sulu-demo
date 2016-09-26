@@ -1,0 +1,25 @@
+.text {
+    width: 100%;
+    max-width: $maxwidth--text;
+    margin: 0 calc((100% - #{$maxwidth--text}) / 5 * 3) 0 calc((100% - #{$maxwidth--text}) / 5 * 2);
+    box-sizing: border-box;
+}
+
+@media (max-width: $maxwidth--text + 20px) {
+    .text {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: $tablet) {
+    .text {
+        margin: 0;
+        padding: 0 75px;
+    }
+}
+
+@media (max-width: 700px) {
+    .text {
+        padding: 0 30px;
+    }
+}

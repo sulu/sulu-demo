@@ -58,6 +58,10 @@
                 <source>more</source>
                 <target>More</target>
             </trans-unit>
+            <trans-unit id="15">
+                <source>call</source>
+                <target>Call Us</target>
+            </trans-unit>
 		</body>
     </file>
 </xliff>

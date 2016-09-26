@@ -8,6 +8,9 @@
 @import 'base/variables';
 @import 'base/mixin';
 
+// TEMPLATES
+@import 'templates/artistdetail';
+
 // IMPORTS
 @import '../../node_modules/slick-carousel/slick/slick';
 @import '../../node_modules/ionicons-npm/scss/ionicons';
@@ -15,19 +18,28 @@
 // VENDOR
 @import 'vendor/csswizardry-grids';
 
-// BLOCKS - GENERAL
-@import 'blocks/general';
-@import 'blocks/navigation';
-@import 'blocks/footer';
-@import 'blocks/headerimage';
+// INCLUDES - BASE
+@import 'includes/base/general';
+@import 'includes/base/navigation';
+@import 'includes/base/footer';
 
-// BLOCKS - HOME
-@import 'blocks/biography';
-@import 'blocks/artists_element';
-@import 'blocks/news';
-@import 'blocks/partner';
-@import 'blocks/slider';
-@import 'blocks/discography_elements';
+// INCLUDES - GENERAL
+@import 'includes/general/headerimage';
+
+// INCLUDES - DETAILED PAGES
+@import 'includes/detail_pages/text';
+@import 'includes/detail_pages/quote';
+@import 'includes/detail_pages/media_gallery';
+@import 'includes/detail_pages/flash_news';
+@import 'includes/detail_pages/action';
+
+// INCLUDES - HOME
+@import 'includes/home/biography';
+@import 'includes/home/artists_element';
+@import 'includes/home/news';
+@import 'includes/home/partner';
+@import 'includes/home/slider';
+@import 'includes/home/discography_elements';
 
 // BLOCKS - BLOG
 //@import 'blocks/blog';
@@ -52,4 +64,3 @@
 
 // BLOCKS - SERVICES
 //@import 'blocks/services';
-//@import 'blocks/forbooking';

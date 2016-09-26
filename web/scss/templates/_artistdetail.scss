@@ -1,0 +1,56 @@
+.artist--detail {
+    &-heading {
+        width: 100%;
+        max-width: $maxwidth--text;
+        margin: 150px calc((100% - #{$maxwidth--text}) / 5 * 3) 20px calc((100% - #{$maxwidth--text}) / 5 * 2);
+        box-sizing: border-box;
+    }
+
+    &-subheading {
+        width: 100%;
+        max-width: $maxwidth--text;
+        margin: 0 calc((100% - #{$maxwidth--text}) / 5 * 3) 12px calc((100% - #{$maxwidth--text}) / 5 * 2);
+        box-sizing: border-box;
+
+        p,
+        b {
+            font-weight: bold;
+            font-size: 18px;
+        }
+    }
+}
+
+@media (max-width: $maxwidth--text + 20px) {
+    .artist--detail {
+        &-heading, &-subheading {
+            padding: 0 20px;
+        }
+    }
+}
+
+@media (max-width: $tablet) {
+    .artist--detail {
+        &-heading {
+            margin: 50px 0 25px 0;
+            padding: 0 75px;
+        }
+
+        &-subheading {
+            margin: 0;
+            padding: 0 75px 13px 75px;
+            max-width: 465px;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .artist--detail {
+        &-heading {
+            padding: 0 30px;
+        }
+
+        &-subheading {
+            padding: 0 30px 13px 30px;
+        }
+    }
+}

@@ -1,0 +1,7 @@
+<div rel="blocks" typeof="block">
+    <div property="text" class="text">
+            {% if block.text|default('') %}
+                {{ block.text|raw }}
+            {% endif %}
+    </div>
+</div>

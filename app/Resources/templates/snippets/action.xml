@@ -20,17 +20,17 @@
             <tag name="sulu.node.name"/>
         </property>
 
-        <property name="text" type="text_area">
+        <property name="text" type="text_editor">
             <meta>
                 <title lang="en">Text</title>
                 <title lang="de">Text</title>
             </meta>
         </property>
 
-        <property name="image" type="media_selection">
+        <property name="button" type="text_line">
             <meta>
-                <title lang="en">Image</title>
-                <title lang="de">image</title>
+                <title lang="en">Button Caption</title>
+                <title lang="de">Button Text</title>
             </meta>
         </property>
 

@@ -1,0 +1,38 @@
+.action {
+    height: 500px;
+    background-color: $colorred--lighter02;
+    text-align: center;
+
+    &-text {
+        @include vertical-align(relative);
+
+        &-text {
+            margin: 37px auto 75px auto;
+            max-width: 980px;
+            p,
+            b {
+                color: $colorwhite;
+            }
+        }
+
+        .button--large {
+            margin: 0 auto;
+        }
+    }
+}
+
+@media (max-width: $tablet) {
+    .action {
+        padding: 0 75px;
+
+        &-text-text {
+            margin: 30px 0;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .action {
+        padding: 0 30px;
+    }
+}

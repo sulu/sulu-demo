@@ -84,6 +84,30 @@ $(".js-discography--element-collection").slick({
     }]
 });
 
+$(".js-media--gallery").slick({
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    arrows: false,
+    draggable: true,
+    dots: false,
+    responsive: [{
+        breakpoint: 1023,
+        settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            dots: false
+        }
+    }, {
+        breakpoint: 480,
+        settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: false
+        }
+    }]
+});
+
 /*
 $(".js-partner-carousel").slick({
     // normal options

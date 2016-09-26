@@ -1,0 +1,30 @@
+.media--gallery {
+    max-width: $maxwidth;
+    width: 100%;
+    margin: 100px auto;
+    overflow: hidden;
+
+    &-content {
+        margin: 0 -24px;
+
+        &-elem {
+            padding: 0 24px;
+
+            &-image {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: $tablet) {
+    .media--gallery {
+        margin: 50px 0;
+    }
+}
+
+@media (max-width: $mobile) {
+    .media--gallery {
+        margin: 25px 0;
+    }
+}
