@@ -50,6 +50,14 @@
         <scale x="400" y="400"/>
     </format>
 
+    <format key="360x250">
+        <meta>
+            <title lang="de">Künstler Übersicht Bild</title>
+            <title lang="en">Artists Overview Image</title>
+        </meta>
+        <scale x="360" y="250"/>
+    </format>
+
     <format key="x80">
         <meta>
             <title lang="de">Partner Icon</title>

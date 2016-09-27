@@ -171,7 +171,7 @@
 
                                     <params>
                                         <param name="properties" type="collection">
-                                            <param name="heading" value="contentHeading"/>
+                                            <param name="heading" value="title"/>
                                             <param name="image" value="headerImage"/>
                                             <param name="url" value="url"/>
                                         </param>

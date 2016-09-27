@@ -1,16 +1,18 @@
 .artist--detail, .artist {
     &-heading {
         width: 100%;
-        max-width: $maxwidth--text;
-        margin: 150px calc((100% - #{$maxwidth--text}) / 5 * 3) 20px calc((100% - #{$maxwidth--text}) / 5 * 2);
+        max-width: $maxwidth;
+        margin: 0 auto;
         box-sizing: border-box;
+        padding: 100px 205px 20px 120px;
     }
 
     &-subheading {
         width: 100%;
-        max-width: $maxwidth--text;
-        margin: 0 calc((100% - #{$maxwidth--text}) / 5 * 3) 12px calc((100% - #{$maxwidth--text}) / 5 * 2);
+        max-width: $maxwidth;
+        margin: 0 auto;
         box-sizing: border-box;
+        padding: 0 205px 15px 120px;
 
         p,
         b {
@@ -38,7 +40,6 @@
         &-subheading {
             margin: 0;
             padding: 0 75px 13px 75px;
-            max-width: 465px;
         }
     }
 }

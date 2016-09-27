@@ -76,10 +76,6 @@
                 background-color: $colorblack--lighter03;
                 border: none;
                 border-radius: 10px;
-
-                &:focus {
-                    outline: 0;
-                }
             }
         }
 
@@ -102,13 +98,13 @@
 
 @media(max-width: $tablet) {
     .artist--element {
-        padding: 75px 75px 0 75px;
+        padding: 75px;
     }
 }
 
 @media (max-width: 700px) {
     .artist--element {
-        padding: 15px 15px 0 15px;
+        padding: 15px;
 
         .slick-dots {
             margin: 0;

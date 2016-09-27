@@ -9,7 +9,7 @@
 @import 'base/mixin';
 
 // TEMPLATES
-@import 'includes/general/general_content';
+@import 'templates/artists';
 
 // IMPORTS
 @import '../../node_modules/slick-carousel/slick/slick';
@@ -25,6 +25,7 @@
 
 // INCLUDES - GENERAL
 @import 'includes/general/headerimage';
+@import 'includes/general/general_content';
 
 // INCLUDES - DETAILED PAGES
 @import 'includes/detail_pages/text';
@@ -51,8 +52,6 @@
 // BLOCKS - ARTISTS
 //@import 'blocks/artists';
 
-// BLOCKS - ARTIST - DETAIL
-//@import 'blocks/artistdetail';
 
 // BLOCKS - SITEMAP
 //@import 'blocks/sitemap';

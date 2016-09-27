@@ -74,6 +74,10 @@
                 <source>length</source>
                 <target>Länge</target>
             </trans-unit>
+            <trans-unit id="19">
+                <source>posted</source>
+                <target>Posted by</target>
+            </trans-unit>
 		</body>
     </file>
 </xliff>

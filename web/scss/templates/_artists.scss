@@ -1,83 +1,150 @@
 .artists {
     max-width: $maxwidth;
-    margin: 0 auto;
+    margin: 150px auto 0 auto;
+    overflow: hidden;
 
-    &-item {
-        background-color: $colorblack--lighter04;
-        margin: 10px;
-        margin-bottom: 40px;
+    &-content {
+        margin: 0 -25px;
 
-        &--scalebox {
-            overflow: hidden;
-            width: 100%;
-        }
+        &-elem {
+            padding: 0 25px;
+            box-sizing: border-box;
 
-        &-image {
-            width: 100%;
-            @include transition(all, 0.7s, ease-in-out);
-        }
+            &-image {
+                position: relative;
 
-        &-image:hover {
-            @include scale-elem(1.15);
-        }
+                img {
+                    width: 100%;
+                    height: auto;
+                }
 
-        &-text {
-            padding: 30px;
+                .no-touchevents &:hover {
+                    .artists-content-elem-image-hover {
+                        display: block;
+                    }
+                }
 
-            &-heading {
-                letter-spacing: 0px;
-                margin-top: 0px;
-            }
+                &-hover {
+                    display: none;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    text-align: center;
 
-            &-subheading {
-                color: $colorblack--lighter02;
-                font-size: 13px;
-                padding-left: 13px;
-                border-left: $coloryellow 7px solid;
-                line-height: 22px;
-                margin-top: 9px;
-                margin-bottom: 9px;
+                    &:before {
+                        content: '';
+                        top: 0;
+                        left: 0;
+                        position: absolute;
+                        height: 100%;
+                        width: 100%;
+                        background-color: $colorred--lighter02;
+                        opacity: 0.75;
+                    }
 
-                a {
-                    font-family: $fonthind;
-                    color: $colorblack--lighter01;
-                    font-size: 13px;
-                    font-weight: bold;
-
-                    .no-touchevents &:hover {
-                        color: $coloryellow;
+                    .heading--h1 {
+                        @include vertical-align(absolute);
+                        font-size: 64px;
+                        line-height: 50px;
+                        word-spacing: 9999999px;
+                        left: 0;
+                        width: 100%;
                     }
                 }
             }
 
-            p {
-                color: #333333;
-                font-size: 13px;
-                line-height: 22px;
-                margin-bottom: 15px;
-            }
+            &-text {
+                padding: 20px;
+                box-sizing: border-box;
+                background-color: $colorblack--lighter05;
 
-            &-button {
-                color: #fff;
-                background: $colorblack--lighter03;
-                padding: 3px 13px;
-                @include border-radius(87px);
-                font-family: $fonthind;
-                font-size: 12px;
-                line-height: 28px;
+                &-date {
+                    font-size: 13px;
+                    line-height: 15px;
+                    color: $colorblack--lighter03;
+                }
 
-                .no-touchevents &:hover {
-                    color: #fff;
-                    background: $coloryellow
+                &-artist {
+                    color: $colorblack;
+                    font-size: 24px;
+                    line-height: 26px;
+                    font-weight: bold;
+                    margin: 5px 0;
+                    display: block;
+                    box-sizing: border-box;
+                }
+
+                &-posted {
+                    display: block;
+                    margin-bottom: 5px;
+
+                    &-rectangle {
+                        width: 14px;
+                        height: 14px;
+                        display: inline-block;
+                        background-color: $colorred--lighter01;
+                        margin-right: 7px;
+                        vertical-align: middle;
+                        line-height: 14px;
+                    }
+
+                    &-by {
+                        display: inline-block;
+                        color: $colorblack--lighter03;
+                        font-size: 12px;
+                        line-height: 14px;
+                        vertical-align: middle;
+                        margin-right: 13px;
+                    }
+
+                    &-author {
+                        display: inline-block;
+                        color: $colorblack--lighter01;
+                        font-size: 12px;
+                        line-height: 14px;
+                        vertical-align: middle;
+                        text-transform: uppercase;
+                        font-weight: bold;
+                    }
                 }
             }
         }
     }
 }
 
-@media (max-width: $maxwidth + 20) {
+@media (max-width: $maxwidth + 20px) {
     .artists {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: $tablet) {
+    .artists {
+        padding: 50px 75px 0 75px;
+        margin: 0;
+
+        &-content {
+            margin: 0 -10px;
+
+            &-elem {
+                padding: 0 10px;
+                margin-bottom: 50px;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .artists {
+        padding: 15px 15px 0 15px;
+        margin: 0;
+    }
+}
+
+@media (max-width: $mobile) {
+    .artists-content-elem {
+        margin-bottom: 15px;
     }
 }

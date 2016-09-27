@@ -10,8 +10,8 @@
     <cacheLifetime>604800</cacheLifetime>
 
     <meta>
-        <title lang="en">Artist Detail</title>
-        <title lang="de">Artist Detail</title>
+        <title lang="en">Band</title>
+        <title lang="de">Band</title>
     </meta>
 
     <properties>
@@ -39,6 +39,13 @@
                 </property>
             </properties>
         </section>
+
+        <property name="author" type="contact">
+            <meta>
+                <title lang="en">Author</title>
+                <title lang="de">Autor</title>
+            </meta>
+        </property>
 
         <section name="header">
             <meta>

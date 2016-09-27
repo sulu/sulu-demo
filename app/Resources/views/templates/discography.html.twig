@@ -4,17 +4,21 @@
     <section class="artist">
         {% include(':includes:headerimage.html.twig') %}
 
-        <h2 property="contentHeading" class="artist--detail-heading heading--h2">
+        <div property="contentHeading">
             {% if content.contentHeading|default('') %}
-                {{ content.contentHeading }}
-            {% endif %}
-        </h2>
-
-        <div property="contentSubheading" class="artist--detail-subheading">
-            {% if content.contentSubheading|default('') %}
-                {{ content.contentSubheading|raw }}
+                <h2 class="artist--detail-heading heading--h2">
+                    {{ content.contentHeading }}
+                </h2>
             {% endif %}
         </div>
+
+        <div property="contentSubheading">
+            {% if content.contentSubheading|default('') %}
+            <div class="artist--detail-subheading">
+                {{ content.contentSubheading|raw }}
+            </div>
+        </div>
+        {% endif %}
 
         {% include ('renderer/block_renderer.html.twig') with {
             'blocks' : content.blocks

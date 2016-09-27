@@ -42,11 +42,9 @@
                     font-size: 24px;
                     margin-top: 27px;
 
-                    .no-touchevents &:hover,
-                    &:focus {
+                    .no-touchevents &:hover{
                         color: $colorblack;
                         text-decoration: none;
-                        outline: 0;
                     }
                 }
 
@@ -54,11 +52,9 @@
                     color: $colorred--lighter01;
                     margin-top: 5px;
 
-                    .no-touchevents &:hover,
-                    &:focus {
+                    .no-touchevents &:hover{
                         color: $colorred--lighter01;
                         text-decoration: none;
-                        outline: 0;
                     }
                 }
             }
@@ -83,7 +79,6 @@
                 background-color: $colorblack--lighter03;
                 border: none;
                 border-radius: 10px;
-                outline: 0;
             }
         }
 
@@ -106,13 +101,17 @@
 
 @media(max-width: $tablet) {
     .discography--element {
-        padding: 75px 75px 0 75px;
+        padding: 75px;
     }
 }
 
 @media (max-width: 700px) {
     .discography--element {
-        padding: 15px 15px 0 15px;
+        padding: 30px 15px;
+
+        &-heading {
+            margin-bottom: 15px;
+        }
 
         .slick-dots {
             margin: 0;

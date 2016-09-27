@@ -1,8 +1,8 @@
 <div property="headerImage">
     <div property="headerHeading">
         <div property="headerSubheading">
-            <section class="headerimage">
-                {% if content.headerImage|length and content.headerImage|first.thumbnails["1920x670"] is defined %}
+            {% if content.headerImage|length and content.headerImage|first.thumbnails["1920x670"] is defined %}
+                <section class="headerimage">
                     <img src="{{ content.headerImage|first.thumbnails["1920x670"] }}"
                          alt="content.headerImage|first.title"
                          class="headerimage-image">
@@ -22,8 +22,8 @@
                             {% endif %}
                         </div>
                     {% endif %}
-                {% endif %}
-            </section>
+                </section>
+            {% endif %}
         </div>
     </div>
 </div>

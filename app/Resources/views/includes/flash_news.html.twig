@@ -10,9 +10,11 @@
                     {% endif %}
                 </div>
 
-                <div property="heading" class="news--flash-text-heading">
+                <div property="heading">
                     {% if block.heading|default('') %}
-                        {{ block.heading|raw }}
+                        <div class="news--flash-text-heading">
+                            {{ block.heading|raw }}
+                        </div>
                     {% endif %}
                 </div>
 

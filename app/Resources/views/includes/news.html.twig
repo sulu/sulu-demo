@@ -1,8 +1,10 @@
 <section class="news" rel="blocks" typeof="block">
     <div class="news-content">
-        <h2 property="title" class="news-content-title heading--h2">
+        <h2 property="title">
             {% if block.title|default('') %}
-                {{ block.title }}
+                <h2 class="news-content-title heading--h2">
+                    {{ block.title }}
+                </h2>
             {% endif %}
         </h2>
 

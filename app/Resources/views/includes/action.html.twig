@@ -1,28 +1,32 @@
-<section class="action">
-    <div class="action-text">
+<div rel="blocks" typeof="block">
+    <div property="actions">
         {% for action in block.actions %}
-            {% if action.title|default('') %}
-                <h2 class="heading--h2--white">
-                    {{ action.title }}
-                </h2>
-            {% endif %}
-
-            {% if action.text|default('') %}
-                <div class="action-text-text">
-                    {{ action.text|raw }}
-                </div>
-            {% endif %}
-
-            {% if action.link|default('') %}
-                <a href="{{ sulu_content_path(action.link) }}"
-                   class="button--large">
-                    {% if action.button|default('') %}
-                        {{ action.button }}
-                    {% else %}
-                        {{ 'call'|trans }}
+            <div class="action">
+                <div class="action-text">
+                    {% if action.title|default('') %}
+                        <h2 class="heading--h2--white">
+                            {{ action.title }}
+                        </h2>
                     {% endif %}
-                </a>
-            {% endif %}
+
+                    {% if action.text|default('') %}
+                        <div class="action-text-text">
+                            {{ action.text|raw }}
+                        </div>
+                    {% endif %}
+
+                    {% if action.link|default('') %}
+                        <a href="{{ sulu_content_path(action.link) }}"
+                           class="button--large">
+                            {% if action.button|default('') %}
+                                {{ action.button }}
+                            {% else %}
+                                {{ 'call'|trans }}
+                            {% endif %}
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
         {% endfor %}
     </div>
-</section>
+</div>

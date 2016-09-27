@@ -1,42 +1,44 @@
-<section property="lists" class="tracks">
-    {% if block.lists|length %}
-        <div class="tracks-content">
-            {% if block.lists|first.heading|default('') %}
-                <h5 class="tracks-content-heading">
-                    {{ block.lists|first.heading }}
-                </h5>
-            {% endif %}
+<section rel="blocks" typeof="block" class="tracks">
+    <div property="lists">
+        {% if block.lists|length %}
+            <div class="tracks-content">
+                {% if block.lists|first.heading|default('') %}
+                    <h5 class="tracks-content-heading">
+                        {{ block.lists|first.heading }}
+                    </h5>
+                {% endif %}
 
-            <table class="tracks-content-table">
-                <tr class="tracks-content-table-head">
-                    <th>{{ 'name'|trans }}</th>
-                    <th>{{ 'length'|trans }}</th>
-                    <th>{{ 'price'|trans }}</th>
-                </tr>
-                {% for track in block.lists|first.tracks if track.type == "track" %}
-                    <tr class="tracks-content-table-data">
-                        {% if track.title|default('') %}
-                            <td>
-                                {{ track.title }}
-                            </td>
-                        {% endif %}
-
-                        {% if track.length|default('') %}
-                            <td>
-                                {{ track.length }}
-                            </td>
-                        {% endif %}
-
-                        {% if track.price|default('') %}
-                            <td>
-                                <a href="#" class="tracks-content-table-data-button">
-                                    {{ track.price }}
-                                </a>
-                            </td>
-                        {% endif %}
+                <table class="tracks-content-table">
+                    <tr class="tracks-content-table-head">
+                        <th>{{ 'name'|trans }}</th>
+                        <th>{{ 'length'|trans }}</th>
+                        <th>{{ 'price'|trans }}</th>
                     </tr>
-                {% endfor %}
-            </table>
-        </div>
-    {% endif %}
+                    {% for track in block.lists|first.tracks if track.type == "track" %}
+                        <tr class="tracks-content-table-data">
+                            {% if track.title|default('') %}
+                                <td>
+                                    {{ track.title }}
+                                </td>
+                            {% endif %}
+
+                            {% if track.length|default('') %}
+                                <td>
+                                    {{ track.length }}
+                                </td>
+                            {% endif %}
+
+                            {% if track.price|default('') %}
+                                <td>
+                                    <a href="#" class="tracks-content-table-data-button">
+                                        {{ track.price }}
+                                    </a>
+                                </td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        {% endif %}
+    </div>
 </section>

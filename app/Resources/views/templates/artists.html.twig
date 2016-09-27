@@ -1,57 +1,94 @@
 {% extends "master.html.twig" %}
 
 {% block content %}
-        <div property="headerImage">
-            <div property="headerHeading">
-                <div property="headerSubheading">
-                    {% if content.headerImage|length %}
-                        {% include(':includes:headerimage.html.twig') with {
-                            'image' : content.headerImage|first,
-                            'kind' : 'headerimage-text--left',
-                            'headingposition' : 'heading--left',
-                            'heading' : content.headerHeading,
-                            'text': content.headerSubheading
-                        } %}
-                    {% endif %}
-                </div>
-            </div>
-        </div>
+    {% include(':includes:headerimage.html.twig') %}
 
-    <section class="artists">
-        <h4 property="title" class="heading--h3--border">{{ content.title }}</h4>
+    <div property="artists">
+        {% if content.artists|length %}
+            <section class="artists">
+                <div class="artists-content">
+                    <div class="grid" property="artists">
+                        {% for artist in content.artists %}
+                            <div class="grid__item desk--one-third lap--one-half palm--one-whole">
+                                <div class="artists-content-elem">
+                                    {% set url = "" %}
 
-        <div class="grid" property="artists">
-            {% for artist in content.artists %}
-                <div class="grid__item desk--one-third lap--one-half palm--one-whole">
-                    <div class="artists-item">
-                        <div class="artists-item--scalebox">
-                            <img src="{{ artist.image|first.thumbnails['480x'] }}" class="artists-item-image">
-                        </div>
+                                    {% if content|default('') %}
+                                        {% set url = sulu_content_path(artist.url) %}
+                                    {% endif %}
 
-                        <div class="artists-item-text">
-                            <h5 class="artists-item-text-heading heading--h5">{{ artist.heading }}</h5>
+                                    {% if artist.image|length and artist.image|first.thumbnails['360x250'] is defined %}
+                                        <div class="artists-content-elem-image">
+                                            <img src="{{ artist.image|first.thumbnails['360x250'] }}"
+                                                 alt="{{ artist.image|first.title }}"/>
 
-                            {% if  artist.categories|length >0 %}
-                                <span class="artists-item-text-subheading">
-                                    {% for category in artist.categories %}
-                                        {% if loop.index != artist.categories|length %}
-                                            <a href="{{ sulu_category_url(category) }}"> {{ category.name }}</a>,
-                                        {% else %}
-                                            <a href="{{ sulu_category_url(category) }}"> {{ category.name }} </a>
+                                            {% if artist.title|default('') %}
+                                                <div class="artists-content-elem-image-hover">
+                                                    <a href="{{ url }}" class="heading--h1">
+                                                        {{ artist.title }}
+                                                    </a>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+
+                                    <div class="artists-content-elem-text">
+                                        {% if artist.published|default('') %}
+                                            <p class="artists-content-elem-text-date">
+                                                {{ artist.published.date|date('d.m.Y') }}
+                                            </p>
                                         {% endif %}
-                                    {% endfor %}
-                                </span>
-                            {% endif %}
 
-                            <p>
-                                {{ artist.text }}
-                            </p>
+                                        {% if artist.title|default('') %}
+                                            <a href="{{ url }}" class="artists-content-elem-text-artist">
+                                                {{ artist.title }}
+                                            </a>
+                                        {% endif %}
 
-                            <a href="{{ artist.url }}" class="artists-item-text-button">Read More</a>
-                        </div>
+                                        {% set author = "" %}
+
+                                        {% if artist.author|length %}
+                                            {% set author = sulu_resolve_contact(artist.author|first.id) %}
+                                        {% else %}
+                                            {% set author = sulu_resolve_contact(artist.creator) %}
+                                        {% endif %}
+
+                                        {% if author|default('') %}
+                                            <span class="artists-content-elem-text-posted">
+                                        <i class="artists-content-elem-text-posted-rectangle"></i>
+                                        <p class="artists-content-elem-text-posted-by">{{ 'posted'|trans }}</p>
+                                        <p class="artists-content-elem-text-posted-author">{{ author.fullName }}</p>
+                                    </span>
+                                        {% endif %}
+
+                                        {% if artist.description|default('') %}
+                                            {{ artist.description|raw }}
+                                        {% endif %}
+
+                                        {% if artist.url|default('') %}
+                                            <a href="{{ url }}" class="button--medium">
+                                                {{ 'read_more'|trans }}
+                                            </a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
-            {% endfor %}
+            </section>
+        {% endif %}
+    </div>
+
+    <div property="discographyTitle">
+        <div property="discographyData">
+            {% if content.discographyTitle|default('') or content.discographyData|default('') %}
+                {% include(':includes:discography_element.html.twig') with {
+                    'block' : {
+                    'discographyTitle': content.discographyTitle|default('') ? content.discographyTitle : '',
+                    'discographyData': content.discographyData|default('') ? content.discographyData : ''
+                } } %}
+            {% endif %}
         </div>
-    </section>
+    </div>
 {% endblock %}

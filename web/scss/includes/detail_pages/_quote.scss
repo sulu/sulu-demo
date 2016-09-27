@@ -1,8 +1,9 @@
 .quote {
     width: 100%;
-    max-width: $maxwidth--text;
-    margin: 0 calc((100% - #{$maxwidth--text}) / 5 * 3) 0 calc((100% - #{$maxwidth--text}) / 5 * 2);
+    max-width: $maxwidth;
+    margin: 0 auto;
     box-sizing: border-box;
+    padding: 0 205px 0 120px;
 
     &-content {
         border-left: 14px solid $colorred--lighter01;

@@ -2,15 +2,19 @@
     <div class="grid">
         <div class="grid__item desk--one-half">
             <div class="biography-text">
-                <h2 property="biographyTitle" class="heading--h2 biography-text-heading">
+                <div property="biographyTitle">
                     {% if block.biographyTitle|default('') %}
-                        {{ block.biographyTitle }}
+                        <h2 class="heading--h2 biography-text-heading">
+                            {{ block.biographyTitle }}
+                        </h2>
                     {% endif %}
-                </h2>
+                </div>
 
-                <div property="biographyHeading" class="biography-text-subheading">
+                <div property="biographyHeading">
                     {% if block.biographyHeading|default('') %}
-                        {{ block.biographyHeading|raw }}
+                        <div class="biography-text-subheading">
+                            {{ block.biographyHeading|raw }}
+                        </div>
                     {% endif %}
                 </div>
 
@@ -30,7 +34,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div property="biographyImage" class="grid__item desk--one-half">
             {% if block.biographyImage|first.thumbnails['750x500'] is defined %}
                 <img src="{{ block.biographyImage|first.thumbnails['750x500'] }}"

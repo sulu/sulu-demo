@@ -11,11 +11,11 @@
                 </div>
 
                 <div class="slides-text">
-                    <h1 class="heading--h1">
-                        {% if slide.title|default("") %}
+                    {% if slide.title|default("") %}
+                        <h1 class="heading--h1">
                             {{ slide.title }}
-                        {% endif %}
-                    </h1>
+                        </h1>
+                    {% endif %}
 
                     {% if slide.description|default("") %}
                         <div class="heading--h1--description">

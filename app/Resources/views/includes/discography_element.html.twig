@@ -17,9 +17,11 @@
                                 <img src="{{ disc.image|first.formats['400x400'] }}"
                                      alt="artist.image|first.title"/>
 
-                                <h1 class="heading--h1">
-                                    {{ disc.heading }}
-                                </h1>
+                                {% if disc.heading|default('') %}
+                                    <h1 class="heading--h1">
+                                        {{ disc.heading }}
+                                    </h1>
+                                {% endif %}
                             </div>
                         {% endif %}
 
