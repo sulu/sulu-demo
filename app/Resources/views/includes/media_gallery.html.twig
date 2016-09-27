@@ -1,17 +1,17 @@
 <div rel="blocks" typeof="block" class="media--gallery">
-<div class="media--gallery-content">
-    <div property="medias"
-         data-slick='{"slidesToShow": 3, "slidesToScroll": 3}'
-         class="js-media--gallery">
-        {% if block.medias|length %}
-            {% for media in block.medias if media.thumbnails['500x375'] %}
-                <div class="media--gallery-content-elem">
-                    <img src="{{ media.thumbnails['500x375'] }}"
-                         alt="{{ media.description }}"
-                         class="media--gallery-content-elem-image">
-                </div>
-            {% endfor %}
-        {% endif %}
+    <div class="media--gallery-content">
+        <div property="medias"
+             data-slick='{"slidesToShow": 3, "slidesToScroll": 3}'
+             class="js-media--gallery">
+            {% if block.medias|length %}
+                {% for media in block.medias if media.thumbnails['500x375'] %}
+                    <div class="media--gallery-content-elem">
+                        <img src="{{ media.thumbnails['500x375'] }}"
+                             alt="{{ media.description }}"
+                             class="media--gallery-content-elem-image">
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
     </div>
-</div>
 </div>

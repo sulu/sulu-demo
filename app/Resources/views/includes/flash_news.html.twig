@@ -2,11 +2,13 @@
     <div class="grid">
         <div class="grid__item desk--four-tenths">
             <div class="news--flash-text">
-                <h2 property="title" class="heading--h2 news--flash-text-title">
+                <div property="title">
                     {% if block.title|default('') %}
-                        {{ block.title }}
+                        <h2 class="heading--h2 news--flash-text-title">
+                            {{ block.title }}
+                        </h2>
                     {% endif %}
-                </h2>
+                </div>
 
                 <div property="heading" class="news--flash-text-heading">
                     {% if block.heading|default('') %}

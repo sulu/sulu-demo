@@ -1,9 +1,9 @@
 <div rel="blocks" typeof="block">
     <div property="quote" class="quote">
-        <div class="quote-content">
-            {% if block.quote|default('') %}
+        {% if block.quote|default('') %}
+            <div class="quote-content">
                 {{ block.quote|raw }}
-            {% endif %}
-        </div>
+            </div>
+        {% endif %}
     </div>
 </div>

@@ -1,7 +1,6 @@
 <section class="action">
     <div class="action-text">
         {% for action in block.actions %}
-
             {% if action.title|default('') %}
                 <h2 class="heading--h2--white">
                     {{ action.title }}
@@ -14,7 +13,7 @@
                 </div>
             {% endif %}
 
-            {% if action.link |default('') %}
+            {% if action.link|default('') %}
                 <a href="{{ sulu_content_path(action.link) }}"
                    class="button--large">
                     {% if action.button|default('') %}

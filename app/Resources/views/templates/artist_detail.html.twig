@@ -1,20 +1,16 @@
 {% extends "master.html.twig" %}
 
-{% block header %}
-    {{ parent() }}
-
-
-{% endblock %}
-
 {% block content %}
     <section class="artist--detail">
         {% include(':includes:headerimage.html.twig') %}
 
-        <h2 property="contentHeading" class="artist--detail-heading heading--h2">
+        <div property="contentHeading">
             {% if content.contentHeading|default('') %}
-                {{ content.contentHeading }}
+                <h2 class="artist--detail-heading heading--h2">
+                    {{ content.contentHeading }}
+                </h2>
             {% endif %}
-        </h2>
+        </div>
 
         <div property="contentSubheading" class="artist--detail-subheading">
             {% if content.contentSubheading|default('') %}
@@ -23,7 +19,7 @@
         </div>
 
         {% include ('renderer/block_renderer.html.twig') with {
-        'blocks' : content.blocks
+            'blocks' : content.blocks
         } %}
     </section>
 {% endblock %}
