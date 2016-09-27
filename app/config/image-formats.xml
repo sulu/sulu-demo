@@ -10,6 +10,22 @@
         <scale x="1920" y="1080"/>
     </format>
 
+    <format key="1920x670">
+        <meta>
+            <title lang="de">Header Image</title>
+            <title lang="en">Header Image</title>
+        </meta>
+        <scale x="1920" y="670"/>
+    </format>
+
+    <format key="980x680">
+        <meta>
+            <title lang="de">Flash News Bild</title>
+            <title lang="en">Flash News Image</title>
+        </meta>
+        <scale x="980" y="680"/>
+    </format>
+
     <format key="750x500">
         <meta>
             <title lang="de">Biography Bild</title>
@@ -18,11 +34,18 @@
         <scale x="750" y="500"/>
     </format>
 
+    <format key="500x375">
+        <meta>
+            <title lang="de">Bilder Galerie Bild</title>
+            <title lang="en">Image Gallery Image</title>
+        </meta>
+        <scale x="500" y="375"/>
+    </format>
 
     <format key="400x400">
         <meta>
-            <title lang="de">Galerie Bild</title>
-            <title lang="en">Gallery Image</title>
+            <title lang="de">Künstler Galerie Bild</title>
+            <title lang="en">Artist Gallery Image</title>
         </meta>
         <scale x="400" y="400"/>
     </format>

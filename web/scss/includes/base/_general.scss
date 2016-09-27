@@ -4,7 +4,8 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-p {
+p,
+b {
     font-family: $fontregular;
     font-size: 14px;
     line-height: 22px;
@@ -120,6 +121,12 @@ a {
         margin: 18px 0;
         line-height: 38px;
     }
+
+    &--large {
+        @extend .button;
+        width: 342px;;
+        line-height: 42px;
+    }
 }
 
 @media (max-width: $tablet) {
@@ -206,7 +213,6 @@ a {
 }
 
 .grid__item {
-    font-size: 14px !important;
     margin-left: 0;
     padding: 0;
 }

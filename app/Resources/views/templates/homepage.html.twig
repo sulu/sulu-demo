@@ -10,8 +10,7 @@
     {% endif %}
     </div>
 
-
-    {% include ('renderer/renderer.html.twig') with {
+    {% include ('renderer/block_renderer.html.twig') with {
         'blocks' : content.blocks
     } %}
 {% endblock %}

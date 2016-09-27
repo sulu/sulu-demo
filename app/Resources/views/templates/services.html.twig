@@ -82,7 +82,7 @@
     <div property="action">
         {% for item in content.action %}
             {% if item.title|default('') and item.image|default([]) and item.link|default('') %}
-                {% include(':includes:forbooking.html.twig') with {
+                {% include(':includes:action.html.twig') with {
                     'action' : item
                 } %}
             {% endif %}

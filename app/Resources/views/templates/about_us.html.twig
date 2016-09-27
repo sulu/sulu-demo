@@ -151,7 +151,7 @@
         {% for item in content.action %}
             {%  if item.title != "" and item.text != "" and item.image is defined and item.link != "" %}
                 {# for booking #}
-                {% include(':includes:forbooking.html.twig') with{
+                {% include(':includes:action.html.twig') with {
                     "action" : item
                 } %}
             {% endif %}
