@@ -12,10 +12,50 @@
 
     <format key="1920x670">
         <meta>
-            <title lang="de">Header Image</title>
-            <title lang="en">Header Image</title>
+            <title lang="de">Header Image - groß</title>
+            <title lang="en">Header Image - large</title>
         </meta>
         <scale x="1920" y="670"/>
+    </format>
+
+    <format key="1435x500">
+        <meta>
+            <title lang="de">Header Image - mittel</title>
+            <title lang="en">Header Image - medium</title>
+        </meta>
+        <scale x="1435" y="500"/>
+    </format>
+
+    <format key="860x300">
+        <meta>
+            <title lang="de">Header Image - klein</title>
+            <title lang="en">Header Image - small</title>
+        </meta>
+        <scale x="860" y="300"/>
+    </format>
+
+    <format key="3840x1340">
+        <meta>
+            <title lang="de">Header Image - groß Retina</title>
+            <title lang="en">Header Image - large Retina</title>
+        </meta>
+        <scale x="3840" y="1340"/>
+    </format>
+
+    <format key="2870x1000">
+        <meta>
+            <title lang="de">Header Image - mittel Retina</title>
+            <title lang="en">Header Image - medium Retina</title>
+        </meta>
+        <scale x="2870" y="1000"/>
+    </format>
+
+    <format key="1720x600">
+        <meta>
+            <title lang="de">Header Image - klein Retina</title>
+            <title lang="en">Header Image - small Retina</title>
+        </meta>
+        <scale x="1720" y="600"/>
     </format>
 
     <format key="980x680">

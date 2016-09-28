@@ -1,11 +1,37 @@
 <div property="headerImage">
     <div property="headerHeading">
         <div property="headerSubheading">
-            {% if content.headerImage|length and content.headerImage|first.thumbnails["1920x670"] is defined %}
+            {% if content.headerImage|length %}
+                {% if content.headerImage|first.type.name == "image" and
+                content.headerImage|first.thumbnails["1920x670"] is defined %}
                 <section class="headerimage">
-                    <img src="{{ content.headerImage|first.thumbnails["1920x670"] }}"
-                         alt="content.headerImage|first.title"
-                         class="headerimage-image">
+                    <picture>
+                        <source srcset="{{ content.headerImage|first.thumbnails["1920x670"] }},
+                                {{ content.headerImage|first.thumbnails["3840x1340"] }} 2x"
+                                media="(min-width: 1300px)">
+
+                        <source srcset="{{ content.headerImage|first.thumbnails["1435x500"] }},
+                                {{ content.headerImage|first.thumbnails["2870x1000"] }} 2x"
+                                media="(max-width: 1299px) and (min-width: 481px)">
+
+                        <source srcset="{{ content.headerImage|first.thumbnails["860x300"] }},
+                                {{ content.headerImage|first.thumbnails["1720x600"] }} 2x"
+                                media="(max-width: 480px)">
+
+                        <img src="{{ content.headerImage|first.thumbnails["1920x670"] }}"
+                             alt="{{ content.headerImage|first.title }}"
+                             class="headerimage-image">
+                    </picture>
+
+                {% elseif content.headerImage|first.type.name == "video" %}
+                <section class="headerimage headerimage--video">
+
+                    <video src="{{ content.headerImage|first.url }}"
+                           autoplay
+                           loop
+                           muted
+                           class="headerimage-image"></video>
+                {% endif %}
 
                     {% if content.headerHeading|default('') or content.headerSubheading|default('') %}
                         <div class="headerimage-text">

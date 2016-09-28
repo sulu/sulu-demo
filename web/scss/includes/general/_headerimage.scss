@@ -1,5 +1,6 @@
 .headerimage {
     position: relative;
+    font-size:0;
 
     &-image {
         width: 100%;
@@ -15,10 +16,25 @@
         bottom: 50px;
         left: 0;
 
+
+
         .heading--h1--description {
             margin-top: 10px;
         }
     }
+}
+
+.headerimage--video:before {
+    content: '';
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(bottom, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+    background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+    background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 @media (max-width: $maxwidth + 20) {
@@ -60,22 +76,22 @@
         }
 
         &-text {
-        bottom: 15px;
+            bottom: 15px;
 
-        .heading--h1 {
-            font-size: 75px;
-            line-height: 58px;
+            .heading--h1 {
+                font-size: 75px;
+                line-height: 58px;
 
-            &--description {
-                width: 100%;
+                &--description {
+                    width: 100%;
 
-                p,
-                h1,
-                b {
-                    font-size: 16px;
-                    line-height: 20px;
+                    p,
+                    h1,
+                    b {
+                        font-size: 16px;
+                        line-height: 20px;
+                    }
                 }
-            }
             }
         }
     }

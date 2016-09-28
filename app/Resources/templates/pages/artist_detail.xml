@@ -59,6 +59,10 @@
                         <title lang="en">Header Image</title>
                         <title lang="de">Kopf - Bild</title>
                     </meta>
+
+                    <params>
+                        <param name="type" value="image, video"/>
+                    </params>
                 </property>
 
                 <property name="headerHeading" type="text_line">
@@ -151,6 +155,10 @@
                                 <title lang="en">Media</title>
                                 <title lang="de">Medien</title>
                             </meta>
+
+                            <params>
+                                <param name="type" value="image"/>
+                            </params>
                         </property>
                     </properties>
                 </type>

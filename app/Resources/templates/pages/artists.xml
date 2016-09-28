@@ -52,6 +52,10 @@
                         <title lang="en">Header Image</title>
                         <title lang="de">Kopf - Bild</title>
                     </meta>
+
+                    <params>
+                        <param name="type" value="image, video"/>
+                    </params>
                 </property>
 
                 <property name="headerHeading" type="text_line">
