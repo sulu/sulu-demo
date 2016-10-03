@@ -2,6 +2,7 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    outline: none;
 }
 
 p,
@@ -93,18 +94,19 @@ a {
 
 .button {
     font-family: $fontregular;
+    max-width: 100%;
     font-size: 14px;
     color: $colorwhite;
     text-align: center;
     vertical-align: middle;
     text-transform: uppercase;
     display: block;
-    background-color: $colorred;
+    background-color: $colorred--lighter01;
     border-radius: 19px;
     letter-spacing: 2px;
 
     .no-touchevents &:hover {
-        background-color: $colorred--lighter01;
+        background-color: $colorred;
         color: $colorwhite;
         text-decoration: none;
     }

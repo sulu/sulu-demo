@@ -12,9 +12,11 @@
             {% endif %}
         </div>
 
-        <div property="contentSubheading" class="artist--detail-subheading">
+        <div property="contentSubheading">
             {% if content.contentSubheading|default('') %}
-                {{ content.contentSubheading|raw }}
+                <div class="artist--detail-subheading">
+                    {{ content.contentSubheading|raw }}
+                </div>
             {% endif %}
         </div>
 

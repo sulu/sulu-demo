@@ -20,6 +20,14 @@
 @media (max-width: $tablet) {
     .media--gallery {
         margin: 50px 0;
+
+        &-content {
+            margin: 0 -12px;
+
+            &-elem {
+                padding: 0 12px;
+            }
+        }
     }
 }
 

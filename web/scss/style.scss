@@ -9,7 +9,7 @@
 @import 'base/mixin';
 
 // TEMPLATES
-@import 'templates/artistdetail';
+@import 'templates/artists';
 
 // IMPORTS
 @import '../../node_modules/slick-carousel/slick/slick';
@@ -25,6 +25,7 @@
 
 // INCLUDES - GENERAL
 @import 'includes/general/headerimage';
+@import 'includes/general/general_content';
 
 // INCLUDES - DETAILED PAGES
 @import 'includes/detail_pages/text';
@@ -32,6 +33,7 @@
 @import 'includes/detail_pages/media_gallery';
 @import 'includes/detail_pages/flash_news';
 @import 'includes/detail_pages/action';
+@import 'includes/detail_pages/track_lists';
 
 // INCLUDES - HOME
 @import 'includes/home/biography';
@@ -50,8 +52,6 @@
 // BLOCKS - ARTISTS
 //@import 'blocks/artists';
 
-// BLOCKS - ARTIST - DETAIL
-//@import 'blocks/artistdetail';
 
 // BLOCKS - SITEMAP
 //@import 'blocks/sitemap';

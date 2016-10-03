@@ -1,12 +1,36 @@
 <section rel="blocks" typeof="block" class="artist--element {{ background|default('') }}">
+    <div property="heading">
+        {% if block.heading|default('') %}
+            <h2 class="artist--element-heading heading--h2">
+                {{ block.heading }}
+            </h2>
+        {% endif %}
+    </div>
+
     <div property="artistsData"
          class="artist--element-frame js-artist--element-collection"
          data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
         {% for item in block.artistsData if item.template == "artist_detail" %}
             <div class="artist--element-frame-item">
-                {% if item.image|length and item.image|first.thumbnails['400x400'] is defined %}
-                    <img src="{{ item.image|first.thumbnails['400x400'] }}"
-                         class="artist--element-frame-item-image"/>
+                {% set image = "" %}
+
+                {% if item.image|length and item.image|first.type.name == "image" and item.image|first.thumbnails['400x400'] is defined %}
+                    {% set image = item.image|first %}
+                {% elseif item.image|length >= 2 and item.image[1].thumbnails['400x400'] %}
+                    {% set image = item.image[1] %}
+                {% elseif item.image|length == 1 and item.image|first.type.name == "video" and item.image[0].thumbnails['400x400'] %}
+                    {% set image = item.image[0] %}
+                {% endif %}
+
+                {% if image|length and image.thumbnails['400x400'] is defined %}
+                    <picture>
+                        <source srcset="{{ image.thumbnails["400x400"] }},
+                                {{ image.thumbnails["800x800"] }} 2x">
+
+                        <img src="{{ image.thumbnails['400x400'] }}"
+                             alt="{{ image.title }}"
+                             class="artist--element-frame-item-image"/>
+                    </picture>
                 {% endif %}
 
                 <a href="{{ sulu_content_path(item.url) }}"

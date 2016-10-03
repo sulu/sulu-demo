@@ -66,7 +66,6 @@
                         box-sizing: border-box;
                         width: calc(100% - 145px);
                         display: inline-block;
-                        outline: 0;
                     }
                 }
 
@@ -75,7 +74,6 @@
                     border: none;
                     float: right;
                     display: inline-block;
-                    outline: 0;
                 }
             }
         }
@@ -224,7 +222,7 @@
     }
 }
 
-@media (max-width: 800px) and (min-width: $mobile) {
+@media (max-width: 800px) and (min-width: $mobile + 1px) {
     .footer-main-elem-content {
         &-email-input {
             width: calc(100% - 145px);

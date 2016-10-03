@@ -4,18 +4,130 @@
          xsi:schemaLocation="http://schemas.sulu.io/media/formats http://schemas.sulu.io/media/formats-1.1.xsd">
     <format key="1920x1080">
         <meta>
-            <title lang="de">Teaser Bild</title>
-            <title lang="en">Teaser Image</title>
+            <title lang="de">Teaser Bild - Desktop</title>
+            <title lang="en">Teaser Image - Desktop</title>
         </meta>
         <scale x="1920" y="1080"/>
     </format>
 
+    <format key="3840x2160">
+        <meta>
+            <title lang="de">Teaser Bild - Desktop Retina</title>
+            <title lang="en">Teaser Image - Desktop Retina</title>
+        </meta>
+        <scale x="3840" y="2160"/>
+    </format>
+
+    <format key="800x450">
+        <meta>
+            <title lang="de">Teaser Bild - Tablet</title>
+            <title lang="en">Teaser Image - Tablet</title>
+        </meta>
+        <scale x="1920" y="1080"/>
+    </format>
+
+    <format key="1600x900">
+        <meta>
+            <title lang="de">Teaser Bild - Tablet Retina</title>
+            <title lang="en">Teaser Image - Tablet Retina</title>
+        </meta>
+        <scale x="3840" y="2160"/>
+    </format>
+
     <format key="1920x670">
         <meta>
-            <title lang="de">Header Image</title>
-            <title lang="en">Header Image</title>
+            <title lang="de">Header Image Mittel - Desktop</title>
+            <title lang="en">Header Image Medium - Desktop</title>
         </meta>
         <scale x="1920" y="670"/>
+    </format>
+
+    <format key="3840x1340">
+        <meta>
+            <title lang="de">Header Image Mittel - Desktop Retina</title>
+            <title lang="en">Header Image Medium - Desktop Retina</title>
+        </meta>
+        <scale x="3840" y="1340"/>
+    </format>
+
+    <format key="1435x500">
+        <meta>
+            <title lang="de">Header Image Mittel - Tablet</title>
+            <title lang="en">Header Image Medium - Tablet</title>
+        </meta>
+        <scale x="1435" y="500"/>
+    </format>
+
+    <format key="2870x1000">
+        <meta>
+            <title lang="de">Header Image Mittel - Tablet Retina</title>
+            <title lang="en">Header Image Medium - Tablet Retina</title>
+        </meta>
+        <scale x="2870" y="1000"/>
+    </format>
+
+    <format key="860x300">
+        <meta>
+            <title lang="de">Header Image Mittel - Smartphone</title>
+            <title lang="en">Header Image Medium - Smartphone</title>
+        </meta>
+        <scale x="860" y="300"/>
+    </format>
+
+    <format key="1720x600">
+        <meta>
+            <title lang="de">Header Image Mittel - Smartphone Retina</title>
+            <title lang="en">Header Image Medium - Smartphone Retina</title>
+        </meta>
+        <scale x="1720" y="600"/>
+    </format>
+
+    <format key="1920x300">
+        <meta>
+            <title lang="de">Header Image Klein - Desktop</title>
+            <title lang="en">Header Image Small - Desktop</title>
+        </meta>
+        <scale x="1920" y="300"/>
+    </format>
+
+    <format key="3840x600">
+        <meta>
+            <title lang="de">Header Image Klein - Desktop Retina</title>
+            <title lang="en">Header Image Small - Desktop Retina</title>
+        </meta>
+        <scale x="3840" y="600"/>
+    </format>
+
+    <format key="1024x300">
+        <meta>
+            <title lang="de">Header Image Klein - Tablet</title>
+            <title lang="en">Header Image Small - Tablet</title>
+        </meta>
+        <scale x="1024" y="300"/>
+    </format>
+
+    <format key="2048x600">
+        <meta>
+            <title lang="de">Header Image Klein - Tablet Retina</title>
+            <title lang="en">Header Image Small - Tablet Retina</title>
+        </meta>
+        <scale x="2048" y="600"/>
+    </format>
+
+    <format key="480x200">
+        <meta>
+            <title lang="de">Header Image Klein - Smartphone</title>
+            <title lang="en">Header Image Small - Smartphone</title>
+        </meta>
+        <scale x="480" y="200"/>
+    </format>
+
+    <format key="960x400">
+        <meta>
+            <title lang="de">Header Image Klein - Smartphone Retina</title>
+            <title lang="en">Header Image Small - Smartphone Retina</title>
+        </meta>
+        <scale x="960" y="400"/>
     </format>
 
     <format key="980x680">
@@ -26,12 +138,60 @@
         <scale x="980" y="680"/>
     </format>
 
+    <format key="1960x1360">
+        <meta>
+            <title lang="de">Flash News Bild - Retina</title>
+            <title lang="en">Flash News Image - Retina</title>
+        </meta>
+        <scale x="1960" y="1360"/>
+    </format>
+
     <format key="750x500">
         <meta>
-            <title lang="de">Biography Bild</title>
-            <title lang="en">Biography Image</title>
+            <title lang="de">Biography Bild - Desktop</title>
+            <title lang="en">Biography Image - Desktop</title>
         </meta>
         <scale x="750" y="500"/>
+    </format>
+
+    <format key="1500x1000">
+        <meta>
+            <title lang="de">Biography Bild - Desktop Retina</title>
+            <title lang="en">Biography Image - Desktop Retina</title>
+        </meta>
+        <scale x="1500" y="1000"/>
+    </format>
+
+    <format key="1024x715">
+        <meta>
+            <title lang="de">Biography Bild - Tablet</title>
+            <title lang="en">Biography Image - Tablet</title>
+        </meta>
+        <scale x="1024" y="715"/>
+    </format>
+
+    <format key="2048x1430">
+        <meta>
+            <title lang="de">Biography Bild - Tablet Retina</title>
+            <title lang="en">Biography Image - Tablet Retina</title>
+        </meta>
+        <scale x="2048" y="1430"/>
+    </format>
+
+    <format key="480x335">
+        <meta>
+            <title lang="de">Biography Bild - Smartphone</title>
+            <title lang="en">Biography Image - Smartphone</title>
+        </meta>
+        <scale x="480" y="335"/>
+    </format>
+
+    <format key="960x670">
+        <meta>
+            <title lang="de">Biography Bild - Smartphone Retina</title>
+            <title lang="en">Biography Image - Smartphone Retina</title>
+        </meta>
+        <scale x="960" y="670"/>
     </format>
 
     <format key="500x375">
@@ -42,12 +202,36 @@
         <scale x="500" y="375"/>
     </format>
 
+    <format key="1000x750">
+        <meta>
+            <title lang="de">Bilder Galerie Bild - Retina</title>
+            <title lang="en">Image Gallery Image - Retina</title>
+        </meta>
+        <scale x="1000" y="750"/>
+    </format>
+
+    <format key="800x800">
+        <meta>
+            <title lang="de">Künstler Galerie Bild - Retina</title>
+            <title lang="en">Artist Gallery Image - Retina</title>
+        </meta>
+        <scale x="800" y="800"/>
+    </format>
+
     <format key="400x400">
         <meta>
             <title lang="de">Künstler Galerie Bild</title>
             <title lang="en">Artist Gallery Image</title>
         </meta>
         <scale x="400" y="400"/>
+    </format>
+
+    <format key="450x315">
+        <meta>
+            <title lang="de">Künstler Übersicht Bild</title>
+            <title lang="en">Artists Overview Image</title>
+        </meta>
+        <scale x="450" y="315"/>
     </format>
 
     <format key="x80">

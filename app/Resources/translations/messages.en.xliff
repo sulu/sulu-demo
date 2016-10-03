@@ -60,8 +60,24 @@
             </trans-unit>
             <trans-unit id="15">
                 <source>call</source>
-                <target>Call Us</target>
+                <target>Rufen Sie Uns an</target>
             </trans-unit>
-		</body>
+            <trans-unit id="16">
+                <source>name</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>price</source>
+                <target>Price</target>
+            </trans-unit>
+            <trans-unit id="18">
+                <source>length</source>
+                <target>Length</target>
+            </trans-unit>
+            <trans-unit id="19">
+                <source>posted</source>
+                <target>Posted by</target>
+            </trans-unit>
+        </body>
     </file>
 </xliff>

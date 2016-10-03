@@ -2,15 +2,19 @@
     <div class="grid">
         <div class="grid__item desk--one-half">
             <div class="biography-text">
-                <h2 property="biographyTitle" class="heading--h2 biography-text-heading">
+                <div property="biographyTitle">
                     {% if block.biographyTitle|default('') %}
-                        {{ block.biographyTitle }}
+                        <h2 class="heading--h2 biography-text-heading">
+                            {{ block.biographyTitle }}
+                        </h2>
                     {% endif %}
-                </h2>
+                </div>
 
-                <div property="biographyHeading" class="biography-text-subheading">
+                <div property="biographyHeading">
                     {% if block.biographyHeading|default('') %}
-                        {{ block.biographyHeading|raw }}
+                        <div class="biography-text-subheading">
+                            {{ block.biographyHeading|raw }}
+                        </div>
                     {% endif %}
                 </div>
 
@@ -30,12 +34,26 @@
                 </div>
             </div>
         </div>
-        
+
         <div property="biographyImage" class="grid__item desk--one-half">
             {% if block.biographyImage|first.thumbnails['750x500'] is defined %}
-                <img src="{{ block.biographyImage|first.thumbnails['750x500'] }}"
-                     alt="{{ block.biographyImage|first.title }}"
-                     class="biography-image">
+                <picture>
+                    <source srcset="{{ block.biographyImage|first.thumbnails["750x500"] }},
+                                {{ block.biographyImage|first.thumbnails["1500x1000"] }} 2x"
+                                media="(min-width: 1024px)">
+
+                    <source srcset="{{ block.biographyImage|first.thumbnails["1024x715"] }},
+                                {{ block.biographyImage|first.thumbnails["2048x1430"] }} 2x"
+                                media="(max-width: 1024px) and (min-width: 480px)">
+
+                    <source srcset="{{ block.biographyImage|first.thumbnails["480x335"] }},
+                                {{ block.biographyImage|first.thumbnails["960x670"] }} 2x"
+                                media="(max-width: 480)">
+
+                    <img src="{{ block.biographyImage|first.thumbnails['750x500'] }}"
+                         alt="{{ block.biographyImage|first.title }}"
+                         class="biography-image">
+                </picture>
             {% endif %}
         </div>
     </div>
