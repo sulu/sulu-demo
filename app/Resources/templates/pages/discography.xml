@@ -71,6 +71,35 @@
                         <title lang="de">Kopf - Unter Überschrift</title>
                     </meta>
                 </property>
+
+                <property name="headerType" type="single_select">
+                    <meta>
+                        <title lang="en">Header Size</title>
+                        <title lang="en">Kopf Größe</title>
+                    </meta>
+                    <params>
+                        <param name="values" type="collection">
+                            <param name="small">
+                                <meta>
+                                    <title lang="en">Small</title>
+                                    <title lang="de">Klein</title>
+                                </meta>
+                            </param>
+                            <param name="medium">
+                                <meta>
+                                    <title lang="en">Medium</title>
+                                    <title lang="de">Mittel</title>
+                                </meta>
+                            </param>
+                            <param name="large">
+                                <meta>
+                                    <title lang="en">Large</title>
+                                    <title lang="de">Groß</title>
+                                </meta>
+                            </param>
+                        </param>
+                    </params>
+                </property>
             </properties>
         </section>
 

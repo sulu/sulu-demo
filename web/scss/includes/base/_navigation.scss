@@ -114,7 +114,7 @@
     }
 }
 
-@media(min-width: $tablet) {
+@media(min-width: $tablet + 1px) {
     .nav-elem {
         /* are both needed because the navigation is animated via js */
         &--admin {

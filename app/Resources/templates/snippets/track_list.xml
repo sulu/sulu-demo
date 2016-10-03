@@ -32,12 +32,14 @@
                 <title lang="de">Inhalte</title>
                 <title lang="en">Content</title>
             </meta>
+
             <types>
                 <type name="track">
                     <meta>
                         <title lang="en">Titel</title>
                         <title lang="de">Track</title>
                     </meta>
+
                     <properties>
                         <property name="title" type="text_line">
                             <meta>

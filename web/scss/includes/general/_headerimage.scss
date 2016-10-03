@@ -4,8 +4,21 @@
 
     &-image {
         width: 100%;
-        min-height: 500px;
         object-fit: cover;
+        overflow: hidden;
+        max-height: 100vh;
+    }
+
+    &--small &-image {
+        height: 300px;
+    }
+
+    &--medium &-image {
+        min-height: 500px;
+    }
+
+    &--large &-image {
+        min-height: 450px;
     }
 
     &-text {
@@ -15,8 +28,6 @@
         position: absolute;
         bottom: 50px;
         left: 0;
-
-
 
         .heading--h1--description {
             margin-top: 10px;
@@ -71,7 +82,11 @@
 
 @media (max-width: $mobile) {
     .headerimage {
-        &-image {
+        &--small &-image {
+            height: 200px;
+        }
+
+        &--medium &-image {
             min-height: 300px;
         }
 

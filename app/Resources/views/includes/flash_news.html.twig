@@ -28,9 +28,15 @@
 
         <div property="image" class="grid__item desk--six-tenths">
             {% if block.image|first.thumbnails['980x680'] is defined %}
-                <img src="{{ block.image|first.thumbnails['980x680'] }}"
-                     alt="{{ block.image|first.title }}"
-                     class="news--flash-image">
+
+                <picture>
+                    <source srcset="{{ block.image|first.thumbnails["980x680"] }},
+                                {{ block.image|first.thumbnails["1960x1360"] }} 2x">
+
+                    <img src="{{ block.image|first.thumbnails['980x680'] }}"
+                         alt="{{ block.image|first.title }}"
+                         class="news--flash-image">
+                </picture>
             {% endif %}
         </div>
     </div>

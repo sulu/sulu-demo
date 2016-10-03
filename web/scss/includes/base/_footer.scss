@@ -222,7 +222,7 @@
     }
 }
 
-@media (max-width: 800px) and (min-width: $mobile) {
+@media (max-width: 800px) and (min-width: $mobile + 1px) {
     .footer-main-elem-content {
         &-email-input {
             width: calc(100% - 145px);

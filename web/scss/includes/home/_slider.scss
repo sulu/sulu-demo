@@ -2,6 +2,11 @@
     height: auto;
     position: relative;
 
+    &-frame {
+        max-height: 100vh;
+        overflow: hidden;
+    }
+
     &-item {
         position: relative;
     }
@@ -44,7 +49,7 @@
             }
 
             .heading--h1--description {
-                margin-top: -30px;
+                margin-top: -20px;
                 width: 40%;
 
                 p {
@@ -73,13 +78,13 @@
         box-sizing: border-box;
 
         .heading--h1,
-        .heading--h1--description p {
+        .heading--h1--description {
             text-align: center;
         }
 
         .heading--h1--description {
             width: 100%;
-            margin-top: -40px;
+            margin-top: -25px;
 
             p, b, h1 {
                 padding: 0 100px;
@@ -94,15 +99,15 @@
         position: relative;
         height: 450px;
 
-        &-frame {
+        .slider-frame {
             display: block;
             position: relative;
             height: 100%;
             width: 100%;
+            overflow: hidden;
         }
     }
-
-    .slick-active .slides-images {
+    .slick-slide .slides-images {
         position: absolute;
         top: 0;
         left: 50%;
@@ -119,7 +124,7 @@
 
         &--description {
             width: 100%;
-            margin-top: -20px;
+            margin-top: -15px;
 
             p,
             h1,

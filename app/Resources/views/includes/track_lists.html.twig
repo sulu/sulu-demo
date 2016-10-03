@@ -14,6 +14,7 @@
                         <th>{{ 'length'|trans }}</th>
                         <th>{{ 'price'|trans }}</th>
                     </tr>
+
                     {% for track in block.lists|first.tracks if track.type == "track" %}
                         <tr class="tracks-content-table-data">
                             {% if track.title|default('') %}

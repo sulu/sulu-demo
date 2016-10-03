@@ -14,11 +14,11 @@
 
         <div property="contentSubheading">
             {% if content.contentSubheading|default('') %}
-            <div class="artist--detail-subheading">
-                {{ content.contentSubheading|raw }}
-            </div>
+                <div class="artist--detail-subheading">
+                    {{ content.contentSubheading|raw }}
+                </div>
+            {% endif %}
         </div>
-        {% endif %}
 
         {% include ('renderer/block_renderer.html.twig') with {
             'blocks' : content.blocks

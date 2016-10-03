@@ -21,22 +21,22 @@
 
                                     {% if artist.image|length and
                                         artist.image|first.type.name == "image" and
-                                        artist.image|first.thumbnails['360x250'] is defined  %}
+                                        artist.image|first.thumbnails['450x315'] is defined  %}
                                         {% set image = artist.image|first %}
 
-                                    {% elseif artist.image|length >= 2 and artist.image[1].thumbnails['360x250'] %}
+                                    {% elseif artist.image|length >= 2 and artist.image[1].thumbnails['450x315'] %}
                                         {% set image = artist.image[1] %}
 
                                     {% elseif artist.image|length == 1 and
                                         artist.image|first.type.name == "video" and
-                                        artist.image[0].thumbnails['360x250'] %}
+                                        artist.image[0].thumbnails['450x315'] %}
                                         {% set image = artist.image[0] %}
 
                                     {% endif %}
 
                                     {% if artist.image|length and image|default('') %}
                                         <div class="artists-content-elem-image">
-                                            <img src="{{ image.thumbnails['360x250'] }}"
+                                            <img src="{{ image.thumbnails['450x315'] }}"
                                                  alt="{{ image.title }}"/>
 
                                             {% if artist.title|default('') %}
