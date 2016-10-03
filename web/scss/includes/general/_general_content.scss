@@ -1,4 +1,5 @@
-.artist--detail, .artist {
+.artist--detail,
+.artist {
     &-heading {
         width: 100%;
         max-width: $maxwidth;
@@ -23,15 +24,18 @@
 }
 
 @media (max-width: $maxwidth--text + 20px) {
-    .artist--detail, .artist {
-        &-heading, &-subheading {
+    .artist--detail,
+    .artist {
+        &-heading,
+        &-subheading {
             padding: 0 20px;
         }
     }
 }
 
 @media (max-width: $tablet) {
-    .artist--detail, .artist {
+    .artist--detail,
+    .artist {
         &-heading {
             margin: 50px 0 25px 0;
             padding: 0 75px;
@@ -45,7 +49,8 @@
 }
 
 @media (max-width: 700px) {
-    .artist--detail, .artist {
+    .artist--detail,
+    .artist {
         &-heading {
             padding: 0 30px;
         }

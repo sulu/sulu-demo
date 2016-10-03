@@ -3,15 +3,13 @@
         <div property="headerSubheading">
             <div property="headerType">
                 {% if content.headerImage|length %}
-
                     {% set type = " headerimage--medium" %}
 
                     {% if content.headerType|default('') %}
                         {% set type = " headerimage--" ~ content.headerType %}
                     {% endif %}
 
-                    {% if content.headerImage|first.type.name == "image" and
-                        content.headerImage|first.thumbnails["1920x670"] is defined %}
+                    {% if content.headerImage|first.type.name == "image" and content.headerImage|first.thumbnails["1920x670"] is defined %}
                         <section class="headerimage {{ type }}">
                             <picture>
                                 {% if type == "large" %}
@@ -26,7 +24,6 @@
                                     <img src="{{ content.headerImage|first.thumbnails["1920x1080"] }}"
                                          alt="{{ content.headerImage|first.title }}"
                                          class="headerimage-image">
-
                                 {% elseif type == "medium" %}
                                     <source srcset="{{ content.headerImage|first.thumbnails["1920x670"] }},
                                                 {{ content.headerImage|first.thumbnails["3840x1340"] }} 2x"
@@ -43,7 +40,6 @@
                                     <img src="{{ content.headerImage|first.thumbnails["1920x670"] }}"
                                          alt="{{ content.headerImage|first.title }}"
                                          class="headerimage-image">
-
                                 {% else %}
                                     <source srcset="{{ content.headerImage|first.thumbnails["1920x300"] }},
                                                 {{ content.headerImage|first.thumbnails["3840x600"] }} 2x"
@@ -64,13 +60,13 @@
                             </picture>
 
                         {% elseif content.headerImage|first.type.name == "video" %}
-                        <section class="headerimage headerimage--video">
+                            <section class="headerimage headerimage--video">
 
-                            <video src="{{ content.headerImage|first.url }}"
-                                   autoplay
-                                   loop
-                                   muted
-                                   class="headerimage-image"></video>
+                                <video src="{{ content.headerImage|first.url }}"
+                                       autoplay
+                                       loop
+                                       muted
+                                       class="headerimage-image"></video>
                         {% endif %}
 
                         {% if content.headerHeading|default('') or content.headerSubheading|default('') %}

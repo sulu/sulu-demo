@@ -12,22 +12,14 @@
                  data-slick='{"slidesToScroll": 4, "slidesToShow": 4}'>
                 {% for disc in block.discographyData if disc.template == "discography" %}
                     <div class="discography--element-collection-item">
-
                         {% set image = "" %}
 
-                        {% if disc.image|length and
-                            disc.image|first.type.name == "image" and
-                            disc.image|first.thumbnails['400x400'] is defined %}
+                        {% if disc.image|length and disc.image|first.type.name == "image" and disc.image|first.thumbnails['400x400'] is defined %}
                             {% set image = disc.image|first %}
-
                         {% elseif disc.image|length >= 2 and disc.image[1].thumbnails['400x400'] %}
                             {% set image = disc.image[1] %}
-
-                        {% elseif disc.image|length == 1 and
-                            disc.image|first.type.name == "video" and
-                            disc.image[0].thumbnails['400x400'] %}
+                        {% elseif disc.image|length == 1 and disc.image|first.type.name == "video" and disc.image[0].thumbnails['400x400'] %}
                             {% set image = disc.image[0] %}
-
                         {% endif %}
 
                         {% if image|length %}

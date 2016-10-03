@@ -19,19 +19,12 @@
 
                                     {% set image = "" %}
 
-                                    {% if artist.image|length and
-                                        artist.image|first.type.name == "image" and
-                                        artist.image|first.thumbnails['450x315'] is defined  %}
+                                    {% if artist.image|length and artist.image|first.type.name == "image" and artist.image|first.thumbnails['450x315'] is defined  %}
                                         {% set image = artist.image|first %}
-
                                     {% elseif artist.image|length >= 2 and artist.image[1].thumbnails['450x315'] %}
                                         {% set image = artist.image[1] %}
-
-                                    {% elseif artist.image|length == 1 and
-                                        artist.image|first.type.name == "video" and
-                                        artist.image[0].thumbnails['450x315'] %}
+                                    {% elseif artist.image|length == 1 and artist.image|first.type.name == "video" and artist.image[0].thumbnails['450x315'] %}
                                         {% set image = artist.image[0] %}
-
                                     {% endif %}
 
                                     {% if artist.image|length and image|default('') %}
@@ -72,10 +65,10 @@
 
                                         {% if author|default('') %}
                                             <span class="artists-content-elem-text-posted">
-                                        <i class="artists-content-elem-text-posted-rectangle"></i>
-                                        <p class="artists-content-elem-text-posted-by">{{ 'posted'|trans }}</p>
-                                        <p class="artists-content-elem-text-posted-author">{{ author.fullName }}</p>
-                                    </span>
+                                                <i class="artists-content-elem-text-posted-rectangle"></i>
+                                                <p class="artists-content-elem-text-posted-by">{{ 'posted'|trans }}</p>
+                                                <p class="artists-content-elem-text-posted-author">{{ author.fullName }}</p>
+                                            </span>
                                         {% endif %}
 
                                         {% if artist.description|default('') %}
@@ -101,9 +94,9 @@
         <div property="discographyData">
             {% if content.discographyTitle|default('') or content.discographyData|default('') %}
                 {% include(':includes:discography_element.html.twig') with {
-                'block' : {
-                'discographyTitle': content.discographyTitle|default('') ? content.discographyTitle : '',
-                'discographyData': content.discographyData|default('') ? content.discographyData : ''
+                    'block' : {
+                    'discographyTitle': content.discographyTitle|default('') ? content.discographyTitle : '',
+                    'discographyData': content.discographyData|default('') ? content.discographyData : ''
                 } } %}
             {% endif %}
         </div>

@@ -29,23 +29,33 @@
 
             }
 
+            th {
+                text-transform: uppercase;
+                color: $colorblack--lighter03;
+                width: 100px;
+                text-align: center;
+
+                &:first-child {
+                    width: calc(100% - 200px);
+                    text-align: left;
+                }
+            }
+
+            td {
+                width: 100px;
+                text-align: center;
+
+                &:first-child {
+                    width: calc(100% - 200px);
+                    text-align: left;
+                }
+            }
+
             &-head {
                 line-height: 18px;
                 vertical-align: middle;
                 border-top: 1px solid $colorblack--lighter03;
                 border-bottom: 1px solid $colorblack--lighter03;
-
-                th {
-                    text-transform: uppercase;
-                    color: $colorblack--lighter03;
-                    width: 100px;
-                    text-align: center;
-
-                    &:first-child {
-                        width: calc(100% - 200px);
-                        text-align: left;
-                    }
-                }
             }
 
             &-data {
@@ -67,16 +77,6 @@
 
                     .no-touchevents &:hover {
                         background-color: $colorblack--lighter03;
-                    }
-                }
-
-                td {
-                    width: 100px;
-                    text-align: center;
-
-                    &:first-child {
-                        width: calc(100% - 200px);
-                        text-align: left;
                     }
                 }
             }

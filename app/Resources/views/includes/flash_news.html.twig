@@ -28,7 +28,6 @@
 
         <div property="image" class="grid__item desk--six-tenths">
             {% if block.image|first.thumbnails['980x680'] is defined %}
-
                 <picture>
                     <source srcset="{{ block.image|first.thumbnails["980x680"] }},
                                 {{ block.image|first.thumbnails["1960x1360"] }} 2x">
