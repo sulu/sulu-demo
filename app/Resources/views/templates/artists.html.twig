@@ -19,7 +19,7 @@
 
                                     {% set image = "" %}
 
-                                    {% if artist.image|length and artist.image|first.type.name == "image" and artist.image|first.thumbnails['450x315'] is defined  %}
+                                    {% if artist.image|length and artist.image|first.type.name == "image" and artist.image|first.thumbnails['450x315'] is defined %}
                                         {% set image = artist.image|first %}
                                     {% elseif artist.image|length >= 2 and artist.image[1].thumbnails['450x315'] %}
                                         {% set image = artist.image[1] %}
@@ -71,9 +71,13 @@
                                             </span>
                                         {% endif %}
 
-                                        {% if artist.description|default('') %}
-                                            {{ artist.description|raw }}
-                                        {% endif %}
+                                        {% for block in artist.blocks if block.type == "text" %}
+                                            {% if loop.first %}
+                                                <div class="artists-content-elem-text-text">
+                                                    {{ block.text|raw }}
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
 
                                         {% if artist.url|default('') %}
                                             <a href="{{ url }}" class="button--medium">

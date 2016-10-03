@@ -61,6 +61,19 @@
                 box-sizing: border-box;
                 background-color: $colorblack--lighter05;
 
+                &-text {
+                    display: block;
+                    display: -webkit-box;
+                    max-width: 100%;
+                    max-height: 14px*1.5*3;
+                    font-size: 14px;
+                    line-height: 1.5;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
                 &-date {
                     font-size: 13px;
                     line-height: 15px;

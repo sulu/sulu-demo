@@ -10,6 +10,7 @@
 
 // TEMPLATES
 @import 'templates/artists';
+@import 'templates/blog';
 
 // IMPORTS
 @import '../../node_modules/slick-carousel/slick/slick';
@@ -25,19 +26,19 @@
 
 // INCLUDES - GENERAL
 @import 'includes/general/headerimage';
-@import 'includes/general/content_general';
+@import 'includes/general/content-general';
 
 // INCLUDES - DETAILED PAGES
-@import 'includes/detail_pages/heading';
-@import 'includes/detail_pages/subheading';
-@import 'includes/detail_pages/text';
-@import 'includes/detail_pages/author';
-@import 'includes/detail_pages/quote';
-@import 'includes/detail_pages/article_gallery';
-@import 'includes/detail_pages/media_gallery';
-@import 'includes/detail_pages/flash_news';
-@import 'includes/detail_pages/action';
-@import 'includes/detail_pages/track_lists';
+@import 'includes/detail-pages/heading';
+@import 'includes/detail-pages/subheading';
+@import 'includes/detail-pages/text';
+@import 'includes/detail-pages/author';
+@import 'includes/detail-pages/quote';
+@import 'includes/detail-pages/article-gallery';
+@import 'includes/detail-pages/media-gallery';
+@import 'includes/detail-pages/flash-news';
+@import 'includes/detail-pages/action';
+@import 'includes/detail-pages/track-lists';
 
 // INCLUDES - HOME
 @import 'includes/home/biography';

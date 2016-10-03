@@ -14,6 +14,10 @@ b {
     letter-spacing: 0;
 }
 
+b, strong {
+    font-weight: bold;
+}
+
 a {
     text-decoration: none;
     font-family: $fontregular;

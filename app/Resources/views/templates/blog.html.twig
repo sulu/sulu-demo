@@ -1,74 +1,81 @@
 {% extends "master.html.twig" %}
 
 {% block content %}
-    <div property="headerImage">
-        <div property="headerHeading">
-            <div property="headerSubheading">
-                {% if content.headerImage|length %}
-                    {% include(':includes:headerimage.html.twig') with {
-                    'image' : content.headerImage|first,
-                    'kind' : 'headerimage-text--left',
-                    'headingposition' : 'heading--left',
-                    'heading' : content.headerHeading,
-                    'text': content.headerSubheading
-                    } %}
-                {% endif %}
-            </div>
-        </div>
-    </div>
+    {% include(':includes:headerimage.html.twig') %}
 
-    <section class="blog">
-        <div class="grid">
-            <div property="articles" class="grid__item desk--four-fifths portable--one-whole">
-                <h4 class="heading--h4--border">Blog</h4>
+    <section property="articles" class="blog">
+        {% for article in content.articles %}
+            <div class="blog-item">
+                <div class="grid">
+                    <div class="grid__item desk--five-tenths lap--one-half palm--one-whole">
+                        {% if article.image|length and article.image|first.thumbnails['600x300'] is defined %}
+                            <picture>
+                                <source srcset="{{ article.image|first.thumbnails["600x300"] }}, {{ article.image|first.thumbnails["1200x600"] }} 2x"
+                                        media="(min-width: 1024px)">
 
-                {% for article in content.articles %}
-                    <div class="grid">
-                        <div class="grid__item desk--four-tenths lap--one-third palm--one-whole">
-                            <img src="{{ article.image|first.thumbnails['480x'] }}" class="blog-image"/>
-                        </div>
+                                <source srcset="{{ article.image|first.thumbnails["500x375"] }}, {{ article.image|first.thumbnails["1000x750"] }} 2x"
+                                        media="(max-width: 1024px)">
 
-                        <div class="grid__item desk--six-tenths lap--two-thirds palm--one-whole">
-                            <div class="blog-text">
-                                <p class="blog-text-date">{{ article.published.date|date("d.m.Y") }}</p>
+                                <img src="{{ article.image|first.thumbnails['600x300'] }}"
+                                     alt="{{ article.image|first.title }}"
+                                     class="blog-item-image"/>
+                            </picture>
+                        {% endif %}
+                    </div>
 
-                                <h5 class="heading--h5">{{ article.heading }}</h5>
-
-                                <span class="blog-text-subheading">
-                                    posted by <a href="#">{{ sulu_resolve_user(article.changer).contact.fullName }}</a>
-
-                                    {% if article.categories|length >0 %}
-                                        <i class="ion-ios-arrow-forward"></i>
-
-                                        {% for category in article.categories %}
-                                        {% if loop.index != article.categories|length %}
-                                            <a href="{{ link }}?categories={{ category.id }}"
-                                               class="blog-text-subheading-category">
-                                                    {{ category.name }},
-                                                </a>
-                                                    {% else %}
-                                            <a href="{{ link }}?categories={{ category.id }}"
-                                               class="blog-text-subheading-category">
-                                                    {{ category.name }}
-                                                </a>
-                                        {% endif %}
-                                    {% endfor %}
-                                    {% endif %}
-                                </span>
-
-                                <p>
-                                    {{ article.text }}
+                    <div class="grid__item desk--five-tenths lap--one-half palm--one-whole">
+                        <div class="blog-item-text">
+                            {% if article.published.date|default('') %}
+                                <p class="blog-item-text-date">
+                                    {{ article.published.date|date("d.m.Y") }}
                                 </p>
+                            {% endif %}
 
-                                <a href="{{ article.url }}" class="blog-text-button">Read More</a>
-                            </div>
+                            {% if article.heading|default('') %}
+                                <p class="blog-item-text-heading">
+                                    {{ article.heading }}
+                                </p>
+                            {% endif %}
+
+                            {% set author = "" %}
+
+                            {% for block in article.blocks if block.type == "author" %}
+                                {% if block.author|length and author != "" %}
+                                    {% set author = sulu_resolve_contact(block.author|first.id) %}
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if author == "" %}
+                                {% set author = sulu_resolve_contact(article.creator) %}
+                            {% endif %}
+
+                            {% if author|default('') %}
+                                <span class="author">
+                                    <i class="author-rectangle"></i>
+                                    <p class="author-by">{{ 'posted'|trans }}</p>
+                                    <p class="author-author">{{ author.fullName }}</p>
+                                </span>
+                            {% endif %}
+
+                            {% for block in article.blocks if block.type == "text" %}
+                                {% if loop.first %}
+                                    <div class="blog-item-text-text">
+                                        {{ block.text|raw }}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if article.url|default('') %}
+                                <a href="{{ sulu_content_path(article.url) }}" class="button--medium">
+                                    {{ 'read_more'|trans }}
+                                </a>
+                            {% endif %}
                         </div>
                     </div>
-                {% endfor %}
+                </div>
             </div>
-
-            {# Sidemenu #}
-            {% include(':includes:blogsidemenu.html.twig') %}
-        </div>
+        {% endfor %}
     </section>
+
+    {% include (':includes:article_gallery.html.twig') %}
 {% endblock %}

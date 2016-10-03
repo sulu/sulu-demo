@@ -47,11 +47,15 @@
             </meta>
 
             <properties>
-                <property name="headerImage" type="media_selection" mandatory="true">
+                <property name="headerImage" type="media_selection">
                     <meta>
                         <title lang="en">Header Image</title>
                         <title lang="de">Header - Bild</title>
                     </meta>
+
+                    <params>
+                        <param name="type" value="image, video"/>
+                    </params>
                 </property>
 
                 <property name="headerHeading" type="text_line">
@@ -61,11 +65,40 @@
                     </meta>
                 </property>
 
-                <property name="headerSubheading" type="text_area">
+                <property name="headerSubheading" type="text_editor">
                     <meta>
                         <title lang="en">Header Subheading</title>
                         <title lang="de">Header - Unter Überschrift</title>
                     </meta>
+                </property>
+
+                <property name="headerType" type="single_select">
+                    <meta>
+                        <title lang="en">Header Size</title>
+                        <title lang="de">Header Größe</title>
+                    </meta>
+                    <params>
+                        <param name="values" type="collection">
+                            <param name="small">
+                                <meta>
+                                    <title lang="en">Small</title>
+                                    <title lang="de">Klein</title>
+                                </meta>
+                            </param>
+                            <param name="medium">
+                                <meta>
+                                    <title lang="en">Medium</title>
+                                    <title lang="de">Mittel</title>
+                                </meta>
+                            </param>
+                            <param name="large">
+                                <meta>
+                                    <title lang="en">Large</title>
+                                    <title lang="de">Groß</title>
+                                </meta>
+                            </param>
+                        </param>
+                    </params>
                 </property>
             </properties>
         </section>
@@ -78,12 +111,51 @@
 
             <params>
                 <param name="properties" type="collection">
-                    <param name="heading" value="contentHeading"/>
-                    <param name="text" value="contentSubheading"/>
-                    <param name="image" value="contentTitleimage"/>
+                    <param name="heading" value="title"/>
+                    <param name="blocks" value="blocks"/>
+                    <param name="author" value="author"/>
+                    <param name="image" value="headerImage"/>
                     <param name="categories" value="excerpt.categories"/>
                 </param>
             </params>
         </property>
+
+        <section name="articleGallery">
+            <meta>
+                <title lang="en">Article Gallery</title>
+                <title lang="de">Artikel Gallerie</title>
+            </meta>
+
+            <properties>
+                <property name="articlesHeading" type="text_line">
+                    <meta>
+                        <title lang="en">Heading</title>
+                        <title lang="de">Überschrift</title>
+                    </meta>
+                </property>
+
+                <property name="articlesBackground" type="checkbox">
+                    <meta>
+                        <title lang="en">Background Color</title>
+                        <title lang="de">Hintergrundfarbe</title>
+                    </meta>
+
+                    <params>
+                        <param name="type" value="toggler"/>
+                    </params>
+                </property>
+
+                <property name="articlesShow" type="checkbox">
+                    <meta>
+                        <title lang="en">Show Article Gallery</title>
+                        <title lang="de">Zeige Artikel Gallerie</title>
+                    </meta>
+
+                    <params>
+                        <param name="type" value="toggler"/>
+                    </params>
+                </property>
+            </properties>
+        </section>
     </properties>
 </template>

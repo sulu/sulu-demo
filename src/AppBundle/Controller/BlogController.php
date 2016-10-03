@@ -76,8 +76,12 @@ class BlogController extends WebsiteController
 
         if (!empty($structure->getDocument()->getChildren())) {
             $children = $structure->getChildren();
-            $articles = SortUtils::multisort($children, 'created');
-            $latestArticles = $this->createOverviewArticles($this->getLatestArticle($articles, 4));
+            $articlelist = SortUtils::multisort($children, 'created');
+            $articles = [];
+            for ($i = 0; $i <= count($articlelist) -1; $i++) {
+                $articles[$i] = $articlelist[$i]->getDocument();
+            }
+            $latestArticles = $this->createOverviewArticles($this->getLatestArticle($articles, 4, $structure->getUuid()));
             $link = $structure->getPropertiesByTagName("sulu.rlp")[0]->getValue();
         }
 
@@ -114,10 +118,10 @@ class BlogController extends WebsiteController
         }
 
         if ($index != -1) {
-            unset($articles[$index]);
+            array_splice($articles, $index, 1);
         }
 
-        for ($i = 1; $i <= ((count($articles) >= $anzArt) ? $anzArt : count($articles)); $i++) {
+        for ($i = 0; $i <= ((count($articles) >= $anzArt) ? $anzArt -1 : count($articles) -1); $i++) {
             $lastarticles[$i] = $articles[$i];
         }
 
@@ -204,12 +208,12 @@ class BlogController extends WebsiteController
         $result = [];
 
         foreach ($article as $key => $item) {
-            $structure = $item->getDocument()->getStructure();
+            $structure = $item->getStructure();
 
             $result[$key] = [
-                'image' => $structure->getProperty('contentTitleimage'),
+                'image' => $structure->getProperty('headerImage'),
                 'url' => $structure->getProperty('url'),
-                'heading' => $structure->getProperty('contentHeading'),
+                'heading' => $structure->getProperty('title'),
                 'creation' => $item->getChanged()
             ];
         }

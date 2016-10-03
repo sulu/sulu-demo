@@ -226,6 +226,22 @@
         <scale x="400" y="400"/>
     </format>
 
+    <format key="600x300">
+        <meta>
+            <title lang="de">Blog Übersichten Bild</title>
+            <title lang="en">Blog Overview Image</title>
+        </meta>
+        <scale x="600" y="300"/>
+    </format>
+
+    <format key="1200x600">
+        <meta>
+            <title lang="de">Blog Übersichten Bild - Retina</title>
+            <title lang="en">Blog Overview Image - Retina</title>
+        </meta>
+        <scale x="1200" y="600"/>
+    </format>
+
     <format key="450x315">
         <meta>
             <title lang="de">Künstler Übersicht Bild</title>
