@@ -1,21 +1,25 @@
-<div rel="blocks" typeof="block" class="media--gallery">
-    <div property="medias" class="media--gallery-content">
-        {% if block.medias|length %}
-            <div data-slick='{"slidesToShow": 3, "slidesToScroll": 3}'
-                 class="js-media--gallery">
-                {% for media in block.medias if media.thumbnails['500x375'] %}
-                    <div class="media--gallery-content-elem">
-                        <picture>
-                            <source srcset="{{ media.thumbnails['500x375'] }},
+<div rel="blocks" typeof="block">
+    <div property="background" class="{{ block.background ? 'background' : '' }}">
+        <div class="media--gallery">
+            <div property="medias" class="media--gallery-content">
+                {% if block.medias|length %}
+                    <div data-slick='{"slidesToShow": 3, "slidesToScroll": 3}'
+                         class="js-media--gallery">
+                        {% for media in block.medias if media.thumbnails['500x375'] %}
+                            <div class="media--gallery-content-elem">
+                                <picture>
+                                    <source srcset="{{ media.thumbnails['500x375'] }},
                                 {{ media.thumbnails["1000x750"] }} 2x"/>
 
-                            <img src="{{ media.thumbnails['500x375'] }}"
-                                 alt="{{ media.description }}"
-                                 class="media--gallery-content-elem-image">
-                        </picture>
+                                    <img src="{{ media.thumbnails['500x375'] }}"
+                                         alt="{{ media.description }}"
+                                         class="media--gallery-content-elem-image">
+                                </picture>
+                            </div>
+                        {% endfor %}
                     </div>
-                {% endfor %}
+                {% endif %}
             </div>
-        {% endif %}
+        </div>
     </div>
 </div>

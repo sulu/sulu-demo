@@ -75,7 +75,7 @@
                 <property name="headerType" type="single_select">
                     <meta>
                         <title lang="en">Header Size</title>
-                        <title lang="en">Kopf Größe</title>
+                        <title lang="de">Kopf Größe</title>
                     </meta>
                     <params>
                         <param name="values" type="collection">

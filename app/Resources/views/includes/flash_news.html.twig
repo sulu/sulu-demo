@@ -1,6 +1,6 @@
 <section class="news--flash" rel="blocks" typeof="block">
     <div class="grid">
-        <div class="grid__item desk--four-tenths">
+        <div class="grid__item desk--one-half">
             <div class="news--flash-text">
                 <div property="title">
                     {% if block.title|default('') %}
@@ -23,10 +23,19 @@
                         {{ block.text|raw }}
                     {% endif %}
                 </div>
+
+                <div property="link">
+                    {% if block.link|default('') %}
+                        <a class="button--medium"
+                           href="{{ sulu_content_load(block.link).urls[request.locale] }}">
+                            {{ 'more'|trans }}
+                        </a>
+                    {% endif %}
+                </div>
             </div>
         </div>
 
-        <div property="image" class="grid__item desk--six-tenths">
+        <div property="image" class="grid__item desk--one-half">
             {% if block.image|first.thumbnails['980x680'] is defined %}
                 <picture>
                     <source srcset="{{ block.image|first.thumbnails["980x680"] }},

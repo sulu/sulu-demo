@@ -1,0 +1,64 @@
+<div property="articlesShow">
+    {% if content.articlesShow %}
+        <div property="articlesBackground" class="{{ content.articlesBackground ? 'background' : '' }}">
+            <div property="articlesHeading">
+                <section class="article--gallery">
+                    {% if content.articlesHeading|default("") %}
+                        <h2 class="article--gallery-heading heading--h2">
+                            {{ content.articlesHeading }}
+                        </h2>
+                    {% endif %}
+
+                    <div property="articleData"
+                         class="js-article--gallery-collection"
+                         data-slick='{"slidesToScroll": 4, "slidesToShow": 4}'>
+                        {% for article in latestArticles if article.image.ids|length %}
+                            <div class="article--gallery-collection-item">
+                                {% set images = sulu_resolve_medias(article.image.ids, request.locale) %}
+
+                                {% set image = "" %}
+
+                                {% if images|length and images|first.type.name == "image" and images|first.thumbnails['400x400'] is defined %}
+                                    {% set image = images|first %}
+                                {% elseif images|length >= 2 and images[1].thumbnails['400x400'] %}
+                                    {% set image = images[1] %}
+                                {% elseif images|length == 1 and images|first.type.name == "video" and images[0].thumbnails['400x400'] %}
+                                    {% set image = images[0] %}
+                                {% endif %}
+
+                                {% if image|length %}
+                                    <div class="article--gallery-collection-item-image">
+                                        <picture>
+                                            <source srcset="{{ image.thumbnails["400x400"] }},
+                                            {{ image.thumbnails["800x800"] }} 2x">
+
+                                            <img src="{{ image.thumbnails['400x400'] }}"
+                                                 alt="{{ image.title }}"/>
+                                        </picture>
+
+                                        <div class="article--gallery-collection-item-text">
+                                            {% if article.heading is defined and article.heading.value|default('') %}
+                                                {% if article.url is defined and article.url.value|default('') %}
+                                                    <a href="{{ sulu_content_path(article.url.value) }}"
+                                                       class="article--gallery-collection-item-text-heading">
+                                                        {{ article.heading.value }}
+                                                    </a>
+                                                {% endif %}
+                                            {% endif %}
+
+                                            {% if article.creation is defined and article.creation.date|default('') %}
+                                                <p class="article--gallery-collection-item-text-creation">
+                                                    {{ article.creation.date|time_diff }}
+                                                </p>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </section>
+            </div>
+        </div>
+    {% endif %}
+</div>

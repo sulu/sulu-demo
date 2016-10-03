@@ -1,9 +1,11 @@
 .news--flash {
     background-color: $colorblack--lighter05;
-    padding-left: calc((100% - #{$maxwidth--text}) / 5 * 2);
 
     &-text {
-        padding: 75px 100px 0 0;
+        padding: 75px 100px 0 120px;
+        max-width: $maxwidth / 2;
+        margin-left: auto;
+        box-sizing: border-box;
 
         &-title {
             margin-bottom: 10px;
@@ -32,6 +34,7 @@
 
         &-text {
             padding: 65px 75px 70px 75px;
+            max-width: none;
 
             &-heading {
                 max-width: 465px;

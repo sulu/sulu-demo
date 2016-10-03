@@ -5,7 +5,7 @@
         max-width: $maxwidth;
         width: 100%;
         margin: 0 auto;
-        padding: 75px;
+        padding: 75px 205px 75px 120px;
         box-sizing: border-box;
 
         &-heading {
@@ -16,7 +16,7 @@
             font-weight: bold;
             max-width: 460px;
             width: 100%;
-            padding: 75px 0 15px 0;
+            padding: 0px 0 15px 0;
         }
 
         &-table {

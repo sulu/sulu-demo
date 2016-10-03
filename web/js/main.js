@@ -2,10 +2,11 @@ var $ = require('jquery');
 require('slick-carousel');
 
 $("#js-nav-button").click(function () {
-    $(".nav-elem--admin").fadeToggle();
-    $(".nav-elem--items").fadeToggle();
+    //TODO: Change values for animation
     if($(".nav").hasClass('open')) {
         $(".nav").removeClass('open');
+        $(".nav-elem--admin").fadeToggle(1000, "linear");
+        $(".nav-elem--items").fadeToggle(1000, "linear");
         $(".nav-elem--button").fadeTo(500, 0, function () {
             $(".ion-close").addClass('ion-navicon').css('font-size','38px');
             $(".ion-close").removeClass('ion-close');
@@ -13,6 +14,8 @@ $("#js-nav-button").click(function () {
         });
     } else {
         $(".nav").addClass('open');
+        $(".nav-elem--admin").fadeToggle(1000, "linear");
+        $(".nav-elem--items").fadeToggle(1000, "linear");
         $(".nav-elem--button").fadeTo(500, 0, function () {
             $(".ion-navicon").addClass('ion-close').css('font-size','28px');
             $(".ion-navicon").removeClass('ion-navicon');
@@ -62,6 +65,29 @@ $(".js-artist--element-collection").slick({
 });
 
 $(".js-discography--element-collection").slick({
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    arrows: false,
+    draggable: true,
+    responsive: [{
+        breakpoint: 1023,
+        settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            dots: true
+        }
+    }, {
+        breakpoint: 480,
+        settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: true
+        }
+    }]
+});
+
+$(".js-article--gallery-collection").slick({
     infinite: true,
     autoplay: true,
     autoplaySpeed: 5000,
