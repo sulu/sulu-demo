@@ -105,7 +105,6 @@ class BlogController extends WebsiteController
     public function getLatestArticle($articles, $anzArt, $uuid)
     {
         $lastarticles = [];
-
         $index = -1;
 
         for ($i = 0; $i <= count($articles) - 1; $i++) {

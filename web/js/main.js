@@ -87,7 +87,7 @@ $(".js-discography--element-collection").slick({
     }]
 });
 
-$(".js-article--gallery-collection").slick({
+$(".js-article-collection").slick({
     infinite: true,
     autoplay: true,
     autoplaySpeed: 5000,
@@ -110,7 +110,7 @@ $(".js-article--gallery-collection").slick({
     }]
 });
 
-$(".js-media--gallery").slick({
+$(".js-media-gallery").slick({
     infinite: true,
     autoplay: true,
     autoplaySpeed: 5000,

@@ -1,4 +1,4 @@
-.article--gallery {
+.article {
     max-width: $maxwidth;
     margin: 0 auto;
     padding: 150px 0;
@@ -20,13 +20,14 @@
 
             &-text {
                 padding: 10px;
-                &-heading {
+
+                .text-heading {
                     color: $colorblack;
                     font-size: 24px;
                     font-weight: bold;
                 }
 
-                &-creation {
+                .text-creation {
                     margin-top: 5px;
                     color: #676767;
                     font-size: 14px;
@@ -37,19 +38,19 @@
 }
 
 @media(max-width: $maxwidth + 20px) {
-    .article--gallery {
+    .article {
         padding: 150px 20px;
     }
 }
 
 @media(max-width: $tablet) {
-    .article--gallery {
+    .article {
         padding: 75px;
     }
 }
 
 @media (max-width: 700px) {
-    .article--gallery {
+    .article {
         padding: 30px 15px;
 
         &-heading {

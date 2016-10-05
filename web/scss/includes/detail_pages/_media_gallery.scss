@@ -1,4 +1,4 @@
-.media--gallery {
+.media-gallery {
     max-width: $maxwidth;
     width: 100%;
     margin: 100px auto;
@@ -18,7 +18,7 @@
 }
 
 @media (max-width: $tablet) {
-    .media--gallery {
+    .media-gallery {
         margin: 50px 0;
 
         &-content {
@@ -32,7 +32,7 @@
 }
 
 @media (max-width: $mobile) {
-    .media--gallery {
+    .media-gallery {
         margin: 25px 0;
     }
 }
