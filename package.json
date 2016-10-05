@@ -5,7 +5,8 @@
     "build:css": "compass compile --sass-dir=web/scss --css-dir=web/dist/css -s compressed",
     "update:ionicons": "cp -R node_modules/ionicons-npm/fonts/* web/fonts/",
     "build": "npm run build:js && npm run build:css",
-    "watch": "compass watch --sass-dir=web/scss --css-dir=web/dist/css -s compressed"
+    "watch:css": "compass watch --sass-dir=web/scss --css-dir=web/dist/css -s compressed",
+    "watch:js": "watchify web/js/main.js -o web/dist/js/main.min.js -v"
   },
   "dependencies": {
     "ionicons-npm": "^2.0.1",
@@ -15,6 +16,7 @@
   },
   "devDependencies": {
     "browserify": "^13.1.0",
-    "uglify-js": "^2.7.3"
+    "uglify-js": "^2.7.3",
+    "watchify": "^3.7.0"
   }
 }

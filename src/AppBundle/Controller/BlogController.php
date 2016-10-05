@@ -34,7 +34,9 @@ class BlogController extends WebsiteController
         $articles = array();
 
         foreach ($parent->getChildren() as $item) {
-            array_push($articles, $item);
+            if ($item->getStructureType() == "blog_detail") {
+                array_push($articles, $item);
+            }
         }
 
         /** @var PageDocument[] $articles */
@@ -46,7 +48,7 @@ class BlogController extends WebsiteController
             $structure,
             [
                 'lastAndPrevArticle' => $this->createDetailArticles($this->getPrevAndNextArticle($articles, $structure->getUuid())),
-                'latestArticles' => $this->createDetailArticles($this->getLatestArticle($articles, 4)),
+                'latestArticles' => $this->createDetailArticles($this->getLatestArticle($articles, 4, $structure->getUuid())),
                 'link' => $document->getParent()->getResourceSegment()
 
             ],
@@ -100,15 +102,26 @@ class BlogController extends WebsiteController
      *
      * @return array
      */
-    public function getLatestArticle($articles, $anzArt)
+    public function getLatestArticle($articles, $anzArt, $uuid)
     {
         $lastarticles = [];
+        $index = -1;
 
-        for ($i = 1; $i <= ((count($articles) >= $anzArt) ? $anzArt : count($articles)); $i++) {
-            $lastarticles[$i] = $articles[count($articles) - $i];
+        for ($i = 0; $i <= count($articles) - 1; $i++) {
+            if ($articles[$i]->getUuid() == $uuid) {
+                $index = $i;
+            }
         }
 
-        return $lastarticles;
+        if ($index != -1) {
+            unset($articles[$index]);
+        }
+
+        for ($i = 1; $i <= ((count($articles) >= $anzArt) ? $anzArt : count($articles)); $i++) {
+            $lastarticles[$i] = $articles[$i];
+        }
+
+        return array_reverse($lastarticles);
     }
 
     /**
@@ -156,16 +169,16 @@ class BlogController extends WebsiteController
             $heading = null;
             $creation = $creation = $item->getChanged();
 
-            if ($structure->hasProperty('contentTitleimage')) {
-                $image = $structure->getProperty('contentTitleimage');
+            if ($structure->hasProperty('headerImage')) {
+                $image = $structure->getProperty('headerImage');
             }
 
             if ($structure->hasProperty('url')) {
                 $url = $structure->getProperty('url');
             }
 
-            if ($structure->hasProperty('contentHeading')) {
-                $heading = $structure->getProperty('contentHeading');
+            if ($structure->hasProperty('title')) {
+                $heading = $structure->getProperty('title');
             }
 
             $result[$key] = [

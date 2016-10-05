@@ -25,11 +25,15 @@
 
 // INCLUDES - GENERAL
 @import 'includes/general/headerimage';
-@import 'includes/general/general_content';
+@import 'includes/general/content_general';
 
 // INCLUDES - DETAILED PAGES
+@import 'includes/detail_pages/heading';
+@import 'includes/detail_pages/subheading';
 @import 'includes/detail_pages/text';
+@import 'includes/detail_pages/author';
 @import 'includes/detail_pages/quote';
+@import 'includes/detail_pages/article_gallery';
 @import 'includes/detail_pages/media_gallery';
 @import 'includes/detail_pages/flash_news';
 @import 'includes/detail_pages/action';

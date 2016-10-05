@@ -4,22 +4,6 @@
     <section class="artist--detail">
         {% include(':includes:headerimage.html.twig') %}
 
-        <div property="contentHeading">
-            {% if content.contentHeading|default('') %}
-                <h2 class="artist--detail-heading heading--h2">
-                    {{ content.contentHeading }}
-                </h2>
-            {% endif %}
-        </div>
-
-        <div property="contentSubheading">
-            {% if content.contentSubheading|default('') %}
-                <div class="artist--detail-subheading">
-                    {{ content.contentSubheading|raw }}
-                </div>
-            {% endif %}
-        </div>
-
         {% include ('renderer/block_renderer.html.twig') with {
             'blocks' : content.blocks
         } %}

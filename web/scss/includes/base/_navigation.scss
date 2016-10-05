@@ -13,7 +13,7 @@
 
         &--logo {
             height: 34px;
-            margin: 17px 0 0 40px;
+            margin: 17px 0 0 25px;
             opacity: 0.925;
 
             img {
@@ -44,6 +44,11 @@
                     text-decoration: none;
                     -webkit-font-smoothing: antialiased;
                     -moz-osx-font-smoothing: grayscale;
+
+                    .no-touchevents &:hover {
+                        color: $colorred;
+                        text-decoration: none;
+                    }
                 }
 
                 a:active {
@@ -75,9 +80,9 @@
                     text-decoration: underline;
                 }
 
-                &:hover {
+                .no-touchevents &:hover {
+                    color: $colorred;
                     text-decoration: none;
-                    color: $colorwhite;
                 }
             }
         }
@@ -95,7 +100,7 @@
             display: none;
             margin: 0;
             position: fixed;
-            right: 15px;
+            right: 10px;
             top: 0;
             line-height: 65px;
             padding: 0 15px;
@@ -167,7 +172,7 @@
 @media(max-width: $tablet) {
     .nav {
         &:after {
-            @include transition(opacity, 1s, ease);
+            @include transition(opacity, 1s, linear);
         }
 
         &-elem {
@@ -215,7 +220,7 @@
             &--language {
                 position: fixed;
                 top: 0px;
-                right: 75px;
+                right: 60px;
                 font-size: 25px;
 
                 a {

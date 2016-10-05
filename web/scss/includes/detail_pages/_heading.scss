@@ -1,0 +1,26 @@
+.heading {
+    width: 100%;
+    max-width: $maxwidth;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 100px 205px 20px 120px;
+}
+
+@media (max-width: $maxwidth--text + 20px) {
+    .heading {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: $tablet) {
+    .heading {
+        margin: 50px 0 25px 0;
+        padding: 0 75px;
+    }
+}
+
+@media (max-width: 700px) {
+    .heading {
+        padding: 0 30px;
+    }
+}

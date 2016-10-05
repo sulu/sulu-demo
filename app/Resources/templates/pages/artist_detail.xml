@@ -110,40 +110,72 @@
             </properties>
         </section>
 
-        <section name="content">
+        <block name="blocks" default-type="editor" minOccurs="0">
             <meta>
-                <title lang="de">Inhalt</title>
                 <title lang="en">Content</title>
+                <title lang="de">Inhalte</title>
             </meta>
 
-            <properties>
-                <property name="contentHeading" type="text_line">
+            <types>
+                <type name="heading">
                     <meta>
                         <title lang="en">Heading</title>
                         <title lang="de">Überschrift</title>
                     </meta>
-                </property>
 
-                <property name="contentSubheading" type="text_editor">
+                    <properties>
+                        <property name="heading" type="text_line">
+                            <meta>
+                                <title lang="en">Heading</title>
+                                <title lang="de">Überschrift</title>
+                            </meta>
+                        </property>
+
+                        <property name="background" type="checkbox">
+                            <meta>
+                                <title lang="en">Background Color</title>
+                                <title lang="de">Hintergrundfarbe</title>
+                            </meta>
+
+                            <params>
+                                <param name="type" value="toggler"/>
+                            </params>
+                        </property>
+                    </properties>
+                </type>
+
+
+                <type name="subheading">
                     <meta>
                         <title lang="en">Subheading</title>
                         <title lang="de">Unter Überschrift</title>
                     </meta>
-                </property>
-            </properties>
-        </section>
 
-        <block name="blocks" default-type="editor" minOccurs="0">
-            <meta>
-                <title lang="de">Inhalte</title>
-                <title lang="en">Content</title>
-            </meta>
+                    <properties>
+                        <property name="subheading" type="text_editor">
+                            <meta>
+                                <title lang="en">Subheading</title>
+                                <title lang="de">Unter Überschrift</title>
+                            </meta>
+                        </property>
 
-            <types>
+                        <property name="background" type="checkbox">
+                            <meta>
+                                <title lang="en">Background Color</title>
+                                <title lang="de">Hintergrundfarbe</title>
+                            </meta>
+
+                            <params>
+                                <param name="type" value="toggler"/>
+                            </params>
+                        </property>
+                    </properties>
+                </type>
+
                 <type name="text">
                     <meta>
-                        <title lang="de">Text</title>
                         <title lang="en">Text</title>
+                        <title lang="de">Text</title>
                     </meta>
 
                     <properties>
@@ -153,13 +185,24 @@
                                 <title lang="de">Text</title>
                             </meta>
                         </property>
+
+                        <property name="background" type="checkbox">
+                            <meta>
+                                <title lang="en">Background Color</title>
+                                <title lang="de">Hintergrundfarbe</title>
+                            </meta>
+
+                            <params>
+                                <param name="type" value="toggler"/>
+                            </params>
+                        </property>
                     </properties>
                 </type>
 
                 <type name="quote">
                     <meta>
-                        <title lang="de">Quote</title>
                         <title lang="en">Zitat</title>
+                        <title lang="de">Quote</title>
                     </meta>
 
                     <properties>
@@ -169,13 +212,24 @@
                                 <title lang="de">Zitat</title>
                             </meta>
                         </property>
+
+                        <property name="background" type="checkbox">
+                            <meta>
+                                <title lang="en">Background Color</title>
+                                <title lang="de">Hintergrundfarbe</title>
+                            </meta>
+
+                            <params>
+                                <param name="type" value="toggler"/>
+                            </params>
+                        </property>
                     </properties>
                 </type>
 
                 <type name="media_gallery">
                     <meta>
-                        <title lang="de">Medien</title>
                         <title lang="en">Media</title>
+                        <title lang="de">Medien</title>
                     </meta>
 
                     <properties>
@@ -189,13 +243,24 @@
                                 <param name="type" value="image"/>
                             </params>
                         </property>
+
+                        <property name="background" type="checkbox">
+                            <meta>
+                                <title lang="en">Background Color</title>
+                                <title lang="de">Hintergrundfarbe</title>
+                            </meta>
+
+                            <params>
+                                <param name="type" value="toggler"/>
+                            </params>
+                        </property>
                     </properties>
                 </type>
 
                 <type name="flash_news">
                     <meta>
-                        <title lang="de">Flash News</title>
                         <title lang="en">Flash News</title>
+                        <title lang="de">Flash News</title>
                     </meta>
 
                     <properties>
@@ -230,13 +295,20 @@
                                 <param name="types" value="image"/>
                             </params>
                         </property>
+
+                        <property name="link" type="single_internal_link">
+                            <meta>
+                                <title lang="en">Link</title>
+                                <title lang="de">Link</title>
+                            </meta>
+                        </property>
                     </properties>
                 </type>
 
                 <type name="discography_element">
                     <meta>
-                        <title lang="de">Discographie</title>
                         <title lang="en">Discography</title>
+                        <title lang="de">Discographie</title>
                     </meta>
 
                     <properties>
@@ -266,15 +338,15 @@
 
                 <type name="action">
                     <meta>
-                        <title lang="de">Aktion</title>
                         <title lang="en">Action</title>
+                        <title lang="de">Aktion</title>
                     </meta>
 
                     <properties>
                         <property name="actions" type="snippet">
                             <meta>
-                                <title lang="de">Aktion</title>
                                 <title lang="en">Action</title>
+                                <title lang="de">Aktion</title>
                             </meta>
 
                             <params>
