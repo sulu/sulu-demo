@@ -5,7 +5,7 @@
 
     <key>artist_detail</key>
 
-    <view>templates/artist_detail</view>
+    <view>templates/artist-detail</view>
     <controller>AppBundle:Artist:index</controller>
     <cacheLifetime>604800</cacheLifetime>
 

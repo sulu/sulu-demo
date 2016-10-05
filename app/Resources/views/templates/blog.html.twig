@@ -40,12 +40,12 @@
                             {% set author = "" %}
 
                             {% for block in article.blocks if block.type == "author" %}
-                                {% if block.author|length and author != "" %}
+                                {% if block.author|length and author|default('') %}
                                     {% set author = sulu_resolve_contact(block.author|first.id) %}
                                 {% endif %}
                             {% endfor %}
 
-                            {% if author == "" %}
+                            {% if author|default('') %}
                                 {% set author = sulu_resolve_contact(article.creator) %}
                             {% endif %}
 

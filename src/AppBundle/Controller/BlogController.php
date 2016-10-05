@@ -78,10 +78,14 @@ class BlogController extends WebsiteController
             $children = $structure->getChildren();
             $articlelist = SortUtils::multisort($children, 'created');
             $articles = [];
+
             for ($i = 0; $i <= count($articlelist) -1; $i++) {
                 $articles[$i] = $articlelist[$i]->getDocument();
             }
-            $latestArticles = $this->createOverviewArticles($this->getLatestArticle($articles, 4, $structure->getUuid()));
+
+            $latestArticles = $this->createOverviewArticles(
+                $this->getLatestArticle($articles, 4, $structure->getUuid())
+            );
             $link = $structure->getPropertiesByTagName("sulu.rlp")[0]->getValue();
         }
 
@@ -102,11 +106,11 @@ class BlogController extends WebsiteController
      * Takes all the articles and returns the lastest ones.
      *
      * @param array $articles
-     * @param int $anzArt
+     * @param int $numKind
      *
      * @return array
      */
-    public function getLatestArticle($articles, $anzArt, $uuid)
+    public function getLatestArticle($articles, $numKind, $uuid)
     {
         $lastarticles = [];
         $index = -1;
@@ -121,7 +125,7 @@ class BlogController extends WebsiteController
             array_splice($articles, $index, 1);
         }
 
-        for ($i = 0; $i <= ((count($articles) >= $anzArt) ? $anzArt -1 : count($articles) -1); $i++) {
+        for ($i = 0; $i <= ((count($articles) >= $numKind) ? $numKind -1 : count($articles) -1); $i++) {
             $lastarticles[$i] = $articles[$i];
         }
 
