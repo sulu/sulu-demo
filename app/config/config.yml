@@ -145,3 +145,18 @@ sulu_snippet:
 services:
     jms_serializer.cache_naming_strategy: "@sulu_core.serialize_caching_strategy"
 
+sulu_location:
+    types:
+        location:
+            template:             'SuluLocationBundle:Template:content-types/location.html.twig'
+    enabled_providers:
+        - google
+    default_provider:     google
+    geolocator:           google
+    providers:
+        google:
+            title:                'Google Maps'
+            api_key:              'AIzaSyBjtPJfpPh9FEwonUW0Lte5Ayshi2FVCKc'
+    geolocators:
+        google:
+            api_key:              'AIzaSyBjtPJfpPh9FEwonUW0Lte5Ayshi2FVCKc'

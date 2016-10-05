@@ -211,13 +211,6 @@ var waypoints = $('.js-numbers').waypoint({
     offset: 'bottom-in-view'
 });
 
-function initializeMap(lat, lng, zoom, id) {
-    var mapProp = {
-        center:new google.maps.LatLng(lat , lng),
-        zoom:zoom,
-        mapTypeId:google.maps.MapTypeId.ROADMAP
-    };
-    var map = new google.maps.Map(document.getElementById(id),mapProp);
-}
+
 
 */
