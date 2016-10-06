@@ -5,7 +5,7 @@
 
     <key>blog_detail</key>
 
-    <view>templates/blog_detail</view>
+    <view>templates/blog-detail</view>
     <controller>AppBundle:Blog:Detail</controller>
     <cacheLifetime>604800</cacheLifetime>
 
@@ -281,8 +281,8 @@
 
         <section name="articleGallery">
             <meta>
-                <title lang="en">Articl Gallery</title>
-                <title lang="de">Artikel Gallerie</title>
+                <title lang="en">Article Gallery</title>
+                <title lang="de">Artikel Galerie</title>
             </meta>
 
             <properties>
@@ -307,7 +307,7 @@
                 <property name="articlesShow" type="checkbox">
                     <meta>
                         <title lang="en">Show Article Gallery</title>
-                        <title lang="de">Zeige Artikel Gallerie</title>
+                        <title lang="de">Zeige Artikel Galerie</title>
                     </meta>
 
                     <params>

@@ -1,84 +1,143 @@
 .blog {
     max-width: $maxwidth;
-    margin: 0 auto 50px;
+    margin: 150px auto 0 auto;
 
-    .grid__item {
-        overflow: hidden;
-        margin-bottom: 20px;
-    }
+    &-item {
+        margin-bottom: 100px;
 
-    &-image {
-        width: 100%;
-        @include transition(all, .5s, ease-in-out);
-    }
-
-    &-image:hover {
-        @include scale-elem(1.15);
-    }
-
-    &-text {
-        margin: 0 20px;
-        padding: 20px 0;
-        border-top: 1px solid $colorblack--lighter03;
-
-        &-date {
-            font-family: $fontoswald;
-            color: $colorblack--lighter02;
-            font-size: 16px;
+        &:last-child {
+            margin-bottom: 0;
         }
 
-        h5 {
-            letter-spacing: 0px;
+        &-image {
+            width: 100%;
         }
 
-        &-subheading {
-            color: $colorblack--lighter02;
-            font-size: 13px;
-            padding-left: 13px;
-            border-left: $coloryellow 7px solid;
-            line-height: 22px;
-            margin-top: 9px;
-            margin-bottom: 9px;
+        &-text {
+            padding-left: 20%;
 
-            a {
-                font-family: $fonthind;
-                color: $colorblack--lighter01;
+            .author {
+                padding: 0;
+                margin-bottom: 20px;
+            }
+
+            &-date {
                 font-size: 13px;
+                color: #929292;
+            }
+
+            &-heading {
+                font-size: 24px;
+                line-height: 26px;
+                color: $colorblack;
+                margin: 8px 0 13px 0;
                 font-weight: bold;
             }
 
-            a:hover {
-                color: $coloryellow;
+            &-text {
+                display: block;
+                display: -webkit-box;
+                max-width: 100%;
+                max-height: 63px;
+                font-size: 14px;
+                line-height: 1.5;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
-
-            &-category{
-                color: $colorblack--lighter02 !important;
-                font-weight: normal !important;
-            }
-        }
-
-        &-button {
-            color: #fff;
-            background: $colorblack--lighter03;
-            padding: 3px 13px;
-            @include border-radius(87px);
-            font-family: $fonthind;
-            font-size: 12px;
-            line-height: 28px;
         }
     }
 }
 
 @media (max-width: $maxwidth + 20) {
     .blog {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding: 0 20px;
+
+        &-item-text {
+            padding-left: 60px;
+        }
     }
 }
 
-@media (max-width: 1023px) {
-    .blog,
-    .blog-sidemenu {
-        margin-bottom: 0px !important;
+@media (max-width: $tablet) {
+    .blog {
+        padding: 0 75px;
+
+        &-item {
+            margin-bottom: 50px;
+
+            &-text {
+                padding-left: 10%;
+            }
+
+            .author {
+                margin: 0 0 15px 0;
+            }
+
+            .button--medium {
+                margin: 15px 0 0 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) and (min-width: $mobile) {
+    .blog-item-text {
+        &-heading {
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin: 3px 0 8px 0;
+        }
+
+        .author {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .blog {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 650px) {
+    .blog {
+        &-item {
+            &-text {
+                padding-left: 10%;
+
+                .author {
+                    display: none;
+                }
+
+                .button--medium {
+                    margin: 10px 0 0 0;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $mobile) {
+    .blog {
+        &-item {
+            margin-bottom: 25px;
+
+            &-text {
+                padding: 15px;
+            }
+
+            .author {
+                display: block;
+            }
+
+            .button--medium {
+                margin: 25px 0 0 0;
+            }
+        }
     }
 }
