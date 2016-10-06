@@ -10,14 +10,15 @@
                     <div class="grid__item desk--five-tenths lap--one-half palm--one-whole">
                         {% if article.image|length and article.image|first.thumbnails['600x300'] is defined %}
                             <picture>
-                                <source srcset="{{ article.image|first.thumbnails["600x300"] }}, {{ article.image|first.thumbnails["1200x600"] }} 2x"
+                                {% set image = artcle.image|first %}
+                                <source srcset="{{ image.thumbnails["600x300"] }}, {{ image.thumbnails["1200x600"] }} 2x"
                                         media="(min-width: 1024px)">
 
-                                <source srcset="{{ article.image|first.thumbnails["500x375"] }}, {{ article.image|first.thumbnails["1000x750"] }} 2x"
+                                <source srcset="{{ image.thumbnails["500x375"] }}, {{ image.thumbnails["1000x750"] }} 2x"
                                         media="(max-width: 1024px)">
 
-                                <img src="{{ article.image|first.thumbnails['600x300'] }}"
-                                     alt="{{ article.image|first.title }}"
+                                <img src="{{ image.thumbnails['600x300'] }}"
+                                     alt="{{ image.title }}"
                                      class="blog-item-image"/>
                             </picture>
                         {% endif %}
@@ -37,9 +38,9 @@
                                 </p>
                             {% endif %}
 
-                            {% set author = "" %}
+                            {% set author = '' %}
 
-                            {% for block in article.blocks if block.type == "author" %}
+                            {% for block in article.blocks if block.type == 'author' %}
                                 {% if block.author|length and author|default('') %}
                                     {% set author = sulu_resolve_contact(block.author|first.id) %}
                                 {% endif %}
@@ -57,7 +58,7 @@
                                 </span>
                             {% endif %}
 
-                            {% for block in article.blocks if block.type == "text" %}
+                            {% for block in article.blocks if block.type == 'text' %}
                                 {% if loop.first %}
                                     <div class="blog-item-text-text">
                                         {{ block.text|raw }}

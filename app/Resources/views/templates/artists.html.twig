@@ -19,7 +19,10 @@
 
                                     {% set image = "" %}
 
-                                    {% if artist.image|length and artist.image|first.type.name == "image" and artist.image|first.thumbnails['450x315'] is defined %}
+                                    {% if artist.image|length
+                                        and artist.image|first.type.name == "image"
+                                        and artist.image|first.thumbnails['450x315'] is defined
+                                    %}
                                         {% set image = artist.image|first %}
                                     {% elseif artist.image|length >= 2 and artist.image[1].thumbnails['450x315'] %}
                                         {% set image = artist.image[1] %}
