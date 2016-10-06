@@ -1,0 +1,113 @@
+.services {
+    max-width: $maxwidth;
+    margin: 150px auto;
+    overflow: hidden;
+
+    &-frame {
+        margin: -25px;
+    }
+
+    &-item {
+        height: 200px;
+        text-align: center;
+        margin: 25px;
+        position: relative;
+
+        &:hover {
+            &:before {
+                background-color: $colorred;
+            }
+
+            .services-item-text-text {
+                display: block;
+            }
+
+            .services-item-text-heading {
+                color: $colorwhite;
+            }
+
+            i {
+                display: none;
+            }
+
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: $colorblack--lighter05;
+            opacity: 0.7;
+        }
+
+        &-text {
+            @include vertical-align(relative);
+            width: 80%;
+            margin: 0 auto;
+
+            i {
+                font-size: 85px;
+                color: $colorblack--lighter01;
+                margin-bottom: 5px;
+            }
+
+            &-heading {
+                font-size: 24px;
+                line-height: 28px;
+                color: $colorblack;
+                font-weight: bold;
+                margin-bottom: 7px;
+            }
+
+            &-text {
+                display: none;
+
+                p {
+                    color: $colorwhite;
+                    font-size: 14px;
+                    line-height: 25px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $maxwidth +20px) {
+    .services {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: $tablet) {
+    .services {
+        padding: 75px;
+        margin:0;
+
+        &-frame {
+            margin: -25px -11px;
+        }
+
+        &-item {
+            margin: 25px 11px;
+        }
+    }
+}
+
+
+
+@media (max-width: 700px) {
+    .services {
+        padding: 15px;
+
+        &-frame {
+            margin: -12.5px -11px;
+        }
+
+        &-item {
+            margin: 12.5px 11px;
+        }
+    }
+}

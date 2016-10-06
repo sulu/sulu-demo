@@ -16,6 +16,10 @@
                                 </picture>
                             </div>
                         {% endfor %}
+
+                        {% if preview is defined %}
+                            <script src="{{ asset('/dist/js/main.min.js') }}"></script>
+                        {% endif %}
                     </div>
                 {% endif %}
             </div>

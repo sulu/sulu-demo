@@ -1,0 +1,41 @@
+<div rel="blocks" typeof="block">
+    {% set background = "" %}
+
+    {% if block.background|length and block.background|first.thumbnails['1920x1080'] is defined %}
+        {% set background = "'" ~ block.background|first.thumbnails['1920x1080'] ~ "'" %}
+    {% endif %}
+    <div property="background">
+        <div property="contact"
+             style="{{ background|default('') ? 'background-image: url(' ~ background|raw ~ ')' : '' }}"
+             class="singlequote">
+            {% if block.contacts|length %}
+                <div class="singlequote-item">
+                    {% if block.contacts|first.notes|length and block.contacts|first.notes|first.value|default('') %}
+                        <p class="singlequote-item-text">
+                            {{ block.contacts|first.notes|first.value }}
+                        </p>
+                    {% endif %}
+
+                    {% if block.contacts|first.avatar.thumbnails['170x170'] is defined %}
+                        <div class="singlequote-item-image cf">
+                            <img src="{{ block.contacts|first.avatar.thumbnails['170x170'] }}"
+                                 alt="{{ block.contacts|first.fullName }}"/>
+                        </div>
+                    {% endif %}
+
+                    {% if block.contacts|first.position|length and block.contacts|first.position.position|default('') and block.contacts|first.fullName|default('') %}
+                        <span class="singlequote-item-author cf">
+                            <p class="author-name">
+                                {{ block.contacts|first.fullName }}
+                            </p>
+
+                            <p class="author-position">
+                                {{ block.contacts|first.position.position }}
+                            </p>
+                        </span>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
