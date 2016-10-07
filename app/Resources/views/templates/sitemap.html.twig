@@ -1,43 +1,53 @@
 {% extends "master.html.twig" %}
 
-{% macro recursiveSitemap(child, base) %}
-    {% if base == "false" %}
-        <i class="ion-ios-arrow-forward"></i>
-        <a href="{{ sulu_content_path(child.url) }}">
-            {{ child.title }}
-        </a>
-    {% endif %}
+{% macro renderElem(elem) %}
+    <a href="{{ elem.url }}" class="sitemap-heading">
+        {{ elem.title }}
+    </a>
 
-    {% if child.children|length %}
-        <ul class="sidemap-item-list">
-            {% for item in child.children %}
-                <li>
-                    {{ _self.recursiveSitemap(item, "false") }}
-                </li>
-            {% endfor %}
-        </ul>
+    {% if elem.template == 'homepage' %}
+        <div class="grid">
+            {{ _self.renderRow(elem.rows, 'general_pages'|trans) }}
+        </div>
+    {% elseif elem.template == 'artists' %}
+        <div class="grid">
+            {{ _self.renderRow(elem.artists, 'artists'|trans) }}
+            {{ _self.renderRow(elem.disks, 'albums'|trans) }}
+        </div>
+    {% elseif elem.template == 'blog' %}
+        <div class="grid">
+            {{ _self.renderRow(elem.articles, 'articles'|trans) }}
+        </div>
     {% endif %}
 {% endmacro %}
 
-{% block content %}
-    <section class="sidemap">
-        <h4 property="title" class="title heading--h4--border">{{ content.title }}</h4>
-        <div class="grid">
-            {% for site in sulu_sitemap().children %}
-                <div class="grid__item desk--one-quarter lap--one-half palm--one-whole">
-                    <div class="sidemap-item">
-                        <h5 class="sidemap-item-subtitle heading--h5">
-                            <a href="{{ sulu_content_path(site.url) }}">
-                                {{ site.title }}
-                            </a>
-                        </h5>
+{% macro renderRow(rows, heading) %}
+    {% for row in rows %}
 
-                        {% if site.children|length %}
-                            {{ _self.recursiveSitemap(site, "true") }}
-                        {% endif %}
-                    </div>
-                </div>
+        <div class="grid__item desk--one-third lap--one-third palm--one-whole">
+            {% if loop.first %}
+                <p class="sitemap-subheading">
+                    {{ heading }}
+                </p>
+            {% endif %}
+
+            {% for child in row %}
+                <a href="{{ child.url }}" class="sitemap-elem">
+                    {{ child.title }}
+                </a>
             {% endfor %}
         </div>
+    {% endfor %}
+{% endmacro %}
+
+{% block content %}
+    {% include(':includes:headerimage.html.twig') %}
+
+    <section class="sitemap">
+        {% set sitemap = app_sitemap(sulu_sitemap()) %}
+
+        {% for item in sitemap %}
+            {{ _self.renderElem(item) }}
+        {% endfor %}
     </section>
 {% endblock %}

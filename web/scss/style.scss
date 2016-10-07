@@ -11,6 +11,7 @@
 // TEMPLATES
 @import 'templates/artists';
 @import 'templates/blog';
+@import 'templates/sitemap';
 
 // IMPORTS
 @import '../../node_modules/slick-carousel/slick/slick';
@@ -41,7 +42,7 @@
 @import 'includes/detail-pages/action';
 @import 'includes/detail-pages/track-lists';
 
-// INCLUDES - Services
+// INCLUDES - SERVICES
 @import 'includes/services/services';
 @import 'includes/services/singlequote';
 
@@ -56,25 +57,3 @@
 // INCLUDES - CONTACT
 @import 'includes/contact/location';
 @import 'includes/contact/messageform';
-
-// BLOCKS - BLOG
-//@import 'blocks/blog';
-//@import 'blocks/blogsidemeu';
-//@import 'blocks/blogdetail';
-//@import 'blocks/messageform';
-
-// BLOCKS - ARTISTS
-//@import 'blocks/artists';
-
-
-// BLOCKS - SITEMAP
-//@import 'blocks/sitemap';
-
-// BLOCKS - ABOUT US
-//@import 'blocks/aboutus';
-
-// BLOCKS - CONTACT
-//@import 'blocks/contact';
-
-// BLOCKS - SERVICES
-//@import 'blocks/services';

@@ -1,45 +1,66 @@
-.sidemap {
+.sitemap {
     max-width: $maxwidth;
-    margin: 40px auto;
-    padding: 0 20px;
+    margin: 0 auto;
+    padding-bottom: 100px;
 
-    &-item {
-        padding-bottom: 20px;
+    &-heading {
+        font-size: 36px;
+        color: $colorblack;
+        display: block;
+        font-weight: bold;
+        border-bottom: 1px solid #979797;
+        padding-bottom: 5px;
+        margin-top: 100px;
+    }
 
-        &-subtitle {
-            text-transform: uppercase;
-            font-size: 1.5em;
-            letter-spacing: 0px;
-            padding-bottom: 7px;
-            padding-top: 15px;
+    &-subheading {
+        font-size: 20px;
+        line-height: 23px;
+        margin: 22px 0 10px 0;
+        color: $colorblack;
+        font-weight: bold;
+    }
+
+    &-elem {
+        display: block;
+        font-size: 18px;
+        color: $colorblack;
+        line-height: 32px;
+
+        &:first-child {
+            margin-top: 55px;
         }
+    }
+}
 
-        &-list {
-            padding-left: 0px;
+@media (max-width: 1200px) {
+    .sitemap {
+        padding: 0 20px 100px 20px;
+    }
+}
 
-            li {
-                list-style-type: none;
+@media (max-width: $tablet) {
+    .sitemap {
+        padding: 0 75px 75px 75px;
 
-                > ul {
-                    padding-left: 20px;
-                }
-
-                i,
-                a {
-                    padding: 7px 5px;
-                    display: inline-block;
-                    color: gray;
-                    font-size: 14px;
-                    line-height: 17px;
-                    font-family: $fonthind;
-                    font-weight: normal;
-                }
-            }
-
-            a:hover {
-                color: $coloryellow;
-                font-weight: bold;
-            }
+        &-heading {
+            margin-top: 75px;
         }
+    }
+}
+
+@media (max-width: 700px) {
+    .sitemap {
+        padding: 0 15px 15px 15px;
+
+        &-heading {
+            margin-top: 15px;
+        }
+    }
+}
+
+@media (max-width: $mobile) {
+    .sitemap-elem:first-child {
+        margin-top: 0;
     }
 }
