@@ -78,6 +78,10 @@
                 <source>posted</source>
                 <target>Posted by</target>
             </trans-unit>
+            <trans-unit id="20">
+                <source>homepage</source>
+                <target>Startseite</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

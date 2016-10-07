@@ -6,7 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         {% autoescape false %}
-            {{ sulu_seo(extension.seo, content, urls, shadowBaseLocale) }}
+            {% if extension is defined and content is defined and urls is defined and shadowBaseLocale is defined %}
+                {{ sulu_seo(extension.seo, content, urls, shadowBaseLocale) }}
+            {% endif %}
         {% endautoescape %}
 
         {% block meta %}{% endblock %}
