@@ -59,7 +59,7 @@
     }
 }
 
-@media (max-width: $maxwidth + 20) and (min-width: $tablet) {
+@media (max-width: 1200px) and (min-width: $tablet) {
     .artist--element {
         padding: 0 20px;
     }

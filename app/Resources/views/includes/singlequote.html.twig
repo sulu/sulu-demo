@@ -1,36 +1,36 @@
 <div rel="blocks" typeof="block">
-    {% set background = "" %}
+    {% set background = '' %}
 
     {% if block.background|length and block.background|first.thumbnails['1920x1080'] is defined %}
-        {% set background = "'" ~ block.background|first.thumbnails['1920x1080'] ~ "'" %}
+        {% set background = 'style="background-image: url(\'' ~ asset(block.background|first.thumbnails['1920x1080']) ~ '\');"' %}
     {% endif %}
+
     <div property="background">
-        <div property="contact"
-             style="{{ background|default('') ? 'background-image: url(' ~ background|raw ~ ')' : '' }}"
-             class="singlequote">
+        <div property="contact" {{ background|raw }} class="singlequote">
             {% if block.contacts|length %}
+                {% set contact = block.contacts|first %}
                 <div class="singlequote-item">
-                    {% if block.contacts|first.notes|length and block.contacts|first.notes|first.value|default('') %}
+                    {% if contact.notes|first.value|default('') %}
                         <p class="singlequote-item-text">
-                            {{ block.contacts|first.notes|first.value }}
+                            {{ contact.notes|first.value }}
                         </p>
                     {% endif %}
 
                     {% if block.contacts|first.avatar.thumbnails['170x170'] is defined %}
                         <div class="singlequote-item-image cf">
-                            <img src="{{ block.contacts|first.avatar.thumbnails['170x170'] }}"
-                                 alt="{{ block.contacts|first.fullName }}"/>
+                            <img src="{{ contact.avatar.thumbnails['170x170'] }}"
+                                 alt="{{ contact.fullName }}"/>
                         </div>
                     {% endif %}
 
-                    {% if block.contacts|first.position|length and block.contacts|first.position.position|default('') and block.contacts|first.fullName|default('') %}
+                    {% if contact.position|length and contact.position.position|default('') and contact.fullName|default('') %}
                         <span class="singlequote-item-author cf">
                             <p class="author-name">
-                                {{ block.contacts|first.fullName }}
+                                {{ contact.fullName }}
                             </p>
 
                             <p class="author-position">
-                                {{ block.contacts|first.position.position }}
+                                {{ contact.position.position }}
                             </p>
                         </span>
                     {% endif %}

@@ -75,7 +75,7 @@
     }
 }
 
-@media (max-width: $maxwidth +20px) {
+@media (max-width: 1200px) {
     .services {
         padding: 0 20px;
     }
@@ -95,8 +95,6 @@
         }
     }
 }
-
-
 
 @media (max-width: 700px) {
     .services {

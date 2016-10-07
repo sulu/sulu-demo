@@ -3,15 +3,15 @@
         <div class="services-frame">
             <div class="grid">
 {% endif %}
+
                 <div class="grid__item desk--one-third lap--one-half palm--one-whole" rel="blocks" typeof="block">
-                    {% set background = "" %}
+                    {% set background = '' %}
 
                     {% if block.background|length and block.background|first.thumbnails['500x375'] is defined %}
-                        {% set background = "'" ~ block.background|first.thumbnails['500x375'] ~ "'" %}
+                        {% set background = 'style="background-image: url(\'' ~ asset(block.background|first.thumbnails['500x375']) ~ '\');"' %}
                     {% endif %}
 
-                    <div style="{{ background|default('') ? 'background-image: url(' ~ background|raw ~ ')' : '' }}"
-                         class="services-item" >
+                    <div {{ background|raw }} class="services-item" >
                         <div class="services-item-text">
                             <div property="icon">
                                 {% if block.icon|default('') %}
@@ -37,6 +37,7 @@
                         </div>
                     </div>
                 </div>
+
 {% if loop.last or (blocks[loop.index0 + 1] is defined and blocks[loop.index0 + 1].type != 'services') %}
             </div>
         </div>

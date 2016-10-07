@@ -35,12 +35,6 @@
     }
 }
 
-@media (max-width: $maxwidth--text + 20px) {
-    .author {
-        padding: 0 20px;
-    }
-}
-
 @media (max-width: $tablet) {
     .author {
         margin: 50px 0 25px 0;
