@@ -5,17 +5,20 @@
     box-sizing: border-box;
     padding: 0 205px 0 120px;
 }
+
 @media (max-width: $maxwidth--text + 20px) {
     .button-frame {
         padding: 0 20px;
     }
 }
+
 @media (max-width: $tablet) {
     .button-frame {
         margin: 0;
         padding: 0 75px;
     }
 }
+
 @media (max-width: 700px) {
     .button-frame {
         padding: 0 30px;
