@@ -1,0 +1,63 @@
+<div rel="blocks" typeof="block">
+    <div property="image">
+        <div property="size">
+            {% if block.image|length %}
+                {% set size = ' headerimage--medium' %}
+
+                {% if block.size|default('') %}
+                    {% set size = ' headerimage--' ~ block.size %}
+                {% endif %}
+
+                {% if block.image|first.type.name == 'image' and block.image|first.thumbnails['1920x670'] is defined %}
+                    <section class="headerimage {{ size }}">
+                        <picture>
+                            {% if size == "large" %}
+                                <source srcset="{{ block.image|first.thumbnails['1920x1080'] }}, {{ block.image|first.thumbnails['3840x2160'] }} 2x"
+                                        media="(min-width: 1300px)">
+
+                                <source srcset="{{ block.image|first.thumbnails['800x450'] }}, {{ block.image|first.thumbnails['1600x900'] }} 2x"
+                                        media="(max-width: 1299px)">
+
+                                <img src="{{ block.image|first.thumbnails['1920x1080'] }}"
+                                     alt="{{ block.image|first.title }}"
+                                     class="headerimage-image">
+                            {% elseif size == 'medium' %}
+                                <source srcset="{{ block.image|first.thumbnails['1920x670'] }}, {{ block.image|first.thumbnails['3840x1340'] }} 2x"
+                                        media="(min-width: 1300px)">
+
+                                <source srcset="{{ block.image|first.thumbnails['1435x500'] }}, {{ block.image|first.thumbnails['2870x1000'] }} 2x"
+                                        media="(max-width: 1299px) and (min-width: 481px)">
+
+                                <source srcset="{{ block.image|first.thumbnails['860x300'] }}, {{ block.image|first.thumbnails['1720x600'] }} 2x"
+                                        media="(max-width: 480px)">
+
+                                <img src="{{ block.image|first.thumbnails['1920x670'] }}"
+                                     alt="{{ block.image|first.title }}"
+                                     class="headerimage-image">
+                            {% else %}
+                                <source srcset="{{ block.image|first.thumbnails['1920x300'] }}, {{ block.image|first.thumbnails['3840x600'] }} 2x"
+                                        media="(min-width: 1024px)">
+
+                                <source srcset="{{ block.image|first.thumbnails['1024x300'] }}, {{ block.image|first.thumbnails['2048x600'] }} 2x"
+                                        media="(max-width: 1024px) and (min-width: 481px)">
+
+                                <source srcset="{{ block.image|first.thumbnails['480x200'] }}, {{ block.image|first.thumbnails['960x400'] }} 2x"
+                                        media="(max-width: 480px)">
+
+                                <img src="{{ block.image|first.thumbnails['1920x300'] }}" alt="{{ block.image|first.title }}"
+                                     class="headerimage-image">
+                            {% endif %}
+                        </picture>
+                {% elseif block.image|first.type.name == 'video' %}
+                    <section class="headerimage headerimage--video fullimage">
+                        <video src="{{ block.image|first.url }}"
+                               autoplay
+                               loop
+                               muted
+                               class="headerimage-image"></video>
+                {% endif %}
+                    </section>
+            {% endif %}
+        </div>
+    </div>
+</div>

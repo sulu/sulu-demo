@@ -1,6 +1,6 @@
 .headerimage {
     position: relative;
-    font-size:0;
+    font-size: 0;
 
     &-image {
         width: 100%;
@@ -46,6 +46,10 @@
     background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
     background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.fullimage:before {
+    content: none;
 }
 
 @media (max-width: 1200px) {
