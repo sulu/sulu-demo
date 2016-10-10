@@ -1,7 +1,14 @@
 {% extends "master.html.twig" %}
 
 {% block content %}
-    <h1>Error {{ status_code }}: {{ status_text }}</h1>
+    <div class="error">
+        <img src="/img/error.jpg"/>
+        <div class="error-content">
+            <h2 class="heading--h2">Error {{ status_code }}</h2>
 
-    <p>{{ exception.message }}</p>
+            <p class="error-content-text">{{ status_text }}</p>
+
+            <a href="/" class="button--large">{{ 'homepage'|trans }}</a>
+        </div>
+    </div>
 {% endblock %}

@@ -1,0 +1,34 @@
+.error {
+    height: calc(100vh - 560px);
+    min-height: 350px;
+    width: 100%;
+    position: relative;
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    &-content {
+        @include vertical-align(absolute);
+        text-align: center;
+        left: 0;
+        right: 0;
+        margin: auto;
+        padding: 0 20px;
+
+        .heading--h2 {
+            margin-bottom: 10px;
+        }
+
+        &-text {
+            font-size: 18px;
+            color: $colorwhite;
+        }
+
+        .button--large {
+            margin: 45px auto 0 auto;
+        }
+    }
+}
