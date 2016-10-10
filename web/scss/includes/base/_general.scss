@@ -133,6 +133,10 @@ a {
         width: 342px;;
         line-height: 42px;
     }
+
+    &--block {
+        @extend .button--medium;
+    }
 }
 
 .slick-dots {
@@ -192,6 +196,10 @@ a {
             font-size: 24px;
             line-height: 28px;
         }
+    }
+
+    .button--block {
+        width: 300px;
     }
 }
 

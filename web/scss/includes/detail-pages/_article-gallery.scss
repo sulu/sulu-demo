@@ -25,12 +25,23 @@
                     color: $colorblack;
                     font-size: 24px;
                     font-weight: bold;
+
+                    &--team {
+                        text-align: center;
+                        margin-top: 15px;
+                    }
                 }
 
                 .text-creation {
                     margin-top: 5px;
                     color: #676767;
                     font-size: 14px;
+
+                    &--team {
+                        text-align: center;
+                        color: $colorred;
+                        font-size: 18px;
+                    }
                 }
             }
         }
