@@ -5,11 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        {% autoescape false %}
-            {% if extension is defined and content is defined and urls is defined and shadowBaseLocale is defined %}
-                {{ sulu_seo(extension.seo, content, urls, shadowBaseLocale) }}
-            {% endif %}
-        {% endautoescape %}
+        {% if extension is defined and content is defined %}
+            {{ sulu_seo(extension.seo, content, urls|default([]), shadowBaseLocale|default(''))|raw }}
+        {% endif %}
 
         {% block meta %}{% endblock %}
 

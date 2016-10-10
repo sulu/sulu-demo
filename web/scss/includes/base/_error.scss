@@ -1,6 +1,6 @@
 .error {
-    font-size: 0;
     height: calc(100vh - 560px);
+    min-height: 350px;
     width: 100%;
     position: relative;
 
@@ -16,6 +16,7 @@
         left: 0;
         right: 0;
         margin: auto;
+        padding: 0 20px;
 
         .heading--h2 {
             margin-bottom: 10px;
