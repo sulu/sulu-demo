@@ -1,58 +1,90 @@
-<form action="#" class="messageform">
-    <div class="grid">
-        <div class="grid__item desk--one-half lap--one-half palm--one-whole">
-            <div class="messageform-label">
-                <i class="ion-person messageform-label-icon"></i>
-                <input class="messageform-label-input"
-                       type="text"
-                       placeholder="YOUR NAME"
-                       required="">
+<div rel="blocks" typeof="block">
+    <div class="messageform">
+        <div class="messageform-content">
+            <div property="heading">
+                {% if block.heading|default('') %}
+                    <h2 class="heading--h2">
+                        {{ block.heading }}
+                    </h2>
+                {% endif %}
             </div>
-        </div>
 
-        <div class="grid__item desk--one-half lap--one-half palm--one-whole">
-            <div class="messageform-label">
-                <i class="ion-android-mail messageform-label-icon"></i>
-                <input class="messageform-label-input"
-                       type="text"
-                       placeholder="EMAIL ADDRESS"
-                       required="">
+            <div property="subheading">
+                {% if block.subheading|default('') %}
+                    <div class="messageform-subheading">
+                        {{ block.subheading|raw }}
+                    </div>
+                {% endif %}
             </div>
-        </div>
 
-        <div class="grid__item desk--one-half lap--one-half palm--one-whole">
-            <div class="messageform-label">
-                <i class="ion-android-call messageform-label-icon"></i>
-                <input class="messageform-label-input"
-                       type="text"
-                       placeholder="PHONE"
-                       required="">
-            </div>
-        </div>
+            <form action="#">
+                <div class="grid">
+                    <div class="grid__item desk--five-twelfths portable--one-whole">
+                        <div class="messageform-label">
+                            <input id="name"
+                                   class="messageform-label-input"
+                                   type="text"
+                                   placeholder="Name"
+                                   required=""/>
+                            <p>Name</p>
+                        </div>
+                    </div>
 
-        <div class="grid__item desk--one-half lap--one-half palm--one-whole">
-            <div class="messageform-label">
-                <i class="ion-document-text messageform-label-icon"></i>
-                <input class="messageform-label-input"
-                       type="text"
-                       placeholder="SUBJECT"
-                       required="">
-            </div>
-        </div>
+                    <div class="grid__item desk--one-twelfth"></div>
 
-        <div class="grid__item one-whole">
-            <div class="messageform--area-label">
-                <i class="ion-document-text messageform--area-label-icon"></i>
-                <textarea class="messageform--area-label-input"
-                          placeholder="TYPE MESSAGE"
-                          required=""></textarea>
-            </div>
+                    <div class="grid__item desk--one-half portable--one-whole">
+                        <div class="messageform-label">
+                            <input id="email"
+                                   class="messageform-label-input"
+                                   type="email"
+                                   placeholder="E-mail"
+                                   required=""/>
+                            <p>Name</p>
+                        </div>
+                    </div>
+
+                    <div class="grid__item desk--five-twelfths portable--one-whole">
+                        <div class="messageform-label">
+                            <input id="phone"
+                                   class="messageform-label-input"
+                                   type="tel"
+                                   pattern="^([0|\+[0-9 ]{1,5})?([1-9 ][0-9 ]{12})$"
+                                   placeholder="Phone"
+                                   required=""/>
+                            <p>Name</p>
+                        </div>
+                    </div>
+
+                    <div class="grid__item desk--one-twelfth"></div>
+
+                    <div class="grid__item desk--one-half portable--one-whole">
+                        <div class="messageform-label">
+                            <input id="subject"
+                                   class="messageform-label-input"
+                                   type="text"
+                                   placeholder="Subject"
+                                   required=""/>
+                            <p>Name</p>
+                        </div>
+                    </div>
+
+                    <div class="grid__item one-whole">
+                        <div class="messageform-label">
+                            <input id="message"
+                                   class="messageform-label-input"
+                                   placeholder="Message"
+                                   required=""/>
+                            <p>Name</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="messageform-button cf">
+                    <input type="submit"
+                           value="Submit Message"
+                           class="button--large">
+                </div>
+            </form>
         </div>
     </div>
-
-    <div class="messageform-buttonbox--{{ buttonposition|default('center') }}">
-        <input type="submit"
-               value="Submit Message"
-               class="messageform-buttonbox-button">
-    </div>
-</form>
+</div>

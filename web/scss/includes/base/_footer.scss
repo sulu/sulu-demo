@@ -66,6 +66,7 @@
                         box-sizing: border-box;
                         width: calc(100% - 145px);
                         display: inline-block;
+                        @extend %placehoderColors;
                     }
                 }
 

@@ -28,3 +28,25 @@ $fontfancy: 'Broken Wings', sans-serif;
 // Numbers
 $maxwidth: 1180px;
 $maxwidth--text: 855px;
+
+// Placeholder Colors
+%placehoderColors {
+    &::-webkit-input-placeholder {
+        color: #666666;
+    }
+    &:-moz-placeholder {
+        color: #666666;
+        opacity: 1;
+    }
+    &::-moz-placeholder {
+        color: #666666;
+        opacity: 1;
+    }
+    &:-ms-input-placeholder {
+        color: #666666;
+    }
+
+    &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px #D5D5D5 inset;
+    }
+}
