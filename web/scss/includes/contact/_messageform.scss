@@ -31,6 +31,7 @@
             font-family: $fontregular;
             font-style: italic;
             border-bottom: 1px solid $colorblack;
+            @extend %placehoderColors;
 
             & [value=""] {
                 border-bottom: 1px solid $colorblack;
@@ -46,25 +47,6 @@
 
             &:not([value=""]):focus + p {
                 color: $colorblack;
-            }
-
-            &::-webkit-input-placeholder {
-                color: #666666;
-            }
-            &:-moz-placeholder {
-                color: #666666;
-                opacity: 1;
-            }
-            &::-moz-placeholder {
-                color: #666666;
-                opacity: 1;
-            }
-            &:-ms-input-placeholder {
-                color: #666666;
-            }
-
-            &:-webkit-autofill {
-                -webkit-box-shadow: 0 0 0px 1000px #D5D5D5 inset;
             }
         }
 
@@ -115,5 +97,4 @@
     .messageform-button {
         width: 100%;
     }
-
 }

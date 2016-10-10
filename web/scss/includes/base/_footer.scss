@@ -66,21 +66,7 @@
                         box-sizing: border-box;
                         width: calc(100% - 145px);
                         display: inline-block;
-
-                        &::-webkit-input-placeholder {
-                            color:    #666666;
-                        }
-                        &:-moz-placeholder {
-                            color:    #666666;
-                            opacity:  1;
-                        }
-                        &::-moz-placeholder {
-                            color:    #666666;
-                            opacity:  1;
-                        }
-                        &:-ms-input-placeholder {
-                            color:    #666666;
-                        }
+                        @extend %placehoderColors;
                     }
                 }
 

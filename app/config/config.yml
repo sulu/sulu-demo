@@ -148,15 +148,15 @@ services:
 sulu_location:
     types:
         location:
-            template:             'SuluLocationBundle:Template:content-types/location.html.twig'
+            template: SuluLocationBundle:Template:content-types/location.html.twig'
     enabled_providers:
         - google
-    default_provider:     google
-    geolocator:           google
+    default_provider: google
+    geolocator: google
     providers:
         google:
-            title:                'Google Maps'
-            api_key:              'AIzaSyBjtPJfpPh9FEwonUW0Lte5Ayshi2FVCKc'
+            title: 'Google Maps'
+            api_key: 'AIzaSyBjtPJfpPh9FEwonUW0Lte5Ayshi2FVCKc'
     geolocators:
         google:
-            api_key:              'AIzaSyBjtPJfpPh9FEwonUW0Lte5Ayshi2FVCKc'
+            api_key: 'AIzaSyBjtPJfpPh9FEwonUW0Lte5Ayshi2FVCKc'
