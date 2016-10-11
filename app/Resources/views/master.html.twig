@@ -38,7 +38,18 @@
         </footer>
 
         {% block javascripts %}
-            <script src="{{ asset('/dist/js/main.min.js') }}"></script>
+            <script src="{{ asset('/dist/js/demo.min.js') }}"></script>
+
+            <script type="text/javascript">
+                Demo.init();
+            </script>
+
+            {# Start Mutation Observer if we are in Preview #}
+            {% if app.request.get('preview') %}
+                <script type="text/javascript">
+                    Demo.Preview.init();
+                </script>
+            {% endif %}
         {% endblock %}
     </body>
 </html>
