@@ -24,16 +24,17 @@ class WebsiteTwigExtension extends \Twig_Extension
         $home = $tree;
         $homeChilds = [];
 
-        foreach ($tree["children"] as $child) {
-            if ($child["template"] == "artists") {
+        foreach ($tree['children'] as $child) {
+            if ($child['template'] == 'artists') {
                 array_push($result,$this->renderArtists($child));
-            } elseif ($child["template"] == "blog") {
+            } elseif ($child['template'] == 'blog') {
                 array_push($result,$this->renderBlog($child));
             } else {
                 array_push($homeChilds,$child);
             }
         }
-        $home["rows"] = $this->splitIntoRows($homeChilds, 3);
+
+        $home['rows'] = $this->splitIntoRows($homeChilds, 3);
         array_unshift($result, $home);
 
         return $result;
@@ -46,21 +47,22 @@ class WebsiteTwigExtension extends \Twig_Extension
      *
      * @return array
      */
-    function renderArtists($artistsElem) {
+    private function renderArtists($artistsElem)
+    {
         $result = $artistsElem;
         $artists = [];
         $disks = [];
 
-        foreach($artistsElem["children"] as $artist) {
+        foreach($artistsElem['children'] as $artist) {
             array_push($artists, $artist);
 
-            foreach ($artist["children"] as $disk) {
+            foreach ($artist['children'] as $disk) {
                 array_push($disks, $disk);
             }
         }
 
-        $result["artists"] = $this->splitIntoRows($artists, 1);
-        $result["disks"] = $this->splitIntoRows($disks, 2);
+        $result['artists'] = $this->splitIntoRows($artists, 1);
+        $result['disks'] = $this->splitIntoRows($disks, 2);
 
         return $result;
     }
@@ -72,15 +74,16 @@ class WebsiteTwigExtension extends \Twig_Extension
      *
      * @return array
      */
-    function renderBlog($blog) {
+    private function renderBlog($blog)
+    {
         $result = $blog;
         $articles = [];
 
-        foreach ($blog["children"] as $article) {
+        foreach ($blog['children'] as $article) {
             array_push($articles, $article);
         }
 
-        $result["articles"] = $this->splitIntoRows($articles, 3);
+        $result['articles'] = $this->splitIntoRows($articles, 3);
 
         return $result;
     }
@@ -93,7 +96,8 @@ class WebsiteTwigExtension extends \Twig_Extension
      *
      * @return array
      */
-    function splitIntoRows($elements, $maxRows) {
+    private function splitIntoRows($elements, $maxRows)
+    {
         $result = [];
 
         if (count($elements) > 5 && $maxRows > 1) {
@@ -111,7 +115,7 @@ class WebsiteTwigExtension extends \Twig_Extension
 
             }
         } else {
-            $result= array($elements);
+            $result = array($elements);
         }
 
         return $result;
