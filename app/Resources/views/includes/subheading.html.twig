@@ -1,7 +1,9 @@
 <div rel="blocks" typeof="block">
-    <div property="subheading" class="subheading">
-        {% if block.subheading|default('') %}
-            {{ block.subheading|raw }}
-        {% endif %}
+    <div property="background" class="{{ block.background ? 'background' : '' }}">
+        <div property="subheading" class="subheading">
+            {% if block.subheading|default('') %}
+                {{ block.subheading|raw }}
+            {% endif %}
+        </div>
     </div>
 </div>

@@ -10,7 +10,7 @@
                     <div class="grid__item desk--five-tenths lap--one-half palm--one-whole">
                         {% if article.image|length and article.image|first.thumbnails['600x300'] is defined %}
                             <picture>
-                                {% set image = artcle.image|first %}
+                                {% set image = article.image|first %}
                                 <source srcset="{{ image.thumbnails["600x300"] }}, {{ image.thumbnails["1200x600"] }} 2x"
                                         media="(min-width: 1024px)">
 

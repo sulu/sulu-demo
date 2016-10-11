@@ -3,20 +3,20 @@
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
             <trans-unit id="1">
-                <source>categories</source>
-                <target>Categories</target>
-             </trans-unit>
+                <source>general_pages</source>
+                <target>General Pages</target>
+            </trans-unit>
             <trans-unit id="2">
-                <source>recent_articles</source>
-                <target>Recent Articles</target>
+                <source>articles</source>
+                <target>Articles</target>
             </trans-unit>
             <trans-unit id="3">
-                <source>our_albums</source>
-                <target>Our Albums</target>
+                <source>albums</source>
+                <target>Albums</target>
             </trans-unit>
             <trans-unit id="4">
-                <source>our_artists</source>
-                <target>Our Artists</target>
+                <source>artists</source>
+                <target>Artists</target>
             </trans-unit>
             <trans-unit id="5">
                 <source>address</source>

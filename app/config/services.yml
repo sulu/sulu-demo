@@ -8,3 +8,8 @@ services:
         class: Twig_Extensions_Extension_Date
         tags:
             - { name: twig.extension }
+
+    app.twig.website:
+        class: AppBundle\Twig\WebsiteTwigExtension
+        tags:
+            - { name: twig.extension }
