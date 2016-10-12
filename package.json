@@ -1,12 +1,12 @@
 {
   "scripts": {
     "build:js:modernizer": "modernizr  -c node_config/modernizr.json -d web/dist/js/modernizer.min.js --compress",
-    "build:js": "browserify web/js/main.js | uglifyjs > web/dist/js/main.min.js && npm run build:js:modernizer",
+    "build:js": "browserify web/js/demo.js | uglifyjs > web/dist/js/demo.min.js && npm run build:js:modernizer",
     "build:css": "compass compile --sass-dir=web/scss --css-dir=web/dist/css -s compressed",
     "update:ionicons": "cp -R node_modules/ionicons-npm/fonts/* web/fonts/",
     "build": "npm run build:js && npm run build:css",
     "watch:css": "compass watch --sass-dir=web/scss --css-dir=web/dist/css -s compressed",
-    "watch:js": "watchify web/js/main.js -o web/dist/js/main.min.js -v"
+    "watch:js": "watchify web/js/demo.js -o web/dist/js/demo.min.js -v"
   },
   "dependencies": {
     "ionicons-npm": "^2.0.1",
