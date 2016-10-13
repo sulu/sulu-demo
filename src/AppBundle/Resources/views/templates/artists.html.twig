@@ -100,7 +100,7 @@
     <div property="discographyTitle">
         <div property="discographyData">
             {% if content.discographyTitle|default('') or content.discographyData|default('') %}
-                {% include('AppBundle:includes:discography_element.html.twig') with {
+                {% include('AppBundle:renderer:blocks/discography_element.html.twig') with {
                     'block' : {
                     'discographyTitle': content.discographyTitle|default('') ? content.discographyTitle : '',
                     'discographyData': content.discographyData|default('') ? content.discographyData : ''

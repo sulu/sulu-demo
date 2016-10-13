@@ -1,7 +1,7 @@
 <div property="blocks" typeof="collection">
     {% if blocks|length  %}
         {% for block in blocks %}
-            {% include ('AppBundle:includes:' ~ block.type ~ '.html.twig') with {
+            {% include ('AppBundle:renderer:blocks/' ~ block.type ~ '.html.twig') with {
                 'block' : block
             } %}
         {% endfor %}
