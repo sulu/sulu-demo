@@ -6,6 +6,10 @@
     &-text {
         @include vertical-align(relative);
 
+        .heading--h2--white {
+            font-weight: bold;
+        }
+
         &-text {
             margin: 37px auto 75px auto;
             max-width: 980px;

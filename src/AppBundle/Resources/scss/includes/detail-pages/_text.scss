@@ -5,13 +5,6 @@
     box-sizing: border-box;
     padding: 0 205px 0 120px;
 }
-
-@media (max-width: 1200px) {
-    .text {
-        padding: 0 20px;
-    }
-}
-
 @media (max-width: $tablet) {
     .text {
         margin: 0;

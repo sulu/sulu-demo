@@ -28,7 +28,7 @@
             </trans-unit>
             <trans-unit id="7">
                 <source>email</source>
-                <target>Email Address</target>
+                <target>Email</target>
             </trans-unit>
             <trans-unit id="8">
                 <source>hours</source>
@@ -81,6 +81,14 @@
             <trans-unit id="20">
                 <source>homepage</source>
                 <target>Homepage</target>
+            </trans-unit>
+            <trans-unit id="21">
+                <source>subject</source>
+                <target>Subject</target>
+            </trans-unit>
+            <trans-unit id="22">
+                <source>message</source>
+                <target>Message</target>
             </trans-unit>
         </body>
     </file>

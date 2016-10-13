@@ -48,6 +48,10 @@
     }
 }
 
+.blog--article .article {
+    padding-top: 0;
+}
+
 @media(max-width: 1200px) {
     .article {
         padding: 150px 20px;

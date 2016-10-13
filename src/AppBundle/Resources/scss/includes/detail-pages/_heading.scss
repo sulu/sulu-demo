@@ -6,12 +6,6 @@
     padding: 100px 205px 20px 120px;
 }
 
-@media (max-width: 1200px) {
-    .heading {
-        padding: 0 20px;
-    }
-}
-
 @media (max-width: $tablet) {
     .heading {
         margin: 50px 0 25px 0;

@@ -20,6 +20,10 @@
     }
 }
 
+.home .biography {
+    margin: 150px auto;
+}
+
 @media (max-width: 1200px) and (min-width: $tablet) {
     .biography {
         padding: 0 20px;
@@ -27,6 +31,10 @@
         &-text {
             padding-top: 0px;
         }
+    }
+
+    .home .biography {
+        margin: 150px auto;
     }
 }
 
@@ -39,6 +47,10 @@
             width: auto;
         }
     }
+
+    .home .biography {
+        margin: 100px auto;
+    }
 }
 
 @media (max-width: $mobile) {
@@ -46,10 +58,7 @@
         margin: 10px 0;
     }
 
-}
-
-@media (max-width: $mobile) {
-    .biography-text-heading {
-        margin: 10px 0;
+    .home .biography {
+        margin: 50px auto;
     }
 }
