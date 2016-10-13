@@ -2,19 +2,13 @@
     width: 100%;
     max-width: $maxwidth;
     margin: 0 auto;
-    box-sizing: border-box;
+    @include box-sizing(border-box);
     padding: 0 205px 15px 120px;
 
     p,
     b {
-        font-weight: bold;
+        font-weight: 700;
         font-size: 18px;
-    }
-}
-
-@media (max-width: 1200px) {
-    .subheading {
-        padding: 0 20px;
     }
 }
 

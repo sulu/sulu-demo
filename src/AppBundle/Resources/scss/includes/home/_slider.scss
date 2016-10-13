@@ -75,7 +75,7 @@
 @media (max-width: $tablet) {
     .slider .slides-text {
         padding: 0 20px;
-        box-sizing: border-box;
+        @include box-sizing(border-box);
 
         .heading--h1,
         .heading--h1--description {
@@ -86,7 +86,9 @@
             width: 100%;
             margin-top: -25px;
 
-            p, b, h1 {
+            > p,
+            > b,
+            > h1 {
                 padding: 0 100px;
             }
         }
@@ -140,9 +142,9 @@
     .slider .slides-text .heading--h1--description {
         margin-top: -10px;
 
-        p,
-        b,
-        h1 {
+        > p,
+        > b,
+        > h1 {
             padding: 0 35px;
             font-size: 15px;
         }
@@ -157,7 +159,9 @@
         &--description {
             margin-top: 14px;
 
-            p {
+            > p,
+            > b,
+            > h1 {
                 padding: 0 25px;
             }
         }
@@ -172,7 +176,9 @@
         &--description {
             margin-top: 15px;
 
-            p {
+            > p,
+            > b,
+            > h1 {
                 padding: 0 25px;
             }
         }

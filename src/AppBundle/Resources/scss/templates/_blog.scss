@@ -1,6 +1,6 @@
 .blog {
     max-width: $maxwidth;
-    margin: 150px auto 0 auto;
+    margin: 150px auto;
 
     &-item {
         margin-bottom: 100px;
@@ -31,7 +31,7 @@
                 line-height: 26px;
                 color: $colorblack;
                 margin: 8px 0 13px 0;
-                font-weight: bold;
+                font-weight: 700;
             }
 
             &-text {
@@ -48,6 +48,10 @@
             }
         }
     }
+
+    .article {
+        padding-bottom: 0;
+    }
 }
 
 @media (max-width: $maxwidth + 20) {
@@ -62,7 +66,8 @@
 
 @media (max-width: $tablet) {
     .blog {
-        padding: 0 75px;
+        margin: 0;
+        padding: 75px;
 
         &-item {
             margin-bottom: 50px;
@@ -100,7 +105,7 @@
 
 @media (max-width: 700px) {
     .blog {
-        padding: 0 15px;
+        padding: 15px;
     }
 }
 

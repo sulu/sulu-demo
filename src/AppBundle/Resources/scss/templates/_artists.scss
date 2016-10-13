@@ -8,7 +8,7 @@
 
         &-elem {
             padding: 0 25px;
-            box-sizing: border-box;
+            @include box-sizing(border-box);
             margin-bottom: 50px;
 
             &-image {
@@ -58,7 +58,7 @@
 
             &-text {
                 padding: 20px;
-                box-sizing: border-box;
+                @include box-sizing(border-box);
                 background-color: $colorblack--lighter05;
 
                 &-text {
@@ -84,10 +84,10 @@
                     color: $colorblack;
                     font-size: 24px;
                     line-height: 26px;
-                    font-weight: bold;
+                    font-weight: 700;
                     margin: 5px 0;
                     display: block;
-                    box-sizing: border-box;
+                    @include box-sizing(border-box);
                 }
 
                 &-posted {
@@ -97,7 +97,7 @@
                     &-rectangle {
                         width: 14px;
                         height: 14px;
-                        display: inline-block;
+                        @include inline-block(top);
                         background-color: $colorred--lighter01;
                         margin-right: 7px;
                         vertical-align: middle;
@@ -105,7 +105,7 @@
                     }
 
                     &-by {
-                        display: inline-block;
+                        @include inline-block(top);
                         color: $colorblack--lighter03;
                         font-size: 12px;
                         line-height: 14px;
@@ -114,13 +114,13 @@
                     }
 
                     &-author {
-                        display: inline-block;
+                        @include inline-block(top);
                         color: $colorblack--lighter01;
                         font-size: 12px;
                         line-height: 14px;
                         vertical-align: middle;
                         text-transform: uppercase;
-                        font-weight: bold;
+                        font-weight: 700;
                     }
                 }
             }

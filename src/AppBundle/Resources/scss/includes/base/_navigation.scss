@@ -8,7 +8,7 @@
     z-index: 100;
 
     &-elem {
-        display: inline-block;
+        @include inline-block(top);
         margin: 10px 0 10px 40px;
 
         &--logo {
@@ -30,7 +30,7 @@
             padding: 0;
 
             li {
-                display: inline-block;
+                @include inline-block(top);
                 list-style-type: none;
 
                 a {
@@ -63,7 +63,7 @@
 
             a {
                 height: auto;
-                display: inline-block;
+                @include inline-block(top);
                 float: right;
                 line-height: 65px;
                 vertical-align: middle;
@@ -197,7 +197,7 @@
             }
 
             &--button {
-                display: inline-block;
+                @include inline-block(top);
             }
 
             &--admin {

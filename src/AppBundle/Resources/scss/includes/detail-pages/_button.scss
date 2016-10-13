@@ -2,7 +2,7 @@
     width: 100%;
     max-width: $maxwidth;
     margin: 0 auto;
-    box-sizing: border-box;
+    @include box-sizing(border-box);
     padding: 0 205px 0 120px;
 }
 

@@ -1,8 +1,8 @@
-<div property="articlesShow">
+<div property="articlesShow" >
     {% if content.articlesShow %}
         <div property="articlesBackground" class="{{ content.articlesBackground ? 'background' : '' }}">
             <div property="articlesHeading">
-                <section class="article">
+                <section class="article {{ frame|default(false) ? 'article--frame' }}">
                     {% if content.articlesHeading|default("") %}
                         <h2 class="article-heading heading--h2">
                             {{ content.articlesHeading }}

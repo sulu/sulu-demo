@@ -17,14 +17,14 @@
                     {% endif %}
 
                     {% if block.contacts|first.avatar.thumbnails['170x170'] is defined %}
-                        <div class="singlequote-item-image cf">
+                        <div class="singlequote-item-image">
                             <img src="{{ contact.avatar.thumbnails['170x170'] }}"
                                  alt="{{ contact.fullName }}"/>
                         </div>
                     {% endif %}
 
                     {% if contact.position|length and contact.position.position|default('') and contact.fullName|default('') %}
-                        <span class="singlequote-item-author cf">
+                        <span class="singlequote-item-author">
                             <p class="author-name">
                                 {{ contact.fullName }}
                             </p>

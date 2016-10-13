@@ -1,6 +1,6 @@
 .messageform {
     background-color: #D5D5D5;
-    box-sizing: border-box;
+    @include box-sizing(border-box);
     padding: 100px 0 185px 0;
 
     &-content {
@@ -15,7 +15,7 @@
             font-size: 18px;
             line-height: 26px;
             color: $colorblack;
-            font-weight: bold;
+            font-weight: 700;
         }
     }
 

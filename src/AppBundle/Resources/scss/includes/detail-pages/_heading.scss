@@ -2,14 +2,8 @@
     width: 100%;
     max-width: $maxwidth;
     margin: 0 auto;
-    box-sizing: border-box;
+    @include box-sizing(border-box);
     padding: 100px 205px 20px 120px;
-}
-
-@media (max-width: 1200px) {
-    .heading {
-        padding: 0 20px;
-    }
 }
 
 @media (max-width: $tablet) {

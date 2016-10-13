@@ -12,12 +12,12 @@
 
         &-elem {
             vertical-align: top;
-            display: inline-block;
+            @include inline-block(top);
             width: 50%;
 
             &-content {
                 vertical-align: top;
-                display: inline-block;
+                @include inline-block(top);
 
                 &--left {
                     width: 40%;
@@ -33,6 +33,7 @@
 
                 .heading--h4 {
                     margin: 15px 0;
+                    font-weight: 700;
                 }
 
                 p {
@@ -62,10 +63,10 @@
                         font-size: 14px;
                         padding: 0 21px;
                         font-family: $fontregular;
-                        font-weight: bold;
-                        box-sizing: border-box;
+                        font-weight: 700;
+                        @include box-sizing(border-box);
                         width: calc(100% - 145px);
-                        display: inline-block;
+                        @include inline-block(top);
                         @extend %placehoderColors;
                     }
                 }
@@ -95,7 +96,7 @@
         }
 
         &-elem {
-            display: inline-block;
+            @include inline-block(top);
 
             &--imprint {
                 width: 50%;
@@ -145,7 +146,7 @@
         padding: 0 20px;
 
         &-imprint-elem {
-            display: inline-block;
+            @include inline-block(top);
 
             &--data {
                 width: 50%;
@@ -212,7 +213,7 @@
                 &--middle {
                     width: 50%;
                     padding-left: 15px;
-                    box-sizing: border-box;
+                    @include box-sizing(border-box);
                 }
 
                 &--right {

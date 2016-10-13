@@ -6,14 +6,14 @@
         width: 100%;
         margin: 0 auto;
         padding: 75px 205px 75px 120px;
-        box-sizing: border-box;
+        @include box-sizing(border-box);
 
         &-heading {
             color: $colorblack;
             font-family: $fontregular;
             font-size: 18px;
             line-height: 26px;
-            font-weight: bold;
+            font-weight: 700;
             max-width: 460px;
             width: 100%;
             padding: 0px 0 15px 0;
@@ -81,12 +81,6 @@
                 }
             }
         }
-    }
-}
-
-@media (max-width: 1200px) {
-    .tracks-content {
-        padding: 0 20px;
     }
 }
 
