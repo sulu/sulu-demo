@@ -3,6 +3,11 @@
     margin: 0 auto;
     padding: 150px 0;
 
+    &--frame {
+        padding-top: 0;
+
+    }
+
     &-heading {
         margin-bottom: 35px;
     }
@@ -24,7 +29,7 @@
                 .text-heading {
                     color: $colorblack;
                     font-size: 24px;
-                    font-weight: bold;
+                    font-weight: 700;
 
                     &--team {
                         text-align: center;
@@ -46,10 +51,6 @@
             }
         }
     }
-}
-
-.blog--article .article {
-    padding-top: 0;
 }
 
 @media(max-width: 1200px) {

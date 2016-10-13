@@ -78,7 +78,7 @@
         {% endfor %}
     </section>
 
-    <div class="blog--article">
-        {% include ('AppBundle:includes:article_gallery.html.twig') %}
-    </div>
+    {% include ('AppBundle:includes:article_gallery.html.twig') with {
+        'frame' : true
+    } %}
 {% endblock %}

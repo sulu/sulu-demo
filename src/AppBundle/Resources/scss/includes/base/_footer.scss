@@ -33,7 +33,7 @@
 
                 .heading--h4 {
                     margin: 15px 0;
-                    font-weight: bold;
+                    font-weight: 700;
                 }
 
                 p {
@@ -63,7 +63,7 @@
                         font-size: 14px;
                         padding: 0 21px;
                         font-family: $fontregular;
-                        font-weight: bold;
+                        font-weight: 700;
                         @include box-sizing(border-box);
                         width: calc(100% - 145px);
                         @include inline-block(top);
