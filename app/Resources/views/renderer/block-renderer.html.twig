@@ -1,9 +1,0 @@
-<div property="blocks" typeof="collection">
-    {% if blocks|length  %}
-        {% for block in blocks %}
-            {% include ('includes/' ~ block.type ~ '.html.twig') with {
-                'block' : block
-            } %}
-        {% endfor %}
-    {% endif %}
-</div>

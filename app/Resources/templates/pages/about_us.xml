@@ -3,7 +3,7 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
     <key>about_us</key>
-    <view>templates/about-us</view>
+    <view>AppBundle:templates:about-us</view>
     <controller>SuluWebsiteBundle:Default:index</controller>
     <cacheLifetime>604800</cacheLifetime>
     <meta>

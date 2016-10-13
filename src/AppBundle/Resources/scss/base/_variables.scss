@@ -1,0 +1,52 @@
+// Ionicons
+$ionicons-font-path: "../fonts";
+
+// Breakpoints
+$mobile: 480px;
+$tablet: 1024px;
+
+// Color -- Red
+$colorred: #9D1A1A;
+$colorred--lighter01: #B61D1D;
+$colorred--lighter02: #C94545;
+
+// Color -- Black
+$colorblack: #000000;
+$colorblack--lighter01: #202020;
+$colorblack--lighter02: #313131;
+$colorblack--lighter03: #898989;
+$colorblack--lighter04: #D8D8D8;
+$colorblack--lighter05: #FAFAFA;
+
+// Color -- White
+$colorwhite: #FFFFFF;
+
+// Fonts
+$fontregular: 'Karla', sans-serif;
+$fontfancy: 'Broken Wings', sans-serif;
+
+// Numbers
+$maxwidth: 1180px;
+$maxwidth--text: 855px;
+
+// Placeholder Colors
+%placehoderColors {
+    &::-webkit-input-placeholder {
+        color: #666666;
+    }
+    &:-moz-placeholder {
+        color: #666666;
+        opacity: 1;
+    }
+    &::-moz-placeholder {
+        color: #666666;
+        opacity: 1;
+    }
+    &:-ms-input-placeholder {
+        color: #666666;
+    }
+
+    &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px #D5D5D5 inset;
+    }
+}

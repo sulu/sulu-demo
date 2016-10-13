@@ -1,12 +1,12 @@
 {
   "scripts": {
-    "build:js:modernizer": "modernizr  -c node_config/modernizr.json -d web/dist/js/modernizer.min.js --compress",
-    "build:js": "browserify web/js/demo.js | uglifyjs > web/dist/js/demo.min.js && npm run build:js:modernizer",
-    "build:css": "compass compile --sass-dir=web/scss --css-dir=web/dist/css -s compressed",
-    "update:ionicons": "cp -R node_modules/ionicons-npm/fonts/* web/fonts/",
+    "build:js:modernizer": "modernizr  -c node_config/modernizr.json -d src/AppBundle/Resources/public/js/modernizer.min.js --compress",
+    "build:js": "browserify src/AppBundle/Resources/js/demo.js | uglifyjs > src/AppBundle/Resources/public/js/demo.min.js && npm run build:js:modernizer",
+    "build:css": "compass compile --sass-dir=src/AppBundle/Resources/scss --css-dir=src/AppBundle/Resources/public/css -s compressed",
+    "update:ionicons": "cp -R node_modules/ionicons-npm/fonts/* src/AppBundle/Resources/public/fonts/",
     "build": "npm run build:js && npm run build:css",
-    "watch:css": "compass watch --sass-dir=web/scss --css-dir=web/dist/css -s compressed",
-    "watch:js": "watchify web/js/demo.js -o web/dist/js/demo.min.js -v"
+    "watch:css": "compass watch --sass-dir=src/AppBundle/Resources/scss --css-dir=src/AppBundle/Resources/public/css -s compressed",
+    "watch:js": "watchify src/AppBundle/Resources/js/demo.js -o src/AppBundle/Resources/public/js/demo.min.js -v"
   },
   "dependencies": {
     "ionicons-npm": "^2.0.1",

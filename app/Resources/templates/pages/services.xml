@@ -5,7 +5,7 @@
 
     <key>services</key>
 
-    <view>templates/services</view>
+    <view>AppBundle:templates:services</view>
     <controller>SuluWebsiteBundle:Default:index</controller>
     <cacheLifetime>604800</cacheLifetime>
 
