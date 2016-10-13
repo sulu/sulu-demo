@@ -1,0 +1,16 @@
+{% extends 'AppBundle::master.html.twig' %}
+
+{% block content %}
+
+    <div property="slides">
+    {% if content.slides|length %}
+        {% include('AppBundle:includes:slider.html.twig') with {
+            'slides': content.slides
+        } %}
+    {% endif %}
+    </div>
+
+    {% include ('AppBundle:renderer:block-renderer.html.twig') with {
+        'blocks' : content.blocks
+    } %}
+{% endblock %}

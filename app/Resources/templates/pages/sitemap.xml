@@ -5,7 +5,7 @@
 
     <key>sitemap</key>
 
-    <view>templates/sitemap</view>
+    <view>AppBundle:templates:sitemap</view>
     <controller>SuluWebsiteBundle:Default:index</controller>
     <cacheLifetime>604800</cacheLifetime>
 

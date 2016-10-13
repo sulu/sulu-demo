@@ -1,0 +1,34 @@
+<nav class="nav">
+    <a class="nav-elem nav-elem--logo" href="{{ sulu_content_path('/') }}">
+        <img src="{{ asset('bundles/app/img/logo.svg') }}" alt="Home" class="nav-logo-image"/>
+    </a>
+
+    <div class="nav--right cf">
+        <ul class="nav-elem nav-elem--items">
+            {% for item in sulu_navigation_root_flat('main') %}
+                <li>
+                    <a href="{{ sulu_content_path(item.url) }}"
+                       title="{{ item.title }}">
+                        {{ item.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <div class="nav-elem nav-elem--admin">
+            <a href="/admin">Admin</a>
+        </div>
+
+        <div class="nav-elem nav-elem--language">
+            {% for key, value in urls if key != request.locale %}
+                <a href="{{ sulu_content_path(value, request.webspaceKey, key) }}">
+                    {{ key }}
+                </a>
+            {% endfor %}
+        </div>
+
+        <a id="js-nav-button" class="nav-elem nav-elem--button">
+            <i class="ion-navicon"></i>
+        </a>
+    </div>
+</nav>

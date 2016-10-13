@@ -1,0 +1,13 @@
+{% extends 'AppBundle::master.html.twig' %}
+
+{% set location = {} %}
+
+{% block content %}
+    {% include('AppBundle:includes:headerimage.html.twig') %}
+
+    <section class="contact">
+        {% include ('AppBundle:renderer:block-renderer.html.twig') with {
+            'blocks': content.blocks
+        } %}
+    </section>
+{% endblock %}

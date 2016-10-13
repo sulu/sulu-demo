@@ -5,7 +5,7 @@
 
     <key>homepage</key>
 
-    <view>templates/homepage</view>
+    <view>AppBundle:templates:homepage</view>
     <controller>SuluWebsiteBundle:Default:index</controller>
     <cacheLifetime>2400</cacheLifetime>
 
@@ -202,10 +202,8 @@
 
                                     <params>
                                         <param name="properties" type="collection">
-                                            <param name="heading" value="contentHeading"/>
-                                            <param name="text" value="contentSubheading"/>
+                                            <param name="heading" value="title"/>
                                             <param name="image" value="headerImage"/>
-                                            <param name="categories" value="excerpt.categories"/>
                                             <param name="url" value="url"/>
                                         </param>
                                     </params>

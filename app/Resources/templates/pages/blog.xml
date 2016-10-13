@@ -5,7 +5,7 @@
 
     <key>blog</key>
 
-    <view>templates/blog</view>
+    <view>AppBundle:templates:blog</view>
     <controller>AppBundle:Blog:Overview</controller>
     <cacheLifetime>604800</cacheLifetime>
 

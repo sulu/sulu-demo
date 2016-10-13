@@ -1,0 +1,53 @@
+{% extends 'AppBundle::master.html.twig' %}
+
+{% macro renderElem(elem) %}
+    <a href="{{ elem.url }}" class="sitemap-heading">
+        {{ elem.title }}
+    </a>
+
+    {% if elem.template == 'homepage' %}
+        <div class="grid">
+            {{ _self.renderRow(elem.rows, 'general_pages'|trans) }}
+        </div>
+    {% elseif elem.template == 'artists' %}
+        <div class="grid">
+            {{ _self.renderRow(elem.artists, 'artists'|trans) }}
+            {{ _self.renderRow(elem.disks, 'albums'|trans) }}
+        </div>
+    {% elseif elem.template == 'blog' %}
+        <div class="grid">
+            {{ _self.renderRow(elem.articles, 'articles'|trans) }}
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{% macro renderRow(rows, heading) %}
+    {% for row in rows %}
+
+        <div class="grid__item desk--one-third lap--one-third palm--one-whole">
+            {% if loop.first %}
+                <p class="sitemap-subheading">
+                    {{ heading }}
+                </p>
+            {% endif %}
+
+            {% for child in row %}
+                <a href="{{ child.url }}" class="sitemap-elem">
+                    {{ child.title }}
+                </a>
+            {% endfor %}
+        </div>
+    {% endfor %}
+{% endmacro %}
+
+{% block content %}
+    {% include('AppBundle:includes:headerimage.html.twig') %}
+
+    <section class="sitemap">
+        {% set sitemap = app_sitemap(sulu_sitemap()) %}
+
+        {% for item in sitemap %}
+            {{ _self.renderElem(item) }}
+        {% endfor %}
+    </section>
+{% endblock %}
