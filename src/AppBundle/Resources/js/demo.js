@@ -16,23 +16,21 @@ window.Demo = (function ($) {
         },
 
         navigation: function () {
+            var $nav = $('.nav');
+            var $navItems = $('.nav-elem--items');
+            var $navAdmin = $('.nav-elem--admin');
+            var $navButton = $('.nav-elem--button');
+            var $navicon = $('.nav-elem--button i');
 
             $("#js-nav-button").click(function () {
                 //TODO: Change values for animation
-                var $nav = $('.nav'),
-                    $navItems = $('.nav-elem--items'),
-                    $navAdmin = $('.nav-elem--admin'),
-                    $navButton = $('.nav-elem--button');
-
                 if ($nav.hasClass('open')) {
                     $nav.removeClass('open');
                     $navAdmin.fadeToggle(1000, "linear");
                     $navItems.fadeToggle(1000, "linear");
                     $navButton.fadeTo(500, 0, function () {
-                        var $close = $('.ion-close');
-
-                        $close.addClass('ion-navicon').css('font-size', '38px');
-                        $close.removeClass('ion-close');
+                        $navicon.addClass('ion-navicon').css('font-size', '38px');
+                        $navicon.removeClass('ion-close');
                         $navButton.fadeTo(500, 1);
                     });
                 } else {
@@ -40,8 +38,6 @@ window.Demo = (function ($) {
                     $navAdmin.fadeToggle(1000, "linear");
                     $navItems.fadeToggle(1000, "linear");
                     $navButton.fadeTo(500, 0, function () {
-                        var $navicon = $('.ion-navicon');
-
                         $navicon.addClass('ion-close').css('font-size', '28px');
                         $navicon.removeClass('ion-navicon');
                         $navButton.fadeTo(500, 1);
@@ -51,8 +47,10 @@ window.Demo = (function ($) {
         },
 
         scroll: function () {
-            $(window).scroll(function () {
-                var scroll = $(window).scrollTop(),
+            var $window = $(window);
+
+            $window.scroll(function () {
+                var scroll = $window.scrollTop(),
                     $nav = $('.nav');
 
                 if (scroll >= 10) {
@@ -224,7 +222,7 @@ window.Demo.Preview = (function ($) {
         mutationHandler: function (mutations) {
             mutations.forEach(function (mutation) {
                 var target = $(mutation.target);
-                
+
                 if (target.is(".js-slider") || target.has('.js-slider')) {
                     Demo.startHomeSlider();
                 }

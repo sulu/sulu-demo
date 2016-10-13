@@ -13,8 +13,9 @@
 
         {% block style %}
             <link rel="stylesheet" href="{{ asset('bundles/app/css/style.css') }}">
-            <script src="{{ asset('bundles/app/js/modernizer.min.js') }}"></script>
         {% endblock %}
+
+        <script src="{{ asset('bundles/app/js/modernizer.min.js') }}"></script>
     </head>
     <body>
         <header>
@@ -31,11 +32,10 @@
             {% block aside %}{% endblock %}
         </aside>
 
-        <footer>
-            {% block footer %}
-                {% include('AppBundle:blocks:footer.html.twig') %}
-            {% endblock %}
-        </footer>
+
+        {% block footer %}
+            {% include('AppBundle:blocks:footer.html.twig') %}
+        {% endblock %}
 
         {% block javascripts %}
             <script src="{{ asset('bundles/app/js/demo.min.js') }}"></script>

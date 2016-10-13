@@ -42,7 +42,9 @@ app/maintenance.php
 *.iml
 *~
 
+# Appbundle
+src/AppBundle/node_modules
+
 # System files
 .DS_Store
-node_modules
 .sass-cache

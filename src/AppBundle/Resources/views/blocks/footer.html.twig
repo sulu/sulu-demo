@@ -1,121 +1,124 @@
-<div class="footer">
-    <div class="footer--frame">
-        <div class="footer-main">
-            {% set snippets = sulu_snippet_load_default('contact') %}
+<footer>
+    <div class="footer">
+        <div class="footer--frame">
+            <div class="footer-main">
+                {% set snippets = sulu_snippet_load_default('contact') %}
 
-            <div class="footer-main-elem footer-main-elem--first">
-                {% if snippets|length %}
-                    {% set contact = snippets|first.content.contact|first %}
+                <div class="footer-main-elem footer-main-elem--first">
+                    {% if snippets|length %}
+                        {% set contact = snippets|first.content.contact|first %}
 
-                    <div class="footer-main-elem-content footer-main-elem-content--left">
-                        <h4 class="heading--h4">
-                            {{ 'contact'|trans }}
-                        </h4>
+                        <div class="footer-main-elem-content footer-main-elem-content--left">
+                            <h4 class="heading--h4">
+                                {{ 'contact'|trans }}
+                            </h4>
 
-                        {% if contact.mainAddress|length %}
-                            <p>
-                                {{ contact.mainAddress.street }} {{ contact.mainAddress.number }}, <br/>
-                                {{ contact.mainAddress.zip }} {{ contact.mainAddress.city }}, <br/>
+                            {% if contact.mainAddress|length %}
+                                <p>
+                                    {{ contact.mainAddress.street }} {{ contact.mainAddress.number }}, <br/>
+                                    {{ contact.mainAddress.zip }} {{ contact.mainAddress.city }}, <br/>
 
-                                {% if contact.mainAddress.country|length %}
-                                    {{ contact.mainAddress.country.name }}
-                                {% endif %}
-                            </p>
-                        {% endif %}
+                                    {% if contact.mainAddress.country|length %}
+                                        {{ contact.mainAddress.country.name }}
+                                    {% endif %}
+                                </p>
+                            {% endif %}
 
-                        {% if contact.mainPhone|default('') %}
-                            <p>{{ contact.mainPhone }}</p>
-                        {% endif %}
+                            {% if contact.mainPhone|default('') %}
+                                <p>{{ contact.mainPhone }}</p>
+                            {% endif %}
 
-                        {% if contact.emails|length %}
-                            <p>{{ contact.emails|first.email }}</p>
-                        {% endif %}
+                            {% if contact.emails|length %}
+                                <p>{{ contact.emails|first.email }}</p>
+                            {% endif %}
 
-                        {% if contact.notes|length %}
-                            <p>{{ contact.notes|first.value }}</p>
-                        {% endif %}
+                            {% if contact.notes|length %}
+                                <p>{{ contact.notes|first.value }}</p>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+
+                    <div class="footer-main-elem-content footer-main-elem-content--middle">
+                        <h4 class="heading--h4">{{ 'quick_links'|trans }}</h4>
+
+                        {% for item in sulu_navigation_root_flat('footer', 20) %}
+                            <a href="{{ sulu_content_path(item.url) }}"
+                               title="{{ item.title }}">
+                                {{ item.title }}
+                            </a>
+                        {% endfor %}
                     </div>
-                {% endif %}
+                </div>
 
-                <div class="footer-main-elem-content footer-main-elem-content--middle">
-                    <h4 class="heading--h4">{{ 'quick_links'|trans }}</h4>
-
-                    {% for item in sulu_navigation_root_flat('footer', 20) %}
-                        <a href="{{ sulu_content_path(item.url) }}"
-                           title="{{ item.title }}">
-                            {{ item.title }}
-                        </a>
-                    {% endfor %}
+                <div class="footer-main-elem footer-main-elem--last">
+                    <div class="footer-main-elem-content footer-main-elem-content--right">
+                        <h4 class="heading--h4">{{ 'subscribe_newsletter'|trans }}</h4>
+                        <p>
+                            {{ 'newsletter_text'|trans }}
+                        </p>
+                        <form>
+                            <label class="footer-main-elem-content-email">
+                                <input class="footer-main-elem-content-email-input"
+                                       type="text"
+                                       placeholder="E-Mail"
+                                       required>
+                            </label>
+                            <input class="footer-main-elem-content-button button--small cf" type="submit"
+                                   value="Sign up">
+                        </form>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="footer-main-elem footer-main-elem--last">
-                <div class="footer-main-elem-content footer-main-elem-content--right">
-                    <h4 class="heading--h4">{{ 'subscribe_newsletter'|trans }}</h4>
-                    <p>
-                        {{ 'newsletter_text'|trans }}
-                    </p>
-                    <form>
-                        <label class="footer-main-elem-content-email">
-                            <input class="footer-main-elem-content-email-input"
-                                   type="text"
-                                   placeholder="E-Mail"
-                                   required>
-                        </label>
-                        <input class="footer-main-elem-content-button button--small cf" type="submit" value="Sign up">
-                    </form>
+        <div class="footer-imprint">
+        <span class="footer-imprint-elem footer-imprint-elem--imprint">
+            &copy; Soundmanagment Corporation {{ 'now'|date('Y') }}
+        </span>
+
+            <a href="#" class="footer-imprint-elem footer-imprint-elem--data">
+                Datenschutz und Nutzungsbedingungen
+            </a>
+
+            <a href="#" class="footer-imprint-elem footer-imprint-elem--cookie">
+                Cookie-richtlinien
+            </a>
+
+            <a href="#" class="footer-imprint-elem footer-imprint-elem--security">
+                Sicherheitshinweise & Rückrufe
+            </a>
+        </div>
+    </div>
+
+    <div class="footer footer--socials">
+        <div class="footer--socials-frame">
+            <div class="grid">
+                <div class="grid__item desk--six-tenths lap--six-tenths"></div>
+
+                <div class="grid__item desk--one-tenth lap--one-tenth palm--one-quarter">
+                    <a href="#" class="footer--socials-frame-elem">
+                        <img src="{{ asset('bundles/app/img/Facebook.png') }}" alt="Facebook"/>
+                    </a>
+                </div>
+
+                <div class="grid__item desk--one-tenth lap--one-tenth palm--one-quarter">
+                    <a href="#" class="footer--socials-frame-elem">
+                        <img src="{{ asset('bundles/app/img/Instagram.png') }}" alt="Instagram"/>
+                    </a>
+                </div>
+
+                <div class="grid__item desk--one-tenth lap--one-tenth palm--one-quarter">
+                    <a href="#" class="footer--socials-frame-elem">
+                        <img src="{{ asset('bundles/app/img/YouTube.png') }}" alt="You Tube"/>
+                    </a>
+                </div>
+
+                <div class="grid__item desk--one-tenth lap--one-tenth palm--one-quarter">
+                    <a href="#" class="footer--socials-frame-elem">
+                        <img src="{{ asset('bundles/app/img/Spotify.png') }}" alt="Spotify"/>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="footer-imprint">
-            <span class="footer-imprint-elem footer-imprint-elem--imprint">
-                &copy; Soundmanagment Corporation {{ "now"|date("Y") }}
-            </span>
-
-        <a href="#" class="footer-imprint-elem footer-imprint-elem--data">
-            Datenschutz und Nutzungsbedingungen
-        </a>
-
-        <a href="#" class="footer-imprint-elem footer-imprint-elem--cookie">
-            Cookie-richtlinien
-        </a>
-
-        <a href="#" class="footer-imprint-elem footer-imprint-elem--security">
-            Sicherheitshinweise & Rückrufe
-        </a>
-    </div>
-</div>
-
-<div class="footer footer--socials">
-    <div class="footer--socials-frame">
-        <div class="grid">
-            <div class="grid__item desk--six-tenths lap--six-tenths"></div>
-
-            <div class="grid__item desk--one-tenth lap--one-tenth palm--one-quarter">
-                <a href="#" class="footer--socials-frame-elem">
-                    <img src="{{ asset('bundles/app/img/Facebook.png') }}" alt="Facebook"/>
-                </a>
-            </div>
-
-            <div class="grid__item desk--one-tenth lap--one-tenth palm--one-quarter">
-                <a href="#" class="footer--socials-frame-elem">
-                    <img src="{{ asset('bundles/app/img/Instagram.png') }}" alt="Instagram"/>
-                </a>
-            </div>
-
-            <div class="grid__item desk--one-tenth lap--one-tenth palm--one-quarter">
-                <a href="#" class="footer--socials-frame-elem">
-                    <img src="{{ asset('bundles/app/img/YouTube.png') }}" alt="You Tube"/>
-                </a>
-            </div>
-
-            <div class="grid__item desk--one-tenth lap--one-tenth palm--one-quarter">
-                <a href="#" class="footer--socials-frame-elem">
-                    <img src="{{ asset('bundles/app/img/Spotify.png') }}" alt="Spotify"/>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
+</footer>
