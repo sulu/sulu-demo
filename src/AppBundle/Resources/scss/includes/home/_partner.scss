@@ -32,9 +32,8 @@
                     white-space: nowrap;
                     padding-bottom: 100px;
 
-
                     &-image {
-                        display: inline-block;
+                        @include inline-block(top);
                         margin: 10px 22px;
                         height: 60px;
                     }

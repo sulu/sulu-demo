@@ -147,7 +147,7 @@ a {
     text-align: center;
 
     li {
-        display: inline-block;
+        @include inline-block(top);
         margin: 25px 6px;
 
         button {
