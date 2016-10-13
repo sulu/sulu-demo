@@ -22,7 +22,7 @@
     }
 
     &-text {
-        box-sizing: border-box;
+        @include box-sizing(border-box);
         width: 100%;
         text-align: center;
         position: absolute;

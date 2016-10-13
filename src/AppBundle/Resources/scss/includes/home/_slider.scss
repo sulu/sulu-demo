@@ -75,7 +75,7 @@
 @media (max-width: $tablet) {
     .slider .slides-text {
         padding: 0 20px;
-        box-sizing: border-box;
+        @include box-sizing(border-box);
 
         .heading--h1,
         .heading--h1--description {

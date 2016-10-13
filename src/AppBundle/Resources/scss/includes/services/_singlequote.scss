@@ -41,7 +41,7 @@
             display: block;
             width: 70%;
             padding-right: 60px;
-            box-sizing: border-box;
+            @include box-sizing(border-box);
             text-align: center;
             vertical-align: top;
 

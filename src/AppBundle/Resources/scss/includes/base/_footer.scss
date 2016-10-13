@@ -64,7 +64,7 @@
                         padding: 0 21px;
                         font-family: $fontregular;
                         font-weight: bold;
-                        box-sizing: border-box;
+                        @include box-sizing(border-box);
                         width: calc(100% - 145px);
                         display: inline-block;
                         @extend %placehoderColors;
@@ -213,7 +213,7 @@
                 &--middle {
                     width: 50%;
                     padding-left: 15px;
-                    box-sizing: border-box;
+                    @include box-sizing(border-box);
                 }
 
                 &--right {

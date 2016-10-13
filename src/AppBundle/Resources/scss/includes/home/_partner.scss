@@ -8,7 +8,7 @@
     &-frame {
         @include vertical-align(absolute);
         width: 100%;
-        box-sizing: border-box;
+        @include box-sizing(border-box);
 
         &-content {
             max-width: $maxwidth;

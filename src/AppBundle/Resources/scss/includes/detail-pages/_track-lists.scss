@@ -6,7 +6,7 @@
         width: 100%;
         margin: 0 auto;
         padding: 75px 205px 75px 120px;
-        box-sizing: border-box;
+        @include box-sizing(border-box);
 
         &-heading {
             color: $colorblack;

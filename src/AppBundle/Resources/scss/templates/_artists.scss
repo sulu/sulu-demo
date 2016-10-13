@@ -8,7 +8,7 @@
 
         &-elem {
             padding: 0 25px;
-            box-sizing: border-box;
+            @include box-sizing(border-box);
             margin-bottom: 50px;
 
             &-image {
@@ -58,7 +58,7 @@
 
             &-text {
                 padding: 20px;
-                box-sizing: border-box;
+                @include box-sizing(border-box);
                 background-color: $colorblack--lighter05;
 
                 &-text {
@@ -87,7 +87,7 @@
                     font-weight: bold;
                     margin: 5px 0;
                     display: block;
-                    box-sizing: border-box;
+                    @include box-sizing(border-box);
                 }
 
                 &-posted {

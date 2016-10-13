@@ -31,7 +31,7 @@
                 height: inherit;
                 display: none;
                 padding: 20px;
-                box-sizing: border-box;
+                @include box-sizing(border-box);
 
                 .button--small {
                     @include vertical-align(relative);

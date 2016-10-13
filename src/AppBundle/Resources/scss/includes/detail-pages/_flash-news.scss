@@ -5,7 +5,7 @@
         padding: 75px 100px 0 120px;
         max-width: $maxwidth / 2;
         margin-left: auto;
-        box-sizing: border-box;
+        @include box-sizing(border-box);
 
         &-title {
             margin-bottom: 10px;

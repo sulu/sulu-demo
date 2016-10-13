@@ -2,7 +2,7 @@
     width: 100%;
     max-width: $maxwidth;
     margin: 0 auto;
-    box-sizing: border-box;
+    @include box-sizing(border-box);
     padding: 30px 205px 30px 120px;
     display: block;
 
