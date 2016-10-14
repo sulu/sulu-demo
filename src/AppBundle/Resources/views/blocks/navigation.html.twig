@@ -7,6 +7,7 @@
         <ul class="nav-elem nav-elem--items">
             {% for item in sulu_navigation_root_flat('main') %}
                 {% set active = '' %}
+                
                 {% if uuid|default('') %}
                     {% for crumb in sulu_breadcrumb(uuid) %}
                         {% if crumb.uuid == item.uuid %}

@@ -35,7 +35,7 @@
             font-family: $fontregular;
             font-style: italic;
             border-bottom: 1px solid $colorblack;
-            @include placeholder-colors();
+            @include placeholder-colors;
 
             & [value=""] {
                 border-bottom: 1px solid $colorblack;

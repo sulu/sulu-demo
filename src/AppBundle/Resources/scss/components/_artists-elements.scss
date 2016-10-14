@@ -5,7 +5,7 @@
 .artist--element {
     &-heading {
         max-width: $maxwidth;
-        margin: 65px auto 35px auto;
+        margin: 65px auto 35px;
     }
 
     &-frame {
@@ -39,7 +39,7 @@
 
                 .button--small {
                     @include vertical-align(relative);
-                    margin: 40px auto 0 auto;
+                    margin: 40px auto 0;
                 }
 
                 &:before {
@@ -50,7 +50,7 @@
                     height: 100%;
                     width: 100%;
                     background-color: $colorred--lighter02;
-                    opacity: 0.75;
+                    @include opacity(0.75);
                 }
             }
 
@@ -87,7 +87,7 @@
 
 .artists {
     max-width: $maxwidth;
-    margin: 150px auto -50px auto;
+    margin: 150px auto -50px;
     overflow: hidden;
 
     &-content {
