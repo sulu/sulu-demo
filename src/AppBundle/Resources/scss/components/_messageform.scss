@@ -1,3 +1,7 @@
+/*=================================================
+        MESSAGE FORM
+=================================================*/
+
 .messageform {
     background-color: #D5D5D5;
     @include box-sizing(border-box);
@@ -31,7 +35,7 @@
             font-family: $fontregular;
             font-style: italic;
             border-bottom: 1px solid $colorblack;
-            @extend %placehoderColors;
+            @include placeholder-colors;
 
             & [value=""] {
                 border-bottom: 1px solid $colorblack;

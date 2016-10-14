@@ -1,0 +1,399 @@
+/*=================================================
+        TEXT
+=================================================*/
+
+.text {
+    width: 100%;
+    max-width: $maxwidth;
+    margin: 0 auto;
+    @include box-sizing(border-box);
+    padding: 0 205px 0 120px;
+}
+@media (max-width: $tablet) {
+    .text {
+        margin: 0;
+        padding: 0 75px;
+    }
+}
+
+@media (max-width: 700px) {
+    .text {
+        padding: 0 30px;
+    }
+}
+
+/*=================================================
+        BUTTON
+=================================================*/
+
+.button-frame {
+    width: 100%;
+    max-width: $maxwidth;
+    margin: 0 auto;
+    @include box-sizing(border-box);
+    padding: 0 205px 0 120px;
+}
+
+@media (max-width: $maxwidth--text + 20px) {
+    .button-frame {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: $tablet) {
+    .button-frame {
+        margin: 0;
+        padding: 0 75px;
+    }
+}
+
+@media (max-width: 700px) {
+    .button-frame {
+        padding: 0 30px;
+    }
+}
+
+/*=================================================
+        HEADING
+=================================================*/
+
+.heading {
+    width: 100%;
+    max-width: $maxwidth;
+    margin: 0 auto;
+    @include box-sizing(border-box);
+    padding: 100px 205px 20px 120px;
+}
+
+@media (max-width: $tablet) {
+    .heading {
+        margin: 50px 0 25px 0;
+        padding: 0 75px;
+    }
+}
+
+@media (max-width: 700px) {
+    .heading {
+        padding: 0 30px;
+    }
+}
+
+/*=================================================
+        SUBHEADING
+=================================================*/
+
+.subheading {
+    width: 100%;
+    max-width: $maxwidth;
+    margin: 0 auto;
+    @include box-sizing(border-box);
+    padding: 0 205px 15px 120px;
+
+    p,
+    b {
+        font-weight: 700;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: $tablet) {
+    .subheading {
+        margin: 0;
+        padding: 0 75px 13px 75px;
+    }
+}
+
+@media (max-width: 700px) {
+    .subheading {
+        padding: 0 30px 13px 30px;
+    }
+}
+
+/*=================================================
+        QUOTE
+=================================================*/
+
+.quote {
+    width: 100%;
+    max-width: $maxwidth;
+    margin: 0 auto;
+    @include box-sizing(border-box);
+    padding: 0 205px 0 120px;
+
+    &-content {
+        border-left: 14px solid $colorred--lighter01;
+        margin: 30px 0 30px 45px;
+        padding: 25px 0 25px 30px;
+    }
+}
+
+@media (max-width: $tablet) {
+    .quote {
+        margin: 0;
+        padding: 0 75px;
+    }
+}
+
+@media (max-width: 700px) {
+    .quote {
+        padding: 0 30px;
+
+        &-content {
+            margin: 25px 0;
+        }
+    }
+}
+
+/*=================================================
+        BACKGROUND
+=================================================*/
+
+.background {
+    background-color: $colorblack--lighter05;
+    overflow: auto;
+}
+
+/*=================================================
+        MEDIA GALLERY
+=================================================*/
+
+.media-gallery {
+    max-width: $maxwidth;
+    width: 100%;
+    margin: 100px auto;
+    overflow: hidden;
+
+    &-content {
+        margin: 0 -24px;
+
+        &-elem {
+            padding: 0 24px;
+
+            &-image {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: $tablet) {
+    .media-gallery {
+        margin: 50px 0;
+
+        &-content {
+            margin: 0 -12px;
+
+            &-elem {
+                padding: 0 12px;
+            }
+        }
+    }
+}
+
+@media (max-width: $mobile) {
+    .media-gallery {
+        margin: 25px 0;
+    }
+}
+
+/*=================================================
+        LOCATION
+=================================================*/
+
+.location {
+    margin-top: 100px;
+
+    &-map {
+        height: 500px;
+    }
+}
+
+/*=================================================
+        AUTHOR
+=================================================*/
+
+.author {
+    width: 100%;
+    max-width: $maxwidth;
+    margin: 0 auto;
+    @include box-sizing(border-box);
+    padding: 30px 205px 30px 120px;
+    display: block;
+
+    &-rectangle {
+        width: 14px;
+        height: 14px;
+        @include inline-block(top);
+        background-color: $colorred--lighter01;
+        margin-right: 7px;
+        vertical-align: middle;
+        line-height: 14px;
+    }
+
+    &-by {
+        @include inline-block(top);
+        color: $colorblack--lighter03;
+        font-size: 12px;
+        line-height: 14px;
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+
+    &-author {
+        @include inline-block(top);
+        color: $colorblack--lighter01;
+        font-size: 12px;
+        line-height: 14px;
+        vertical-align: middle;
+        font-weight: 700;
+    }
+}
+
+@media (max-width: $tablet) {
+    .author {
+        margin: 50px 0 25px 0;
+        padding: 0 75px;
+    }
+}
+
+@media (max-width: 700px) {
+    .author {
+        padding: 0 30px;
+    }
+}
+
+/*=================================================
+        AUTHOR
+=================================================*/
+
+.singlequote {
+    height: 480px;
+    width: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+
+    &-item {
+        max-width: $maxwidth;
+        margin: 0 auto;
+        @include vertical-align(relative);
+        font-size: 0;
+        direction: rtl;
+
+        &-text {
+            @include inline-block(top);
+            width: 70%;
+            color: $colorblack;
+            text-align: center;
+            padding-right: 60px;
+            @include box-sizing(border-box);
+            font-size: 24px;
+            line-height: 36px;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        &-image {
+            width: 30%;
+            text-align: center;
+            @include inline-block(top);
+            @include box-sizing(border-box);
+
+            img {
+                width: 140px;
+                height: 140px;
+                border-radius: 70px;
+            }
+        }
+
+        &-author {
+            display: block;
+            width: 70%;
+            padding-right: 60px;
+            @include box-sizing(border-box);
+            text-align: center;
+            vertical-align: top;
+
+            .author-name {
+                font-size: 18px;
+                line-height: 22px;
+                color: $colorblack;
+                text-transform: uppercase;
+                font-weight: 700;
+                margin-top: 35px;
+            }
+
+            .author-position {
+                font-size: 14px;
+                line-height: 17px;
+                color: $colorblack;
+                margin-top: 5px;
+            }
+        }
+    }
+}
+
+@media (max-width: $tablet) {
+    .singlequote-item {
+        direction: ltr;
+
+        &-text {
+            width: 100%;
+            padding: 0 75px;
+        }
+
+        &-image {
+            width: 40%;
+            padding-left: 50px;
+        }
+
+        &-author {
+            width: 60%;
+            padding-right: 100px;
+            @include inline-block(top);
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .singlequote-item {
+        &-text {
+            width: 100%;
+            padding: 0 50px;
+        }
+
+        &-image {
+            padding-left: 15px;
+        }
+
+        &-author {
+            padding-right: 30px;
+        }
+    }
+}
+
+@media (max-width: $mobile) {
+    .singlequote-item {
+        &-text {
+            font-size: 14px;
+        }
+
+        &-image,
+        &-author {
+            width: 100%;
+            padding: 0 15px;
+        }
+
+        &-image img {
+            height: 80px;
+            width: 80px;
+            border-radius: 40px;
+        }
+
+        .author-name,
+        .author-position {
+            font-size: 14px;
+        }
+
+
+    }
+}

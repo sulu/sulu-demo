@@ -1,3 +1,7 @@
+/*=================================================
+        NAVIGATION
+=================================================*/
+
 .nav {
     position: fixed;
     width: 100%;
@@ -24,35 +28,32 @@
 
         &--items {
             height: 65px;
-            line-height: 55px;
+            line-height: 64px;
             vertical-align: bottom;
             margin: 0;
             padding: 0;
 
             li {
-                @include inline-block(top);
+                @include inline-block(middle);
                 list-style-type: none;
+                padding: 0 30px;
 
                 a {
-                    padding: 25px;
-                    line-height: 65px;
-                    vertical-align: middle;
                     font-family: $fontregular;
-                    font-size: 17px;
+                    font-size: 18px;
                     color: $colorwhite;
                     text-transform: uppercase;
                     text-decoration: none;
-                    -webkit-font-smoothing: antialiased;
-                    -moz-osx-font-smoothing: grayscale;
+                    padding-bottom: 2px;
 
-                    .no-touchevents &:hover {
-                        color: $colorred;
-                        text-decoration: none;
+                    .no-touchevents &:hover,
+                    &:active{
+                        border-bottom: 1px solid;
                     }
                 }
 
-                a:active {
-                    text-decoration: underline;
+                .active {
+                    border-bottom: 1px solid;
                 }
             }
         }
@@ -60,39 +61,32 @@
         &--admin, &--language {
             margin: 0;
             float: right;
+            @include inline-block(top);
+            line-height: 66px;
+            height: 65px;
 
             a {
-                height: auto;
-                @include inline-block(top);
-                float: right;
-                line-height: 65px;
-                vertical-align: middle;
                 font-family: $fontregular;
-                font-size: 17px;
+                font-size: 18px;
                 color: $colorwhite;
                 text-transform: uppercase;
                 text-decoration: none;
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
                 margin: 0;
+                padding-bottom: 2px;
 
+                .no-touchevents &:hover,
                 &:active {
-                    text-decoration: underline;
-                }
-
-                .no-touchevents &:hover {
-                    color: $colorred;
-                    text-decoration: none;
+                    border-bottom: 1px solid;
                 }
             }
         }
 
-        &--admin a {
-            padding: 0 130px 0 25px;
+        &--admin {
+            padding: 0 130px 0 30px;
         }
 
-        &--language a {
-            padding: 0 25px;
+        &--language {
+            padding: 0 30px;
         }
 
         &--button {

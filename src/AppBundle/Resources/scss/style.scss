@@ -3,57 +3,35 @@
 @import 'compass/reset';
 @import 'compass/css3/appearance';
 
+// PLUGINS
+@import 'plugins/csswizardry-config';
+@import 'plugins/csswizardry-grids';
+
+// NODE MODULES
+@import '../../node_modules/slick-carousel/slick/slick';
+@import '../../node_modules/ionicons-npm/scss/ionicons';
+
 // BASE
 @import 'base/fonts';
 @import 'base/variables';
 @import 'base/mixin';
+@import 'base/base';
 
-// TEMPLATES
-@import 'templates/artists';
-@import 'templates/blog';
-@import 'templates/sitemap';
-
-// IMPORTS
-@import '../../node_modules/slick-carousel/slick/slick';
-@import '../../node_modules/ionicons-npm/scss/ionicons';
-
-// VENDOR
-@import 'vendor/csswizardry-grids';
-
-// INCLUDES - BASE
-@import 'includes/base/general';
-@import 'includes/base/navigation';
-@import 'includes/base/footer';
-@import 'includes/base/error';
-
-// INCLUDES - GENERAL
-@import 'includes/general/headerimage';
-@import 'includes/general/content-general';
-
-// INCLUDES - DETAILED PAGES
-@import 'includes/detail-pages/heading';
-@import 'includes/detail-pages/subheading';
-@import 'includes/detail-pages/text';
-@import 'includes/detail-pages/author';
-@import 'includes/detail-pages/quote';
-@import 'includes/detail-pages/article-gallery';
-@import 'includes/detail-pages/media-gallery';
-@import 'includes/detail-pages/flash-news';
-@import 'includes/detail-pages/action';
-@import 'includes/detail-pages/track-lists';
-
-// INCLUDES - SERVICES
-@import 'includes/services/services';
-@import 'includes/services/singlequote';
-
-// INCLUDES - HOME
-@import 'includes/home/biography';
-@import 'includes/home/artists-element';
-@import 'includes/home/news';
-@import 'includes/home/partner';
-@import 'includes/home/slider';
-@import 'includes/home/discography-elements';
-
-// INCLUDES - CONTACT
-@import 'includes/contact/location';
-@import 'includes/contact/messageform';
+// COMPONENTS
+@import 'components/action';
+@import 'components/artists-elements';
+@import 'components/biography';
+@import 'components/blocks';
+@import 'components/blog-elements';
+@import 'components/discography-elements';
+@import 'components/error';
+@import 'components/footer';
+@import 'components/headerimage';
+@import 'components/messageform';
+@import 'components/navigation';
+@import 'components/news-elements';
+@import 'components/partner';
+@import 'components/services-element';
+@import 'components/sitemap';
+@import 'components/teaser-slider';
+@import 'components/track-list';

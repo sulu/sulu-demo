@@ -1,3 +1,7 @@
+/*=================================================
+        BLOG OVERVIEW
+=================================================*/
+
 .blog {
     max-width: $maxwidth;
     margin: 150px auto;
@@ -143,6 +147,86 @@
             .button--medium {
                 margin: 25px 0 0 0;
             }
+        }
+    }
+}
+
+/*=================================================
+        ARTICLE GALLERY
+=================================================*/
+
+.article {
+    max-width: $maxwidth;
+    margin: 0 auto;
+    padding: 150px 0;
+
+    &--frame {
+        padding-top: 0;
+    }
+
+    &-heading {
+        margin-bottom: 35px;
+    }
+
+    &-collection {
+        &-item {
+            &-image {
+                position: relative;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            &-text {
+                padding: 10px;
+
+                .text-heading {
+                    color: $colorblack;
+                    font-size: 24px;
+                    font-weight: 700;
+
+                    &--team {
+                        text-align: center;
+                        margin-top: 15px;
+                    }
+                }
+
+                .text-creation {
+                    margin-top: 5px;
+                    color: #676767;
+                    font-size: 14px;
+
+                    &--team {
+                        text-align: center;
+                        color: $colorred;
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 1200px) {
+    .article {
+        padding: 150px 20px;
+    }
+}
+
+@media(max-width: $tablet) {
+    .article {
+        padding: 75px;
+    }
+}
+
+@media (max-width: 700px) {
+    .article {
+        padding: 30px 15px;
+
+        &-heading {
+            margin-bottom: 15px;
         }
     }
 }

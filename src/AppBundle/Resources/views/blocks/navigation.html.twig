@@ -6,9 +6,20 @@
     <div class="nav--right cf">
         <ul class="nav-elem nav-elem--items">
             {% for item in sulu_navigation_root_flat('main') %}
+                {% set active = '' %}
+                
+                {% if uuid|default('') %}
+                    {% for crumb in sulu_breadcrumb(uuid) %}
+                        {% if crumb.uuid == item.uuid %}
+                            {% set active = ' class="active"' %}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
                 <li>
                     <a href="{{ sulu_content_path(item.url) }}"
-                       title="{{ item.title }}">
+                       title="{{ item.title }}"
+                       {{ active|raw }}>
                         {{ item.title }}
                     </a>
                 </li>

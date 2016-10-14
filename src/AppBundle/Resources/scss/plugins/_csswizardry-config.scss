@@ -1,0 +1,14 @@
+/*=================================================
+        GRID FIX
+=================================================*/
+
+.grid {
+    font-size: 0; //inline-block fix
+}
+
+.grid__item {
+    position: relative;
+    @include inline-block(top);
+    font-size: 15px;
+    text-align: left;
+}
