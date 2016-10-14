@@ -1,3 +1,5 @@
+// This is the javascript we need for our project
+// This file will be minimized and the required components will be included through our node packages
 window.jQuery = require('jquery');
 require('slick-carousel');
 
@@ -220,13 +222,16 @@ window.Demo = (function($) {
     };
 })(jQuery);
 
-window.Demo.Preview = (function($) {
+// Here we you can find a solution so that js works correctly in live preview
+window.Demo.Preview = (function ($) {
     "use strict";
 
     return {
-        init: function() {
-            // mutation observer for watching if the live preview is updating the dom and reacting to it
-            var targetNode = $('#content');
+        init: function () {
+            // Mutation observer for watching if the live preview is updating the dom and reacting to it
+            // Here you can find information how a mutation observer works:
+            // https://developer.mozilla.org/en/docs/Web/API/MutationObserver
+            var targetNode = $("#content");
             var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
             var myObserver = new MutationObserver(this.mutationHandler);
             var obsConfig = {childList: true, characterData: true, attributes: false, subtree: true};

@@ -2,7 +2,10 @@
 <template xmlns="http://schemas.sulu.io/template/template"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <!-- This is the template for the "About Us" page -->
+    <!-- For further information have a look at homepage.xml -->
     <key>about_us</key>
+
     <view>AppBundle:templates:about-us</view>
     <controller>SuluWebsiteBundle:Default:index</controller>
     <cacheLifetime>604800</cacheLifetime>
@@ -25,7 +28,7 @@
                 </property>
                 <property name="url" type="resource_locator" mandatory="true">
                     <meta>
-                        <title lang="en">Resourcelocator</title>
+                        <title lang="en">Resource Locator</title>
                         <title lang="de">Adresse</title>
                     </meta>
                     <tag name="sulu.rlp"/>

@@ -3,6 +3,8 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://schemas.sulu.io/webspace/webspace http://schemas.sulu.io/webspace/webspace-1.1.xsd">
 
+    <!-- This is the configuration of your webspace for further information have a look at: -->
+    <!-- http://docs.sulu.io/en/latest/book/webspaces.html -->
     <name>demo.sulu.io</name>
     <key>sulu_demo</key>
 

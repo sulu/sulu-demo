@@ -3,18 +3,32 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
 
+    <!-- This is the template for the "Home" page -->
+    <!-- For further information on how to make a Sulu template have a look at: -->
+    <!-- http://docs.sulu.io/en/latest/book/templates.html -->
+
+    <!-- Unique key for identifying a specific template -->
     <key>homepage</key>
 
+    <!-- Path to "Home" page´s Twig file: -->
+    <!-- src/AppBundle/Resources/views/templates/homepage.html.twig -->
     <view>AppBundle:templates:homepage</view>
+
+    <!-- Path to "Home" page´s Controller -->
+    <!-- In this case it´s Sulu´s default Controller -->
     <controller>SuluWebsiteBundle:Default:index</controller>
+
+    <!-- Lifetime of this pages cache -->
     <cacheLifetime>2400</cacheLifetime>
 
     <meta>
+        <!-- Translated titles of this page type -->
         <title lang="en">Homepage</title>
         <title lang="de">Startseite</title>
     </meta>
 
     <properties>
+        <!-- This section is needed in every template for creating the URL and title of the page -->
         <section name="highlight">
             <properties>
                 <property name="title" type="text_line" mandatory="true">
@@ -31,7 +45,7 @@
 
                 <property name="url" type="resource_locator" mandatory="true">
                     <meta>
-                        <title lang="en">Resourcelocator</title>
+                        <title lang="en">Resource Locator</title>
                         <title lang="de">Adresse</title>
                     </meta>
 
@@ -40,13 +54,24 @@
             </properties>
         </section>
 
+        <!-- Now you can start to define what data you need on your page -->
+        <!-- You do that with different content types -->
+        <!-- Here you can find the currently existing content types: -->
+        <!-- http://docs.sulu.io/en/latest/reference/content-types/index.html -->
+
+        <!-- For a better overview you separate the content types into sections -->
+        <!-- Every section needs at least a name -->
         <section name="slider">
             <meta>
                 <title lang="de">Slider</title>
                 <title lang="en">Slider</title>
             </meta>
 
+            <!-- Now you can define what content types are in this section -->
             <properties>
+
+                <!-- This content type is a teaser selection -->
+                <!-- Every content type needs at least a name for identification and the type it´s of -->
                 <property name="slides" type="teaser_selection">
                     <meta>
                         <title lang="en">Slides</title>
@@ -63,12 +88,15 @@
             </meta>
 
             <properties>
+                <!-- This is a block content type it´s special because it contains different "blocks" -->
+                <!-- these blocks contain other content types -->
                 <block name="blocks" default-type="editor" minOccurs="0">
                     <meta>
                         <title lang="de">Inhalte</title>
                         <title lang="en">Content</title>
                     </meta>
 
+                    <!-- Every one of these block is call one type and contains the different content types -->
                     <types>
                         <type name="biography">
                             <meta>
@@ -77,6 +105,7 @@
                             </meta>
 
                             <properties>
+                                <!-- This a more "normal" content it´s a simple text line -->
                                 <property name="biographyTitle" type="text_line">
                                     <meta>
                                         <title lang="en">Title</title>
@@ -84,6 +113,7 @@
                                     </meta>
                                 </property>
 
+                                <!-- This is a editor content type that allows you to modify the text -->
                                 <property name="biographyHeading" type="text_editor">
                                     <meta>
                                         <title lang="en">Heading</title>
@@ -105,6 +135,7 @@
                                     </meta>
                                 </property>
 
+                                <!-- This is a media selection that allows you to select images or videos -->
                                 <property name="biographyImage" type="media_selection">
                                     <meta>
                                         <title lang="en">Image</title>
@@ -112,6 +143,7 @@
                                     </meta>
 
                                     <params>
+                                        <!-- In this case we allow the editor only to select images -->
                                         <param name="types" value="image"/>
                                     </params>
                                 </property>
@@ -132,6 +164,8 @@
                                     </meta>
                                 </property>
 
+                                <!-- A smart content content type is also a little more special it -->
+                                <!-- It allows you to get data of pages you select in the backend -->
                                 <property name="artistsData" type="smart_content">
                                     <meta>
                                         <title lang="en">Artists</title>
@@ -139,6 +173,9 @@
                                     </meta>
 
                                     <params>
+                                        <!-- Here you define what data you want out of the other page -->
+                                        <!-- As can see the name of the content type on the other  -->
+                                        <!-- page is used for identification  -->
                                         <param name="properties" type="collection">
                                             <param name="heading" value="title"/>
                                             <param name="image" value="headerImage"/>
@@ -149,7 +186,7 @@
                             </properties>
                         </type>
 
-                       <type name="discography_element">
+                        <type name="discography_element">
                             <meta>
                                 <title lang="de">Discographie</title>
                                 <title lang="en">Discography</title>
@@ -218,6 +255,13 @@
                             </meta>
 
                             <properties>
+                                <!-- A snippet content type is also a little more special it -->
+                                <!-- It allows you to choose a snippet -->
+                                <!-- Snippets can be used again on different pages -->
+                                <!-- So that you can use a snippet you need to define a template -->
+                                <!-- Have a look at the partner snippet template for example: -->
+                                <!-- You can find it under: -->
+                                <!-- App/Resources/templates/snippets/partner.xml -->
                                 <property name="partnerData" type="snippet">
                                     <meta>
                                         <title lang="de">Partner</title>
@@ -225,6 +269,7 @@
                                     </meta>
 
                                     <params>
+                                        <!-- Here you can define what kind of snippets can be choosen -->
                                         <param name="snippetType" value="partner"/>
                                     </params>
                                 </property>

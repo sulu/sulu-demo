@@ -3,6 +3,8 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
 
+    <!-- This is the template for the "Services" page -->
+    <!-- For further information have a look at homepage.xml -->
     <key>services</key>
 
     <view>AppBundle:templates:services</view>
@@ -31,7 +33,7 @@
 
                 <property name="url" type="resource_locator" mandatory="true">
                     <meta>
-                        <title lang="en">Resourcelocator</title>
+                        <title lang="en">Resource Locator</title>
                         <title lang="de">Adresse</title>
                     </meta>
 

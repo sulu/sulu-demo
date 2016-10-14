@@ -2,8 +2,14 @@
 
 namespace AppBundle\Twig;
 
+/* In this file you can see our custom Twig extension that we need for our sitemap */
 class WebsiteTwigExtension extends \Twig_Extension
 {
+    /**
+     * Registers the Twig functions
+     *
+     * @return array
+     */
     public function getFunctions()
     {
         return [

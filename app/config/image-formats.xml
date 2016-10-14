@@ -2,12 +2,18 @@
 <formats xmlns="http://schemas.sulu.io/media/formats"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://schemas.sulu.io/media/formats http://schemas.sulu.io/media/formats-1.1.xsd">
+    <!-- Here you can see the image formats we are using in the demo project -->
+    <!-- Detailed information on how image formats can be found under: -->
+    <!-- http://docs.sulu.io/en/latest/book/image-formats.html -->
+
+    <!-- A image format contains a key that can be used to access the image format in your Twig file -->
     <format key="1920x1080">
         <meta>
             <!-- It also has a translated title -->
             <title lang="de">Header Image Groß - Desktop</title>
             <title lang="en">Header Image Large - Desktop</title>
         </meta>
+        <!-- And you need to define the size of an image format -->
         <scale x="1920" y="1080"/>
     </format>
 

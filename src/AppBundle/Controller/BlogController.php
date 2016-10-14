@@ -11,6 +11,8 @@ use Sulu\Component\Util\SortUtils;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Constraints\Uuid;
 
+// This is the custom controller we need for the blog page
+// We extend the default website controller
 class BlogController extends WebsiteController
 {
     /**
