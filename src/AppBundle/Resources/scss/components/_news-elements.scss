@@ -1,3 +1,7 @@
+/*=================================================
+        NEWS LIST
+=================================================*/
+
 .news {
     background-color: $colorred--lighter02;
 
@@ -95,5 +99,60 @@
             margin-bottom: 25px;
             font-size: 28px;
         }
+    }
+}
+
+/*=================================================
+        FLASH NEWS
+=================================================*/
+
+.news--flash {
+    background-color: $colorblack--lighter05;
+
+    &-text {
+        padding: 75px 100px 0 120px;
+        max-width: $maxwidth / 2;
+        margin-left: auto;
+        @include box-sizing(border-box);
+
+        &-title {
+            margin-bottom: 10px;
+        }
+
+        &-heading {
+            margin-bottom: 15px;
+            font-weight: 700;
+
+            p,
+            b {
+                font-weight: 700;
+                font-size: 18px;
+            }
+        }
+    }
+
+    &-image {
+        width: 100%;
+    }
+}
+
+@media (max-width: $tablet) {
+    .news--flash {
+        padding: 0;
+
+        &-text {
+            padding: 65px 75px 70px 75px;
+            max-width: none;
+
+            &-heading {
+                max-width: 465px;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .news--flash-text {
+        padding: 25px 30px;
     }
 }

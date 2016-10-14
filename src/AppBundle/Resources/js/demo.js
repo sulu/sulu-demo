@@ -48,11 +48,17 @@ window.Demo = (function ($) {
 
         scroll: function () {
             var $window = $(window);
+            var $nav = $('.nav');
+
+            $(document).ready(function(){
+                var scroll = $window.scrollTop();
+                if (scroll >= 10) {
+                    $nav.addClass("sticky");
+                }
+            });
 
             $window.scroll(function () {
-                var scroll = $window.scrollTop(),
-                    $nav = $('.nav');
-
+                var scroll = $window.scrollTop();
                 if (scroll >= 10) {
                     $nav.addClass("sticky");
                 } else {

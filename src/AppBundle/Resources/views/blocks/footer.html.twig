@@ -25,11 +25,11 @@
                             {% endif %}
 
                             {% if contact.mainPhone|default('') %}
-                                <p>{{ contact.mainPhone }}</p>
+                                <a href="tel:{{ contact.mainPhone }}">{{ contact.mainPhone }}</a>
                             {% endif %}
 
                             {% if contact.emails|length %}
-                                <p>{{ contact.emails|first.email }}</p>
+                                <a href="mailto:{{ contact.emails|first.email }}">{{ contact.emails|first.email }}</a>
                             {% endif %}
 
                             {% if contact.notes|length %}
@@ -81,7 +81,7 @@
             </a>
 
             <a href="#" class="footer-imprint-elem footer-imprint-elem--cookie">
-                Cookie-richtlinien
+                Cookie Richtlinien
             </a>
 
             <a href="#" class="footer-imprint-elem footer-imprint-elem--security">

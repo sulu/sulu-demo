@@ -1,3 +1,7 @@
+/*=================================================
+        GENERAL STYLES
+=================================================*/
+
 * {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -263,21 +267,14 @@ a {
     }
 }
 
-.grid {
-    font-size: 0px !important;
-    margin-left: 0;
-    padding-left: 0;
-}
-
-.grid__item {
-    margin-left: 0;
-    padding: 0;
-}
+/*=================================================
+        CLEARFIX
+=================================================*/
 
 .cf:before,
 .cf:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
+    content: " ";
+    display: table;
 }
 
 .cf:after {
