@@ -25,8 +25,7 @@
                 {% if image|length and image.thumbnails['400x400'] is defined %}
                     <a href="{{ sulu_content_path(item.url) }}">
                         <picture>
-                            <source srcset="{{ image.thumbnails["400x400"] }},
-                                {{ image.thumbnails["800x800"] }} 2x">
+                            <source srcset="{{ image.thumbnails["400x400"] }}, {{ image.thumbnails["800x800"] }} 2x">
 
                             <img src="{{ image.thumbnails['400x400'] }}"
                                  alt="{{ image.title }}"

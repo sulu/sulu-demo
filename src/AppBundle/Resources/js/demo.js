@@ -24,6 +24,7 @@ window.Demo = (function ($) {
 
             $("#js-nav-button").click(function () {
                 $('body').toggleClass('no-scroll');
+                
                 //TODO: Change values for animation
                 if ($nav.hasClass('open')) {
                     $nav.removeClass('open');

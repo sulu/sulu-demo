@@ -100,7 +100,7 @@
 
             &-image {
                 position: relative;
-                font-size: 0;
+                font-size: 0; // for whitespace bug
 
                 img {
                     width: 100%;
