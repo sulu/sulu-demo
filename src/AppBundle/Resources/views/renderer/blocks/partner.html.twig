@@ -21,7 +21,7 @@
                         <div class="partner-frame-content-scroll">
                             <div class="partner-frame-content-scroll-images">
                                 {% for image in block.partnerData|first.images if image.thumbnails["x80"] is defined %}
-                                    <img src="{{ image.thumbnails["x80"] }}"
+                                    <img src="{{ asset(image.thumbnails["x80"]) }}"
                                          alt="{{ image.title }}"
                                          class="partner-frame-content-scroll-images-image"/>
                                 {% endfor %}

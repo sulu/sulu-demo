@@ -18,7 +18,7 @@
 
                     {% if block.contacts|first.avatar.thumbnails['170x170'] is defined %}
                         <div class="singlequote-item-image">
-                            <img src="{{ contact.avatar.thumbnails['170x170'] }}"
+                            <img src="{{ asset(contact.avatar.thumbnails['170x170']) }}"
                                  alt="{{ contact.fullName }}"/>
                         </div>
                     {% endif %}

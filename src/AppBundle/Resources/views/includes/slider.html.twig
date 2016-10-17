@@ -6,17 +6,15 @@
 
                 <div class="slider-frame">
                     <picture>
-                        <source srcset="{{ image.thumbnails['1920x1080'] }},
-                                {{ image.thumbnails["3840x2160"] }} 2x"
+                        <source srcset="{{ asset(image.thumbnails['1920x1080']) }}, {{ asset(image.thumbnails["3840x2160"]) }} 2x"
                                 media="(min-width: 801px)">
 
-                        <source srcset="{{ image.thumbnails['800x450'] }},
-                                {{ image.thumbnails["1600x900"] }} 2x"
+                        <source srcset="{{ asset(image.thumbnails['800x450']) }}, {{ asset(image.thumbnails["1600x900"]) }} 2x"
                                 media="(max-width: 800px)">
 
-                        <img src="{{ image.thumbnails['1920x1080'] }}"
-                         alt="{{ image.title }}"
-                         class="slides-images"/>
+                        <img src="{{ asset(image.thumbnails['1920x1080']) }}"
+                             alt="{{ image.title }}"
+                             class="slides-images"/>
                     </picture>
                 </div>
 

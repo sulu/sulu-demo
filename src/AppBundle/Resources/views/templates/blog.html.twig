@@ -11,13 +11,13 @@
                         {% if article.image|length and article.image|first.thumbnails['600x300'] is defined %}
                             <picture>
                                 {% set image = article.image|first %}
-                                <source srcset="{{ image.thumbnails["600x300"] }}, {{ image.thumbnails["1200x600"] }} 2x"
+                                <source srcset="{{ asset(image.thumbnails["600x300"]) }}, {{ asset(image.thumbnails["1200x600"]) }} 2x"
                                         media="(min-width: 1024px)">
 
-                                <source srcset="{{ image.thumbnails["500x375"] }}, {{ image.thumbnails["1000x750"] }} 2x"
+                                <source srcset="{{ asset(image.thumbnails["500x375"]) }}, {{ asset(image.thumbnails["1000x750"]) }} 2x"
                                         media="(max-width: 1024px)">
 
-                                <img src="{{ image.thumbnails['600x300'] }}"
+                                <img src="{{ asset(image.thumbnails['600x300']) }}"
                                      alt="{{ image.title }}"
                                      class="blog-item-image"/>
                             </picture>

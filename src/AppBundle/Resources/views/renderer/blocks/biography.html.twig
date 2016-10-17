@@ -38,19 +38,16 @@
         <div property="biographyImage" class="grid__item desk--one-half">
             {% if block.biographyImage|first.thumbnails['750x500'] is defined %}
                 <picture>
-                    <source srcset="{{ block.biographyImage|first.thumbnails["750x500"] }},
-                                {{ block.biographyImage|first.thumbnails["1500x1000"] }} 2x"
+                    <source srcset="{{ asset(block.biographyImage|first.thumbnails["750x500"]) }}, {{ asset(block.biographyImage|first.thumbnails["1500x1000"]) }} 2x"
                                 media="(min-width: 1024px)">
 
-                    <source srcset="{{ block.biographyImage|first.thumbnails["1024x715"] }},
-                                {{ block.biographyImage|first.thumbnails["2048x1430"] }} 2x"
+                    <source srcset="{{ asset(block.biographyImage|first.thumbnails["1024x715"]) }}, {{ asset(block.biographyImage|first.thumbnails["2048x1430"]) }} 2x"
                                 media="(max-width: 1024px) and (min-width: 480px)">
 
-                    <source srcset="{{ block.biographyImage|first.thumbnails["480x335"] }},
-                                {{ block.biographyImage|first.thumbnails["960x670"] }} 2x"
+                    <source srcset="{{ asset(block.biographyImage|first.thumbnails["480x335"]) }}, {{ asset(block.biographyImage|first.thumbnails["960x670"]) }} 2x"
                                 media="(max-width: 480)">
 
-                    <img src="{{ block.biographyImage|first.thumbnails['750x500'] }}"
+                    <img src="{{ asset(block.biographyImage|first.thumbnails['750x500']) }}"
                          alt="{{ block.biographyImage|first.title }}"
                          class="biography-image">
                 </picture>
