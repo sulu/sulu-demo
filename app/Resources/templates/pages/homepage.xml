@@ -98,6 +98,13 @@
                                     </meta>
                                 </property>
 
+                                <property name="biographyLink" type="single_internal_link">
+                                    <meta>
+                                        <title lang="en">Link</title>
+                                        <title lang="de">Link</title>
+                                    </meta>
+                                </property>
+
                                 <property name="biographyImage" type="media_selection">
                                     <meta>
                                         <title lang="en">Image</title>
@@ -107,13 +114,6 @@
                                     <params>
                                         <param name="types" value="image"/>
                                     </params>
-                                </property>
-
-                                <property name="biographyLink" type="single_internal_link">
-                                    <meta>
-                                        <title lang="en">Link</title>
-                                        <title lang="de">Link</title>
-                                    </meta>
                                 </property>
                             </properties>
                         </type>

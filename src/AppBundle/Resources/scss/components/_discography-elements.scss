@@ -15,10 +15,17 @@
         &-item {
             &-image {
                 position: relative;
+                overflow: hidden;
 
                 img {
                     width: 100%;
                     height: auto;
+                    @include transition-duration(0.7s);
+                    @include transition-timing-function(ease-in-out);
+
+                    .no-touchevents &:hover {
+                        @include scale(1.1, 1.1);
+                    }
                 }
             }
 

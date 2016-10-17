@@ -23,16 +23,18 @@
                         {% endif %}
 
                         {% if image|length %}
-                            <div class="discography--element-collection-item-image">
-                                <picture>
-                                    <source srcset="{{ image.thumbnails["400x400"] }},
-                                            {{ image.thumbnails["800x800"] }} 2x">
+                            <a href="{{ sulu_content_path(disc.url) }}">
+                                <div class="discography--element-collection-item-image">
+                                    <picture>
+                                        <source srcset="{{ image.thumbnails["400x400"] }},
+                                                {{ image.thumbnails["800x800"] }} 2x">
 
-                                    <img src="{{ image.thumbnails['400x400'] }}"
-                                         alt="{{ image.title }}"
-                                         class="artist--element-frame-item-image"/>
-                                </picture>
-                            </div>
+                                        <img src="{{ image.thumbnails['400x400'] }}"
+                                             alt="{{ image.title }}"
+                                             class="artist--element-frame-item-image"/>
+                                    </picture>
+                                </div>
+                            </a>
                         {% endif %}
 
                         <div class="discography--element-collection-item-text">
