@@ -13,47 +13,39 @@
                         <section class="headerimage {{ type }}">
                             <picture>
                                 {% if type == "large" %}
-                                    <source srcset="{{ content.headerImage|first.thumbnails["1920x1080"] }},
-                                                {{ content.headerImage|first.thumbnails["3840x2160"] }} 2x"
+                                    <source srcset="{{ asset(content.headerImage|first.thumbnails["1920x1080"]) }}, {{ asset(content.headerImage|first.thumbnails["3840x2160"]) }} 2x"
                                             media="(min-width: 1300px)">
 
-                                    <source srcset="{{ content.headerImage|first.thumbnails["800x450"] }},
-                                                {{ content.headerImage|first.thumbnails["1600x900"] }} 2x"
+                                    <source srcset="{{ asset(content.headerImage|first.thumbnails["800x450"]) }}, {{ asset(content.headerImage|first.thumbnails["1600x900"]) }} 2x"
                                             media="(max-width: 1299px)">
 
-                                    <img src="{{ content.headerImage|first.thumbnails["1920x1080"] }}"
+                                    <img src="{{ asset(content.headerImage|first.thumbnails["1920x1080"]) }}"
                                          alt="{{ content.headerImage|first.title }}"
                                          class="headerimage-image">
                                 {% elseif type == "medium" %}
-                                    <source srcset="{{ content.headerImage|first.thumbnails["1920x670"] }},
-                                                {{ content.headerImage|first.thumbnails["3840x1340"] }} 2x"
+                                    <source srcset="{{ asset(content.headerImage|first.thumbnails["1920x670"]) }}, {{ asset(content.headerImage|first.thumbnails["3840x1340"]) }} 2x"
                                             media="(min-width: 1300px)">
 
-                                    <source srcset="{{ content.headerImage|first.thumbnails["1435x500"] }},
-                                                {{ content.headerImage|first.thumbnails["2870x1000"] }} 2x"
+                                    <source srcset="{{ asset(content.headerImage|first.thumbnails["1435x500"]) }}, {{ asset(content.headerImage|first.thumbnails["2870x1000"]) }} 2x"
                                             media="(max-width: 1299px) and (min-width: 481px)">
 
-                                    <source srcset="{{ content.headerImage|first.thumbnails["860x300"] }},
-                                                {{ content.headerImage|first.thumbnails["1720x600"] }} 2x"
+                                    <source srcset="{{ asset(content.headerImage|first.thumbnails["860x300"]) }}, {{ asset(content.headerImage|first.thumbnails["1720x600"]) }} 2x"
                                             media="(max-width: 480px)">
 
-                                    <img src="{{ content.headerImage|first.thumbnails["1920x670"] }}"
+                                    <img src="{{ asset(content.headerImage|first.thumbnails["1920x670"]) }}"
                                          alt="{{ content.headerImage|first.title }}"
                                          class="headerimage-image">
                                 {% else %}
-                                    <source srcset="{{ content.headerImage|first.thumbnails["1920x300"] }},
-                                                {{ content.headerImage|first.thumbnails["3840x600"] }} 2x"
+                                    <source srcset="{{ asset(content.headerImage|first.thumbnails["1920x300"]) }}, {{ asset(content.headerImage|first.thumbnails["3840x600"]) }} 2x"
                                             media="(min-width: 1024px)">
 
-                                    <source srcset="{{ content.headerImage|first.thumbnails["1024x300"] }},
-                                                {{ content.headerImage|first.thumbnails["2048x600"] }} 2x"
+                                    <source srcset="{{ asset(content.headerImage|first.thumbnails["1024x300"]) }}, {{ asset(content.headerImage|first.thumbnails["2048x600"]) }} 2x"
                                             media="(max-width: 1024px) and (min-width: 481px)">
 
-                                    <source srcset="{{ content.headerImage|first.thumbnails["480x200"] }},
-                                                {{ content.headerImage|first.thumbnails["960x400"] }} 2x"
+                                    <source srcset="{{ asset(content.headerImage|first.thumbnails["480x200"]) }}, {{ asset(content.headerImage|first.thumbnails["960x400"]) }} 2x"
                                             media="(max-width: 480px)">
 
-                                    <img src="{{ content.headerImage|first.thumbnails["1920x300"] }}"
+                                    <img src="{{ asset(content.headerImage|first.thumbnails["1920x300"]) }}"
                                          alt="{{ content.headerImage|first.title }}"
                                          class="headerimage-image">
                                 {% endif %}
@@ -62,7 +54,7 @@
                         {% elseif content.headerImage|first.type.name == "video" %}
                             <section class="headerimage headerimage--video">
 
-                                <video src="{{ content.headerImage|first.url }}"
+                                <video src="{{ asset(content.headerImage|first.url) }}"
                                        autoplay
                                        loop
                                        muted

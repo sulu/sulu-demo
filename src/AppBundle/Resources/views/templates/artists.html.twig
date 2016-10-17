@@ -32,7 +32,7 @@
 
                                     {% if artist.image|length and image|default('') %}
                                         <div class="artists-content-elem-image">
-                                            <img src="{{ image.thumbnails['450x315'] }}"
+                                            <img src="{{ asset(image.thumbnails['450x315']) }}"
                                                  alt="{{ image.title }}"/>
 
                                             {% if artist.title|default('') %}

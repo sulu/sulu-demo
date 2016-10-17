@@ -16,7 +16,7 @@
                             <div class="services-item-text">
                                 <div property="icon">
                                     {% if block.icon|length and block.icon|first.thumbnails['x80'] is defined %}
-                                        <img src="{{ block.icon|first.thumbnails['x80'] }}"
+                                        <img src="{{ asset(block.icon|first.thumbnails['x80']) }}"
                                              alt="{{ block.icon|first.title }}"/>
                                     {% endif %}
                                 </div>

@@ -26,10 +26,10 @@
                             <a href="{{ sulu_content_path(disc.url) }}">
                                 <div class="discography--element-collection-item-image">
                                     <picture>
-                                        <source srcset="{{ image.thumbnails["400x400"] }},
-                                                {{ image.thumbnails["800x800"] }} 2x">
+                                        <source srcset="{{ asset(image.thumbnails["400x400"]) }},
+                                                {{ asset(image.thumbnails["800x800"]) }} 2x">
 
-                                        <img src="{{ image.thumbnails['400x400'] }}"
+                                        <img src="{{ asset(image.thumbnails['400x400']) }}"
                                              alt="{{ image.title }}"
                                              class="artist--element-frame-item-image"/>
                                     </picture>

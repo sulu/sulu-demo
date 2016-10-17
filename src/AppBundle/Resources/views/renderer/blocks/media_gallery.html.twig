@@ -8,9 +8,9 @@
                         {% for media in block.medias if media.thumbnails['500x375'] %}
                             <div class="media-gallery-content-elem">
                                 <picture>
-                                    <source srcset="{{ media.thumbnails['500x375'] }}, {{ media.thumbnails["1000x750"] }} 2x"/>
+                                    <source srcset="{{ asset(media.thumbnails['500x375']) }}, {{ asset(media.thumbnails["1000x750"]) }} 2x"/>
 
-                                    <img src="{{ media.thumbnails['500x375'] }}"
+                                    <img src="{{ asset(media.thumbnails['500x375']) }}"
                                          alt="{{ media.description }}"
                                          class="media-gallery-content-elem-image">
                                 </picture>
