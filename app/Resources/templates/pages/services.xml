@@ -119,49 +119,14 @@
                     </meta>
 
                     <properties>
-                        <property name="icon" type="single_select">
+                        <property name="icon" type="media_selection">
                             <meta>
                                 <title lang="en">Icon</title>
+                                <title lang="de">Icon</title>
                             </meta>
+
                             <params>
-                                <param name="values" type="collection">
-                                    <param name="ion-music-note">
-                                        <meta>
-                                            <title lang="en">Concert</title>
-                                            <title lang="de">Konzert</title>
-                                        </meta>
-                                    </param>
-                                    <param name="ion-ios-heart-outline">
-                                        <meta>
-                                            <title lang="en">Weddings</title>
-                                            <title lang="de">Hochzeiten</title>
-                                        </meta>
-                                    </param>
-                                    <param name="ion-ios-camera-outline">
-                                        <meta>
-                                            <title lang="en">TV Shows</title>
-                                            <title lang="de">Fernsehn</title>
-                                        </meta>
-                                    </param>
-                                    <param name="ion-disc">
-                                        <meta>
-                                            <title lang="en">Albums</title>
-                                            <title lang="de">Alben</title>
-                                        </meta>
-                                    </param>
-                                    <param name="ion-ios-people-outline">
-                                        <meta>
-                                            <title lang="en">Community</title>
-                                            <title lang="de">Gesellschaft</title>
-                                        </meta>
-                                    </param>
-                                    <param name="ion-easel">
-                                        <meta>
-                                            <title lang="en">Exhibition</title>
-                                            <title lang="de">Veranstaltungen</title>
-                                        </meta>
-                                    </param>
-                                </param>
+                                <param name="types" value="image"/>
                             </params>
                         </property>
 

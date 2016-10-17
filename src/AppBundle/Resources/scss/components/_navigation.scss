@@ -10,6 +10,7 @@
     height: 65px;
     padding: 0 0 0 90px;
     z-index: 100;
+    @include box-sizing(border-box);
 
     &-elem {
         @include inline-block(top);
@@ -44,10 +45,10 @@
                     color: $colorwhite;
                     text-transform: uppercase;
                     text-decoration: none;
-                    padding-bottom: 2px;
+                    padding-bottom: 7px;
 
                     .no-touchevents &:hover,
-                    &:active{
+                    &:active {
                         border-bottom: 1px solid;
                     }
                 }
@@ -58,7 +59,29 @@
             }
         }
 
-        &--admin, &--language {
+        &--admin {
+            padding: 0 130px 0 30px;
+            margin: 0;
+            float: right;
+            @include inline-block(top);
+            height: 65px;
+
+            a {
+                @extend .button--medium;
+                font-size: 18px;
+                font-weight: 400;
+                color: $colorwhite;
+                text-decoration: none;
+                margin: 0;
+                height: 30px;
+                line-height: 30px;
+                vertical-align: middle;
+                @include vertical-align(relative);
+            }
+        }
+
+        &--language {
+            padding: 0 30px;
             margin: 0;
             float: right;
             @include inline-block(top);
@@ -72,21 +95,13 @@
                 text-transform: uppercase;
                 text-decoration: none;
                 margin: 0;
-                padding-bottom: 2px;
+                padding-bottom: 7px;
 
                 .no-touchevents &:hover,
                 &:active {
                     border-bottom: 1px solid;
                 }
             }
-        }
-
-        &--admin {
-            padding: 0 130px 0 30px;
-        }
-
-        &--language {
-            padding: 0 30px;
         }
 
         &--button {
@@ -128,10 +143,6 @@
 
 .sticky {
     background-color: $colorblack--lighter01;
-
-    .nav-elem--admin {
-        background-color: $colorblack--lighter02;
-    }
 }
 
 .nav:after {
@@ -151,15 +162,19 @@
     .nav {
         padding: 0;
 
-        &-elem--admin a {
-            padding-right: 55px;
+        &-elem--admin {
+            padding: 0 30px;
         }
     }
 }
 
 @media(max-width: 1200px) {
-    .nav-elem--items li a {
-        padding: 25px 15px;
+    .nav-elem {
+        &--items li,
+        &--language,
+        &--admin {
+            padding: 0 20px;
+        }
     }
 }
 
@@ -181,10 +196,10 @@
                     display: block;
                     width: 100%;
                     text-align: center;
+                    padding: 0;
 
                     a {
                         font-size: 45px;
-                        padding: 5px 0;
                         width: 100%;
                     }
                 }
@@ -196,18 +211,23 @@
 
             &--admin {
                 display: none;
+                height: 85px;
+                line-height: 85px;
+                padding: 0 15px;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                @include box-sizing(border-box);
 
                 a {
-                    height: 85px;
                     font-size: 45px;
-                    line-height: 85px;
-                    padding: 0;
-                    position: fixed;
-                    bottom: 0;
-                    left: 0;
-                    width: 100%;
-                    text-align: center;
-                    background-color: $colorred--lighter01;
+                    width: 600px;
+                    height: 75px;
+                    line-height: 75px;
+                    border-radius: 38px;
+                    margin: 0 auto;
                 }
             }
 
@@ -216,10 +236,8 @@
                 top: 0px;
                 right: 60px;
                 font-size: 25px;
-
-                a {
-                    padding: 0 15px;
-                }
+                line-height: 58px;
+                padding: 0 15px;
             }
         }
 
@@ -244,8 +262,8 @@
 
         &--admin a {
             font-size: 25px;
-            line-height: 65px;
-            height: 65px;
+            line-height: 42px;
+            height: 42px;
         }
     }
 }

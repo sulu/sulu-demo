@@ -176,6 +176,10 @@ a {
     }
 }
 
+.no-scroll {
+    overflow: hidden;
+}
+
 @media (max-width: $tablet) {
     p {
         font-size: 14px;

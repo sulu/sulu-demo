@@ -23,6 +23,8 @@ window.Demo = (function ($) {
             var $navicon = $('.nav-elem--button i');
 
             $("#js-nav-button").click(function () {
+                $('body').toggleClass('no-scroll');
+                
                 //TODO: Change values for animation
                 if ($nav.hasClass('open')) {
                     $nav.removeClass('open');
@@ -227,21 +229,21 @@ window.Demo.Preview = (function ($) {
 
         mutationHandler: function (mutations) {
             mutations.forEach(function (mutation) {
-                var target = $(mutation.target);
+                var $target = $(mutation.target);
 
-                if (target.is(".js-slider") || target.has('.js-slider')) {
+                if ($target.is(".js-slider") || $target.has('.js-slider')) {
                     Demo.startHomeSlider();
                 }
-                if (target.is(".js-artist--element-collection") || target.has('.js-artist--element-collection')) {
+                if ($target.is(".js-artist--element-collection") || $target.has('.js-artist--element-collection')) {
                     Demo.startArtistElementSlider();
                 }
-                if (target.is(".js-discography--element-collection") || target.has('.js-discography--element-collection')) {
+                if ($target.is(".js-discography--element-collection") || $target.has('.js-discography--element-collection')) {
                     Demo.startDiscographyElementSlider();
                 }
-                if (target.is(".js-article-collection") || target.has('.js-article-collection')) {
+                if ($target.is(".js-article-collection") || $target.has('.js-article-collection')) {
                     Demo.startArticleSlider();
                 }
-                if (target.is(".js-media-gallery") || target.has('.js-media-gallery')) {
+                if ($target.is(".js-media-gallery") || $target.has('.js-media-gallery')) {
                     Demo.startMediaGallerySlider();
                 }
             });

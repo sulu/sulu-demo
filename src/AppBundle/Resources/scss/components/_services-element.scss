@@ -30,7 +30,7 @@
                 color: $colorwhite;
             }
 
-            i {
+            img {
                 display: none;
             }
 
@@ -52,9 +52,8 @@
             width: 80%;
             margin: 0 auto;
 
-            i {
-                font-size: 85px;
-                color: $colorblack--lighter01;
+            img {
+                height: 85px;
                 margin-bottom: 5px;
             }
 
