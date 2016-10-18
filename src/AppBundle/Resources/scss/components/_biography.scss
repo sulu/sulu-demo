@@ -47,7 +47,7 @@
         margin: 40px auto 0 auto;
 
         &-text {
-            padding: 0 20px;
+            padding: 0 75px;
             width: auto;
         }
     }
@@ -58,8 +58,12 @@
 }
 
 @media (max-width: $mobile) {
-    .biography-text-heading {
-        margin: 10px 0;
+    .biography-text {
+        padding: 0 15px;
+        
+        &-heading {
+            margin: 10px 0;
+        }
     }
 
     .home .biography {
