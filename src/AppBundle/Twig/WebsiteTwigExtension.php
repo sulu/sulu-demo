@@ -2,7 +2,12 @@
 
 namespace AppBundle\Twig;
 
-/* In this file you can see our custom Twig extension that we need for our sitemap */
+/**
+ * Twig extension for rendering the Sitemap
+ *
+ * Class WebsiteTwigExtension
+ * @package AppBundle\Twig
+ */
 class WebsiteTwigExtension extends \Twig_Extension
 {
     /**

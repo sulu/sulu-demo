@@ -1,8 +1,8 @@
 {% extends 'AppBundle::master.html.twig' %}
 
 {% block content %}
-    {# As you can see we work with includes and reuseable components #}
-    {# This helps you to keep your files as short as possible #}
+    {# As you can see we work with includes and reuseable components. #}
+    {# This helps you to keep your files as short as possible. #}
     {# This div is needed for the live preview you can find further information on our live preview under: #}
     {# http://docs.sulu.io/en/latest/cookbook/live-preview.html #}
     <div property="slides">
@@ -14,8 +14,8 @@
     </div>
 
     <div class="home">
-        {# We use a block renderer for rendering our block content types #}
-        {# This a very quick solution for for including the different block components #}
+        {# We use a block renderer for rendering our block content types. #}
+        {# This a very quick solution for for including the different block components. #}
         {# The renderer can be found under views/renderer/block-rernderer.html.twig #}
         {% include ('AppBundle:renderer:block-renderer.html.twig') with {
             'blocks' : content.blocks

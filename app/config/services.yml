@@ -3,15 +3,14 @@
 parameters:
 #    parameter_name: value
 
-# Here you have to include your Twig extensions
 services:
     app.twig_extensions.date:
         class: Twig_Extensions_Extension_Date
         tags:
             - { name: twig.extension }
 
-    # This is our custom Twig extension
-    # Here you can find information on how to define a custom Twig extension:
+    # This is our custom Twig extension.
+    # You can find more information about this extension in the documentation:
     # http://symfony.com/doc/current/templating/twig_extension.html
     app.twig.website:
         class: AppBundle\Twig\WebsiteTwigExtension

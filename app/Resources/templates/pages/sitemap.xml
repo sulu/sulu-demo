@@ -3,8 +3,8 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
 
-    <!-- This is the template for the "Sitemap" page -->
-    <!-- For further information, have a look at homepage.xml -->
+    <!-- This is the template for the "Sitemap" page. -->
+    <!-- For further information, have a look at homepage.xml. -->
     <key>sitemap</key>
 
     <view>AppBundle:templates:sitemap</view>

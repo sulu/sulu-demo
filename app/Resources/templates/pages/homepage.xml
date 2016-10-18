@@ -3,11 +3,11 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
 
-    <!-- This is the template for the "Home" page -->
+    <!-- This is the template for the "Homepage". -->
     <!-- For further information, on how to make a Sulu template have a look at: -->
     <!-- http://docs.sulu.io/en/latest/book/templates.html -->
 
-    <!-- This is the unique key that identifies the template. It *must* be identical to the file name without the ".xml" suffix -->
+    <!-- This is the unique key that identifies the template. It must be identical to the file name without the ".xml" suffix!!! -->
     <key>homepage</key>
 
     <!-- Path to "Home" page's Twig file: -->
@@ -16,7 +16,6 @@
 
     <!-- Path to "Home" page's Controller -->
     <!-- In this case that's Sulu's default controller -->
-    <!-- Path to Sulu's default controller: -->
     <!-- vendor/sulu/sulu/src/Sulu/Bundle/WebsiteBundle/Controller/DefaultController.php -->
     <controller>SuluWebsiteBundle:Default:index</controller>
 
@@ -24,13 +23,13 @@
     <cacheLifetime>2400</cacheLifetime>
 
     <meta>
-        <!-- Translated titles of this page type -->
+        <!-- The localized titles of the template. These titles appear in the dropdown where you select the template of a page. -->
         <title lang="en">Homepage</title>
         <title lang="de">Startseite</title>
     </meta>
 
     <properties>
-        <!-- This section is needed in every template for creating the URL and title of the page -->
+        <!-- This section typically appears in every template. Here you can configure the title and URL of a page. -->
         <section name="highlight">
             <properties>
                 <property name="title" type="text_line" mandatory="true">
@@ -56,24 +55,28 @@
             </properties>
         </section>
 
-        <!-- Now you can start to define what data you need on your page -->
-        <!-- You do that with different content types -->
-        <!-- Here you can find the currently existing content types: -->
-        <!-- http://docs.sulu.io/en/latest/reference/content-types/index.html -->
+        <!-- The rest of the template defines the properties of a page. -->
+        <!-- Each property is resembled by a field in the admin. -->
+        <!-- In the corresponding Twig file, you can access the properties of the page and render them as HTML. -->
 
-        <!-- For a better overview you separate the content types into sections -->
-        <!-- Every section needs at least a name -->
+        <!-- You can separate the properties into sections with section headers. -->
+        <!-- These sections appear in the admin UI only. Otherwise, they have no effect. -->
         <section name="slider">
             <meta>
                 <title lang="de">Slider</title>
                 <title lang="en">Slider</title>
             </meta>
 
-            <!-- Now you can define what content types are in this section -->
             <properties>
 
-                <!-- This content type is a teaser selection -->
-                <!-- Every content type needs at least a name for identification and the type it's of -->
+                <!-- A property consists of: -->
+                <!-- * A name by which you access the property in Twig. -->
+                <!-- * A "content type", which controls what kind of data the property contains and which field is displayed in the admin UI. -->
+                <!-- * A localized title displayed in the admin. -->
+                <!-- * Optionally, additional configuration parameters for the content type. -->
+
+                <!-- * A list of Sulu's content types and their parameters can be found in the documentation: -->
+                <!-- * http://docs.sulu.io/en/latest/reference/content-types/index.html -->
                 <property name="slides" type="teaser_selection">
                     <meta>
                         <title lang="en">Slides</title>
@@ -90,15 +93,19 @@
             </meta>
 
             <properties>
-                <!-- This is a block content type it's special because it contains different "blocks" -->
-                <!-- these blocks contain other content types -->
+                <!-- The <block> element starts a section of "content blocks". Content blocks are similar to regular properties. -->
+                <!-- There are, however, major differences: -->
+                <!-- The content manager may freely reorder the content blocks. The order of regular properties is fixed. -->
+                <!-- The content manager can select the content type of each block. For regular properties, this content type is defined by the developer. -->
+
+                <!-- In order to provide some guidance to the content manager, you must define the list of content types that they can select from. -->
+                <!-- These content types can and should have domain-specific names, such as "Biography" or "Discography". For complete examples, see below. -->
                 <block name="blocks" default-type="editor" minOccurs="0">
                     <meta>
                         <title lang="de">Inhalte</title>
                         <title lang="en">Content</title>
                     </meta>
 
-                    <!-- Every one of these block is call one type and contains the different content types -->
                     <types>
                         <type name="biography">
                             <meta>
@@ -107,7 +114,7 @@
                             </meta>
 
                             <properties>
-                                <!-- This a more "normal" content it's a simple text line -->
+                                <!-- A simple text input field -->
                                 <property name="biographyTitle" type="text_line">
                                     <meta>
                                         <title lang="en">Title</title>
@@ -115,7 +122,7 @@
                                     </meta>
                                 </property>
 
-                                <!-- This is a editor content type that allows you to modify the text -->
+                                <!-- A rich-text editor for longer text -->
                                 <property name="biographyHeading" type="text_editor">
                                     <meta>
                                         <title lang="en">Heading</title>
@@ -137,7 +144,7 @@
                                     </meta>
                                 </property>
 
-                                <!-- This is a media selection that allows you to select images or videos -->
+                                <!-- A widget for selecting images or videos uploaded in the "Media" section -->
                                 <property name="biographyImage" type="media_selection">
                                     <meta>
                                         <title lang="en">Image</title>
@@ -145,7 +152,7 @@
                                     </meta>
 
                                     <params>
-                                        <!-- In this case we allow the editor only to select images -->
+                                        <!-- In this case, we restrict the selection to images -->
                                         <param name="types" value="image"/>
                                     </params>
                                 </property>
@@ -166,8 +173,15 @@
                                     </meta>
                                 </property>
 
-                                <!-- A smart content content type is also a little more special it -->
-                                <!-- It allows you to get data of pages you select in the backend -->
+                                <!-- A "smart content" contains references to one or multiple other pages. -->
+                                <!-- This is useful for lists of products, lists of article excerpts with "More" links and similar cases. -->
+
+                                <!-- The "smart" thing about this content type is that the content manager has some configuration options in the admin UI: -->
+                                <!-- * The number of pages that should be displayed. -->
+                                <!-- * Their order. -->
+                                <!-- * The tags or categories that the displayed pages must have. -->
+
+                                <!-- This way, content managers have a lot of flexibility without having to consult the developers for simple changes. -->
                                 <property name="artistsData" type="smart_content">
                                     <meta>
                                         <title lang="en">Artists</title>
@@ -175,10 +189,15 @@
                                     </meta>
 
                                     <params>
-                                        <!-- Here you define what data you want out of the other page -->
-                                        <!-- As can see the name of the content type on the other  -->
-                                        <!-- page is used for identification  -->
+                                        <!-- The pages selected by the smart content are imported into the current template. -->
+                                        <!-- Here you can render them as list, grid or rotating gallery. -->
+                                        <!-- For performance reasons, Sulu will only fetch a few properties of these pages from the repository. -->
+                                        <!-- These properties must be defined below. -->
                                         <param name="properties" type="collection">
+
+                                            <!-- For each property, you need to define: -->
+                                            <!-- * The name of the property in the referenced page (the "name" attribute) -->
+                                            <!-- * The name of the Twig property in *this* template (the "value" attribute) -->
                                             <param name="heading" value="title"/>
                                             <param name="image" value="headerImage"/>
                                             <param name="url" value="url"/>
@@ -190,8 +209,8 @@
 
                         <type name="discography_element">
                             <meta>
-                                <title lang="de">Discographie</title>
                                 <title lang="en">Discography</title>
+                                <title lang="de">Diskographie</title>
                             </meta>
 
                             <properties>
@@ -252,26 +271,26 @@
 
                         <type name="partner">
                             <meta>
-                                <title lang="de">Unsere Partner</title>
                                 <title lang="en">Our Partners</title>
+                                <title lang="de">Unsere Partner</title>
                             </meta>
 
                             <properties>
-                                <!-- A snippet content type is also a little more special it -->
-                                <!-- It allows you to choose a snippet -->
-                                <!-- Snippets can be used again on different pages -->
-                                <!-- So that you can use a snippet you need to define a template -->
-                                <!-- Have a look at the partner snippet template for example: -->
-                                <!-- You can find it under: -->
-                                <!-- App/Resources/templates/snippets/partner.xml -->
+                                <!-- Snippets are pieces of content that can be included in different pages. -->
+                                <!-- Each snippet has a type that specifies the properties of the snippet. -->
+                                <!-- That type is very similar to a page template. For an example, see: -->
+                                <!-- app/Resources/templates/snippets/partner.xml -->
+
+                                <!-- Snippets can be created and edited in the "Snippets" section of the admin UI. -->
+                                <!-- In a "snippet" content type, the content manager can select individual snippets that should be included in the page. -->
                                 <property name="partnerData" type="snippet">
                                     <meta>
-                                        <title lang="de">Partner</title>
                                         <title lang="en">Partner</title>
+                                        <title lang="de">Partner</title>
                                     </meta>
 
                                     <params>
-                                        <!-- Here you can define what kind of snippets can be choosen -->
+                                        <!-- We restrict the selection to snippets of type "partner" -->
                                         <param name="snippetType" value="partner"/>
                                     </params>
                                 </property>

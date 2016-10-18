@@ -3,20 +3,19 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
 
-    <!-- This is the template for a "partner" snippet -->
+    <!-- This is the template for a "partner" snippet. -->
     <!-- A snippet is very similar to a pages template if you want to see how to define one have a look at: -->
-    <!-- App/Resources/templates/pages/homepage.xml -->
-    <!-- First you need to define a unique key for the snippet -->
+    <!-- app/Resources/templates/pages/homepage.xml. -->
+
+    <!-- The key is the unique identifier of the snippet. It *must* be the same as the file name without ".xml". -->
     <key>partner</key>
 
     <meta>
-        <!-- Then you need a translated title -->
         <title lang="en">Partner</title>
         <title lang="de">Partner</title>
     </meta>
 
     <properties>
-        <!-- And a title for identification -->
         <property name="title" type="text_line" mandatory="true">
             <meta>
                 <title lang="en">Title</title>
@@ -26,7 +25,6 @@
             <tag name="sulu.node.name"/>
         </property>
 
-        <!-- After that you can insert content types for this snippet just like on a page -->
         <property name="images" type="media_selection">
             <meta>
                 <title lang="en">Images</title>

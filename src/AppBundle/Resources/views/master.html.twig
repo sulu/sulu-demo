@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-    {# Sulu uses Twig for rendering HTML further information on this can be found under: #}
+    {# Sulu uses Twig for rendering HTML. #}
+    {# Further information can be found in the documentation: #}
     {# http://docs.sulu.io/en/latest/book/twig.html #}
     <head>
         <meta charset="utf-8">
@@ -14,15 +15,14 @@
         {% block meta %}{% endblock %}
 
         {% block style %}
-            {# For styling we use SCSS files and then create a minimized css file with compass #}
-            {# Further informatin on how to use SCSS and Compass in their websites: #}
+            {# For styling we use SCSS files and then create a minimized CSS file with Compass. #}
+            {# Further information on how to use SCSS and Compass in their websites: #}
             {# http://sass-lang.com/ #}
             {# http://compass-style.org/help/ #}
-            {# Here we include that minimized css file #}
             <link rel="stylesheet" href="{{ asset('bundles/app/css/style.css') }}">
         {% endblock %}
 
-        {# We use modernizer for correct behavier of our website #}
+        {# Modernizer helps at detecting the functionality supported by different browsers. #}
         <script src="{{ asset('bundles/app/js/modernizer.min.js') }}"></script>
     </head>
     <body>
@@ -36,8 +36,8 @@
 
         <section id="content" vocab="http://schema.org/" typeof="Content">
             {% block content %}
-            {# In this block our main content will be rendered habe a look at #}
-            {# templates/homepage.html.twig to see how we structur our project #}
+            {# The content of the page. #}
+            {# Have a look at app/Resources/views/templates/homepage.html.twig for an example. #}
             {% endblock %}
         </section>
 
@@ -51,15 +51,15 @@
         {% endblock %}
 
         {% block javascripts %}
-            {# Here we integrate our minified js file and init the components afterwards #}
+            {# Here we integrate our minified js file and init the components afterwards. #}
             <script src="{{ asset('bundles/app/js/demo.min.js') }}"></script>
 
             <script type="text/javascript">
                 Demo.init();
             </script>
 
-            {# When we are in live Preview we start our Live Preview component #}
-            {# This component starts a mutation observer that restarts our js components if needed #}
+            {# When we are in live preview we start our live preview component. #}
+            {# This component starts a mutation observer that restarts our js components if needed. #}
             {% if app.request.get('preview') %}
                 <script type="text/javascript">
                     Demo.Preview.init();
