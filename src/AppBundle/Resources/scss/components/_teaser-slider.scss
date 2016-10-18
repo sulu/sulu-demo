@@ -116,10 +116,10 @@
     .slick-slide .slides-images {
         position: absolute;
         top: 0;
-        left: 50%;
+        left: 0;
         height: 100%;
-        width: auto;
-        margin-left: -400px;
+        width: 100%;
+        object-fit: cover;
     }
 }
 

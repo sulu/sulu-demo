@@ -125,12 +125,18 @@
     &--right {
         float: right;
         width: auto;
+        z-index: -1;
     }
 }
 
 @media(min-width: $tablet + 1px) {
+    /* all needed because the navigation is animated via js */
+
+    .nav--right {
+        max-height: 65px;
+    }
+
     .nav-elem {
-        /* are both needed because the navigation is animated via js */
         &--admin {
             display: inline-block !important;
         }
@@ -146,7 +152,7 @@
 }
 
 .nav:after {
-    z-index: -1;
+    z-index: -2;
     content: '';
     position: fixed;
     top: 0;
@@ -186,11 +192,12 @@
 
         &-elem {
             &--items {
-                height: auto;
                 display: none;
-                @include vertical-align(fixed);
+                height: auto;
+                @include vertical-align(relative);
                 width: 100%;
-                padding: 0;
+                overflow: auto;
+                @include box-sizing(border-box);
 
                 li {
                     display: block;
@@ -220,6 +227,7 @@
                 width: 100%;
                 text-align: center;
                 @include box-sizing(border-box);
+                background-color: $colorred--lighter02;
 
                 a {
                     font-size: 45px;
@@ -243,11 +251,24 @@
 
         &--right {
             float: none;
+            width: 100%;
+            height: 65px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow: auto;
+            @include box-sizing(border-box);
         }
     }
 
-    .open:after {
-        opacity: 1;
+    .open {
+        &:after {
+            opacity: 1;
+        }
+    }
+
+    .no-scroll {
+        overflow: hidden;
     }
 }
 
@@ -264,6 +285,30 @@
             font-size: 25px;
             line-height: 42px;
             height: 42px;
+        }
+    }
+}
+
+@media (max-height: 500px) {
+    .nav-elem {
+        &--items li {
+            line-height: 35px;
+
+            a {
+                font-size: 25px;
+            }
+        }
+
+        &--admin {
+            bottom: 15px;
+            height: 42px;
+
+            a {
+                font-size: 25px;
+                height: 42px;
+                line-height: 42px;
+                padding: 0;
+            }
         }
     }
 }
