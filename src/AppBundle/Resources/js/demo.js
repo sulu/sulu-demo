@@ -17,6 +17,7 @@ window.Demo = (function ($) {
 
         navigation: function () {
             var $nav = $('.nav');
+            var $navRight = $('.nav--right');
             var $navItems = $('.nav-elem--items');
             var $navAdmin = $('.nav-elem--admin');
             var $navButton = $('.nav-elem--button');
@@ -29,7 +30,9 @@ window.Demo = (function ($) {
                 if ($nav.hasClass('open')) {
                     $nav.removeClass('open');
                     $navAdmin.fadeToggle(1000, "linear");
-                    $navItems.fadeToggle(1000, "linear");
+                    $navItems.fadeToggle(1000, "linear", function() {
+                        $navRight.css('height', '65px');
+                    });
                     $navButton.fadeTo(500, 0, function () {
                         $navicon.addClass('ion-navicon').css('font-size', '38px');
                         $navicon.removeClass('ion-close');
@@ -37,6 +40,7 @@ window.Demo = (function ($) {
                     });
                 } else {
                     $nav.addClass('open');
+                    $navRight.css('height', '100%');
                     $navAdmin.fadeToggle(1000, "linear");
                     $navItems.fadeToggle(1000, "linear");
                     $navButton.fadeTo(500, 0, function () {
