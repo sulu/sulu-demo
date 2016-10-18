@@ -222,12 +222,11 @@
                 line-height: 85px;
                 padding: 0 15px;
                 position: fixed;
-                bottom: 0;
+                bottom: 15px;
                 left: 0;
                 width: 100%;
                 text-align: center;
                 @include box-sizing(border-box);
-                background-color: $colorred--lighter02;
 
                 a {
                     font-size: 45px;
@@ -289,7 +288,7 @@
     }
 }
 
-@media (max-height: 500px) {
+@media (max-height: 550px) {
     .nav-elem {
         &--items li {
             line-height: 35px;
