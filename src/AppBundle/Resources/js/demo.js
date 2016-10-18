@@ -19,34 +19,30 @@ window.Demo = (function ($) {
             var $nav = $('.nav');
             var $navRight = $('.nav--right');
             var $navItems = $('.nav-elem--items');
-            var $navAdmin = $('.nav-elem--admin');
             var $navButton = $('.nav-elem--button');
             var $navicon = $('.nav-elem--button i');
 
-            $("#js-nav-button").click(function () {
+            $('#js-nav-button').click(function () {
                 $('body').toggleClass('no-scroll');
-                
-                //TODO: Change values for animation
+
                 if ($nav.hasClass('open')) {
                     $nav.removeClass('open');
-                    $navAdmin.fadeToggle(1000, "linear");
-                    $navItems.fadeToggle(1000, "linear", function() {
-                        $navRight.css('height', '65px');
+                    $navItems.fadeToggle(600, 'linear', function() {
+                        $navRight.css('height', '50px');
                     });
-                    $navButton.fadeTo(500, 0, function () {
-                        $navicon.addClass('ion-navicon').css('font-size', '38px');
+                    $navButton.fadeTo(300, 0, function () {
+                        $navicon.addClass('ion-navicon');
                         $navicon.removeClass('ion-close');
-                        $navButton.fadeTo(500, 1);
+                        $navButton.fadeTo(300, 1);
                     });
                 } else {
                     $nav.addClass('open');
                     $navRight.css('height', '100%');
-                    $navAdmin.fadeToggle(1000, "linear");
-                    $navItems.fadeToggle(1000, "linear");
-                    $navButton.fadeTo(500, 0, function () {
-                        $navicon.addClass('ion-close').css('font-size', '28px');
+                    $navItems.fadeToggle(600, 'linear');
+                    $navButton.fadeTo(300, 0, function () {
+                        $navicon.addClass('ion-close');
                         $navicon.removeClass('ion-navicon');
-                        $navButton.fadeTo(500, 1);
+                        $navButton.fadeTo(300, 1);
                     });
                 }
             });
@@ -59,16 +55,16 @@ window.Demo = (function ($) {
             $(document).ready(function(){
                 var scroll = $window.scrollTop();
                 if (scroll >= 10) {
-                    $nav.addClass("sticky");
+                    $nav.addClass('sticky');
                 }
             });
 
             $window.scroll(function () {
                 var scroll = $window.scrollTop();
                 if (scroll >= 10) {
-                    $nav.addClass("sticky");
+                    $nav.addClass('sticky');
                 } else {
-                    $nav.removeClass("sticky");
+                    $nav.removeClass('sticky');
                 }
             });
         },
@@ -221,7 +217,7 @@ window.Demo.Preview = (function ($) {
     return {
         init: function () {
             // mutation observer for watching if the live preview is updating the dom and reacting to it
-            var targetNode = $("#content");
+            var targetNode = $('#content');
             var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
             var myObserver = new MutationObserver(this.mutationHandler);
             var obsConfig = {childList: true, characterData: true, attributes: false, subtree: true};
@@ -235,19 +231,19 @@ window.Demo.Preview = (function ($) {
             mutations.forEach(function (mutation) {
                 var $target = $(mutation.target);
 
-                if ($target.is(".js-slider") || $target.has('.js-slider')) {
+                if ($target.is('.js-slider') || $target.has('.js-slider')) {
                     Demo.startHomeSlider();
                 }
-                if ($target.is(".js-artist--element-collection") || $target.has('.js-artist--element-collection')) {
+                if ($target.is('.js-artist--element-collection') || $target.has('.js-artist--element-collection')) {
                     Demo.startArtistElementSlider();
                 }
-                if ($target.is(".js-discography--element-collection") || $target.has('.js-discography--element-collection')) {
+                if ($target.is('.js-discography--element-collection') || $target.has('.js-discography--element-collection')) {
                     Demo.startDiscographyElementSlider();
                 }
-                if ($target.is(".js-article-collection") || $target.has('.js-article-collection')) {
+                if ($target.is('.js-article-collection') || $target.has('.js-article-collection')) {
                     Demo.startArticleSlider();
                 }
-                if ($target.is(".js-media-gallery") || $target.has('.js-media-gallery')) {
+                if ($target.is('.js-media-gallery') || $target.has('.js-media-gallery')) {
                     Demo.startMediaGallerySlider();
                 }
             });
