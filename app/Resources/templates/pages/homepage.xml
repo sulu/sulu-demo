@@ -4,18 +4,20 @@
           xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
 
     <!-- This is the template for the "Home" page -->
-    <!-- For further information on how to make a Sulu template have a look at: -->
+    <!-- For further information, on how to make a Sulu template have a look at: -->
     <!-- http://docs.sulu.io/en/latest/book/templates.html -->
 
-    <!-- Unique key for identifying a specific template -->
+    <!-- This is the unique key that identifies the template. It *must* be identical to the file name without the ".xml" suffix -->
     <key>homepage</key>
 
-    <!-- Path to "Home" page´s Twig file: -->
+    <!-- Path to "Home" page's Twig file: -->
     <!-- src/AppBundle/Resources/views/templates/homepage.html.twig -->
     <view>AppBundle:templates:homepage</view>
 
-    <!-- Path to "Home" page´s Controller -->
-    <!-- In this case it´s Sulu´s default Controller -->
+    <!-- Path to "Home" page's Controller -->
+    <!-- In this case that's Sulu's default controller -->
+    <!-- Path to Sulu's default controller: -->
+    <!-- vendor/sulu/sulu/src/Sulu/Bundle/WebsiteBundle/Controller/DefaultController.php -->
     <controller>SuluWebsiteBundle:Default:index</controller>
 
     <!-- Lifetime of this pages cache -->
@@ -71,7 +73,7 @@
             <properties>
 
                 <!-- This content type is a teaser selection -->
-                <!-- Every content type needs at least a name for identification and the type it´s of -->
+                <!-- Every content type needs at least a name for identification and the type it's of -->
                 <property name="slides" type="teaser_selection">
                     <meta>
                         <title lang="en">Slides</title>
@@ -88,7 +90,7 @@
             </meta>
 
             <properties>
-                <!-- This is a block content type it´s special because it contains different "blocks" -->
+                <!-- This is a block content type it's special because it contains different "blocks" -->
                 <!-- these blocks contain other content types -->
                 <block name="blocks" default-type="editor" minOccurs="0">
                     <meta>
@@ -105,7 +107,7 @@
                             </meta>
 
                             <properties>
-                                <!-- This a more "normal" content it´s a simple text line -->
+                                <!-- This a more "normal" content it's a simple text line -->
                                 <property name="biographyTitle" type="text_line">
                                     <meta>
                                         <title lang="en">Title</title>
