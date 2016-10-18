@@ -26,10 +26,6 @@
             {% endfor %}
         </ul>
 
-        <div class="nav-elem nav-elem--admin">
-            <a href="/admin">Sulu-Admin</a>
-        </div>
-
         <div class="nav-elem nav-elem--language">
             {% for key, value in urls if key != request.locale %}
                 <a href="{{ sulu_content_path(value, request.webspaceKey, key) }}">

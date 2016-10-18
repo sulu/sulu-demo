@@ -20,6 +20,8 @@
     <body>
         <header>
             {% block header %}
+                {% include('AppBundle:includes:demo-bar.html.twig') %}
+
                 {% include('AppBundle:blocks:navigation.html.twig') %}
             {% endblock %}
         </header>
