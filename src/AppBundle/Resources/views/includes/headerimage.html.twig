@@ -12,7 +12,7 @@
                     {% if content.headerImage|first.type.name == "image" and content.headerImage|first.thumbnails["1920x670"] is defined %}
                         <section class="headerimage {{ type }}">
                             <picture>
-                                {% if type == "large" %}
+                                {% if content.headerType == "large" %}
                                     <source srcset="{{ asset(content.headerImage|first.thumbnails["1920x1080"]) }}, {{ asset(content.headerImage|first.thumbnails["3840x2160"]) }} 2x"
                                             media="(min-width: 1300px)">
 
@@ -22,7 +22,7 @@
                                     <img src="{{ asset(content.headerImage|first.thumbnails["1920x1080"]) }}"
                                          alt="{{ content.headerImage|first.title }}"
                                          class="headerimage-image">
-                                {% elseif type == "medium" %}
+                                {% elseif content.headerType == "medium" %}
                                     <source srcset="{{ asset(content.headerImage|first.thumbnails["1920x670"]) }}, {{ asset(content.headerImage|first.thumbnails["3840x1340"]) }} 2x"
                                             media="(min-width: 1300px)">
 

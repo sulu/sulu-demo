@@ -36,6 +36,7 @@
             font-style: italic;
             border-bottom: 1px solid $colorblack;
             @include placeholder-colors;
+            @include appearance(none);
 
             & [value=""] {
                 border-bottom: 1px solid $colorblack;
@@ -65,6 +66,7 @@
     &-button {
         float: right;
         margin-top: 45px;
+        @include appearance(none);
 
         input {
             padding: 0;

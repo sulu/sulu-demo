@@ -13,6 +13,7 @@ window.Demo = (function ($) {
             this.startDiscographyElementSlider();
             this.startArticleSlider();
             this.startMediaGallerySlider();
+            this.scrollArrow();
         },
 
         navigation: function () {
@@ -27,7 +28,7 @@ window.Demo = (function ($) {
 
                 if ($nav.hasClass('open')) {
                     $nav.removeClass('open');
-                    $navItems.fadeToggle(600, 'linear', function() {
+                    $navItems.fadeToggle(600, 'linear', function () {
                         $navRight.css('height', '50px');
                     });
                     $navButton.fadeTo(300, 0, function () {
@@ -52,7 +53,7 @@ window.Demo = (function ($) {
             var $window = $(window);
             var $nav = $('.nav');
 
-            $(document).ready(function(){
+            $(document).ready(function () {
                 var scroll = $window.scrollTop();
                 if (scroll >= 10) {
                     $nav.addClass('sticky');
@@ -206,6 +207,14 @@ window.Demo = (function ($) {
                         dots: false
                     }
                 }]
+            });
+        },
+
+        scrollArrow: function () {
+            $('.js-arrow').on('click', function () {
+                $('html, body').animate({
+                    'scrollTop': $('#content-main').offset().top - 100
+                }, 600);
             });
         }
     };

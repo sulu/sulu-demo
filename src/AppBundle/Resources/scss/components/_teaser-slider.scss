@@ -5,6 +5,7 @@
 .slider {
     height: auto;
     position: relative;
+    max-height: 100vh;
 
     &-frame {
         max-height: 100vh;
@@ -16,7 +17,6 @@
     }
 
     .slides {
-
         &-item {
             overflow: hidden;
         }
@@ -60,6 +60,19 @@
                     color: #fff;
                 }
             }
+        }
+    }
+
+    &-arrow {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        left: 0;
+        text-align: center;
+
+        a {
+            color: $colorwhite;
+            font-size: 50px;
         }
     }
 }
@@ -189,3 +202,15 @@
     }
 }
 
+@media (max-height: 446px) {
+    .slider-arrow {
+        bottom: auto;
+        top: calc(100vh - 60px);
+    }
+}
+
+@media (max-height: 380px) {
+    .slider .slides-text {
+        top: -25px;
+    }
+}

@@ -1,30 +1,30 @@
 <?xml version="1.0"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-    <file source-language="en" datatype="plaintext" original="file.ext">
+    <file source-language="de" datatype="plaintext" original="file.ext">
         <body>
             <trans-unit id="1">
                 <source>general_pages</source>
-                <target>General Pages</target>
+                <target>Allgemeine Seiten</target>
             </trans-unit>
             <trans-unit id="2">
                 <source>articles</source>
-                <target>Articles</target>
+                <target>Artikel</target>
             </trans-unit>
             <trans-unit id="3">
                 <source>albums</source>
-                <target>Albums</target>
+                <target>Alben</target>
             </trans-unit>
             <trans-unit id="4">
                 <source>artists</source>
-                <target>Artists</target>
+                <target>Künstler</target>
             </trans-unit>
             <trans-unit id="5">
                 <source>address</source>
-                <target>Address</target>
+                <target>Adresse</target>
              </trans-unit>
             <trans-unit id="6">
                 <source>phone</source>
-                <target>Telephone</target>
+                <target>Telefon</target>
             </trans-unit>
             <trans-unit id="7">
                 <source>email</source>
@@ -32,11 +32,11 @@
             </trans-unit>
             <trans-unit id="8">
                 <source>hours</source>
-                <target>Opening Hours</target>
+                <target>Öffnungszeiten</target>
             </trans-unit>
             <trans-unit id="9">
                 <source>contact</source>
-                <target>Contact</target>
+                <target>Kontakt</target>
             </trans-unit>
             <trans-unit id="10">
                 <source>quick_links</source>
@@ -44,19 +44,19 @@
             </trans-unit>
             <trans-unit id="11">
                 <source>subscribe_newsletter</source>
-                <target>Sign up for the Newsletter</target>
+                <target>Für den Newsletter eintragen</target>
             </trans-unit>
             <trans-unit id="12">
                 <source>newsletter_text</source>
-                <target>We provide a wide array of software design and development services from Mobile applications and Web applications to User interface design. </target>
+                <target>Von uns erhalten Sie intessante Informationen.</target>
             </trans-unit>
             <trans-unit id="13">
                 <source>read_more</source>
-                <target>Read More</target>
+                <target>Mehr Lesen</target>
             </trans-unit>
             <trans-unit id="14">
                 <source>more</source>
-                <target>More</target>
+                <target>Mehr</target>
             </trans-unit>
             <trans-unit id="15">
                 <source>call</source>
@@ -68,11 +68,11 @@
             </trans-unit>
             <trans-unit id="17">
                 <source>price</source>
-                <target>Price</target>
+                <target>Preis</target>
             </trans-unit>
             <trans-unit id="18">
                 <source>length</source>
-                <target>Length</target>
+                <target>Länge</target>
             </trans-unit>
             <trans-unit id="19">
                 <source>posted</source>
@@ -80,15 +80,27 @@
             </trans-unit>
             <trans-unit id="20">
                 <source>homepage</source>
-                <target>Homepage</target>
+                <target>Startseite</target>
             </trans-unit>
             <trans-unit id="21">
                 <source>subject</source>
-                <target>Subject</target>
+                <target>Betreff</target>
             </trans-unit>
             <trans-unit id="22">
                 <source>message</source>
-                <target>Message</target>
+                <target>Nachricht</target>
+            </trans-unit>
+            <trans-unit id="23">
+                <source>use_terms</source>
+                <target>Datenschutz und Nutzungsbedingungen</target>
+            </trans-unit>
+            <trans-unit id="24">
+                <source>cookie_guidelines</source>
+                <target>Cookie Richtlinien</target>
+            </trans-unit>
+            <trans-unit id="25">
+                <source>security</source>
+                <target>Sicherheitshinweise und Rückrufe</target>
             </trans-unit>
         </body>
     </file>
