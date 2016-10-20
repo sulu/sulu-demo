@@ -177,7 +177,7 @@ a {
 }
 
 #content-main {
-    overflow: auto;
+    overflow: auto; // to allow margins
 }
 
 @media (max-width: $tablet) {

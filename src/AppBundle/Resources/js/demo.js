@@ -1,11 +1,11 @@
 window.jQuery = require('jquery');
 require('slick-carousel');
 
-window.Demo = (function ($) {
+window.Demo = (function($) {
     "use strict";
 
     return {
-        init: function () {
+        init: function() {
             this.navigation();
             this.scroll();
             this.startHomeSlider();
@@ -16,22 +16,22 @@ window.Demo = (function ($) {
             this.scrollArrow();
         },
 
-        navigation: function () {
+        navigation: function() {
             var $nav = $('.nav');
             var $navRight = $('.nav--right');
             var $navItems = $('.nav-elem--items');
             var $navButton = $('.nav-elem--button');
             var $navicon = $('.nav-elem--button i');
 
-            $('#js-nav-button').click(function () {
+            $('#js-nav-button').click(function() {
                 $('body').toggleClass('no-scroll');
 
                 if ($nav.hasClass('open')) {
                     $nav.removeClass('open');
-                    $navItems.fadeToggle(600, 'linear', function () {
+                    $navItems.fadeToggle(600, 'linear', function() {
                         $navRight.css('height', '50px');
                     });
-                    $navButton.fadeTo(300, 0, function () {
+                    $navButton.fadeTo(300, 0, function() {
                         $navicon.addClass('ion-navicon');
                         $navicon.removeClass('ion-close');
                         $navButton.fadeTo(300, 1);
@@ -40,7 +40,7 @@ window.Demo = (function ($) {
                     $nav.addClass('open');
                     $navRight.css('height', '100%');
                     $navItems.fadeToggle(600, 'linear');
-                    $navButton.fadeTo(300, 0, function () {
+                    $navButton.fadeTo(300, 0, function() {
                         $navicon.addClass('ion-close');
                         $navicon.removeClass('ion-navicon');
                         $navButton.fadeTo(300, 1);
@@ -49,18 +49,18 @@ window.Demo = (function ($) {
             });
         },
 
-        scroll: function () {
+        scroll: function() {
             var $window = $(window);
             var $nav = $('.nav');
 
-            $(document).ready(function () {
+            $(document).ready(function() {
                 var scroll = $window.scrollTop();
                 if (scroll >= 10) {
                     $nav.addClass('sticky');
                 }
             });
 
-            $window.scroll(function () {
+            $window.scroll(function() {
                 var scroll = $window.scrollTop();
                 if (scroll >= 10) {
                     $nav.addClass('sticky');
@@ -70,7 +70,7 @@ window.Demo = (function ($) {
             });
         },
 
-        startHomeSlider: function () {
+        startHomeSlider: function() {
             var $homeSlider = $('.js-slider');
 
             if (!$homeSlider.length) {
@@ -85,7 +85,7 @@ window.Demo = (function ($) {
             });
         },
 
-        startArtistElementSlider: function () {
+        startArtistElementSlider: function() {
             var $artistSlider = $('.js-artist--element-collection');
 
             if (!$artistSlider.length) {
@@ -116,7 +116,7 @@ window.Demo = (function ($) {
             });
         },
 
-        startDiscographyElementSlider: function () {
+        startDiscographyElementSlider: function() {
             var $discographySlider = $('.js-discography--element-collection');
 
             if (!$discographySlider.length) {
@@ -147,7 +147,7 @@ window.Demo = (function ($) {
             });
         },
 
-        startArticleSlider: function () {
+        startArticleSlider: function() {
             var $articleSlider = $('.js-article-collection');
 
             if (!$articleSlider.length) {
@@ -178,7 +178,7 @@ window.Demo = (function ($) {
             });
         },
 
-        startMediaGallerySlider: function () {
+        startMediaGallerySlider: function() {
             var $mediaGallery = $('.js-media-gallery');
 
             if (!$mediaGallery.length) {
@@ -210,34 +210,34 @@ window.Demo = (function ($) {
             });
         },
 
-        scrollArrow: function () {
-            $('.js-arrow').on('click', function () {
+        scrollArrow: function() {
+            $('.js-arrow').on('click', function() {
                 $('html, body').animate({
-                    'scrollTop': $('#content-main').offset().top - 100
+                    'scrollTop': $('#content-main').offset().top - $('.demobar').height() - $('.nav').height()
                 }, 600);
             });
         }
     };
 })(jQuery);
 
-window.Demo.Preview = (function ($) {
+window.Demo.Preview = (function($) {
     "use strict";
 
     return {
-        init: function () {
+        init: function() {
             // mutation observer for watching if the live preview is updating the dom and reacting to it
             var targetNode = $('#content');
             var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
             var myObserver = new MutationObserver(this.mutationHandler);
             var obsConfig = {childList: true, characterData: true, attributes: false, subtree: true};
 
-            targetNode.each(function () {
+            targetNode.each(function() {
                 myObserver.observe(this, obsConfig);
             });
         },
 
-        mutationHandler: function (mutations) {
-            mutations.forEach(function (mutation) {
+        mutationHandler: function(mutations) {
+            mutations.forEach(function(mutation) {
                 var $target = $(mutation.target);
 
                 if ($target.is('.js-slider') || $target.has('.js-slider')) {
