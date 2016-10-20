@@ -10,6 +10,11 @@
     &-content {
         max-width: $maxwidth;
         margin: 0 auto;
+
+        .heading--h2 {
+            color: $colorblack;
+            max-width: 700px;
+        }
     }
 
     &-subheading {
