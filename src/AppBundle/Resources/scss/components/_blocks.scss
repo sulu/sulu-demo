@@ -9,6 +9,7 @@
     @include box-sizing(border-box);
     padding: 0 205px 0 120px;
 }
+
 @media (max-width: $tablet) {
     .text {
         margin: 0;
@@ -394,7 +395,5 @@
         .author-position {
             font-size: 14px;
         }
-
-
     }
 }

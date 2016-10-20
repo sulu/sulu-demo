@@ -9,10 +9,12 @@
     <view>AppBundle:templates:about-us</view>
     <controller>SuluWebsiteBundle:Default:index</controller>
     <cacheLifetime>604800</cacheLifetime>
+
     <meta>
         <title lang="en">About Us</title>
         <title lang="de">Über Uns</title>
     </meta>
+
     <properties>
         <section name="highlight">
             <properties>
@@ -21,52 +23,63 @@
                         <title lang="en">Title</title>
                         <title lang="de">Titel</title>
                     </meta>
+
                     <params>
                         <param name="headline" value="true"/>
                     </params>
+
                     <tag name="sulu.rlp.part"/>
                 </property>
+
                 <property name="url" type="resource_locator" mandatory="true">
                     <meta>
                         <title lang="en">Resource Locator</title>
                         <title lang="de">Adresse</title>
                     </meta>
+
                     <tag name="sulu.rlp"/>
                 </property>
             </properties>
         </section>
+
         <section name="header">
             <meta>
                 <title lang="en">Header</title>
                 <title lang="de">Header</title>
             </meta>
+
             <properties>
                 <property name="headerImage" type="media_selection">
                     <meta>
                         <title lang="en">Header - Image</title>
                         <title lang="de">Header - Bild</title>
                     </meta>
+
                     <params>
                         <param name="type" value="image, video"/>
                     </params>
                 </property>
+
                 <property name="headerHeading" type="text_line">
                     <meta>
                         <title lang="en">Header - Heading</title>
                         <title lang="de">Header - Überschrift</title>
                     </meta>
                 </property>
+
                 <property name="headerSubheading" type="text_editor">
                     <meta>
                         <title lang="en">Header - Subheading</title>
                         <title lang="de">Header - Unter Überschrift</title>
                     </meta>
                 </property>
+
                 <property name="headerType" type="single_select">
                     <meta>
                         <title lang="en">Header - Size</title>
                         <title lang="de">Header - Größe</title>
                     </meta>
+
                     <params>
                         <param name="values" type="collection">
                             <param name="small">
@@ -75,12 +88,14 @@
                                     <title lang="de">Klein</title>
                                 </meta>
                             </param>
+
                             <param name="medium">
                                 <meta>
                                     <title lang="en">Medium</title>
                                     <title lang="de">Mittel</title>
                                 </meta>
                             </param>
+
                             <param name="large">
                                 <meta>
                                     <title lang="en">Large</title>
@@ -92,17 +107,20 @@
                 </property>
             </properties>
         </section>
+
         <block name="blocks" default-type="editor" minOccurs="0">
             <meta>
-                <title lang="de">Inhalte</title>
                 <title lang="en">Content</title>
+                <title lang="de">Inhalte</title>
             </meta>
+
             <types>
                 <type name="heading">
                     <meta>
                         <title lang="en">Heading</title>
                         <title lang="de">Überschrift</title>
                     </meta>
+
                     <properties>
                         <property name="heading" type="text_line">
                             <meta>
@@ -110,22 +128,26 @@
                                 <title lang="de">Überschrift</title>
                             </meta>
                         </property>
+
                         <property name="background" type="checkbox">
                             <meta>
                                 <title lang="en">Background Color</title>
                                 <title lang="de">Hintergrundfarbe</title>
                             </meta>
+
                             <params>
                                 <param name="type" value="toggler"/>
                             </params>
                         </property>
                     </properties>
                 </type>
+
                 <type name="subheading">
                     <meta>
                         <title lang="en">Subheading</title>
                         <title lang="de">Unter Überschrift</title>
                     </meta>
+
                     <properties>
                         <property name="subheading" type="text_editor">
                             <meta>
@@ -133,22 +155,26 @@
                                 <title lang="de">Unter Überschrift</title>
                             </meta>
                         </property>
+
                         <property name="background" type="checkbox">
                             <meta>
                                 <title lang="en">Background Color</title>
                                 <title lang="de">Hintergrundfarbe</title>
                             </meta>
+
                             <params>
                                 <param name="type" value="toggler"/>
                             </params>
                         </property>
                     </properties>
                 </type>
+
                 <type name="text">
                     <meta>
                         <title lang="en">Text</title>
                         <title lang="de">Text</title>
                     </meta>
+
                     <properties>
                         <property name="text" type="text_editor">
                             <meta>
@@ -156,22 +182,26 @@
                                 <title lang="de">Text</title>
                             </meta>
                         </property>
+
                         <property name="background" type="checkbox">
                             <meta>
                                 <title lang="en">Background Color</title>
                                 <title lang="de">Hintergrundfarbe</title>
                             </meta>
+
                             <params>
                                 <param name="type" value="toggler"/>
                             </params>
                         </property>
                     </properties>
                 </type>
+
                 <type name="quote">
                     <meta>
                         <title lang="en">Quote</title>
                         <title lang="de">Zitat</title>
                     </meta>
+
                     <properties>
                         <property name="quote" type="text_editor">
                             <meta>
@@ -179,48 +209,57 @@
                                 <title lang="de">Zitat</title>
                             </meta>
                         </property>
+
                         <property name="background" type="checkbox">
                             <meta>
                                 <title lang="en">Background Color</title>
                                 <title lang="de">Hintergrundfarbe</title>
                             </meta>
+
                             <params>
                                 <param name="type" value="toggler"/>
                             </params>
                         </property>
                     </properties>
                 </type>
+
                 <type name="media_gallery">
                     <meta>
                         <title lang="en">Media</title>
                         <title lang="de">Medien</title>
                     </meta>
+
                     <properties>
                         <property name="medias" type="media_selection">
                             <meta>
                                 <title lang="en">Media</title>
                                 <title lang="de">Medien</title>
                             </meta>
+
                             <params>
                                 <param name="type" value="image"/>
                             </params>
                         </property>
+
                         <property name="background" type="checkbox">
                             <meta>
                                 <title lang="en">Background Color</title>
                                 <title lang="de">Hintergrundfarbe</title>
                             </meta>
+
                             <params>
                                 <param name="type" value="toggler"/>
                             </params>
                         </property>
                     </properties>
                 </type>
+
                 <type name="button">
                     <meta>
                         <title lang="en">Button</title>
                         <title lang="de">Button</title>
                     </meta>
+
                     <properties>
                         <property name="link" type="single_internal_link">
                             <meta>
@@ -228,37 +267,44 @@
                                 <title lang="de">Link</title>
                             </meta>
                         </property>
+
                         <property name="background" type="checkbox">
                             <meta>
                                 <title lang="en">Background Color</title>
                                 <title lang="de">Hintergrundfarbe</title>
                             </meta>
+
                             <params>
                                 <param name="type" value="toggler"/>
                             </params>
                         </property>
                     </properties>
                 </type>
+
                 <type name="fullimage">
                     <meta>
                         <title lang="en">Image</title>
                         <title lang="de">Image</title>
                     </meta>
+
                     <properties>
                         <property name="image" type="media_selection">
                             <meta>
                                 <title lang="en">Image</title>
                                 <title lang="de">Bild</title>
                             </meta>
+
                             <params>
                                 <param name="type" value="image, video"/>
                             </params>
                         </property>
+
                         <property name="size" type="single_select">
                             <meta>
                                 <title lang="en">Header Size</title>
                                 <title lang="de">Header Größe</title>
                             </meta>
+
                             <params>
                                 <param name="values" type="collection">
                                     <param name="small">
@@ -267,12 +313,14 @@
                                             <title lang="de">Klein</title>
                                         </meta>
                                     </param>
+
                                     <param name="medium">
                                         <meta>
                                             <title lang="en">Medium</title>
                                             <title lang="de">Mittel</title>
                                         </meta>
                                     </param>
+
                                     <param name="large">
                                         <meta>
                                             <title lang="en">Large</title>
@@ -284,28 +332,33 @@
                         </property>
                     </properties>
                 </type>
+
                 <type name="action">
                     <meta>
                         <title lang="en">Action</title>
                         <title lang="de">Aktion</title>
                     </meta>
+
                     <properties>
                         <property name="actions" type="snippet">
                             <meta>
                                 <title lang="en">Action</title>
                                 <title lang="de">Aktion</title>
                             </meta>
+
                             <params>
                                 <param name="snippetType" value="action"/>
                             </params>
                         </property>
                     </properties>
                 </type>
+
                 <type name="team">
                     <meta>
-                        <title lang="de">Team</title>
                         <title lang="en">Team</title>
+                        <title lang="de">Team</title>
                     </meta>
+
                     <properties>
                         <property name="title" type="text_line">
                             <meta>
@@ -313,19 +366,24 @@
                                 <title lang="de">Titel</title>
                             </meta>
                         </property>
+
                         <property name="background" type="checkbox">
                             <meta>
                                 <title lang="en">Background Color</title>
                                 <title lang="de">Hintergrundfarbe</title>
                             </meta>
+
                             <params>
                                 <param name="type" value="toggler"/>
                             </params>
                         </property>
+
                         <property name="contacts" type="contact">
                             <meta>
                                 <title lang="en">Contacts</title>
+                                <title lang="de">Kontakt</title>
                             </meta>
+
                             <params>
                                 <param name="contact" value="true"/>
                             </params>

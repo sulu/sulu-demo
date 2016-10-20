@@ -53,9 +53,11 @@
                 <div class="footer-main-elem footer-main-elem--last">
                     <div class="footer-main-elem-content footer-main-elem-content--right">
                         <h4 class="heading--h4">{{ 'subscribe_newsletter'|trans }}</h4>
+
                         <p>
                             {{ 'newsletter_text'|trans }}
                         </p>
+
                         <form>
                             <label class="footer-main-elem-content-email">
                                 <input class="footer-main-elem-content-email-input"
@@ -63,6 +65,7 @@
                                        placeholder="E-Mail"
                                        required>
                             </label>
+
                             <input class="footer-main-elem-content-button button--small cf" type="submit"
                                    value="Sign up">
                         </form>
@@ -72,9 +75,9 @@
         </div>
 
         <div class="footer-imprint">
-        <span class="footer-imprint-elem footer-imprint-elem--imprint">
-            &copy; Soundmanagment Corporation {{ 'now'|date('Y') }}
-        </span>
+            <span class="footer-imprint-elem footer-imprint-elem--imprint">
+                &copy; Soundmanagment Corporation {{ 'now'|date('Y') }}
+            </span>
 
             <a href="#" class="footer-imprint-elem footer-imprint-elem--data">
                 {{ 'use_terms'|trans }}

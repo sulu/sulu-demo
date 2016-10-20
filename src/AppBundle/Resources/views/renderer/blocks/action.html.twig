@@ -16,7 +16,7 @@
                     {% endif %}
 
                     {% if action.link|default('') %}
-                        <a href="{{ sulu_content_path(action.link) }}"
+                        <a href="{{ sulu_content_load(action.link).urls[request.locale] }}"
                            class="button--large">
                             {% if action.button|default('') %}
                                 {{ action.button }}

@@ -264,4 +264,3 @@ window.Demo.Preview = (function ($) {
         }
     }
 })(jQuery);
-

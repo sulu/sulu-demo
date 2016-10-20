@@ -6,16 +6,21 @@
             <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBjtPJfpPh9FEwonUW0Lte5Ayshi2FVCKc"></script>
 
             <script>
+                var mapLatLng = new google.maps.LatLng({{ block.location.lat }} , {{ block.location.long }});
                 var mapProp = {
-                    center:new google.maps.LatLng({{ block.location.lat }} , {{ block.location.long }}),
-                    zoom:{{ block.location.zoom }},
-                    mapTypeId:google.maps.MapTypeId.HYBRID
+                    center: mapLatLng,
+                    zoom:{{ block.location.zoom }}
                 };
 
-                mapProp.setTilt(0);
-
-                for (var i=0; i< document.getElementsByClassName('js-googleMap').length; i++) {
+                for (var i = 0; i < document.getElementsByClassName('js-googleMap').length; i++) {
                     var map = new google.maps.Map(document.getElementsByClassName('js-googleMap')[i], mapProp);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: mapLatLng
+                        {% if block.location.title|default('') %}
+                        , title: '{{ block.location.title }}'
+                        {% endif %}
+                    });
                 }
             </script>
         {% endif %}

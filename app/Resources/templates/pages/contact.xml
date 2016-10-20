@@ -24,6 +24,7 @@
                         <title lang="en">Title</title>
                         <title lang="de">Titel</title>
                     </meta>
+
                     <params>
                         <param name="headline" value="true"/>
                     </params>
@@ -79,6 +80,7 @@
                         <title lang="en">Header - Size</title>
                         <title lang="de">Header - Größe</title>
                     </meta>
+
                     <params>
                         <param name="values" type="collection">
                             <param name="small">
@@ -87,12 +89,14 @@
                                     <title lang="de">Klein</title>
                                 </meta>
                             </param>
+
                             <param name="medium">
                                 <meta>
                                     <title lang="en">Medium</title>
                                     <title lang="de">Mittel</title>
                                 </meta>
                             </param>
+
                             <param name="large">
                                 <meta>
                                     <title lang="en">Large</title>
@@ -138,7 +142,6 @@
                         </property>
                     </properties>
                 </type>
-
 
                 <type name="subheading">
                     <meta>
