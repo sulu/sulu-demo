@@ -2,13 +2,27 @@
 
 namespace AppBundle\Twig;
 
+/**
+ * Twig extension for rendering the Sitemap
+ */
 class WebsiteTwigExtension extends \Twig_Extension
 {
+    /**
+     * {@inheritdoc}
+     */
     public function getFunctions()
     {
         return [
             new \Twig_SimpleFunction('app_sitemap', [$this, 'getSitemapStructure']),
         ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return 'app_website';
     }
 
     /**

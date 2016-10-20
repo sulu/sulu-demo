@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+    {# Sulu uses Twig for rendering HTML. #}
+    {# Further information can be found in the documentation: #}
+    {# http://docs.sulu.io/en/latest/book/twig.html #}
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,9 +15,14 @@
         {% block meta %}{% endblock %}
 
         {% block style %}
+            {# For styling we use SCSS files and then create a minimized CSS file with Compass. #}
+            {# Further information on how to use SCSS and Compass in their websites: #}
+            {# http://sass-lang.com/ #}
+            {# http://compass-style.org/help/ #}
             <link rel="stylesheet" href="{{ asset('bundles/app/css/style.css') }}">
         {% endblock %}
 
+        {# Modernizer helps at detecting the functionality supported by different browsers. #}
         <script src="{{ asset('bundles/app/js/modernizer.min.js') }}"></script>
     </head>
     <body>
@@ -27,7 +35,10 @@
         </header>
 
         <section id="content" vocab="http://schema.org/" typeof="Content">
-            {% block content %}{% endblock %}
+            {% block content %}
+            {# The content of the page. #}
+            {# Have a look at app/Resources/views/templates/homepage.html.twig for an example. #}
+            {% endblock %}
         </section>
 
         <aside>
@@ -40,13 +51,15 @@
         {% endblock %}
 
         {% block javascripts %}
+            {# Here we integrate our minified js file and init the components afterwards. #}
             <script src="{{ asset('bundles/app/js/demo.min.js') }}"></script>
 
             <script type="text/javascript">
                 Demo.init();
             </script>
 
-            {# Start Mutation Observer if we are in Preview #}
+            {# When we are in live preview we start our live preview component. #}
+            {# This component starts a mutation observer that restarts our js components if needed. #}
             {% if app.request.get('preview') %}
                 <script type="text/javascript">
                     Demo.Preview.init();

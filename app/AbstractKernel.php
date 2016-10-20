@@ -76,7 +76,7 @@ abstract class AbstractKernel extends SuluKernel
             // tools
             new Massive\Bundle\BuildBundle\MassiveBuildBundle(),
 
-            // Custom Bundle
+            // custom bundle
             new AppBundle\AppBundle(),
         ];
 

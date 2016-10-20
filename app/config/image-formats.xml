@@ -2,12 +2,24 @@
 <formats xmlns="http://schemas.sulu.io/media/formats"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://schemas.sulu.io/media/formats http://schemas.sulu.io/media/formats-1.1.xsd">
+    <!-- This file defines the different formats for cropping and resizing images. -->
+    <!-- Each image format typically has: -->
+    <!-- * A localized title -->
+    <!-- * A size (height x width)-->
+    <!-- * The strategy for resizing/cropping the image ("scale", "crop", "resize", ...) -->
+
+    <!-- See the ImageMagick documentation for information about these strategies: -->
+    <!-- http://php.net/manual/en/class.imagick.php -->
+
+    <!-- Read more about image formats in the documentation: -->
+    <!-- http://docs.sulu.io/en/latest/book/image-formats.html -->
     <format key="1920x1080">
         <meta>
             <!-- It also has a translated title -->
             <title lang="de">Header Image Groß - Desktop</title>
             <title lang="en">Header Image Large - Desktop</title>
         </meta>
+        <!-- The key is used to access the image format from Twig. -->
         <scale x="1920" y="1080"/>
     </format>
 

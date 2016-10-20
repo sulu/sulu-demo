@@ -3,6 +3,8 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
 
+    <!-- This is the template for a "contact" snippet. -->
+    <!-- For further information have a look at pages/homepage.xml. -->
     <key>contact</key>
 
     <meta>
