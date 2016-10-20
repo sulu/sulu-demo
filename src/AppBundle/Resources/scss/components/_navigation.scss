@@ -186,7 +186,17 @@
                     a {
                         font-size: 45px;
                         width: 100%;
+
+                        .no-touchevents &:hover,
+                        &:active {
+                            border-bottom: none;
+                        }
                     }
+
+                    .active {
+                        border-bottom: none;
+                    }
+
                 }
             }
 
@@ -199,6 +209,13 @@
                 position: fixed;
                 top: 49px;
                 right: 60px;
+
+                a {
+                    .no-touchevents &:hover,
+                    &:active {
+                        border-bottom: none;
+                    }
+                }
             }
         }
 

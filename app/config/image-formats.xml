@@ -4,32 +4,33 @@
          xsi:schemaLocation="http://schemas.sulu.io/media/formats http://schemas.sulu.io/media/formats-1.1.xsd">
     <format key="1920x1080">
         <meta>
-            <title lang="de">Teaser Bild - Desktop</title>
-            <title lang="en">Teaser Image - Desktop</title>
+            <!-- It also has a translated title -->
+            <title lang="de">Header Image Groß - Desktop</title>
+            <title lang="en">Header Image Large - Desktop</title>
         </meta>
         <scale x="1920" y="1080"/>
     </format>
 
     <format key="3840x2160">
         <meta>
-            <title lang="de">Teaser Bild - Desktop Retina</title>
-            <title lang="en">Teaser Image - Desktop Retina</title>
+            <title lang="de">Header Image Groß - Desktop Retina</title>
+            <title lang="en">Header Image Large - Desktop Retina</title>
         </meta>
         <scale x="3840" y="2160"/>
     </format>
 
     <format key="800x450">
         <meta>
-            <title lang="de">Teaser Bild - Tablet</title>
-            <title lang="en">Teaser Image - Tablet</title>
+            <title lang="de">Header Image Groß - Tablet, Smartphone</title>
+            <title lang="en">Header Image Large - Tablet, Smartphone</title>
         </meta>
         <scale x="1920" y="1080"/>
     </format>
 
     <format key="1600x900">
         <meta>
-            <title lang="de">Teaser Bild - Tablet Retina</title>
-            <title lang="en">Teaser Image - Tablet Retina</title>
+            <title lang="de">Header Image Groß - Tablet, Smartphone Retina</title>
+            <title lang="en">Header Image Large - Tablet, Smartphone Retina</title>
         </meta>
         <scale x="3840" y="2160"/>
     </format>

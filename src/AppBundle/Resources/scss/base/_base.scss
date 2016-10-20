@@ -110,7 +110,7 @@ a {
     text-transform: uppercase;
     display: block;
     background-color: $colorred--lighter01;
-    border-radius: 19px;
+    border-radius: 22px;
     letter-spacing: 2px;
     font-weight: 700;
     @include appearance(none);
@@ -174,6 +174,10 @@ a {
             background-color: $colorwhite;
         }
     }
+}
+
+#content-main {
+    overflow: auto; // to allow margins
 }
 
 @media (max-width: $tablet) {
