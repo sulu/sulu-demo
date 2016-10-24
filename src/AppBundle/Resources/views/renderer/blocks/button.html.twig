@@ -2,12 +2,16 @@
     <div property="background" class="{{ block.background ? 'background' : '' }}">
         <div property="link">
             {% if block.link|default('') %}
-                <div class="text">
-                    <a class="button--block"
-                       href="{{ sulu_content_load(block.link).urls[request.locale] }}">
-                        {{ 'read_more'|trans }}
-                    </a>
-                </div>
+                {% set page = sulu_content_load(block.link)|default([]) %}
+
+                {% if page.urls is defined %}
+                    <div class="text">
+                        <a class="button--block"
+                           href="{{ page.urls[request.locale] }}">
+                            {{ 'read_more'|trans }}
+                        </a>
+                    </div>
+                {% endif %}
             {% endif %}
         </div>
     </div>

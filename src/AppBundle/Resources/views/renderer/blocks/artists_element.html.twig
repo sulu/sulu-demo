@@ -22,7 +22,7 @@
                     {% set image = item.image[0] %}
                 {% endif %}
 
-                {% if image|length and image.thumbnails['400x400'] is defined %}
+                {% if image|length and image.thumbnails['400x400'] is defined and sulu_content_path(item.url)|default('') %}
                     <a href="{{ sulu_content_path(item.url) }}">
                         <picture>
                             <source srcset="{{ asset(image.thumbnails["400x400"]) }}, {{ asset(image.thumbnails["800x800"]) }} 2x">
@@ -34,12 +34,14 @@
                     </a>
                 {% endif %}
 
-                <a href="{{ sulu_content_path(item.url) }}"
-                   class="artist--element-frame-item-link heading--h3">
-                    {{ item.heading }}
-                </a>
+                {% if sulu_content_path(item.url)|default('') %}
+                    <a href="{{ sulu_content_path(item.url) }}"
+                       class="artist--element-frame-item-link heading--h3">
+                        {{ item.heading }}
+                    </a>
+                {% endif %}
 
-                {% if item.image|length and item.image|first.thumbnails['400x400'] is defined %}
+                {% if item.image|length and item.image|first.thumbnails['400x400'] is defined and sulu_content_path(item.url)|default('') %}
                     <div class="artist--element-frame-item--hover">
                         <a href="{{ sulu_content_path(item.url) }}" class="button--small">
                             {{ "more"|trans }}

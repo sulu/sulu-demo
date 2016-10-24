@@ -1,7 +1,9 @@
 <nav class="nav">
-    <a class="nav-elem nav-elem--logo" href="{{ sulu_content_path('/') }}">
-        <img src="{{ asset('bundles/app/img/logo.svg') }}" alt="Home" class="nav-logo-image"/>
-    </a>
+    {% if sulu_content_path('/')|default('') %}
+        <a class="nav-elem nav-elem--logo" href="{{ sulu_content_path('/') }}">
+            <img src="{{ asset('bundles/app/img/logo.svg') }}" alt="Home" class="nav-logo-image"/>
+        </a>
+    {% endif %}
 
     <div class="nav--right cf">
         <ul class="nav-elem nav-elem--items">
@@ -16,21 +18,25 @@
                     {% endfor %}
                 {% endif %}
 
-                <li>
-                    <a href="{{ sulu_content_path(item.url) }}"
-                       title="{{ item.title }}"
-                       {{ active|raw }}>
-                        {{ item.title }}
-                    </a>
-                </li>
+                {% if sulu_content_path(item.url)|default('') %}
+                    <li>
+                        <a href="{{ sulu_content_path(item.url) }}"
+                           title="{{ item.title }}"
+                           {{ active|raw }}>
+                            {{ item.title }}
+                        </a>
+                    </li>
+                {% endif %}
             {% endfor %}
         </ul>
 
         <div class="nav-elem nav-elem--language">
             {% for key, value in urls if key != request.locale %}
-                <a href="{{ sulu_content_path(value, request.webspaceKey, key) }}">
-                    {{ key }}
-                </a>
+                {% if sulu_content_path(value, request.webspaceKey, key)|default('') %}
+                    <a href="{{ sulu_content_path(value, request.webspaceKey, key) }}">
+                        {{ key }}
+                    </a>
+                {% endif %}
             {% endfor %}
         </div>
 

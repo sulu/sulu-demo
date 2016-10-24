@@ -16,14 +16,18 @@
                     {% endif %}
 
                     {% if action.link|default('') %}
-                        <a href="{{ sulu_content_load(action.link).urls[request.locale] }}"
-                           class="button--large">
-                            {% if action.button|default('') %}
-                                {{ action.button }}
-                            {% else %}
-                                {{ 'call'|trans }}
-                            {% endif %}
-                        </a>
+                        {% set page = sulu_content_load(action.link)|default([]) %}
+
+                        {% if page.urls is defined %}
+                            <a href="{{ page.urls[request.locale] }}"
+                               class="button--large">
+                                {% if action.button|default('') %}
+                                    {{ action.button }}
+                                {% else %}
+                                    {{ 'call'|trans }}
+                                {% endif %}
+                            </a>
+                        {% endif %}
                     {% endif %}
                 </div>
             </div>
