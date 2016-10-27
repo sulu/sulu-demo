@@ -1,9 +1,7 @@
 <nav class="nav">
-    {% if sulu_content_path('/')|default('') %}
-        <a class="nav-elem nav-elem--logo" href="{{ sulu_content_path('/') }}">
-            <img src="{{ asset('bundles/app/img/logo.svg') }}" alt="Home" class="nav-logo-image"/>
-        </a>
-    {% endif %}
+    <a class="nav-elem nav-elem--logo" href="{{ sulu_content_path('/') }}">
+        <img src="{{ asset('bundles/app/img/logo.svg') }}" alt="Home" class="nav-logo-image"/>
+    </a>
 
     <div class="nav--right cf">
         <ul class="nav-elem nav-elem--items">
@@ -18,11 +16,13 @@
                     {% endfor %}
                 {% endif %}
 
-                {% if sulu_content_path(item.url)|default('') %}
+                {% set itemUrl = sulu_content_path(item.url)|default('') %}
+
+                {% if itemUrl is not empty %}
                     <li>
-                        <a href="{{ sulu_content_path(item.url) }}"
+                        <a href="{{ itemUrl }}"
                            title="{{ item.title }}"
-                           {{ active|raw }}>
+                                {{ active|raw }}>
                             {{ item.title }}
                         </a>
                     </li>
@@ -32,10 +32,15 @@
 
         <div class="nav-elem nav-elem--language">
             {% for key, value in urls if key != request.locale %}
-                {% if sulu_content_path(value, request.webspaceKey, key)|default('') %}
-                    <a href="{{ sulu_content_path(value, request.webspaceKey, key) }}">
-                        {{ key }}
-                    </a>
+                {% set itemUrl = sulu_content_path(value, request.webspaceKey, key)|default('') %}
+
+                {% if itemUrl is not empty %}
+                    <li>
+                        <a href="{{ itemUrl }}"
+                           title="{{ key }}">
+                            {{ key }}
+                        </a>
+                    </li>
                 {% endif %}
             {% endfor %}
         </div>

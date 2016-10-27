@@ -34,8 +34,10 @@
                     </a>
                 {% endif %}
 
-                {% if sulu_content_path(item.url)|default('') %}
-                    <a href="{{ sulu_content_path(item.url) }}"
+                {% set itemUrl = sulu_content_path(item.url)|default('') %}
+
+                {% if itemUrl is not empty %}
+                    <a href="{{ itemUrl }}"
                        class="artist--element-frame-item-link heading--h3">
                         {{ item.heading }}
                     </a>

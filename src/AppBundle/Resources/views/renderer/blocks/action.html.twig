@@ -21,11 +21,7 @@
                         {% if page.urls is defined %}
                             <a href="{{ page.urls[request.locale] }}"
                                class="button--large">
-                                {% if action.button|default('') %}
-                                    {{ action.button }}
-                                {% else %}
-                                    {{ 'call'|trans }}
-                                {% endif %}
+                                {{ action.button|default('') ? action.button : 'call'|trans }}
                             </a>
                         {% endif %}
                     {% endif %}
