@@ -29,7 +29,7 @@
             </meta>
         </property>
 
-        <block name="tracks" default-type="editor" minOccurs="0">
+        <block name="tracks" minOccurs="0">
             <meta>
                 <title lang="de">Inhalte</title>
                 <title lang="en">Content</title>
@@ -38,8 +38,8 @@
             <types>
                 <type name="track">
                     <meta>
-                        <title lang="en">Titel</title>
-                        <title lang="de">Track</title>
+                        <title lang="en">Track</title>
+                        <title lang="de">Titel</title>
                     </meta>
 
                     <properties>
@@ -60,7 +60,7 @@
                         <property name="price" type="text_line">
                             <meta>
                                 <title lang="en">Price</title>
-                                <title lang="de">Peis</title>
+                                <title lang="de">Preis</title>
                             </meta>
                         </property>
                     </properties>

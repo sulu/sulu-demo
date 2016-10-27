@@ -52,8 +52,8 @@
             <properties>
                 <property name="headerImage" type="media_selection">
                     <meta>
-                        <title lang="en">Header - Image</title>
-                        <title lang="de">Header - Bild</title>
+                        <title lang="en">Image</title>
+                        <title lang="de">Bild</title>
                     </meta>
 
                     <params>
@@ -63,22 +63,22 @@
 
                 <property name="headerHeading" type="text_line">
                     <meta>
-                        <title lang="en">Header - Heading</title>
-                        <title lang="de">Header - Überschrift</title>
+                        <title lang="en">Heading</title>
+                        <title lang="de">Überschrift</title>
                     </meta>
                 </property>
 
                 <property name="headerSubheading" type="text_editor">
                     <meta>
-                        <title lang="en">Header - Subheading</title>
-                        <title lang="de">Header - Unter Überschrift</title>
+                        <title lang="en">Subheading</title>
+                        <title lang="de">Unter-Überschrift</title>
                     </meta>
                 </property>
 
                 <property name="headerType" type="single_select">
                     <meta>
-                        <title lang="en">Header - Size</title>
-                        <title lang="de">Header - Größe</title>
+                        <title lang="en">Size</title>
+                        <title lang="de">Größe</title>
                     </meta>
 
                     <params>
@@ -146,14 +146,14 @@
                 <type name="subheading">
                     <meta>
                         <title lang="en">Subheading</title>
-                        <title lang="de">Unter Überschrift</title>
+                        <title lang="de">Unter-Überschrift</title>
                     </meta>
 
                     <properties>
                         <property name="subheading" type="text_editor">
                             <meta>
                                 <title lang="en">Subheading</title>
-                                <title lang="de">Unter Überschrift</title>
+                                <title lang="de">Unter-Überschrift</title>
                             </meta>
                         </property>
 
@@ -200,7 +200,7 @@
                 <type name="location">
                     <meta>
                         <title lang="en">Location</title>
-                        <title lang="de">Location</title>
+                        <title lang="de">Standort</title>
                     </meta>
 
                     <properties>
@@ -230,7 +230,7 @@
                         <property name="subheading" type="text_editor">
                             <meta>
                                 <title lang="en">Subheading</title>
-                                <title lang="de">Unter - Überschrift</title>
+                                <title lang="de">Unter-Überschrift</title>
                             </meta>
                         </property>
                     </properties>

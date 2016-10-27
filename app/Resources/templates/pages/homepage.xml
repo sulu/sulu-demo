@@ -20,7 +20,7 @@
     <controller>SuluWebsiteBundle:Default:index</controller>
 
     <!-- Lifetime of this pages cache -->
-    <cacheLifetime>2400</cacheLifetime>
+    <cacheLifetime>604800</cacheLifetime>
 
     <meta>
         <!-- The localized titles of the template. These titles appear in the dropdown where you select the template of a page. -->
@@ -89,8 +89,8 @@
 
         <section name="blocks">
             <meta>
-                <title lang="de">Blöcke</title>
                 <title lang="en">Blocks</title>
+                <title lang="de">Blöcke</title>
             </meta>
 
             <properties>
@@ -101,7 +101,7 @@
 
                 <!-- In order to provide some guidance to the content manager, you must define the list of content types that they can select from. -->
                 <!-- These content types can and should have domain-specific names, such as "Biography" or "Discography". For complete examples, see below. -->
-                <block name="blocks" default-type="editor" minOccurs="0">
+                <block name="blocks" default-type="biography" minOccurs="0">
                     <meta>
                         <title lang="de">Inhalte</title>
                         <title lang="en">Content</title>
