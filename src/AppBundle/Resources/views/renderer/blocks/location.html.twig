@@ -16,6 +16,7 @@
                     var map = new google.maps.Map(document.getElementsByClassName('js-googleMap')[i], mapProp);
                     var marker = new google.maps.Marker({
                         map: map,
+                        scrollwheel: false,
                         position: mapLatLng
                         {% if block.location.title|default('') %}
                         , title: '{{ block.location.title }}'

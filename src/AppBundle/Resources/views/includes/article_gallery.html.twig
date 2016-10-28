@@ -35,13 +35,11 @@
                                         </picture>
 
                                         <div class="article-collection-item-text">
-                                            {% if article.heading is defined and article.heading.value|default('') %}
-                                                {% if article.url is defined and article.url.value|default('') %}
-                                                    <a href="{{ sulu_content_path(article.url.value) }}"
-                                                       class="text-heading">
-                                                        {{ article.heading.value }}
-                                                    </a>
-                                                {% endif %}
+                                            {% if article.heading is defined and article.heading.value|default('') and article.url.value|default('') and sulu_content_path(article.url.value)|default('') %}
+                                                <a href="{{ sulu_content_path(article.url.value) }}"
+                                                   class="text-heading">
+                                                    {{ article.heading.value }}
+                                                </a>
                                             {% endif %}
 
                                             {% if article.creation is defined and article.creation.date|default('') %}

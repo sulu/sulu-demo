@@ -26,10 +26,14 @@
 
                 <div property="link">
                     {% if block.link|default('') %}
-                        <a class="button--medium"
-                           href="{{ sulu_content_load(block.link).urls[request.locale] }}">
-                            {{ 'more'|trans }}
-                        </a>
+                        {% set page = sulu_content_load(block.link)|default([]) %}
+
+                        {% if page.urls is defined %}
+                            <a class="button--medium"
+                               href="{{ page.urls[request.locale] }}">
+                                {{ 'more'|trans }}
+                            </a>
+                        {% endif %}
                     {% endif %}
                 </div>
             </div>

@@ -42,10 +42,14 @@
                         <h4 class="heading--h4">{{ 'quick_links'|trans }}</h4>
 
                         {% for item in sulu_navigation_root_flat('footer', 20) %}
-                            <a href="{{ sulu_content_path(item.url) }}"
-                               title="{{ item.title }}">
-                                {{ item.title }}
-                            </a>
+                            {% set itemUrl = sulu_content_path(item.url)|default('') %}
+
+                            {% if itemUrl is not empty %}
+                                <a href="{{ itemUrl }}"
+                                   title="{{ item.title }}">
+                                    {{ item.title }}
+                                </a>
+                            {% endif %}
                         {% endfor %}
                     </div>
                 </div>

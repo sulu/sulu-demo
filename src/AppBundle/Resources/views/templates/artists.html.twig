@@ -16,7 +16,7 @@
                                 <div class="artists-content-elem">
                                     {% set url = "" %}
 
-                                    {% if content|default('') %}
+                                    {% if content|default('') and sulu_content_path(artist.url)|default('') %}
                                         {% set url = sulu_content_path(artist.url) %}
                                     {% endif %}
 

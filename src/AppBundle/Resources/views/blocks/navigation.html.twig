@@ -16,21 +16,32 @@
                     {% endfor %}
                 {% endif %}
 
-                <li>
-                    <a href="{{ sulu_content_path(item.url) }}"
-                       title="{{ item.title }}"
-                       {{ active|raw }}>
-                        {{ item.title }}
-                    </a>
-                </li>
+                {% set itemUrl = sulu_content_path(item.url)|default('') %}
+
+                {% if itemUrl is not empty %}
+                    <li>
+                        <a href="{{ itemUrl }}"
+                           title="{{ item.title }}"
+                                {{ active|raw }}>
+                            {{ item.title }}
+                        </a>
+                    </li>
+                {% endif %}
             {% endfor %}
         </ul>
 
         <div class="nav-elem nav-elem--language">
             {% for key, value in urls if key != request.locale %}
-                <a href="{{ sulu_content_path(value, request.webspaceKey, key) }}">
-                    {{ key }}
-                </a>
+                {% set itemUrl = sulu_content_path(value, request.webspaceKey, key)|default('') %}
+
+                {% if itemUrl is not empty %}
+                    <li>
+                        <a href="{{ itemUrl }}"
+                           title="{{ key }}">
+                            {{ key }}
+                        </a>
+                    </li>
+                {% endif %}
             {% endfor %}
         </div>
 

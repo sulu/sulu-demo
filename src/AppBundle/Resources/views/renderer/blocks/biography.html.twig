@@ -26,10 +26,14 @@
 
                 <div property="biographyLink">
                     {% if block.biographyLink|default('') %}
-                        <a class="button--medium"
-                           href="{{ sulu_content_load(block.biographyLink).urls[request.locale] }}">
-                            {{ 'read_more'|trans }}
-                        </a>
+                        {% set page = sulu_content_load(block.biographyLink)|default([]) %}
+
+                        {% if page.urls is defined %}
+                            <a class="button--medium"
+                               href="{{ page.urls[request.locale] }}">
+                                {{ 'read_more'|trans }}
+                            </a>
+                        {% endif %}
                     {% endif %}
                 </div>
             </div>

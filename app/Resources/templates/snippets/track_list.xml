@@ -29,7 +29,7 @@
             </meta>
         </property>
 
-        <block name="tracks" minOccurs="0">
+        <block name="tracks" default-type="track" minOccurs="0">
             <meta>
                 <title lang="de">Inhalte</title>
                 <title lang="en">Content</title>

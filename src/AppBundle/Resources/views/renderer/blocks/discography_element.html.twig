@@ -22,7 +22,7 @@
                             {% set image = disc.image[0] %}
                         {% endif %}
 
-                        {% if image|length %}
+                        {% if image|length and sulu_content_path(disc.url)|default('') %}
                             <a href="{{ sulu_content_path(disc.url) }}">
                                 <div class="discography--element-collection-item-image">
                                     <picture>
@@ -38,7 +38,7 @@
                         {% endif %}
 
                         <div class="discography--element-collection-item-text">
-                            {% if disc.heading|default('') %}
+                            {% if disc.heading|default('') and sulu_content_path(disc.url)|default('') %}
                                 <a class="discography--element-collection-item-text-name"
                                    href="{{ sulu_content_path(disc.url) }}">
                                     {{ disc.title }}

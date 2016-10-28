@@ -68,6 +68,10 @@
             height: 50px;
             top: 50px;
 
+            li {
+                list-style-type: none;
+            }
+
             a {
                 font-family: $fontregular;
                 font-size: 17px;

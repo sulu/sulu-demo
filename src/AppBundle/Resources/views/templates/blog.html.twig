@@ -69,7 +69,7 @@
                                 {% endif %}
                             {% endfor %}
 
-                            {% if article.url|default('') %}
+                            {% if article.url|default('') and sulu_content_path(article.url)|default('') %}
                                 <a href="{{ sulu_content_path(article.url) }}" class="button--medium">
                                     {{ 'read_more'|trans }}
                                 </a>
