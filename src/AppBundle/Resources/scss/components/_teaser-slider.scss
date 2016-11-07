@@ -1,0 +1,217 @@
+/*=================================================
+        TEASER SLIDER
+=================================================*/
+
+.slider {
+    height: auto;
+    position: relative;
+    max-height: 100vh;
+
+    &-frame {
+        max-height: 100vh;
+        overflow: hidden;
+    }
+
+    &-item {
+        position: relative;
+    }
+
+    .slides {
+        &-item {
+            overflow: hidden;
+        }
+
+        &-images {
+            width: 100%;
+            height: auto;
+            display: block;
+            z-index: 1;
+        }
+
+        &-text {
+            z-index: 2;
+            position: absolute;
+            width: 100%;
+            max-width: $maxwidth;
+            height: 90%;
+            left: 0;
+            bottom: 0;
+            padding: 0 0 0 120px;
+            overflow: hidden;
+
+            .heading-h1,
+            .heading-h1-description {
+                @include vertical-align(relative);
+                color: #fff;
+                margin: 0;
+                padding: 0;
+
+            }
+
+            .heading-h1 {
+                word-spacing: 9999999px;
+            }
+
+            .heading-h1-description {
+                margin-top: -20px;
+                width: 40%;
+
+                p {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    &-arrow {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        left: 0;
+        text-align: center;
+
+        a {
+            color: $colorwhite;
+            font-size: 50px;
+        }
+    }
+}
+
+@media (max-width: 1400px) {
+    .slider .slides-text {
+        padding: 0 40px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .slider .slides-text .heading-h1-description {
+        width: 45%;
+    }
+}
+
+@media (max-width: $tablet) {
+    .slider .slides-text {
+        padding: 0 20px;
+        @include box-sizing(border-box);
+
+        .heading-h1,
+        .heading-h1-description {
+            text-align: center;
+        }
+
+        .heading-h1-description {
+            width: 100%;
+            margin-top: -25px;
+
+            > p,
+            > b,
+            > h1 {
+                padding: 0 100px;
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .slider-item {
+        display: block;
+        position: relative;
+        height: 450px;
+
+        .slider-frame {
+            display: block;
+            position: relative;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+    }
+
+    .slick-slide .slides-images {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 700px) and (min-width: $mobile) {
+    .slider .slides-text .heading-h1 {
+        font-size: 75px;
+        line-height: 58px;
+
+        &--description {
+            width: 100%;
+            margin-top: -15px;
+
+            p,
+            h1,
+            b {
+                padding: 0 70px;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@media (max-width: $mobile) {
+    .slider .slides-text .heading-h1-description {
+        margin-top: -10px;
+
+        > p,
+        > b,
+        > h1 {
+            padding: 0 35px;
+            font-size: 15px;
+        }
+    }
+}
+
+@media (max-width: 380px) {
+    .slider .slides-text .heading-h1 {
+        font-size: 45px;
+        line-height: 35px;
+
+        &--description {
+            margin-top: 14px;
+
+            > p,
+            > b,
+            > h1 {
+                padding: 0 25px;
+            }
+        }
+    }
+}
+
+@media (max-width: 380px) {
+    .slider .slides-text .heading-h1 {
+        font-size: 45px;
+        line-height: 35px;
+
+        &--description {
+            margin-top: 15px;
+
+            > p,
+            > b,
+            > h1 {
+                padding: 0 25px;
+            }
+        }
+    }
+}
+
+@media (max-height: 446px) {
+    .slider-arrow {
+        bottom: auto;
+        top: calc(100vh - 60px);
+    }
+}
+
+@media (max-height: 380px) {
+    .slider .slides-text {
+        top: -25px;
+    }
+}

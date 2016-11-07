@@ -1,0 +1,340 @@
+/*=================================================
+        NAVIGATION
+=================================================*/
+
+.nav {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 50px;
+    height: 50px;
+    z-index: 100;
+    @include box-sizing(border-box);
+
+    &-elem {
+        @include inline-block(top);
+        margin: 10px 0 10px 40px;
+
+        &--logo {
+            height: 25px;
+            margin: 0 30px;
+            opacity: 0.925;
+            @include vertical-align(relative);
+
+            img {
+                height: inherit;
+                width: auto;
+            }
+        }
+
+        &--items {
+            height: 50px;
+            line-height: 50px;
+            vertical-align: bottom;
+            margin: 0;
+            padding: 0;
+
+            li {
+                @include inline-block(middle);
+                list-style-type: none;
+                padding: 0 30px;
+
+                a {
+                    font-family: $fontregular;
+                    font-size: 17px;
+                    color: $colorwhite;
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    padding-bottom: 7px;
+
+                    .no-touchevents &:hover,
+                    &:active {
+                        border-bottom: 1px solid;
+                    }
+                }
+
+                .active {
+                    border-bottom: 1px solid;
+                }
+            }
+        }
+
+        &--language {
+            padding: 0 30px;
+            margin: 0;
+            float: right;
+            @include inline-block(top);
+            line-height: 50px;
+            height: 50px;
+            top: 50px;
+
+            li {
+                list-style-type: none;
+            }
+
+            a {
+                font-family: $fontregular;
+                font-size: 17px;
+                color: $colorwhite;
+                text-transform: uppercase;
+                text-decoration: none;
+                margin: 0;
+                padding-bottom: 7px;
+
+                .no-touchevents &:hover,
+                &:active {
+                    border-bottom: 1px solid;
+                }
+            }
+        }
+
+        &--button {
+            height: 50px;
+            display: none;
+            margin: 0;
+            position: fixed;
+            right: 10px;
+            top: 50px;
+            line-height: 50px;
+            padding: 0 15px;
+
+            .ion-navicon {
+                font-size: 38px;
+            }
+
+            .ion-close {
+                font-size: 28px;
+            }
+
+            i {
+                font-size: 38px;
+                color: $colorwhite;
+                z-index: 101;
+            }
+        }
+    }
+
+    &-right {
+        float: right;
+        width: auto;
+        z-index: -1;
+    }
+}
+
+@media(min-width: $tablet + 1px) {
+    /* all needed because the navigation is animated via js */
+    .nav-right {
+        max-height: 50px;
+    }
+
+    .nav-elem--items {
+        display: inline-block !important;
+    }
+}
+
+.sticky {
+    background-color: $colorblack-lighter01;
+}
+
+.nav:after {
+    z-index: -2;
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+    background-color: $colorred-lighter02;
+}
+
+@media(max-width: 1400px) {
+    .nav {
+        padding: 0;
+    }
+}
+
+@media(max-width: 1200px) {
+    .nav-elem {
+        &--items li,
+        &--language {
+            padding: 0 20px;
+        }
+    }
+}
+
+@media(max-width: $tablet) {
+    .nav {
+        &:after {
+            @include transition(opacity, 0.6s, linear);
+        }
+
+        &-elem {
+            &--items {
+                display: none;
+                padding-bottom: 50px;
+                height: auto;
+                @include vertical-align(relative);
+                width: 100%;
+                overflow: auto;
+                @include box-sizing(border-box);
+
+                li {
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    padding: 0;
+
+                    a {
+                        font-size: 45px;
+                        width: 100%;
+
+                        .no-touchevents &:hover,
+                        &:active {
+                            border-bottom: none;
+                        }
+                    }
+
+                    .active {
+                        border-bottom: none;
+                    }
+
+                }
+            }
+
+            &--button {
+                display: block;
+                line-height: 52px;
+            }
+
+            &--language {
+                position: fixed;
+                top: 49px;
+                right: 60px;
+
+                a {
+                    .no-touchevents &:hover,
+                    &:active {
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+
+        &-right {
+            float: none;
+            width: 100%;
+            height: 50px;
+            position: fixed;
+            left: 0;
+            top: 50px;
+            overflow: auto;
+            @include box-sizing(border-box);
+        }
+    }
+
+    .open {
+        &:after {
+            opacity: 1;
+        }
+    }
+
+    .no-scroll {
+        overflow: hidden;
+    }
+}
+
+@media (max-width: $mobile) {
+    .nav-elem {
+        &--items {
+            li a {
+                font-size: 25px;
+                line-height: 45px;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .nav-elem--language {
+        right: 45px;
+    }
+
+    .nav-elem--button {
+        padding: 0 17px;
+        right: 0;
+    }
+
+    .nav-elem--logo {
+        margin: 0 25px;
+    }
+}
+
+@media (max-height: 550px) {
+    .nav-elem--items li {
+        line-height: 35px;
+
+        a {
+            font-size: 25px;
+        }
+    }
+}
+
+/*=================================================
+        DEMO BAR
+=================================================*/
+
+.demobar {
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: $colorblack-lighter02;
+    z-index: 102;
+    padding: 0 20px;
+    @include box-sizing(border-box);
+
+    &-logo {
+        margin: 6px 4px;
+        @include inline-block(middle);
+
+        img {
+            height: 35px;
+            width: auto;
+        }
+    }
+
+    &-title {
+        color: $colorwhite;
+        text-transform: uppercase;
+        @include inline-block(middle);
+    }
+
+    .button-small {
+        float: right;
+        margin: 0;
+        @include vertical-align(relative);
+        height: 28px;
+        line-height: 28px;
+        width: 150px;
+        font-size: 14px;
+        font-weight: 400;
+    }
+}
+
+@media (max-width: 700px) {
+    .demobar {
+        padding: 0 15px;
+
+        &-title {
+            font-size: 12px;
+        }
+
+        .button-small {
+            width: 120px;
+            font-size: 12px;
+        }
+    }
+}

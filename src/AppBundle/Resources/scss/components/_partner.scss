@@ -1,0 +1,66 @@
+/*=================================================
+        PARTNER ELEMENT
+=================================================*/
+
+.partner {
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 300px;
+    position: relative;
+    overflow: hidden;
+
+    &-frame {
+        @include vertical-align(absolute);
+        width: 100%;
+        @include box-sizing(border-box);
+
+        &-content {
+            max-width: $maxwidth;
+            width: 100%;
+            margin: 0 auto;
+
+            &-heading {
+                text-transform: uppercase;
+                font-size: 18px;
+                color: $colorblack;
+                margin-bottom: 20px;
+            }
+
+            &-scroll {
+                height: 60px;
+
+                &-images {
+                    width: 100%;
+                    overflow-x: scroll;
+                    overflow-y: hidden;
+                    white-space: nowrap;
+                    padding-bottom: 100px;
+
+                    &-image {
+                        @include inline-block(top);
+                        margin: 10px 22px;
+                        height: 60px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .partner-frame {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: $tablet) and (min-width: 700px) {
+    .partner-frame {
+        padding: 0 75px;
+    }
+}
+
+@media (max-width: $mobile){
+    .partner-frame-content-scroll-images-image {
+        height: 45px;
+    }
+}

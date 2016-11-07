@@ -1,0 +1,45 @@
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin transition($form, $time, $kind) {
+    -webkit-transition: $form $time $kind;
+    -moz-transition: $form $time $kind;
+    -ms-transition: $form $time $kind;
+    transition: $form $time $kind;
+}
+
+@mixin vertical-align($position: relative) {
+    position: $position;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+@mixin placeholder-colors($color: #666666, $autofillColor: #D5D5D5) {
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+
+    &:-moz-placeholder {
+        color: $color;
+        opacity: 1;
+    }
+
+    &::-moz-placeholder {
+        color: $color;
+        opacity: 1;
+    }
+
+    &:-ms-input-placeholder {
+        color: $color;
+    }
+
+    &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px $autofillColor inset;
+    }
+}

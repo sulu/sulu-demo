@@ -1,0 +1,88 @@
+/*=================================================
+        DISCOGRAPHY ELEMENT
+=================================================*/
+
+.discography-element {
+    max-width: $maxwidth;
+    margin: 0 auto;
+    padding: 150px 0;
+
+    &-heading {
+        margin-bottom: 35px;
+    }
+
+    &-collection {
+        &-item {
+            &-image {
+                position: relative;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    @include transition-duration(0.7s);
+                    @include transition-timing-function(ease-in-out);
+
+                    .no-touchevents &:hover {
+                        @include scale(1.1, 1.1);
+                    }
+                }
+            }
+
+            &-text {
+                width: 100%;
+                text-align: center;
+
+                &-name,
+                &-artist {
+                    display: block;
+                    font-family: $fontregular;
+                }
+
+                &-name {
+                    color: $colorblack;
+                    font-weight: 700;
+                    font-size: 24px;
+                    margin-top: 27px;
+
+                    .no-touchevents &:hover {
+                        color: $colorblack;
+                        text-decoration: none;
+                    }
+                }
+
+                &-artist {
+                    color: $colorred-lighter01;
+                    margin-top: 5px;
+
+                    .no-touchevents &:hover {
+                        color: $colorred-lighter01;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 1200px) {
+    .discography-element {
+        padding: 150px 20px;
+    }
+}
+
+@media(max-width: $tablet) {
+    .discography-element {
+        padding: 75px;
+    }
+}
+
+@media (max-width: 700px) {
+    .discography-element {
+        padding: 30px 15px;
+
+        &-heading {
+            margin-bottom: 15px;
+        }
+    }
+}

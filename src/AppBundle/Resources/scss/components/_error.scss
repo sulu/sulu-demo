@@ -1,0 +1,50 @@
+/*=================================================
+        ERROR
+=================================================*/
+
+.error {
+    height: calc(100vh - 510px); // 100vh - height of other fixed height elements
+    min-height: 350px;
+    width: 100%;
+    position: relative;
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    &-content {
+        @include vertical-align(absolute);
+        text-align: center;
+        left: 0;
+        right: 0;
+        margin: auto;
+        padding: 0 20px;
+
+        .heading-h2 {
+            margin-bottom: 10px;
+        }
+
+        &-text {
+            font-size: 18px;
+            color: $colorwhite;
+        }
+
+        .button-large {
+            margin: 45px auto 0 auto;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .error {
+        height: calc(100vh - 545px); //100vh - height of other fixed height elements
+    }
+}
+
+@media (max-width: $tablet) {
+    .error {
+        height: calc(100vh - 507px); //100vh - height of other fixed height elements
+    }
+}

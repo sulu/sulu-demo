@@ -1,0 +1,251 @@
+/*=================================================
+        ARTISTS ELEMENT
+=================================================*/
+
+.artist-element {
+    &-heading {
+        max-width: $maxwidth;
+        margin: 0 auto 35px;
+    }
+
+    &-frame {
+        &-item {
+            &-image {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+
+            &-link {
+                @include vertical-align(absolute);
+                width: inherit;
+                text-align: center;
+                z-index: 1;
+
+                .no-touchevents &:hover {
+                    color: $colorwhite;
+                    text-decoration: none;
+                }
+            }
+
+            &--hover {
+                position: absolute;
+                top: 0;
+                width: inherit;
+                height: inherit;
+                display: none;
+                padding: 20px;
+                @include box-sizing(border-box);
+
+                .button-small {
+                    @include vertical-align(relative);
+                    margin: 40px auto 0;
+                }
+
+                &:before {
+                    content: '';
+                    top: 0;
+                    left: 0;
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    background-color: $colorred-lighter02;
+                    @include opacity(0.75);
+                }
+            }
+
+            .no-touchevents &:hover {
+                .artist-element-frame-item--hover {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) and (min-width: $tablet) {
+    .artist-element-heading {
+        padding: 0 20px;
+    }
+}
+
+@media(max-width: $tablet) {
+    .artist-element {
+        padding: 75px;
+    }
+}
+
+@media (max-width: 700px) {
+    .artist-element {
+        padding: 15px;
+    }
+}
+
+/*=================================================
+        ARTISTS OVERVIEW
+=================================================*/
+
+.artists {
+    max-width: $maxwidth;
+    margin: 150px auto -50px;
+    overflow: hidden;
+
+    &-content {
+        margin: 0 -25px;
+
+        &-elem {
+            padding: 0 25px;
+            @include box-sizing(border-box);
+            margin-bottom: 50px;
+
+            &-image {
+                position: relative;
+                font-size: 0; // for whitespace bug
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+
+                .no-touchevents &:hover {
+                    .artists-content-elem-image-hover {
+                        display: block;
+                    }
+                }
+
+                &-hover {
+                    display: none;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    text-align: center;
+
+                    &:before {
+                        content: '';
+                        top: 0;
+                        left: 0;
+                        position: absolute;
+                        height: 100%;
+                        width: 100%;
+                        background-color: $colorred-lighter02;
+                        opacity: 0.75;
+                    }
+
+                    .heading-h1 {
+                        @include vertical-align(absolute);
+                        font-size: 64px;
+                        line-height: 50px;
+                        word-spacing: 9999999px;
+                        left: 0;
+                        width: 100%;
+                    }
+                }
+            }
+
+            &-text {
+                padding: 20px;
+                @include box-sizing(border-box);
+                background-color: $colorblack-lighter05;
+
+                &-text {
+                    display: block;
+                    display: -webkit-box;
+                    max-width: 100%;
+                    max-height: 63px;
+                    font-size: 14px;
+                    line-height: 1.5;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                &-date {
+                    font-size: 13px;
+                    line-height: 15px;
+                    color: $colorblack-lighter03;
+                }
+
+                &-artist {
+                    color: $colorblack;
+                    font-size: 24px;
+                    line-height: 26px;
+                    font-weight: 700;
+                    margin: 5px 0;
+                    display: block;
+                    @include box-sizing(border-box);
+                }
+
+                &-posted {
+                    display: block;
+                    margin-bottom: 5px;
+
+                    &-rectangle {
+                        width: 14px;
+                        height: 14px;
+                        @include inline-block(top);
+                        background-color: $colorred-lighter01;
+                        margin-right: 7px;
+                        vertical-align: middle;
+                        line-height: 14px;
+                    }
+
+                    &-by {
+                        @include inline-block(top);
+                        color: $colorblack-lighter03;
+                        font-size: 12px;
+                        line-height: 14px;
+                        vertical-align: middle;
+                        margin-right: 13px;
+                    }
+
+                    &-author {
+                        @include inline-block(top);
+                        color: $colorblack-lighter01;
+                        font-size: 12px;
+                        line-height: 14px;
+                        vertical-align: middle;
+                        text-transform: uppercase;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $maxwidth + 20px) {
+    .artists {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: $tablet) {
+    .artists {
+        padding: 50px 75px 0 75px;
+        margin: 0;
+
+        &-content {
+            margin: 0 -10px;
+
+            &-elem {
+                padding: 0 10px;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .artists {
+        padding: 15px 15px 0 15px;
+        margin: 0;
+    }
+}
+
+@media (max-width: $mobile) {
+    .artists-content-elem {
+        margin-bottom: 15px;
+    }
+}

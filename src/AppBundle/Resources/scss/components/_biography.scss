@@ -1,0 +1,72 @@
+/*=================================================
+        BIOGRAPHY ELEMENT
+=================================================*/
+
+.biography {
+    max-width: $maxwidth;
+    margin: 60px auto;
+
+    &-image {
+        width: 100%;
+    }
+
+    &-text {
+        width: 80%;
+
+        &-heading {
+            margin-bottom: 20px;
+        }
+
+        &-subheading p {
+            font-size: 18px;
+            font-weight: 700;
+        }
+    }
+}
+
+.home .biography {
+    margin: 150px auto;
+}
+
+@media (max-width: 1200px) and (min-width: $tablet) {
+    .biography {
+        padding: 0 20px;
+
+        &-text {
+            padding-top: 0px;
+        }
+    }
+
+    .home .biography {
+        margin: 150px auto;
+    }
+}
+
+@media (max-width: $tablet) {
+    .biography {
+        margin: 40px auto 0 auto;
+
+        &-text {
+            padding: 0 75px;
+            width: auto;
+        }
+    }
+
+    .home .biography {
+        margin: 100px auto;
+    }
+}
+
+@media (max-width: $mobile) {
+    .biography-text {
+        padding: 0 15px;
+
+        &-heading {
+            margin: 10px 0;
+        }
+    }
+
+    .home .biography {
+        margin: 50px auto;
+    }
+}

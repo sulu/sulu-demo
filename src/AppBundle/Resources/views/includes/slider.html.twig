@@ -1,0 +1,46 @@
+<section property="slides" class="slider">
+    <div class="js-slider" data-slick='{"slidesToScroll": 1, "slidesToShow": 1}'>
+        {% for slide in slides if slide.mediaId is not null %}
+            <div class="slider-item">
+                {% set image = sulu_resolve_media(slide.mediaId, request.locale) %}
+
+                <div class="slider-frame">
+                    {% set defaultImage = asset(image.thumbnails['1920x1080']) %}
+                    {% set title = image.title %}
+                    {% set breakpoints = {
+                        "(min-width: 801px)" : [
+                            asset(image.thumbnails["1920x1080"]),
+                            asset(image.thumbnails["3840x2160"])
+                        ],
+                        "(max-width: 800px)" : [
+                            asset(image.thumbnails["800x450"]),
+                            asset(image.thumbnails["1600x900"])
+                        ]
+                    } %}
+
+                    {{ app_picture(defaultImage, title, breakpoints, "slides-images")|raw }}
+                </div>
+
+                <div class="slides-text">
+                    {% if slide.title|default("") %}
+                        <h1 class="heading-h1">
+                            {{ slide.title }}
+                        </h1>
+                    {% endif %}
+
+                    {% if slide.description|default("") %}
+                        <div class="heading-h1-description">
+                            {{ slide.description|raw }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="slider-arrow">
+        <a class="js-arrow">
+            <i class="ion-ios-arrow-down"></i>
+        </a>
+    </div>
+</section>

@@ -1,0 +1,286 @@
+/*=================================================
+        GENERAL STYLES
+=================================================*/
+
+* {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    outline: none;
+}
+
+p,
+b {
+    font-family: $fontregular;
+    font-size: 14px;
+    line-height: 22px;
+    color: $colorblack-lighter02;
+    letter-spacing: 0;
+}
+
+b, strong {
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    font-family: $fontregular;
+}
+
+.heading {
+    &-h1 {
+        font-family: $fontfancy;
+        font-size: 120px;
+        line-height: 78px;
+        color: $colorwhite;
+        letter-spacing: 0;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+        &-description {
+            font-family: $fontregular;
+            font-size: 18px;
+            line-height: 26px;
+            color: $colorwhite;
+            letter-spacing: 0px;
+            font-weight: 700;
+
+            p,
+            b,
+            h1 {
+                font-family: $fontregular;
+                font-size: 18px;
+                line-height: 26px;
+                color: $colorwhite;
+                letter-spacing: 0px;
+                font-weight: 700;
+            }
+        }
+    }
+
+    &-h2 {
+        font-family: $fontregular;
+        font-size: 66px;
+        line-height: 72px;
+        color: $colorred-lighter01;
+        letter-spacing: 0;
+        font-weight: 700;
+
+        &-underline {
+            font-family: $fontregular;
+            font-size: 18px;
+            line-height: 26px;
+            color: $colorwhite;
+            letter-spacing: 0;
+        }
+
+        &-white {
+            font-family: $fontregular;
+            font-size: 66px;
+            line-height: 72px;
+            color: $colorwhite;
+            letter-spacing: 0;
+        }
+    }
+
+    &-h3 {
+        font-family: $fontregular;
+        font-size: 24px;
+        line-height: 28px;
+        color: $colorwhite;
+        letter-spacing: 0;
+    }
+
+    &-h4 {
+        font-family: $fontregular;
+        font-size: 18px;
+        line-height: 25px;
+        color: $colorwhite;
+        letter-spacing: 0;
+    }
+}
+
+.button {
+    font-family: $fontregular;
+    max-width: 100%;
+    font-size: 14px;
+    color: $colorwhite;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+    display: block;
+    background-color: $colorred-lighter01;
+    border-radius: 22px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    @include appearance(none);
+
+    .no-touchevents &:hover {
+        background-color: $colorred;
+        color: $colorwhite;
+        text-decoration: none;
+    }
+
+    &-small {
+        @extend .button;
+        width: 125px;
+        line-height: 33px;
+    }
+
+    &-medium {
+        @extend .button;
+        width: 220px;
+        margin: 18px 0;
+        line-height: 38px;
+    }
+
+    &-large {
+        @extend .button;
+        width: 342px;;
+        line-height: 42px;
+    }
+
+    &-block {
+        @extend .button-medium;
+    }
+}
+
+.slick-dots {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+
+    li {
+        @include inline-block(middle);
+        margin: 25px 6px;
+
+        button {
+            font-size: 0px;
+            height: 12px;
+            width: 12px;
+            display: block;
+            color: $colorwhite;
+            background-color: $colorblack-lighter03;
+            border: none;
+            border-radius: 10px;
+        }
+    }
+
+    .slick-active {
+        button {
+            height: 20px;
+            width: 20px;
+            border: $colorblack-lighter03 1px solid;
+            background-color: $colorwhite;
+        }
+    }
+}
+
+.content-main {
+    overflow: auto; // to allow margins
+}
+
+@media (max-width: $tablet) {
+    p {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .heading {
+        &-h1 {
+            font-size: 100px;
+            line-height: 78px;
+        }
+
+        &-h2 {
+            font-size: 50px;
+            line-height: 72px;
+
+            &--underline {
+                font-size: 18px;
+                line-height: 28px;
+            }
+        }
+
+        &-h3 {
+            font-size: 24px;
+            line-height: 28px;
+        }
+    }
+
+    .button-block {
+        width: 300px;
+    }
+}
+
+@media (max-width: 700px) {
+    .slick-dots {
+        margin: 0;
+
+        li {
+            margin: 6px;
+        }
+    }
+}
+
+@media (max-width: $mobile) {
+    p {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .heading {
+        &-h1 {
+            font-size: 55px;
+            line-height: 45px;
+
+            &-description {
+                font-size: 14px;
+                line-height: 17px;
+            }
+        }
+
+        &-h2 {
+            font-size: 36px;
+            line-height: 42px;
+
+            &-underline {
+                font-size: 14px;
+                line-height: 20px;
+            }
+
+            &-white {
+                font-size: 36px;
+                line-height: 42px;
+            }
+        }
+
+        &-h3 {
+            font-size: 32px;
+            line-height: 28px;
+        }
+
+        &-h4 {
+            font-size: 18px;
+            line-height: 26px;
+        }
+    }
+
+    .button {
+        width: 100%;
+    }
+}
+
+/*=================================================
+        CLEARFIX
+=================================================*/
+
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}

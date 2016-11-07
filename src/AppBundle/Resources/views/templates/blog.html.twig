@@ -1,0 +1,90 @@
+{% extends 'AppBundle::master.html.twig' %}
+
+{% block content %}
+    {# This is the template for the "Blog" page. #}
+    {# Further information on Twig templates can be found under #}
+    {# views/master.html.twig and views/templates/homepage.html.twig. #}
+    {% include('AppBundle:includes:headerimage.html.twig') %}
+
+    <section property="articles" class="blog">
+        {% for article in content.articles %}
+            <div class="blog-item">
+                <div class="grid">
+                    <div class="grid__item desk--five-tenths lap--one-half palm--one-whole">
+                        {% if article.image|length and article.image|first.thumbnails['600x300'] is defined %}
+                                {% set image = article.image|first %}
+                                {% set defaultImage = asset(image.thumbnails['600x300']) %}
+                                {% set title = image.title %}
+                                {% set breakpoints = {
+                                    "(min-width: 1024px)" : [
+                                        asset(image.thumbnails["600x300"]),
+                                        asset(image.thumbnails["1200x600"])
+                                    ],
+                                    "(max-width: 1024px)" : [
+                                        asset(image.thumbnails["500x375"]),
+                                        asset(image.thumbnails["1000x750"])
+                                    ]
+                                } %}
+
+                                {{ app_picture(defaultImage, title, breakpoints, "blog-item-image")|raw }}
+                        {% endif %}
+                    </div>
+
+                    <div class="grid__item desk--five-tenths lap--one-half palm--one-whole">
+                        <div class="blog-item-text">
+                            {% if article.published.date|default('') %}
+                                <p class="blog-item-text-date">
+                                    {{ article.published.date|date("d.m.Y") }}
+                                </p>
+                            {% endif %}
+
+                            {% if article.heading|default('') %}
+                                <p class="blog-item-text-heading">
+                                    {{ article.heading }}
+                                </p>
+                            {% endif %}
+
+                            {% set author = '' %}
+
+                            {% for block in article.blocks if block.type == 'author' %}
+                                {% if block.author|length and author|default('') %}
+                                    {% set author = sulu_resolve_contact(block.author|first.id) %}
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if author|default('') %}
+                                {% set author = sulu_resolve_contact(article.creator) %}
+                            {% endif %}
+
+                            {% if author|default('') %}
+                                <span class="author">
+                                    <i class="author-rectangle"></i>
+                                    <p class="author-by">{{ 'posted'|trans }}</p>
+                                    <p class="author-author">{{ author.fullName }}</p>
+                                </span>
+                            {% endif %}
+
+                            {% for block in article.blocks if block.type == 'text' %}
+                                {% if loop.first %}
+                                    <div class="blog-item-text-text">
+                                        {{ block.text|raw }}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if article.url|default('') and sulu_content_path(article.url)|default('') %}
+                                <a href="{{ sulu_content_path(article.url) }}" class="button-medium">
+                                    {{ 'read_more'|trans }}
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+
+    {% include ('AppBundle:includes:article_gallery.html.twig') with {
+        'frame' : true
+    } %}
+{% endblock %}

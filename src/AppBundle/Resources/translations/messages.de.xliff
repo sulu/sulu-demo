@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="de" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>general_pages</source>
+                <target>Allgemeine Seiten</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>articles</source>
+                <target>Artikel</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>albums</source>
+                <target>Alben</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>artists</source>
+                <target>Künstler</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>address</source>
+                <target>Adresse</target>
+             </trans-unit>
+            <trans-unit id="6">
+                <source>phone</source>
+                <target>Telefon</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>email</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>hours</source>
+                <target>Öffnungszeiten</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>contact</source>
+                <target>Kontakt</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>quick_links</source>
+                <target>Quick Links</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>subscribe_newsletter</source>
+                <target>Für den Newsletter eintragen</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>newsletter_text</source>
+                <target>Von uns erhalten Sie intessante Informationen.</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>read_more</source>
+                <target>Mehr Lesen</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>more</source>
+                <target>Mehr</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>call</source>
+                <target>Rufen Sie Uns an</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>name</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>price</source>
+                <target>Preis</target>
+            </trans-unit>
+            <trans-unit id="18">
+                <source>length</source>
+                <target>Länge</target>
+            </trans-unit>
+            <trans-unit id="19">
+                <source>posted</source>
+                <target>Posted by</target>
+            </trans-unit>
+            <trans-unit id="20">
+                <source>homepage</source>
+                <target>Startseite</target>
+            </trans-unit>
+            <trans-unit id="21">
+                <source>subject</source>
+                <target>Betreff</target>
+            </trans-unit>
+            <trans-unit id="22">
+                <source>message</source>
+                <target>Nachricht</target>
+            </trans-unit>
+            <trans-unit id="23">
+                <source>use_terms</source>
+                <target>Datenschutz und Nutzungsbedingungen</target>
+            </trans-unit>
+            <trans-unit id="24">
+                <source>cookie_guidelines</source>
+                <target>Cookie Richtlinien</target>
+            </trans-unit>
+            <trans-unit id="25">
+                <source>security</source>
+                <target>Sicherheitshinweise und Rückrufe</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

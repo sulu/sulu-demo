@@ -1,0 +1,158 @@
+/*=================================================
+        NEWS LIST
+=================================================*/
+
+.news {
+    background-color: $colorred-lighter02;
+
+    &-content {
+        max-width: $maxwidth;
+        margin: 0 auto;
+        padding: 100px 0;
+
+        &-title {
+            color: $colorwhite;
+            margin: 0 0 20px 0;
+        }
+
+        &-heading {
+            display: block;
+            width: 100%;
+
+            &-creator, &-date {
+                display: inline;
+                color: $colorwhite;
+                font-size: 14px;
+            }
+
+            &-date {
+                float: right;
+            }
+        }
+
+        &-link {
+            position: relative;
+            display: block;
+            width: 100%;
+            color: $colorwhite;
+            font-size: 40px;
+            border-top: 2px solid $colorwhite;
+            padding-top: 5px;
+            margin-bottom: 30px;
+
+            .no-touchevents &:hover {
+                color: $colorwhite;
+                text-decoration: none;
+
+                i {
+                    opacity: 1;
+                }
+            }
+
+            i {
+                right: 30px;
+                top: 0;
+                position: absolute;
+                color: $colorwhite;
+                opacity: 0;
+                @include transition(opacity, 0.4s, linear);
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .news-content {
+        padding: 100px 20px;
+    }
+}
+
+@media (max-width: $maxwidth) {
+    .news-content {
+        padding: 75px;
+    }
+}
+
+@media (max-width: $tablet) {
+    .news-content-link {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 700px) {
+    .news-content {
+        padding: 30px 15px 75px 15px;
+    }
+}
+
+@media (max-width: $mobile) {
+    .news-content {
+        &-title {
+            margin-bottom: 55px;
+        }
+
+        &-heading-date, &-link i {
+            display: none;
+        }
+
+        &-link {
+            margin-bottom: 25px;
+            font-size: 28px;
+        }
+    }
+}
+
+/*=================================================
+        FLASH NEWS
+=================================================*/
+
+.news--flash {
+    background-color: $colorblack-lighter05;
+
+    &-text {
+        padding: 75px 100px 0 120px;
+        max-width: $maxwidth / 2;
+        margin-left: auto;
+        @include box-sizing(border-box);
+
+        &-title {
+            margin-bottom: 10px;
+        }
+
+        &-heading {
+            margin-bottom: 15px;
+            font-weight: 700;
+
+            p,
+            b {
+                font-weight: 700;
+                font-size: 18px;
+            }
+        }
+    }
+
+    &-image {
+        width: 100%;
+    }
+}
+
+@media (max-width: $tablet) {
+    .news--flash {
+        padding: 0;
+
+        &-text {
+            padding: 65px 75px 70px 75px;
+            max-width: none;
+
+            &-heading {
+                max-width: 465px;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .news--flash-text {
+        padding: 25px 30px;
+    }
+}

@@ -1,0 +1,54 @@
+<div rel="blocks" typeof="block">
+    <div property="background" class="{{ block.background ? 'background' : '' }}">
+        <div property="title">
+            <section class="article">
+                {% if block.title|default('') %}
+                    <h2 class="article-heading heading-h2">
+                        {{ block.title }}
+                    </h2>
+                {% endif %}
+
+                <div property="contacts"
+                     class="js-article-collection"
+                     data-slick='{"slidesToScroll": 4, "slidesToShow": 4}'>
+                    {% for contact in block.contacts %}
+                        <div class="article-collection-item">
+                            {% set image = '' %}
+
+                            {% if contact.avatar|length and contact.avatar.thumbnails['400x400'] is defined %}
+                                {% set image =  contact.avatar %}
+                            {% endif %}
+
+                            {% if image|default('') %}
+                                <div class="article-collection-item-image">
+                                    {% set defaultImage = asset(image.thumbnails['400x400']) %}
+                                    {% set title = contact.fullName  %}
+                                    {% set breakpoints = [[
+                                        asset(image.thumbnails["400x400"]),
+                                        asset(image.thumbnails["800x800"])
+                                    ]] %}
+
+                                    {{ app_picture(defaultImage, title, breakpoints)|raw }}
+
+                                    <div class="article-collection-item-text">
+                                        {% if contact.fullName|default('') %}
+                                            <p class="text-heading text-heading--team">
+                                                {{ contact.fullName }}
+                                            </p>
+                                        {% endif %}
+
+                                        {% if contact.position|length and contact.position.position|default('') %}
+                                            <p class="text-creation text-creation--team">
+                                                {{ contact.position.position|default('') }}
+                                            </p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

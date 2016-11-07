@@ -1,0 +1,9 @@
+<div rel="blocks" typeof="block">
+    <div property="background" class="{{ block.background ? 'background' : '' }}">
+        <div property="text" class="text">
+            {% if block.text|default('') %}
+                {{ block.text|raw }}
+            {% endif %}
+        </div>
+    </div>
+</div>

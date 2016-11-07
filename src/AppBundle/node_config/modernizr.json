@@ -1,0 +1,10 @@
+{
+  "options": [
+    "html5shiv",
+    "setClasses"
+  ],
+  "feature-detects": [
+    "svg",
+    "touchevents"
+  ]
+}

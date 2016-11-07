@@ -1,0 +1,11 @@
+<div rel="blocks" typeof="block">
+    <div property="background" class="{{ block.background ? 'background' : '' }}">
+        <div property="quote" class="quote">
+            {% if block.quote|default('') %}
+                <div class="quote-content">
+                    {{ block.quote|raw }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

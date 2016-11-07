@@ -1,0 +1,10 @@
+// FONTS
+@font-face {
+    font-family: 'Broken Wings';
+    src: url('/bundles/app/fonts/BrokenWings.eot');
+    src: url('/bundles/app/fonts/BrokenWings.eot?#iefix') format('embedded-opentype'),
+         url('/bundles/app/fonts/BrokenWings.woff') format('woff'),
+         url('/bundles/app/fonts/BrokenWings.ttf') format('truetype');
+}
+
+@import url(https://fonts.googleapis.com/css?family=Karla:400,400i,700);

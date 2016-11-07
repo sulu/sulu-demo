@@ -1,0 +1,264 @@
+/*=================================================
+        FOOTER
+=================================================*/
+
+.footer {
+    background-color: $colorblack-lighter02;
+
+    &--frame {
+        max-width: $maxwidth;
+        margin: 0 auto;
+    }
+
+    &-main {
+        font-size: 0;
+        padding-top: 100px;
+
+        &-elem {
+            vertical-align: top;
+            @include inline-block(top);
+            width: 50%;
+
+            &-content {
+                vertical-align: top;
+                @include inline-block(top);
+
+                &--left {
+                    width: 40%;
+                }
+
+                &--middle {
+                    width: 60%;
+                }
+
+                &--right {
+                    width: 100%;
+                }
+
+                .heading-h4 {
+                    margin: 15px 0;
+                    font-weight: 700;
+                }
+
+                p {
+                    color: $colorwhite;
+                    margin: 7px 0;
+                }
+
+                a {
+                    color: $colorwhite;
+                    margin: 7px 0;
+                    display: block;
+                    text-decoration: none;
+                    font-size: 14px;
+                    line-height: 22px;
+                }
+
+                &-email {
+                    color: $colorwhite;
+
+                    &-input {
+                        margin-top: 15px;
+                        background-color: $colorblack-lighter03;
+                        border: none;
+                        color: $colorwhite;
+                        height: 37px;
+                        border-radius: 19px;
+                        font-size: 14px;
+                        padding: 0 21px;
+                        font-family: $fontregular;
+                        font-weight: 700;
+                        @include box-sizing(border-box);
+                        width: calc(100% - 145px);
+                        @include inline-block(top);
+                        @include placeholder-colors();
+                    }
+                }
+
+                &-button {
+                    margin-top: 15px;
+                    border: none;
+                    float: right;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+    &-imprint {
+        max-width: $maxwidth;
+        margin: 130px auto 0 auto;
+        padding-bottom: 35px;
+        font-size: 0px;
+
+        span,
+        a {
+            font-family: $fontregular;
+            color: $colorwhite;
+            font-size: 11px;
+            line-height: 20px;
+        }
+
+        &-elem {
+            @include inline-block(top);
+
+            &--imprint {
+                width: 50%;
+            }
+
+            &--data {
+                width: 18%;
+            }
+
+            &--cookie {
+                width: 16%;
+                text-align: center;
+            }
+
+            &--security {
+                width: 16%;
+                text-align: right;
+            }
+        }
+    }
+
+    &--socials {
+        background-color: $colorblack-lighter01;
+        border-top: 1px $colorwhite solid;
+
+        &-frame {
+            max-width: $maxwidth;
+            margin: 0 auto;
+
+            &-elem {
+                height: 80px;
+                text-align: right;
+                width: 100%;
+                display: block;
+
+                img {
+                    height: 25px;
+                    @include vertical-align(relative);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .footer {
+        padding: 0 20px;
+
+        &-imprint-elem {
+            @include inline-block(top);
+
+            &--data {
+                width: 50%;
+                text-align: right;
+            }
+
+            &--cookie {
+                width: 50%;
+                text-align: left;
+            }
+
+            &--security {
+                width: 50%;
+            }
+
+        }
+    }
+}
+
+@media (max-width: $tablet) {
+    .footer {
+        padding: 0 75px;
+
+        &-main-elem-content {
+            &-button {
+                float: none;
+            }
+
+            &-email-input {
+                width: 100%;
+            }
+        }
+
+        &-imprint {
+            margin-top: 45px;
+            padding-bottom: 30px;
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .footer-main {
+        display: flex;
+        flex-flow: column;
+        padding: 0;
+
+        &-elem {
+            width: 100%;
+            padding-top: 15px;
+
+            &--first {
+                order: 2;
+            }
+
+            &--last {
+                order: 1;
+            }
+
+            &-content {
+                &--left {
+                    width: 50%;
+                }
+
+                &--middle {
+                    width: 50%;
+                    padding-left: 15px;
+                    @include box-sizing(border-box);
+                }
+
+                &--right {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) and (min-width: $mobile + 1px) {
+    .footer-main-elem-content {
+        &-email-input {
+            width: calc(100% - 145px);
+        }
+
+        &-button {
+            float: right;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .footer {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: $mobile) {
+    .footer {
+        &-main-elem-content-email-input {
+            text-align: center;
+        }
+
+        &-imprint-elem {
+            width: 100%;
+            text-align: center;
+        }
+
+        &--socials-frame-elem {
+            text-align: center;
+        }
+    }
+}

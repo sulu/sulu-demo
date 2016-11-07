@@ -1,0 +1,32 @@
+<div rel="blocks" typeof="block">
+    <div property="actions">
+        {% for action in block.actions %}
+            <div class="action">
+                <div class="action-text">
+                    {% if action.title|default('') %}
+                        <h2 class="heading-h2-white">
+                            {{ action.title }}
+                        </h2>
+                    {% endif %}
+
+                    {% if action.text|default('') %}
+                        <div class="action-text-text">
+                            {{ action.text|raw }}
+                        </div>
+                    {% endif %}
+
+                    {% if action.link|default('') %}
+                        {% set page = sulu_content_load(action.link)|default([]) %}
+
+                        {% if page.urls is defined %}
+                            <a href="{{ page.urls[request.locale] }}"
+                               class="button-large">
+                                {{ action.button|default('') ? action.button : 'call'|trans }}
+                            </a>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

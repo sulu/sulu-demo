@@ -1,0 +1,14 @@
+{% extends 'AppBundle::master.html.twig' %}
+
+{% block content %}
+    {# This is the template for the "Service" page. #}
+    {# Further information on wig templates can be found under #}
+    {# views/master.html.twig and views/templates/homepage.html.twig. #}
+    <section class="service">
+        {% include('AppBundle:includes:headerimage.html.twig') %}
+
+        {% include ('AppBundle:renderer:block-renderer.html.twig') with {
+            'blocks' : content.blocks
+        } %}
+    </section>
+{% endblock %}

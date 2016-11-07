@@ -1,0 +1,79 @@
+<div rel="blocks" typeof="block">
+    <div property="image">
+        <div property="size">
+            {% if block.image|length %}
+                {% set size = ' headerimage--medium' %}
+                {% set imageType = block.image|first.type.name|default('') %}
+                {% set imageThumbnail = block.image|first.thumbnails['1920x670']|default('') %}
+
+                {% if block.size|default('') %}
+                    {% set size = ' headerimage--' ~ block.size %}
+                {% endif %}
+
+                {% if imageType == 'image' and imageThumbnail|default('') %}
+                    {% set image = block.image|first %}
+                    {% set title = image.title %}
+                    {% set defaultImage = "" %}
+                    {% set breakpoints = [] %}
+
+                    <section class="headerimage {{ type }}">
+                        {% if content.headerType == "large" %}
+                            {% set defaultImage = asset(image.thumbnails["1920x1080"]) %}
+                            {% set breakpoints = {
+                            "(min-width: 1300px)" : [
+                                    asset(image.thumbnails["1920x1080"]),
+                                    asset(image.thumbnails["3840x2160"])
+                                ],
+                                "(max-width: 1299px)" : [
+                                    asset(image.thumbnails["800x450"]),
+                                    asset(image.thumbnails["1600x900"])
+                                ]
+                            } %}
+                        {% elseif content.headerType == "medium" %}
+                            {% set defaultImage = asset(content.headerImage|first.thumbnails["1920x670"]) %}
+                            {% set breakpoints = {
+                                "(min-width: 1300px)" : [
+                                    asset(image.thumbnails['1920x670']),
+                                    asset(image.thumbnails["3840x1340"])
+                                ],
+                                "(max-width: 1299px)" : [
+                                    asset(image.thumbnails["1435x500"]),
+                                    asset(image.thumbnails["2870x1000"])
+                                ],
+                                "(max-width: 480px)" : [
+                                    asset(image.thumbnails["860x300"]),
+                                    asset(image.thumbnails["1720x600"])
+                                ]
+                            } %}
+                        {% else %}
+                            {% set defaultImage = asset(content.headerImage|first.thumbnails["1920x300"]) %}
+                            {% set breakpoints = {
+                            "(min-width: 1300px)" : [
+                                    asset(image.thumbnails["1920x300"]),
+                                    asset(image.thumbnails["3840x600"])
+                                ],
+                                "(max-width: 1299px)" : [
+                                    asset(image.thumbnails["1024x300"]),
+                                    asset(image.thumbnails["2048x600"])
+                                ],
+                                "(max-width: 480px)" : [
+                                    asset(image.thumbnails["480x200"]),
+                                    asset(image.thumbnails["960x400"])
+                                ]
+                            } %}
+                        {% endif %}
+
+                        {{ app_picture(defaultImage, title, breakpoints, "headerimage-image")|raw }}
+                {% elseif imageType == 'video' %}
+                    <section class="headerimage headerimage--video fullimage">
+                        <video src="{{ asset(block.image|first.url) }}"
+                               autoplay
+                               loop
+                               muted
+                               class="headerimage-image"></video>
+                {% endif %}
+                    </section>
+            {% endif %}
+        </div>
+    </div>
+</div>

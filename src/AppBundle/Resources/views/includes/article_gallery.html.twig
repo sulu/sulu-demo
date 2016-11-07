@@ -1,0 +1,67 @@
+<div property="articlesShow">
+    {% if content.articlesShow %}
+        <div property="articlesBackground" class="{{ content.articlesBackground ? 'background' : '' }}">
+            <div property="articlesHeading">
+                <section class="article {{ frame|default(false) ? 'article--frame' }}">
+                    {% if content.articlesHeading|default("") %}
+                        <h2 class="article-heading heading-h2">
+                            {{ content.articlesHeading }}
+                        </h2>
+                    {% endif %}
+
+                    <div property="articleData"
+                         class="js-article-collection"
+                         data-slick='{"slidesToScroll": 4, "slidesToShow": 4}'>
+                        {% for article in latestArticles if article.image.ids|length %}
+                            <div class="article-collection-item">
+                                {% set images = sulu_resolve_medias(article.image.ids, request.locale) %}
+                                {% set image = "" %}
+                                {% set type = images|first.type.name %}
+
+                                {% if images|length and type == "image" and images|first.thumbnails['400x400'] is defined %}
+                                    {% set image = images|first %}
+                                {% elseif images|length >= 2 and images[1].thumbnails['400x400'] is defined %}
+                                    {% set image = images[1] %}
+                                {% elseif images|length == 1 and type == "video" and images[0].thumbnails['400x400'] is defined %}
+                                    {% set image = images[0] %}
+                                {% endif %}
+
+                                {% if image|length %}
+                                    <div class="article-collection-item-image">
+                                        {% set defaultImage = asset(image.thumbnails['400x400']) %}
+                                        {% set title = image.title %}
+                                        {% set breakpoints = [[
+                                            asset(image.thumbnails["400x400"]),
+                                            asset(image.thumbnails["800x800"])
+                                        ]] %}
+
+                                        {{ app_picture(defaultImage, title, breakpoints)|raw }}
+
+                                        <div class="article-collection-item-text">
+                                            {% set heading = article.heading %}
+                                            {% set url = article.url.value %}
+                                            {% set creation = article.creation %}
+
+                                            {% if heading is defined and heading.value|default('') and url|default('') and sulu_content_path(url)|default('') %}
+                                                <a href="{{ sulu_content_path(article.url.value) }}"
+                                                   class="text-heading">
+                                                    {{ heading.value }}
+                                                </a>
+                                            {% endif %}
+
+                                            {% if creation is defined and creation.date|default('') %}
+                                                <p class="text-creation">
+                                                    {{ creation.date|time_diff }}
+                                                </p>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </section>
+            </div>
+        </div>
+    {% endif %}
+</div>

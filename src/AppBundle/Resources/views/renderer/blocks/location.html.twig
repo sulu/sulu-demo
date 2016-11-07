@@ -1,0 +1,33 @@
+<div rel="blocks" typeof="block">
+    <div class="location" property="location">
+        {% set lat = block.location.lat|default('') %}
+        {% set long = block.location.long|default('') %}
+        {% set zoom = block.location.zoom|default('') %}
+
+        {% if lat|default('') and zoom|default('') and long|default('') %}
+            <div class="js-googleMap location-map"></div>
+
+            <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBjtPJfpPh9FEwonUW0Lte5Ayshi2FVCKc"></script>
+
+            <script>
+                var mapLatLng = new google.maps.LatLng({{ lat }} , {{ long }});
+                var mapProp = {
+                    center: mapLatLng,
+                    zoom:{{ zoom }}
+                };
+
+                for (var i = 0; i < document.getElementsByClassName('js-googleMap').length; i++) {
+                    var map = new google.maps.Map(document.getElementsByClassName('js-googleMap')[i], mapProp);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        scrollwheel: false,
+                        position: mapLatLng
+                        {% if block.location.title|default('') %}
+                        , title: '{{ block.location.title }}'
+                        {% endif %}
+                    });
+                }
+            </script>
+        {% endif %}
+    </div>
+</div>

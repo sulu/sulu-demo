@@ -1,0 +1,31 @@
+<section class="news" rel="blocks" typeof="block">
+    <div class="news-content">
+        <div property="title">
+            {% if block.title|default('') %}
+                <h2 class="news-content-title heading-h2">
+                    {{ block.title }}
+                </h2>
+            {% endif %}
+        </div>
+
+        <div property="newsData">
+            {% for item in block.newsData %}
+                <span class="news-content-heading">
+                    <p class="news-content-heading-creator" href="#">
+                        by {{ sulu_resolve_user(item.creator).contact.fullName }}
+                    </p>
+
+                    <p class="news-content-heading-date cf">
+                        {{ item.published.date|date("d.m.Y") }}
+                    </p>
+                </span>
+
+                <a href="{{ item.url }}" class="news-content-link">
+                    {{ item.heading }}
+
+                    <i class="ion-ios-arrow-thin-right"></i>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>

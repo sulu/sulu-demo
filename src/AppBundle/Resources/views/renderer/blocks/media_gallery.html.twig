@@ -1,0 +1,25 @@
+<div rel="blocks" typeof="block">
+    <div property="background" class="{{ block.background ? 'background' : '' }}">
+        <div class="media-gallery">
+            <div property="medias" class="media-gallery-content">
+                {% if block.medias|length %}
+                    <div data-slick='{"slidesToShow": 3, "slidesToScroll": 3}'
+                         class="js-media-gallery">
+                        {% for media in block.medias if media.thumbnails['500x375'] %}
+                            <div class="media-gallery-content-elem">
+                                {% set defaultImage = asset(media.thumbnails['500x375']) %}
+                                {% set title = media.title %}
+                                {% set breakpoints = [[
+                                    asset(media.thumbnails["500x375"]),
+                                    asset(media.thumbnails["1000x750"])
+                                ]] %}
+
+                                {{ app_picture(defaultImage, title, breakpoints, "media-gallery-content-elem-image")|raw }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

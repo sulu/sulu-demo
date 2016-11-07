@@ -1,0 +1,114 @@
+{% extends 'AppBundle::master.html.twig' %}
+
+{% block content %}
+    {# This is the template for the "Artists" page. #}
+    {# Further information on Twig templates can be found under #}
+    {# views/master.html.twig and views/templates/homepage.html.twig. #}
+    {% include('AppBundle:includes:headerimage.html.twig') %}
+
+    <div property="artists">
+        {% if content.artists|length %}
+            <section class="artists">
+                <div class="artists-content">
+                    <div class="grid" property="artists">
+                        {% for artist in content.artists %}
+                            <div class="grid__item desk--one-third lap--one-half palm--one-whole">
+                                <div class="artists-content-elem">
+                                    {% set url = "" %}
+
+                                    {% if content|default('') and sulu_content_path(artist.url)|default('') %}
+                                        {% set url = sulu_content_path(artist.url) %}
+                                    {% endif %}
+
+                                    {% set image = "" %}
+
+                                    {% if artist.image|length
+                                        and artist.image|first.type.name == "image"
+                                        and artist.image|first.thumbnails['450x315'] is defined
+                                    %}
+                                        {% set image = artist.image|first %}
+                                    {% elseif artist.image|length >= 2 and artist.image[1].thumbnails['450x315'] %}
+                                        {% set image = artist.image[1] %}
+                                    {% elseif artist.image|length == 1 and artist.image|first.type.name == "video" and artist.image[0].thumbnails['450x315'] %}
+                                        {% set image = artist.image[0] %}
+                                    {% endif %}
+
+                                    {% if artist.image|length and image|default('') %}
+                                        <div class="artists-content-elem-image">
+                                            <img src="{{ asset(image.thumbnails['450x315']) }}"
+                                                 alt="{{ image.title }}"/>
+
+                                            {% if artist.title|default('') %}
+                                                <div class="artists-content-elem-image-hover">
+                                                    <a href="{{ url }}" class="heading-h1">
+                                                        {{ artist.title }}
+                                                    </a>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+
+                                    <div class="artists-content-elem-text">
+                                        {% if artist.published|default('') %}
+                                            <p class="artists-content-elem-text-date">
+                                                {{ artist.published.date|date('d.m.Y') }}
+                                            </p>
+                                        {% endif %}
+
+                                        {% if artist.title|default('') %}
+                                            <a href="{{ url }}" class="artists-content-elem-text-artist">
+                                                {{ artist.title }}
+                                            </a>
+                                        {% endif %}
+
+                                        {% set author = "" %}
+
+                                        {% if artist.author|length %}
+                                            {% set author = sulu_resolve_contact(artist.author|first.id) %}
+                                        {% else %}
+                                            {% set author = sulu_resolve_contact(artist.creator) %}
+                                        {% endif %}
+
+                                        {% if author|default('') %}
+                                            <span class="artists-content-elem-text-posted">
+                                                <i class="artists-content-elem-text-posted-rectangle"></i>
+                                                <p class="artists-content-elem-text-posted-by">{{ 'posted'|trans }}</p>
+                                                <p class="artists-content-elem-text-posted-author">{{ author.fullName }}</p>
+                                            </span>
+                                        {% endif %}
+
+                                        {% for block in artist.blocks if block.type == "text" %}
+                                            {% if loop.first %}
+                                                <div class="artists-content-elem-text-text">
+                                                    {{ block.text|raw }}
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+
+                                        {% if artist.url|default('') %}
+                                            <a href="{{ url }}" class="button-medium">
+                                                {{ 'read_more'|trans }}
+                                            </a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+        {% endif %}
+    </div>
+
+    <div property="discographyTitle">
+        <div property="discographyData">
+            {% if content.discographyTitle|default('') or content.discographyData|default('') %}
+                {% include('AppBundle:renderer:blocks/discography_element.html.twig') with {
+                    'block' : {
+                    'discographyTitle': content.discographyTitle|default('') ? content.discographyTitle : '',
+                    'discographyData': content.discographyData|default('') ? content.discographyData : ''
+                } } %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

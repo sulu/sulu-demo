@@ -1,0 +1,216 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <!-- This is the template for the "Services" page. -->
+    <!-- For further information, have a look at homepage.xml. -->
+    <key>services</key>
+
+    <view>AppBundle:templates:services</view>
+    <controller>SuluWebsiteBundle:Default:index</controller>
+    <cacheLifetime>604800</cacheLifetime>
+
+    <meta>
+        <title lang="en">Services</title>
+        <title lang="de">Dienste</title>
+    </meta>
+
+    <properties>
+        <section name="highlight">
+            <properties>
+                <property name="title" type="text_line" mandatory="true">
+                    <meta>
+                        <title lang="en">Title</title>
+                        <title lang="de">Titel</title>
+                    </meta>
+                    <params>
+                        <param name="headline" value="true"/>
+                    </params>
+
+                    <tag name="sulu.rlp.part"/>
+                </property>
+
+                <property name="url" type="resource_locator" mandatory="true">
+                    <meta>
+                        <title lang="en">Resource Locator</title>
+                        <title lang="de">Adresse</title>
+                    </meta>
+
+                    <tag name="sulu.rlp"/>
+                </property>
+            </properties>
+        </section>
+
+        <section name="header">
+            <meta>
+                <title lang="en">Header</title>
+                <title lang="de">Header</title>
+            </meta>
+
+            <properties>
+                <property name="headerImage" type="media_selection">
+                    <meta>
+                        <title lang="en">Image</title>
+                        <title lang="de">Bild</title>
+                    </meta>
+
+                    <params>
+                        <param name="type" value="image, video"/>
+                    </params>
+                </property>
+
+                <property name="headerHeading" type="text_line">
+                    <meta>
+                        <title lang="en">Heading</title>
+                        <title lang="de">Überschrift</title>
+                    </meta>
+                </property>
+
+                <property name="headerSubheading" type="text_editor">
+                    <meta>
+                        <title lang="en">Subheading</title>
+                        <title lang="de">Unter-Überschrift</title>
+                    </meta>
+                </property>
+
+                <property name="headerType" type="single_select">
+                    <meta>
+                        <title lang="en">Size</title>
+                        <title lang="de">Größe</title>
+                    </meta>
+
+                    <params>
+                        <param name="values" type="collection">
+                            <param name="small">
+                                <meta>
+                                    <title lang="en">Small</title>
+                                    <title lang="de">Klein</title>
+                                </meta>
+                            </param>
+
+                            <param name="medium">
+                                <meta>
+                                    <title lang="en">Medium</title>
+                                    <title lang="de">Mittel</title>
+                                </meta>
+                            </param>
+
+                            <param name="large">
+                                <meta>
+                                    <title lang="en">Large</title>
+                                    <title lang="de">Groß</title>
+                                </meta>
+                            </param>
+                        </param>
+                    </params>
+                </property>
+            </properties>
+        </section>
+
+        <block name="blocks" default-type="services" minOccurs="0">
+            <meta>
+                <title lang="de">Inhalte</title>
+                <title lang="en">Content</title>
+            </meta>
+
+            <types>
+                <type name="services">
+                    <meta>
+                        <title lang="de">Dienst</title>
+                        <title lang="en">Service</title>
+                    </meta>
+
+                    <properties>
+                        <property name="icon" type="media_selection">
+                            <meta>
+                                <title lang="en">Icon</title>
+                                <title lang="de">Icon</title>
+                            </meta>
+
+                            <params>
+                                <param name="types" value="image"/>
+                            </params>
+                        </property>
+
+                        <property name="heading" type="text_line">
+                            <meta>
+                                <title lang="en">Heading</title>
+                                <title lang="de">Überschrift</title>
+                            </meta>
+                        </property>
+
+                        <property name="text" type="text_editor">
+                            <meta>
+                                <title lang="en">Text</title>
+                                <title lang="de">Text</title>
+                            </meta>
+                        </property>
+
+                        <property name="background" type="media_selection">
+                            <meta>
+                                <title lang="en">Background</title>
+                                <title lang="de">Hintergrund</title>
+                            </meta>
+
+                            <params>
+                                <param name="types" value="image"/>
+                            </params>
+                        </property>
+                    </properties>
+                </type>
+
+                <type name="action">
+                    <meta>
+                        <title lang="en">Action</title>
+                        <title lang="de">Aktion</title>
+                    </meta>
+
+                    <properties>
+                        <property name="actions" type="snippet">
+                            <meta>
+                                <title lang="en">Action</title>
+                                <title lang="de">Aktion</title>
+                            </meta>
+
+                            <params>
+                                <param name="snippetType" value="action"/>
+                            </params>
+                        </property>
+                    </properties>
+                </type>
+
+                <type name="singlequote">
+                    <meta>
+                        <title lang="en">Quote</title>
+                        <title lang="de">Zitat</title>
+                    </meta>
+
+                    <properties>
+                        <property name="contacts" type="contact">
+                            <meta>
+                                <title lang="en">Contacts</title>
+                                <title lang="en">Kontakte</title>
+                            </meta>
+
+                            <params>
+                                <param name="contact" value="true"/>
+                            </params>
+                        </property>
+
+                        <property name="background" type="media_selection">
+                            <meta>
+                                <title lang="en">Background</title>
+                                <title lang="de">Hintergrund</title>
+                            </meta>
+
+                            <params>
+                                <param name="types" value="image"/>
+                            </params>
+                        </property>
+                    </properties>
+                </type>
+            </types>
+        </block>
+    </properties>
+</template>

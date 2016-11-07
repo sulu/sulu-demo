@@ -1,0 +1,41 @@
+<div rel="blocks" typeof="block">
+    {% set background = '' %}
+
+    {% if block.background|length and block.background|first.thumbnails['1920x1080'] is defined %}
+        {% set background = 'style="background-image: url(\'' ~ asset(block.background|first.thumbnails['1920x1080']) ~ '\');"' %}
+    {% endif %}
+
+    <div property="background">
+        <div property="contacts" {{ background|raw }} class="singlequote">
+            {% if block.contacts|length %}
+                {% set contact = block.contacts|first %}
+                <div class="singlequote-item">
+                    {% if contact.notes|first.value|default('') %}
+                        <p class="singlequote-item-text">
+                            {{ contact.notes|first.value }}
+                        </p>
+                    {% endif %}
+
+                    {% if block.contacts|first.avatar.thumbnails['170x170'] is defined %}
+                        <div class="singlequote-item-image">
+                            <img src="{{ asset(contact.avatar.thumbnails['170x170']) }}"
+                                 alt="{{ contact.fullName }}"/>
+                        </div>
+                    {% endif %}
+
+                    {% if contact.position|length and contact.position.position|default('') and contact.fullName|default('') %}
+                        <span class="singlequote-item-author">
+                            <p class="author-name">
+                                {{ contact.fullName }}
+                            </p>
+
+                            <p class="author-position">
+                                {{ contact.position.position }}
+                            </p>
+                        </span>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

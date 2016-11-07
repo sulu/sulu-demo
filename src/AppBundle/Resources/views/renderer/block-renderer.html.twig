@@ -1,0 +1,12 @@
+<div property="blocks" typeof="collection">
+    {% if blocks|length %}
+        {% for block in blocks %}
+            {# Here we render the single blocks according to its type. #}
+            {# That means if you have a block of the biography type for example #}
+            {# you also need to have a biography.html.twig in the blocks folder. #}
+            {% include ('AppBundle:renderer:blocks/' ~ block.type ~ '.html.twig') with {
+                'block' : block
+            } %}
+        {% endfor %}
+    {% endif %}
+</div>
