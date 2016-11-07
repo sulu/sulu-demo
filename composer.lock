@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8926df40643febfa21c137a93fc5b178",
-    "content-hash": "1044af039d62c656126c77e23aa568bf",
+    "hash": "8cf8f8952e78dd1ae9506b6de74ee0fe",
+    "content-hash": "98c9188f41b07a6c3d5a97a09e9dd5fa",
     "packages": [
         {
             "name": "aferrandini/urlizer",
@@ -245,35 +245,35 @@
         },
         {
             "name": "doctrine/annotations",
-            "version": "v1.3.0",
+            "version": "v1.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "30e07cf03edc3cd3ef579d0dd4dd8c58250799a5"
+                "reference": "f25c8aab83e0c3e976fd7d19875f198ccf2f7535"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/30e07cf03edc3cd3ef579d0dd4dd8c58250799a5",
-                "reference": "30e07cf03edc3cd3ef579d0dd4dd8c58250799a5",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/f25c8aab83e0c3e976fd7d19875f198ccf2f7535",
+                "reference": "f25c8aab83e0c3e976fd7d19875f198ccf2f7535",
                 "shasum": ""
             },
             "require": {
                 "doctrine/lexer": "1.*",
-                "php": "^5.6 || ^7.0"
+                "php": ">=5.3.2"
             },
             "require-dev": {
                 "doctrine/cache": "1.*",
-                "phpunit/phpunit": "^5.6.1"
+                "phpunit/phpunit": "4.*"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4.x-dev"
+                    "dev-master": "1.3.x-dev"
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Doctrine\\Common\\Annotations\\": "lib/Doctrine/Common/Annotations"
+                "psr-0": {
+                    "Doctrine\\Common\\Annotations\\": "lib/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -309,7 +309,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2016-10-24 11:45:47"
+            "time": "2015-08-31 12:32:49"
         },
         {
             "name": "doctrine/cache",
@@ -3822,12 +3822,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sulu/sulu.git",
-                "reference": "2e648cea065e1d146e580b83612b4c8729850938"
+                "reference": "b81a56e6357924d1ba8fd060bacdf5571ef6a8d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sulu/sulu/zipball/2e648cea065e1d146e580b83612b4c8729850938",
-                "reference": "2e648cea065e1d146e580b83612b4c8729850938",
+                "url": "https://api.github.com/repos/sulu/sulu/zipball/b81a56e6357924d1ba8fd060bacdf5571ef6a8d6",
+                "reference": "b81a56e6357924d1ba8fd060bacdf5571ef6a8d6",
                 "shasum": ""
             },
             "require": {
@@ -3924,7 +3924,7 @@
                 "core",
                 "sulu"
             ],
-            "time": "2016-11-04 15:23:23"
+            "time": "2016-11-07 14:15:53"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4085,7 +4085,7 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony CMF community",
+                    "name": "Symfony CMF Community",
                     "homepage": "https://github.com/symfony-cmf/Routing/contributors"
                 }
             ],
@@ -4676,27 +4676,27 @@
         },
         {
             "name": "symfony/security-acl",
-            "version": "v3.0.0",
+            "version": "v2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-acl.git",
-                "reference": "053b49bf4aa333a392c83296855989bcf88ddad1"
+                "reference": "4a3f7327ad215242c78f6564ad4ea6d2db1b8347"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-acl/zipball/053b49bf4aa333a392c83296855989bcf88ddad1",
-                "reference": "053b49bf4aa333a392c83296855989bcf88ddad1",
+                "url": "https://api.github.com/repos/symfony/security-acl/zipball/4a3f7327ad215242c78f6564ad4ea6d2db1b8347",
+                "reference": "4a3f7327ad215242c78f6564ad4ea6d2db1b8347",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9",
-                "symfony/security-core": "~2.8|~3.0"
+                "php": ">=5.3.9",
+                "symfony/security-core": "~2.4|~3.0.0"
             },
             "require-dev": {
                 "doctrine/common": "~2.2",
                 "doctrine/dbal": "~2.2",
                 "psr/log": "~1.0",
-                "symfony/phpunit-bridge": "~2.8|~3.0"
+                "symfony/phpunit-bridge": "~2.7|~3.0.0"
             },
             "suggest": {
                 "doctrine/dbal": "For using the built-in ACL implementation",
@@ -4706,7 +4706,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "2.8-dev"
                 }
             },
             "autoload": {
@@ -4733,7 +4733,7 @@
             ],
             "description": "Symfony Security Component - ACL (Access Control List)",
             "homepage": "https://symfony.com",
-            "time": "2015-12-28 09:39:46"
+            "time": "2015-12-28 09:39:09"
         },
         {
             "name": "symfony/swiftmailer-bundle",
@@ -5100,7 +5100,7 @@
                     "email": "adrien.brault@gmail.com"
                 },
                 {
-                    "name": "William Durand",
+                    "name": "William DURAND",
                     "email": "william.durand1@gmail.com"
                 }
             ],
@@ -5689,5 +5689,8 @@
     "platform": {
         "php": ">=5.5"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "platform-overrides": {
+        "php": "5.5"
+    }
 }
