@@ -26,12 +26,12 @@ class BlogController extends WebsiteController
     public function detailAction(StructureInterface $structure, $preview = false, $partial = false)
     {
         /** @var PageDocument $document */
+        $uuid = $structure->getUuid();
         $document = $this->get('sulu_document_manager.document_manager')
-            ->find($structure->getUuid(), $structure->getLanguageCode());
+            ->find($uuid, $structure->getLanguageCode());
 
         $parent = $document->getParent();
-
-        $articles = array();
+        $articles = [];
 
         foreach ($parent->getChildren() as $item) {
             if ($item->getStructureType() == "blog_detail") {
@@ -42,13 +42,15 @@ class BlogController extends WebsiteController
         /** @var PageDocument[] $articles */
         $articles = SortUtils::multisort($articles, 'created');
 
-        $document->getStructure()->getProperty('title');
-
         $response = $this->renderStructure(
             $structure,
             [
-                'lastAndPrevArticle' => $this->createDetailArticles($this->getPrevAndNextArticle($articles, $structure->getUuid())),
-                'latestArticles' => $this->createDetailArticles($this->getLatestArticle($articles, 4, $structure->getUuid())),
+                'lastAndPrevArticle' => $this->createDetailArticles(
+                    $this->getPrevAndNextArticle($articles, $uuid)
+                ),
+                'latestArticles' => $this->createDetailArticles(
+                    $this->getLatestArticle($articles, 4, $uuid)
+                ),
                 'link' => $document->getParent()->getResourceSegment()
 
             ],
@@ -78,6 +80,7 @@ class BlogController extends WebsiteController
             $children = $structure->getChildren();
             $articlelist = SortUtils::multisort($children, 'created');
             $articles = [];
+            $link = $structure->getPropertiesByTagName("sulu.rlp")[0]->getValue();
 
             for ($i = 0; $i <= count($articlelist) -1; $i++) {
                 $articles[$i] = $articlelist[$i]->getDocument();
@@ -86,7 +89,6 @@ class BlogController extends WebsiteController
             $latestArticles = $this->createOverviewArticles(
                 $this->getLatestArticle($articles, 4, $structure->getUuid())
             );
-            $link = $structure->getPropertiesByTagName("sulu.rlp")[0]->getValue();
         }
 
         $response = $this->renderStructure(
@@ -147,11 +149,11 @@ class BlogController extends WebsiteController
         for ($i = 0; $i <= count($articles) - 1; $i++) {
             if ($articles[$i]->getUuid() == $uuid) {
                 if (array_key_exists($i - 1, $articles) && array_key_exists($i + 1, $articles)) {
-                    $result = array('prev' => $articles[$i - 1], 'next' => $articles[$i + 1]);
+                    $result = ['prev' => $articles[$i - 1], 'next' => $articles[$i + 1]];
                 } elseif (array_key_exists($i - 1, $articles)) {
-                    $result = array('prev' => $articles[$i - 1]);
+                    $result = ['prev' => $articles[$i - 1]];
                 } elseif (array_key_exists($i + 1, $articles)) {
-                    $result = array('next' => $articles[$i + 1]);
+                    $result = ['next' => $articles[$i + 1]];
                 }
             }
         }

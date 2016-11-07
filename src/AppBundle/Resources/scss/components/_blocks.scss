@@ -35,7 +35,7 @@
     padding: 0 205px 0 120px;
 }
 
-@media (max-width: $maxwidth--text + 20px) {
+@media (max-width: $maxwidth-text + 20px) {
     .button-frame {
         padding: 0 20px;
     }
@@ -122,7 +122,7 @@
     padding: 0 205px 0 120px;
 
     &-content {
-        border-left: 14px solid $colorred--lighter01;
+        border-left: 14px solid $colorred-lighter01;
         margin: 30px 0 30px 45px;
         padding: 25px 0 25px 30px;
     }
@@ -150,7 +150,7 @@
 =================================================*/
 
 .background {
-    background-color: $colorblack--lighter05;
+    background-color: $colorblack-lighter05;
     overflow: auto;
 }
 
@@ -225,7 +225,7 @@
         width: 14px;
         height: 14px;
         @include inline-block(top);
-        background-color: $colorred--lighter01;
+        background-color: $colorred-lighter01;
         margin-right: 7px;
         vertical-align: middle;
         line-height: 14px;
@@ -233,7 +233,7 @@
 
     &-by {
         @include inline-block(top);
-        color: $colorblack--lighter03;
+        color: $colorblack-lighter03;
         font-size: 12px;
         line-height: 14px;
         vertical-align: middle;
@@ -242,7 +242,7 @@
 
     &-author {
         @include inline-block(top);
-        color: $colorblack--lighter01;
+        color: $colorblack-lighter01;
         font-size: 12px;
         line-height: 14px;
         vertical-align: middle;

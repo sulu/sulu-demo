@@ -3,7 +3,7 @@
 =================================================*/
 
 .footer {
-    background-color: $colorblack--lighter02;
+    background-color: $colorblack-lighter02;
 
     &--frame {
         max-width: $maxwidth;
@@ -35,7 +35,7 @@
                     width: 100%;
                 }
 
-                .heading--h4 {
+                .heading-h4 {
                     margin: 15px 0;
                     font-weight: 700;
                 }
@@ -59,7 +59,7 @@
 
                     &-input {
                         margin-top: 15px;
-                        background-color: $colorblack--lighter03;
+                        background-color: $colorblack-lighter03;
                         border: none;
                         color: $colorwhite;
                         height: 37px;
@@ -123,7 +123,7 @@
     }
 
     &--socials {
-        background-color: $colorblack--lighter01;
+        background-color: $colorblack-lighter01;
         border-top: 1px $colorwhite solid;
 
         &-frame {

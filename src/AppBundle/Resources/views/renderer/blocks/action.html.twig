@@ -4,7 +4,7 @@
             <div class="action">
                 <div class="action-text">
                     {% if action.title|default('') %}
-                        <h2 class="heading--h2--white">
+                        <h2 class="heading-h2-white">
                             {{ action.title }}
                         </h2>
                     {% endif %}
@@ -20,7 +20,7 @@
 
                         {% if page.urls is defined %}
                             <a href="{{ page.urls[request.locale] }}"
-                               class="button--large">
+                               class="button-large">
                                 {{ action.button|default('') ? action.button : 'call'|trans }}
                             </a>
                         {% endif %}

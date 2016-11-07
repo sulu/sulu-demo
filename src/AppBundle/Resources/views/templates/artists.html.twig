@@ -40,7 +40,7 @@
 
                                             {% if artist.title|default('') %}
                                                 <div class="artists-content-elem-image-hover">
-                                                    <a href="{{ url }}" class="heading--h1">
+                                                    <a href="{{ url }}" class="heading-h1">
                                                         {{ artist.title }}
                                                     </a>
                                                 </div>
@@ -86,7 +86,7 @@
                                         {% endfor %}
 
                                         {% if artist.url|default('') %}
-                                            <a href="{{ url }}" class="button--medium">
+                                            <a href="{{ url }}" class="button-medium">
                                                 {{ 'read_more'|trans }}
                                             </a>
                                         {% endif %}

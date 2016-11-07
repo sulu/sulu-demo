@@ -7,13 +7,14 @@
                          class="js-media-gallery">
                         {% for media in block.medias if media.thumbnails['500x375'] %}
                             <div class="media-gallery-content-elem">
-                                <picture>
-                                    <source srcset="{{ asset(media.thumbnails['500x375']) }}, {{ asset(media.thumbnails["1000x750"]) }} 2x"/>
+                                {% set defaultImage = asset(media.thumbnails['500x375']) %}
+                                {% set title = media.title %}
+                                {% set breakpoints = [[
+                                    asset(media.thumbnails["500x375"]),
+                                    asset(media.thumbnails["1000x750"])
+                                ]] %}
 
-                                    <img src="{{ asset(media.thumbnails['500x375']) }}"
-                                         alt="{{ media.description }}"
-                                         class="media-gallery-content-elem-image">
-                                </picture>
+                                {{ app_picture(defaultImage, title, breakpoints, "media-gallery-content-elem-image")|raw }}
                             </div>
                         {% endfor %}
                     </div>

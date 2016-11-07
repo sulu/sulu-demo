@@ -2,7 +2,7 @@
         ARTISTS ELEMENT
 =================================================*/
 
-.artist--element {
+.artist-element {
     &-heading {
         max-width: $maxwidth;
         margin: 0 auto 35px;
@@ -37,7 +37,7 @@
                 padding: 20px;
                 @include box-sizing(border-box);
 
-                .button--small {
+                .button-small {
                     @include vertical-align(relative);
                     margin: 40px auto 0;
                 }
@@ -49,13 +49,13 @@
                     position: absolute;
                     height: 100%;
                     width: 100%;
-                    background-color: $colorred--lighter02;
+                    background-color: $colorred-lighter02;
                     @include opacity(0.75);
                 }
             }
 
             .no-touchevents &:hover {
-                .artist--element-frame-item--hover {
+                .artist-element-frame-item--hover {
                     display: block;
                 }
             }
@@ -64,19 +64,19 @@
 }
 
 @media (max-width: 1200px) and (min-width: $tablet) {
-    .artist--element-heading {
+    .artist-element-heading {
         padding: 0 20px;
     }
 }
 
 @media(max-width: $tablet) {
-    .artist--element {
+    .artist-element {
         padding: 75px;
     }
 }
 
 @media (max-width: 700px) {
-    .artist--element {
+    .artist-element {
         padding: 15px;
     }
 }
@@ -129,11 +129,11 @@
                         position: absolute;
                         height: 100%;
                         width: 100%;
-                        background-color: $colorred--lighter02;
+                        background-color: $colorred-lighter02;
                         opacity: 0.75;
                     }
 
-                    .heading--h1 {
+                    .heading-h1 {
                         @include vertical-align(absolute);
                         font-size: 64px;
                         line-height: 50px;
@@ -147,7 +147,7 @@
             &-text {
                 padding: 20px;
                 @include box-sizing(border-box);
-                background-color: $colorblack--lighter05;
+                background-color: $colorblack-lighter05;
 
                 &-text {
                     display: block;
@@ -165,7 +165,7 @@
                 &-date {
                     font-size: 13px;
                     line-height: 15px;
-                    color: $colorblack--lighter03;
+                    color: $colorblack-lighter03;
                 }
 
                 &-artist {
@@ -186,7 +186,7 @@
                         width: 14px;
                         height: 14px;
                         @include inline-block(top);
-                        background-color: $colorred--lighter01;
+                        background-color: $colorred-lighter01;
                         margin-right: 7px;
                         vertical-align: middle;
                         line-height: 14px;
@@ -194,7 +194,7 @@
 
                     &-by {
                         @include inline-block(top);
-                        color: $colorblack--lighter03;
+                        color: $colorblack-lighter03;
                         font-size: 12px;
                         line-height: 14px;
                         vertical-align: middle;
@@ -203,7 +203,7 @@
 
                     &-author {
                         @include inline-block(top);
-                        color: $colorblack--lighter01;
+                        color: $colorblack-lighter01;
                         font-size: 12px;
                         line-height: 14px;
                         vertical-align: middle;

@@ -114,7 +114,7 @@
         }
     }
 
-    &--right {
+    &-right {
         float: right;
         width: auto;
         z-index: -1;
@@ -123,7 +123,7 @@
 
 @media(min-width: $tablet + 1px) {
     /* all needed because the navigation is animated via js */
-    .nav--right {
+    .nav-right {
         max-height: 50px;
     }
 
@@ -133,7 +133,7 @@
 }
 
 .sticky {
-    background-color: $colorblack--lighter01;
+    background-color: $colorblack-lighter01;
 }
 
 .nav:after {
@@ -146,7 +146,7 @@
     height: 100%;
     pointer-events: none;
     opacity: 0;
-    background-color: $colorred--lighter02;
+    background-color: $colorred-lighter02;
 }
 
 @media(max-width: 1400px) {
@@ -222,7 +222,7 @@
             }
         }
 
-        &--right {
+        &-right {
             float: none;
             width: 100%;
             height: 50px;
@@ -291,7 +291,7 @@
     width: 100%;
     top: 0;
     left: 0;
-    background-color: $colorblack--lighter02;
+    background-color: $colorblack-lighter02;
     z-index: 102;
     padding: 0 20px;
     @include box-sizing(border-box);
@@ -312,7 +312,7 @@
         @include inline-block(middle);
     }
 
-    .button--small {
+    .button-small {
         float: right;
         margin: 0;
         @include vertical-align(relative);
@@ -332,7 +332,7 @@
             font-size: 12px;
         }
 
-        .button--small {
+        .button-small {
             width: 120px;
             font-size: 12px;
         }

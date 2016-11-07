@@ -5,28 +5,31 @@
                 {% set image = sulu_resolve_media(slide.mediaId, request.locale) %}
 
                 <div class="slider-frame">
-                    <picture>
-                        <source srcset="{{ asset(image.thumbnails['1920x1080']) }}, {{ asset(image.thumbnails["3840x2160"]) }} 2x"
-                                media="(min-width: 801px)">
+                    {% set defaultImage = asset(image.thumbnails['1920x1080']) %}
+                    {% set title = image.title %}
+                    {% set breakpoints = {
+                        "(min-width: 801px)" : [
+                            asset(image.thumbnails["1920x1080"]),
+                            asset(image.thumbnails["3840x2160"])
+                        ],
+                        "(max-width: 800px)" : [
+                            asset(image.thumbnails["800x450"]),
+                            asset(image.thumbnails["1600x900"])
+                        ]
+                    } %}
 
-                        <source srcset="{{ asset(image.thumbnails['800x450']) }}, {{ asset(image.thumbnails["1600x900"]) }} 2x"
-                                media="(max-width: 800px)">
-
-                        <img src="{{ asset(image.thumbnails['1920x1080']) }}"
-                             alt="{{ image.title }}"
-                             class="slides-images"/>
-                    </picture>
+                    {{ app_picture(defaultImage, title, breakpoints, "slides-images")|raw }}
                 </div>
 
                 <div class="slides-text">
                     {% if slide.title|default("") %}
-                        <h1 class="heading--h1">
+                        <h1 class="heading-h1">
                             {{ slide.title }}
                         </h1>
                     {% endif %}
 
                     {% if slide.description|default("") %}
-                        <div class="heading--h1--description">
+                        <div class="heading-h1-description">
                             {{ slide.description|raw }}
                         </div>
                     {% endif %}

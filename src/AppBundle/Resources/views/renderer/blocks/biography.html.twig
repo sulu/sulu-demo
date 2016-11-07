@@ -4,7 +4,7 @@
             <div class="biography-text">
                 <div property="biographyTitle">
                     {% if block.biographyTitle|default('') %}
-                        <h2 class="heading--h2 biography-text-heading">
+                        <h2 class="heading-h2 biography-text-heading">
                             {{ block.biographyTitle }}
                         </h2>
                     {% endif %}
@@ -29,7 +29,7 @@
                         {% set page = sulu_content_load(block.biographyLink)|default([]) %}
 
                         {% if page.urls is defined %}
-                            <a class="button--medium"
+                            <a class="button-medium"
                                href="{{ page.urls[request.locale] }}">
                                 {{ 'read_more'|trans }}
                             </a>
@@ -41,20 +41,24 @@
 
         <div property="biographyImage" class="grid__item desk--one-half">
             {% if block.biographyImage|first.thumbnails['750x500'] is defined %}
-                <picture>
-                    <source srcset="{{ asset(block.biographyImage|first.thumbnails["750x500"]) }}, {{ asset(block.biographyImage|first.thumbnails["1500x1000"]) }} 2x"
-                                media="(min-width: 1024px)">
+                {% set defaultImage = asset(block.biographyImage|first.thumbnails['750x500']) %}
+                {% set title =  block.biographyImage|first.title %}
+                {% set breakpoints = {
+                    "(min-width: 1300px)" : [
+                        asset(block.biographyImage|first.thumbnails["750x500"]),
+                        asset(block.biographyImage|first.thumbnails["1500x1000"])
+                    ],
+                    "(max-width: 1299px)" : [
+                        asset(block.biographyImage|first.thumbnails["1024x715"]),
+                        asset(block.biographyImage|first.thumbnails["2048x1430"])
+                    ],
+                    "(max-width: 480px)" : [
+                        asset(block.biographyImage|first.thumbnails["480x335"]),
+                        asset(block.biographyImage|first.thumbnails["960x670"])
+                    ]
+                } %}
 
-                    <source srcset="{{ asset(block.biographyImage|first.thumbnails["1024x715"]) }}, {{ asset(block.biographyImage|first.thumbnails["2048x1430"]) }} 2x"
-                                media="(max-width: 1024px) and (min-width: 480px)">
-
-                    <source srcset="{{ asset(block.biographyImage|first.thumbnails["480x335"]) }}, {{ asset(block.biographyImage|first.thumbnails["960x670"]) }} 2x"
-                                media="(max-width: 480)">
-
-                    <img src="{{ asset(block.biographyImage|first.thumbnails['750x500']) }}"
-                         alt="{{ block.biographyImage|first.title }}"
-                         class="biography-image">
-                </picture>
+                {{ app_picture(defaultImage, title, breakpoints, "biography-image")|raw }}
             {% endif %}
         </div>
     </div>

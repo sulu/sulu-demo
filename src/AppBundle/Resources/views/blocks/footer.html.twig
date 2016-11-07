@@ -9,7 +9,7 @@
                         {% set contact = snippets|first.content.contact|first %}
 
                         <div class="footer-main-elem-content footer-main-elem-content--left">
-                            <h4 class="heading--h4">
+                            <h4 class="heading-h4">
                                 {{ 'contact'|trans }}
                             </h4>
 
@@ -39,7 +39,7 @@
                     {% endif %}
 
                     <div class="footer-main-elem-content footer-main-elem-content--middle">
-                        <h4 class="heading--h4">{{ 'quick_links'|trans }}</h4>
+                        <h4 class="heading-h4">{{ 'quick_links'|trans }}</h4>
 
                         {% for item in sulu_navigation_root_flat('footer', 20) %}
                             {% set itemUrl = sulu_content_path(item.url)|default('') %}
@@ -56,7 +56,7 @@
 
                 <div class="footer-main-elem footer-main-elem--last">
                     <div class="footer-main-elem-content footer-main-elem-content--right">
-                        <h4 class="heading--h4">{{ 'subscribe_newsletter'|trans }}</h4>
+                        <h4 class="heading-h4">{{ 'subscribe_newsletter'|trans }}</h4>
 
                         <p>
                             {{ 'newsletter_text'|trans }}
@@ -70,7 +70,7 @@
                                        required>
                             </label>
 
-                            <input class="footer-main-elem-content-button button--small cf" type="submit"
+                            <input class="footer-main-elem-content-button button-small cf" type="submit"
                                    value="Sign up">
                         </form>
                     </div>

@@ -3,7 +3,7 @@
 =================================================*/
 
 .tracks {
-    background: $colorblack--lighter05;
+    background: $colorblack-lighter05;
 
     &-content {
         max-width: $maxwidth;
@@ -35,7 +35,7 @@
 
             th {
                 text-transform: uppercase;
-                color: $colorblack--lighter03;
+                color: $colorblack-lighter03;
                 width: 100px;
                 text-align: center;
 
@@ -58,21 +58,21 @@
             &-head {
                 line-height: 18px;
                 vertical-align: middle;
-                border-top: 1px solid $colorblack--lighter03;
-                border-bottom: 1px solid $colorblack--lighter03;
+                border-top: 1px solid $colorblack-lighter03;
+                border-bottom: 1px solid $colorblack-lighter03;
             }
 
             &-data {
                 line-height: 28px;
                 vertical-align: middle;
-                border-bottom: 1px solid $colorblack--lighter04;
+                border-bottom: 1px solid $colorblack-lighter04;
 
                 &:last-child {
-                    border-bottom: 1px solid $colorblack--lighter03;
+                    border-bottom: 1px solid $colorblack-lighter03;
                 }
 
                 &-button {
-                    background-color: $colorblack--lighter04;
+                    background-color: $colorblack-lighter04;
                     color: $colorblack;
                     display: block;
                     height: 20px;
@@ -80,7 +80,7 @@
                     border-radius: 10px;
 
                     .no-touchevents &:hover {
-                        background-color: $colorblack--lighter03;
+                        background-color: $colorblack-lighter03;
                     }
                 }
             }

@@ -3,7 +3,7 @@
         <img src="{{ asset('bundles/app/img/logo.svg') }}" alt="Home" class="nav-logo-image"/>
     </a>
 
-    <div class="nav--right cf">
+    <div class="nav-right cf">
         <ul class="nav-elem nav-elem--items">
             {% for item in sulu_navigation_root_flat('main') %}
                 {% set active = '' %}
@@ -20,9 +20,7 @@
 
                 {% if itemUrl is not empty %}
                     <li>
-                        <a href="{{ itemUrl }}"
-                           title="{{ item.title }}"
-                                {{ active|raw }}>
+                        <a href="{{ itemUrl }}" title="{{ item.title }}" {{ active|raw }}>
                             {{ item.title }}
                         </a>
                     </li>
@@ -36,8 +34,7 @@
 
                 {% if itemUrl is not empty %}
                     <li>
-                        <a href="{{ itemUrl }}"
-                           title="{{ key }}">
+                        <a href="{{ itemUrl }}" title="{{ key }}">
                             {{ key }}
                         </a>
                     </li>

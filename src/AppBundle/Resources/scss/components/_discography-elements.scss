@@ -2,7 +2,7 @@
         DISCOGRAPHY ELEMENT
 =================================================*/
 
-.discography--element {
+.discography-element {
     max-width: $maxwidth;
     margin: 0 auto;
     padding: 150px 0;
@@ -52,11 +52,11 @@
                 }
 
                 &-artist {
-                    color: $colorred--lighter01;
+                    color: $colorred-lighter01;
                     margin-top: 5px;
 
                     .no-touchevents &:hover {
-                        color: $colorred--lighter01;
+                        color: $colorred-lighter01;
                         text-decoration: none;
                     }
                 }
@@ -66,19 +66,19 @@
 }
 
 @media(max-width: 1200px) {
-    .discography--element {
+    .discography-element {
         padding: 150px 20px;
     }
 }
 
 @media(max-width: $tablet) {
-    .discography--element {
+    .discography-element {
         padding: 75px;
     }
 }
 
 @media (max-width: 700px) {
-    .discography--element {
+    .discography-element {
         padding: 30px 15px;
 
         &-heading {

@@ -4,7 +4,7 @@
             <div class="news--flash-text">
                 <div property="title">
                     {% if block.title|default('') %}
-                        <h2 class="heading--h2 news--flash-text-title">
+                        <h2 class="heading-h2 news--flash-text-title">
                             {{ block.title }}
                         </h2>
                     {% endif %}
@@ -29,7 +29,7 @@
                         {% set page = sulu_content_load(block.link)|default([]) %}
 
                         {% if page.urls is defined %}
-                            <a class="button--medium"
+                            <a class="button-medium"
                                href="{{ page.urls[request.locale] }}">
                                 {{ 'more'|trans }}
                             </a>
@@ -41,14 +41,14 @@
 
         <div property="image" class="grid__item desk--one-half">
             {% if block.image|first.thumbnails['980x680'] is defined %}
-                <picture>
-                    <source srcset="{{ asset(block.image|first.thumbnails["980x680"]) }},
-                                {{ asset(block.image|first.thumbnails["1960x1360"]) }} 2x">
+                {% set defaultImage = asset(block.image|first.thumbnails['980x680']) %}
+                {% set title = block.image|first.title %}
+                {% set breakpoints = [[
+                        asset(block.image|first.thumbnails["980x680"]),
+                        asset(block.image|first.thumbnails["1960x1360"])
+                ]] %}
 
-                    <img src="{{ asset(block.image|first.thumbnails['980x680']) }}"
-                         alt="{{ block.image|first.title }}"
-                         class="news--flash-image">
-                </picture>
+                {{ app_picture(defaultImage, title, breakpoints, "news--flash-image")|raw }}
             {% endif %}
         </div>
     </div>

@@ -4,13 +4,13 @@
 
 .action {
     height: 500px;
-    background-color: $colorred--lighter02;
+    background-color: $colorred-lighter02;
     text-align: center;
 
     &-text {
         @include vertical-align(relative);
 
-        .heading--h2--white {
+        .heading-h2-white {
             font-weight: 700;
         }
 
@@ -25,7 +25,7 @@
             }
         }
 
-        .button--large {
+        .button-large {
             margin: 0 auto;
         }
     }

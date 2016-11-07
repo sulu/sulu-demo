@@ -20,7 +20,7 @@
     </default-templates>
 
     <templates>
-        <template type="error">AppBundle:error:default.html.twig</template>
+        <template type="error">AppBundle::error.html.twig</template>
     </templates>
 
     <navigation>

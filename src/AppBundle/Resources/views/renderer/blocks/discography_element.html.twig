@@ -1,45 +1,47 @@
 <div rel="blocks" typeof="block">
     <div property="discographyTitle">
-        <section class="discography--element">
+        <section class="discography-element">
             {% if block.discographyTitle|default("") %}
-                <h2 class="discography--element-heading heading--h2">
+                <h2 class="discography-element-heading heading-h2">
                     {{ block.discographyTitle }}
                 </h2>
             {% endif %}
 
             <div property="discographyData"
-                 class="js-discography--element-collection"
+                 class="js-discography-element-collection"
                  data-slick='{"slidesToScroll": 4, "slidesToShow": 4}'>
                 {% for disc in block.discographyData if disc.template == "discography" %}
-                    <div class="discography--element-collection-item">
+                    <div class="discography-element-collection-item">
                         {% set image = "" %}
+                        {% set imageType = disc.image|first.type.name|default('') %}
+                        {% set imageThumbnail = disc.image|first.thumbnails['400x400']|default('') %}
 
-                        {% if disc.image|length and disc.image|first.type.name == "image" and disc.image|first.thumbnails['400x400'] is defined %}
+                        {% if disc.image|length and imageType == "image" and imageThumbnail|default('') %}
                             {% set image = disc.image|first %}
                         {% elseif disc.image|length >= 2 and disc.image[1].thumbnails['400x400'] %}
                             {% set image = disc.image[1] %}
-                        {% elseif disc.image|length == 1 and disc.image|first.type.name == "video" and disc.image[0].thumbnails['400x400'] %}
+                        {% elseif disc.image|length == 1 and imageType == "video" and imageThumbnail|default('') %}
                             {% set image = disc.image[0] %}
                         {% endif %}
 
                         {% if image|length and sulu_content_path(disc.url)|default('') %}
                             <a href="{{ sulu_content_path(disc.url) }}">
-                                <div class="discography--element-collection-item-image">
-                                    <picture>
-                                        <source srcset="{{ asset(image.thumbnails["400x400"]) }},
-                                                {{ asset(image.thumbnails["800x800"]) }} 2x">
+                                <div class="discography-element-collection-item-image">
+                                    {% set defaultImage = asset(image.thumbnails['400x400']) %}
+                                    {% set title = image.title %}
+                                    {% set breakpoints = [[
+                                            asset(image.thumbnails["400x400"]),
+                                            asset(image.thumbnails["800x800"])
+                                    ]] %}
 
-                                        <img src="{{ asset(image.thumbnails['400x400']) }}"
-                                             alt="{{ image.title }}"
-                                             class="artist--element-frame-item-image"/>
-                                    </picture>
+                                    {{ app_picture(defaultImage, title, breakpoints, "artist-element-frame-item-image")|raw }}
                                 </div>
                             </a>
                         {% endif %}
 
-                        <div class="discography--element-collection-item-text">
+                        <div class="discography-element-collection-item-text">
                             {% if disc.heading|default('') and sulu_content_path(disc.url)|default('') %}
-                                <a class="discography--element-collection-item-text-name"
+                                <a class="discography-element-collection-item-text-name"
                                    href="{{ sulu_content_path(disc.url) }}">
                                     {{ disc.title }}
                                 </a>
@@ -49,7 +51,7 @@
                                 {% set artist = breadcrumb[breadcrumb|length - 2] %}
 
                                 <a href="{{ sulu_content_path(artist.url) }}"
-                                   class="discography--element-collection-item-text-artist">
+                                   class="discography-element-collection-item-text-artist">
                                     {{ artist.title }}
                                 </a>
                             {% endif %}

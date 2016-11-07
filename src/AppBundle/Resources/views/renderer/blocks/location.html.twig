@@ -1,15 +1,19 @@
 <div rel="blocks" typeof="block">
     <div class="location" property="location">
-        {% if block.location.lat|default('') and block.location.zoom|default('') and block.location.long|default('') %}
+        {% set lat = block.location.lat|default('') %}
+        {% set long = block.location.long|default('') %}
+        {% set zoom = block.location.zoom|default('') %}
+
+        {% if lat|default('') and zoom|default('') and long|default('') %}
             <div class="js-googleMap location-map"></div>
 
             <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBjtPJfpPh9FEwonUW0Lte5Ayshi2FVCKc"></script>
 
             <script>
-                var mapLatLng = new google.maps.LatLng({{ block.location.lat }} , {{ block.location.long }});
+                var mapLatLng = new google.maps.LatLng({{ lat }} , {{ long }});
                 var mapProp = {
                     center: mapLatLng,
-                    zoom:{{ block.location.zoom }}
+                    zoom:{{ zoom }}
                 };
 
                 for (var i = 0; i < document.getElementsByClassName('js-googleMap').length; i++) {

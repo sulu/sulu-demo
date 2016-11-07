@@ -14,6 +14,7 @@ class WebsiteTwigExtension extends \Twig_Extension
     {
         return [
             new \Twig_SimpleFunction('app_sitemap', [$this, 'getSitemapStructure']),
+            new \Twig_SimpleFunction('app_picture', [$this, 'getPictureTag']),
         ];
     }
 
@@ -24,6 +25,39 @@ class WebsiteTwigExtension extends \Twig_Extension
     {
         return 'app_website';
     }
+
+    /**
+     * Returns a picture tag with the given breakpoints
+     *
+     * @param string $defaultImageUrl
+     * @param string $title
+     * @param array $breakpoints
+     * @param string $class
+     *
+     * @return string
+     */
+    public function getPictureTag($defaultImageUrl, $title, $breakpoints, $class = "")
+    {
+        $breakpointSources = '';
+
+        if (!empty($breakpoints)) {
+            foreach ($breakpoints as $breakpoint => $imageUrl) {
+                $media = $breakpoint ? 'media=" '. $breakpoint . ' "' : '';
+                $path = ' srcset="' . $imageUrl[0] . ($imageUrl[1] ? ', ' . $imageUrl[1] . ' 2x' : '') . '"';
+                $breakpointSources .= '<source' . $media . $path . '">';
+            }
+        }
+
+        if ($class) {
+            $class = ' class= "'. $class .'"';
+        }
+
+        return '<picture>
+                    ' . $breakpointSources . '
+                    <img' . $class . ' src="' . $defaultImageUrl . '" alt="' . $title . '"/>
+                </picture>';
+    }
+
 
     /**
      * Returns the correctly structured Sitemap.

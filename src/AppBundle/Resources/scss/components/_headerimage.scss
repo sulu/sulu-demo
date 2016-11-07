@@ -33,7 +33,7 @@
         bottom: 50px;
         left: 0;
 
-        .heading--h1--description {
+        .heading-h1-description {
             margin-top: 10px;
         }
     }
@@ -59,10 +59,10 @@
     .headerimage-text {
         bottom: 15px;
 
-        .heading--h1 {
+        .heading-h1 {
             word-spacing: 9999999px;
 
-            &--description {
+            &-description {
                 margin-top: 5px;
             }
         }
@@ -94,7 +94,7 @@
         &-text {
             bottom: 15px;
 
-            .heading--h1 {
+            .heading-h1 {
                 font-size: 75px;
                 line-height: 58px;
 

@@ -3,53 +3,68 @@
         <div property="size">
             {% if block.image|length %}
                 {% set size = ' headerimage--medium' %}
+                {% set imageType = block.image|first.type.name|default('') %}
+                {% set imageThumbnail = block.image|first.thumbnails['1920x670']|default('') %}
 
                 {% if block.size|default('') %}
                     {% set size = ' headerimage--' ~ block.size %}
                 {% endif %}
 
-                {% if block.image|first.type.name == 'image' and block.image|first.thumbnails['1920x670'] is defined %}
-                    <section class="headerimage {{ size }}">
-                        <picture>
-                            {% if size == "large" %}
-                                <source srcset="{{ asset(block.image|first.thumbnails['1920x1080']) }}, {{ asset(block.image|first.thumbnails['3840x2160']) }} 2x"
-                                        media="(min-width: 1300px)">
+                {% if imageType == 'image' and imageThumbnail|default('') %}
+                    {% set image = block.image|first %}
+                    {% set title = image.title %}
+                    {% set defaultImage = "" %}
+                    {% set breakpoints = [] %}
 
-                                <source srcset="{{ asset(block.image|first.thumbnails['800x450']) }}, {{ asset(block.image|first.thumbnails['1600x900']) }} 2x"
-                                        media="(max-width: 1299px)">
+                    <section class="headerimage {{ type }}">
+                        {% if content.headerType == "large" %}
+                            {% set defaultImage = asset(image.thumbnails["1920x1080"]) %}
+                            {% set breakpoints = {
+                            "(min-width: 1300px)" : [
+                                    asset(image.thumbnails["1920x1080"]),
+                                    asset(image.thumbnails["3840x2160"])
+                                ],
+                                "(max-width: 1299px)" : [
+                                    asset(image.thumbnails["800x450"]),
+                                    asset(image.thumbnails["1600x900"])
+                                ]
+                            } %}
+                        {% elseif content.headerType == "medium" %}
+                            {% set defaultImage = asset(content.headerImage|first.thumbnails["1920x670"]) %}
+                            {% set breakpoints = {
+                                "(min-width: 1300px)" : [
+                                    asset(image.thumbnails['1920x670']),
+                                    asset(image.thumbnails["3840x1340"])
+                                ],
+                                "(max-width: 1299px)" : [
+                                    asset(image.thumbnails["1435x500"]),
+                                    asset(image.thumbnails["2870x1000"])
+                                ],
+                                "(max-width: 480px)" : [
+                                    asset(image.thumbnails["860x300"]),
+                                    asset(image.thumbnails["1720x600"])
+                                ]
+                            } %}
+                        {% else %}
+                            {% set defaultImage = asset(content.headerImage|first.thumbnails["1920x300"]) %}
+                            {% set breakpoints = {
+                            "(min-width: 1300px)" : [
+                                    asset(image.thumbnails["1920x300"]),
+                                    asset(image.thumbnails["3840x600"])
+                                ],
+                                "(max-width: 1299px)" : [
+                                    asset(image.thumbnails["1024x300"]),
+                                    asset(image.thumbnails["2048x600"])
+                                ],
+                                "(max-width: 480px)" : [
+                                    asset(image.thumbnails["480x200"]),
+                                    asset(image.thumbnails["960x400"])
+                                ]
+                            } %}
+                        {% endif %}
 
-                                <img src="{{ asset(block.image|first.thumbnails['1920x1080']) }}"
-                                     alt="{{ block.image|first.title }}"
-                                     class="headerimage-image">
-                            {% elseif size == 'medium' %}
-                                <source srcset="{{ asset(block.image|first.thumbnails['1920x670']) }}, {{ asset(block.image|first.thumbnails['3840x1340']) }} 2x"
-                                        media="(min-width: 1300px)">
-
-                                <source srcset="{{ asset(block.image|first.thumbnails['1435x500']) }}, {{ asset(block.image|first.thumbnails['2870x1000']) }} 2x"
-                                        media="(max-width: 1299px) and (min-width: 481px)">
-
-                                <source srcset="{{ asset(block.image|first.thumbnails['860x300']) }}, {{ asset(block.image|first.thumbnails['1720x600']) }} 2x"
-                                        media="(max-width: 480px)">
-
-                                <img src="{{ asset(block.image|first.thumbnails['1920x670']) }}"
-                                     alt="{{ block.image|first.title }}"
-                                     class="headerimage-image">
-                            {% else %}
-                                <source srcset="{{ asset(block.image|first.thumbnails['1920x300']) }}, {{ asset(block.image|first.thumbnails['3840x600']) }} 2x"
-                                        media="(min-width: 1024px)">
-
-                                <source srcset="{{ asset(block.image|first.thumbnails['1024x300']) }}, {{ asset(block.image|first.thumbnails['2048x600']) }} 2x"
-                                        media="(max-width: 1024px) and (min-width: 481px)">
-
-                                <source srcset="{{ asset(block.image|first.thumbnails['480x200']) }}, {{ asset(block.image|first.thumbnails['960x400']) }} 2x"
-                                        media="(max-width: 480px)">
-
-                                <img src="{{ asset(block.image|first.thumbnails['1920x300']) }}"
-                                     alt="{{ block.image|first.title }}"
-                                     class="headerimage-image">
-                            {% endif %}
-                        </picture>
-                {% elseif block.image|first.type.name == 'video' %}
+                        {{ app_picture(defaultImage, title, breakpoints, "headerimage-image")|raw }}
+                {% elseif imageType == 'video' %}
                     <section class="headerimage headerimage--video fullimage">
                         <video src="{{ asset(block.image|first.url) }}"
                                autoplay

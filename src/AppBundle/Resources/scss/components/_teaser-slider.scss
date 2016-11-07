@@ -39,8 +39,8 @@
             padding: 0 0 0 120px;
             overflow: hidden;
 
-            .heading--h1,
-            .heading--h1--description {
+            .heading-h1,
+            .heading-h1-description {
                 @include vertical-align(relative);
                 color: #fff;
                 margin: 0;
@@ -48,11 +48,11 @@
 
             }
 
-            .heading--h1 {
+            .heading-h1 {
                 word-spacing: 9999999px;
             }
 
-            .heading--h1--description {
+            .heading-h1-description {
                 margin-top: -20px;
                 width: 40%;
 
@@ -84,7 +84,7 @@
 }
 
 @media (max-width: 1200px) {
-    .slider .slides-text .heading--h1--description {
+    .slider .slides-text .heading-h1-description {
         width: 45%;
     }
 }
@@ -94,12 +94,12 @@
         padding: 0 20px;
         @include box-sizing(border-box);
 
-        .heading--h1,
-        .heading--h1--description {
+        .heading-h1,
+        .heading-h1-description {
             text-align: center;
         }
 
-        .heading--h1--description {
+        .heading-h1-description {
             width: 100%;
             margin-top: -25px;
 
@@ -138,7 +138,7 @@
 }
 
 @media (max-width: 700px) and (min-width: $mobile) {
-    .slider .slides-text .heading--h1 {
+    .slider .slides-text .heading-h1 {
         font-size: 75px;
         line-height: 58px;
 
@@ -157,7 +157,7 @@
 }
 
 @media (max-width: $mobile) {
-    .slider .slides-text .heading--h1--description {
+    .slider .slides-text .heading-h1-description {
         margin-top: -10px;
 
         > p,
@@ -170,7 +170,7 @@
 }
 
 @media (max-width: 380px) {
-    .slider .slides-text .heading--h1 {
+    .slider .slides-text .heading-h1 {
         font-size: 45px;
         line-height: 35px;
 
@@ -187,7 +187,7 @@
 }
 
 @media (max-width: 380px) {
-    .slider .slides-text .heading--h1 {
+    .slider .slides-text .heading-h1 {
         font-size: 45px;
         line-height: 35px;
 

@@ -7,6 +7,10 @@ window.Demo = (function($) {
     "use strict";
 
     return {
+
+        /**
+         * @method init
+         */
         init: function() {
             this.navigation();
             this.scroll();
@@ -18,9 +22,13 @@ window.Demo = (function($) {
             this.scrollArrow();
         },
 
+        /**
+         * @method navigation
+         * @description handles the animation of the navigation
+         */
         navigation: function() {
             var $nav = $('.nav');
-            var $navRight = $('.nav--right');
+            var $navRight = $('.nav-right');
             var $navItems = $('.nav-elem--items');
             var $navButton = $('.nav-elem--button');
             var $navicon = $('.nav-elem--button i');
@@ -51,6 +59,10 @@ window.Demo = (function($) {
             });
         },
 
+        /**
+         * @method scroll
+         * @description reacts to scroll event and adds class if user is not at the top
+         */
         scroll: function() {
             var $window = $(window);
             var $nav = $('.nav');
@@ -72,6 +84,9 @@ window.Demo = (function($) {
             });
         },
 
+        /**
+         * @method startHomeSlider
+         */
         startHomeSlider: function() {
             var $homeSlider = $('.js-slider');
 
@@ -87,8 +102,11 @@ window.Demo = (function($) {
             });
         },
 
+        /**
+         * @method startArtistElementSlider
+         */
         startArtistElementSlider: function() {
-            var $artistSlider = $('.js-artist--element-collection');
+            var $artistSlider = $('.js-artist-element-collection');
 
             if (!$artistSlider.length) {
                 return;
@@ -118,8 +136,11 @@ window.Demo = (function($) {
             });
         },
 
+        /**
+         * @method startDiscographyElementSlider
+         */
         startDiscographyElementSlider: function() {
-            var $discographySlider = $('.js-discography--element-collection');
+            var $discographySlider = $('.js-discography-element-collection');
 
             if (!$discographySlider.length) {
                 return;
@@ -149,6 +170,9 @@ window.Demo = (function($) {
             });
         },
 
+        /**
+         * @method startArticleSlider
+         */
         startArticleSlider: function() {
             var $articleSlider = $('.js-article-collection');
 
@@ -180,6 +204,9 @@ window.Demo = (function($) {
             });
         },
 
+        /**
+         * @method startMediaGallerySlider
+         */
         startMediaGallerySlider: function() {
             var $mediaGallery = $('.js-media-gallery');
 
@@ -212,10 +239,13 @@ window.Demo = (function($) {
             });
         },
 
+        /**
+         * @method scrollArrow
+         */
         scrollArrow: function() {
             $('.js-arrow').on('click', function() {
                 $('html, body').animate({
-                    'scrollTop': $('#content-main').offset().top - $('.demobar').height() - $('.nav').height()
+                    'scrollTop': $('.content-main').offset().top - $('.demobar').height() - $('.nav').height()
                 }, 600);
             });
         }
@@ -227,6 +257,9 @@ window.Demo.Preview = (function ($) {
     "use strict";
 
     return {
+        /**
+         * @method init
+         */
         init: function () {
             // Mutation observer for watching if the live preview is updating the dom and reacting to it.
             // Here you can find information how a mutation observer works:
@@ -241,6 +274,10 @@ window.Demo.Preview = (function ($) {
             });
         },
 
+        /**
+         * @method mutationHandler
+         * @description event handler of mutation observer
+         */
         mutationHandler: function(mutations) {
             mutations.forEach(function(mutation) {
                 var $target = $(mutation.target);
@@ -248,10 +285,10 @@ window.Demo.Preview = (function ($) {
                 if ($target.is('.js-slider') || $target.has('.js-slider')) {
                     Demo.startHomeSlider();
                 }
-                if ($target.is('.js-artist--element-collection') || $target.has('.js-artist--element-collection')) {
+                if ($target.is('.js-artist-element-collection') || $target.has('.js-artist-element-collection')) {
                     Demo.startArtistElementSlider();
                 }
-                if ($target.is('.js-discography--element-collection') || $target.has('.js-discography--element-collection')) {
+                if ($target.is('.js-discography-element-collection') || $target.has('.js-discography-element-collection')) {
                     Demo.startDiscographyElementSlider();
                 }
                 if ($target.is('.js-article-collection') || $target.has('.js-article-collection')) {

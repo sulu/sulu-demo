@@ -4,57 +4,72 @@
             <div property="headerType">
                 {% if content.headerImage|length %}
                     {% set type = " headerimage--medium" %}
+                    {% set firstImage = content.headerImage|first %}
+                    {% set imageType = firstImage.type.name %}
 
                     {% if content.headerType|default('') %}
                         {% set type = " headerimage--" ~ content.headerType %}
                     {% endif %}
 
-                    {% if content.headerImage|first.type.name == "image" and content.headerImage|first.thumbnails["1920x670"] is defined %}
+                    {% if imageType == "image" and firstImage.thumbnails["1920x670"] is defined %}
+                        {% set image = content.headerImage|first %}
+                        {% set title = image.title %}
+                        {% set defaultImage = "" %}
+                        {% set breakpoints = [] %}
+
                         <section class="headerimage {{ type }}">
-                            <picture>
-                                {% if content.headerType == "large" %}
-                                    <source srcset="{{ asset(content.headerImage|first.thumbnails["1920x1080"]) }}, {{ asset(content.headerImage|first.thumbnails["3840x2160"]) }} 2x"
-                                            media="(min-width: 1300px)">
+                            {% if content.headerType == "large" %}
+                                {% set defaultImage = asset(image.thumbnails["1920x1080"]) %}
+                                {% set breakpoints = {
+                                    "(min-width: 1300px)" : [
+                                        asset(image.thumbnails["1920x1080"]),
+                                        asset(image.thumbnails["3840x2160"])
+                                    ],
+                                    "(max-width: 1299px)" : [
+                                        asset(image.thumbnails["800x450"]),
+                                        asset(image.thumbnails["1600x900"])
+                                    ]
+                                } %}
+                            {% elseif content.headerType == "medium" %}
+                                {% set defaultImage = asset(content.headerImage|first.thumbnails["1920x670"]) %}
+                                {% set breakpoints = {
+                                    "(min-width: 1300px)" : [
+                                        asset(image.thumbnails['1920x670']),
+                                        asset(image.thumbnails["3840x1340"])
+                                    ],
+                                    "(max-width: 1299px)" : [
+                                        asset(image.thumbnails["1435x500"]),
+                                        asset(image.thumbnails["2870x1000"])
+                                    ],
+                                    "(max-width: 480px)" : [
+                                        asset(image.thumbnails["860x300"]),
+                                        asset(image.thumbnails["1720x600"])
+                                    ]
+                                } %}
+                            {% else %}
+                                {% set defaultImage = asset(content.headerImage|first.thumbnails["1920x300"]) %}
+                                {% set breakpoints = {
+                                    "(min-width: 1300px)" : [
+                                        asset(image.thumbnails["1920x300"]),
+                                        asset(image.thumbnails["3840x600"])
+                                    ],
+                                    "(max-width: 1299px)" : [
+                                        asset(image.thumbnails["1024x300"]),
+                                        asset(image.thumbnails["2048x600"])
+                                    ],
+                                    "(max-width: 480px)" : [
+                                        asset(image.thumbnails["480x200"]),
+                                        asset(image.thumbnails["960x400"])
+                                    ]
+                                } %}
+                            {% endif %}
 
-                                    <source srcset="{{ asset(content.headerImage|first.thumbnails["800x450"]) }}, {{ asset(content.headerImage|first.thumbnails["1600x900"]) }} 2x"
-                                            media="(max-width: 1299px)">
+                            {{ app_picture(defaultImage, title, breakpoints, "headerimage-image")|raw }}
 
-                                    <img src="{{ asset(content.headerImage|first.thumbnails["1920x1080"]) }}"
-                                         alt="{{ content.headerImage|first.title }}"
-                                         class="headerimage-image">
-                                {% elseif content.headerType == "medium" %}
-                                    <source srcset="{{ asset(content.headerImage|first.thumbnails["1920x670"]) }}, {{ asset(content.headerImage|first.thumbnails["3840x1340"]) }} 2x"
-                                            media="(min-width: 1300px)">
-
-                                    <source srcset="{{ asset(content.headerImage|first.thumbnails["1435x500"]) }}, {{ asset(content.headerImage|first.thumbnails["2870x1000"]) }} 2x"
-                                            media="(max-width: 1299px) and (min-width: 481px)">
-
-                                    <source srcset="{{ asset(content.headerImage|first.thumbnails["860x300"]) }}, {{ asset(content.headerImage|first.thumbnails["1720x600"]) }} 2x"
-                                            media="(max-width: 480px)">
-
-                                    <img src="{{ asset(content.headerImage|first.thumbnails["1920x670"]) }}"
-                                         alt="{{ content.headerImage|first.title }}"
-                                         class="headerimage-image">
-                                {% else %}
-                                    <source srcset="{{ asset(content.headerImage|first.thumbnails["1920x300"]) }}, {{ asset(content.headerImage|first.thumbnails["3840x600"]) }} 2x"
-                                            media="(min-width: 1024px)">
-
-                                    <source srcset="{{ asset(content.headerImage|first.thumbnails["1024x300"]) }}, {{ asset(content.headerImage|first.thumbnails["2048x600"]) }} 2x"
-                                            media="(max-width: 1024px) and (min-width: 481px)">
-
-                                    <source srcset="{{ asset(content.headerImage|first.thumbnails["480x200"]) }}, {{ asset(content.headerImage|first.thumbnails["960x400"]) }} 2x"
-                                            media="(max-width: 480px)">
-
-                                    <img src="{{ asset(content.headerImage|first.thumbnails["1920x300"]) }}"
-                                         alt="{{ content.headerImage|first.title }}"
-                                         class="headerimage-image">
-                                {% endif %}
-                            </picture>
-
-                        {% elseif content.headerImage|first.type.name == "video" %}
+                        {% elseif imageType == "video" %}
                             <section class="headerimage headerimage--video">
 
-                                <video src="{{ asset(content.headerImage|first.url) }}"
+                                <video src="{{ asset(firstImage.url) }}"
                                        autoplay
                                        loop
                                        muted
@@ -64,13 +79,13 @@
                         {% if content.headerHeading|default('') or content.headerSubheading|default('') %}
                             <div class="headerimage-text">
                                 {% if content.headerHeading|default('') %}
-                                    <h1 class="headerimage-text-heading heading--h1">
+                                    <h1 class="headerimage-text-heading heading-h1">
                                         {{ content.headerHeading }}
                                     </h1>
                                 {% endif %}
 
                                 {% if content.headerSubheading|default('') %}
-                                    <div class="heading--h1--description">
+                                    <div class="heading-h1-description">
                                         {{ content.headerSubheading|raw }}
                                     </div>
                                 {% endif %}
