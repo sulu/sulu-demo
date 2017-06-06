@@ -5,8 +5,11 @@ namespace AppBundle\Controller;
 use Sulu\Bundle\ContentBundle\Document\PageDocument;
 use Sulu\Bundle\WebsiteBundle\Controller\WebsiteController;
 use Sulu\Component\Content\Compat\StructureInterface;
+use Sulu\Component\Content\Document\LocalizationState;
+use Sulu\Component\Content\Document\WorkflowStage;
 use Sulu\Component\Content\Repository\Mapping\Mapping;
 use Sulu\Component\Content\Repository\Mapping\MappingBuilder;
+use Sulu\Component\DocumentManager\Collection\ChildrenCollection;
 use Sulu\Component\Util\SortUtils;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Constraints\Uuid;
@@ -33,7 +36,7 @@ class BlogController extends WebsiteController
         $parent = $document->getParent();
         $articles = [];
 
-        foreach ($parent->getChildren() as $item) {
+        foreach ($this->getChildren($parent) as $item) {
             if ($item->getStructureType() == "blog_detail") {
                 array_push($articles, $item);
             }
@@ -77,14 +80,10 @@ class BlogController extends WebsiteController
         $link = '';
 
         if (!empty($structure->getDocument()->getChildren())) {
-            $children = $structure->getChildren();
-            $articlelist = SortUtils::multisort($children, 'created');
-            $articles = [];
+            /** @var ChildrenCollection $children */
+            $children = $structure->getDocument()->getChildren();
+            $articles = $children->toArray();
             $link = $structure->getPropertiesByTagName("sulu.rlp")[0]->getValue();
-
-            for ($i = 0; $i <= count($articlelist) -1; $i++) {
-                $articles[$i] = $articlelist[$i]->getDocument();
-            }
 
             $latestArticles = $this->createOverviewArticles(
                 $this->getLatestArticle($articles, 4, $structure->getUuid())
@@ -225,5 +224,35 @@ class BlogController extends WebsiteController
         }
 
         return $result;
+    }
+
+    /**
+     * @param PageDocument $parentDocument
+     *
+     * @return array
+     */
+    protected function getChildren($parentDocument)
+    {
+        $childDocuments = $parentDocument->getChildren();
+
+        if (!count($childDocuments)) {
+            return [];
+        }
+
+        $children = [];
+
+        $documentInspector = $this->get('sulu_document_manager.document_inspector');
+
+        /** @var PageDocument $childDocument */
+        foreach ($childDocuments as $childDocument) {
+            if ($childDocument instanceof PageDocument
+                && $documentInspector->getLocalizationState($childDocument) !== LocalizationState::GHOST
+                && $childDocument->getWorkflowStage() === WorkflowStage::PUBLISHED
+            ) {
+                $children[] = $childDocument;
+            }
+        }
+
+        return $children;
     }
 }

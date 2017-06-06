@@ -295,7 +295,7 @@
                             </meta>
 
                             <params>
-                                <param name="type" value="image, video"/>
+                                <param name="type" value="image,video"/>
                             </params>
                         </property>
 

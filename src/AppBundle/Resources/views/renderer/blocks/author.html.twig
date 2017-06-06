@@ -3,8 +3,8 @@
         <div property="author">
             {% set author = "" %}
 
-            {% if block.author|length %}
-                {% set author = sulu_resolve_contact(block.author|first.id) %}
+            {% if block.authorContact|length %}
+                {% set author = sulu_resolve_contact(block.authorContact|first.id) %}
             {% else %}
                 {% set author = sulu_resolve_contact(creator) %}
             {% endif %}

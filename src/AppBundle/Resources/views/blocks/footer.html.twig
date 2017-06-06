@@ -8,34 +8,36 @@
                     {% if snippets|length %}
                         {% set contact = snippets|first.content.contact|first %}
 
-                        <div class="footer-main-elem-content footer-main-elem-content--left">
-                            <h4 class="heading-h4">
-                                {{ 'contact'|trans }}
-                            </h4>
+                        {% if contact|length %}
+                            <div class="footer-main-elem-content footer-main-elem-content--left">
+                                <h4 class="heading-h4">
+                                    {{ 'contact'|trans }}
+                                </h4>
 
-                            {% if contact.mainAddress|length %}
-                                <p>
-                                    {{ contact.mainAddress.street }} {{ contact.mainAddress.number }}, <br/>
-                                    {{ contact.mainAddress.zip }} {{ contact.mainAddress.city }}, <br/>
+                                {% if contact.mainAddress|length %}
+                                    <p>
+                                        {{ contact.mainAddress.street }} {{ contact.mainAddress.number }}, <br/>
+                                        {{ contact.mainAddress.zip }} {{ contact.mainAddress.city }}, <br/>
 
-                                    {% if contact.mainAddress.country|length %}
-                                        {{ contact.mainAddress.country.name }}
-                                    {% endif %}
-                                </p>
-                            {% endif %}
+                                        {% if contact.mainAddress.country|length %}
+                                            {{ contact.mainAddress.country.name }}
+                                        {% endif %}
+                                    </p>
+                                {% endif %}
 
-                            {% if contact.mainPhone|default('') %}
-                                <a href="tel:{{ contact.mainPhone }}">{{ contact.mainPhone }}</a>
-                            {% endif %}
+                                {% if contact.mainPhone|default('') %}
+                                    <a href="tel:{{ contact.mainPhone }}">{{ contact.mainPhone }}</a>
+                                {% endif %}
 
-                            {% if contact.emails|length %}
-                                <a href="mailto:{{ contact.emails|first.email }}">{{ contact.emails|first.email }}</a>
-                            {% endif %}
+                                {% if contact.emails|length %}
+                                    <a href="mailto:{{ contact.emails|first.email }}">{{ contact.emails|first.email }}</a>
+                                {% endif %}
 
-                            {% if contact.notes|length %}
-                                <p>{{ contact.notes|first.value }}</p>
-                            {% endif %}
-                        </div>
+                                {% if contact.notes|length %}
+                                    <p>{{ contact.notes|first.value }}</p>
+                                {% endif %}
+                            </div>
+                        {% endif %}
                     {% endif %}
 
                     <div class="footer-main-elem-content footer-main-elem-content--middle">

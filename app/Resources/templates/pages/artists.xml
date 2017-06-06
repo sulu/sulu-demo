@@ -127,7 +127,7 @@
                             <param name="heading" value="title"/>
                             <param name="blocks" value="blocks"/>
                             <param name="image" value="headerImage"/>
-                            <param name="author" value="author"/>
+                            <param name="authorContact" value="authorContact"/>
                             <param name="url" value="url"/>
                         </param>
                     </params>

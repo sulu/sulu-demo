@@ -231,7 +231,7 @@
                     </meta>
 
                     <properties>
-                        <property name="author" type="contact">
+                        <property name="authorContact" type="contact">
                             <meta>
                                 <title lang="en">Author</title>
                                 <title lang="de">Autor</title>

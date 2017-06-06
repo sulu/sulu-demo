@@ -2,10 +2,6 @@ imports:
     - { resource: security.yml }
     - { resource: ../config.yml }
 
-# Twig Configuration
-twig:
-    exception_controller: sulu_website.exception.controller:showAction
-
 # SymfonyCMF Configuration
 cmf_routing:
     chain:
@@ -20,7 +16,7 @@ cmf_routing:
 sulu_document_manager:
     default_session: live
 
-# FOS REST Configuration
+# Exception Controller
 fos_rest:
     exception:
-        enabled: false
+        enabled: false # temporary fix for the exception controller until FOSRestBundle is updated to 2.0

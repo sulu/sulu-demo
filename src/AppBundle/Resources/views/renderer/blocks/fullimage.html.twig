@@ -16,7 +16,7 @@
                     {% set defaultImage = "" %}
                     {% set breakpoints = [] %}
 
-                    <section class="headerimage {{ type }}">
+                    <section class="headerimage {{ block.type }}">
                         {% if content.headerType == "large" %}
                             {% set defaultImage = asset(image.thumbnails["1920x1080"]) %}
                             {% set breakpoints = {
