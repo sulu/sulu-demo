@@ -7,12 +7,8 @@ use Sulu\Bundle\WebsiteBundle\Controller\WebsiteController;
 use Sulu\Component\Content\Compat\StructureInterface;
 use Sulu\Component\Content\Document\LocalizationState;
 use Sulu\Component\Content\Document\WorkflowStage;
-use Sulu\Component\Content\Repository\Mapping\Mapping;
-use Sulu\Component\Content\Repository\Mapping\MappingBuilder;
-use Sulu\Component\DocumentManager\Collection\ChildrenCollection;
 use Sulu\Component\Util\SortUtils;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Validator\Constraints\Uuid;
 
 class BlogController extends WebsiteController
 {
@@ -79,14 +75,10 @@ class BlogController extends WebsiteController
         $latestArticles = [];
         $link = '';
 
-        if (!empty($structure->getDocument()->getChildren())) {
-            /** @var ChildrenCollection $children */
-            $children = $structure->getDocument()->getChildren();
-            $articles = $children->toArray();
+        if ($children = $this->getChildren($structure->getDocument())) {
             $link = $structure->getPropertiesByTagName("sulu.rlp")[0]->getValue();
-
             $latestArticles = $this->createOverviewArticles(
-                $this->getLatestArticle($articles, 4, $structure->getUuid())
+                $this->getLatestArticle($children, 4, $structure->getUuid())
             );
         }
 
@@ -104,16 +96,17 @@ class BlogController extends WebsiteController
     }
 
     /**
-     * Takes all the articles and returns the lastest ones.
+     * Takes all the articles and returns the latest ones.
      *
      * @param array $articles
      * @param int $numKind
+     * @param string $uuid
      *
      * @return array
      */
     public function getLatestArticle($articles, $numKind, $uuid)
     {
-        $lastarticles = [];
+        $latestArticles = [];
         $index = -1;
 
         for ($i = 0; $i <= count($articles) - 1; $i++) {
@@ -127,10 +120,10 @@ class BlogController extends WebsiteController
         }
 
         for ($i = 0; $i <= ((count($articles) >= $numKind) ? $numKind -1 : count($articles) -1); $i++) {
-            $lastarticles[$i] = $articles[$i];
+            $latestArticles[$i] = $articles[$i];
         }
 
-        return array_reverse($lastarticles);
+        return array_reverse($latestArticles);
     }
 
     /**
