@@ -1,7 +1,8 @@
 <?xml version="1.0" ?>
 <template xmlns="http://schemas.sulu.io/template/template"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+          xmlns:xi="http://www.w3.org/2001/XInclude"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
 
     <!-- This is the template for the "Album" page. -->
     <!-- For further information, have a look at homepage.xml. -->
@@ -17,97 +18,11 @@
     </meta>
 
     <properties>
-        <section name="highlight">
-            <properties>
-                <property name="title" type="text_line" mandatory="true">
-                    <meta>
-                        <title lang="en">Title</title>
-                        <title lang="de">Titel</title>
-                    </meta>
+        <xi:include href="../includes/sections/highlight.xml"
+                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:section)"/>
 
-                    <params>
-                        <param name="headline" value="true"/>
-                    </params>
-
-                    <tag name="sulu.rlp.part"/>
-                </property>
-
-                <property name="url" type="resource_locator" mandatory="true">
-                    <meta>
-                        <title lang="en">Resource Locator</title>
-                        <title lang="de">Adresse</title>
-                    </meta>
-
-                    <tag name="sulu.rlp"/>
-                </property>
-            </properties>
-        </section>
-
-        <section name="header">
-            <meta>
-                <title lang="en">Header</title>
-                <title lang="de">Header</title>
-            </meta>
-
-            <properties>
-                <property name="headerImage" type="media_selection">
-                    <meta>
-                        <title lang="en">Image</title>
-                        <title lang="de">Bild</title>
-                    </meta>
-
-                    <params>
-                        <param name="type" value="image, video"/>
-                    </params>
-                </property>
-
-                <property name="headerHeading" type="text_line">
-                    <meta>
-                        <title lang="en">Heading</title>
-                        <title lang="de">Überschrift</title>
-                    </meta>
-                </property>
-
-                <property name="headerSubheading" type="text_editor">
-                    <meta>
-                        <title lang="en">Subheading</title>
-                        <title lang="de">Unter-Überschrift</title>
-                    </meta>
-                </property>
-
-                <property name="headerType" type="single_select">
-                    <meta>
-                        <title lang="en">Size</title>
-                        <title lang="de">Größe</title>
-                    </meta>
-
-                    <params>
-                        <param name="values" type="collection">
-                            <param name="small">
-                                <meta>
-                                    <title lang="en">Small</title>
-                                    <title lang="de">Klein</title>
-                                </meta>
-                            </param>
-
-                            <param name="medium">
-                                <meta>
-                                    <title lang="en">Medium</title>
-                                    <title lang="de">Mittel</title>
-                                </meta>
-                            </param>
-
-                            <param name="large">
-                                <meta>
-                                    <title lang="en">Large</title>
-                                    <title lang="de">Groß</title>
-                                </meta>
-                            </param>
-                        </param>
-                    </params>
-                </property>
-            </properties>
-        </section>
+        <xi:include href="../includes/sections/header.xml"
+                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:section)"/>
 
         <block name="blocks" default-type="text" minOccurs="0">
             <meta>
@@ -116,144 +31,23 @@
             </meta>
 
             <types>
-                <type name="heading">
-                    <meta>
-                        <title lang="en">Heading</title>
-                        <title lang="de">Überschrift</title>
-                    </meta>
+                <xi:include href="../includes/blocks/heading.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
 
-                    <properties>
-                        <property name="heading" type="text_line">
-                            <meta>
-                                <title lang="en">Heading</title>
-                                <title lang="de">Überschrift</title>
-                            </meta>
-                        </property>
+                <xi:include href="../includes/blocks/subheading.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
 
-                        <property name="background" type="checkbox">
-                            <meta>
-                                <title lang="en">Background Color</title>
-                                <title lang="de">Hintergrundfarbe</title>
-                            </meta>
+                <xi:include href="../includes/blocks/text.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
 
-                            <params>
-                                <param name="type" value="toggler"/>
-                            </params>
-                        </property>
-                    </properties>
-                </type>
-                
-                <type name="subheading">
-                    <meta>
-                        <title lang="en">Subheading</title>
-                        <title lang="de">Unter-Überschrift</title>
-                    </meta>
+                <xi:include href="../includes/blocks/quote.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
 
-                    <properties>
-                        <property name="subheading" type="text_editor">
-                            <meta>
-                                <title lang="en">Subheading</title>
-                                <title lang="de">Unter-Überschrift</title>
-                            </meta>
-                        </property>
+                <xi:include href="../includes/blocks/media_gallery.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
 
-                        <property name="background" type="checkbox">
-                            <meta>
-                                <title lang="en">Background Color</title>
-                                <title lang="de">Hintergrundfarbe</title>
-                            </meta>
-
-                            <params>
-                                <param name="type" value="toggler"/>
-                            </params>
-                        </property>
-                    </properties>
-                </type>
-
-                <type name="text">
-                    <meta>
-                        <title lang="en">Text</title>
-                        <title lang="de">Text</title>
-                    </meta>
-
-                    <properties>
-                        <property name="text" type="text_editor">
-                            <meta>
-                                <title lang="en">Text</title>
-                                <title lang="de">Text</title>
-                            </meta>
-                        </property>
-
-                        <property name="background" type="checkbox">
-                            <meta>
-                                <title lang="en">Background Color</title>
-                                <title lang="de">Hintergrundfarbe</title>
-                            </meta>
-
-                            <params>
-                                <param name="type" value="toggler"/>
-                            </params>
-                        </property>
-                    </properties>
-                </type>
-
-                <type name="quote">
-                    <meta>
-                        <title lang="en">Quote</title>
-                        <title lang="de">Zitat</title>
-                    </meta>
-
-                    <properties>
-                        <property name="quote" type="text_editor">
-                            <meta>
-                                <title lang="en">Quote</title>
-                                <title lang="de">Zitat</title>
-                            </meta>
-                        </property>
-
-                        <property name="background" type="checkbox">
-                            <meta>
-                                <title lang="en">Background Color</title>
-                                <title lang="de">Hintergrundfarbe</title>
-                            </meta>
-
-                            <params>
-                                <param name="type" value="toggler"/>
-                            </params>
-                        </property>
-                    </properties>
-                </type>
-
-                <type name="media_gallery">
-                    <meta>
-                        <title lang="en">Media</title>
-                        <title lang="de">Medien</title>
-                    </meta>
-
-                    <properties>
-                        <property name="medias" type="media_selection">
-                            <meta>
-                                <title lang="en">Media</title>
-                                <title lang="de">Medien</title>
-                            </meta>
-
-                            <params>
-                                <param name="type" value="image"/>
-                            </params>
-                        </property>
-
-                        <property name="background" type="checkbox">
-                            <meta>
-                                <title lang="en">Background Color</title>
-                                <title lang="de">Hintergrundfarbe</title>
-                            </meta>
-
-                            <params>
-                                <param name="type" value="toggler"/>
-                            </params>
-                        </property>
-                    </properties>
-                </type>
+                <xi:include href="../includes/blocks/artists_element.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
 
                 <type name="track_lists">
                     <meta>
@@ -270,37 +64,6 @@
 
                             <params>
                                 <param name="snippetType" value="track_list"/>
-                            </params>
-                        </property>
-                    </properties>
-                </type>
-
-                <type name="artists_element">
-                    <meta>
-                        <title lang="en">Artists</title>
-                        <title lang="de">Künstler</title>
-                    </meta>
-
-                    <properties>
-                        <property name="heading" type="text_line">
-                            <meta>
-                                <title lang="en">Heading</title>
-                                <title lang="de">Überschrift</title>
-                            </meta>
-                        </property>
-
-                        <property name="artistsData" type="smart_content">
-                            <meta>
-                                <title lang="en">Artists</title>
-                                <title lang="de">Künstler</title>
-                            </meta>
-
-                            <params>
-                                <param name="properties" type="collection">
-                                    <param name="heading" value="title"/>
-                                    <param name="image" value="headerImage"/>
-                                    <param name="url" value="url"/>
-                                </param>
                             </params>
                         </property>
                     </properties>

@@ -1,0 +1,27 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="action">
+        <types>
+            <type name="action">
+                <meta>
+                    <title lang="en">Action</title>
+                    <title lang="de">Aktion</title>
+                </meta>
+
+                <properties>
+                    <property name="actions" type="snippet">
+                        <meta>
+                            <title lang="en">Action</title>
+                            <title lang="de">Aktion</title>
+                        </meta>
+
+                        <params>
+                            <param name="snippetType" value="action"/>
+                        </params>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

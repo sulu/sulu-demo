@@ -44,14 +44,8 @@ class BlogController extends WebsiteController
         $response = $this->renderStructure(
             $structure,
             [
-                'lastAndPrevArticle' => $this->createDetailArticles(
-                    $this->getPrevAndNextArticle($articles, $uuid)
-                ),
-                'latestArticles' => $this->createDetailArticles(
-                    $this->getLatestArticle($articles, 4, $uuid)
-                ),
-                'link' => $document->getParent()->getResourceSegment()
-
+                'latestArticles' => $this->createDetailArticles($this->getLatestArticle($articles, 4, $uuid)),
+                'link' => $document->getParent()->getResourceSegment(),
             ],
             $preview,
             $partial
@@ -124,33 +118,6 @@ class BlogController extends WebsiteController
         }
 
         return array_reverse($latestArticles);
-    }
-
-    /**
-     * Looks for the articles before and after the one with the uuid.
-     *
-     * @param array $articles
-     * @param string $uuid
-     *
-     * @return array
-     */
-    public function getPrevAndNextArticle($articles, $uuid)
-    {
-        $result = [];
-
-        for ($i = 0; $i <= count($articles) - 1; $i++) {
-            if ($articles[$i]->getUuid() == $uuid) {
-                if (array_key_exists($i - 1, $articles) && array_key_exists($i + 1, $articles)) {
-                    $result = ['prev' => $articles[$i - 1], 'next' => $articles[$i + 1]];
-                } elseif (array_key_exists($i - 1, $articles)) {
-                    $result = ['prev' => $articles[$i - 1]];
-                } elseif (array_key_exists($i + 1, $articles)) {
-                    $result = ['next' => $articles[$i + 1]];
-                }
-            }
-        }
-
-        return $result;
     }
 
     /**

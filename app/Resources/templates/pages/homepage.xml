@@ -1,7 +1,8 @@
 <?xml version="1.0" ?>
 <template xmlns="http://schemas.sulu.io/template/template"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+          xmlns:xi="http://www.w3.org/2001/XInclude"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
 
     <!-- This is the template for the "Homepage". -->
     <!-- For further information, on how to make a Sulu template have a look at: -->
@@ -30,31 +31,8 @@
 
     <properties>
         <!-- This section typically appears in every template. Here you can configure the title and URL of a page. -->
-        <section name="highlight">
-            <properties>
-                <property name="title" type="text_line" mandatory="true">
-                    <meta>
-                        <title lang="en">Title</title>
-                        <title lang="de">Titel</title>
-                    </meta>
-
-                    <params>
-                        <param name="headline" value="true"/>
-                    </params>
-
-                    <tag name="sulu.rlp.part"/>
-                </property>
-
-                <property name="url" type="resource_locator" mandatory="true">
-                    <meta>
-                        <title lang="en">Resource Locator</title>
-                        <title lang="de">Adresse</title>
-                    </meta>
-
-                    <tag name="sulu.rlp"/>
-                </property>
-            </properties>
-        </section>
+        <xi:include href="../includes/sections/highlight.xml"
+                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:section)"/>
 
         <!-- The rest of the template defines the properties of a page. -->
         <!-- Each property is resembled by a field in the admin. -->
@@ -160,85 +138,6 @@
                             </properties>
                         </type>
 
-                        <type name="artists_element">
-                            <meta>
-                                <title lang="de">Künstler</title>
-                                <title lang="en">Artists</title>
-                            </meta>
-
-                            <properties>
-                                <property name="heading" type="text_line">
-                                    <meta>
-                                        <title lang="en">Heading</title>
-                                        <title lang="de">Überschrift</title>
-                                    </meta>
-                                </property>
-
-                                <!-- A "smart content" contains references to one or multiple other pages. -->
-                                <!-- This is useful for lists of products, lists of article excerpts with "More" links and similar cases. -->
-
-                                <!-- The "smart" thing about this content type is that the content manager has some configuration options in the admin UI: -->
-                                <!-- * The number of pages that should be displayed. -->
-                                <!-- * Their order. -->
-                                <!-- * The tags or categories that the displayed pages must have. -->
-
-                                <!-- This way, content managers have a lot of flexibility without having to consult the developers for simple changes. -->
-                                <property name="artistsData" type="smart_content">
-                                    <meta>
-                                        <title lang="en">Artists</title>
-                                        <title lang="de">Künstler</title>
-                                    </meta>
-
-                                    <params>
-                                        <!-- The pages selected by the smart content are imported into the current template. -->
-                                        <!-- Here you can render them as list, grid or rotating gallery. -->
-                                        <!-- For performance reasons, Sulu will only fetch a few properties of these pages from the repository. -->
-                                        <!-- These properties must be defined below. -->
-                                        <param name="properties" type="collection">
-
-                                            <!-- For each property, you need to define: -->
-                                            <!-- * The name of the property in the referenced page (the "name" attribute) -->
-                                            <!-- * The name of the Twig property in *this* template (the "value" attribute) -->
-                                            <param name="heading" value="title"/>
-                                            <param name="image" value="headerImage"/>
-                                            <param name="url" value="url"/>
-                                        </param>
-                                    </params>
-                                </property>
-                            </properties>
-                        </type>
-
-                        <type name="discography_element">
-                            <meta>
-                                <title lang="en">Discography</title>
-                                <title lang="de">Diskographie</title>
-                            </meta>
-
-                            <properties>
-                                <property name="discographyTitle" type="text_line">
-                                    <meta>
-                                        <title lang="en">Title</title>
-                                        <title lang="de">Titel</title>
-                                    </meta>
-                                </property>
-
-                                <property name="discographyData" type="smart_content">
-                                    <meta>
-                                        <title lang="en">Albums</title>
-                                        <title lang="de">Alben</title>
-                                    </meta>
-
-                                    <params>
-                                        <param name="properties" type="collection">
-                                            <param name="heading" value="title"/>
-                                            <param name="image" value="headerImage"/>
-                                            <param name="url" value="url"/>
-                                        </param>
-                                    </params>
-                                </property>
-                            </properties>
-                        </type>
-
                         <type name="news">
                             <meta>
                                 <title lang="de">Neuigkeiten</title>
@@ -260,11 +159,8 @@
                                     </meta>
 
                                     <params>
-                                        <param name="properties" type="collection">
-                                            <param name="heading" value="title"/>
-                                            <param name="image" value="headerImage"/>
-                                            <param name="url" value="url"/>
-                                        </param>
+                                        <param name="provider" value="articles"/>
+                                        <param name="types" value="blog"/>
                                     </params>
                                 </property>
                             </properties>
@@ -297,6 +193,12 @@
                                 </property>
                             </properties>
                         </type>
+
+                        <xi:include href="../includes/blocks/artists_element.xml"
+                                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                        <xi:include href="../includes/blocks/discography_element.xml"
+                                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
                     </types>
                 </block>
             </properties>

@@ -85,6 +85,7 @@ sulu_core:
         structure:
             default_type:
                 snippet: "default"
+                article: "blog"
             paths:
                 homepage:
                     path: "%kernel.root_dir%/Resources/templates/pages"
@@ -95,6 +96,12 @@ sulu_core:
                 snippet:
                     path: "%kernel.root_dir%/Resources/templates/snippets"
                     type: "snippet"
+                article:
+                    path: "%kernel.root_dir%/Resources/templates/articles"
+                    type: "article"
+                article_page:
+                    path: "%kernel.root_dir%/Resources/templates/articles"
+                    type: "article_page"
 
 # SuluDocumentManager Configuration
 sulu_document_manager:
@@ -156,3 +163,26 @@ sulu_location:
     geolocators:
         google:
             api_key: 'AIzaSyBjtPJfpPh9FEwonUW0Lte5Ayshi2FVCKc'
+
+sulu_route:
+    mappings:
+        Sulu\Bundle\ArticleBundle\Document\ArticleDocument:
+            generator: schema
+            options:
+                route_schema: /blog/{object.getTitle()}
+
+ongr_elasticsearch:
+    managers:
+        default:
+            index:
+                index_name: su_sulu_demo_articles
+            mappings:
+                - SuluArticleBundle
+        live:
+            index:
+                index_name: su_sulu_demo_articles_live
+            mappings:
+                - SuluArticleBundle
+
+sulu_article:
+    display_tab_all: false

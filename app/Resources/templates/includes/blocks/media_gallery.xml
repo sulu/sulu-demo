@@ -1,0 +1,38 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="media_gallery">
+        <types>
+            <type name="media_gallery">
+                <meta>
+                    <title lang="en">Media</title>
+                    <title lang="de">Medien</title>
+                </meta>
+
+                <properties>
+                    <property name="medias" type="media_selection">
+                        <meta>
+                            <title lang="en">Media</title>
+                            <title lang="de">Medien</title>
+                        </meta>
+
+                        <params>
+                            <param name="type" value="image"/>
+                        </params>
+                    </property>
+
+                    <property name="background" type="checkbox">
+                        <meta>
+                            <title lang="en">Background Color</title>
+                            <title lang="de">Hintergrundfarbe</title>
+                        </meta>
+
+                        <params>
+                            <param name="type" value="toggler"/>
+                        </params>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

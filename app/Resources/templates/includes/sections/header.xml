@@ -1,0 +1,69 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <section name="header">
+        <meta>
+            <title lang="en">Header</title>
+            <title lang="de">Header</title>
+        </meta>
+
+        <properties>
+            <property name="headerImage" type="media_selection">
+                <meta>
+                    <title lang="en">Image</title>
+                    <title lang="de">Bild</title>
+                </meta>
+
+                <params>
+                    <param name="type" value="image,video"/>
+                </params>
+            </property>
+
+            <property name="headerHeading" type="text_line">
+                <meta>
+                    <title lang="en">Heading</title>
+                    <title lang="de">Überschrift</title>
+                </meta>
+            </property>
+
+            <property name="headerSubheading" type="text_editor">
+                <meta>
+                    <title lang="en">Subheading</title>
+                    <title lang="de">Unter-Überschrift</title>
+                </meta>
+            </property>
+
+            <property name="headerType" type="single_select">
+                <meta>
+                    <title lang="en">Size</title>
+                    <title lang="de">Größe</title>
+                </meta>
+
+                <params>
+                    <param name="values" type="collection">
+                        <param name="small">
+                            <meta>
+                                <title lang="en">Small</title>
+                                <title lang="de">Klein</title>
+                            </meta>
+                        </param>
+
+                        <param name="medium">
+                            <meta>
+                                <title lang="en">Medium</title>
+                                <title lang="de">Mittel</title>
+                            </meta>
+                        </param>
+
+                        <param name="large">
+                            <meta>
+                                <title lang="en">Large</title>
+                                <title lang="de">Groß</title>
+                            </meta>
+                        </param>
+                    </param>
+                </params>
+            </property>
+        </properties>
+    </section>
+</properties>

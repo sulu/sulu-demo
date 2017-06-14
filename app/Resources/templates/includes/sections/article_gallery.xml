@@ -1,0 +1,41 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <section name="articleGallery">
+        <meta>
+            <title lang="en">Article Gallery</title>
+            <title lang="de">Artikel Galerie</title>
+        </meta>
+
+        <properties>
+            <property name="articlesHeading" type="text_line">
+                <meta>
+                    <title lang="en">Heading</title>
+                    <title lang="de">Überschrift</title>
+                </meta>
+            </property>
+
+            <property name="articlesBackground" type="checkbox">
+                <meta>
+                    <title lang="en">Background Color</title>
+                    <title lang="de">Hintergrundfarbe</title>
+                </meta>
+
+                <params>
+                    <param name="type" value="toggler"/>
+                </params>
+            </property>
+
+            <property name="articlesShow" type="checkbox">
+                <meta>
+                    <title lang="en">Show Article Gallery</title>
+                    <title lang="de">Zeige Artikel Galerie</title>
+                </meta>
+
+                <params>
+                    <param name="type" value="toggler"/>
+                </params>
+            </property>
+        </properties>
+    </section>
+</properties>

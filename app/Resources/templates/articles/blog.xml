@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xi="http://www.w3.org/2001/XInclude"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>blog</key>
+
+    <view>@AppBundle/Resources/views/articles/blog</view>
+    <controller>SuluArticleBundle:WebsiteArticle:index</controller>
+    <cacheLifetime>144000</cacheLifetime>
+
+    <meta>
+        <title lang="en">Blog</title>
+        <title lang="de">Blog</title>
+    </meta>
+
+    <tag name="sulu_article.type" type="blog"/>
+
+    <properties>
+        <section name="highlight">
+            <properties>
+                <property name="title" type="text_line" mandatory="true">
+                    <meta>
+                        <title lang="en">Title</title>
+                        <title lang="de">Titel</title>
+                    </meta>
+
+                    <params>
+                        <param name="headline" value="true"/>
+                    </params>
+
+                    <tag name="sulu.rlp.part"/>
+                </property>
+
+                <property name="routePath" type="route">
+                    <meta>
+                        <title lang="en">Resource Locator</title>
+                        <title lang="de">Adresse</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>
+
+        <xi:include href="../includes/sections/header.xml"
+                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:section)"/>
+
+        <block name="blocks" default-type="text">
+            <types>
+                <xi:include href="../includes/blocks/heading.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                <xi:include href="../includes/blocks/subheading.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                <xi:include href="../includes/blocks/text.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                <xi:include href="../includes/blocks/quote.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                <xi:include href="../includes/blocks/media_gallery.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            </types>
+        </block>
+
+        <xi:include href="../includes/sections/article_gallery.xml"
+                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:section)"/>
+    </properties>
+</template>

@@ -70,6 +70,10 @@ abstract class AbstractKernel extends SuluKernel
             new DTL\Bundle\PhpcrMigrations\PhpcrMigrationsBundle(),
             new Dubture\FFmpegBundle\DubtureFFmpegBundle(),
 
+            // sulu article bundle
+            new Sulu\Bundle\ArticleBundle\SuluArticleBundle(),
+            new ONGR\ElasticsearchBundle\ONGRElasticsearchBundle(),
+
             // tools
             new Massive\Bundle\BuildBundle\MassiveBuildBundle(),
 
