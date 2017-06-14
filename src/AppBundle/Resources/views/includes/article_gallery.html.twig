@@ -12,7 +12,7 @@
                     <div property="articleData"
                          class="js-article-collection"
                          data-slick='{"slidesToScroll": 4, "slidesToShow": 4}'>
-                        {% for article in sulu_article_load_recent() %}
+                        {% for article in sulu_article_load_recent(4) %}
                             {% if article.excerpt.images|length %}
                                 <div class="article-collection-item">
                                     {% set images = article.excerpt.images %}
