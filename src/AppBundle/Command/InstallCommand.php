@@ -22,20 +22,15 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\Filesystem\Exception\FileNotFoundException;
 use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Finder\Finder;
-use Symfony\Component\Process\PhpExecutableFinder;
-use Symfony\Component\Process\Process;
 
 /**
  * Install project.
  */
 class InstallCommand extends ContainerAwareCommand
 {
-    const DATA_ROOT_PATH = 'vendor' . DIRECTORY_SEPARATOR . 'sulu' . DIRECTORY_SEPARATOR . 'demo-data' . DIRECTORY_SEPARATOR . 'data';
-    const SQL_FILE_PATH = self::DATA_ROOT_PATH . DIRECTORY_SEPARATOR . 'sulu_demo.sql';
-    const MEDIA_DIRECTORY_PATH = self::DATA_ROOT_PATH . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'media';
+    const SQL_FILE_PATH = 'data/sulu_demo.sql';
+    const MEDIA_FILE_PATH = 'data/media.tar.gz';
 
     /** @var SymfonyStyle */
     protected $io;
@@ -83,9 +78,6 @@ class InstallCommand extends ContainerAwareCommand
         $this->importMedia();
         $this->reindexArticles();
         $this->clearCache();
-        $this->massiveSearchReindex();
-
-        return 0;
     }
 
     protected function checkIfDatabaseExists()
@@ -146,25 +138,20 @@ class InstallCommand extends ContainerAwareCommand
 
     /**
      * Imports the media from the media file to the media file path.
+     *
+     * @return int
      */
     protected function importMedia()
     {
-        if (!$this->filesystem->exists($this->mediaPath)) {
-            $this->filesystem->mkdir($this->mediaPath);
-        }
+        // be sure that the decompressed file doesn't exists
+        $this->filesystem->remove(str_replace('.gz', '', self::MEDIA_FILE_PATH));
 
-        $iterator = new \RecursiveIteratorIterator(
-            new \RecursiveDirectoryIterator(self::MEDIA_DIRECTORY_PATH, \RecursiveDirectoryIterator::SKIP_DOTS),
-            \RecursiveIteratorIterator::SELF_FIRST);
-        foreach ($iterator as $item) {
-            if ($item->isDir()) {
-                $targetDir = $this->mediaPath . DIRECTORY_SEPARATOR . $iterator->getSubPathName();
-                $this->filesystem->mkdir($targetDir);
-            } else {
-                $targetFilename = $this->mediaPath . DIRECTORY_SEPARATOR . $iterator->getSubPathName();
-                $this->filesystem->copy($item, $targetFilename);
-            }
-        }
+        // decompress file
+        $pharData = new \PharData(self::MEDIA_FILE_PATH);
+        $pharDataDecompressed = $pharData->decompress();
+
+        // extract file to media path
+        return $pharDataDecompressed->extractTo($this->mediaPath);
     }
 
     /**
@@ -207,33 +194,9 @@ class InstallCommand extends ContainerAwareCommand
     protected function clearCache()
     {
         $cacheRootDir = dirname($this->getContainer()->getParameter('kernel.cache_dir'), 2);
-        $this->filesystem->remove($cacheRootDir . DIRECTORY_SEPARATOR . 'admin');
-        $this->filesystem->remove($cacheRootDir . DIRECTORY_SEPARATOR . 'preview');
-        $this->filesystem->remove($cacheRootDir . DIRECTORY_SEPARATOR . 'website');
-    }
-
-    /**
-     * Reindex massive search index.
-     */
-    protected function massiveSearchReindex()
-    {
-        // delete the zend lucene directories if they exists
-        $zendLuceneBasePath = $this->getContainer()->getParameter('massive_search.adapter.zend_lucene.basepath');
-
-        if ($this->filesystem->exists($zendLuceneBasePath)) {
-            $finder = new Finder();
-            $finder->in($zendLuceneBasePath);
-
-            foreach ($finder->getIterator() as $result) {
-                if (strpos($result->getBasename(), 'massive')) {
-                    $this->filesystem->remove($result->getPath());
-                }
-            }
-        }
-
-        // call reindex commands
-        $this->execCommandline('bin' . DIRECTORY_SEPARATOR . 'websiteconsole massive:search:reindex');
-        $this->execCommandline('bin' . DIRECTORY_SEPARATOR . 'adminconsole massive:search:reindex');
+        $this->filesystem->remove($cacheRootDir . '/admin');
+        $this->filesystem->remove($cacheRootDir . '/preview');
+        $this->filesystem->remove($cacheRootDir . '/website');
     }
 
     /**
@@ -249,54 +212,5 @@ class InstallCommand extends ContainerAwareCommand
         $command = $this->getApplication()->find($command);
 
         return $command->run(new ArrayInput($arguments), $this->io);
-    }
-
-    /**
-     * Execute commandline call.
-     *
-     * @param string$cmdLine
-     *
-     * @return Process
-     */
-    protected function execCommandline($cmdLine)
-    {
-        $rootDir = $this->getContainer()->getParameter('kernel.project_dir');
-
-        $process = new Process($this->getPhp() . ' ' . $rootDir . DIRECTORY_SEPARATOR . $cmdLine);
-        $process->setTimeout(null);
-        $process->run(function ($type, $out) {
-            $this->io->writeln($out);
-        });
-
-        if ($process->getExitCode() !== 0) {
-            $this->io->error(
-                sprintf(
-                    'Could not execute command "%s", got exit code "%s": %s',
-                    $cmdLine,
-                    $process->getExitCode(),
-                    $process->getErrorOutput()
-                )
-            );
-        }
-
-        return $process;
-    }
-
-    /**
-     * Finds the PHP executable.
-     *
-     * @return string
-     *
-     * @throws FileNotFoundException
-     */
-    protected function getPhp()
-    {
-        $phpFinder = new PhpExecutableFinder();
-        $phpPath = $phpFinder->find();
-        if (!$phpPath) {
-            throw new FileNotFoundException('The PHP executable could not be found.');
-        }
-
-        return $phpPath;
     }
 }
