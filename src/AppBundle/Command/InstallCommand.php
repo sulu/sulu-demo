@@ -34,7 +34,7 @@ use Symfony\Component\Process\Process;
 class InstallCommand extends ContainerAwareCommand
 {
     const DATA_ROOT_PATH = 'vendor' . DIRECTORY_SEPARATOR . 'sulu' . DIRECTORY_SEPARATOR . 'demo-data' . DIRECTORY_SEPARATOR . 'data';
-    const SQL_FILE_PATH =  self::DATA_ROOT_PATH . DIRECTORY_SEPARATOR . 'sulu_demo.sql';
+    const SQL_FILE_PATH = self::DATA_ROOT_PATH . DIRECTORY_SEPARATOR . 'sulu_demo.sql';
     const MEDIA_DIRECTORY_PATH = self::DATA_ROOT_PATH . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'media';
 
     /** @var SymfonyStyle */
@@ -220,7 +220,7 @@ class InstallCommand extends ContainerAwareCommand
         // delete the zend lucene directories
         $zendLuceneBasePath = $this->getContainer()->getParameter('massive_search.adapter.zend_lucene.basepath');
         $finder = new Finder();
-        $finder->in($zendLuceneBasePath. DIRECTORY_SEPARATOR . '*massive*');
+        $finder->in($zendLuceneBasePath . DIRECTORY_SEPARATOR . '*massive*');
 
         foreach ($finder->getIterator() as $result) {
             $this->filesystem->remove($result->getPath());
@@ -257,7 +257,7 @@ class InstallCommand extends ContainerAwareCommand
     {
         $rootDir = $this->getContainer()->getParameter('kernel.project_dir');
 
-        $process = new Process($this->getPhp() . ' ' . $rootDir . DIRECTORY_SEPARATOR  . $cmdLine);
+        $process = new Process($this->getPhp() . ' ' . $rootDir . DIRECTORY_SEPARATOR . $cmdLine);
         $process->setTimeout(null);
         $process->run(function ($type, $out) {
             $this->io->writeln($out);
@@ -281,15 +281,17 @@ class InstallCommand extends ContainerAwareCommand
      * Finds the PHP executable.
      *
      * @return string
+     *
      * @throws FileNotFoundException
      */
     protected function getPhp()
     {
         $phpFinder = new PhpExecutableFinder();
-        $phpPath   = $phpFinder->find();
+        $phpPath = $phpFinder->find();
         if (!$phpPath) {
             throw new FileNotFoundException('The PHP executable could not be found.');
         }
+
         return $phpPath;
     }
 }
