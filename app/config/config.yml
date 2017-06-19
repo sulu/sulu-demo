@@ -175,12 +175,12 @@ ongr_elasticsearch:
     managers:
         default:
             index:
-                index_name: su_sulu_demo_articles
+                index_name: sulu_rocks_articles
             mappings:
                 - SuluArticleBundle
         live:
             index:
-                index_name: su_sulu_demo_articles_live
+                index_name: sulu_rocks_articles_live
             mappings:
                 - SuluArticleBundle
 
