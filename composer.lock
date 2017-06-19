@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3e72d596f22dc4b7552837c4492d484d",
+    "content-hash": "7889621823db934bfe874d3799dac9a9",
     "packages": [
         {
             "name": "aferrandini/urlizer",
@@ -6566,6 +6566,28 @@
             ],
             "description": "This bundle generates code for you",
             "time": "2017-03-15T01:02:10+00:00"
+        },
+        {
+            "name": "sulu/demo-data",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sulu/demo-data.git",
+                "reference": "d06e406cf1ebabd4e54b6c7939365d4189280e08"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sulu/demo-data/zipball/d06e406cf1ebabd4e54b6c7939365d4189280e08",
+                "reference": "d06e406cf1ebabd4e54b6c7939365d4189280e08",
+                "shasum": ""
+            },
+            "type": "project",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Sulu demo data",
+            "time": "2017-06-19T11:39:20+00:00"
         }
     ],
     "aliases": [
@@ -6580,7 +6602,8 @@
     "stability-flags": {
         "sulu/sulu": 20,
         "sulu/document-manager": 20,
-        "zendframework/zendsearch": 20
+        "zendframework/zendsearch": 20,
+        "sulu/demo-data": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
