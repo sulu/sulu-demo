@@ -13,6 +13,7 @@ namespace AppBundle\Command;
 
 use Doctrine\DBAL\Exception\ConnectionException;
 use Doctrine\DBAL\Schema\AbstractSchemaManager;
+use function GuzzleHttp\Psr7\str;
 use ONGR\ElasticsearchBundle\Service\Manager;
 use Sulu\Component\Localization\Localization;
 use Sulu\Component\Webspace\Manager\WebspaceManager;
@@ -222,10 +223,12 @@ class InstallCommand extends ContainerAwareCommand
 
         if ($this->filesystem->exists($zendLuceneBasePath)) {
             $finder = new Finder();
-            $finder->in($zendLuceneBasePath . DIRECTORY_SEPARATOR . '*massive*');
+            $finder->in($zendLuceneBasePath);
 
             foreach ($finder->getIterator() as $result) {
-                $this->filesystem->remove($result->getPath());
+                if (strpos($result->getBasename(), 'massive')) {
+                    $this->filesystem->remove($result->getPath());
+                }
             }
         }
 
