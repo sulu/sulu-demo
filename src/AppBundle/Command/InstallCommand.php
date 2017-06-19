@@ -22,15 +22,19 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\Filesystem\Exception\FileNotFoundException;
 use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Finder\Finder;
+use Symfony\Component\Process\PhpExecutableFinder;
+use Symfony\Component\Process\Process;
 
 /**
  * Install project.
  */
 class InstallCommand extends ContainerAwareCommand
 {
-    const SQL_FILE_PATH = 'data/sulu_demo.sql';
-    const MEDIA_FILE_PATH = 'data/media.tar.gz';
+    const SQL_FILE_PATH = 'data' . DIRECTORY_SEPARATOR . 'sulu_demo.sql';
+    const MEDIA_FILE_PATH = 'data' . DIRECTORY_SEPARATOR . 'media.tar.gz';
 
     /** @var SymfonyStyle */
     protected $io;
@@ -78,6 +82,9 @@ class InstallCommand extends ContainerAwareCommand
         $this->importMedia();
         $this->reindexArticles();
         $this->clearCache();
+        $this->massiveSearchReindex();
+
+        return 0;
     }
 
     protected function checkIfDatabaseExists()
@@ -194,9 +201,28 @@ class InstallCommand extends ContainerAwareCommand
     protected function clearCache()
     {
         $cacheRootDir = dirname($this->getContainer()->getParameter('kernel.cache_dir'), 2);
-        $this->filesystem->remove($cacheRootDir . '/admin');
-        $this->filesystem->remove($cacheRootDir . '/preview');
-        $this->filesystem->remove($cacheRootDir . '/website');
+        $this->filesystem->remove($cacheRootDir . DIRECTORY_SEPARATOR . 'admin');
+        $this->filesystem->remove($cacheRootDir . DIRECTORY_SEPARATOR . 'preview');
+        $this->filesystem->remove($cacheRootDir . DIRECTORY_SEPARATOR . 'website');
+    }
+
+    /**
+     * Reindex massive search index.
+     */
+    protected function massiveSearchReindex()
+    {
+        // delete the zend lucene directories
+        $zendLuceneBasePath = $this->getContainer()->getParameter('massive_search.adapter.zend_lucene.basepath');
+        $finder = new Finder();
+        $finder->in($zendLuceneBasePath. DIRECTORY_SEPARATOR . '*massive*');
+
+        foreach ($finder->getIterator() as $result) {
+            $this->filesystem->remove($result->getPath());
+        }
+
+        // call reindex commands
+        $this->execCommandline('bin' . DIRECTORY_SEPARATOR . 'websiteconsole massive:search:reindex');
+        $this->execCommandline('bin' . DIRECTORY_SEPARATOR . 'adminconsole massive:search:reindex');
     }
 
     /**
@@ -212,5 +238,52 @@ class InstallCommand extends ContainerAwareCommand
         $command = $this->getApplication()->find($command);
 
         return $command->run(new ArrayInput($arguments), $this->io);
+    }
+
+    /**
+     * Execute commandline call.
+     *
+     * @param string$cmdLine
+     *
+     * @return Process
+     */
+    protected function execCommandline($cmdLine)
+    {
+        $rootDir = $this->getContainer()->getParameter('kernel.project_dir');
+
+        $process = new Process($this->getPhp() . ' ' . $rootDir . DIRECTORY_SEPARATOR  . $cmdLine);
+        $process->setTimeout(null);
+        $process->run(function ($type, $out) {
+            $this->io->writeln($out);
+        });
+
+        if ($process->getExitCode() !== 0) {
+            $this->io->error(
+                sprintf(
+                    'Could not execute command "%s", got exit code "%s": %s',
+                    $cmdLine,
+                    $process->getExitCode(),
+                    $process->getErrorOutput()
+                )
+            );
+        }
+
+        return $process;
+    }
+
+    /**
+     * Finds the PHP executable.
+     *
+     * @return string
+     * @throws FileNotFoundException
+     */
+    protected function getPhp()
+    {
+        $phpFinder = new PhpExecutableFinder();
+        $phpPath   = $phpFinder->find();
+        if (!$phpPath) {
+            throw new FileNotFoundException('The PHP executable could not be found.');
+        }
+        return $phpPath;
     }
 }
