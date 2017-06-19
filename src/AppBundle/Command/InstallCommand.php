@@ -33,8 +33,9 @@ use Symfony\Component\Process\Process;
  */
 class InstallCommand extends ContainerAwareCommand
 {
-    const SQL_FILE_PATH = 'data' . DIRECTORY_SEPARATOR . 'sulu_demo.sql';
-    const MEDIA_FILE_PATH = 'data' . DIRECTORY_SEPARATOR . 'media.tar.gz';
+    const DATA_ROOT_PATH = 'vendor' . DIRECTORY_SEPARATOR . 'sulu' . DIRECTORY_SEPARATOR . 'demo-data' . DIRECTORY_SEPARATOR . 'data';
+    const SQL_FILE_PATH =  self::DATA_ROOT_PATH . DIRECTORY_SEPARATOR . 'sulu_demo.sql';
+    const MEDIA_DIRECTORY_PATH = self::DATA_ROOT_PATH . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'media';
 
     /** @var SymfonyStyle */
     protected $io;
@@ -145,25 +146,25 @@ class InstallCommand extends ContainerAwareCommand
 
     /**
      * Imports the media from the media file to the media file path.
-     *
-     * @return int
      */
     protected function importMedia()
     {
-        $decompressedMediaFilePath = str_replace('.gz', '', self::MEDIA_FILE_PATH);
+        if (!$this->filesystem->exists($this->mediaPath)) {
+            $this->filesystem->mkdir($this->mediaPath);
+        }
 
-        // be sure that the decompressed file doesn't exists
-        $this->filesystem->remove($decompressedMediaFilePath);
-
-        // decompress file
-        $pharData = new \PharData(self::MEDIA_FILE_PATH);
-        $pharDataDecompressed = $pharData->decompress();
-
-        // extract file to media path
-        $pharDataDecompressed->extractTo($this->mediaPath);
-
-        // delete the decompressed file
-        $this->filesystem->remove($decompressedMediaFilePath);
+        $iterator = new \RecursiveIteratorIterator(
+            new \RecursiveDirectoryIterator(self::MEDIA_DIRECTORY_PATH, \RecursiveDirectoryIterator::SKIP_DOTS),
+            \RecursiveIteratorIterator::SELF_FIRST);
+        foreach ($iterator as $item) {
+            if ($item->isDir()) {
+                $targetDir = $this->mediaPath . DIRECTORY_SEPARATOR . $iterator->getSubPathName();
+                $this->filesystem->mkdir($targetDir);
+            } else {
+                $targetFilename = $this->mediaPath . DIRECTORY_SEPARATOR . $iterator->getSubPathName();
+                $this->filesystem->copy($item, $targetFilename);
+            }
+        }
     }
 
     /**
