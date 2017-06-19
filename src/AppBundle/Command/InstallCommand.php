@@ -150,15 +150,20 @@ class InstallCommand extends ContainerAwareCommand
      */
     protected function importMedia()
     {
+        $decompressedMediaFilePath = str_replace('.gz', '', self::MEDIA_FILE_PATH);
+
         // be sure that the decompressed file doesn't exists
-        $this->filesystem->remove(str_replace('.gz', '', self::MEDIA_FILE_PATH));
+        $this->filesystem->remove($decompresseMediaFilePath);
 
         // decompress file
         $pharData = new \PharData(self::MEDIA_FILE_PATH);
         $pharDataDecompressed = $pharData->decompress();
 
         // extract file to media path
-        return $pharDataDecompressed->extractTo($this->mediaPath);
+        $pharDataDecompressed->extractTo($this->mediaPath);
+
+        // delete the decompressed file
+        $this->filesystem->remove($decompresseMediaFilePath);
     }
 
     /**
