@@ -153,7 +153,7 @@ class InstallCommand extends ContainerAwareCommand
         $decompressedMediaFilePath = str_replace('.gz', '', self::MEDIA_FILE_PATH);
 
         // be sure that the decompressed file doesn't exists
-        $this->filesystem->remove($decompresseMediaFilePath);
+        $this->filesystem->remove($decompressedMediaFilePath);
 
         // decompress file
         $pharData = new \PharData(self::MEDIA_FILE_PATH);
@@ -163,7 +163,7 @@ class InstallCommand extends ContainerAwareCommand
         $pharDataDecompressed->extractTo($this->mediaPath);
 
         // delete the decompressed file
-        $this->filesystem->remove($decompresseMediaFilePath);
+        $this->filesystem->remove($decompressedMediaFilePath);
     }
 
     /**
