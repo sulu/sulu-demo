@@ -47,8 +47,8 @@
                             {% set author = '' %}
 
                             {% for block in article.blocks if block.type == 'author' %}
-                                {% if block.author|length and author|default('') %}
-                                    {% set author = sulu_resolve_contact(block.author|first.id) %}
+                                {% if block.authorContact|length and author|default('') %}
+                                    {% set author = sulu_resolve_contact(block.authorContact|first.id) %}
                                 {% endif %}
                             {% endfor %}
 

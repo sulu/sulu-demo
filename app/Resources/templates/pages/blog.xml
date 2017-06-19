@@ -119,7 +119,7 @@
                 <param name="properties" type="collection">
                     <param name="heading" value="title"/>
                     <param name="blocks" value="blocks"/>
-                    <param name="author" value="author"/>
+                    <param name="authorContact" value="authorContact"/>
                     <param name="image" value="headerImage"/>
                     <param name="categories" value="excerpt.categories"/>
                 </param>

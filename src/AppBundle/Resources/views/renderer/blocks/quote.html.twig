@@ -3,7 +3,14 @@
         <div property="quote" class="quote">
             {% if block.quote|default('') %}
                 <div class="quote-content">
-                    {{ block.quote|raw }}
+                    <p>
+                        <strong>{{ block.quote|nl2br }}</strong>
+                    </p>
+                    {% if block.quoteReference|default('') %}
+                        <p class="quote-reference">
+                            {{ block.quoteReference|raw }}
+                        </p>
+                    {% endif %}
                 </div>
             {% endif %}
         </div>

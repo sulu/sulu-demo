@@ -34,9 +34,6 @@ abstract class AbstractKernel extends SuluKernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle(),
 
-            // symfony cmf
-            new Symfony\Cmf\Bundle\CoreBundle\CmfCoreBundle(),
-
             // doctrine extensions
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Doctrine\Bundle\PHPCRBundle\DoctrinePHPCRBundle(),
@@ -73,6 +70,10 @@ abstract class AbstractKernel extends SuluKernel
             new DTL\Bundle\PhpcrMigrations\PhpcrMigrationsBundle(),
             new Dubture\FFmpegBundle\DubtureFFmpegBundle(),
 
+            // sulu article bundle
+            new Sulu\Bundle\ArticleBundle\SuluArticleBundle(),
+            new ONGR\ElasticsearchBundle\ONGRElasticsearchBundle(),
+
             // tools
             new Massive\Bundle\BuildBundle\MassiveBuildBundle(),
 
@@ -85,6 +86,7 @@ abstract class AbstractKernel extends SuluKernel
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+            $bundles[] = new Symfony\Bundle\WebServerBundle\WebServerBundle();
 
             // debug enhancement
             $bundles[] = new Sulu\Bundle\TestBundle\SuluTestBundle();

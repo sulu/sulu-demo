@@ -1,0 +1,21 @@
+<div rel="blocks" typeof="block">
+    <div property="background" class="">
+        <div property="author">
+            {% set authorContact = "" %}
+
+            {% if author|length %}
+                {% set authorContact = sulu_resolve_contact(author) %}
+            {% else %}
+                {% set authorContact = sulu_resolve_contact(creator) %}
+            {% endif %}
+
+            {% if authorContact|default('') %}
+                <span class="author">
+                    <i class="author-rectangle"></i>
+                    <p class="author-by">{{ 'posted'|trans }}</p>
+                    <p class="author-author">{{ authorContact.fullName }}</p>
+                </span>
+            {% endif %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="quote">
+        <types>
+            <type name="quote">
+                <meta>
+                    <title lang="en">Quote</title>
+                    <title lang="de">Zitat</title>
+                </meta>
+
+                <properties>
+                    <property name="quote" type="text_area">
+                        <meta>
+                            <title lang="en">Quote</title>
+                            <title lang="de">Zitat</title>
+                        </meta>
+                    </property>
+
+                    <property name="quoteReference" type="text_line">
+                        <meta>
+                            <title lang="en">Reference</title>
+                            <title lang="de">Referenz</title>
+                        </meta>
+                    </property>
+
+                    <property name="background" type="checkbox">
+                        <meta>
+                            <title lang="en">Background Color</title>
+                            <title lang="de">Hintergrundfarbe</title>
+                        </meta>
+
+                        <params>
+                            <param name="type" value="toggler"/>
+                        </params>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

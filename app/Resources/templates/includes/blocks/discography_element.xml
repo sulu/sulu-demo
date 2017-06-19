@@ -1,0 +1,38 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="discography_element">
+        <types>
+            <type name="discography_element">
+                <meta>
+                    <title lang="en">Discography</title>
+                    <title lang="de">Discographie</title>
+                </meta>
+
+                <properties>
+                    <property name="discographyTitle" type="text_line">
+                        <meta>
+                            <title lang="en">Title</title>
+                            <title lang="de">Titel</title>
+                        </meta>
+                    </property>
+
+                    <property name="discographyData" type="smart_content">
+                        <meta>
+                            <title lang="en">Albums</title>
+                            <title lang="de">Alben</title>
+                        </meta>
+
+                        <params>
+                            <param name="properties" type="collection">
+                                <param name="heading" value="title"/>
+                                <param name="image" value="headerImage"/>
+                                <param name="url" value="url"/>
+                            </param>
+                        </params>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

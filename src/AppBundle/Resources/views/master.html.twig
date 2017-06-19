@@ -9,7 +9,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         {% if extension is defined and content is defined %}
-            {{ sulu_seo(extension.seo, content, urls|default([]), shadowBaseLocale|default(''))|raw }}
+            {%- include 'SuluWebsiteBundle:Extension:seo.html.twig' with
+                {
+                    seo: extension.seo,
+                    content: content,
+                    urls: urls,
+                    shadowBaseLocale: shadowBaseLocale,
+                    defaultLocale: request.defaultLocale
+                }
+            %}
         {% endif %}
 
         {% block meta %}{% endblock %}

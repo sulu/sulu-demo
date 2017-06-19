@@ -63,8 +63,8 @@
 
                                         {% set author = "" %}
 
-                                        {% if artist.author|length %}
-                                            {% set author = sulu_resolve_contact(artist.author|first.id) %}
+                                        {% if artist.authorContact|length %}
+                                            {% set author = sulu_resolve_contact(artist.authorContact|first.id) %}
                                         {% else %}
                                             {% set author = sulu_resolve_contact(artist.creator) %}
                                         {% endif %}

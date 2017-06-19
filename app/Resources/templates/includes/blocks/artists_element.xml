@@ -1,0 +1,55 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="artists_element">
+        <types>
+            <type name="artists_element">
+                <meta>
+                    <title lang="de">Künstler</title>
+                    <title lang="en">Artists</title>
+                </meta>
+
+                <properties>
+                    <property name="heading" type="text_line">
+                        <meta>
+                            <title lang="en">Heading</title>
+                            <title lang="de">Überschrift</title>
+                        </meta>
+                    </property>
+
+                    <!-- A "smart content" contains references to one or multiple other pages. -->
+                    <!-- This is useful for lists of products, lists of article excerpts with "More" links and similar cases. -->
+
+                    <!-- The "smart" thing about this content type is that the content manager has some configuration options in the admin UI: -->
+                    <!-- * The number of pages that should be displayed. -->
+                    <!-- * Their order. -->
+                    <!-- * The tags or categories that the displayed pages must have. -->
+
+                    <!-- This way, content managers have a lot of flexibility without having to consult the developers for simple changes. -->
+                    <property name="artistsData" type="smart_content">
+                        <meta>
+                            <title lang="en">Artists</title>
+                            <title lang="de">Künstler</title>
+                        </meta>
+
+                        <params>
+                            <!-- The pages selected by the smart content are imported into the current template. -->
+                            <!-- Here you can render them as list, grid or rotating gallery. -->
+                            <!-- For performance reasons, Sulu will only fetch a few properties of these pages from the repository. -->
+                            <!-- These properties must be defined below. -->
+                            <param name="properties" type="collection">
+
+                                <!-- For each property, you need to define: -->
+                                <!-- * The name of the property in the referenced page (the "name" attribute) -->
+                                <!-- * The name of the Twig property in *this* template (the "value" attribute) -->
+                                <param name="heading" value="title"/>
+                                <param name="image" value="headerImage"/>
+                                <param name="url" value="url"/>
+                            </param>
+                        </params>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

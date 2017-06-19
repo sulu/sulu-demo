@@ -5,11 +5,10 @@ namespace AppBundle\Controller;
 use Sulu\Bundle\ContentBundle\Document\PageDocument;
 use Sulu\Bundle\WebsiteBundle\Controller\WebsiteController;
 use Sulu\Component\Content\Compat\StructureInterface;
-use Sulu\Component\Content\Repository\Mapping\Mapping;
-use Sulu\Component\Content\Repository\Mapping\MappingBuilder;
+use Sulu\Component\Content\Document\LocalizationState;
+use Sulu\Component\Content\Document\WorkflowStage;
 use Sulu\Component\Util\SortUtils;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Validator\Constraints\Uuid;
 
 class BlogController extends WebsiteController
 {
@@ -33,7 +32,7 @@ class BlogController extends WebsiteController
         $parent = $document->getParent();
         $articles = [];
 
-        foreach ($parent->getChildren() as $item) {
+        foreach ($this->getChildren($parent) as $item) {
             if ($item->getStructureType() == "blog_detail") {
                 array_push($articles, $item);
             }
@@ -45,14 +44,8 @@ class BlogController extends WebsiteController
         $response = $this->renderStructure(
             $structure,
             [
-                'lastAndPrevArticle' => $this->createDetailArticles(
-                    $this->getPrevAndNextArticle($articles, $uuid)
-                ),
-                'latestArticles' => $this->createDetailArticles(
-                    $this->getLatestArticle($articles, 4, $uuid)
-                ),
-                'link' => $document->getParent()->getResourceSegment()
-
+                'latestArticles' => $this->createDetailArticles($this->getLatestArticle($articles, 4, $uuid)),
+                'link' => $document->getParent()->getResourceSegment(),
             ],
             $preview,
             $partial
@@ -76,18 +69,10 @@ class BlogController extends WebsiteController
         $latestArticles = [];
         $link = '';
 
-        if (!empty($structure->getDocument()->getChildren())) {
-            $children = $structure->getChildren();
-            $articlelist = SortUtils::multisort($children, 'created');
-            $articles = [];
+        if ($children = $this->getChildren($structure->getDocument())) {
             $link = $structure->getPropertiesByTagName("sulu.rlp")[0]->getValue();
-
-            for ($i = 0; $i <= count($articlelist) -1; $i++) {
-                $articles[$i] = $articlelist[$i]->getDocument();
-            }
-
             $latestArticles = $this->createOverviewArticles(
-                $this->getLatestArticle($articles, 4, $structure->getUuid())
+                $this->getLatestArticle($children, 4, $structure->getUuid())
             );
         }
 
@@ -105,16 +90,17 @@ class BlogController extends WebsiteController
     }
 
     /**
-     * Takes all the articles and returns the lastest ones.
+     * Takes all the articles and returns the latest ones.
      *
      * @param array $articles
      * @param int $numKind
+     * @param string $uuid
      *
      * @return array
      */
     public function getLatestArticle($articles, $numKind, $uuid)
     {
-        $lastarticles = [];
+        $latestArticles = [];
         $index = -1;
 
         for ($i = 0; $i <= count($articles) - 1; $i++) {
@@ -128,37 +114,10 @@ class BlogController extends WebsiteController
         }
 
         for ($i = 0; $i <= ((count($articles) >= $numKind) ? $numKind -1 : count($articles) -1); $i++) {
-            $lastarticles[$i] = $articles[$i];
+            $latestArticles[$i] = $articles[$i];
         }
 
-        return array_reverse($lastarticles);
-    }
-
-    /**
-     * Looks for the articles before and after the one with the uuid.
-     *
-     * @param array $articles
-     * @param string $uuid
-     *
-     * @return array
-     */
-    public function getPrevAndNextArticle($articles, $uuid)
-    {
-        $result = [];
-
-        for ($i = 0; $i <= count($articles) - 1; $i++) {
-            if ($articles[$i]->getUuid() == $uuid) {
-                if (array_key_exists($i - 1, $articles) && array_key_exists($i + 1, $articles)) {
-                    $result = ['prev' => $articles[$i - 1], 'next' => $articles[$i + 1]];
-                } elseif (array_key_exists($i - 1, $articles)) {
-                    $result = ['prev' => $articles[$i - 1]];
-                } elseif (array_key_exists($i + 1, $articles)) {
-                    $result = ['next' => $articles[$i + 1]];
-                }
-            }
-        }
-
-        return $result;
+        return array_reverse($latestArticles);
     }
 
     /**
@@ -225,5 +184,35 @@ class BlogController extends WebsiteController
         }
 
         return $result;
+    }
+
+    /**
+     * @param PageDocument $parentDocument
+     *
+     * @return array
+     */
+    protected function getChildren($parentDocument)
+    {
+        $childDocuments = $parentDocument->getChildren();
+
+        if (!count($childDocuments)) {
+            return [];
+        }
+
+        $children = [];
+
+        $documentInspector = $this->get('sulu_document_manager.document_inspector');
+
+        /** @var PageDocument $childDocument */
+        foreach ($childDocuments as $childDocument) {
+            if ($childDocument instanceof PageDocument
+                && $documentInspector->getLocalizationState($childDocument) !== LocalizationState::GHOST
+                && $childDocument->getWorkflowStage() === WorkflowStage::PUBLISHED
+            ) {
+                $children[] = $childDocument;
+            }
+        }
+
+        return $children;
     }
 }
