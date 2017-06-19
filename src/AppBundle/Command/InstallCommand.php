@@ -217,13 +217,16 @@ class InstallCommand extends ContainerAwareCommand
      */
     protected function massiveSearchReindex()
     {
-        // delete the zend lucene directories
+        // delete the zend lucene directories if they exists
         $zendLuceneBasePath = $this->getContainer()->getParameter('massive_search.adapter.zend_lucene.basepath');
-        $finder = new Finder();
-        $finder->in($zendLuceneBasePath . DIRECTORY_SEPARATOR . '*massive*');
 
-        foreach ($finder->getIterator() as $result) {
-            $this->filesystem->remove($result->getPath());
+        if ($this->filesystem->exists($zendLuceneBasePath)) {
+            $finder = new Finder();
+            $finder->in($zendLuceneBasePath . DIRECTORY_SEPARATOR . '*massive*');
+
+            foreach ($finder->getIterator() as $result) {
+                $this->filesystem->remove($result->getPath());
+            }
         }
 
         // call reindex commands
