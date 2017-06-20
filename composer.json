@@ -23,7 +23,7 @@
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
-        "sulu/sulu": "dev-develop#bedb951 as 1.6.0-RC1",
+        "sulu/sulu": "dev-develop as 1.6.0-RC1",
         "sulu/document-manager": "@dev",
         "dantleech/phpcr-migrations-bundle": "~1.0",
         "zendframework/zend-stdlib": "^2.3",
@@ -36,7 +36,7 @@
         "doctrine/doctrine-cache-bundle": "^1.0",
         "oro/doctrine-extensions": "^1.0",
         "ongr/elasticsearch-bundle": "^5.0",
-        "sulu/article-bundle": "0.5.*"
+        "sulu/article-bundle": "dev-develop"
     },
     "require-dev": {
         "sulu/demo-data": "dev-master",
