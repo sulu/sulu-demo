@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3e72d596f22dc4b7552837c4492d484d",
+    "content-hash": "ac3311a56246ec180214433ef7513bc1",
     "packages": [
         {
             "name": "aferrandini/urlizer",
@@ -4760,36 +4760,39 @@
         },
         {
             "name": "sulu/article-bundle",
-            "version": "0.5.1",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sulu/SuluArticleBundle.git",
-                "reference": "4cd0e89866c17698cc2c595f7011a9167d71a74b"
+                "reference": "eafeffa9ab0baef6bd6a4c9897b1e3d298633ae8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sulu/SuluArticleBundle/zipball/4cd0e89866c17698cc2c595f7011a9167d71a74b",
-                "reference": "4cd0e89866c17698cc2c595f7011a9167d71a74b",
+                "url": "https://api.github.com/repos/sulu/SuluArticleBundle/zipball/eafeffa9ab0baef6bd6a4c9897b1e3d298633ae8",
+                "reference": "eafeffa9ab0baef6bd6a4c9897b1e3d298633ae8",
                 "shasum": ""
             },
             "require": {
+                "jackalope/jackalope": "^1.2.8 || >=1.3.3",
                 "ongr/elasticsearch-bundle": "^1.2.9 || ~5.0",
                 "ongr/elasticsearch-dsl": "^2.2.2 || ~5.0",
                 "php": "^5.5 || ^7.0",
-                "sulu/sulu": "^1.5.3 || dev-develop"
+                "sulu/sulu": "1.6.0-RC1 as 1.5.0"
             },
             "require-dev": {
-                "doctrine/doctrine-bundle": "1.4.*",
                 "jackalope/jackalope-doctrine-dbal": "^1.2.5",
-                "jackalope/jackalope-jackrabbit": "1.2.*",
-                "massive/search-bundle": "@dev",
-                "php-task/php-task": "@dev",
-                "php-task/task-bundle": "@dev",
+                "jackalope/jackalope-jackrabbit": "^1.2",
+                "php-task/php-task": "dev-master as 1.1.0",
+                "php-task/task-bundle": "dev-master as 1.1.0",
                 "phpunit/phpunit": "^4.8 || ^5.0",
-                "sulu/document-manager": "@dev",
+                "sulu/automation-bundle": "^1.0",
+                "sulu/document-manager": "0.10-RC1 as 0.9.0",
                 "symfony/monolog-bundle": "2.4.*",
                 "zendframework/zend-stdlib": "2.3.1 as 2.0.0rc5",
                 "zendframework/zendsearch": "2.*@dev"
+            },
+            "suggest": {
+                "sulu/automation-bundle": "Allows to outsource long-running route update processes."
             },
             "type": "sulu-bundle",
             "autoload": {
@@ -4812,7 +4815,7 @@
             "keywords": [
                 "articles"
             ],
-            "time": "2017-04-25T07:05:04+00:00"
+            "time": "2017-06-19 11:29:43"
         },
         {
             "name": "sulu/document-manager",
@@ -4869,12 +4872,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sulu/sulu.git",
-                "reference": "bedb951"
+                "reference": "d7aec713ddf0f68d743a519df7e6487f0058b1d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sulu/sulu/zipball/bedb951",
-                "reference": "bedb951",
+                "url": "https://api.github.com/repos/sulu/sulu/zipball/d7aec713ddf0f68d743a519df7e6487f0058b1d0",
+                "reference": "d7aec713ddf0f68d743a519df7e6487f0058b1d0",
                 "shasum": ""
             },
             "require": {
@@ -4982,7 +4985,7 @@
                 "core",
                 "sulu"
             ],
-            "time": "2017-06-07 06:52:07"
+            "time": "2017-06-16 06:57:08"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6566,6 +6569,28 @@
             ],
             "description": "This bundle generates code for you",
             "time": "2017-03-15T01:02:10+00:00"
+        },
+        {
+            "name": "sulu/demo-data",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sulu/demo-data.git",
+                "reference": "915e011b087195db65f6eb84d376a02d5a952c57"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sulu/demo-data/zipball/915e011b087195db65f6eb84d376a02d5a952c57",
+                "reference": "915e011b087195db65f6eb84d376a02d5a952c57",
+                "shasum": ""
+            },
+            "type": "project",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Sulu demo data",
+            "time": "2017-06-20T08:48:50+00:00"
         }
     ],
     "aliases": [
@@ -6580,7 +6605,9 @@
     "stability-flags": {
         "sulu/sulu": 20,
         "sulu/document-manager": 20,
-        "zendframework/zendsearch": 20
+        "zendframework/zendsearch": 20,
+        "sulu/article-bundle": 20,
+        "sulu/demo-data": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

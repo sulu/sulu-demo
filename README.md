@@ -25,7 +25,7 @@ http://docs.sulu.io/
 
 ```
 composer install
-bin/adminconsole sulu:build dev
+bin/adminconsole app:install
 ```
 
 ### File Permissions
