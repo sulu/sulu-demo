@@ -4,22 +4,23 @@
 {# views/master.html.twig and views/templates/homepage.html.twig. #}
 
 {% macro renderElem(elem) %}
+    {% import _self as sitemapMacros %}
     <a href="{{ elem.url }}" class="sitemap-heading">
         {{ elem.title }}
     </a>
 
     {% if elem.template == 'homepage' %}
         <div class="grid">
-            {{ _self.renderRow(elem.rows, 'general_pages'|trans) }}
+            {{ sitemapMacros.renderRow(elem.rows, 'general_pages'|trans) }}
         </div>
     {% elseif elem.template == 'artists' %}
         <div class="grid">
-            {{ _self.renderRow(elem.artists, 'artists'|trans) }}
-            {{ _self.renderRow(elem.disks, 'albums'|trans) }}
+            {{ sitemapMacros.renderRow(elem.artists, 'artists'|trans) }}
+            {{ sitemapMacros.renderRow(elem.disks, 'albums'|trans) }}
         </div>
     {% elseif elem.template == 'blog' %}
         <div class="grid">
-            {{ _self.renderRow(elem.articles, 'articles'|trans) }}
+            {{ sitemapMacros.renderRow(elem.articles, 'articles'|trans) }}
         </div>
     {% endif %}
 {% endmacro %}
@@ -44,13 +45,14 @@
 {% endmacro %}
 
 {% block content %}
+    {% import _self as sitemapMacros %}
     {% include('AppBundle:includes:headerimage.html.twig') %}
 
     <section class="sitemap">
         {% set sitemap = app_sitemap(sulu_sitemap()) %}
 
         {% for item in sitemap %}
-            {{ _self.renderElem(item) }}
+            {{ sitemapMacros.renderElem(item) }}
         {% endfor %}
     </section>
 {% endblock %}

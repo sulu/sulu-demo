@@ -118,7 +118,7 @@ class WebsiteTwigExtension extends \Twig_Extension
     /**
      * Renders the Blog tree correctly.
      *
-     * @param array $tree
+     * @param array $blog
      *
      * @return array
      */

@@ -31,6 +31,60 @@
         <xi:include href="../includes/sections/header.xml"
                     xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:section)"/>
 
+        <section name="Details">
+            <properties>
+                <property name="genre" type="text_line">
+                    <meta>
+                        <title lang="en">Genre</title>
+                        <title lang="de">Genre</title>
+                    </meta>
+                </property>
+
+                <property name="label" type="text_line">
+                    <meta>
+                        <title lang="en">Label</title>
+                        <title lang="de">Label</title>
+                    </meta>
+                </property>
+
+                <property name="currentMembers" type="text_line">
+                    <meta>
+                        <title lang="en">Current Members</title>
+                        <title lang="de">Aktuelle Mitglieder</title>
+                    </meta>
+                </property>
+
+                <property name="active" type="date">
+                    <meta>
+                        <title lang="en">Active</title>
+                        <title lang="de">Aktiv</title>
+                    </meta>
+
+                    <params>
+                        <param name="display_options" type="collection">
+                            <param name="format" value="yyyy"/>
+                        </param>
+                    </params>
+                </property>
+
+                <property name="website" type="url">
+                    <meta>
+                        <title lang="en">Website</title>
+                        <title lang="de">Webseite</title>
+                    </meta>
+
+                    <params>
+                        <param name="schemes" type="collection">
+                            <param name="http://"/>
+                            <param name="https://"/>
+                            <param name="//"/>
+                        </param>
+                    </params>
+                </property>
+            </properties>
+        </section>
+
+
         <block name="blocks" default-type="text" minOccurs="0">
             <meta>
                 <title lang="en">Content</title>

@@ -11,8 +11,8 @@
             <div class="blog-item">
                 <div class="grid">
                     <div class="grid__item desk--five-tenths lap--one-half palm--one-whole">
-                        {% if article.image|length and article.image|first.thumbnails['600x300'] is defined %}
-                                {% set image = article.image|first %}
+                        {% if article.excerpt.images|length and article.excerpt.images|first.thumbnails['600x300'] is defined %}
+                                {% set image = article.excerpt.images|first %}
                                 {% set defaultImage = asset(image.thumbnails['600x300']) %}
                                 {% set title = image.title %}
                                 {% set breakpoints = {
@@ -38,43 +38,43 @@
                                 </p>
                             {% endif %}
 
-                            {% if article.heading|default('') %}
-                                <p class="blog-item-text-heading">
-                                    {{ article.heading }}
-                                </p>
+                            {% set title = '' %}
+
+                            {% if article.excerpt.title %}
+                                {% set title = article.excerpt.title %}
+                            {% else %}
+                                {% set title = article.title %}
                             {% endif %}
 
-                            {% set author = '' %}
+                            <p class="blog-item-text-heading">
+                                {{ title }}
+                            </p>
 
-                            {% for block in article.blocks if block.type == 'author' %}
-                                {% if block.authorContact|length and author|default('') %}
-                                    {% set author = sulu_resolve_contact(block.authorContact|first.id) %}
-                                {% endif %}
-                            {% endfor %}
+                            {% set authorContact = "" %}
 
-                            {% if author|default('') %}
-                                {% set author = sulu_resolve_contact(article.creator) %}
+                            {% if author|length %}
+                                {% set authorContact = sulu_resolve_contact(author) %}
+                            {% else %}
+                                {% set authorContact = sulu_resolve_contact(creator) %}
                             {% endif %}
 
-                            {% if author|default('') %}
+                            {% if authorContact|default('') %}
                                 <span class="author">
                                     <i class="author-rectangle"></i>
                                     <p class="author-by">{{ 'posted'|trans }}</p>
-                                    <p class="author-author">{{ author.fullName }}</p>
+                                    <p class="author-author">{{ authorContact.fullName }}</p>
                                 </span>
                             {% endif %}
 
-                            {% for block in article.blocks if block.type == 'text' %}
-                                {% if loop.first %}
-                                    <div class="blog-item-text-text">
-                                        {{ block.text|raw }}
-                                    </div>
-                                {% endif %}
-                            {% endfor %}
+                            {% if article.excerpt.description %}
+                                <div class="blog-item-text-text">
+                                    {{ article.excerpt.description|raw }}
+                                </div>
+                            {% endif %}
 
-                            {% if article.url|default('') and sulu_content_path(article.url)|default('') %}
-                                <a href="{{ sulu_content_path(article.url) }}" class="button-medium">
-                                    {{ 'read_more'|trans }}
+                            {% if article.routePath|default('') %}
+                                <a href="{{ sulu_content_path(article.routePath) }}" class="button-medium">
+                                    {{ article.excerpt.more |default('read_more'|trans) }}
                                 </a>
                             {% endif %}
                         </div>
@@ -83,8 +83,4 @@
             </div>
         {% endfor %}
     </section>
-
-    {% include ('AppBundle:includes:article_gallery.html.twig') with {
-        'frame' : true
-    } %}
 {% endblock %}

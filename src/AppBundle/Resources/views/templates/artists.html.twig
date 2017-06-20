@@ -49,41 +49,20 @@
                                     {% endif %}
 
                                     <div class="artists-content-elem-text">
-                                        {% if artist.published|default('') %}
-                                            <p class="artists-content-elem-text-date">
-                                                {{ artist.published.date|date('d.m.Y') }}
-                                            </p>
-                                        {% endif %}
-
                                         {% if artist.title|default('') %}
                                             <a href="{{ url }}" class="artists-content-elem-text-artist">
                                                 {{ artist.title }}
                                             </a>
                                         {% endif %}
 
-                                        {% set author = "" %}
 
-                                        {% if artist.authorContact|length %}
-                                            {% set author = sulu_resolve_contact(artist.authorContact|first.id) %}
-                                        {% else %}
-                                            {% set author = sulu_resolve_contact(artist.creator) %}
-                                        {% endif %}
-
-                                        {% if author|default('') %}
-                                            <span class="artists-content-elem-text-posted">
-                                                <i class="artists-content-elem-text-posted-rectangle"></i>
-                                                <p class="artists-content-elem-text-posted-by">{{ 'posted'|trans }}</p>
-                                                <p class="artists-content-elem-text-posted-author">{{ author.fullName }}</p>
-                                            </span>
-                                        {% endif %}
-
-                                        {% for block in artist.blocks if block.type == "text" %}
-                                            {% if loop.first %}
-                                                <div class="artists-content-elem-text-text">
-                                                    {{ block.text|raw }}
-                                                </div>
-                                            {% endif %}
-                                        {% endfor %}
+                                        <div class="artists-content-elem-text-text">
+                                            <p>
+                                                <b>Genre:</b> Blabla<br>
+                                                <b>Label:</b> XYZ<br>
+                                                <b>Member:</b> 123
+                                            </p>
+                                        </div>
 
                                         {% if artist.url|default('') %}
                                             <a href="{{ url }}" class="button-medium">
@@ -105,8 +84,8 @@
             {% if content.discographyTitle|default('') or content.discographyData|default('') %}
                 {% include('AppBundle:renderer:blocks/discography_element.html.twig') with {
                     'block' : {
-                    'discographyTitle': content.discographyTitle|default('') ? content.discographyTitle : '',
-                    'discographyData': content.discographyData|default('') ? content.discographyData : ''
+                    'discographyTitle': content.discographyTitle|default(''),
+                    'discographyData': content.discographyData|default('')
                 } } %}
             {% endif %}
         </div>
