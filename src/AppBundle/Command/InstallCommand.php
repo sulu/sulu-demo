@@ -13,7 +13,6 @@ namespace AppBundle\Command;
 
 use Doctrine\DBAL\Exception\ConnectionException;
 use Doctrine\DBAL\Schema\AbstractSchemaManager;
-use function GuzzleHttp\Psr7\str;
 use ONGR\ElasticsearchBundle\Service\Manager;
 use Sulu\Component\Localization\Localization;
 use Sulu\Component\Webspace\Manager\WebspaceManager;
