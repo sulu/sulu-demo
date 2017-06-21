@@ -1,4 +1,5 @@
-<section rel="blocks" typeof="block" class="tracks">
+{% set propertyName = propertyName|default('blocks') %}
+<section rel="{{ propertyName }}" typeof="block" class="tracks">
     <div property="lists">
         {% if block.lists|length %}
             <div class="tracks-content">

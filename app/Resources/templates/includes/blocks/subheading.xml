@@ -10,7 +10,7 @@
                 </meta>
 
                 <properties>
-                    <property name="subheading" type="text_editor">
+                    <property name="subheading" type="text_line">
                         <meta>
                             <title lang="en">Subheading</title>
                             <title lang="de">Unter-Überschrift</title>

@@ -2,6 +2,7 @@ CHANGELOG for Sulu Demo
 =======================
 
 * dev-master
+    * FEATURE #2  [GENERAL] Artists and artist detail template clean up; Corrected blog overview template
     * FEATURE #1  [GENERAL] Implemented install command
     * FEATURE #51 [GENERAL] Updated to Sulu Version 1.6.0 RC1 and added SuluArticleBundle
         DEPLOY:

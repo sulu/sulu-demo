@@ -26,7 +26,7 @@
                 </meta>
             </property>
 
-            <property name="headerSubheading" type="text_editor">
+            <property name="headerSubheading" type="text_line">
                 <meta>
                     <title lang="en">Subheading</title>
                     <title lang="de">Unter-Überschrift</title>

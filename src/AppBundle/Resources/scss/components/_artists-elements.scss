@@ -153,13 +153,8 @@
                     display: block;
                     display: -webkit-box;
                     max-width: 100%;
-                    max-height: 63px;
                     font-size: 14px;
                     line-height: 1.5;
-                    -webkit-line-clamp: 3;
-                    -webkit-box-orient: vertical;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
                 }
 
                 &-date {
@@ -176,40 +171,6 @@
                     margin: 5px 0;
                     display: block;
                     @include box-sizing(border-box);
-                }
-
-                &-posted {
-                    display: block;
-                    margin-bottom: 5px;
-
-                    &-rectangle {
-                        width: 14px;
-                        height: 14px;
-                        @include inline-block(top);
-                        background-color: $colorred-lighter01;
-                        margin-right: 7px;
-                        vertical-align: middle;
-                        line-height: 14px;
-                    }
-
-                    &-by {
-                        @include inline-block(top);
-                        color: $colorblack-lighter03;
-                        font-size: 12px;
-                        line-height: 14px;
-                        vertical-align: middle;
-                        margin-right: 13px;
-                    }
-
-                    &-author {
-                        @include inline-block(top);
-                        color: $colorblack-lighter01;
-                        font-size: 12px;
-                        line-height: 14px;
-                        vertical-align: middle;
-                        text-transform: uppercase;
-                        font-weight: 700;
-                    }
                 }
             }
         }
@@ -247,5 +208,68 @@
 @media (max-width: $mobile) {
     .artists-content-elem {
         margin-bottom: 15px;
+    }
+}
+
+/*=================================================
+        ARTIST DETAIL
+=================================================*/
+
+.artist--detail {
+    .content {
+        margin: 0 auto;
+        max-width: $maxwidth;
+
+        .text, .heading, .quote, .subheading {
+            padding-right: 60px;
+        }
+    }
+
+    .facts {
+        display: inline-block;
+        padding: 40px;
+        background: $colorblack-lighter05;
+        margin-top: 100px;
+        @include box-sizing(border-box);
+
+        &-header {
+            color: $colorblack;
+            font-size: 24px;
+            font-family: $fontregular;
+            line-height: 26px;
+            font-weight: 700;
+            margin: 5px 0 15px 0;
+            display: block;
+            @include box-sizing(border-box);
+        }
+    }
+}
+
+@media (max-width: $tablet - 1) {
+    .artist--detail {
+        .content {
+            .text, .heading, .quote, .subheading {
+                padding-right: 75px;
+            }
+        }
+
+        .facts {
+            margin: 50px 75px;
+            display: block;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .artist--detail {
+        .content {
+            .text, .heading, .quote, .subheading {
+                padding-right: 30px;
+            }
+        }
+
+        .facts {
+            margin: 35px 30px;
+        }
     }
 }

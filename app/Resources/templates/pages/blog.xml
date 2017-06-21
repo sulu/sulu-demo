@@ -116,52 +116,10 @@
             </meta>
 
             <params>
-                <param name="properties" type="collection">
-                    <param name="heading" value="title"/>
-                    <param name="blocks" value="blocks"/>
-                    <param name="authorContact" value="authorContact"/>
-                    <param name="image" value="headerImage"/>
-                    <param name="categories" value="excerpt.categories"/>
-                </param>
+                <param name="provider" value="articles"/>
+                <param name="types" value="blog"/>
             </params>
         </property>
 
-        <section name="articleGallery">
-            <meta>
-                <title lang="en">Article Gallery</title>
-                <title lang="de">Artikel Galerie</title>
-            </meta>
-
-            <properties>
-                <property name="articlesHeading" type="text_line">
-                    <meta>
-                        <title lang="en">Heading</title>
-                        <title lang="de">Überschrift</title>
-                    </meta>
-                </property>
-
-                <property name="articlesBackground" type="checkbox">
-                    <meta>
-                        <title lang="en">Background Color</title>
-                        <title lang="de">Hintergrundfarbe</title>
-                    </meta>
-
-                    <params>
-                        <param name="type" value="toggler"/>
-                    </params>
-                </property>
-
-                <property name="articlesShow" type="checkbox">
-                    <meta>
-                        <title lang="en">Show Article Gallery</title>
-                        <title lang="de">Zeige Artikel Galerie</title>
-                    </meta>
-
-                    <params>
-                        <param name="type" value="toggler"/>
-                    </params>
-                </property>
-            </properties>
-        </section>
     </properties>
 </template>

@@ -7,8 +7,66 @@
         {# views/master.html.twig and views/templates/homepage.html.twig. #}
         {% include('AppBundle:includes:headerimage.html.twig') %}
 
-        {% include ('AppBundle:renderer:block-renderer.html.twig') with {
-            'blocks' : content.blocks
-        } %}
+        <div class="grid content">
+            <div class="grid__item desk--eight-twelfths">
+                {% include ('AppBundle:renderer:block-renderer.html.twig') with {
+                    'blocks' : content.blocks
+                } %}
+            </div>
+
+            <div class="grid__item desk--four-twelfths">
+                <div class="facts">
+                    <div class="facts-header">Facts</div>
+                    <div class="facts-content">
+                        <p>
+                            <span property="genre">
+                                {% if content.genre|default() %}
+                                    <b>{{ 'genre'|trans }}:</b>
+                                        {% for genre in content.genre %}
+                                            {% if loop.first == false %}
+                                                {{ ',' }}
+                                            {% endif %}
+                                            {{ genre.name }}
+                                        {% endfor %}
+                                    <br>
+                                {% endif %}
+                            </span>
+
+                            <span property="label">
+                                {% if content.label|default() %}
+                                    <b>{{ 'label'|trans }}:</b> {{ (content.label|first).name }}<br>
+                                {% endif %}
+                            </span>
+
+                            <span property="members">
+                                {% if content.members|default() %}
+                                    <b property="members">{{ 'members'|trans }}:</b> {{ content.members }}<br>
+                                {% endif %}
+                            </span>
+
+                            <span property="active">
+                                {% if content.active|default() %}
+                                    <b property="active">{{ 'active'|trans }}:</b> {{ content.active|date("Y") }}<br>
+                                {% endif %}
+                            </span>
+
+                            <span property="website">
+                                {% if content.website|default() %}
+                                    <b property="website">{{ 'website'|trans }}:</b>
+                                    <a href="{{ content.website }}">{{ content.website }}</a><br>
+                                {% endif %}
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            {% include ('AppBundle:renderer:block-renderer.html.twig') with {
+                'blocks' : content.blocksLower,
+                'propertyName': 'blocksLower'
+            } %}
+        </div>
     </section>
 {% endblock %}
