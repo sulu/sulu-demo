@@ -1,4 +1,4 @@
-<div property="blocks" typeof="collection">
+<div property="{{ propertyName|default('blocks') }}" typeof="collection">
     {% if blocks|length %}
         {% for block in blocks %}
             {# Here we render the single blocks according to its type. #}

@@ -19,39 +19,43 @@
                     <div class="facts-header">Facts</div>
                     <div class="facts-content">
                         <p>
-                            {% if content.genre|default() %}
-                                <span>
-                                <b>{{ 'genre'|trans }}:</b>
-                                    {% for genre in content.genre %}
-                                        {{ genre.name }}
-                                    {% endfor %}
+                            <span property="genre">
+                                {% if content.genre|default() %}
+                                    <b>{{ 'genre'|trans }}:</b>
+                                        {% for genre in content.genre %}
+                                            {% if loop.first == false %}
+                                                {{ ',' }}
+                                            {% endif %}
+                                            {{ genre.name }}
+                                        {% endfor %}
                                     <br>
+                                {% endif %}
                             </span>
-                            {% endif %}
 
-                            {% if content.label|default() %}
-                                <span>
-                                <b>{{ 'label'|trans }}:</b> {{ (content.label|first).name }}<br>
+                            <span property="label">
+                                {% if content.label|default() %}
+                                    <b>{{ 'label'|trans }}:</b> {{ (content.label|first).name }}<br>
+                                {% endif %}
                             </span>
-                            {% endif %}
 
-                            {% if content.members|default() %}
-                                <span>
-                                <b>{{ 'members'|trans }}:</b> {{ content.members }}<br>
+                            <span property="members">
+                                {% if content.members|default() %}
+                                    <b property="members">{{ 'members'|trans }}:</b> {{ content.members }}<br>
+                                {% endif %}
                             </span>
-                            {% endif %}
 
-                            {% if content.active|default() %}
-                                <span>
-                                <b>{{ 'active'|trans }}:</b> {{ content.active|date("Y") }}<br>
+                            <span property="active">
+                                {% if content.active|default() %}
+                                    <b property="active">{{ 'active'|trans }}:</b> {{ content.active|date("Y") }}<br>
+                                {% endif %}
                             </span>
-                            {% endif %}
 
-                            {% if content.website|default() %}
-                                <span>
-                                <b>{{ 'website'|trans }}:</b> <a href="{{ content.website }}">{{ content.website }}</a><br>
+                            <span property="website">
+                                {% if content.website|default() %}
+                                    <b property="website">{{ 'website'|trans }}:</b>
+                                    <a href="{{ content.website }}">{{ content.website }}</a><br>
+                                {% endif %}
                             </span>
-                            {% endif %}
                         </p>
                     </div>
                 </div>
@@ -60,7 +64,8 @@
 
         <div>
             {% include ('AppBundle:renderer:block-renderer.html.twig') with {
-                'blocks' : content.blocksLower
+                'blocks' : content.blocksLower,
+                'propertyName': 'blocksLower'
             } %}
         </div>
     </section>
