@@ -21,13 +21,6 @@
         <xi:include href="../includes/sections/highlight.xml"
                     xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:section)"/>
 
-        <property name="authorContact" type="contact">
-            <meta>
-                <title lang="en">Author</title>
-                <title lang="de">Autor</title>
-            </meta>
-        </property>
-
         <xi:include href="../includes/sections/header.xml"
                     xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:section)"/>
 
@@ -119,6 +112,24 @@
 
                 <xi:include href="../includes/blocks/action.xml"
                             xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            </types>
+        </block>
+
+        <block name="blocksLower" default-type="text" minOccurs="0">
+            <meta>
+                <title lang="en">Content lower</title>
+                <title lang="de">Inhalte Unten</title>
+            </meta>
+
+            <types>
+                <xi:include href="../includes/blocks/media_gallery.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                <xi:include href="../includes/blocks/discography_element.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                <xi:include href="../includes/blocks/action.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
 
                 <type name="flash_news">
                     <meta>
@@ -167,24 +178,6 @@
                         </property>
                     </properties>
                 </type>
-            </types>
-        </block>
-
-        <block name="blocksLower" default-type="text" minOccurs="0">
-            <meta>
-                <title lang="en">Content lower</title>
-                <title lang="de">Inhalte Unten</title>
-            </meta>
-
-            <types>
-                <xi:include href="../includes/blocks/media_gallery.xml"
-                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
-
-                <xi:include href="../includes/blocks/discography_element.xml"
-                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
-
-                <xi:include href="../includes/blocks/action.xml"
-                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
             </types>
         </block>
     </properties>

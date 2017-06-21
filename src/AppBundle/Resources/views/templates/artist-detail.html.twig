@@ -9,12 +9,6 @@
 
         <div class="grid content">
             <div class="grid__item desk--eight-twelfths">
-                <div property="heading" class="heading">
-                    <h2 class="heading-h2">
-                        {{ content.heading|default(content.title) }}
-                    </h2>
-                </div>
-
                 {% include ('AppBundle:renderer:block-renderer.html.twig') with {
                     'blocks' : content.blocks
                 } %}
