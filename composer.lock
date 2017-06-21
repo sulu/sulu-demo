@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7889621823db934bfe874d3799dac9a9",
+    "content-hash": "ac3311a56246ec180214433ef7513bc1",
     "packages": [
         {
             "name": "aferrandini/urlizer",
@@ -2669,16 +2669,16 @@
         },
         {
             "name": "layershifter/tld-database",
-            "version": "1.0.42",
+            "version": "1.0.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/layershifter/TLDDatabase.git",
-                "reference": "c964aaad10af0b0119cbc803e5b32bc7b76d74bd"
+                "reference": "37c478ba25bd5642bd88c8a4e3b5dc5ca1734734"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/layershifter/TLDDatabase/zipball/c964aaad10af0b0119cbc803e5b32bc7b76d74bd",
-                "reference": "c964aaad10af0b0119cbc803e5b32bc7b76d74bd",
+                "url": "https://api.github.com/repos/layershifter/TLDDatabase/zipball/37c478ba25bd5642bd88c8a4e3b5dc5ca1734734",
+                "reference": "37c478ba25bd5642bd88c8a4e3b5dc5ca1734734",
                 "shasum": ""
             },
             "require": {
@@ -2716,7 +2716,7 @@
                 "domain database",
                 "tld database"
             ],
-            "time": "2017-04-14T07:30:19+00:00"
+            "time": "2017-06-18T09:31:47+00:00"
         },
         {
             "name": "layershifter/tld-extract",
@@ -2856,16 +2856,16 @@
         },
         {
             "name": "massive/search-bundle",
-            "version": "0.16.1",
+            "version": "0.16.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/massiveart/MassiveSearchBundle.git",
-                "reference": "9bb84a805142e49be4ed468d51d6522e12895f2e"
+                "reference": "b4d03471a21d4dbc4becee23f877e9a8ee0af5ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/massiveart/MassiveSearchBundle/zipball/9bb84a805142e49be4ed468d51d6522e12895f2e",
-                "reference": "9bb84a805142e49be4ed468d51d6522e12895f2e",
+                "url": "https://api.github.com/repos/massiveart/MassiveSearchBundle/zipball/b4d03471a21d4dbc4becee23f877e9a8ee0af5ac",
+                "reference": "b4d03471a21d4dbc4becee23f877e9a8ee0af5ac",
                 "shasum": ""
             },
             "require": {
@@ -2918,20 +2918,20 @@
                 }
             ],
             "description": "Massive Search Bundle",
-            "time": "2017-05-11T11:15:59+00:00"
+            "time": "2017-06-16T05:57:31+00:00"
         },
         {
             "name": "monolog/monolog",
-            "version": "1.22.1",
+            "version": "1.23.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "1e044bc4b34e91743943479f1be7a1d5eb93add0"
+                "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1e044bc4b34e91743943479f1be7a1d5eb93add0",
-                "reference": "1e044bc4b34e91743943479f1be7a1d5eb93add0",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/fd8c787753b3a2ad11bc60c063cff1358a32a3b4",
+                "reference": "fd8c787753b3a2ad11bc60c063cff1358a32a3b4",
                 "shasum": ""
             },
             "require": {
@@ -2952,7 +2952,7 @@
                 "phpunit/phpunit-mock-objects": "2.3.0",
                 "ruflin/elastica": ">=0.90 <3.0",
                 "sentry/sentry": "^0.13",
-                "swiftmailer/swiftmailer": "~5.3"
+                "swiftmailer/swiftmailer": "^5.3|^6.0"
             },
             "suggest": {
                 "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
@@ -2996,7 +2996,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2017-03-13T07:08:03+00:00"
+            "time": "2017-06-19T01:22:40+00:00"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -3882,16 +3882,16 @@
         },
         {
             "name": "piwik/device-detector",
-            "version": "3.7.7",
+            "version": "3.7.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/piwik/device-detector.git",
-                "reference": "f0e5d6bc159241fdfc2e02f7abd4ab5d519d2c30"
+                "reference": "2ea3108d8cdffd58d855eff3cc493c0acc4cf102"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/piwik/device-detector/zipball/f0e5d6bc159241fdfc2e02f7abd4ab5d519d2c30",
-                "reference": "f0e5d6bc159241fdfc2e02f7abd4ab5d519d2c30",
+                "url": "https://api.github.com/repos/piwik/device-detector/zipball/2ea3108d8cdffd58d855eff3cc493c0acc4cf102",
+                "reference": "2ea3108d8cdffd58d855eff3cc493c0acc4cf102",
                 "shasum": ""
             },
             "require": {
@@ -3929,7 +3929,7 @@
                 "parser",
                 "useragent"
             ],
-            "time": "2017-04-02T17:25:50+00:00"
+            "time": "2017-06-05T20:44:38+00:00"
         },
         {
             "name": "psr/cache",
@@ -4760,36 +4760,39 @@
         },
         {
             "name": "sulu/article-bundle",
-            "version": "0.5.1",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sulu/SuluArticleBundle.git",
-                "reference": "4cd0e89866c17698cc2c595f7011a9167d71a74b"
+                "reference": "2a8680ec102c77d36571be77e977805d66613d51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sulu/SuluArticleBundle/zipball/4cd0e89866c17698cc2c595f7011a9167d71a74b",
-                "reference": "4cd0e89866c17698cc2c595f7011a9167d71a74b",
+                "url": "https://api.github.com/repos/sulu/SuluArticleBundle/zipball/2a8680ec102c77d36571be77e977805d66613d51",
+                "reference": "2a8680ec102c77d36571be77e977805d66613d51",
                 "shasum": ""
             },
             "require": {
+                "jackalope/jackalope": "^1.2.8 || >=1.3.3",
                 "ongr/elasticsearch-bundle": "^1.2.9 || ~5.0",
                 "ongr/elasticsearch-dsl": "^2.2.2 || ~5.0",
                 "php": "^5.5 || ^7.0",
-                "sulu/sulu": "^1.5.3 || dev-develop"
+                "sulu/sulu": "1.6.0-RC1 as 1.5.0"
             },
             "require-dev": {
-                "doctrine/doctrine-bundle": "1.4.*",
                 "jackalope/jackalope-doctrine-dbal": "^1.2.5",
-                "jackalope/jackalope-jackrabbit": "1.2.*",
-                "massive/search-bundle": "@dev",
-                "php-task/php-task": "@dev",
-                "php-task/task-bundle": "@dev",
+                "jackalope/jackalope-jackrabbit": "^1.2",
+                "php-task/php-task": "dev-master as 1.1.0",
+                "php-task/task-bundle": "dev-master as 1.1.0",
                 "phpunit/phpunit": "^4.8 || ^5.0",
-                "sulu/document-manager": "@dev",
+                "sulu/automation-bundle": "^1.0",
+                "sulu/document-manager": "0.10-RC1 as 0.9.0",
                 "symfony/monolog-bundle": "2.4.*",
                 "zendframework/zend-stdlib": "2.3.1 as 2.0.0rc5",
                 "zendframework/zendsearch": "2.*@dev"
+            },
+            "suggest": {
+                "sulu/automation-bundle": "Allows to outsource long-running route update processes."
             },
             "type": "sulu-bundle",
             "autoload": {
@@ -4812,20 +4815,20 @@
             "keywords": [
                 "articles"
             ],
-            "time": "2017-04-25T07:05:04+00:00"
+            "time": "2017-06-21 07:29:30"
         },
         {
             "name": "sulu/document-manager",
-            "version": "0.10.0-RC1",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sulu/sulu-document-manager.git",
-                "reference": "a6e1dfd6de33d58f48768ef3511d8e63e284c196"
+                "reference": "cfb4258ba1fc0da2777eef1a10869d1c947f0c65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sulu/sulu-document-manager/zipball/a6e1dfd6de33d58f48768ef3511d8e63e284c196",
-                "reference": "a6e1dfd6de33d58f48768ef3511d8e63e284c196",
+                "url": "https://api.github.com/repos/sulu/sulu-document-manager/zipball/cfb4258ba1fc0da2777eef1a10869d1c947f0c65",
+                "reference": "cfb4258ba1fc0da2777eef1a10869d1c947f0c65",
                 "shasum": ""
             },
             "require": {
@@ -4861,7 +4864,7 @@
                 }
             ],
             "description": "Sulu Document Manager",
-            "time": "2017-06-01T05:54:46+00:00"
+            "time": "2017-06-21 06:52:18"
         },
         {
             "name": "sulu/sulu",
@@ -4869,12 +4872,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sulu/sulu.git",
-                "reference": "bedb951"
+                "reference": "c0fbfd37119d95f495451d027c28580dc929c87e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sulu/sulu/zipball/bedb951",
-                "reference": "bedb951",
+                "url": "https://api.github.com/repos/sulu/sulu/zipball/c0fbfd37119d95f495451d027c28580dc929c87e",
+                "reference": "c0fbfd37119d95f495451d027c28580dc929c87e",
                 "shasum": ""
             },
             "require": {
@@ -4903,7 +4906,7 @@
                 "ramsey/uuid": "^3.1",
                 "sensio/framework-extra-bundle": "^3.0",
                 "stof/doctrine-extensions-bundle": "^1.2.2",
-                "sulu/document-manager": "0.10.0-RC1",
+                "sulu/document-manager": "dev-develop",
                 "symfony-cmf/routing-bundle": "^1.2 || ^2.0",
                 "symfony/swiftmailer-bundle": "~2.3",
                 "symfony/symfony": "^2.8.7 || ^3.0",
@@ -4982,7 +4985,7 @@
                 "core",
                 "sulu"
             ],
-            "time": "2017-06-07 06:52:07"
+            "time": "2017-06-21 09:24:38"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5272,21 +5275,21 @@
         },
         {
             "name": "symfony/polyfill-intl-icu",
-            "version": "v1.3.0",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-icu.git",
-                "reference": "2d6e2b20d457603eefb6e614286c22efca30fdb4"
+                "reference": "3191cbe0ce64987bd382daf6724af31c53daae01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-icu/zipball/2d6e2b20d457603eefb6e614286c22efca30fdb4",
-                "reference": "2d6e2b20d457603eefb6e614286c22efca30fdb4",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-icu/zipball/3191cbe0ce64987bd382daf6724af31c53daae01",
+                "reference": "3191cbe0ce64987bd382daf6724af31c53daae01",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
-                "symfony/intl": "~2.3|~3.0"
+                "symfony/intl": "~2.3|~3.0|~4.0"
             },
             "suggest": {
                 "ext-intl": "For best performance"
@@ -5294,7 +5297,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
@@ -5326,20 +5329,20 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-11-14T01:06:16+00:00"
+            "time": "2017-06-09T08:25:21+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.3.0",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "e79d363049d1c2128f133a2667e4f4190904f7f4"
+                "reference": "f29dca382a6485c3cbe6379f0c61230167681937"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/e79d363049d1c2128f133a2667e4f4190904f7f4",
-                "reference": "e79d363049d1c2128f133a2667e4f4190904f7f4",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/f29dca382a6485c3cbe6379f0c61230167681937",
+                "reference": "f29dca382a6485c3cbe6379f0c61230167681937",
                 "shasum": ""
             },
             "require": {
@@ -5351,7 +5354,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
@@ -5385,20 +5388,20 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-11-14T01:06:16+00:00"
+            "time": "2017-06-09T14:24:12+00:00"
         },
         {
             "name": "symfony/polyfill-php56",
-            "version": "v1.3.0",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php56.git",
-                "reference": "1dd42b9b89556f18092f3d1ada22cb05ac85383c"
+                "reference": "bc0b7d6cb36b10cfabb170a3e359944a95174929"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php56/zipball/1dd42b9b89556f18092f3d1ada22cb05ac85383c",
-                "reference": "1dd42b9b89556f18092f3d1ada22cb05ac85383c",
+                "url": "https://api.github.com/repos/symfony/polyfill-php56/zipball/bc0b7d6cb36b10cfabb170a3e359944a95174929",
+                "reference": "bc0b7d6cb36b10cfabb170a3e359944a95174929",
                 "shasum": ""
             },
             "require": {
@@ -5408,7 +5411,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
@@ -5441,20 +5444,20 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-11-14T01:06:16+00:00"
+            "time": "2017-06-09T08:25:21+00:00"
         },
         {
             "name": "symfony/polyfill-php70",
-            "version": "v1.3.0",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php70.git",
-                "reference": "13ce343935f0f91ca89605a2f6ca6f5c2f3faac2"
+                "reference": "032fd647d5c11a9ceab8ee8747e13b5448e93874"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/13ce343935f0f91ca89605a2f6ca6f5c2f3faac2",
-                "reference": "13ce343935f0f91ca89605a2f6ca6f5c2f3faac2",
+                "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/032fd647d5c11a9ceab8ee8747e13b5448e93874",
+                "reference": "032fd647d5c11a9ceab8ee8747e13b5448e93874",
                 "shasum": ""
             },
             "require": {
@@ -5464,7 +5467,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
@@ -5500,20 +5503,20 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-11-14T01:06:16+00:00"
+            "time": "2017-06-09T14:24:12+00:00"
         },
         {
             "name": "symfony/polyfill-util",
-            "version": "v1.3.0",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-util.git",
-                "reference": "746bce0fca664ac0a575e465f65c6643faddf7fb"
+                "reference": "ebccbde4aad410f6438d86d7d261c6b4d2b9a51d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-util/zipball/746bce0fca664ac0a575e465f65c6643faddf7fb",
-                "reference": "746bce0fca664ac0a575e465f65c6643faddf7fb",
+                "url": "https://api.github.com/repos/symfony/polyfill-util/zipball/ebccbde4aad410f6438d86d7d261c6b4d2b9a51d",
+                "reference": "ebccbde4aad410f6438d86d7d261c6b4d2b9a51d",
                 "shasum": ""
             },
             "require": {
@@ -5522,7 +5525,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
@@ -5552,7 +5555,7 @@
                 "polyfill",
                 "shim"
             ],
-            "time": "2016-11-14T01:06:16+00:00"
+            "time": "2017-06-09T08:25:21+00:00"
         },
         {
             "name": "symfony/swiftmailer-bundle",
@@ -5615,16 +5618,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v3.3.0",
+            "version": "v3.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "5a7e31c48e7cd4831efa409fffb661beb9995174"
+                "reference": "82bd7c039214b34bb5d12c04f996f05f6581c49f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/5a7e31c48e7cd4831efa409fffb661beb9995174",
-                "reference": "5a7e31c48e7cd4831efa409fffb661beb9995174",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/82bd7c039214b34bb5d12c04f996f05f6581c49f",
+                "reference": "82bd7c039214b34bb5d12c04f996f05f6581c49f",
                 "shasum": ""
             },
             "require": {
@@ -5641,7 +5644,7 @@
                 "symfony/polyfill-php56": "~1.0",
                 "symfony/polyfill-php70": "~1.0",
                 "symfony/polyfill-util": "~1.0",
-                "twig/twig": "~1.32|~2.2"
+                "twig/twig": "~1.34|~2.4"
             },
             "conflict": {
                 "phpdocumentor/reflection-docblock": "<3.0",
@@ -5764,7 +5767,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-05-29T21:02:32+00:00"
+            "time": "2017-06-06T04:00:14+00:00"
         },
         {
             "name": "true/punycode",
@@ -5814,16 +5817,16 @@
         },
         {
             "name": "twig/extensions",
-            "version": "v1.5.0",
+            "version": "v1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig-extensions.git",
-                "reference": "d6d74d6f3213a9574c460c4390c25a1a67c17cc3"
+                "reference": "d188c76168b853481cc75879ea045bf93d718e9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig-extensions/zipball/d6d74d6f3213a9574c460c4390c25a1a67c17cc3",
-                "reference": "d6d74d6f3213a9574c460c4390c25a1a67c17cc3",
+                "url": "https://api.github.com/repos/twigphp/Twig-extensions/zipball/d188c76168b853481cc75879ea045bf93d718e9c",
+                "reference": "d188c76168b853481cc75879ea045bf93d718e9c",
                 "shasum": ""
             },
             "require": {
@@ -5866,20 +5869,20 @@
                 "i18n",
                 "text"
             ],
-            "time": "2017-05-24T06:24:07+00:00"
+            "time": "2017-06-08T18:19:53+00:00"
         },
         {
             "name": "twig/twig",
-            "version": "v2.3.2",
+            "version": "v2.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "85e8372c451510165c04bf781295f9d922fa524b"
+                "reference": "eab7c3288ae6603d7d6f92b531626af2b162d1f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/85e8372c451510165c04bf781295f9d922fa524b",
-                "reference": "85e8372c451510165c04bf781295f9d922fa524b",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/eab7c3288ae6603d7d6f92b531626af2b162d1f2",
+                "reference": "eab7c3288ae6603d7d6f92b531626af2b162d1f2",
                 "shasum": ""
             },
             "require": {
@@ -5894,12 +5897,15 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3-dev"
+                    "dev-master": "2.4-dev"
                 }
             },
             "autoload": {
                 "psr-0": {
                     "Twig_": "lib/"
+                },
+                "psr-4": {
+                    "Twig\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -5929,7 +5935,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2017-04-21T00:13:02+00:00"
+            "time": "2017-06-07T18:47:58+00:00"
         },
         {
             "name": "willdurand/hateoas",
@@ -5997,23 +6003,22 @@
         },
         {
             "name": "willdurand/hateoas-bundle",
-            "version": "1.2.0",
-            "target-dir": "Bazinga/Bundle/HateoasBundle",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/willdurand/BazingaHateoasBundle.git",
-                "reference": "7c73a949c72dc6bc7363f76c11e70e655b19d94b"
+                "reference": "bf57a3e45a26937726f370933eec4d8a7062733c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/willdurand/BazingaHateoasBundle/zipball/7c73a949c72dc6bc7363f76c11e70e655b19d94b",
-                "reference": "7c73a949c72dc6bc7363f76c11e70e655b19d94b",
+                "url": "https://api.github.com/repos/willdurand/BazingaHateoasBundle/zipball/bf57a3e45a26937726f370933eec4d8a7062733c",
+                "reference": "bf57a3e45a26937726f370933eec4d8a7062733c",
                 "shasum": ""
             },
             "require": {
-                "jms/serializer-bundle": "~1.0",
+                "jms/serializer-bundle": "~1.0 || ^2.0",
                 "php": ">5.4",
-                "symfony/framework-bundle": "~2.2 || ~3.0",
+                "symfony/framework-bundle": "~2.3 || ~3.0",
                 "willdurand/hateoas": "^2.10.0"
             },
             "require-dev": {
@@ -6024,12 +6029,12 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2-dev"
+                    "dev-master": "1.3-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Bazinga\\Bundle\\HateoasBundle": ""
+                "psr-4": {
+                    "Bazinga\\Bundle\\HateoasBundle\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -6047,7 +6052,7 @@
                 "HATEOAS",
                 "rest"
             ],
-            "time": "2016-05-31T13:55:14+00:00"
+            "time": "2017-06-07T17:54:37+00:00"
         },
         {
             "name": "willdurand/jsonp-callback-validator",
@@ -6573,12 +6578,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sulu/demo-data.git",
-                "reference": "d06e406cf1ebabd4e54b6c7939365d4189280e08"
+                "reference": "915e011b087195db65f6eb84d376a02d5a952c57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sulu/demo-data/zipball/d06e406cf1ebabd4e54b6c7939365d4189280e08",
-                "reference": "d06e406cf1ebabd4e54b6c7939365d4189280e08",
+                "url": "https://api.github.com/repos/sulu/demo-data/zipball/915e011b087195db65f6eb84d376a02d5a952c57",
+                "reference": "915e011b087195db65f6eb84d376a02d5a952c57",
                 "shasum": ""
             },
             "type": "project",
@@ -6587,7 +6592,7 @@
                 "MIT"
             ],
             "description": "Sulu demo data",
-            "time": "2017-06-19T11:39:20+00:00"
+            "time": "2017-06-20 08:48:50"
         }
     ],
     "aliases": [
@@ -6603,6 +6608,7 @@
         "sulu/sulu": 20,
         "sulu/document-manager": 20,
         "zendframework/zendsearch": 20,
+        "sulu/article-bundle": 20,
         "sulu/demo-data": 20
     },
     "prefer-stable": false,
