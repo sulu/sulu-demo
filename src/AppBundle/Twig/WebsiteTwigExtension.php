@@ -74,8 +74,6 @@ class WebsiteTwigExtension extends \Twig_Extension
         foreach ($tree['children'] as $child) {
             if ($child['template'] == 'artists') {
                 array_push($result, $this->renderArtists($child));
-            } elseif ($child['template'] == 'blog') {
-                array_push($result, $this->renderBlog($child));
             } else {
                 array_push($homeChilds, $child);
             }
@@ -110,27 +108,6 @@ class WebsiteTwigExtension extends \Twig_Extension
 
         $result['artists'] = $this->splitIntoRows($artists, 1);
         $result['disks'] = $this->splitIntoRows($disks, 2);
-
-        return $result;
-    }
-
-    /**
-     * Renders the Blog tree correctly.
-     *
-     * @param array $blog
-     *
-     * @return array
-     */
-    private function renderBlog($blog)
-    {
-        $result = $blog;
-        $articles = [];
-
-        foreach ($blog['children'] as $article) {
-            array_push($articles, $article);
-        }
-
-        $result['articles'] = $this->splitIntoRows($articles, 3);
 
         return $result;
     }
