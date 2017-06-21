@@ -1,10 +1,11 @@
+{% set propertyName = propertyName|default('blocks') %}
 {% if loop.first or (blocks[loop.index0 - 1] is defined and blocks[loop.index0 - 1].type != 'services') %}
     <div class="services">
         <div class="services-frame">
             <div class="grid">
 {% endif %}
 
-                <div class="grid__item desk--one-third lap--one-half palm--one-whole" rel="blocks" typeof="block">
+                <div class="grid__item desk--one-third lap--one-half palm--one-whole" rel="{{ propertyName }}" typeof="block">
                     <div property="background">
                         {% set background = '' %}
 

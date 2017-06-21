@@ -1,4 +1,5 @@
-<section class="news" rel="blocks" typeof="block">
+{% set propertyName = propertyName|default('blocks') %}
+<section class="news" rel="{{ propertyName }}" typeof="block">
     <div class="news-content">
         <div property="title">
             {% if block.title|default('') %}

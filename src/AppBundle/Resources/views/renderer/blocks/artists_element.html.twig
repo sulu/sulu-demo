@@ -1,4 +1,5 @@
-<section rel="blocks" typeof="block" class="artist-element {{ background|default('') }}">
+{% set propertyName = propertyName|default('blocks') %}
+<section rel="{{ propertyName }}" typeof="block" class="artist-element {{ background|default('') }}">
     <div property="heading">
         {% if block.heading|default('') %}
             <h2 class="artist-element-heading heading-h2">

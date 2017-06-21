@@ -1,4 +1,5 @@
-<div rel="blocks" typeof="block">
+{% set propertyName = propertyName|default('blocks') %}
+<div rel="{{ propertyName }}" typeof="block">
     {% set background = '' %}
 
     {% if block.background|length and block.background|first.thumbnails['1920x1080'] is defined %}

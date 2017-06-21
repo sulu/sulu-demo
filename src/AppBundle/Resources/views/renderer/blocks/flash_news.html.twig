@@ -1,4 +1,5 @@
-<section class="news--flash" rel="blocks" typeof="block">
+{% set propertyName = propertyName|default('blocks') %}
+<section class="news--flash" rel="{{ propertyName }}" typeof="block">
     <div class="grid">
         <div class="grid__item desk--one-half">
             <div class="news--flash-text">

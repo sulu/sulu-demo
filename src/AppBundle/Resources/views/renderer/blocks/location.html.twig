@@ -1,4 +1,5 @@
-<div rel="blocks" typeof="block">
+{% set propertyName = propertyName|default('blocks') %}
+<div rel="{{ propertyName }}" typeof="block">
     <div class="location" property="location">
         {% set lat = block.location.lat|default('') %}
         {% set long = block.location.long|default('') %}
