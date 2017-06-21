@@ -13,8 +13,8 @@
     <cacheLifetime>604800</cacheLifetime>
 
     <meta>
-        <title lang="en">Band</title>
-        <title lang="de">Band</title>
+        <title lang="en">Artist</title>
+        <title lang="de">Künstler</title>
     </meta>
 
     <properties>
@@ -33,24 +33,29 @@
 
         <section name="Details">
             <properties>
-                <property name="genre" type="text_line">
+                <property name="genre" type="category_list">
                     <meta>
                         <title lang="en">Genre</title>
                         <title lang="de">Genre</title>
                     </meta>
                 </property>
 
-                <property name="label" type="text_line">
+                <property name="label" type="contact">
                     <meta>
                         <title lang="en">Label</title>
                         <title lang="de">Label</title>
                     </meta>
+
+                    <params>
+                        <param name="contact" value="false"/>
+                        <param name="account" value="true"/>
+                    </params>
                 </property>
 
-                <property name="currentMembers" type="text_line">
+                <property name="members" type="text_line">
                     <meta>
-                        <title lang="en">Current Members</title>
-                        <title lang="de">Aktuelle Mitglieder</title>
+                        <title lang="en">Members</title>
+                        <title lang="de">Mitglieder</title>
                     </meta>
                 </property>
 
@@ -63,7 +68,10 @@
                     <params>
                         <param name="display_options" type="collection">
                             <param name="format" value="yyyy"/>
+                            <param name="minViewMode" value="years"/>
+                            <param name="startView" value="year"/>
                         </param>
+                        <param name="placeholder" value="yyyy"/>
                     </params>
                 </property>
 
@@ -77,7 +85,6 @@
                         <param name="schemes" type="collection">
                             <param name="http://"/>
                             <param name="https://"/>
-                            <param name="//"/>
                         </param>
                     </params>
                 </property>
@@ -87,8 +94,8 @@
 
         <block name="blocks" default-type="text" minOccurs="0">
             <meta>
-                <title lang="en">Content</title>
-                <title lang="de">Inhalte</title>
+                <title lang="en">Content left</title>
+                <title lang="de">Inhalte Links</title>
             </meta>
 
             <types>
@@ -160,6 +167,24 @@
                         </property>
                     </properties>
                 </type>
+            </types>
+        </block>
+
+        <block name="blocksLower" default-type="text" minOccurs="0">
+            <meta>
+                <title lang="en">Content lower</title>
+                <title lang="de">Inhalte Unten</title>
+            </meta>
+
+            <types>
+                <xi:include href="../includes/blocks/media_gallery.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                <xi:include href="../includes/blocks/discography_element.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                <xi:include href="../includes/blocks/action.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
             </types>
         </block>
     </properties>

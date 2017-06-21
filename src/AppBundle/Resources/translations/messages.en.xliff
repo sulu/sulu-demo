@@ -102,6 +102,26 @@
                 <source>security</source>
                 <target>Safety and recalls</target>
             </trans-unit>
+            <trans-unit id="26">
+                <source>genre</source>
+                <target>Genre</target>
+            </trans-unit>
+            <trans-unit id="27">
+                <source>label</source>
+                <target>Label</target>
+            </trans-unit>
+            <trans-unit id="28">
+                <source>members</source>
+                <target>Members</target>
+            </trans-unit>
+            <trans-unit id="29">
+                <source>active</source>
+                <target>Active</target>
+            </trans-unit>
+            <trans-unit id="30">
+                <source>website</source>
+                <target>Website</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

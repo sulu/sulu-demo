@@ -58,9 +58,39 @@
 
                                         <div class="artists-content-elem-text-text">
                                             <p>
-                                                <b>Genre:</b> Blabla<br>
-                                                <b>Label:</b> XYZ<br>
-                                                <b>Member:</b> 123
+                                                {% if artist.genre|default() %}
+                                                    <span>
+                                                        <b>{{ 'genre'|trans }}:</b>
+                                                            {% for genre in artist.genre %}
+                                                                {{ genre.name }}
+                                                            {% endfor %}
+                                                        <br>
+                                                    </span>
+                                                {% endif %}
+
+                                                {% if artist.label|default() %}
+                                                    <span>
+                                                        <b>{{ 'label'|trans }}:</b> {{ (artist.label|first).name }}<br>
+                                                    </span>
+                                                {% endif %}
+
+                                                {% if artist.members|default() %}
+                                                    <span>
+                                                        <b>{{ 'members'|trans }}:</b> {{ artist.members }}<br>
+                                                    </span>
+                                                {% endif %}
+
+                                                {% if artist.active|default() %}
+                                                    <span>
+                                                        <b>{{ 'active'|trans }}:</b> {{ artist.active|date("Y") }}<br>
+                                                    </span>
+                                                {% endif %}
+
+                                                {% if artist.website|default() %}
+                                                    <span>
+                                                        <b>{{ 'website'|trans }}:</b> <a href="{{ artist.website }}">{{ artist.website }}</a><br>
+                                                    </span>
+                                                {% endif %}
                                             </p>
                                         </div>
 
