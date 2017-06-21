@@ -18,10 +18,6 @@
             {{ sitemapMacros.renderRow(elem.artists, 'artists'|trans) }}
             {{ sitemapMacros.renderRow(elem.disks, 'albums'|trans) }}
         </div>
-    {% elseif elem.template == 'blog' %}
-        <div class="grid">
-            {{ sitemapMacros.renderRow(elem.articles, 'articles'|trans) }}
-        </div>
     {% endif %}
 {% endmacro %}
 
