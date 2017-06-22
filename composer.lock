@@ -4764,12 +4764,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sulu/SuluArticleBundle.git",
-                "reference": "2a8680ec102c77d36571be77e977805d66613d51"
+                "reference": "e2b3bdd5c3c371bf76cba09ed363535134725b62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sulu/SuluArticleBundle/zipball/2a8680ec102c77d36571be77e977805d66613d51",
-                "reference": "2a8680ec102c77d36571be77e977805d66613d51",
+                "url": "https://api.github.com/repos/sulu/SuluArticleBundle/zipball/e2b3bdd5c3c371bf76cba09ed363535134725b62",
+                "reference": "e2b3bdd5c3c371bf76cba09ed363535134725b62",
                 "shasum": ""
             },
             "require": {
@@ -4815,7 +4815,7 @@
             "keywords": [
                 "articles"
             ],
-            "time": "2017-06-21 07:29:30"
+            "time": "2017-06-22 09:44:42"
         },
         {
             "name": "sulu/document-manager",
