@@ -40,8 +40,13 @@
             overflow: hidden;
 
             .heading-h1,
-            .heading-h1-description {
-                @include vertical-align(relative);
+            .heading-h1-description,
+            .heading-h1-button {
+                position: relative;
+                top: 35%;
+                -webkit-transform: translateY(-35%);
+                -ms-transform: translateY(-35%);
+                transform: translateY(-35%);
                 color: #fff;
                 margin: 0;
                 padding: 0;
@@ -58,6 +63,19 @@
 
                 p {
                     color: #fff;
+                }
+            }
+
+            .heading-h1-button {
+                margin-top: 50px;
+
+                .button-medium {
+                    background: $colorwhite;
+                    color: $colorblack;
+
+                    .no-touchevents &:hover {
+                        background-color: $colorwhite-darker;
+                    }
                 }
             }
         }
@@ -107,6 +125,15 @@
             > b,
             > h1 {
                 padding: 0 100px;
+            }
+        }
+
+        .heading-h1-button {
+            margin-top: 25px;
+            width: 100%;
+
+            .button-medium {
+                margin: 0 auto;
             }
         }
     }

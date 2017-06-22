@@ -33,6 +33,12 @@
                             {{ slide.description|raw }}
                         </div>
                     {% endif %}
+
+                    <div class="heading-h1-button">
+                        <a href="{{ sulu_content_path(slide.url) }}" class="button-medium">
+                            {{ article.excerpt.more |default('read_more'|trans) }}
+                        </a>
+                    </div>
                 </div>
             </div>
         {% endfor %}

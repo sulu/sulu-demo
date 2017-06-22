@@ -41,9 +41,9 @@
                                                     </a>
                                                 {% endif %}
 
-                                                {% if article.created|default('') %}
+                                                {% if article.published|default('') %}
                                                     <p class="text-creation">
-                                                        {{ published.date|time_diff }}
+                                                        {{ article.published.date|time_diff }}
                                                     </p>
                                                 {% endif %}
                                             </div>
