@@ -26,7 +26,7 @@
 
         <block name="services" default-type="services" minOccurs="0">
             <meta>
-                <title lang="de">Services</title>
+                <title lang="de">Dienste</title>
                 <title lang="en">Services</title>
             </meta>
 
