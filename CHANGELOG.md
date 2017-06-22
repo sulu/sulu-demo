@@ -2,6 +2,7 @@ CHANGELOG for Sulu Demo
 =======================
 
 * dev-master
+    * FEATURE #4  [GENERAL] Fixed service template
     * FEATURE #3  [GENERAL] Fixed sitemap template
     * FEATURE #2  [GENERAL] Artists and artist detail template clean up; Corrected blog overview template
     * FEATURE #1  [GENERAL] Implemented install command
