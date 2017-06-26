@@ -3,7 +3,9 @@
     <div property="background" class="{{ block.background ? 'background' : '' }}">
         <div property="subheading" class="subheading">
             {% if block.subheading|default('') %}
-                {{ block.subheading|raw }}
+                <p>
+                    {{ block.subheading|raw }}
+                </p>
             {% endif %}
         </div>
     </div>

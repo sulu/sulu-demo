@@ -88,51 +88,6 @@
                 <xi:include href="../includes/blocks/action.xml"
                             xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
 
-                <type name="services">
-                    <meta>
-                        <title lang="de">Dienst</title>
-                        <title lang="en">Service</title>
-                    </meta>
-
-                    <properties>
-                        <property name="icon" type="media_selection">
-                            <meta>
-                                <title lang="en">Icon</title>
-                                <title lang="de">Icon</title>
-                            </meta>
-
-                            <params>
-                                <param name="types" value="image"/>
-                            </params>
-                        </property>
-
-                        <property name="heading" type="text_line">
-                            <meta>
-                                <title lang="en">Heading</title>
-                                <title lang="de">Überschrift</title>
-                            </meta>
-                        </property>
-
-                        <property name="text" type="text_editor">
-                            <meta>
-                                <title lang="en">Text</title>
-                                <title lang="de">Text</title>
-                            </meta>
-                        </property>
-
-                        <property name="background" type="media_selection">
-                            <meta>
-                                <title lang="en">Background</title>
-                                <title lang="de">Hintergrund</title>
-                            </meta>
-
-                            <params>
-                                <param name="types" value="image"/>
-                            </params>
-                        </property>
-                    </properties>
-                </type>
-
                 <type name="singlequote">
                     <meta>
                         <title lang="en">Quote</title>

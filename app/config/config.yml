@@ -99,9 +99,6 @@ sulu_core:
                 article:
                     path: "%kernel.root_dir%/Resources/templates/articles"
                     type: "article"
-                article_page:
-                    path: "%kernel.root_dir%/Resources/templates/articles"
-                    type: "article_page"
 
 # SuluDocumentManager Configuration
 sulu_document_manager:
