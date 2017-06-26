@@ -123,8 +123,19 @@ sulu_websocket:
 # SuluHttpCache Configuration
 sulu_http_cache:
     handlers:
+        tags:
+            enabled: true
+        public:
+            max_age: 604800 # one week
+            shared_max_age: 604800 # one week
+            use_page_ttl: true
+            enabled: true
         debug:
             enabled: %kernel.debug%
+    proxy_client:
+        varnish:
+            enabled: true
+            servers: [ '127.0.0.1:81' ]
 
 # SuluMedia Configuration
 sulu_media:
