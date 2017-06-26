@@ -39,6 +39,7 @@ $kernel->loadClassCache();
 
 // Comment this line if you want to use the "varnish" http
 // caching strategy. See http://sulu.readthedocs.org/en/latest/cookbook/caching-with-varnish.html
+/*
 if (SYMFONY_ENV !== 'dev') {
     $kernel = new WebsiteCache($kernel);
 
@@ -46,6 +47,7 @@ if (SYMFONY_ENV !== 'dev') {
     // instead of relying on the configuration parameter
     Request::enableHttpMethodParameterOverride();
 }
+*/
 
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
