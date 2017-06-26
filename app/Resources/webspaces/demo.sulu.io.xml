@@ -15,7 +15,7 @@
     </localizations>
 
     <default-templates>
-        <default-template type="page">blog_detail</default-template>
+        <default-template type="page">artists</default-template>
         <default-template type="home">homepage</default-template>
     </default-templates>
 
