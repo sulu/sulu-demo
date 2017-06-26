@@ -7,52 +7,7 @@
     <section class="service">
         {% include('AppBundle:includes:headerimage.html.twig') %}
 
-        {% if content.services|length %}
-            <div class="services" property="services" typeof="collection">
-                <div class="services-frame">
-                    <div class="grid">
-                        {% for service in content.services %}
-                            <div class="grid__item desk--one-third lap--one-half palm--one-whole" rel="services" typeof="block">
-                                <div property="background">
-                                    {% set background = '' %}
-
-                                    {% if service.background|length and service.background|first.thumbnails['500x375'] is defined %}
-                                        {% set background = 'style="background-image: url(\'' ~ asset(service.background|first.thumbnails['500x375']) ~ '\');"' %}
-                                    {% endif %}
-
-                                    <div {{ background|raw }} class="services-item" >
-                                        <div class="services-item-text">
-                                            <div property="icon">
-                                                {% if service.icon|length and service.icon|first.thumbnails['x80'] is defined %}
-                                                    <img src="{{ asset(service.icon|first.thumbnails['x80']) }}"
-                                                         alt="{{ service.icon|first.title }}"/>
-                                                {% endif %}
-                                            </div>
-
-                                            <div property="heading">
-                                                {% if service.heading %}
-                                                    <p class="services-item-text-heading">
-                                                        {{ service.heading }}
-                                                    </p>
-                                                {% endif %}
-                                            </div>
-
-                                            <div property="text">
-                                                {% if service.text|default('') %}
-                                                    <div class="services-item-text-text">
-                                                        {{ service.text|raw }}
-                                                    </div>
-                                                {% endif %}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        {% endif %}
+        {% include('AppBundle:includes:services.html.twig') %}
 
         {% include ('AppBundle:renderer:block-renderer.html.twig') with {
             'blocks' : content.blocks

@@ -8,7 +8,7 @@
     <key>blog</key>
 
     <view>AppBundle:templates:blog</view>
-    <controller>AppBundle:Blog:Overview</controller>
+    <controller>SuluWebsiteBundle:Default:index</controller>
     <cacheLifetime>604800</cacheLifetime>
 
     <meta>
