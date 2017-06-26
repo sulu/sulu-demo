@@ -138,7 +138,7 @@ abstract class AbstractKernel extends SuluKernel
         return array_merge(
             parent::getKernelParameters(),
             [
-                'kernel.var_dir' => dirname($this->rootDir) . DIRECTORY_SEPARATOR . 'var'
+                'kernel.var_dir' => dirname($this->rootDir) . DIRECTORY_SEPARATOR . 'var',
             ]
         );
     }

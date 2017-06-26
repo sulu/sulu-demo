@@ -33,7 +33,7 @@ class BlogController extends WebsiteController
         $articles = [];
 
         foreach ($this->getChildren($parent) as $item) {
-            if ($item->getStructureType() == "blog_detail") {
+            if ($item->getStructureType() == 'blog_detail') {
                 array_push($articles, $item);
             }
         }
@@ -70,7 +70,7 @@ class BlogController extends WebsiteController
         $link = '';
 
         if ($children = $this->getChildren($structure->getDocument())) {
-            $link = $structure->getPropertiesByTagName("sulu.rlp")[0]->getValue();
+            $link = $structure->getPropertiesByTagName('sulu.rlp')[0]->getValue();
             $latestArticles = $this->createOverviewArticles(
                 $this->getLatestArticle($children, 4, $structure->getUuid())
             );
@@ -80,7 +80,7 @@ class BlogController extends WebsiteController
             $structure,
             [
                 'latestArticles' => $latestArticles,
-                'link' => $link
+                'link' => $link,
             ],
             $preview,
             $partial
@@ -103,7 +103,7 @@ class BlogController extends WebsiteController
         $latestArticles = [];
         $index = -1;
 
-        for ($i = 0; $i <= count($articles) - 1; $i++) {
+        for ($i = 0; $i <= count($articles) - 1; ++$i) {
             if ($articles[$i]->getUuid() == $uuid) {
                 $index = $i;
             }
@@ -113,7 +113,7 @@ class BlogController extends WebsiteController
             array_splice($articles, $index, 1);
         }
 
-        for ($i = 0; $i <= ((count($articles) >= $numKind) ? $numKind -1 : count($articles) -1); $i++) {
+        for ($i = 0; $i <= ((count($articles) >= $numKind) ? $numKind - 1 : count($articles) - 1); ++$i) {
             $latestArticles[$i] = $articles[$i];
         }
 
@@ -123,7 +123,7 @@ class BlogController extends WebsiteController
     /**
      * Formats the array for the Response.
      *
-     * @var PageDocument[] $article
+     * @var PageDocument[]
      *
      * @return array
      */
@@ -154,7 +154,7 @@ class BlogController extends WebsiteController
                 'image' => $image,
                 'url' => $url,
                 'heading' => $heading,
-                'creation' => $creation
+                'creation' => $creation,
             ];
         }
 
@@ -164,7 +164,7 @@ class BlogController extends WebsiteController
     /**
      * Formats the array for the Response.
      *
-     * @var array $article
+     * @var array
      *
      * @return array
      */
@@ -179,7 +179,7 @@ class BlogController extends WebsiteController
                 'image' => $structure->getProperty('headerImage'),
                 'url' => $structure->getProperty('url'),
                 'heading' => $structure->getProperty('title'),
-                'creation' => $item->getChanged()
+                'creation' => $item->getChanged(),
             ];
         }
 
