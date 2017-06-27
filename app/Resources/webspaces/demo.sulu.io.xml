@@ -6,7 +6,7 @@
     <!-- This is the configuration of your webspace. -->
     <!-- For further information, have a look at: -->
     <!-- http://docs.sulu.io/en/latest/book/webspaces.html -->
-    <name>demo.sulu.io</name>
+    <name>sulu.rocks</name>
     <key>sulu_demo</key>
 
     <localizations>
