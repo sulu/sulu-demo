@@ -126,8 +126,8 @@ sulu_http_cache:
         tags:
             enabled: true
         public:
-            max_age: 604800 # one week
-            shared_max_age: 604800 # one week
+            max_age: 240
+            shared_max_age: 500
             use_page_ttl: true
             enabled: true
         debug:
