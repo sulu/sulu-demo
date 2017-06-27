@@ -2,6 +2,7 @@ CHANGELOG for Sulu Demo
 =======================
 
 * dev-master
+    * FEATURE #9  [GENERAL] Varnish support, Fixed naming of webspace, Corrected robots.xt
     * FEATURE #6  [GENERAL] Template clean up
     * FEATURE #5  [GENERAL] Fixed homepage template
     * FEATURE #4  [GENERAL] Fixed service template
