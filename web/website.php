@@ -14,7 +14,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 // Define application environment
 defined('SYMFONY_ENV') || define('SYMFONY_ENV', getenv('SYMFONY_ENV') ?: 'prod');
-defined('VARNISH') || define('VARNISH', getenv('VARNISH') ?: false);
 defined('SULU_MAINTENANCE') || define('SULU_MAINTENANCE', getenv('SULU_MAINTENANCE') ?: false);
 defined('SYMFONY_DEBUG') ||
     define('SYMFONY_DEBUG', filter_var(getenv('SYMFONY_DEBUG') ?: SYMFONY_ENV === 'dev', FILTER_VALIDATE_BOOLEAN));
@@ -37,16 +36,6 @@ if (SYMFONY_DEBUG) {
 
 $kernel = new WebsiteKernel(SYMFONY_ENV, SYMFONY_DEBUG);
 $kernel->loadClassCache();
-
-// Comment this line if you want to use the "varnish" http
-// caching strategy. See http://sulu.readthedocs.org/en/latest/cookbook/caching-with-varnish.html
-if (SYMFONY_ENV !== 'dev' && VARNISH !== true) {
-    $kernel = new WebsiteCache($kernel);
-
-    // When using the HttpCache, you need to call the method in your front controller
-    // instead of relying on the configuration parameter
-    Request::enableHttpMethodParameterOverride();
-}
 
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
