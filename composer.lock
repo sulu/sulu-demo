@@ -4764,12 +4764,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sulu/SuluArticleBundle.git",
-                "reference": "ac2d479bc6a14bf13e20e546dedefed5cbad4dd2"
+                "reference": "45290a11350413478bb5f337168a27b041d34944"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sulu/SuluArticleBundle/zipball/ac2d479bc6a14bf13e20e546dedefed5cbad4dd2",
-                "reference": "ac2d479bc6a14bf13e20e546dedefed5cbad4dd2",
+                "url": "https://api.github.com/repos/sulu/SuluArticleBundle/zipball/45290a11350413478bb5f337168a27b041d34944",
+                "reference": "45290a11350413478bb5f337168a27b041d34944",
                 "shasum": ""
             },
             "require": {
@@ -4815,7 +4815,7 @@
             "keywords": [
                 "articles"
             ],
-            "time": "2017-06-22 11:28:09"
+            "time": "2017-06-27 05:50:39"
         },
         {
             "name": "sulu/document-manager",
@@ -4872,12 +4872,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sulu/sulu.git",
-                "reference": "c0fbfd37119d95f495451d027c28580dc929c87e"
+                "reference": "7cc545f39a8699a64b601fd7cc1e4e9f0ad30010"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sulu/sulu/zipball/c0fbfd37119d95f495451d027c28580dc929c87e",
-                "reference": "c0fbfd37119d95f495451d027c28580dc929c87e",
+                "url": "https://api.github.com/repos/sulu/sulu/zipball/7cc545f39a8699a64b601fd7cc1e4e9f0ad30010",
+                "reference": "7cc545f39a8699a64b601fd7cc1e4e9f0ad30010",
                 "shasum": ""
             },
             "require": {
@@ -4985,7 +4985,7 @@
                 "core",
                 "sulu"
             ],
-            "time": "2017-06-21 09:24:38"
+            "time": "2017-06-26 12:49:42"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -6592,7 +6592,7 @@
                 "MIT"
             ],
             "description": "Sulu demo data",
-            "time": "2017-06-26T12:48:26+00:00"
+            "time": "2017-06-26 12:48:26"
         }
     ],
     "aliases": [
