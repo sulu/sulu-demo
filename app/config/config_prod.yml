@@ -1,0 +1,19 @@
+imports:
+    - { resource: config.yml }
+
+# SuluHttpCache Configuration
+sulu_http_cache:
+    handlers:
+        tags:
+            enabled: true
+        public:
+            max_age: 240
+            shared_max_age: 500
+            use_page_ttl: true
+            enabled: true
+        debug:
+            enabled: %kernel.debug%
+    proxy_client:
+        varnish:
+            enabled: true
+            servers: [ '127.0.0.1:6081' ]
