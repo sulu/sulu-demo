@@ -5,6 +5,9 @@ namespace AppBundle\EventListener;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 
+/**
+ * Injects a javascript snippet to automatically fill out username and password on Sulu admin login.
+ */
 class LoginSubscriber implements EventSubscriberInterface
 {
     /**
