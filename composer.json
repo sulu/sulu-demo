@@ -24,7 +24,6 @@
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
         "sulu/sulu": "~1.6.",
-        "sulu/document-manager": "@dev",
         "dantleech/phpcr-migrations-bundle": "~1.0",
         "zendframework/zend-stdlib": "^2.3",
         "zendframework/zendsearch": "@dev",
