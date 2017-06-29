@@ -24,8 +24,8 @@ http://docs.sulu.io/
 ## Installation
 
 ```
-composer install
-bin/adminconsole app:install
+php composer create-project sulu/sulu-demo
+php bin/adminconsole app:install
 ```
 
 ### File Permissions

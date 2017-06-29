@@ -2,6 +2,7 @@ CHANGELOG for Sulu Demo
 =======================
 
 * dev-master
+    * FEATURE #10 [GENERAL] Automatically fill out username/password on admin login
     * FEATURE #9  [GENERAL] Varnish support, Fixed naming of webspace, Corrected robots.xt
     * FEATURE #6  [GENERAL] Template clean up
     * FEATURE #5  [GENERAL] Fixed homepage template

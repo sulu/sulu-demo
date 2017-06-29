@@ -1,7 +1,6 @@
 {
     "name": "sulu/sulu-demo",
     "license": "MIT",
-    "version": "1.6.0-RC1",
     "type": "project",
     "description": "The sulu content management framework demo",
     "autoload": {
@@ -23,8 +22,7 @@
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
-        "sulu/sulu": "dev-develop as 1.6.0-RC1",
-        "sulu/document-manager": "@dev",
+        "sulu/sulu": "~1.6.",
         "dantleech/phpcr-migrations-bundle": "~1.0",
         "zendframework/zend-stdlib": "^2.3",
         "zendframework/zendsearch": "@dev",
@@ -36,10 +34,10 @@
         "doctrine/doctrine-cache-bundle": "^1.0",
         "oro/doctrine-extensions": "^1.0",
         "ongr/elasticsearch-bundle": "^5.0",
-        "sulu/article-bundle": "dev-develop"
+        "sulu/article-bundle": "~0.6"
     },
     "require-dev": {
-        "sulu/demo-data": "dev-master",
+        "sulu/demo-data": "~1.0.1",
         "sensio/generator-bundle": "~2.8 || ~3.0",
         "phpcr/phpcr-shell": "~1.0"
     },
