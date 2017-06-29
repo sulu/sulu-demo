@@ -28,13 +28,13 @@ class LoginSubscriber implements EventSubscriberInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function getSubscribedEvents()
     {
-        return array(
-            'kernel.response' => 'onKernelResponse'
-        );
+        return [
+            'kernel.response' => 'onKernelResponse',
+        ];
     }
 
     /**
