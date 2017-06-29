@@ -54,9 +54,9 @@ doctrine:
 doctrine_cache:
     providers:
         phpcr_meta:
-            type: "%phpcr_cache%"
+            type: "file_system"
         phpcr_nodes:
-            type: "%phpcr_cache%"
+            type: "file_system"
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -104,10 +104,12 @@ sulu_core:
 sulu_document_manager:
     sessions:
         default:
-            backend: "doctrine"
+            backend:
+                type: "doctrinedbal"
             workspace: "default"
         live:
-            backend: "doctrine"
+            backend:
+                type: "doctrinedbal"
             workspace: "default_live"
 
 # SuluWebsocket Configuration
