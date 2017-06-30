@@ -304,6 +304,15 @@
             height: 35px;
             width: auto;
         }
+
+        &.github {
+            float: right;
+            margin: 12px 10px;
+
+            img {
+                height: 28px;
+            }
+        }
     }
 
     &-title {
