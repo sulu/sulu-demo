@@ -217,7 +217,7 @@ class InstallCommand extends ContainerAwareCommand
      */
     protected function massiveSearchReindex()
     {
-        // clear cache
+        // call purge all command
         $this->execCommandline('bin' . DIRECTORY_SEPARATOR . 'websiteconsole massive:search:purge --all --force');
 
         // call reindex commands
