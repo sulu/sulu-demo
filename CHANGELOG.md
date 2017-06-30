@@ -2,6 +2,9 @@ CHANGELOG for Sulu Demo
 =======================
 
 * dev-master
+    * ENHANCEMENT #11 [GENERAL] Install command: Use of Sulu cache clearer
+
+* 1.0.0 (2017-06-29)
     * FEATURE #10 [GENERAL] Automatically fill out username/password on admin login
     * FEATURE #9  [GENERAL] Varnish support, Fixed naming of webspace, Corrected robots.xt
     * FEATURE #6  [GENERAL] Template clean up

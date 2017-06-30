@@ -14,6 +14,7 @@ namespace AppBundle\Command;
 use Doctrine\DBAL\Exception\ConnectionException;
 use Doctrine\DBAL\Schema\AbstractSchemaManager;
 use ONGR\ElasticsearchBundle\Service\Manager;
+use Sulu\Bundle\WebsiteBundle\Cache\CacheClearerInterface;
 use Sulu\Component\Localization\Localization;
 use Sulu\Component\Webspace\Manager\WebspaceManager;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
@@ -24,7 +25,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Filesystem\Exception\FileNotFoundException;
 use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Finder\Finder;
 use Symfony\Component\Process\PhpExecutableFinder;
 use Symfony\Component\Process\Process;
 
@@ -206,10 +206,9 @@ class InstallCommand extends ContainerAwareCommand
      */
     protected function clearCache()
     {
-        $cacheRootDir = dirname($this->getContainer()->getParameter('kernel.cache_dir'), 2);
-        $this->filesystem->remove($cacheRootDir . DIRECTORY_SEPARATOR . 'admin');
-        $this->filesystem->remove($cacheRootDir . DIRECTORY_SEPARATOR . 'preview');
-        $this->filesystem->remove($cacheRootDir . DIRECTORY_SEPARATOR . 'website');
+        /** @var CacheClearerInterface $httpCacheClearer */
+        $httpCacheClearer = $this->getContainer()->get('sulu_website.http_cache.clearer');
+        $httpCacheClearer->clear();
     }
 
     /**
@@ -217,19 +216,8 @@ class InstallCommand extends ContainerAwareCommand
      */
     protected function massiveSearchReindex()
     {
-        // delete the zend lucene directories if they exists
-        $zendLuceneBasePath = $this->getContainer()->getParameter('massive_search.adapter.zend_lucene.basepath');
-
-        if ($this->filesystem->exists($zendLuceneBasePath)) {
-            $finder = new Finder();
-            $finder->in($zendLuceneBasePath);
-
-            foreach ($finder->getIterator() as $result) {
-                if (strpos($result->getBasename(), 'massive')) {
-                    $this->filesystem->remove($result->getPath());
-                }
-            }
-        }
+        // call purge all command
+        $this->execCommandline('bin' . DIRECTORY_SEPARATOR . 'websiteconsole massive:search:purge --all --force');
 
         // call reindex commands
         $this->execCommandline('bin' . DIRECTORY_SEPARATOR . 'websiteconsole massive:search:reindex');
@@ -261,6 +249,8 @@ class InstallCommand extends ContainerAwareCommand
     protected function execCommandline($cmdLine)
     {
         $rootDir = $this->getContainer()->getParameter('kernel.project_dir');
+
+        $cmdLine .= ' --env=' . $this->getContainer()->getParameter('kernel.environment');
 
         $process = new Process($this->getPhp() . ' ' . $rootDir . DIRECTORY_SEPARATOR . $cmdLine);
         $process->setTimeout(null);
