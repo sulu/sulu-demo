@@ -1,7 +1,7 @@
 CHANGELOG for Sulu Demo
 =======================
 
-* dev-master
+* 1.0.1 (2017-06-30)
     * ENHANCEMENT #12 [GENERAL] Updated to current demo data; Added github link
     * ENHANCEMENT #11 [GENERAL] Install command: Use of Sulu cache clearer
 
