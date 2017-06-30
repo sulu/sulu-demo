@@ -14,7 +14,7 @@ namespace AppBundle\Command;
 use Doctrine\DBAL\Exception\ConnectionException;
 use Doctrine\DBAL\Schema\AbstractSchemaManager;
 use ONGR\ElasticsearchBundle\Service\Manager;
-use Sulu\Bundle\WebsiteBundle\Cache\CacheClearer;
+use Sulu\Bundle\WebsiteBundle\Cache\CacheClearerInterface;
 use Sulu\Component\Localization\Localization;
 use Sulu\Component\Webspace\Manager\WebspaceManager;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
@@ -206,7 +206,7 @@ class InstallCommand extends ContainerAwareCommand
      */
     protected function clearCache()
     {
-        /** @var CacheClearer $httpCacheClearer */
+        /** @var CacheClearerInterface $httpCacheClearer */
         $httpCacheClearer = $this->getContainer()->get('sulu_website.http_cache.clearer');
         $httpCacheClearer->clear();
     }
