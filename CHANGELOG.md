@@ -2,6 +2,7 @@ CHANGELOG for Sulu Demo
 =======================
 
 * dev-master
+    * ENHANCEMENT #14 [GENERAL]   Corrected README and cache lifetime
     * ENHANCEMENT #13 [AppBundle] Install command: Use of correct output
 
 * 1.0.1 (2017-06-30)

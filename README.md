@@ -20,6 +20,7 @@ http://docs.sulu.io/
 * the intl extension for PHP
 * the gd or imagick extension for PHP
 * a database management system supported by Doctrine
+* Elasticsearch 5.0 or higher
 * Composer
 * Node.js and Compass (if you want to run a npm task)
 
@@ -27,6 +28,7 @@ http://docs.sulu.io/
 
 ```
 php composer create-project sulu/sulu-demo
+cd sulu-demo
 php bin/adminconsole app:install
 ```
 
