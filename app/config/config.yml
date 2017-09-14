@@ -167,6 +167,13 @@ sulu_route:
                 route_schema: /blog/{object.getTitle()}
 
 ongr_elasticsearch:
+    analysis:
+        tokenizer:
+            pathTokenizer:
+                type: path_hierarchy
+        analyzer:
+            pathAnalyzer:
+                tokenizer: pathTokenizer
     managers:
         default:
             index:
