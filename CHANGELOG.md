@@ -1,7 +1,7 @@
 CHANGELOG for Sulu Demo
 =======================
 
-* dev-master
+* 1.0.2 (2017-09-14)
     * ENHANCEMENT #26 [GENERAL]   Updated sulu/article-bundle
     * ENHANCEMENT #14 [GENERAL]   Corrected README and cache lifetime
     * ENHANCEMENT #13 [AppBundle] Install command: Use of correct output
