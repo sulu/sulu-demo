@@ -38,7 +38,7 @@
         "sulu/automation-bundle": "^1.2"
     },
     "require-dev": {
-        "sulu/demo-data": "~1.0.1",
+        "sulu/demo-data": "dev-develop",
         "sensio/generator-bundle": "~2.8 || ~3.0",
         "phpcr/phpcr-shell": "~1.0"
     },
