@@ -1,6 +1,9 @@
 CHANGELOG for Sulu Demo
 =======================
 
+* dev-develop
+    * FEATURE     #27 [Dependencies] Added automation-bundle
+
 * 1.0.2 (2017-09-14)
     * ENHANCEMENT #26 [GENERAL]   Updated sulu/article-bundle
     * ENHANCEMENT #14 [GENERAL]   Corrected README and cache lifetime

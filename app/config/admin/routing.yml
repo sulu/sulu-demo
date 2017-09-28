@@ -101,6 +101,7 @@ sulu_search:
     resource: "@SuluSearchBundle/Resources/config/routing.yml"
     prefix: /admin/search
 
+# for article
 sulu_arictle_api:
     resource: "@SuluArticleBundle/Resources/config/routing_api.xml"
     type: rest
@@ -109,3 +110,14 @@ sulu_arictle_api:
 sulu_article:
     resource: "@SuluArticleBundle/Resources/config/routing.xml"
     prefix: /admin/articles
+
+# for automation
+sulu_automation_api:
+    type: rest
+    resource: "@SuluAutomationBundle/Resources/config/routing_api.xml"
+    prefix: /admin/api
+
+sulu_automation:
+    type: rest
+    resource: "@SuluAutomationBundle/Resources/config/routing.xml"
+    prefix: /admin/automation
