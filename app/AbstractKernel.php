@@ -74,6 +74,10 @@ abstract class AbstractKernel extends SuluKernel
             new Sulu\Bundle\ArticleBundle\SuluArticleBundle(),
             new ONGR\ElasticsearchBundle\ONGRElasticsearchBundle(),
 
+            // sulu automation bundle
+            new Task\TaskBundle\TaskBundle(),
+            new Sulu\Bundle\AutomationBundle\SuluAutomationBundle(),
+
             // tools
             new Massive\Bundle\BuildBundle\MassiveBuildBundle(),
 
