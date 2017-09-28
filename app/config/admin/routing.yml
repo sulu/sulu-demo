@@ -121,3 +121,13 @@ sulu_automation:
     type: rest
     resource: "@SuluAutomationBundle/Resources/config/routing.xml"
     prefix: /admin/automation
+
+# for redirect
+sulu_redirect_api:
+    type: rest
+    resource: "@SuluRedirectBundle/Resources/config/routing_api.xml"
+    prefix: /admin/api
+
+sulu_redirect:
+    resource: "@SuluRedirectBundle/Resources/config/routing.xml"
+    prefix: /admin/redirects

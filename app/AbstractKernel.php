@@ -78,6 +78,9 @@ abstract class AbstractKernel extends SuluKernel
             new Task\TaskBundle\TaskBundle(),
             new Sulu\Bundle\AutomationBundle\SuluAutomationBundle(),
 
+            // sulu redirect bundle
+            new Sulu\Bundle\RedirectBundle\SuluRedirectBundle(),
+
             // tools
             new Massive\Bundle\BuildBundle\MassiveBuildBundle(),
 
