@@ -32,6 +32,11 @@ cd sulu-demo
 php bin/adminconsole app:install
 ```
 
+## Automation
+
+To enable automated tasks use the command ``task:run`` manually in the terminal or in a cronjob. This tasks executes the
+pending automation tasks (see https://github.com/sulu/SuluAutomationBundle/blob/master/Resources/doc/installation.md).
+
 ### File Permissions
 
 To fix the permissions of the project so that the web server is able to read and write them you need to run the following:
