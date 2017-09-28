@@ -2,6 +2,7 @@ CHANGELOG for Sulu Demo
 =======================
 
 * dev-develop
+    * FEATURE     #28 [Dependencies] Added redirect-bundle 
     * FEATURE     #27 [Dependencies] Added automation-bundle
 
 * 1.0.2 (2017-09-14)

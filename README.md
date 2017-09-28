@@ -11,6 +11,22 @@ http://sulu.io/
 Our documentation is available under:
 http://docs.sulu.io/
 
+## Additional Bundles
+
+### [SuluArticleBundle](https://github.com/sulu/SuluArticleBundle)
+
+The SuluArticleBundle adds support for managing articles in Sulu. Articles can be used in a lot of different ways to manage unstructured data with an own URL in an admin-list. Most of the features, which can be used in pages, can also be used on articles - like templates, versioning, drafting, publishing and automation.
+
+### [SuluAutomationBundle](https://github.com/sulu/SuluAutomationBundle)
+
+The SuluAutomationBundle provides a way to manages future tasks which can be scheduled for entities in the Sulu-Admin. For example schedule the publishing of a page to a specific datetime in the future.
+
+To enable automated tasks use the command ``task:run`` manually in the terminal or in a cronjob. This tasks executes the
+pending automation tasks (see https://github.com/sulu/SuluAutomationBundle/blob/master/Resources/doc/installation.md).
+
+### [SuluRedirectBundle](https://github.com/sulu/SuluRedirectBundle)
+
+The SuluRedirectBundle adds support for managing redirects in Sulu-Admin.
 
 ## Requirements
 
@@ -31,11 +47,6 @@ php composer create-project sulu/sulu-demo
 cd sulu-demo
 php bin/adminconsole app:install
 ```
-
-## Automation
-
-To enable automated tasks use the command ``task:run`` manually in the terminal or in a cronjob. This tasks executes the
-pending automation tasks (see https://github.com/sulu/SuluAutomationBundle/blob/master/Resources/doc/installation.md).
 
 ### File Permissions
 
