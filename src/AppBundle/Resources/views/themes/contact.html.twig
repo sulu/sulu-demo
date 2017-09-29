@@ -5,11 +5,6 @@
     {{ parent() }}
 {%- endblock form_widget_compound -%}
 
-{%- block sulu_form_row_start -%}
-{{ parent() }}
-    <div class="messageform-label">
-{%- endblock sulu_form_row_start -%}
-
 {%- block sulu_form_row_class_name -%}
     {%- set width = attr.width|default('full') -%}
     {%- if width == 'full' -%}
@@ -18,19 +13,15 @@
         {%- set width = 'one-half' -%}
     {%- endif -%}
 
-    {%- set className = 'grid__item desk--' ~ width ~ ' portable--one-whole' -%}
+    {%- set className = 'messageform-label grid__item desk--' ~ width ~ ' portable--one-whole' -%}
     {{- className -}}
 {%- endblock sulu_form_row_class_name -%}
-
-{%- block sulu_form_row_end -%}
-    </div>
-{{ parent() }}
-{%- endblock sulu_form_row_end -%}
 
 {%- block form_row -%}
     {{ block('sulu_form_row_start') }}
     {{- form_widget(form) -}}
     {{- form_label(form) -}}
+    {{- form_errors(form) -}}
     {{ block('sulu_form_row_end') }}
 {%- endblock -%}
 
@@ -50,10 +41,3 @@
         {{ parent() }}
     </div>
 {%- endblock submit_widget -%}
-{%- block form_label -%}
-    {%- if label is not same as(false) -%}
-        {%- set translation_domain = false -%}
-        {%- set label %}{{ label|raw }}{% endset -%}
-        <p>{{ label }}</p>
-    {%- endif -%}
-{%- endblock form_label -%}

@@ -50,17 +50,17 @@
             &:not([value=""]):focus:invalid {
                 border-bottom: 1px solid $colorred-lighter01;
 
-                & + p {
+                & + label {
                     color: $colorred-lighter01;
                 }
             }
 
-            &:not([value=""]):focus + p {
+            &:not([value=""]):focus + label {
                 color: $colorblack;
             }
         }
 
-        p {
+        label {
             color: #D5D5D5;
             font-size: 14px;
             line-height: 17px;
