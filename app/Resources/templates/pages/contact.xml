@@ -55,30 +55,41 @@
                         </property>
                     </properties>
                 </type>
-
-                <type name="messageform">
-                    <meta>
-                        <title lang="en">Contact Form</title>
-                        <title lang="de">Kontakt Formular</title>
-                    </meta>
-
-                    <properties>
-                        <property name="heading" type="text_line">
-                            <meta>
-                                <title lang="en">Heading</title>
-                                <title lang="de">Überschrift</title>
-                            </meta>
-                        </property>
-
-                        <property name="subheading" type="text_editor">
-                            <meta>
-                                <title lang="en">Subheading</title>
-                                <title lang="de">Unter-Überschrift</title>
-                            </meta>
-                        </property>
-                    </properties>
-                </type>
             </types>
         </block>
+
+        <section name="messageform">
+            <meta>
+                <title lang="en">Contact Form</title>
+                <title lang="de">Kontakt Formular</title>
+            </meta>
+
+            <properties>
+                <property name="contactHeading" type="text_line">
+                    <meta>
+                        <title lang="en">Heading</title>
+                        <title lang="de">Überschrift</title>
+                    </meta>
+                </property>
+
+                <property name="contactSubheading" type="text_editor">
+                    <meta>
+                        <title lang="en">Subheading</title>
+                        <title lang="de">Unter-Überschrift</title>
+                    </meta>
+                </property>
+
+                <property name="contactForm" type="form_select" multilingual="false">
+                    <meta>
+                        <title lang="en">Formular</title>
+                        <title lang="de">Formular</title>
+                    </meta>
+
+                    <params>
+                        <param name="type" value="page"/>
+                    </params>
+                </property>
+            </properties>
+        </section>
     </properties>
 </template>

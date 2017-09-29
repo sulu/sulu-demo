@@ -73,7 +73,7 @@
         margin-top: 45px;
         @include appearance(none);
 
-        input {
+        button, input {
             padding: 0;
             border: 0;
             height: 37px;

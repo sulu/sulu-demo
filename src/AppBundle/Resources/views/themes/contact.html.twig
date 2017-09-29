@@ -1,0 +1,59 @@
+{% extends 'SuluFormBundle:themes:dynamic.html.twig' %}
+
+{%- block form_widget_compound -%}
+    {%- set attr = attr|merge({class: 'grid'}) -%}
+    {{ parent() }}
+{%- endblock form_widget_compound -%}
+
+{%- block sulu_form_row_start -%}
+{{ parent() }}
+    <div class="messageform-label">
+{%- endblock sulu_form_row_start -%}
+
+{%- block sulu_form_row_class_name -%}
+    {%- set width = attr.width|default('full') -%}
+    {%- if width == 'full' -%}
+        {%- set width = 'one-whole' -%}
+    {%- elseif width == 'half' -%}
+        {%- set width = 'one-half' -%}
+    {%- endif -%}
+
+    {%- set className = 'grid__item desk--' ~ width ~ ' portable--one-whole' -%}
+    {{- className -}}
+{%- endblock sulu_form_row_class_name -%}
+
+{%- block sulu_form_row_end -%}
+    </div>
+{{ parent() }}
+{%- endblock sulu_form_row_end -%}
+
+{%- block form_row -%}
+    {{ block('sulu_form_row_start') }}
+    {{- form_widget(form) -}}
+    {{- form_label(form) -}}
+    {{ block('sulu_form_row_end') }}
+{%- endblock -%}
+
+{%- block form_widget_simple -%}
+    {%- set attr = attr|merge({class: 'messageform-label-input'}) -%}
+    {{ parent() }}
+{%- endblock form_widget_simple -%}
+
+{%- block textarea_widget -%}
+    {%- set attr = attr|merge({class: 'messageform-label-input'}) -%}
+    {{ parent() }}
+{%- endblock textarea_widget -%}
+
+{%- block submit_widget -%}
+    {%- set attr = attr|merge({class: 'button-large'}) -%}
+    <div class="messageform-button cf">
+        {{ parent() }}
+    </div>
+{%- endblock submit_widget -%}
+{%- block form_label -%}
+    {%- if label is not same as(false) -%}
+        {%- set translation_domain = false -%}
+        {%- set label %}{{ label|raw }}{% endset -%}
+        <p>{{ label }}</p>
+    {%- endif -%}
+{%- endblock form_label -%}

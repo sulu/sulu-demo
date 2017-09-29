@@ -12,5 +12,35 @@
         {% include ('AppBundle:renderer:block-renderer.html.twig') with {
             'blocks': content.blocks
         } %}
+
+        <div class="messageform">
+            <div class="messageform-content">
+                <div property="heading">
+                    {% if content.contactHeading|default('') %}
+                        <h2 class="heading-h2">
+                            {{ content.contactHeading }}
+                        </h2>
+                    {% endif %}
+                </div>
+
+                <div property="subheading">
+                    {% if content.contactHeading|default('') %}
+                        <div class="messageform-subheading">
+                            {{ content.contactSubheading|raw }}
+                        </div>
+                    {% endif %}
+                </div>
+
+                {% if content.contactForm|default() %}
+                    {% if app.request.get('send') != 'true' %}
+                        {# FORM THEME #}
+                        {% form_theme content.contactForm 'AppBundle:themes:contact.html.twig' %}
+                        {{ form(content.contactForm) }}
+                    {% else %}
+                        {{ view.contactForm.entity.successText|raw }}
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
     </section>
 {% endblock %}
