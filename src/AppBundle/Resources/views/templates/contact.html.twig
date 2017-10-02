@@ -15,30 +15,36 @@
 
         <div class="messageform">
             <div class="messageform-content">
-                <div property="heading">
-                    {% if content.contactHeading|default('') %}
-                        <h2 class="heading-h2">
-                            {{ content.contactHeading }}
-                        </h2>
-                    {% endif %}
-                </div>
+                {% if app.request.get('send') != 'true' %}
+                    <div property="heading">
+                        {% if content.contactHeading|default('') %}
+                            <h2 class="heading-h2">
+                                {{ content.contactHeading }}
+                            </h2>
+                        {% endif %}
+                    </div>
 
-                <div property="subheading">
-                    {% if content.contactHeading|default('') %}
-                        <div class="messageform-subheading">
-                            {{ content.contactSubheading|raw }}
-                        </div>
-                    {% endif %}
-                </div>
+                    <div property="contactHeading">
+                        {% if content.contactHeading|default('') %}
+                            <div class="messageform-subheading">
+                                {{ content.contactSubheading|raw }}
+                            </div>
+                        {% endif %}
+                    </div>
 
-                {% if content.contactForm|default() %}
-                    {% if app.request.get('send') != 'true' %}
+                    {% if content.contactForm|default() %}
                         {# FORM THEME #}
                         {% form_theme content.contactForm 'AppBundle:themes:contact.html.twig' %}
                         {{ form(content.contactForm) }}
-                    {% else %}
-                        {{ view.contactForm.entity.successText|raw }}
                     {% endif %}
+                {% else %}
+                    <h2 class="heading-h2">
+                        Thank You!
+                    </h2>
+
+                    <div class="messageform-subheading">
+                        {{ view.contactForm.entity.successText|raw }}
+                    </div>
                 {% endif %}
             </div>
         </div>
