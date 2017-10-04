@@ -36,7 +36,8 @@
         "ongr/elasticsearch-bundle": "^5.0",
         "sulu/article-bundle": "~0.7",
         "sulu/automation-bundle": "^1.2",
-        "sulu/redirect-bundle": "^0.1"
+        "sulu/redirect-bundle": "^0.1",
+        "sulu/sulu-form-bundle": "^0.3"
     },
     "require-dev": {
         "sulu/demo-data": "dev-develop",

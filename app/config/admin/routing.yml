@@ -131,3 +131,9 @@ sulu_redirect_api:
 sulu_redirect:
     resource: "@SuluRedirectBundle/Resources/config/routing.xml"
     prefix: /admin/redirects
+
+# for form
+sulu_form_api:
+    type: rest
+    resource: "@SuluFormBundle/Resources/config/routing_api.yml"
+    prefix: /admin/api

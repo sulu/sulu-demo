@@ -8,7 +8,8 @@ parameters:
     locale: en
 
 framework:
-    #esi:             ~
+    esi: ~
+    fragments: ~
     translator: { fallbacks: ["%locale%"] }
     secret: "%secret%"
     router:
@@ -26,7 +27,6 @@ framework:
     session:
         handler_id: session.handler.native_file
         save_path: "%kernel.var_dir%/sessions/%sulu.context%/%kernel.environment%"
-    fragments:       ~
     http_method_override: true
 
 # Twig Configuration
@@ -188,3 +188,14 @@ ongr_elasticsearch:
 
 sulu_article:
     display_tab_all: false
+
+sulu_form:
+    dynamic_lists:
+        content:
+            contact:
+                template: contact
+                property: contactForm
+                type: page
+    mail:
+        from: "%sulu_admin.email%"
+        to:   "%sulu_admin.email%"
