@@ -95,6 +95,21 @@ Then you can access the administration interface via http://127.0.0.1:8000/admin
 
 The web frontend can be found under http://127.0.0.1:8001.
 
+## Tests
+
+**Initialize test database**
+
+```bash
+bin/adminconsole doctrine:database:create --env=test
+bin/adminconsole doctrine:schema:update --force --env=test
+```
+
+**Running tests**
+
+```bash
+bin/simple-phpunit
+```
+
 ## Questions? We have answers!
 
 We've got a #Slack channel where you can talk directly to strategists, developers and designers. Just contact us under http://sulu.io/#questions.

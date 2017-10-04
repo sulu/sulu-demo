@@ -56,6 +56,11 @@
                         <url>{host}/{localization}</url>
                     </urls>
                 </environment>
+                <environment type="test">
+                    <urls>
+                        <url>{host}/{localization}</url>
+                    </urls>
+                </environment>
                 <environment type="dev">
                     <urls>
                         <url>{host}/{localization}</url>

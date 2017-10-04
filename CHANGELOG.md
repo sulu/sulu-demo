@@ -2,6 +2,7 @@ CHANGELOG for Sulu Demo
 =======================
 
 * dev-develop
+    * FEATURE     #30 [GENERAL]      Added test setup
     * FEATURE     #29 [Dependencies] Added form-bundle 
     * FEATURE     #28 [Dependencies] Added redirect-bundle 
     * FEATURE     #27 [Dependencies] Added automation-bundle
