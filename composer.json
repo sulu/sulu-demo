@@ -43,7 +43,7 @@
         "sulu/sulu-form-bundle": "^0.3"
     },
     "require-dev": {
-        "sulu/demo-data": "dev-develop",
+        "sulu/demo-data": "^1.1",
         "sensio/generator-bundle": "~2.8 || ~3.0",
         "phpcr/phpcr-shell": "~1.0",
         "symfony/phpunit-bridge": "^3.3"
