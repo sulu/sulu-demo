@@ -37,13 +37,17 @@ app/maintenance.php
 
 # composer
 /composer.phar
-composer.lock
 /vendor
+
+# npm
+package-lock.json
+/node_modules
 
 # IDEs
 /.idea
 *.iml
 *~
+.web-server-pid
 
 # System files
 .DS_Store
