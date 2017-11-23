@@ -1,7 +1,7 @@
 CHANGELOG for Sulu Demo
 =======================
 
-* dev-develop
+* 1.1.0 (2017-10-17)
     * FEATURE     #30 [GENERAL]      Added test setup
     * FEATURE     #29 [Dependencies] Added form-bundle 
     * FEATURE     #28 [Dependencies] Added redirect-bundle 
