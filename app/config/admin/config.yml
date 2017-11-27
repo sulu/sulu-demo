@@ -11,3 +11,6 @@ sulu_document_manager:
     default_session: default
     live_session: live
 
+framework:
+    assets:
+        json_manifest_path: "%kernel.project_dir%/web/adminV2/manifest.json"

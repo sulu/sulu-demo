@@ -259,7 +259,7 @@ class InstallCommand extends ContainerAwareCommand
             $this->io->writeln($out);
         });
 
-        if ($process->getExitCode() !== 0) {
+        if (0 !== $process->getExitCode()) {
             $this->io->error(
                 sprintf(
                     'Could not execute command "%s", got exit code "%s": %s',
