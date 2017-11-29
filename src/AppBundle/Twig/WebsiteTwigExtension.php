@@ -72,7 +72,7 @@ class WebsiteTwigExtension extends \Twig_Extension
         $homeChilds = [];
 
         foreach ($tree['children'] as $child) {
-            if ($child['template'] == 'artists') {
+            if ('artists' == $child['template']) {
                 array_push($result, $this->renderArtists($child));
             } else {
                 array_push($homeChilds, $child);

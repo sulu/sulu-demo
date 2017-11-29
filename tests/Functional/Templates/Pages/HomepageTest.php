@@ -11,8 +11,8 @@
 
 namespace Tests\Functional\Templates\Pages;
 
-use Tests\Functional\WebsiteTestCase;
 use Tests\Functional\Traits\PageTrait;
+use Tests\Functional\WebsiteTestCase;
 
 /**
  * Test homepage template.

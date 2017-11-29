@@ -13,10 +13,7 @@ namespace AppBundle\Command;
 
 use Doctrine\DBAL\Exception\ConnectionException;
 use Doctrine\DBAL\Schema\AbstractSchemaManager;
-use ONGR\ElasticsearchBundle\Service\Manager;
 use Sulu\Bundle\WebsiteBundle\Cache\CacheClearerInterface;
-use Sulu\Component\Localization\Localization;
-use Sulu\Component\Webspace\Manager\WebspaceManager;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
@@ -234,7 +231,7 @@ class InstallCommand extends ContainerAwareCommand
             $this->io->writeln($out);
         });
 
-        if ($process->getExitCode() !== 0) {
+        if (0 !== $process->getExitCode()) {
             $this->io->error(
                 sprintf(
                     'Could not execute command "%s", got exit code "%s": %s',
