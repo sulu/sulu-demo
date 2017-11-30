@@ -37,7 +37,7 @@
         "doctrine/doctrine-cache-bundle": "^1.0",
         "oro/doctrine-extensions": "^1.0",
         "ongr/elasticsearch-bundle": "^5.0",
-        "sulu/article-bundle": "~0.7",
+        "sulu/article-bundle": "^1.0@RC",
         "sulu/automation-bundle": "^1.2",
         "sulu/redirect-bundle": "^0.1",
         "sulu/sulu-form-bundle": "^0.3"

@@ -13,10 +13,7 @@ namespace AppBundle\Command;
 
 use Doctrine\DBAL\Exception\ConnectionException;
 use Doctrine\DBAL\Schema\AbstractSchemaManager;
-use ONGR\ElasticsearchBundle\Service\Manager;
 use Sulu\Bundle\WebsiteBundle\Cache\CacheClearerInterface;
-use Sulu\Component\Localization\Localization;
-use Sulu\Component\Webspace\Manager\WebspaceManager;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
@@ -172,33 +169,8 @@ class InstallCommand extends ContainerAwareCommand
      */
     protected function reindexArticles()
     {
-        /** @var Manager $esManagerLive */
-        $esManagerLive = $this->getContainer()->get('es.manager.live');
-        /** @var Manager $esManagerDefault */
-        $esManagerDefault = $this->getContainer()->get('es.manager.default');
-
-        // drop and create index
-        $esManagerDefault->dropAndCreateIndex();
-        $esManagerLive->dropAndCreateIndex();
-
-        /** @var WebspaceManager $webspaceManager */
-        $webspaceManager = $this->getContainer()->get('sulu_core.webspace.webspace_manager');
-
-        // reindex with all locales
-        /** @var Localization $localization */
-        foreach ($webspaceManager->getAllLocalizations() as $localization) {
-            $this->execCommand('sulu:article:index-rebuild',
-                [
-                    'locale' => $localization->getLocale(),
-                ]
-            );
-            $this->execCommand('sulu:article:index-rebuild',
-                [
-                    'locale' => $localization->getLocale(),
-                    '--live' => true,
-                ]
-            );
-        }
+        $this->execCommandline('bin' . DIRECTORY_SEPARATOR . 'websiteconsole sulu:article:reindex --drop --no-interaction');
+        $this->execCommandline('bin' . DIRECTORY_SEPARATOR . 'adminconsole sulu:article:reindex --drop --no-interaction');
     }
 
     /**
@@ -259,7 +231,7 @@ class InstallCommand extends ContainerAwareCommand
             $this->io->writeln($out);
         });
 
-        if ($process->getExitCode() !== 0) {
+        if (0 !== $process->getExitCode()) {
             $this->io->error(
                 sprintf(
                     'Could not execute command "%s", got exit code "%s": %s',
