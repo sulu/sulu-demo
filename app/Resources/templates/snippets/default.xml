@@ -22,10 +22,16 @@
             <tag name="sulu.node.name"/>
         </property>
 
-        <property name="description" type="text_editor">
+        <property name="slogan" type="text_line">
             <meta>
-                <title lang="en">Description</title>
-                <title lang="de">Beschreibung</title>
+                <title lang="en">Slogan</title>
+                <title lang="de">Slogan</title>
+            </meta>
+        </property>
+        <property name="media" type="media_selection">
+            <meta>
+                <title lang="en">Media</title>
+                <title lang="de">Media</title>
             </meta>
         </property>
     </properties>
