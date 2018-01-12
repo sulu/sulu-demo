@@ -225,7 +225,10 @@ class InstallCommand extends ContainerAwareCommand
         $cmdLine .= ' --env=' . $this->getContainer()->getParameter('kernel.environment');
 
         $process = new Process($this->getPhp() . ' ' . $rootDir . DIRECTORY_SEPARATOR . $cmdLine);
-        $process->setTty(true);
+        if ('\\' !== DIRECTORY_SEPARATOR){
+            $process->setTty(true);
+        }
+
         $process->setTimeout(null);
         $process->run(function ($type, $out) {
             $this->io->writeln($out);
