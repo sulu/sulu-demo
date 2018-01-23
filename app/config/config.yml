@@ -71,8 +71,9 @@ massive_search:
     adapter: elastic
     adapters:
         elastic:
-            hosts: '%elasticsearch.hosts%'
-            version: '%elasticsearch.version%'
+            hosts:
+              - '%elasticsearch_host%'
+            version: '%elasticsearch_version%'
         zend_lucene:
             basepath: "%kernel.var_dir%/indexes"
 
@@ -181,13 +182,15 @@ ongr_elasticsearch:
     managers:
         default:
             index:
-                hosts: '%elasticsearch.hosts%'
+                hosts:
+                  - '%elasticsearch_host%'
                 index_name: sulu_rocks_articles
             mappings:
                 - SuluArticleBundle
         live:
             index:
-                hosts: '%elasticsearch.hosts%'
+                hosts:
+                  - '%elasticsearch_host%'
                 index_name: sulu_rocks_articles_live
             mappings:
                 - SuluArticleBundle

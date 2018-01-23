@@ -24,6 +24,5 @@ parameters:
     websocket_url: 'sulu.lo'
 
     # Specify elasticsearch configuration
-    # Hosts should be array of strings like: 'http://master.elasticsearch.dev:9200'
-    elasticsearch.hosts: []
-    elasticsearch.version: 5.6
+    elasticsearch_host: 127.0.0.1:9200
+    elasticsearch_version: 5.6
