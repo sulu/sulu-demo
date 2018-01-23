@@ -68,7 +68,11 @@ swiftmailer:
 
 # MassiveSearch Configuration
 massive_search:
+    adapter: elastic
     adapters:
+        elastic:
+            hosts: '%elasticsearch.hosts%'
+            version: '%elasticsearch.version%'
         zend_lucene:
             basepath: "%kernel.var_dir%/indexes"
 
@@ -177,11 +181,13 @@ ongr_elasticsearch:
     managers:
         default:
             index:
+                hosts: '%elasticsearch.hosts%'
                 index_name: sulu_rocks_articles
             mappings:
                 - SuluArticleBundle
         live:
             index:
+                hosts: '%elasticsearch.hosts%'
                 index_name: sulu_rocks_articles_live
             mappings:
                 - SuluArticleBundle
