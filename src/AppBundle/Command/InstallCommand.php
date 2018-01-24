@@ -31,7 +31,9 @@ use Symfony\Component\Process\Process;
 class InstallCommand extends ContainerAwareCommand
 {
     const DATA_ROOT_PATH = 'vendor' . DIRECTORY_SEPARATOR . 'sulu' . DIRECTORY_SEPARATOR . 'demo-data' . DIRECTORY_SEPARATOR . 'data';
+
     const SQL_FILE_PATH = self::DATA_ROOT_PATH . DIRECTORY_SEPARATOR . 'sulu_demo.sql';
+
     const MEDIA_DIRECTORY_PATH = self::DATA_ROOT_PATH . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'media';
 
     /** @var SymfonyStyle */
