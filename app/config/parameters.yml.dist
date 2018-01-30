@@ -22,3 +22,7 @@ parameters:
 
     websocket_port: 9876
     websocket_url: 'sulu.lo'
+
+    # Specify elasticsearch configuration
+    elasticsearch_host: 127.0.0.1:9200
+    elasticsearch_version: 5.6
