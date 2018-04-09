@@ -120,21 +120,15 @@ sulu_websocket:
 
 # SuluHttpCache Configuration
 sulu_http_cache:
-    handlers:
-        debug:
-            enabled: %kernel.debug%
+    proxy_client:
+        symfony:
+            enabled: true
 
 # SuluMedia Configuration
 sulu_media:
     storage:
         local:
             path: "%kernel.var_dir%/uploads/media"
-
-dubture_f_fmpeg:
-    ffmpeg_binary: /usr/local/bin/ffmpeg # path to ffmpeg
-    ffprobe_binary: /usr/local/bin/ffprobe # path to ffprobe
-    binary_timeout: 300 # Use 0 for infinite
-    threads_count: 4
 
 sulu_snippet:
     types:
