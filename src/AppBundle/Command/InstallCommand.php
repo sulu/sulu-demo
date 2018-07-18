@@ -31,7 +31,9 @@ use Symfony\Component\Process\Process;
 class InstallCommand extends ContainerAwareCommand
 {
     const DATA_ROOT_PATH = 'vendor' . DIRECTORY_SEPARATOR . 'sulu' . DIRECTORY_SEPARATOR . 'demo-data' . DIRECTORY_SEPARATOR . 'data';
+
     const SQL_FILE_PATH = self::DATA_ROOT_PATH . DIRECTORY_SEPARATOR . 'sulu_demo.sql';
+
     const MEDIA_DIRECTORY_PATH = self::DATA_ROOT_PATH . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'media';
 
     /** @var SymfonyStyle */
@@ -225,7 +227,7 @@ class InstallCommand extends ContainerAwareCommand
         $cmdLine .= ' --env=' . $this->getContainer()->getParameter('kernel.environment');
 
         $process = new Process($this->getPhp() . ' ' . $rootDir . DIRECTORY_SEPARATOR . $cmdLine);
-        if ('\\' !== DIRECTORY_SEPARATOR){
+        if ('\\' !== DIRECTORY_SEPARATOR) {
             $process->setTty(true);
         }
 
