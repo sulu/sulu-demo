@@ -1,0 +1,50 @@
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> symfony/phpunit-bridge ###
+.phpunit
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> symfony/web-server-bundle ###
+/.web-server-pid
+###< symfony/web-server-bundle ###
+
+# var
+/var/*
+!/var/.gitkeep
+
+# web
+/public/bundles
+/public/uploads
+/public/admin/translations/*
+!/public/admin/translations/.gitkeep
+
+# composer
+/composer.phar
+composer.lock
+/vendor
+
+# npm
+package-lock.json
+node_modules
+
+# phpunit
+.phpunit
+/phpunit.xml
+
+# IDEs
+/.idea
+*.iml
+*~
+.web-server-pid
+
+# System files
+.DS_Store
