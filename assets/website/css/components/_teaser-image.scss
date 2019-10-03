@@ -1,0 +1,71 @@
+.teaser-image {
+    border: 1px solid $dark-grey;
+    display: flex;
+    position: relative;
+}
+
+.teaser-image__image {
+    background: $grey;
+    flex: 0 0 auto;
+    overflow: hidden;
+    padding: 40px;
+    position: relative;
+    width: 40%;
+
+    > img {
+        height: calc(100% - 80px);
+        max-width: none;
+        position: absolute;
+        width: auto;
+    }
+}
+
+.teaser-image__content {
+    margin: -5px 0;
+    padding: 40px;
+}
+
+.teaser-image__title {
+    margin-bottom: 10px;
+    margin-top: 20px;
+    overflow: hidden;
+
+    @include mediaEachMax((
+        height: mapMath($h3-line-heights, 2),
+    ));
+
+    /* stylelint-disable selector-combinator-blacklist */
+    .teaser-image:hover &,
+    .teaser-image:focus & {
+        color: $light-blue;
+    }
+
+    .teaser-image:focus-within & { // Need to be seperate else Edge Browser breaks
+        color: $light-blue;
+    }
+    /* stylelint-enable selector-combinator-blacklist */
+}
+
+.teaser-image__description {
+    margin-bottom: 40px;
+    margin-top: 10px;
+    overflow: hidden;
+
+    @include mediaEachMax((
+        height: mapMath($line-heights, 2),
+    ));
+}
+
+.teaser-image__link {
+    color: $blue;
+    font-weight: bold;
+    margin-top: 40px;
+    text-decoration: none;
+    @include containerLink;
+
+    &:hover,
+    &:focus {
+        outline: none;
+        text-decoration: none;
+    }
+}

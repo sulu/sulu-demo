@@ -1,0 +1,22 @@
+.partners__select {
+    margin-bottom: 80px;
+    text-align: center;
+    width: 100%;
+
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: url(/website/images/angle-down.svg) no-repeat right $white;
+        background-position-x: 400px;
+        border: 1px solid $dark-grey;
+        height: 60px;
+        outline: none;
+        padding: 20px;
+        width: 445px;
+
+        @include media('<tablet') {
+            background-position-x: calc(100% - 10px);
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,61 @@
+.space-after-big {
+    margin-bottom: 80px;
+
+    @include media('<tablet') {
+        margin-bottom: 40px;
+    }
+}
+
+.space-after-medium {
+    margin-bottom: 30px;
+
+    @include media('<tablet') {
+        margin-bottom: 20px;
+    }
+}
+
+.space-before-medium {
+    margin-top: 30px;
+
+    @include media('<tablet') {
+        margin-bottom: 20px;
+    }
+}
+
+.space-after-small {
+    margin-bottom: 10px;
+
+    @include media('<tablet') {
+        margin-bottom: 7px;
+    }
+}
+
+.space-mobile-after-small {
+    @include media('<tablet') {
+        margin-bottom: 7px;
+    }
+}
+
+.space-big {
+    margin: 80px 0;
+
+    @include media('<tablet') {
+        margin: 40px 0;
+    }
+}
+
+.space-big-before {
+    margin-top: 80px;
+
+    @include media('<tablet') {
+        margin-top: 40px;
+    }
+}
+
+.space-big-after {
+    margin-bottom: 80px;
+
+    @include media('<tablet') {
+        margin-bottom: 40px;
+    }
+}

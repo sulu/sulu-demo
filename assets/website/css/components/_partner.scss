@@ -1,0 +1,77 @@
+.partner {
+    border: 1px solid $dark-grey;
+    display: flex;
+    position: relative;
+    @include media('<tablet') {
+        display: block;
+    }
+}
+
+.partner__logo {
+    background: $grey;
+    flex: 0 0 auto;
+    overflow: hidden;
+    padding: 40px;
+    position: relative;
+    width: 40%;
+
+    > img {
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        max-height: 100%;
+        max-width: 100%;
+        padding: 40px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    @include media('<tablet') {
+        background: $white;
+        border-bottom: 1px solid $dark-grey;
+        width: 100%;
+
+        > img {
+            margin: auto;
+            padding: 40px;
+            position: relative;
+            width: 100%;
+        }
+    }
+}
+
+.partner__content {
+    margin: -5px 0;
+    padding: 40px;
+}
+
+.partner__corporation {
+    font-family: $font-family-mono;
+}
+
+.partner__name {
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.partner__note {
+    font-family: $font-family-mono;
+    margin-top: 10px;
+    overflow: hidden;
+
+    @include mediaEachMax((
+        height: mapMath($line-heights, 3),
+    ));
+}
+
+.partner__url {
+    color: $blue;
+    display: block;
+    line-height: 24px;
+    margin-top: 50px;
+
+    &--empty {
+        margin-top: 50 + 24px; // add line-height to margin
+    }
+}

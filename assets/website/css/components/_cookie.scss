@@ -1,0 +1,57 @@
+.cookie {
+    background: $blue;
+    bottom: 40px;
+    color: $white;
+    display: none;
+    left: 60px;
+    padding: 60px;
+    position: fixed;
+    text-align: center;
+    width: 410px;
+    z-index: $z-overlay;
+
+    @include media('<tablet') {
+        bottom: 20px;
+        left: 20px;
+        padding: 30px;
+        width: calc(100% - 40px);
+    }
+
+    &--enable {
+        display: initial;
+    }
+}
+
+.cookie__image {
+    margin-top: -10px;
+
+    > img {
+        margin: 0 auto;
+        max-width: 150px;
+    }
+
+    @include media('<tablet') {
+        margin-top: 10px;
+    }
+}
+
+.cookie__description {
+    margin-top: 20px;
+
+    @include media('<tablet') {
+        margin-top: 50px;
+    }
+}
+
+.cookie__button {
+    @extend .button;
+    border: 1px solid #FFFFFF;
+    height: 50px;
+    margin-top: 40px;
+    width: 200px;
+
+    @include media('<tablet') {
+        margin-top: 20px;
+        width: 100%;
+    }
+}

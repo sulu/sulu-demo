@@ -1,0 +1,160 @@
+.navigation {
+    margin: 0 -20px;
+
+    @include media('<laptop') {
+        margin: 0;
+    }
+}
+
+.navigation__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include media('<laptop') {
+        display: block;
+    }
+}
+
+.navigation__item {
+    display: block;
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+    &::before {
+        display: none;
+    }
+}
+
+.navigation__link {
+    color: currentColor;
+    display: block;
+    font-weight: 500;
+    padding: 8px 20px;
+    text-decoration: none;
+    white-space: nowrap;
+
+    @include media('<laptop') {
+        font-size: 20px;
+        line-height: 32px;
+        padding: 12px 0;
+    }
+
+    &:hover,
+    &:focus,
+    &--active {
+        color: $light-blue;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &::after {
+        border: 5px solid transparent;
+        border-top-color: currentColor;
+        content: '';
+        display: none;
+        height: 0;
+        margin-left: 8px;
+        position: relative;
+        top: 1px;
+        width: 0;
+
+        @include media('<laptop') {
+            border: 6px solid transparent;
+            border-left-color: currentColor;
+            margin-left: 20px;
+            top: -2px;
+        }
+    }
+
+    &:nth-last-child(2)::after {
+        display: inline-block;
+    }
+
+    &--white,
+    &--black {
+        &:hover,
+        &:focus,
+        &--active {
+            color: currentColor;
+        }
+    }
+}
+
+.navigation__sub-list {
+    display: none;
+    left: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    z-index: $z-menu + 10;
+
+    @include media('<laptop') {
+        display: block;
+        position: relative;
+    }
+
+    .navigation__item:hover > &,
+    .navigation__link:focus + & {
+        display: block;
+    }
+
+    .navigation__item:focus-within > & { // Need to be seperate else Edge Browser breaks
+        display: block;
+    }
+
+    .navigation__item:nth-last-of-type(-n+2) > & { // stylelint-disable-line selector-max-specificity
+        left: auto;
+        right: 0;
+    }
+}
+
+.navigation__sub-item {
+    display: block;
+
+    &::before {
+        display: none;
+    }
+}
+
+.navigation__sub-link {
+    background-color: $white;
+    border: 1px solid currentColor;
+    color: currentColor;
+    display: block;
+    font-weight: 500;
+    margin-top: -1px;
+    min-width: 200px;
+    padding: 12px 20px;
+    position: relative;
+    text-decoration: none;
+    white-space: nowrap;
+
+    &--grey {
+        background-color: $grey;
+    }
+
+    @include media('<laptop') {
+        background-color: transparent;
+        border: none;
+        font-size: 20px;
+        line-height: 32px;
+        padding: 12px 40px;
+    }
+
+    &:hover,
+    &:focus,
+    &--active {
+        color: $light-blue;
+        z-index: $z-menu + 11;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}

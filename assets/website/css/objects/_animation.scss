@@ -1,0 +1,33 @@
+$levitation-distance: 2.5px;
+
+@keyframes button-icon__go-up {
+    100% {
+        transform: scale(1.5) translate(0, -$levitation-distance);
+    }
+}
+
+@keyframes button-icon__levitate {
+    0% {
+        transform: scale(1.5) translate(0, -$levitation-distance);
+    }
+
+    100% {
+        transform: scale(1.5) translate(0, $levitation-distance);
+    }
+}
+
+@keyframes button-icon-big__go-up {
+    100% {
+        transform: scale(2) translate(0, -$levitation-distance);
+    }
+}
+
+@keyframes button-icon-big__levitate {
+    0% {
+        transform: scale(2) translate(0, -$levitation-distance);
+    }
+
+    100% {
+        transform: scale(2) translate(0, $levitation-distance);
+    }
+}

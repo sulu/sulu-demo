@@ -1,0 +1,50 @@
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    line-height: 24px;
+    margin: 120px auto 0;
+    text-align: center;
+    width: 240px;
+
+    @include media('<tablet') {
+        margin-top: 60px;
+    }
+}
+
+.pagination__prev {
+    margin-right: auto;
+
+    &:hover {
+        padding-right: 8px;
+        transform: scale(1.5) translateX(-8px);
+    }
+}
+
+.pagination__next {
+    margin-left: auto;
+
+    &:hover {
+        padding-left: 8px;
+        transform: scale(1.5) translateX(8px);
+    }
+}
+
+.pagination__prev,
+.pagination__next {
+    color: $blue;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    text-decoration: none;
+    top: 0;
+    transform: scale(1.5);
+    transition: transform 0.3s ease-in-out;
+    width: 30px;
+
+    &:hover,
+    &:focus {
+        color: $light-blue;
+        outline: none;
+        text-decoration: none;
+    }
+}

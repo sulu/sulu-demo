@@ -1,0 +1,54 @@
+.link-box {
+    bottom: 60px;
+    display: flex;
+    position: fixed;
+    right: 60px;
+    z-index: $z-menu + 20;
+
+    @include media('<laptop') {
+        border-top: 1px solid $grey;
+        bottom: auto !important;
+        display: block;
+        margin-top: 20px;
+        padding-top: 15px;
+        position: relative !important;
+        right: auto;
+        z-index: $z-menu;
+    }
+}
+
+.link-box__item {
+    background: $blue;
+    color: $white;
+    display: block;
+    font-size: 12px;
+    line-height: 16px;
+    padding: 30px 40px;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @include media('<laptop') {
+        background: none;
+        padding: 25px 0;
+    }
+
+    &:hover,
+    &:focus {
+        color: $light-blue;
+        text-decoration: none;
+    }
+
+    &:focus {
+        outline: 0;
+    }
+
+    > [class^='icon-'] {
+        display: inline-block;
+        margin-right: 20px;
+        transform: scale(2);
+    }
+
+    &:hover > [class^='icon-'] {
+        animation: button-icon-big__go-up 0.2s, button-icon-big__levitate 0.4s alternate 0.2s ease-in-out infinite;
+    }
+}

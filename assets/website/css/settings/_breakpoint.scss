@@ -1,0 +1,7 @@
+// Breakpoints set by max-width value:
+// Keep this file in sync with "breakpoints.js"
+$breakpoints: (
+    laptop: 1200px,     // 992px - 1200px
+    tablet: 991px,      // 768px -  991px
+    mobile: 767px,      //   0px -  767px
+);

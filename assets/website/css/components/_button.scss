@@ -1,0 +1,69 @@
+// @styleguide('button')
+.button {
+    background: $blue;
+    border: 1px solid $blue;
+    color: $white;
+    display: inline-block;
+    font-weight: bold;
+    padding: 13px 20px;
+    text-decoration: none;
+
+    &[disabled] {
+        pointer-events: none;
+    }
+
+    &:hover,
+    &:focus {
+        background: $light-blue;
+        border-color: $light-blue;
+        color: $white;
+        outline: none;
+        text-decoration: none;
+    }
+
+    > [class^='icon-'] {
+        display: inline-block;
+        margin-left: 45px;
+        transform: scale(1.5);
+    }
+
+    &:hover > [class^='icon-'] {
+        animation: button-icon__go-up 0.2s, button-icon__levitate 0.4s alternate 0.2s ease-in-out infinite;
+    }
+}
+
+// @styleguide('button')
+.button--full {
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+// @styleguide('button')
+.button--transparent {
+    background: transparent;
+    color: $blue;
+
+    &:hover,
+    &:focus {
+        background: transparent;
+        color: $light-blue;
+    }
+}
+
+// @styleguide('button')
+.button--light {
+    background: transparent;
+    border-color: $dark-grey;
+    color: $blue;
+
+    &:hover,
+    &:focus {
+        background: transparent;
+        color: $light-blue;
+    }
+
+    > [class^='icon-'] {
+        margin-left: 20px; // TODO should be normalized check with homepage
+    }
+}

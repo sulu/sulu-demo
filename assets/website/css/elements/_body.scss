@@ -1,0 +1,10 @@
+body {
+    color: $blue;
+    font-family: $font-family;
+    margin: 0;
+
+    @include mediaEachMax((
+        font-size: $font-sizes,
+        line-height: $line-heights,
+    ));
+}

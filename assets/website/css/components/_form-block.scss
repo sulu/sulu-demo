@@ -1,0 +1,31 @@
+.form-block {
+    background-attachment: fixed;
+    background-image: url('/website/images/sulu-only-blue.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: -140px 0; // compensates the section-padding
+    padding: 80px;
+
+    @include media('<tablet') {
+        margin: -60px 0;
+        padding: 30px 0;
+    }
+}
+
+.form-block__image {
+    margin: 0 auto 40px;
+    width: 80px;
+}
+
+.form-block__content {
+    background: $white;
+    margin: 0 auto;
+    max-width: 880px;
+    overflow: hidden;
+    padding: 60px;
+
+    @include media('<tablet') {
+        padding: 30px 20px;
+    }
+}

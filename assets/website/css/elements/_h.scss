@@ -1,0 +1,37 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+    margin: 0;
+}
+
+h1 {
+    @include mediaEachMax((
+        font-size: $h1-font-sizes,
+        line-height: $h1-line-heights,
+    ));
+}
+
+h2 {
+    @include mediaEachMax((
+        font-size: $h2-font-sizes,
+        line-height: $h2-line-heights,
+    ));
+}
+
+h3 {
+    @include mediaEachMax((
+        font-size: $h3-font-sizes,
+        line-height: $h3-line-heights,
+    ));
+}
+
+h4 {
+    @include mediaEachMax((
+        font-size: $h4-font-sizes,
+        line-height: $h4-line-heights,
+    ));
+}

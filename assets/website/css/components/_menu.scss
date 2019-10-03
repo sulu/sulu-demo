@@ -1,0 +1,157 @@
+/* stylelint-disable selector-combinator-blacklist */
+.menu {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    @include media('<laptop') {
+        &--open {
+            background: $blue;
+            color: $white;
+            min-height: 100%;
+            overflow: auto;
+            position: relative;
+
+            & ~ * {
+                display: none;
+            }
+        }
+    }
+
+    &--white {
+        color: $white;
+    }
+
+    &--black {
+        color: $black;
+    }
+}
+
+.menu__container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 60px 0;
+
+    @include media('<laptop') {
+        display: block;
+        padding: 35px 0;
+    }
+}
+
+.menu__navigation {
+    margin-left: auto;
+
+    @include media('<laptop') {
+        display: none;
+        margin-left: 0;
+
+        .menu--open & {
+            display: block;
+        }
+    }
+}
+
+.menu__links {
+    @include media('<laptop') {
+        display: none;
+
+        .menu--open & {
+            display: block;
+        }
+    }
+}
+
+.menu__logo {
+    display: block;
+    flex: 0 0 auto;
+
+    &:hover,
+    &:focus {
+        // The following filter will convert black to $light-blue #52B6CA
+        filter: invert(61%) sepia(83%) saturate(283%) hue-rotate(142deg) brightness(91%) contrast(86%);
+        outline: none;
+    }
+
+    &--white {
+        filter: invert(100%);
+
+        &:hover,
+        &:focus {
+            filter: none;
+            outline: none;
+        }
+    }
+
+    &--black {
+        filter: brightness(0%);
+
+        &:hover,
+        &:focus {
+            filter: none;
+            outline: none;
+        }
+    }
+
+    @include media('<laptop') {
+        .menu--open & {
+            display: none;
+        }
+    }
+
+    > img {
+        height: 40px;
+        margin: 0 auto;
+
+        @include media('<laptop') {
+            height: 30px;
+        }
+    }
+}
+
+.menu__button {
+    background-color: $light-blue;
+    border: 0;
+    bottom: 20px;
+    display: none;
+    height: 60px;
+    position: fixed;
+    right: 20px;
+    width: 60px;
+    z-index: $z-menu + 10;
+
+    @include media('<laptop') {
+        display: block;
+    }
+
+    &::before,
+    &::after {
+        background-color: $white;
+        content: '';
+        display: block;
+        height: 1px;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, 8px);
+        transform-origin: 50% 50%;
+        transition: transform 0.15s;
+        width: 25px;
+    }
+
+    &::before {
+        transform: translate(-50%, -8px);
+    }
+
+    .menu--open & {
+        &::before {
+            transform: translate(-50%, 0) rotate(45deg);
+        }
+
+        &::after {
+            transform: translate(-50%, 0) rotate(-45deg);
+        }
+    }
+}
+/* stylelint-enable selector-combinator-blacklist */

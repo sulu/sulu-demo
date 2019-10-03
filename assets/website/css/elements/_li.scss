@@ -1,0 +1,28 @@
+ul {
+    list-style: none;
+
+    > li {
+        position: relative;
+    }
+
+    > li::before {
+        color: $light-blue;
+        content: '–';
+        left: -30px;
+        position: absolute;
+        top: 0;
+    }
+}
+
+ul,
+ol {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 0 1.75em 0 58px;
+
+    ul,
+    ol {
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+}

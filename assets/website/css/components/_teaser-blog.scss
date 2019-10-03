@@ -1,0 +1,51 @@
+.teaser-blog {
+    background: $white;
+    border: 1px solid $dark-grey;
+    padding: 40px;
+    position: relative;
+}
+
+.teaser-blog__title {
+    margin-bottom: 10px;
+    margin-top: 20px;
+    overflow: hidden;
+
+    @include mediaEachMax((
+        height: mapMath($h3-line-heights, 2),
+    ));
+
+    /* stylelint-disable selector-combinator-blacklist */
+    .teaser-blog:hover &,
+    .teaser-blog:focus & {
+        color: $light-blue;
+    }
+
+    .teaser-blog:focus-within & { // Need to be seperate else Edge Browser breaks
+        color: $light-blue;
+    }
+    /* stylelint-enable selector-combinator-blacklist */
+}
+
+.teaser-blog__description {
+    margin-bottom: 40px;
+    margin-top: 10px;
+    overflow: hidden;
+
+    @include mediaEachMax((
+        height: mapMath($line-heights, 2),
+    ));
+}
+
+.teaser-blog__link {
+    color: $blue;
+    font-weight: bold;
+    margin-top: 40px;
+    text-decoration: none;
+    @include containerLink;
+
+    &:hover,
+    &:focus {
+        outline: none;
+        text-decoration: none;
+    }
+}
