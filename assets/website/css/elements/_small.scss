@@ -1,6 +1,0 @@
-small {
-    @include mediaEachMax((
-        font-size: $small-font-sizes,
-        line-height: $small-line-heights,
-    ));
-}
