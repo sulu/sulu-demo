@@ -5,7 +5,7 @@
     <!-- See: http://docs.sulu.io/en/latest/book/webspaces.html how to configure your webspace-->
 
     <name>sulu.rocks</name>
-    <key>sulu_demo</key>
+    <key>demo</key>
 
     <localizations>
         <!-- See: http://docs.sulu.io/en/latest/book/localization.html how to add new localizations -->
@@ -45,7 +45,7 @@
     <portals>
         <portal>
             <name>sulu.rocks</name>
-            <key>sulu_demo</key>
+            <key>demo</key>
 
             <environments>
                 <environment type="prod">
