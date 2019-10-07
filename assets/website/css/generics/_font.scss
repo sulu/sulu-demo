@@ -1,0 +1,20 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
+    /* Font varient */
+    -webkit-font-variant-ligatures: none;
+    font-variant-ligatures: none;
+
+    /* Smoothing */
+    text-rendering: optimizeLegibility;
+
+    // Font Rendering
+    -webkit-text-size-adjust: 100%;
+}
