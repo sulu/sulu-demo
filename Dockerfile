@@ -16,7 +16,7 @@ COPY assets/admin /var/www/html/assets/admin
 COPY --from=composer /var/www/html/vendor/sulu/sulu /var/www/html/vendor/sulu/sulu
 COPY --from=composer /var/www/html/vendor/friendsofsymfony/jsrouting-bundle /var/www/html/vendor/friendsofsymfony/jsrouting-bundle
 
-RUN cd /var/www/html/assets/admin && npm install && NODE_OPTIONS="--max_old_space_size=4096" npm run build
+RUN cd /var/www/html/assets/admin && npm ci && NODE_OPTIONS="--max_old_space_size=4096" npm run build
 
 # install website javascript dependencies and build assets in intermediate container
 FROM node:12 AS node-website
@@ -24,7 +24,7 @@ FROM node:12 AS node-website
 COPY assets/website /var/www/html/assets/website
 COPY public/website /var/www/html/public/website
 
-RUN cd /var/www/html/assets/website && npm install && npm run build:css && npm run build:js
+RUN cd /var/www/html/assets/website && npm ci && npm run build:css && npm run build:js
 
 # build actual application image
 FROM php:7.3-apache AS apache
@@ -58,8 +58,8 @@ RUN /usr/sbin/a2enmod rewrite && /usr/sbin/a2enmod headers && /usr/sbin/a2enmod 
 ADD ./deploy/config/php.ini /usr/local/etc/php/conf.d/custom.ini
 
 # copy needed files from build containers
-COPY --from=node-admin /var/www/html/public/build/ /var/www/html/public/build/
-COPY --from=node-website /var/www/html/public/website/ /var/www/html/public/website/
+COPY --from=node-admin /var/www/html/public/build/admin/ /var/www/html/public/build/admin/
+COPY --from=node-website /var/www/html/public/build/website/ /var/www/html/public/build/website/
 COPY --from=composer /var/www/html/vendor/ /var/www/html/vendor/
 
 COPY . /var/www/html/
