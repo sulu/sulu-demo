@@ -22,12 +22,12 @@ $translations = [
 ];
 
 // check if ip is within allowed range
-if (in_array($_SERVER['REMOTE_ADDR'], $allowedIPs)) {
+if (in_array($_SERVER['REMOTE_ADDR'], $allowedIPs, true)) {
     return false;
 }
 
 // get language
-$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+$lang = mb_substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 
 // chose locale
 $locale = array_key_exists($lang, $translations) ? $lang : DEFAULT_LOCALE;

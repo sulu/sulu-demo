@@ -39,6 +39,7 @@ node_modules
 # phpunit
 .phpunit
 /phpunit.xml
+.phpunit.result.cache
 
 # IDEs
 /.idea
@@ -48,3 +49,8 @@ node_modules
 
 # System files
 .DS_Store
+
+###> friendsofphp/php-cs-fixer ###
+/.php_cs
+/.php_cs.cache
+###< friendsofphp/php-cs-fixer ###
