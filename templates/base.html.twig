@@ -26,35 +26,13 @@
         {% include "includes/demobar.html.twig" %}
 
         {% block header %}
-            <nav>
-                <ul>
-                    <li>
-                        <a href="{{ sulu_content_root_path() }}">Homepage</a>
-                    </li>
-
-                    {% for item in sulu_navigation_root_tree('main') %}
-                        <li>
-                            <a href="{{ sulu_content_path(item.url) }}"
-                               title="{{ item.title }}">{{ item.title }}</a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </nav>
+            {% include "includes/navbar.html.twig" %}
         {% endblock %}
     </header>
-
-    <form action="{{ path('sulu_search.website_search') }}" method="GET">
-        <input name="q" type="text" placeholder="Search"/>
-        <input type="submit" value="Go"/>
-    </form>
 
     <section id="content">
         {% block content %}{% endblock %}
     </section>
-
-    <aside>
-        {% block aside %}{% endblock %}
-    </aside>
 
     <footer>
         {% block footer %}
