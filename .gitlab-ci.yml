@@ -1,0 +1,126 @@
+variables:
+    DOCKER_HOST: tcp://localhost:2375
+    DOCKER_DRIVER: overlay2
+    DOCKER_IMAGE: 'registry.sulu.io/webapps/sulu-demo'
+    APP_ENV: test
+    APP_SECRET: a448d1dfcaa563fce56c2fd9981f662b
+    MAILER_URL: null://localhost
+    DATABASE_URL: "mysql://root:root@${MYSQL_HOST}:3306/su_sulu"
+    EMAIL_FROM_ADDRESS: admin@localhost
+    COMPOSER_PROCESS_TIMEOUT: "1200" # int is not supported by local gitlab-runner
+    MYSQL_ROOT_PASSWORD: root
+
+stages:
+    - install
+    - test
+    - build
+
+composer:
+    stage: install
+    image: composer:latest
+    before_script:
+        - composer config -g cache-dir "$(pwd)/.composer-cache"
+    script:
+        - composer install -n --prefer-dist --no-scripts
+        - curl --show-error --silent https://getcomposer.org/installer | php
+    artifacts:
+        name: composer-dependencies
+        expire_in: 8 hours
+        paths:
+            - vendor
+            - composer.phar
+    cache:
+        key: composer
+        paths:
+            - .composer-cache/
+
+test:
+    stage: test
+    image: sulu/php:7.2-cli
+    services:
+        - mysql:5.7
+    before_script:
+        - php bin/adminconsole doctrine:database:create
+        - php bin/adminconsole doctrine:schema:update --force
+    script:
+        - php composer.phar test
+
+lint:
+    stage: test
+    image: sulu/php:7.2-cli
+    services:
+        - mysql:5.7
+    before_script:
+        - php bin/adminconsole doctrine:database:create
+        - php bin/adminconsole doctrine:schema:update --force
+    script:
+        - php composer.phar lint
+
+js-css:
+    stage: test
+    image: node:12
+    dependencies: []
+    variables:
+        NODE_OPTIONS: --max-old-space-size=1536
+    before_script:
+        - npm config set cache "$(pwd)/.npm-cache"
+    script:
+        - cd assets/website
+        - npm install --ignore-optional
+        - npm run lint
+    cache:
+        key: npm
+        paths:
+            - .npm-cache/
+
+build:
+    stage: build
+    tags:
+        - dind
+    services:
+        - docker:18-dind
+    image: docker:latest
+    dependencies: []
+    before_script:
+        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    script:
+        # try to pull previously built images to utilize docker cache during new build
+        - docker pull $DOCKER_IMAGE/composer:latest || true
+        - docker pull $DOCKER_IMAGE/node-admin:latest || true
+        - docker pull $DOCKER_IMAGE/node-website:latest || true
+        - docker pull $DOCKER_IMAGE/apache:latest || true
+        # build and tag intermediate images and application image
+        - docker build . --target composer -t $DOCKER_IMAGE/composer:latest
+            --cache-from $DOCKER_IMAGE/composer:latest
+        - docker build . --target node-admin -t $DOCKER_IMAGE/node-admin:latest
+            --cache-from $DOCKER_IMAGE/composer:latest
+            --cache-from $DOCKER_IMAGE/node-admin:latest
+        - docker build . --target node-website -t $DOCKER_IMAGE/node-website:latest
+            --cache-from $DOCKER_IMAGE/composer:latest
+            --cache-from $DOCKER_IMAGE/node-admin:latest
+            --cache-from $DOCKER_IMAGE/node-website:latest
+        - docker build . --target apache -t $DOCKER_IMAGE/apache:latest
+            --cache-from $DOCKER_IMAGE/composer:latest
+            --cache-from $DOCKER_IMAGE/node-admin:latest
+            --cache-from $DOCKER_IMAGE/node-website:latest
+            --cache-from $DOCKER_IMAGE/apache:latest
+        - docker build . --target prod -t $DOCKER_IMAGE/prod:$CI_COMMIT_SHA
+            --cache-from $DOCKER_IMAGE/composer:latest
+            --cache-from $DOCKER_IMAGE/node-admin:latest
+            --cache-from $DOCKER_IMAGE/node-website:latest
+            --cache-from $DOCKER_IMAGE/apache:latest
+        - docker build . --target stage  -t $DOCKER_IMAGE/stage:$CI_COMMIT_SHA
+            --cache-from $DOCKER_IMAGE/composer:latest
+            --cache-from $DOCKER_IMAGE/node-admin:latest
+            --cache-from $DOCKER_IMAGE/node-website:latest
+            --cache-from $DOCKER_IMAGE/apache:latest
+        # push new images to registry
+        - docker push $DOCKER_IMAGE/composer:latest
+        - docker push $DOCKER_IMAGE/node-admin:latest
+        - docker push $DOCKER_IMAGE/node-website:latest
+        - docker push $DOCKER_IMAGE/apache:latest
+        - docker push $DOCKER_IMAGE/prod:$CI_COMMIT_SHA
+        - docker push $DOCKER_IMAGE/stage:$CI_COMMIT_SHA
+    only:
+        - master
+        - /^deploy\/.+$/

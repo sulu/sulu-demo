@@ -1,6 +1,8 @@
 {
+    "name": "sulu/sulu-demo",
     "license": "proprietary",
     "type": "project",
+    "description": "Sulu demo website",
     "keywords": ["symfony", "sulu", "cms", "application", "admin"],
     "require": {
         "php": "^7.2",
@@ -24,13 +26,21 @@
         "zendframework/zendsearch": "^2.0.0rc6"
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.15",
+        "jangregor/phpstan-prophecy": "^0.4.2",
         "phpcr/phpcr-shell": "^1.0",
+        "phpstan/phpstan": "^0.11.16",
+        "phpstan/phpstan-doctrine": "^0.11.6",
+        "phpstan/phpstan-phpunit": "^0.11.2",
+        "phpstan/phpstan-symfony": "^0.11.6",
+        "phpstan/phpstan-webmozart-assert": "^0.11.3",
         "symfony/debug": "^3.4 || ^4.0",
         "symfony/debug-bundle": "^3.4 || ^4.0",
         "symfony/phpunit-bridge": "^3.4 || ^4.0",
         "symfony/thanks": "^1.1",
         "symfony/web-profiler-bundle": "^3.4 || ^4.0",
-        "symfony/web-server-bundle": "^3.4 || ^4.0"
+        "symfony/web-server-bundle": "^3.4 || ^4.0",
+        "thecodingmachine/phpstan-strict-rules": "^0.11.2"
     },
     "autoload": {
         "psr-4": {
@@ -70,7 +80,30 @@
         "post-create-project-cmd": [
             "Sulu\\Bundle\\CoreBundle\\Composer\\ScriptHandler::removeComposerLockFromGitIgnore",
             "Sulu\\Bundle\\CoreBundle\\Composer\\ScriptHandler::removePackageLockJsonFromGitIgnore"
-        ]
+        ],
+        "lint": [
+            "@phpstan",
+            "@php-cs",
+            "@lint-twig",
+            "@lint-yaml",
+            "@lint-composer",
+            "@schemavalidate"
+        ],
+        "test": [
+            "@phpunit"
+        ],
+        "phpunit": "SYMFONY_PHPUNIT_VERSION=8.2 vendor/bin/simple-phpunit",
+        "schemavalidate": "bin/adminconsole doctrine:schema:validate --skip-mapping",
+        "phpstan": [
+            "bin/websiteconsole cache:warmup --env=dev",
+            "@test install",
+            "vendor/bin/phpstan analyze"
+        ],
+        "php-cs": "vendor/bin/php-cs-fixer fix --verbose --diff --dry-run",
+        "php-cs-fix": "vendor/bin/php-cs-fixer fix",
+        "lint-composer": "@composer validate --strict",
+        "lint-twig": "bin/websiteconsole lint:twig templates/",
+        "lint-yaml": "bin/websiteconsole lint:yaml config/"
     },
     "config": {
         "preferred-install": {

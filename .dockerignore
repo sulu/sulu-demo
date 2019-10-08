@@ -1,0 +1,7 @@
+.git
+vendor
+public/build
+public/website/build
+node_modules
+tests
+var
