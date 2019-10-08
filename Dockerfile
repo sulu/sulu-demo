@@ -22,7 +22,6 @@ RUN cd /var/www/html/assets/admin && npm install && NODE_OPTIONS="--max_old_spac
 FROM node:12 AS node-website
 
 COPY assets/website /var/www/html/assets/website
-COPY public/website /var/www/html/public/website
 
 RUN cd /var/www/html/assets/website && npm ci && npm run build:css && npm run build:js
 
