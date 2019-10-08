@@ -1,0 +1,45 @@
+.demobar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    background: $grey;
+    height: 50px;
+    padding: 0 20px;
+}
+
+.demobar__logo {
+    display: block;
+}
+
+.demobar__logo-image {
+    display: block;
+    height: 35px;
+    width: auto;
+}
+
+.demobar__title {
+    color: $white;
+    margin: 0 20px 0 10px;
+    font-size: 14px;
+}
+
+.demobar__github {
+    margin-left: auto;
+    display: block;
+}
+
+.demobar__github-image {
+    display: block;
+    height: 28px;
+    width: auto;
+}
+
+.demobar__button {
+    margin-left: 10px;
+    height: 28px;
+    line-height: 28px;
+    font-weight: normal;
+    vertical-align: middle;
+    justify-self: flex-end;
+}

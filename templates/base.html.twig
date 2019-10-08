@@ -15,10 +15,16 @@
         } %}
     {% endblock %}
 
-    {% block style %}{% endblock %}
+    {% block style -%}
+        <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ preload(asset('/build/website/css/main.css'), { as: 'style' }) }}">
+    {% endblock %}
+
 </head>
 <body>
     <header>
+        {% include "includes/demobar.html.twig" %}
+
         {% block header %}
             <nav>
                 <ul>
@@ -56,6 +62,13 @@
         {% endblock %}
     </footer>
 
-    {% block javascripts %}{% endblock %}
+    {% block javascripts %}
+        <script>
+            window.webComponents = {{ get_components() }};
+            window.webServices = {{ get_services() }};
+        </script>
+        <script src="{{ preload(asset('/build/website/js/main.js'), { as: 'script' }) }}" async></script>
+    {% endblock %}
+
 </body>
 </html>

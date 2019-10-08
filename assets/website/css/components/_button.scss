@@ -1,0 +1,29 @@
+.button {
+    display: block;
+    font-size: 14px;
+    line-height: 38px;
+    background: $red;
+    color: $white;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-decoration: none;
+    border: 0;
+    border-radius: 1000px;
+    height: 38px;
+    padding: 0 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &[disabled] {
+        pointer-events: none;
+    }
+
+    &:hover,
+    &:focus {
+        background: darken($red, 5%);
+        color: $white;
+        outline: none;
+        text-decoration: none;
+    }
+}

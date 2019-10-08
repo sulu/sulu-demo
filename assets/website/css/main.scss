@@ -2,6 +2,8 @@
 
 // Settings:
 @import 'settings/breakpoint';
+@import 'settings/color';
+@import 'settings/font';
 @import 'settings/zindex';
 
 // Tools:
@@ -21,5 +23,7 @@
 @import '../node_modules/slick-carousel/slick/slick.scss';
 
 // Components:
+@import 'components/button';
+@import 'components/demobar';
 
 // Trumps:
