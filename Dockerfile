@@ -16,7 +16,7 @@ COPY assets/admin /var/www/html/assets/admin
 COPY --from=composer /var/www/html/vendor/sulu/sulu /var/www/html/vendor/sulu/sulu
 COPY --from=composer /var/www/html/vendor/friendsofsymfony/jsrouting-bundle /var/www/html/vendor/friendsofsymfony/jsrouting-bundle
 
-RUN cd /var/www/html/assets/admin && npm ci && NODE_OPTIONS="--max_old_space_size=4096" npm run build
+RUN cd /var/www/html/assets/admin && npm install && NODE_OPTIONS="--max_old_space_size=4096" npm run build
 
 # install website javascript dependencies and build assets in intermediate container
 FROM node:12 AS node-website
