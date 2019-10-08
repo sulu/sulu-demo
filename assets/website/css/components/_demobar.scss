@@ -1,9 +1,9 @@
 .demobar {
+    align-items: center;
+    background: $grey;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    align-items: center;
-    background: $grey;
     height: 50px;
     padding: 0 20px;
 }
@@ -20,13 +20,13 @@
 
 .demobar__title {
     color: $white;
-    margin: 0 20px 0 10px;
     font-size: 14px;
+    margin: 0 20px 0 10px;
 }
 
 .demobar__github {
-    margin-left: auto;
     display: block;
+    margin-left: auto;
 }
 
 .demobar__github-image {
@@ -36,10 +36,10 @@
 }
 
 .demobar__button {
-    margin-left: 10px;
-    height: 28px;
-    line-height: 28px;
     font-weight: normal;
-    vertical-align: middle;
+    height: 28px;
     justify-self: flex-end;
+    line-height: 28px;
+    margin-left: 10px;
+    vertical-align: middle;
 }

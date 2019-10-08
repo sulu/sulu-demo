@@ -1,19 +1,19 @@
 .button {
-    display: block;
-    font-size: 14px;
-    line-height: 38px;
     background: $red;
-    color: $white;
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-decoration: none;
     border: 0;
     border-radius: 1000px;
+    color: $white;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
     height: 38px;
-    padding: 0 20px;
-    white-space: nowrap;
+    letter-spacing: 2px;
+    line-height: 38px;
     overflow: hidden;
+    padding: 0 20px;
+    text-decoration: none;
     text-overflow: ellipsis;
+    white-space: nowrap;
 
     &[disabled] {
         pointer-events: none;
