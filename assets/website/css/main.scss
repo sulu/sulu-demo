@@ -5,6 +5,7 @@
 @import 'settings/color';
 @import 'settings/font';
 @import 'settings/zindex';
+@import '../../../public/website/fonts/icomoon/variables';
 
 // Tools:
 @import '../node_modules/massive-web/scss/tools/container-link';
@@ -18,6 +19,7 @@
 @import 'generics/font';
 
 // Elements:
+@import 'elements/body';
 
 // Objects:
 @import '../node_modules/slick-carousel/slick/slick.scss';
@@ -25,5 +27,7 @@
 // Components:
 @import 'components/button';
 @import 'components/demobar';
+@import 'components/navbar';
 
 // Trumps:
+@import '../../../public/website/fonts/icomoon/style.scss';
