@@ -42,5 +42,12 @@
                 <title lang="de">Artikel</title>
             </meta>
         </property>
+
+        <property name="contact" type="single_account_selection">
+            <meta>
+                <title lang="en">Contact</title>
+                <title lang="de">Kontakt</title>
+            </meta>
+        </property>
     </properties>
 </template>

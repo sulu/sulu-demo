@@ -3,7 +3,9 @@
 // Settings:
 @import 'settings/breakpoint';
 @import 'settings/color';
+@import 'settings/container';
 @import 'settings/font';
+@import 'settings/grid';
 @import 'settings/zindex';
 @import '../../../public/website/fonts/icomoon/variables';
 
@@ -19,12 +21,16 @@
 @import 'elements/body';
 
 // Objects:
+@import 'objects/container';
+@import 'objects/grid';
+@import 'objects/width';
 @import '../node_modules/slick-carousel/slick/slick.scss';
 
 // Components:
 @import 'components/button';
 @import 'components/demobar';
 @import 'components/navbar';
+@import 'components/footer';
 
 // Trumps:
 @import '../../../public/website/fonts/icomoon/style.scss';
