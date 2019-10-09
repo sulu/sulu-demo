@@ -8,10 +8,7 @@
 @import '../../../public/website/fonts/icomoon/variables';
 
 // Tools:
-@import '../node_modules/massive-web/scss/tools/container-link';
-@import '../node_modules/massive-web/scss/tools/dot-dot-dot';
-@import '../node_modules/massive-web/scss/tools/map-math';
-@import '../node_modules/massive-web/scss/tools/media';
+@import '../node_modules/@sulu/web/packages/scss/tools/media/media';
 
 // Generics:
 @import '../node_modules/normalize.css/normalize';
