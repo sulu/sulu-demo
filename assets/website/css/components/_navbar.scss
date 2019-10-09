@@ -1,6 +1,5 @@
 .navbar {
     align-items: center;
-    background: $grey-dark;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -11,7 +10,12 @@
     position: fixed;
     right: 0;
     top: 50px;
+    transition: background-color 0.3s ease;
     z-index: $z-navbar;
+
+    &--scroll {
+        background-color: $grey-dark;
+    }
 }
 
 .navbar__logo {

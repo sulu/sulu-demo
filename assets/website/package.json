@@ -1,6 +1,6 @@
 {
   "name": "sulu_demo",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "private": true,
   "description": "Basic bundle structure for a default website project.",
   "author": "Sulu GmbH",
@@ -44,16 +44,16 @@
   "dependencies": {
     "core-js": "^3.2.1",
     "jquery": "^3.4.1",
-    "massive-web": "^2.0.0-rc1",
+    "@sulu/web": "^2.0.0-rc3",
     "normalize.css": "^8.0.1",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.2",
-    "@babel/preset-env": "^7.6.2",
-    "autoprefixer": "^9.6.1",
+    "@babel/core": "^7.6.3",
+    "@babel/preset-env": "^7.6.3",
+    "autoprefixer": "^9.6.4",
     "babel-loader": "^8.0.6",
-    "concurrently": "^4.1.2",
+    "concurrently": "^5.0.0",
     "cssnano": "^4.1.10",
     "eslint": "^6.5.1",
     "eslint-config-ma": "^1.1.0",
