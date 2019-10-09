@@ -1,0 +1,20 @@
+[class^='width-'],
+[class*=' width-'] {
+    flex: 0 0 auto;
+}
+
+@for $i from 1 through $grid-columns {
+    .width-#{$i} {
+        width: percentage($i / $grid-columns);
+    }
+}
+
+@for $i from 1 through $grid-columns {
+    @each $breakpoint-name, $breakpoint in $breakpoints {
+        @include mediaMax($breakpoint) {
+            .width-#{$breakpoint-name}-#{$i} {
+                width: percentage($i / $grid-columns);
+            }
+        }
+    }
+}
