@@ -4,14 +4,34 @@
             <div class="grid grid--reverse">
                 <div class="grid__item width-6 width-tablet-12">
                     <h4>Connect with us</h4>
+                    <p>Sign up for our weekly newsletter! We inform you about the latest Newcomers, brand new records and events.</p>
+
+                    <form method="post" class="footer__newsletter-form">
+                        <label class="footer__newsletter-input-label">
+                            <input type="email" name="email" placeholder="E-Mail" class="footer__newsletter-input"/>
+                        </label>
+                        <button type="submit" class="footer__newsletter-button">SIGN UP</button>
+                    </form>
                 </div>
                 <div class="grid__item width-6 width-tablet-12">
                     <div class="grid">
                         <div class="grid__item width-6">
                             <h4>Contact</h4>
+                            <div class="footer__contact">
+                                <p>Gütlestraße 7a,<br/>6850 Dornbirn,<br/>Austria</p>
+                                <a href="tel:+43 5572 93482" class="footer__contact-link">+43 5572 93482</a>
+                                <a href="mailto:office@z.com" class="footer__contact-link">office@z.com</a>
+                            </div>
                         </div>
                         <div class="grid__item width-6">
                             <h4>Quick Links</h4>
+                            <div class="footer__quicklinks">
+                                {% for item in sulu_navigation_root_flat('footer', 1) %}
+                                    <a href="{{ sulu_content_path(item.url) }}" title="{{ item.title }}" class="footer__quicklink">
+                                        {{ item.title }}
+                                    </a>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
                 </div>
