@@ -1,32 +1,85 @@
-.footer {
-}
-
 .footer__main {
     background-color: $grey;
     color: $white;
-    padding: 100px 0 35px;
+    padding: 50px 0 35px;
+
+    @include media('<laptop') {
+        padding-top: 20px;
+    }
+}
+
+.footer__newsletter-form {
+    display: flex;
+
+    @include media('<tablet') {
+        flex-wrap: wrap;
+    }
+}
+
+.footer__newsletter-input {
+    width: 100%;
+
+    @include media('<tablet') {
+        text-align: center;
+    }
+}
+
+.footer__newsletter-input-label {
+    flex: 1;
+}
+
+.footer__newsletter-button {
+    margin-left: 20px;
+
+    @include media('<tablet') {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+    }
+}
+
+.footer__contact-link {
+    color: white;
+    display: block;
+    margin: 16px 0;
+    text-decoration: none;
+}
+
+.footer__quicklink {
+    color: white;
+    display: block;
+    margin: 16px 0;
+    text-decoration: none;
 }
 
 .footer__imprint {
-    > .grid > .grid__item {
-        height: 20px;
-        padding: 0;
-        text-align: center;
+    margin-top: 45px;
 
-        @include media('>mobile') {
-            text-align: left;
+    @include media('<tablet') {
+        margin-top: 10px;
+    }
 
-            &:nth-child(2n) {
-                text-align: right;
-            }
-        }
+    .grid__item {
+        padding-bottom: 0;
+        padding-top: 0;
     }
 }
 
 .footer__imprint-item {
     color: $white;
+    display: block;
     font-size: 11px;
+    height: 20px;
+    text-align: center;
     text-decoration: none;
+
+    @include media('>mobile') {
+        text-align: left;
+
+        .grid__item:nth-child(2n) > & {
+            text-align: right;
+        }
+    }
 }
 
 .footer__social {
@@ -54,6 +107,10 @@
     @include media('<tablet') {
         margin: 0;
         padding: 10px;
+    }
+
+    &:last-child {
+        margin-right: -15px;
     }
 }
 
