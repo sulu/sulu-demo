@@ -1,36 +1,42 @@
-<footer class="footer">
-    <div class="footer__main">
+<footer>
+    <div class="footer">
         <div class="container">
-            <div class="grid grid--reverse">
-                <div class="grid__item width-6 width-tablet-12">
-                    <h4>Connect with us</h4>
-                    <p>Sign up for our weekly newsletter! We inform you about the latest Newcomers, brand new records and events.</p>
+            <div class="footer__main">
+                <div class="grid grid--reverse">
+                    <div class="grid__item width-6 width-tablet-12">
+                        <h4 class="footer__title">Connect with us</h4>
+                        <div class="footer__newsletter">
+                            <p>Sign up for our weekly newsletter! We inform you about the latest Newcomers, brand new records and events.</p>
 
-                    <form method="post" class="footer__newsletter-form">
-                        <label class="footer__newsletter-input-label">
-                            <input type="email" name="email" placeholder="E-Mail" class="footer__newsletter-input"/>
-                        </label>
-                        <button type="submit" class="footer__newsletter-button">SIGN UP</button>
-                    </form>
-                </div>
-                <div class="grid__item width-6 width-tablet-12">
-                    <div class="grid">
-                        <div class="grid__item width-6">
-                            <h4>Contact</h4>
-                            <div class="footer__contact">
-                                <p>Gütlestraße 7a,<br/>6850 Dornbirn,<br/>Austria</p>
-                                <a href="tel:+43 5572 93482" class="footer__contact-link">+43 5572 93482</a>
-                                <a href="mailto:office@z.com" class="footer__contact-link">office@z.com</a>
-                            </div>
+                            <form method="post" class="footer__newsletter-form">
+                                <label class="footer__newsletter-input-label">
+                                    <input type="email" name="email" placeholder="E-Mail" class="footer__newsletter-input"/>
+                                </label>
+                                <button type="submit" class="footer__newsletter-button">SIGN UP</button>
+                            </form>
                         </div>
-                        <div class="grid__item width-6">
-                            <h4>Quick Links</h4>
-                            <div class="footer__quicklinks">
-                                {% for item in sulu_navigation_root_flat('footer', 1) %}
-                                    <a href="{{ sulu_content_path(item.url) }}" title="{{ item.title }}" class="footer__quicklink">
-                                        {{ item.title }}
-                                    </a>
-                                {% endfor %}
+                    </div>
+
+                    <div class="grid__item width-6 width-tablet-12">
+                        <div class="grid">
+                            <div class="grid__item width-6">
+                                <h4 class="footer__title">Contact</h4>
+                                <div class="footer__contact">
+                                    <p>Gütlestraße 7a,<br/>6850 Dornbirn,<br/>Austria</p>
+                                    <a href="tel:+43 5572 93482" class="footer__contact-link">+43 5572 93482</a>
+                                    <a href="mailto:office@z.com" class="footer__contact-link">office@z.com</a>
+                                </div>
+                            </div>
+
+                            <div class="grid__item width-6">
+                                <h4 class="footer__title">Quick Links</h4>
+                                <div class="footer__quicklinks">
+                                    {% for item in sulu_navigation_root_flat('footer', 1) %}
+                                        <a href="{{ sulu_content_path(item.url) }}" title="{{ item.title }}" class="footer__quicklink">
+                                            {{ item.title }}
+                                        </a>
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -38,45 +44,27 @@
             </div>
 
             <div class="footer__imprint">
-                <div class="grid">
-                    <div class="grid__item width-6 width-mobile-12">
-                        <span class="footer__imprint-item">&copy; Soundmanagement Corporation 2019</span>
-                    </div>
-
-                    <div class="grid__item width-6 width-mobile-12">
-                        <a href="#" class="footer__imprint-item">Privacy policy and terms of use</a>
-                    </div>
-
-                    <div class="grid__item width-6 width-mobile-12">
-                        <a href="#" class="footer__imprint-item">Cookie policy</a>
-                    </div>
-
-                    <div class="grid__item width-6 width-mobile-12">
-                        <a href="#" class="footer__imprint-item">Safety and recalls</a>
-                    </div>
+                <div class="footer__imprint-item footer__imprint-item--copyright">&copy; Soundmanagement Corporation 2019</div>
+                <div class="footer__imprint-item">
+                    <a href="#" class="footer__imprint-link">Privacy policy and terms of use</a>
+                </div>
+                <div class="footer__imprint-item">
+                    <a href="#" class="footer__imprint-link">Cookie policy</a>
+                </div>
+                <div class="footer__imprint-item">
+                    <a href="#" class="footer__imprint-link">Safety and recalls</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="footer__social">
+    <div class="social-footer">
         <div class="container">
-            <div class="footer__social-items">
-                <a href="#" class="footer__social-link">
-                    <span class="footer__social-icon icon icon--facebook"></span>
-                </a>
-
-                <a href="#" class="footer__social-link">
-                    <span class="footer__social-icon icon icon--instagram"></span>
-                </a>
-
-                <a href="#" class="footer__social-link">
-                    <span class="footer__social-icon icon icon--youtube"></span>
-                </a>
-
-                <a href="#" class="footer__social-link">
-                    <span class="footer__social-icon icon icon--spotify"></span>
-                </a>
+            <div class="social-footer__links">
+                <a href="#" class="social-footer__link icon icon--facebook"></a>
+                <a href="#" class="social-footer__link icon icon--instagram"></a>
+                <a href="#" class="social-footer__link icon icon--youtube"></a>
+                <a href="#" class="social-footer__link icon icon--spotify"></a>
             </div>
         </div>
     </div>
