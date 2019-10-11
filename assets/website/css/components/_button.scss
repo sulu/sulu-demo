@@ -1,10 +1,10 @@
 .button {
     background: $red;
     border: 0;
+
+    /* This is just a random very high number, because border-radius 100% doesn't work */
     border-radius: 1000px;
     color: $white;
-    display: block;
-    font-size: 14px;
     font-weight: bold;
     height: 38px;
     letter-spacing: 2px;
@@ -23,7 +23,28 @@
     &:focus {
         background: darken($red, 5%);
         color: $white;
-        outline: none;
         text-decoration: none;
+    }
+
+    &--full {
+        display: block;
+        width: 100%;
+    }
+
+    &--small {
+        font-weight: normal;
+        height: 28px;
+        line-height: 28px;
+    }
+
+    &--multiline {
+        display: block;
+        height: auto;
+        line-height: inherit;
+        overflow: inherit;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        text-overflow: inherit;
+        white-space: inherit;
     }
 }

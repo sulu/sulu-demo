@@ -15,12 +15,10 @@
 .demobar__logo-image {
     display: block;
     height: 35px;
-    width: auto;
 }
 
 .demobar__title {
     color: $white;
-    font-size: 14px;
     margin: 0 20px 0 10px;
 }
 
@@ -32,14 +30,9 @@
 .demobar__github-image {
     display: block;
     height: 28px;
-    width: auto;
 }
 
 .demobar__button {
-    font-weight: normal;
-    height: 28px;
-    justify-self: flex-end;
-    line-height: 28px;
+    display: block;
     margin-left: 10px;
-    vertical-align: middle;
 }

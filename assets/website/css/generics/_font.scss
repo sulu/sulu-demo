@@ -6,12 +6,14 @@ body {
 
 body {
     font-family: $font-family;
+    font-size: map_get($font-sizes, default);
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 
     /* Font varient */
     -webkit-font-variant-ligatures: none;
     font-variant-ligatures: none;
+    line-height: map_get($line-heights, default);
 
     /* Smoothing */
     text-rendering: optimizeLegibility;
