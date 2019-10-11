@@ -256,9 +256,6 @@
     "massive/search-bundle": {
         "version": "2.0.0"
     },
-    "massive/web-twig-extensions": {
-        "version": "v1.5.0"
-    },
     "monolog/monolog": {
         "version": "1.25.1"
     },
@@ -405,6 +402,9 @@
     },
     "sulu/sulu": {
         "version": "2.0.0"
+    },
+    "sulu/web-twig": {
+        "version": "dev-master"
     },
     "swiftmailer/swiftmailer": {
         "version": "v6.2.1"

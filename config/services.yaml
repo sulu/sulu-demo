@@ -10,10 +10,11 @@ services:
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
     # Web Twig Extensions
-    Massive\Component\Web\ComponentTwigExtension: ~
-    Massive\Component\Web\ImageTwigExtension: ~
-    Massive\Component\Web\IntlTwigExtension: ~
-    Massive\Component\Web\CountTwigExtension: ~
+    Sulu\Twig\Extensions\ComponentExtension: ~
+    Sulu\Twig\Extensions\CountExtension: ~
+    Sulu\Twig\Extensions\ImageExtension: ~
+    Sulu\Twig\Extensions\IntlExtension: ~
+    Sulu\Twig\Extensions\UrlExtension: ~
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name

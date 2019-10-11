@@ -25,26 +25,15 @@
         color: $white;
         text-decoration: none;
     }
+}
 
-    &--full {
-        display: block;
-        width: 100%;
-    }
+.button--full {
+    display: block;
+    width: 100%;
+}
 
-    &--small {
-        font-weight: normal;
-        height: 28px;
-        line-height: 28px;
-    }
-
-    &--multiline {
-        display: block;
-        height: auto;
-        line-height: inherit;
-        overflow: inherit;
-        padding-bottom: 10px;
-        padding-top: 10px;
-        text-overflow: inherit;
-        white-space: inherit;
-    }
+.button--small {
+    font-weight: normal;
+    height: 28px;
+    line-height: 28px;
 }
