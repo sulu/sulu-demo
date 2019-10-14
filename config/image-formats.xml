@@ -21,4 +21,40 @@
 
     <img src="{{ image.thumbnails['300x'] }}" alt="{{ image.title }}" title="{{ image.description|default(image.title) }}">
     -->
+
+    <format key="headerImage-2560x300">
+        <meta>
+            <title lang="en">Header Image - 4K</title>
+            <title lang="de">Header Bild - 4K</title>
+        </meta>
+
+        <scale x="2560" y="300"/>
+    </format>
+
+    <format key="headerImage-1200x300">
+        <meta>
+            <title lang="en">Header Image - Laptop</title>
+            <title lang="de">Header Bild - Laptop</title>
+        </meta>
+
+        <scale x="1200" y="300"/>
+    </format>
+
+    <format key="headerImage-991x250">
+        <meta>
+            <title lang="en">Header Image - Tablet</title>
+            <title lang="de">Header Bild - Tablet</title>
+        </meta>
+
+        <scale x="991" y="300"/>
+    </format>
+
+    <format key="headerImage-767x200">
+        <meta>
+            <title lang="en">Header Image - Mobile</title>
+            <title lang="de">Header Bild - Mobile</title>
+        </meta>
+
+        <scale x="767" y="300"/>
+    </format>
 </formats>

@@ -36,6 +36,30 @@
             <tag name="sulu.rlp"/>
         </property>
 
+        <property name="subtitle" type="text_line">
+            <meta>
+                <title lang="en">Subtitle</title>
+                <title lang="de">Untertitel</title>
+            </meta>
+        </property>
+
+        <property name="headerImage" type="single_media_selection">
+            <meta>
+                <title lang="en">Header Image</title>
+                <title lang="de">Header Bild</title>
+            </meta>
+
+            <params>
+                <param name="types" value="image"/>
+                <param name="formats" type="collection">
+                    <param name="headerImage-2560x300" />
+                    <param name="headerImage-1200x300" />
+                    <param name="headerImage-991x250" />
+                    <param name="headerImage-767x200" />
+                </param>
+            </params>
+        </property>
+
         <property name="article" type="text_editor">
             <meta>
                 <title lang="en">Article</title>

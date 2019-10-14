@@ -6,3 +6,8 @@ $line-heights: (
     default: 22px,
 );
 $icomoon-font-path: '/website/fonts/icomoon/fonts' !default;
+
+@font-face {
+    font-family: 'Broken Wings';
+    src: url('/website/fonts/broken-wings.ttf') format('truetype');
+}

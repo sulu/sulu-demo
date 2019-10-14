@@ -1,0 +1,21 @@
+<div class="header">
+    {% if content.headerImage|default|length %}
+        {{ get_image(content.headerImage, {
+            'src': 'headerImage-2560x300',
+            'class': 'header__image',
+        }, {
+            '(max-width: 1200px)': 'headerImage-1200x300',
+            '(max-width: 991px)': 'headerImage-991x250',
+            '(max-width: 767px)': 'headerImage-767x200',
+        }) }}
+    {% else %}
+        <img src="/website/images/default-header-image.jpg" class="header__image"/>
+    {% endif %}
+
+    <div class="header__text">
+        <h1 class="header__title">{{ content.title }}</h1>
+        {% if content.subtitle|default %}
+            <span class="header__subtitle">{{ content.subtitle }}</span>
+        {% endif %}
+    </div>
+</div>
