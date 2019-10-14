@@ -16,7 +16,7 @@
     // Is needed because normalize.css sets a custom line-height on buttons and some other elements
     @include mediaEachMax((
         font-size: $font-sizes,
-            line-height: $line-heights,
+        line-height: $line-heights,
     ));
 
     &[disabled] {
