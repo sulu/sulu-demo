@@ -5,5 +5,5 @@
 {% endblock %}
 
 {% block content %}
-    {{ content.article|raw }}
+    {% include 'includes/blocks.html.twig' with { blocks: content.blocks } %}
 {% endblock %}

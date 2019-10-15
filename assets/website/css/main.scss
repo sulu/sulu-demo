@@ -33,6 +33,7 @@
 
 // Components:
 @import 'components/button';
+@import 'components/blocks';
 @import 'components/content';
 @import 'components/demobar';
 @import 'components/navbar';
@@ -40,6 +41,10 @@
 @import 'components/footer';
 @import 'components/header';
 @import 'components/social-footer';
+@import 'components/blocks/text';
+@import 'components/blocks/heading';
+@import 'components/blocks/quote';
+@import 'components/blocks/link';
 
 // Trumps:
 @import '../../../public/website/fonts/icomoon/style.scss';

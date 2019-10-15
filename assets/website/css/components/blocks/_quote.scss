@@ -1,0 +1,20 @@
+.block-quote {
+    margin-left: 25px;
+    padding: 10px 0 10px 30px;
+    position: relative;
+    border-left: 14px solid $red;
+
+    @include media('<tablet') {
+        margin-left: 0;
+    }
+}
+
+.block-quote__quote {
+    font-weight: bold;
+    margin: 0;
+}
+
+.block-quote__reference {
+    color: lighten($black, 40%);
+    margin: 20px 0 0;
+}

@@ -6,7 +6,10 @@
 .footer__main {
     padding: 20px 0 0;
 
-    @include media('laptop') {
+    @include media('>mobile') {
+        padding-top: 40px;
+    }
+    @include media('>tablet') {
         padding-top: 50px;
     }
 }

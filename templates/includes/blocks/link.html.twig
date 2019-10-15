@@ -1,0 +1,3 @@
+{% set page = sulu_content_load(page) %}
+
+<a href="{{ sulu_content_path(page.content.url) }}" class="button block-link">{{ text|default(page.content.title|default('READ MORE')) }}</a>
