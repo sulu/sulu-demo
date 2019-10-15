@@ -11,3 +11,44 @@ $icomoon-font-path: '/website/fonts/icomoon/fonts' !default;
     font-family: 'Broken Wings';
     src: url('/website/fonts/broken-wings.ttf') format('truetype');
 }
+
+$font-sizes-headings: (
+    h1: (
+        default: 35px,
+    ),
+    h2: (
+        default: 24px,
+    ),
+    h3: (
+        default: 20px,
+    ),
+    h4: (
+        default: 18px,
+    ),
+    h5: (
+        default: 16px,
+    ),
+    h6: (
+        default: 14px,
+    ),
+);
+$line-heights-headings: (
+    h1: (
+        default: 55px,
+    ),
+    h2: (
+        default: 38px,
+    ),
+    h3: (
+        default: 32px,
+    ),
+    h4: (
+        default: 28px,
+    ),
+    h5: (
+        default: 24px,
+    ),
+    h6: (
+        default: 22px,
+    ),
+);

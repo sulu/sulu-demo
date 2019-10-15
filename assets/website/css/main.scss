@@ -22,6 +22,8 @@
 @import 'elements/body';
 @import 'elements/input';
 @import 'elements/button';
+@import 'elements/a';
+@import 'elements/h';
 
 // Objects:
 @import 'objects/container';
@@ -31,8 +33,10 @@
 
 // Components:
 @import 'components/button';
+@import 'components/content';
 @import 'components/demobar';
 @import 'components/navbar';
+@import 'components/card';
 @import 'components/footer';
 @import 'components/header';
 @import 'components/social-footer';

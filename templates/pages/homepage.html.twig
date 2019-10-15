@@ -1,7 +1,9 @@
 {% extends "base.html.twig" %}
 
-{% block content %}
-    <h1>{{ content.title }}</h1>
+{% block contentHeader %}
+    {% include "includes/header.html.twig" with { type: 'homepage' } %}
+{% endblock %}
 
+{% block content %}
     {{ content.article|raw }}
 {% endblock %}

@@ -43,10 +43,10 @@
             </meta>
         </property>
 
-        <property name="headerImage" type="single_media_selection">
+        <property name="header_image" type="single_media_selection">
             <meta>
-                <title lang="en">Header Image</title>
-                <title lang="de">Header Bild</title>
+                <title lang="en">Image</title>
+                <title lang="de">Bild</title>
             </meta>
 
             <params>

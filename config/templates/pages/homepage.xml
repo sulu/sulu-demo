@@ -36,6 +36,13 @@
             <tag name="sulu.rlp"/>
         </property>
 
+        <property name="teaser" type="single_page_selection">
+            <meta>
+                <title lang="en">Teaser</title>
+                <title lang="de">Teaser</title>
+            </meta>
+        </property>
+
         <property name="article" type="text_editor">
             <meta>
                 <title lang="en">Article</title>

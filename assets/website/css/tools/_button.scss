@@ -9,9 +9,9 @@
     font-weight: bold;
     height: 38px;
     letter-spacing: 2px;
-    line-height: 38px;
     overflow: hidden;
-    padding: 0 30px;
+    padding: 8px 30px;
+    text-align: center;
     text-decoration: none;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -35,7 +35,7 @@
     &--small {
         font-weight: normal;
         height: 28px;
-        line-height: 28px;
+        padding: 3px 30px;
     }
 
     &--multiline {

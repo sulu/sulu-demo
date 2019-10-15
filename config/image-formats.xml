@@ -46,7 +46,7 @@
             <title lang="de">Header Bild - Tablet</title>
         </meta>
 
-        <scale x="991" y="300"/>
+        <scale x="991" y="250"/>
     </format>
 
     <format key="headerImage-767x200">
@@ -55,6 +55,51 @@
             <title lang="de">Header Bild - Mobile</title>
         </meta>
 
+        <scale x="767" y="200"/>
+    </format>
+
+    <format key="headerImage-2560x500">
+        <meta>
+            <title lang="en">Header Image Detail - 4K</title>
+            <title lang="de">Header Bild Detail - 4K</title>
+        </meta>
+
+        <scale x="2560" y="500"/>
+    </format>
+
+    <format key="headerImage-1200x500">
+        <meta>
+            <title lang="en">Header Image Detail - Laptop</title>
+            <title lang="de">Header Bild Detail - Laptop</title>
+        </meta>
+
+        <scale x="1200" y="500"/>
+    </format>
+
+    <format key="headerImage-991x400">
+        <meta>
+            <title lang="en">Header Image Detail - Tablet</title>
+            <title lang="de">Header Bild Detail - Tablet</title>
+        </meta>
+
+        <scale x="991" y="400"/>
+    </format>
+
+    <format key="headerImage-767x300">
+        <meta>
+            <title lang="en">Header Image Detail - Mobile</title>
+            <title lang="de">Header Bild Detail - Mobile</title>
+        </meta>
+
         <scale x="767" y="300"/>
+    </format>
+
+    <format key="headerImage-600x400">
+        <meta>
+            <title lang="en">Header Image - Overview Element</title>
+            <title lang="de">Header Bild - Übersicht Element</title>
+        </meta>
+
+        <scale x="600" y="400"/>
     </format>
 </formats>

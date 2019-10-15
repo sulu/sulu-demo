@@ -1,7 +1,9 @@
 {% extends "base.html.twig" %}
 
-{% block content %}
+{% block contentHeader %}
     {% include "includes/header.html.twig" %}
+{% endblock %}
 
+{% block content %}
     {{ content.article|raw }}
 {% endblock %}
