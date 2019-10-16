@@ -14,6 +14,7 @@
         "friendsofsymfony/http-cache-bundle": "~2.3",
         "jackalope/jackalope-doctrine-dbal": "^1.3.0",
         "sulu/sulu": "^2.0.0",
+        "sulu/web-twig": "^1.5.0",
         "symfony/config": "^3.4 || ^4.0",
         "symfony/dotenv": "^3.4 || ^4.0",
         "symfony/flex": "^1.2",

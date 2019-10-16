@@ -403,6 +403,9 @@
     "sulu/sulu": {
         "version": "2.0.0"
     },
+    "sulu/web-twig": {
+        "version": "dev-master"
+    },
     "swiftmailer/swiftmailer": {
         "version": "v6.2.1"
     },

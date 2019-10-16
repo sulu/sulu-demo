@@ -1,0 +1,38 @@
+.demobar {
+    align-items: center;
+    background: $grey;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 50px;
+    padding: 0 20px;
+}
+
+.demobar__logo {
+    display: block;
+}
+
+.demobar__logo-image {
+    display: block;
+    height: 35px;
+}
+
+.demobar__title {
+    color: $white;
+    margin: 0 20px 0 10px;
+}
+
+.demobar__github {
+    display: block;
+    margin-left: auto;
+}
+
+.demobar__github-image {
+    display: block;
+    height: 28px;
+}
+
+.demobar__button {
+    display: block;
+    margin-left: 10px;
+}

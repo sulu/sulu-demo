@@ -5,6 +5,7 @@ body {
 }
 
 body {
+    font-family: $font-family;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 
@@ -17,4 +18,9 @@ body {
 
     // Font Rendering
     -webkit-text-size-adjust: 100%;
+
+    @include mediaEachMax((
+        font-size: $font-sizes,
+        line-height: $line-heights,
+    ));
 }

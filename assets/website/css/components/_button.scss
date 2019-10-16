@@ -1,0 +1,43 @@
+.button {
+    background: $red;
+    border: 0;
+
+    /* This is just a random very high number, because border-radius 100% doesn't work */
+    border-radius: 1000px;
+    color: $white;
+    font-weight: bold;
+    letter-spacing: 2px;
+    overflow: hidden;
+    padding: 8px 20px;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    // Is needed because normalize.css sets a custom line-height on buttons and some other elements
+    @include mediaEachMax((
+        font-size: $font-sizes,
+        line-height: $line-heights,
+    ));
+
+    &[disabled] {
+        pointer-events: none;
+    }
+
+    &:hover,
+    &:focus {
+        background: darken($red, 5%);
+        color: $white;
+        text-decoration: none;
+    }
+}
+
+.button--full {
+    display: block;
+    width: 100%;
+}
+
+.button--small {
+    font-weight: normal;
+    padding-bottom: 3px;
+    padding-top: 3px;
+}
