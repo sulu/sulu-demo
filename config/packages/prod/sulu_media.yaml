@@ -1,0 +1,10 @@
+sulu_media:
+    storage: s3
+    storages:
+        s3:
+            key: '%env(resolve:S3_KEY)%'
+            secret: '%env(resolve:S3_SECRET)%'
+            region: '%env(resolve:S3_REGION)%'
+            bucket_name: '%env(resolve:S3_BUCKET_NAME)%'
+            path_prefix: '%env(resolve:S3_PATH_PREFIX)%'
+            endpoint: '%env(resolve:S3_ENDPOINT)%'

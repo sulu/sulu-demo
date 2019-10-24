@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: {{ include "mediaproxy.fullname" . }}-configmap
+    labels:
+        app: {{ include "mediaproxy.fullname" . }}
+        chart: "{{ .Chart.Name }}"
+        release: "{{ .Release.Name }}"
+        heritage: "{{ .Release.Service }}"
+data:
+    nginx.conf: |-
+{{ $file := (.Files.Get "config/mediaproxy.conf") }}
+{{ tpl $file . | indent 8 }}

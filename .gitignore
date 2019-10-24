@@ -29,11 +29,9 @@
 
 # composer
 /composer.phar
-composer.lock
 /vendor
 
 # npm
-package-lock.json
 node_modules
 
 # phpunit

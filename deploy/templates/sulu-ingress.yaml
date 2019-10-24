@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: {{ .Release.Name }}-sulu-ingress
+    labels:
+        app.kubernetes.io/name: {{ include "sulu.name" . }}
+        helm.sh/chart: {{ include "sulu.chart" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+        app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- with .Values.sulu.ingress.annotations }}
+    annotations:
+{{ toYaml . | indent 8 }}
+{{- end }}
+spec:
+    rules:
+{{- range .Values.certificate.hosts }}
+        - http:
+              paths:
+                  - path: {{ $.Values.sulu.ingress.paths.admin }}
+                    backend:
+                        serviceName: {{ $.Release.Name }}
+                        servicePort: http
+                  - path: {{ $.Values.sulu.ingress.paths.mediaproxy }}
+                    backend:
+                        serviceName: {{ include "mediaproxy.fullname" $ }}
+                        servicePort: http
+                  - path: {{ $.Values.sulu.ingress.paths.website }}
+                    backend:
+                        serviceName: {{ $.Release.Name }}-varnish
+                        servicePort: http
+          host: {{ . }}
+{{- end }}
+    tls:
+        - secretName: {{ .Values.sulu.ingress.tls.secretName }}
+          hosts:
+{{- with .Values.certificate.hosts }}
+{{ toYaml . | indent 14 }}
+{{- end }}

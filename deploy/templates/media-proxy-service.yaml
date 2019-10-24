@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: {{ include "mediaproxy.fullname" . }}
+    labels:
+        app.kubernetes.io/name: {{ include "mediaproxy.fullname" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+        app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+    type: {{ .Values.mediaproxy.service.type }}
+    ports:
+        - port: {{ .Values.mediaproxy.service.port }}
+          targetPort: http
+          protocol: TCP
+          name: http
+    selector:
+        app.kubernetes.io/name: {{ include "mediaproxy.fullname" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}

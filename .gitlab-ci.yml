@@ -14,6 +14,7 @@ stages:
     - install
     - test
     - build
+    - deploy
 
 composer:
     stage: install
@@ -33,6 +34,8 @@ composer:
         key: composer
         paths:
             - .composer-cache/
+    except:
+        - /^fastlane\/.+$/
 
 test:
     stage: test
@@ -44,6 +47,8 @@ test:
         - php bin/adminconsole doctrine:schema:update --force
     script:
         - php composer.phar test
+    except:
+        - /^fastlane\/.+$/
 
 lint:
     stage: test
@@ -55,6 +60,8 @@ lint:
         - php bin/adminconsole doctrine:schema:update --force
     script:
         - php composer.phar lint
+    except:
+        - /^fastlane\/.+$/
 
 js-css:
     stage: test
@@ -72,6 +79,17 @@ js-css:
         key: npm
         paths:
             - .npm-cache/
+    except:
+        - /^fastlane\/.+$/
+
+security-check:
+    stage: test
+    image: sulu/php:7.2-cli
+    script:
+        - php composer.phar security-check
+    allow_failure: true
+    except:
+        - /^fastlane\/.+$/
 
 build:
     stage: build
@@ -124,3 +142,50 @@ build:
     only:
         - master
         - /^deploy\/.+$/
+        - /^fastlane\/.+$/
+
+deploy-prod:
+    stage: deploy
+    image: sulu/helm-gcloud:2.13.1
+    dependencies: []
+    variables:
+        DEPLOY_NAME: 'sulu-demo'
+    before_script:
+        - helm init --client-only
+        - helm repo add sulu http://charts.sulu.cloud
+        - helm repo update
+        - cd deploy && helm dep build && cd ..
+    script:
+        - echo "$SECRET_PROD_VALUES" > deploy/secret.prod.yaml
+        - helm upgrade --install $DEPLOY_NAME deploy --wait --values deploy/secret.prod.yaml --set=sulu.app.image.tag=$CI_COMMIT_SHA --set=sulu.app.image.repository=$DOCKER_IMAGE/prod
+    environment:
+        name: prod
+        url: https://sulu.rocks
+    when: manual
+    only:
+        - master
+        - /^deploy\/.+$/
+        - /^fastlane\/.+$/
+
+deploy-stage:
+    stage: deploy
+    image: sulu/helm-gcloud:2.13.1
+    dependencies: []
+    variables:
+        DEPLOY_NAME: 'sulu-demo-stage'
+    before_script:
+        - helm init --client-only
+        - helm repo add sulu http://charts.sulu.cloud
+        - helm repo update
+        - cd deploy && helm dep build && cd ..
+    script:
+        - echo "$SECRET_STAGE_VALUES" > deploy/secret.stage.yaml
+        - helm upgrade --install $DEPLOY_NAME deploy --wait --values deploy/secret.stage.yaml --set=sulu.app.image.tag=$CI_COMMIT_SHA --set=sulu.app.image.repository=$DOCKER_IMAGE/stage
+    environment:
+        name: staging
+        url: https://stage.sulu.rocks
+    when: manual
+    only:
+        - master
+        - /^deploy\/.+$/
+        - /^fastlane\/.+$/

@@ -1,0 +1,10 @@
+sulu_http_cache:
+    proxy_client:
+        symfony:
+            enabled: false
+        varnish:
+            enabled: true
+            servers:
+            - '%env(resolve:VARNISH_SERVER)%'
+    tags:
+        enabled: true
