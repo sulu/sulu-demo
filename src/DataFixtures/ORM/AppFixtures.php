@@ -3,12 +3,17 @@
 namespace App\DataFixtures\ORM;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Sulu\Bundle\ContactBundle\DataFixtures\ORM\LoadDefaultTypes;
 use Sulu\Bundle\ContactBundle\Entity\Account;
 use Sulu\Bundle\ContactBundle\Entity\AccountAddress;
 use Sulu\Bundle\ContactBundle\Entity\AccountInterface;
 use Sulu\Bundle\ContactBundle\Entity\Address;
 use Sulu\Bundle\ContactBundle\Entity\AddressType;
+use Sulu\Bundle\MediaBundle\DataFixtures\ORM\LoadCollectionTypes;
+use Sulu\Bundle\MediaBundle\DataFixtures\ORM\LoadMediaTypes;
 use Sulu\Bundle\MediaBundle\Entity\Collection;
 use Sulu\Bundle\MediaBundle\Entity\CollectionInterface;
 use Sulu\Bundle\MediaBundle\Entity\CollectionMeta;
@@ -19,13 +24,24 @@ use Sulu\Bundle\MediaBundle\Entity\FileVersionMeta;
 use Sulu\Bundle\MediaBundle\Entity\Media;
 use Sulu\Bundle\MediaBundle\Entity\MediaInterface;
 use Sulu\Bundle\MediaBundle\Entity\MediaType;
+use Sulu\Bundle\MediaBundle\Media\Storage\StorageInterface;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-class AppFixtures extends Fixture
+class AppFixtures extends Fixture implements OrderedFixtureInterface
 {
     const LOCALE = 'en';
+
+    /**
+     * @var StorageInterface
+     */
+    private $storage;
+
+    public function __construct(StorageInterface $storage)
+    {
+        $this->storage = $storage;
+    }
 
     public function load(ObjectManager $manager)
     {
@@ -155,7 +171,7 @@ class AppFixtures extends Fixture
         $title = $file->getFilename();
         $uploadedFile = new UploadedFile($file->getPathname(), $fileName);
 
-        $storageOptions = $this->container->get('sulu_media.storage')->save(
+        $storageOptions = $this->storage->save(
             $uploadedFile->getPathname(),
             $fileName
         );
@@ -200,5 +216,13 @@ class AppFixtures extends Fixture
         $manager->persist($media);
 
         return $media;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getOrder()
+    {
+        return PHP_INT_MAX;
     }
 }
