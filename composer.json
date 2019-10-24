@@ -51,7 +51,11 @@
     "autoload": {
         "psr-4": {
             "App\\": "src/"
-        }
+        },
+        "exclude-from-classmap": [
+            "/src/DataFixtures/",
+            "/src/Migrations/"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

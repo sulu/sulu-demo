@@ -52,16 +52,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.112.27",
+            "version": "3.112.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "fab980dbc5dc57e9c14a9ce26f55b6ad88b5b979"
+                "reference": "1e211dcb7dcf757b041890f072bbaa593b39512a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/fab980dbc5dc57e9c14a9ce26f55b6ad88b5b979",
-                "reference": "fab980dbc5dc57e9c14a9ce26f55b6ad88b5b979",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1e211dcb7dcf757b041890f072bbaa593b39512a",
+                "reference": "1e211dcb7dcf757b041890f072bbaa593b39512a",
                 "shasum": ""
             },
             "require": {
@@ -131,7 +131,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2019-10-23T18:13:05+00:00"
+            "time": "2019-10-30T18:37:36+00:00"
         },
         {
             "name": "behat/transliterator",
@@ -350,16 +350,16 @@
         },
         {
             "name": "doctrine/cache",
-            "version": "v1.8.0",
+            "version": "v1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "d768d58baee9a4862ca783840eca1b9add7a7f57"
+                "reference": "d4374ae95b36062d02ef310100ed33d78738d76c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/d768d58baee9a4862ca783840eca1b9add7a7f57",
-                "reference": "d768d58baee9a4862ca783840eca1b9add7a7f57",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/d4374ae95b36062d02ef310100ed33d78738d76c",
+                "reference": "d4374ae95b36062d02ef310100ed33d78738d76c",
                 "shasum": ""
             },
             "require": {
@@ -395,16 +395,16 @@
             ],
             "authors": [
                 {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
                     "name": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
                 {
                     "name": "Benjamin Eberlei",
                     "email": "kontakt@beberlei.de"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com"
                 },
                 {
                     "name": "Jonathan Wage",
@@ -421,7 +421,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2018-08-21T18:01:43+00:00"
+            "time": "2019-10-28T09:31:32+00:00"
         },
         {
             "name": "doctrine/collections",
@@ -5176,16 +5176,16 @@
         },
         {
             "name": "piwik/device-detector",
-            "version": "3.12.0",
+            "version": "3.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/matomo-org/device-detector.git",
-                "reference": "a698de2c57d8e106b8f8e54671b4bf794dc9698e"
+                "reference": "72630c0cc012da96fe9fb842e7af480ffa740b76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/matomo-org/device-detector/zipball/a698de2c57d8e106b8f8e54671b4bf794dc9698e",
-                "reference": "a698de2c57d8e106b8f8e54671b4bf794dc9698e",
+                "url": "https://api.github.com/repos/matomo-org/device-detector/zipball/72630c0cc012da96fe9fb842e7af480ffa740b76",
+                "reference": "72630c0cc012da96fe9fb842e7af480ffa740b76",
                 "shasum": ""
             },
             "require": {
@@ -5227,7 +5227,7 @@
                 "parser",
                 "useragent"
             ],
-            "time": "2019-07-22T14:35:14+00:00"
+            "time": "2019-10-24T15:38:52+00:00"
         },
         {
             "name": "psr/cache",
@@ -5474,16 +5474,16 @@
         },
         {
             "name": "psr/log",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd"
+                "reference": "bf73deb2b3b896a9d9c75f3f0d88185d2faa27e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
-                "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/bf73deb2b3b896a9d9c75f3f0d88185d2faa27e2",
+                "reference": "bf73deb2b3b896a9d9c75f3f0d88185d2faa27e2",
                 "shasum": ""
             },
             "require": {
@@ -5492,7 +5492,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -5517,7 +5517,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2018-11-20T15:27:04+00:00"
+            "time": "2019-10-25T08:06:51+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -11120,16 +11120,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.2.4",
+            "version": "v4.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "97e59c7a16464196a8b9c77c47df68e4a39a45c4"
+                "reference": "b76bbc3c51f22c570648de48e8c2d941ed5e2cf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/97e59c7a16464196a8b9c77c47df68e4a39a45c4",
-                "reference": "97e59c7a16464196a8b9c77c47df68e4a39a45c4",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/b76bbc3c51f22c570648de48e8c2d941ed5e2cf2",
+                "reference": "b76bbc3c51f22c570648de48e8c2d941ed5e2cf2",
                 "shasum": ""
             },
             "require": {
@@ -11137,6 +11137,7 @@
                 "php": ">=7.0"
             },
             "require-dev": {
+                "ircmaxell/php-yacc": "0.0.4",
                 "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0"
             },
             "bin": [
@@ -11167,7 +11168,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-09-01T07:51:21+00:00"
+            "time": "2019-10-25T18:33:07+00:00"
         },
         {
             "name": "php-cs-fixer/diff",
