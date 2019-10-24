@@ -40,7 +40,6 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
     }
 
     /**
-     * @param DocumentManager $documentManager
      * @throws DocumentManagerException
      * @throws MetadataNotFoundException
      */
@@ -54,9 +53,9 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
     }
 
     /**
-     * @param DocumentManager $documentManager
-     * @return BasePageDocument[]
      * @throws MetadataNotFoundException
+     *
+     * @return BasePageDocument[]
      */
     private function loadPages(DocumentManager $documentManager): array
     {
@@ -265,10 +264,10 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
     }
 
     /**
-     * @param DocumentManager $documentManager
      * @throws DocumentManagerException
      */
-    private function loadHomepage(DocumentManager $documentManager): void {
+    private function loadHomepage(DocumentManager $documentManager): void
+    {
         /** @var HomeDocument $homeDocument */
         $homeDocument = $documentManager->find('/cmf/demo/contents', AppFixtures::LOCALE);
 
@@ -306,10 +305,10 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
     }
 
     /**
-     * @param DocumentManager $documentManager
      * @throws DocumentManagerException
      */
-    private function updatePages(DocumentManager $documentManager): void {
+    private function updatePages(DocumentManager $documentManager): void
+    {
         /** @var BasePageDocument $artistsDocument */
         $artistsDocument = $documentManager->find('/cmf/demo/contents/artists', AppFixtures::LOCALE);
 
@@ -328,9 +327,8 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
     }
 
     /**
-     * @param DocumentManager $documentManager
      * @param mixed[] $data
-     * @return BasePageDocument
+     *
      * @throws MetadataNotFoundException
      */
     private function createPage(DocumentManager $documentManager, array $data): BasePageDocument

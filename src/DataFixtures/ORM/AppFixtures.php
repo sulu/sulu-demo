@@ -86,7 +86,7 @@ class AppFixtures extends Fixture
     }
 
     /**
-     * @return array{Content: CollectionInterface|null, Icons: CollectionInterface|null}
+     * @return array{Content: CollectionInterface|null}
      */
     private function loadCollections(ObjectManager $manager): array
     {
