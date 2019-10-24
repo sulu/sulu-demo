@@ -1,0 +1,65 @@
+sulu:
+    ingress:
+        enabled: false
+        paths:
+            admin: /admin/
+            mediaproxy: /uploads/media/
+            website: /
+        tls:
+            enabled: true
+
+    varnish:
+        enabled: true
+        image:
+            repository: sulu/varnish
+            tag: 0.1.0
+        readinessPath: '/_health/check'
+        configmap: sulu-demo-varnish-configmap
+
+    mediaproxy:
+        enabled: true
+        image:
+            tag: 0.1.0
+
+    app:
+        replicaCount: 2
+        image:
+            # tag and repository will be set by ci/cd
+        readinessPath: '/_health/check'
+        hooks:
+            postInstall:
+                enabled: false
+            postUpgrade:
+                enabled: false
+
+    redis:
+        master:
+            persistence:
+                enabled: false
+
+mysql:
+    enabled: false
+
+mediaproxy:
+    image:
+        repository: nginx
+        tag: 1.16
+        pullPolicy: IfNotPresent
+    service:
+        type: NodePort
+        port: 80
+
+jackrabbit:
+    image:
+        repository: sulu/jackrabbit
+        tag: 2.18
+        pullPolicy: IfNotPresent
+    service:
+        type: NodePort
+        port: 8080
+
+elasticsearch:
+    enabled: true
+
+imageCredentials:
+    registry: registry.sulu.io

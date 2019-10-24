@@ -1,0 +1,48 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+    name: {{ include "cronjob.fullname" . }}
+    labels:
+        app.kubernetes.io/name: {{ include "sulu.name" . }}
+        helm.sh/chart: {{ include "sulu.chart" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+        app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+    concurrencyPolicy: Replace
+    failedJobsHistoryLimit: 1
+    schedule: "0 * * * *"
+    successfulJobsHistoryLimit: 3
+    jobTemplate:
+        spec:
+            template:
+                metadata:
+                    labels:
+                        app.kubernetes.io/name: {{ include "cronjob.fullname" . }}
+                        app.kubernetes.io/instance: {{ .Release.Name }}
+                spec:
+                    restartPolicy: "OnFailure"
+{{- if .Values.sulu.app.image.pullSecrets }}
+                    imagePullSecrets:
+                      - name: {{ .Values.sulu.app.image.pullSecrets }}
+{{- end }}
+                    containers:
+                      - name: {{ .Chart.Name }}
+                        image: "{{ .Values.sulu.app.image.repository }}:{{ .Values.sulu.app.image.tag }}"
+                        command: ["/usr/local/bin/php", "/var/www/html/bin/adminconsole", "sulu:build", "dev", "--destroy", "-q"]
+                        imagePullPolicy: {{ .Values.sulu.app.image.pullPolicy }}
+                        env:
+                          - name: APP_ENV
+                            value: {{ .Values.sulu.app.app_env | quote }}
+                          - name: APP_SECRET
+                            value: {{ .Values.sulu.app.secret | quote }}
+                          - name: SULU_ADMIN_EMAIL
+                            value: {{ .Values.sulu.app.email | quote }}
+                          - name: VARNISH_SERVER
+                            value: {{ template "sulu.varnish.fullname" . }}
+                          - name: REDIS_HOST
+                            value: {{ template "sulu.redis.fullname" . }}
+                          - name: REDIS_PASSWORD
+                            value: {{ .Values.sulu.redis.password | quote }}
+{{- with .Values.sulu.app.env }}
+{{ toYaml . | indent 26 }}
+{{- end }}

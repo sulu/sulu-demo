@@ -2,7 +2,6 @@
     "license": "MIT",
     "repository": "https://github.com/sulu/skeleton.git",
     "scripts": {
-        "preinstall": "node ../../vendor/sulu/sulu/preinstall.js",
         "build": "webpack --mode production",
         "watch": "webpack --mode development -w"
     },
