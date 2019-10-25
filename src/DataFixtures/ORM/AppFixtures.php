@@ -135,18 +135,11 @@ class AppFixtures extends Fixture implements OrderedFixtureInterface
     {
         $domainRepository = $manager->getRepository(Domain::class);
 
-        $domains = $domainRepository->findAll();
-
         $analytics = new Analytics();
         $analytics->setTitle('Google Analytics');
         $analytics->setType('google');
         $analytics->setWebspaceKey('demo');
-        $analytics->setAllDomains(false);
-
-        foreach ($domains as $domain) {
-            $analytics->addDomain($domain);
-        }
-
+        $analytics->setAllDomains(true);
         $analytics->setContent('UA-46229871-6');
 
         $manager->persist($analytics);
