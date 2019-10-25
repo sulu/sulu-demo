@@ -21,3 +21,23 @@ import 'sulu-website-bundle';
 
 // Start admin application
 startAdmin();
+
+const observer = new MutationObserver(function(mutations) {
+    const inputs = document.querySelectorAll('[class^=login-container] input');
+
+    if (inputs.length > 0) {
+        const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+
+        nativeInputValueSetter.call(inputs[0], 'admin');
+        const event1 = new Event('input', {bubbles: true});
+        inputs[0].dispatchEvent(event1);
+
+        nativeInputValueSetter.call(inputs[1], 'admin');
+        const event2 = new Event('input', {bubbles: true});
+        inputs[1].dispatchEvent(event2);
+
+        observer.disconnect();
+    }
+});
+
+observer.observe(document.querySelector('[class^=login-container]'), {childList: true, subtree: true});
