@@ -3,17 +3,13 @@
 namespace App\DataFixtures\ORM;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Sulu\Bundle\ContactBundle\DataFixtures\ORM\LoadDefaultTypes;
 use Sulu\Bundle\ContactBundle\Entity\Account;
 use Sulu\Bundle\ContactBundle\Entity\AccountAddress;
 use Sulu\Bundle\ContactBundle\Entity\AccountInterface;
 use Sulu\Bundle\ContactBundle\Entity\Address;
 use Sulu\Bundle\ContactBundle\Entity\AddressType;
-use Sulu\Bundle\MediaBundle\DataFixtures\ORM\LoadCollectionTypes;
-use Sulu\Bundle\MediaBundle\DataFixtures\ORM\LoadMediaTypes;
 use Sulu\Bundle\MediaBundle\Entity\Collection;
 use Sulu\Bundle\MediaBundle\Entity\CollectionInterface;
 use Sulu\Bundle\MediaBundle\Entity\CollectionMeta;
@@ -26,7 +22,6 @@ use Sulu\Bundle\MediaBundle\Entity\MediaInterface;
 use Sulu\Bundle\MediaBundle\Entity\MediaType;
 use Sulu\Bundle\MediaBundle\Media\Storage\StorageInterface;
 use Sulu\Bundle\WebsiteBundle\Entity\Analytics;
-use Sulu\Bundle\WebsiteBundle\Entity\Domain;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -92,6 +87,9 @@ class AppFixtures extends Fixture implements OrderedFixtureInterface
         $account->setName('Z');
         $account->setCorporation('GmbH');
 
+        $account->setMainEmail('office@z.com');
+        $account->setMainPhone('+43 5572 93482');
+
         $accountAddress = new AccountAddress();
         $accountAddress->setAddress($address);
         $accountAddress->setAccount($account);
@@ -131,10 +129,8 @@ class AppFixtures extends Fixture implements OrderedFixtureInterface
         return $media;
     }
 
-    private function loadAnalytics(ObjectManager $manager)
+    private function loadAnalytics(ObjectManager $manager): void
     {
-        $domainRepository = $manager->getRepository(Domain::class);
-
         $analytics = new Analytics();
         $analytics->setTitle('Google Analytics');
         $analytics->setType('google');
@@ -236,7 +232,7 @@ class AppFixtures extends Fixture implements OrderedFixtureInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function getOrder()
     {

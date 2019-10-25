@@ -20,7 +20,7 @@
             <tag name="sulu.node.name"/>
         </property>
 
-        <property name="contact" type="single_account_selection">
+        <property name="contact" type="single_account_selection" mandatory="true">
             <meta>
                 <title lang="en">Contact</title>
                 <title lang="de">Kontakt</title>

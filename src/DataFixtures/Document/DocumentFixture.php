@@ -5,12 +5,15 @@ namespace App\DataFixtures\Document;
 use App\DataFixtures\ORM\AppFixtures;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\NonUniqueResultException;
+use Exception;
 use RuntimeException;
 use Sulu\Bundle\DocumentManagerBundle\DataFixtures\DocumentFixtureInterface;
 use Sulu\Bundle\MediaBundle\Entity\Media;
 use Sulu\Bundle\PageBundle\Document\BasePageDocument;
 use Sulu\Bundle\PageBundle\Document\HomeDocument;
 use Sulu\Bundle\PageBundle\Document\PageDocument;
+use Sulu\Bundle\SnippetBundle\Document\SnippetDocument;
+use Sulu\Bundle\SnippetBundle\Snippet\DefaultSnippetManagerInterface;
 use Sulu\Component\Content\Document\RedirectType;
 use Sulu\Component\Content\Document\WorkflowStage;
 use Sulu\Component\DocumentManager\DocumentManager;
@@ -34,6 +37,9 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
      */
     private $entityManager;
 
+    /** @var DefaultSnippetManagerInterface */
+    private $defaultSnippetManager;
+
     public function getOrder()
     {
         return 10;
@@ -42,10 +48,12 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
     /**
      * @throws DocumentManagerException
      * @throws MetadataNotFoundException
+     * @throws Exception
      */
     public function load(DocumentManager $documentManager)
     {
-        $pages = $this->loadPages($documentManager);
+        $this->loadPages($documentManager);
+        $this->loadContactSnippet($documentManager);
         $this->loadHomepage($documentManager);
         $this->updatePages($documentManager);
 
@@ -54,10 +62,8 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
 
     /**
      * @throws MetadataNotFoundException
-     *
-     * @return BasePageDocument[]
      */
-    private function loadPages(DocumentManager $documentManager): array
+    private function loadPages(DocumentManager $documentManager): void
     {
         $pageDataList = [
             [
@@ -254,13 +260,9 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
             ],
         ];
 
-        $pages = [];
-
         foreach ($pageDataList as $pageData) {
-            $pages[$pageData['title']] = $this->createPage($documentManager, $pageData);
+            $this->createPage($documentManager, $pageData);
         }
-
-        return $pages;
     }
 
     /**
@@ -275,7 +277,7 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
         $aboutDocument = $documentManager->find('/cmf/demo/contents/about-us', AppFixtures::LOCALE);
 
         /** @var BasePageDocument $headerTeaserDocument */
-        $headerTeaserDocument = $documentManager->find('/cmf/demo/contents/artists/the-bagpipes', AppFixtures::LOCALE);
+        $headerTeaserDocument = $documentManager->find('/cmf/demo/contents/artists/coyoos', AppFixtures::LOCALE);
 
         $homeDocument->getStructure()->bind(
             [
@@ -302,6 +304,44 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
 
         $documentManager->persist($homeDocument, AppFixtures::LOCALE);
         $documentManager->publish($homeDocument, AppFixtures::LOCALE);
+    }
+
+    /**
+     * @throws Exception
+     */
+    private function loadContactSnippet(DocumentManager $documentManager): void
+    {
+        $data = [
+            'title' => 'Z',
+            'contact' => [
+                'id' => 1,
+            ],
+        ];
+
+        $uuid = $this->createSnippet($documentManager, 'contact', $data)->getUuid();
+
+        $this->getDefaultSnippetManager()->save('demo', 'contact', $uuid, AppFixtures::LOCALE);
+    }
+
+    /**
+     * @param mixed[] $data
+     *
+     * @throws MetadataNotFoundException
+     */
+    private function createSnippet(DocumentManager $documentManager, string $structureType, array $data): SnippetDocument
+    {
+        /** @var SnippetDocument $snippetDocument */
+        $snippetDocument = $documentManager->create('snippet');
+        $snippetDocument->setLocale(AppFixtures::LOCALE);
+        $snippetDocument->setTitle($data['title']);
+        $snippetDocument->setStructureType($structureType);
+        $snippetDocument->setWorkflowStage(WorkflowStage::PUBLISHED);
+        $snippetDocument->getStructure()->bind($data);
+
+        $documentManager->persist($snippetDocument, AppFixtures::LOCALE, ['parent_path' => '/cmf/snippets']);
+        $documentManager->publish($snippetDocument, AppFixtures::LOCALE);
+
+        return $snippetDocument;
     }
 
     /**
@@ -412,6 +452,15 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
         }
 
         return $this->entityManager;
+    }
+
+    private function getDefaultSnippetManager(): DefaultSnippetManagerInterface
+    {
+        if (null === $this->defaultSnippetManager) {
+            $this->defaultSnippetManager = $this->container->get('sulu_snippet.default_snippet.manager');
+        }
+
+        return $this->defaultSnippetManager;
     }
 
     private function getMediaId(string $name): int

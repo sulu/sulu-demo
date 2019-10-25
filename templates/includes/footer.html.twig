@@ -21,10 +21,16 @@
                         <div class="grid">
                             <div class="grid__item width-6">
                                 <h4 class="footer__title">Contact</h4>
+
+                                {% set contact = sulu_snippet_load_by_area('contact').content.contact.entity %}
+                                {% set address = contact.accountAddresses[0].address %}
+
                                 <div class="footer__contact">
-                                    <p>Gütlestraße 7a,<br/>6850 Dornbirn,<br/>Austria</p>
-                                    <a href="tel:+43 5572 93482" class="footer__contact-link">+43 5572 93482</a>
-                                    <a href="mailto:office@z.com" class="footer__contact-link">office@z.com</a>
+                                    <p>{{ address.street ~ ' ' ~ address.number }},<br/>
+                                        {{ address.zip ~ ' ' ~ address.city }},<br/>
+                                        {{ country(address.countryCode) }}</p>
+                                    <a href="tel:{{ contact.mainPhone }}" class="footer__contact-link">{{ contact.mainPhone }}</a>
+                                    <a href="mailto:{{ contact.mainEmail }}" class="footer__contact-link">{{ contact.mainEmail }}</a>
                                 </div>
                             </div>
 
