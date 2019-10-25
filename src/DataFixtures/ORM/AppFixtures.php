@@ -25,6 +25,8 @@ use Sulu\Bundle\MediaBundle\Entity\Media;
 use Sulu\Bundle\MediaBundle\Entity\MediaInterface;
 use Sulu\Bundle\MediaBundle\Entity\MediaType;
 use Sulu\Bundle\MediaBundle\Media\Storage\StorageInterface;
+use Sulu\Bundle\WebsiteBundle\Entity\Analytics;
+use Sulu\Bundle\WebsiteBundle\Entity\Domain;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -55,6 +57,7 @@ class AppFixtures extends Fixture implements OrderedFixtureInterface
 
         $this->loadAccount($manager);
         $this->loadImages($manager, $collections['Content']);
+        $this->loadAnalytics($manager);
 
         $manager->flush();
     }
@@ -126,6 +129,27 @@ class AppFixtures extends Fixture implements OrderedFixtureInterface
         }
 
         return $media;
+    }
+
+    private function loadAnalytics(ObjectManager $manager)
+    {
+        $domainRepository = $manager->getRepository(Domain::class);
+
+        $domains = $domainRepository->findAll();
+
+        $analytics = new Analytics();
+        $analytics->setTitle('Google Analytics');
+        $analytics->setType('google');
+        $analytics->setWebspaceKey('demo');
+        $analytics->setAllDomains(false);
+
+        foreach ($domains as $domain) {
+            $analytics->addDomain($domain);
+        }
+
+        $analytics->setContent('UA-46229871-6');
+
+        $manager->persist($analytics);
     }
 
     private function createCollection(ObjectManager $manager, string $title): ?CollectionInterface

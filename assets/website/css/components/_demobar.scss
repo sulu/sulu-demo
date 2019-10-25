@@ -40,6 +40,11 @@
 }
 
 .demobar__button {
+    background-color: $light-blue;
     display: block;
     margin-left: 10px;
+
+    &:hover {
+        background-color: darken($light-blue, 10%);
+    }
 }
