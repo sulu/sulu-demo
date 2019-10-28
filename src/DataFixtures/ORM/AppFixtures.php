@@ -28,7 +28,8 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class AppFixtures extends Fixture implements OrderedFixtureInterface
 {
-    const LOCALE = 'en';
+    const LOCALE_EN = 'en';
+    const LOCALE_DE = 'de';
 
     /**
      * @var StorageInterface
@@ -162,7 +163,7 @@ class AppFixtures extends Fixture implements OrderedFixtureInterface
         $collection->setType($collectionType);
         $collection->setKey($key);
         $meta = new CollectionMeta();
-        $meta->setLocale(self::LOCALE);
+        $meta->setLocale(self::LOCALE_EN);
         $meta->setTitle($title);
         $meta->setCollection($collection);
 
@@ -218,7 +219,7 @@ class AppFixtures extends Fixture implements OrderedFixtureInterface
         $fileVersionMeta = new FileVersionMeta();
         $fileVersionMeta->setTitle($title)
             ->setDescription('')
-            ->setLocale(self::LOCALE)
+            ->setLocale(self::LOCALE_EN)
             ->setFileVersion($fileVersion);
 
         $fileVersion->addMeta($fileVersionMeta)

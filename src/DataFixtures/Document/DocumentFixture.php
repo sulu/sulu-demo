@@ -52,24 +52,35 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
      */
     public function load(DocumentManager $documentManager)
     {
-        $this->loadPages($documentManager);
-        $this->loadContactSnippet($documentManager);
+        $pages = $this->loadPages($documentManager);
+        $this->loadPagesGerman($documentManager, $pages);
+        $snippet = $this->loadContactSnippet($documentManager);
+        $this->loadContactSnippetGerman($documentManager, $snippet);
         $this->loadHomepage($documentManager);
-        $this->updatePages($documentManager);
+
+        // Needed, so that a Document use by loadHomepageGerman is managed.
+        $documentManager->flush();
+
+        $this->loadHomepageGerman($documentManager);
+        $this->updatePages($documentManager, AppFixtures::LOCALE_EN);
+        $this->updatePages($documentManager, AppFixtures::LOCALE_DE);
 
         $documentManager->flush();
     }
 
     /**
      * @throws MetadataNotFoundException
+     *
+     * @return mixed[]
      */
-    private function loadPages(DocumentManager $documentManager): void
+    private function loadPages(DocumentManager $documentManager): array
     {
         $pageDataList = [
             [
+                'locale' => AppFixtures::LOCALE_EN,
                 'title' => 'Artists',
                 'url' => '/artists',
-                'subtitle' => 'Discover our roster of talented musicians.',
+                'subtitle' => 'Discover our roster of talented musicians',
                 'header_image' => [
                     'id' => $this->getMediaId('artists.jpg'),
                 ],
@@ -77,10 +88,11 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
                 'structureType' => 'overview',
             ],
             [
+                'locale' => AppFixtures::LOCALE_EN,
                 'title' => 'Civil Literature',
                 'url' => '/artists/civil-literature',
                 'parent_path' => '/cmf/demo/contents/artists',
-                'subtitle' => 'Lorem ipsum dolor sit amet.',
+                'subtitle' => '',
                 'header_image' => [
                     'id' => $this->getMediaId('civil-literature.jpg'),
                 ],
@@ -106,10 +118,11 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
                 'structureType' => 'default',
             ],
             [
+                'locale' => AppFixtures::LOCALE_EN,
                 'title' => 'Coyoos',
                 'url' => '/artists/coyoos',
                 'parent_path' => '/cmf/demo/contents/artists',
-                'subtitle' => 'Lorem ipsum dolor sit amet.',
+                'subtitle' => '',
                 'header_image' => [
                     'id' => $this->getMediaId('coyoos.jpg'),
                 ],
@@ -135,10 +148,11 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
                 'structureType' => 'default',
             ],
             [
+                'locale' => AppFixtures::LOCALE_EN,
                 'title' => 'Marshall Plan',
                 'url' => '/artists/marshall-plan',
                 'parent_path' => '/cmf/demo/contents/artists',
-                'subtitle' => 'Lorem ipsum dolor sit amet.',
+                'subtitle' => '',
                 'header_image' => [
                     'id' => $this->getMediaId('marshall.jpg'),
                 ],
@@ -164,10 +178,11 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
                 'structureType' => 'default',
             ],
             [
+                'locale' => AppFixtures::LOCALE_EN,
                 'title' => 'The Bagpipes',
                 'url' => '/artists/the-bagpipes',
                 'parent_path' => '/cmf/demo/contents/artists',
-                'subtitle' => 'Lorem ipsum dolor sit amet.',
+                'subtitle' => '',
                 'header_image' => [
                     'id' => $this->getMediaId('dudelsack.jpg'),
                 ],
@@ -189,10 +204,11 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
                 'structureType' => 'default',
             ],
             [
+                'locale' => AppFixtures::LOCALE_EN,
                 'title' => 'TJ Fury',
                 'url' => '/artists/tj-fury',
                 'parent_path' => '/cmf/demo/contents/artists',
-                'subtitle' => 'Lorem ipsum dolor sit amet.',
+                'subtitle' => '',
                 'header_image' => [
                     'id' => $this->getMediaId('tj-fury.jpg'),
                 ],
@@ -214,9 +230,10 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
                 'structureType' => 'default',
             ],
             [
+                'locale' => AppFixtures::LOCALE_EN,
                 'title' => 'Blog',
                 'url' => '/blog',
-                'subtitle' => 'We like to give you insights into what we do.',
+                'subtitle' => 'We like to give you insights into what we do',
                 'header_image' => [
                     'id' => $this->getMediaId('blog.jpg'),
                 ],
@@ -230,9 +247,10 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
                 'structureType' => 'default',
             ],
             [
+                'locale' => AppFixtures::LOCALE_EN,
                 'title' => 'About Us',
                 'url' => '/about',
-                'subtitle' => 'We work hard, but we love what we do.',
+                'subtitle' => 'We work hard, but we love what we do',
                 'header_image' => [
                     'id' => $this->getMediaId('about.png'),
                 ],
@@ -260,6 +278,265 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
             ],
         ];
 
+        $pages = [];
+
+        foreach ($pageDataList as $pageData) {
+            $pages[$pageData['url']] = $this->createPage($documentManager, $pageData);
+        }
+
+        return $pages;
+    }
+
+    /**
+     * @param DocumentManager $documentManager
+     * @param PageDocument[] $pages
+     * @throws MetadataNotFoundException
+     */
+    private function loadPagesGerman(DocumentManager $documentManager, array $pages): void
+    {
+        $pageDataList = [];
+
+        /**
+         * @var string
+         * @var PageDocument $pageDocument
+         */
+        foreach ($pages as $url => $pageDocument) {
+            switch ($url) {
+                case '/artists':
+                    $pageDataList[] = [
+                        'id' => $pageDocument->getUuid(),
+                        'locale' => AppFixtures::LOCALE_DE,
+                        'title' => 'Musiker',
+                        'url' => '/musiker',
+                        'subtitle' => 'Entdecke unsere Vielfalt an talentierten Musiker',
+                        'header_image' => [
+                            'id' => $this->getMediaId('artists.jpg'),
+                        ],
+                        'navigationContexts' => ['main', 'footer'],
+                        'structureType' => 'overview',
+                    ];
+
+                    break;
+                case '/artists/civil-literature':
+                    $pageDataList[] = [
+                        'id' => $pageDocument->getUuid(),
+                        'locale' => AppFixtures::LOCALE_DE,
+                        'title' => 'Civil Literature',
+                        'url' => '/musiker/civil-literature',
+                        'parent_path' => '/cmf/demo/contents/artists',
+                        'subtitle' => '',
+                        'header_image' => [
+                            'id' => $this->getMediaId('civil-literature.jpg'),
+                        ],
+                        'blocks' => [
+                            [
+                                'type' => 'heading',
+                                'heading' => 'Civil Literature',
+                            ],
+                            [
+                                'type' => 'text',
+                                'text' => '<p>Nach dem release ihres neuen Albums 2014, verbrachte Civil Literature mehr als ein Jahr damit, auf den großen Bühnen der riesigen Hallen in Großbritanien, ihre Leidenschaft für die Rock Musik zu teilen - und 2015 dann sogar weltweit. In dieser Zeit wuchs die Rockband noch enger zusammen und schrieb ihr drittes Album.</p>',
+                            ],
+                            [
+                                'type' => 'text',
+                                'text' => '<p>Im Jahr 2010 gründete Liam, der Frontsänger der Band Civil Literature die Band mit seinem Bruder Garry, der in Manchester auch als Gitarrist und Songschreiber bekannt ist. Im Jahr 2011 folgte dann Marc. Sein Talent als Bass Spieler ergänzt sich perfekt zu der Musik die sie machten. Zusammen hatten sie einen großen Traum. Sie wollen zusammen die Bühne der Royal Albert Halle rocken. Im Jahr 2016 stehen sie vor diesem Ziel nun so kurz bevor. Vorallem deshalb, weil ihr neues Album Rekorde in ganz Europa bricht.</p>',
+                            ],
+                            [
+                                'type' => 'quote',
+                                'quote' => 'Ich war schon immer ein leidenschaftlicher Song Schreiber. Mein größter Wunsch ist es die Menschen zu berühren und mit meiner Botschaft ermutigen nach ihren Träumen zu leben.',
+                                'quoteReference' => 'Liam Hendrickson',
+                            ],
+                        ],
+                        'structureType' => 'default',
+                    ];
+
+                    break;
+                case '/artists/coyoos':
+                    $pageDataList[] = [
+                        'id' => $pageDocument->getUuid(),
+                        'locale' => AppFixtures::LOCALE_DE,
+                        'title' => 'Coyoos',
+                        'url' => '/musiker/coyoos',
+                        'parent_path' => '/cmf/demo/contents/artists',
+                        'subtitle' => '',
+                        'header_image' => [
+                            'id' => $this->getMediaId('coyoos.jpg'),
+                        ],
+                        'blocks' => [
+                            [
+                                'type' => 'heading',
+                                'heading' => 'Coyoos',
+                            ],
+                            [
+                                'type' => 'text',
+                                'text' => '<p>Nach dem release ihres neuen Albums 2012, verbrachte Coyoos mehr als ein Jahr damit, auf den großen Bühnen der riesigen Hallen in den Vereinigten Staaten, ihre Leidenschaft für die Rock Musik zu teilen - und 2015 dann sogar weltweit. In dieser Zeit wuchs die Rockband noch enger zusammen und schrieb ihr drittes Album.</p>',
+                            ],
+                            [
+                                'type' => 'quote',
+                                'quote' => 'Neue Orte zu entdecken und inspirierende Leute kennenzulernen sind Erfahrungen, die man nie vergisst. Sie sind die Quelle meiner Kreativität und Inspiration.',
+                                'quoteReference' => 'Jack',
+                            ],
+                            [
+                                'type' => 'text',
+                                'text' => '<p>2014 startete Jack seine Musikkarriere in San Diego, California. Sein Talent mit der Gitarre lies ihn in kurzer Zeit bekannt werden. Sein großer Traum: In einer Tour durch die Vereinigten Staaten reisen. 2016 ist er so nah an seinem Ziel wie noch nie zuvor - mit seinem neuen Album erreichte er die Spitze der Charts in den Vereinigten Staaten.</p>',
+                            ],
+                        ],
+                        'structureType' => 'default',
+                    ];
+
+                    break;
+                case '/artists/marshall-plan':
+                    $pageDataList[] = [
+                        'id' => $pageDocument->getUuid(),
+                        'locale' => AppFixtures::LOCALE_DE,
+                        'title' => 'Marshall Plan',
+                        'url' => '/musiker/marshall-plan',
+                        'parent_path' => '/cmf/demo/contents/artists',
+                        'subtitle' => '',
+                        'header_image' => [
+                            'id' => $this->getMediaId('marshall.jpg'),
+                        ],
+                        'blocks' => [
+                            [
+                                'type' => 'heading',
+                                'heading' => 'Marshall Plan',
+                            ],
+                            [
+                                'type' => 'text',
+                                'text' => '<p>Nach dem Release ihres neuen Albums 2003, verbrachte Civil Literature mehr als ein Jahr damit, auf den großen Bühnen der riesigen Hallen in Großbritanien, ihre Leidenschaft für die Rock Musik zu teilen - und 2015 dann sogar weltweit. In dieser Zeit wuchs die Rockband noch enger zusammen und schrieb ihr zweites Album.</p>',
+                            ],
+                            [
+                                'type' => 'quote',
+                                'quote' => 'Wir lieben es, zusammen Musik zu machen und die Menschen um uns herum mit unseren Songs zu inspirieren. Wir kommen aus einem kleinen Dorf in Großbritannien. Es fühlt sich surreal an, dass wir uns einen Namen von Asien bis zu den Staaten gemacht haben.',
+                                'quoteReference' => 'Jason Mcconkey',
+                            ],
+                            [
+                                'type' => 'text',
+                                'text' => '<p>2003 gründete Alex, der Frontman von Marshall Plan die Band mit seinen besten freunden Albert und Ray, ein in Liverpool bekannter Gitarrenspieler und Songschreiber. 2007 folgte dann Jason. Sein Talent mit dem Bass war genau das richtige für die intensiven Vibes der Band. Sie hatten einen großen Traum zusammen: Die Bühne vor dem Times Square in New York zu rocken. 2016 sind sie so nah an ihrem Ziel wie noch nie zuvor - mit ihrem neuen Album erreichten sie die Spitze der Charts in den Vereinigten Staaten.</p>',
+                            ],
+                        ],
+                        'structureType' => 'default',
+                    ];
+
+                    break;
+                case '/artists/the-bagpipes':
+                    $pageDataList[] = [
+                        'id' => $pageDocument->getUuid(),
+                        'locale' => AppFixtures::LOCALE_DE,
+                        'title' => 'The Bagpipes',
+                        'url' => '/musiker/the-bagpipes',
+                        'parent_path' => '/cmf/demo/contents/artists',
+                        'subtitle' => '',
+                        'header_image' => [
+                            'id' => $this->getMediaId('dudelsack.jpg'),
+                        ],
+                        'blocks' => [
+                            [
+                                'type' => 'heading',
+                                'heading' => 'The Bagpipes',
+                            ],
+                            [
+                                'type' => 'text',
+                                'text' => '<p>In den Anfängen haben sich die Bagpipes auf traditionelle und zeitnahe Musik mit ihrem innovativen Flair konzentriert, bevor sie sich dann auf ihre klassische Dudelsackmusik stürtzten. Kurz nach der Veröffentlichung ihres Albums in 1998, haben die Bagpipes mehr als ein Jahr zusammen damit verbracht, ihre Leidenschaft auf die Bühnen und Arenen Schottlands zu bringen - in 2015 dann Weltweit. In dieser Zeit wuchs die Folkband noch enger zusammen und schrieb ihr viertes Album. Sie wurden die Schottische Folkband von den Jahren 2003, 2005 und 2014.</p>',
+                            ],
+                            [
+                                'type' => 'quote',
+                                'quote' => 'Unsere Karriere startete auf den Straßen von Glasgow. Es gibt nichts authentischeres als Straßenmusik. Die Menschen mögen dich, oder laufen einfach weiter. Man merkt sofort, wie die Musik ankommt.',
+                                'quoteReference' => 'Steve Avril',
+                            ],
+                        ],
+                        'structureType' => 'default',
+                    ];
+
+                    break;
+                case '/artists/tj-fury':
+                    $pageDataList[] = [
+                        'id' => $pageDocument->getUuid(),
+                        'locale' => AppFixtures::LOCALE_DE,
+                        'title' => 'TJ Fury',
+                        'url' => '/musiker/tj-fury',
+                        'parent_path' => '/cmf/demo/contents/artists',
+                        'subtitle' => '',
+                        'header_image' => [
+                            'id' => $this->getMediaId('tj-fury.jpg'),
+                        ],
+                        'blocks' => [
+                            [
+                                'type' => 'heading',
+                                'heading' => 'TJ Fury',
+                            ],
+                            [
+                                'type' => 'text',
+                                'text' => '<p>In den Anfängen hat sich TJ Fury auf Kombinationen von zeitnaher Musik und Hip Hop fokusiert. Heute konzentriert er sich auf kraftvolle Texte in der Hip Hop Szene. Nach der Veröffentlichung seines Albums in 2011, hat TJ Fury mehr als ein Jahr damit verbracht seine Leidenschaft für Hip Hop in die Clubs der größen Städte rundum den Staaten zu bringen - in 2015 dann Weltweit. Zu dieser Zeit nahm TJ Fury sein neues Album auf. Bald wurde er für zahlreiche Auszeichnungen nominiert und gewann einige davon.</p>',
+                            ],
+                            [
+                                'type' => 'quote',
+                                'quote' => 'Wir lieben es, Musik zu kreieren. Hört euch unsere neuen Tracks an.',
+                                'quoteReference' => 'TJ Fury',
+                            ],
+                        ],
+                        'structureType' => 'default',
+                    ];
+
+                    break;
+                case '/blog':
+                    $pageDataList[] = [
+                        'id' => $pageDocument->getUuid(),
+                        'locale' => AppFixtures::LOCALE_DE,
+                        'title' => 'Blog',
+                        'url' => '/blog',
+                        'subtitle' => 'Erhalten Sie einen Einblick in unsere Arbeit',
+                        'header_image' => [
+                            'id' => $this->getMediaId('blog.jpg'),
+                        ],
+                        'blocks' => [
+                            [
+                                'type' => 'heading',
+                                'heading' => 'Kommt bald!',
+                            ],
+                        ],
+                        'navigationContexts' => ['main'],
+                        'structureType' => 'default',
+                    ];
+
+                    break;
+                case '/about':
+                    $pageDataList[] = [
+                        'id' => $pageDocument->getUuid(),
+                        'locale' => AppFixtures::LOCALE_DE,
+                        'title' => 'International Talents',
+                        'url' => '/about',
+                        'subtitle' => 'Wir arbeiten hart, aber lieben was wir tun',
+                        'header_image' => [
+                            'id' => $this->getMediaId('about.png'),
+                        ],
+                        'blocks' => [
+                            [
+                                'type' => 'heading',
+                                'heading' => 'International Talents',
+                            ],
+                            [
+                                'type' => 'text',
+                                'text' => '<h3>International Talents wurde 1998 gegründet.</h3><p>Von Großbritanien aus wuchs International Talents über die ganze Welt zu einer der weltweit führenden Musik Marken.Wie lieben es junge Talente mit all unserem Wissen und Erfahrungen zu begleiten und inspirieren. Mit über 20 Jahren an Musik Aufnahmen, unserer Leidenschaft für die Musik Künstler geht heute weiter. Der Wunsch den Höreren und Fans ins Herz zusprechen ist die Motivation für immer neue kreative Ideen und Strategien des Labels.</p>',
+                            ],
+                            [
+                                'type' => 'quote',
+                                'quote' => 'Die ganze Erfahrung aus 20 Jahren und eine Menge Wissen kommen bei International Talents zusammen. Wir lieben was wir tun und kein Tag ist wie der zuvor.',
+                                'quoteReference' => 'Jonathan Benett',
+                            ],
+                            [
+                                'type' => 'text',
+                                'text' => '<p>Aber alles zusammen wäre nicht möglich, ohne ein Team welches dahinter steht. Dieses Team ist erreichbar rund um die Uhr. Sie bereiten dein Event vor, helfen bei deiner Ausstellung oder Produkt Präsentation. Jeder von Ihnen ist eine lebende Legende in was sie tun. Erfolg passiert nicht einfach so. Er wächst vielmehr mit einem großartigen Team.</p>',
+                            ],
+                        ],
+                        'navigationContexts' => ['main', 'footer'],
+                        'structureType' => 'default',
+                    ];
+
+                    break;
+            }
+        }
+
         foreach ($pageDataList as $pageData) {
             $this->createPage($documentManager, $pageData);
         }
@@ -271,16 +548,17 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
     private function loadHomepage(DocumentManager $documentManager): void
     {
         /** @var HomeDocument $homeDocument */
-        $homeDocument = $documentManager->find('/cmf/demo/contents', AppFixtures::LOCALE);
+        $homeDocument = $documentManager->find('/cmf/demo/contents', AppFixtures::LOCALE_EN);
 
         /** @var BasePageDocument $aboutDocument */
-        $aboutDocument = $documentManager->find('/cmf/demo/contents/about-us', AppFixtures::LOCALE);
+        $aboutDocument = $documentManager->find('/cmf/demo/contents/about-us', AppFixtures::LOCALE_EN);
 
         /** @var BasePageDocument $headerTeaserDocument */
-        $headerTeaserDocument = $documentManager->find('/cmf/demo/contents/artists/coyoos', AppFixtures::LOCALE);
+        $headerTeaserDocument = $documentManager->find('/cmf/demo/contents/artists/coyoos', AppFixtures::LOCALE_EN);
 
         $homeDocument->getStructure()->bind(
             [
+                'locale' => AppFixtures::LOCALE_EN,
                 'title' => $homeDocument->getTitle(),
                 'url' => '/',
                 'teaser' => $headerTeaserDocument->getUuid(),
@@ -302,25 +580,91 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
             ]
         );
 
-        $documentManager->persist($homeDocument, AppFixtures::LOCALE);
-        $documentManager->publish($homeDocument, AppFixtures::LOCALE);
+        $documentManager->persist($homeDocument, AppFixtures::LOCALE_EN);
+        $documentManager->publish($homeDocument, AppFixtures::LOCALE_EN);
+    }
+
+    /**
+     * @throws DocumentManagerException
+     */
+    private function loadHomepageGerman(DocumentManager $documentManager): void
+    {
+        $documentManager->clear();
+
+        /** @var HomeDocument $homeDocument */
+        $homeDocument = $documentManager->find('/cmf/demo/contents', AppFixtures::LOCALE_DE);
+
+        /** @var BasePageDocument $aboutDocument */
+        $aboutDocument = $documentManager->find('/cmf/demo/contents/about-us', AppFixtures::LOCALE_DE);
+
+        /** @var BasePageDocument $headerTeaserDocument */
+        $headerTeaserDocument = $documentManager->find('/cmf/demo/contents/artists/coyoos', AppFixtures::LOCALE_DE);
+
+        $homeDocument->getStructure()->bind(
+            [
+                'locale' => AppFixtures::LOCALE_DE,
+                'title' => $homeDocument->getTitle(),
+                'url' => '/',
+                'teaser' => $headerTeaserDocument->getUuid(),
+                'blocks' => [
+                    [
+                        'type' => 'heading',
+                        'heading' => 'Unser Label',
+                    ],
+                    [
+                        'type' => 'text',
+                        'text' => '<h3>International Talents wurde 1998 gegründet</h3><p>Von Großbritanien aus wuchs International Talents über die ganze Welt zu einer der weltweit führenden Musik Marken.Wie lieben es junge Talente mit all unserem Wissen und Erfahrungen zu begleiten und inspirieren. Mit über 20 Jahren an Musik Aufnahmen, unserer Leidenschaft für die Musik Künstler geht heute weiter. Der Wunsch den Höreren und Fans ins Herz zusprechen ist die Motivation für immer neue kreative Ideen und Strategien des Labels.</p>',
+                    ],
+                    [
+                        'type' => 'link',
+                        'page' => $aboutDocument->getUuid(),
+                        'text' => 'MEHR LESEN',
+                    ],
+                ],
+            ]
+        );
+
+        $documentManager->persist($homeDocument, AppFixtures::LOCALE_DE);
+        $documentManager->publish($homeDocument, AppFixtures::LOCALE_DE);
     }
 
     /**
      * @throws Exception
      */
-    private function loadContactSnippet(DocumentManager $documentManager): void
+    private function loadContactSnippet(DocumentManager $documentManager): SnippetDocument
     {
         $data = [
+            'locale' => AppFixtures::LOCALE_EN,
             'title' => 'Z',
             'contact' => [
                 'id' => 1,
             ],
         ];
 
-        $uuid = $this->createSnippet($documentManager, 'contact', $data)->getUuid();
+        $snippetDocument = $this->createSnippet($documentManager, 'contact', $data);
 
-        $this->getDefaultSnippetManager()->save('demo', 'contact', $uuid, AppFixtures::LOCALE);
+        $this->getDefaultSnippetManager()->save('demo', 'contact', $snippetDocument->getUuid(), AppFixtures::LOCALE_EN);
+
+        return $snippetDocument;
+    }
+
+    /**
+     * @throws Exception
+     */
+    private function loadContactSnippetGerman(DocumentManager $documentManager, SnippetDocument $snippetDocument): void
+    {
+        $data = [
+            'id' => $snippetDocument->getUuid(),
+            'locale' => AppFixtures::LOCALE_DE,
+            'title' => 'Z',
+            'contact' => [
+                'id' => 1,
+            ],
+        ];
+
+        $snippetDocument = $this->createSnippet($documentManager, 'contact', $data);
+
+        $this->getDefaultSnippetManager()->save('demo', 'contact', $snippetDocument->getUuid(), AppFixtures::LOCALE_DE);
     }
 
     /**
@@ -330,16 +674,30 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
      */
     private function createSnippet(DocumentManager $documentManager, string $structureType, array $data): SnippetDocument
     {
+        $locale = isset($data['locale']) && $data['locale'] ? $data['locale'] : AppFixtures::LOCALE_EN;
+
         /** @var SnippetDocument $snippetDocument */
-        $snippetDocument = $documentManager->create('snippet');
-        $snippetDocument->setLocale(AppFixtures::LOCALE);
+        $snippetDocument = null;
+
+        try {
+            if (!isset($data['id']) || !$data['id']) {
+                throw new Exception();
+            }
+
+            $snippetDocument = $documentManager->find($data['id'], $locale);
+        } catch (Exception $e) {
+            $snippetDocument = $documentManager->create('snippet');
+        }
+
+        $snippetDocument->getUuid();
+        $snippetDocument->setLocale($locale);
         $snippetDocument->setTitle($data['title']);
         $snippetDocument->setStructureType($structureType);
         $snippetDocument->setWorkflowStage(WorkflowStage::PUBLISHED);
         $snippetDocument->getStructure()->bind($data);
 
-        $documentManager->persist($snippetDocument, AppFixtures::LOCALE, ['parent_path' => '/cmf/snippets']);
-        $documentManager->publish($snippetDocument, AppFixtures::LOCALE);
+        $documentManager->persist($snippetDocument, $locale, ['parent_path' => '/cmf/snippets']);
+        $documentManager->publish($snippetDocument, $locale);
 
         return $snippetDocument;
     }
@@ -347,10 +705,10 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
     /**
      * @throws DocumentManagerException
      */
-    private function updatePages(DocumentManager $documentManager): void
+    private function updatePages(DocumentManager $documentManager, string $locale): void
     {
         /** @var BasePageDocument $artistsDocument */
-        $artistsDocument = $documentManager->find('/cmf/demo/contents/artists', AppFixtures::LOCALE);
+        $artistsDocument = $documentManager->find('/cmf/demo/contents/artists', $locale);
 
         $data = $artistsDocument->getStructure()->toArray();
 
@@ -362,8 +720,8 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
 
         $artistsDocument->getStructure()->bind($data);
 
-        $documentManager->persist($artistsDocument, AppFixtures::LOCALE);
-        $documentManager->publish($artistsDocument, AppFixtures::LOCALE);
+        $documentManager->persist($artistsDocument, $locale);
+        $documentManager->publish($artistsDocument, $locale);
     }
 
     /**
@@ -373,6 +731,8 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
      */
     private function createPage(DocumentManager $documentManager, array $data): BasePageDocument
     {
+        $locale = isset($data['locale']) && $data['locale'] ? $data['locale'] : AppFixtures::LOCALE_EN;
+
         if (!isset($data['url'])) {
             $url = $this->getPathCleanup()->cleanup('/' . $data['title']);
             if (isset($data['parent_path'])) {
@@ -391,9 +751,20 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
         unset($data['seo']);
 
         /** @var PageDocument $pageDocument */
-        $pageDocument = $documentManager->create('page');
+        $pageDocument = null;
+
+        try {
+            if (!isset($data['id']) || !$data['id']) {
+                throw new Exception();
+            }
+
+            $pageDocument = $documentManager->find($data['id'], $locale);
+        } catch (Exception $e) {
+            $pageDocument = $documentManager->create('page');
+        }
+
         $pageDocument->setNavigationContexts($data['navigationContexts'] ?? []);
-        $pageDocument->setLocale(AppFixtures::LOCALE);
+        $pageDocument->setLocale($locale);
         $pageDocument->setTitle($data['title']);
         $pageDocument->setResourceSegment($data['url']);
         $pageDocument->setStructureType($data['structureType'] ?? 'default');
@@ -409,7 +780,7 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
 
         $documentManager->persist(
             $pageDocument,
-            AppFixtures::LOCALE,
+            $locale,
             ['parent_path' => $data['parent_path'] ?? '/cmf/demo/contents']
         );
 
@@ -426,12 +797,12 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
 
             $documentManager->persist(
                 $pageDocument,
-                AppFixtures::LOCALE,
+                $locale,
                 ['parent_path' => $data['parent_path'] ?? '/cmf/demo/contents']
             );
         }
 
-        $documentManager->publish($pageDocument, AppFixtures::LOCALE);
+        $documentManager->publish($pageDocument, $locale);
 
         return $pageDocument;
     }
