@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2096fe78adceb8d5d41ecb97a26007f5",
+    "content-hash": "bfdd347bcb56cde26051307335927ce9",
     "packages": [
         {
             "name": "aferrandini/urlizer",
@@ -5893,12 +5893,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sulu/sulu.git",
-                "reference": "dbeeeb2ff1e618e00782bb50ddd96bdc15749ec9"
+                "reference": "314558532f1435696c7e9bc3f129e11830f50d91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sulu/sulu/zipball/dbeeeb2ff1e618e00782bb50ddd96bdc15749ec9",
-                "reference": "dbeeeb2ff1e618e00782bb50ddd96bdc15749ec9",
+                "url": "https://api.github.com/repos/sulu/sulu/zipball/314558532f1435696c7e9bc3f129e11830f50d91",
+                "reference": "314558532f1435696c7e9bc3f129e11830f50d91",
                 "shasum": ""
             },
             "require": {
@@ -5953,6 +5953,7 @@
                 "symfony/finder": "^4.3",
                 "symfony/form": "^4.3",
                 "symfony/framework-bundle": "^4.3.1",
+                "symfony/http-client": "^4.3",
                 "symfony/http-foundation": "^4.3",
                 "symfony/http-kernel": "^4.3",
                 "symfony/intl": "^4.3",
@@ -6039,8 +6040,9 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6-dev",
-                    "dev-develop": "2.0-dev"
+                    "dev-release/1.6": "1.6.x-dev",
+                    "dev-release/2.0": "2.0.x-dev",
+                    "dev-master": "2.1.x-dev"
                 }
             },
             "autoload": {
@@ -6073,7 +6075,7 @@
                 "symfony",
                 "web-application"
             ],
-            "time": "2019-10-24T06:21:23+00:00"
+            "time": "2019-10-30T12:47:22+00:00"
         },
         {
             "name": "sulu/web-twig",
@@ -12181,8 +12183,8 @@
     ],
     "aliases": [
         {
-            "alias": "2.0.1",
-            "alias_normalized": "2.0.1.0",
+            "alias": "2.0.2",
+            "alias_normalized": "2.0.2.0",
             "version": "dev-release/2.0",
             "package": "sulu/sulu"
         }

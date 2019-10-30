@@ -27,7 +27,7 @@ COPY public/website /var/www/html/public/website
 RUN cd /var/www/html/assets/website && npm ci && npm run build:css && npm run build:js
 
 # build actual application image
-FROM php:7.2-apache AS apache
+FROM php:7.3-apache AS apache
 
 WORKDIR /var/www/html
 
@@ -38,6 +38,7 @@ RUN apt-get update && apt-get install -y \
         git \
         unzip \
         libicu-dev \
+        libzip-dev \
         libmagickwand-dev \
         inkscape
 
