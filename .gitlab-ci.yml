@@ -23,6 +23,7 @@ composer:
         - composer config -g cache-dir "$(pwd)/.composer-cache"
     script:
         - composer install -n --prefer-dist --no-scripts
+        - composer test install
         - curl --show-error --silent https://getcomposer.org/installer | php
     artifacts:
         name: composer-dependencies
@@ -39,7 +40,7 @@ composer:
 
 test:
     stage: test
-    image: sulu/php:7.2-cli
+    image: sulu/php:7.3-cli
     services:
         - mysql:5.7
     before_script:
@@ -52,7 +53,7 @@ test:
 
 lint:
     stage: test
-    image: sulu/php:7.2-cli
+    image: sulu/php:7.3-cli
     services:
         - mysql:5.7
     before_script:
@@ -84,7 +85,7 @@ js-css:
 
 security-check:
     stage: test
-    image: sulu/php:7.2-cli
+    image: sulu/php:7.3-cli
     script:
         - php composer.phar security-check
     allow_failure: true

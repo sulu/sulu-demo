@@ -18,7 +18,7 @@
         "league/flysystem-aws-s3-v3": "^1.0",
         "sensiolabs/security-checker": "^6.0",
         "sentry/sentry-symfony": "^2.3",
-        "sulu/sulu": "dev-release/2.0 as 2.0.1",
+        "sulu/sulu": "dev-release/2.0 as 2.0.2",
         "sulu/web-twig": "^1.5.0",
         "symfony/config": "^3.4 || ^4.0",
         "symfony/dotenv": "^3.4 || ^4.0",
