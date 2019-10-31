@@ -40,6 +40,7 @@ RUN apt-get update && apt-get install -y \
         libicu-dev \
         libzip-dev \
         libmagickwand-dev \
+        libvips-dev \
         inkscape
 
 # install PHP extensions
@@ -50,7 +51,7 @@ RUN docker-php-ext-configure intl && docker-php-ext-install -j$(nproc) \
         opcache \
         zip
 
-RUN pecl install imagick redis apcu && docker-php-ext-enable imagick redis apcu
+RUN pecl install imagick redis apcu vips && docker-php-ext-enable imagick redis apcu vips
 
 # apache config
 RUN /usr/sbin/a2enmod rewrite && /usr/sbin/a2enmod headers && /usr/sbin/a2enmod expires

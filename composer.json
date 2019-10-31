@@ -16,6 +16,7 @@
         "jackalope/jackalope-jackrabbit": "^1.2.0",
         "league/flysystem": "^1.0",
         "league/flysystem-aws-s3-v3": "^1.0",
+        "rokka/imagine-vips": "^0.9.0",
         "sensiolabs/security-checker": "^6.0",
         "sentry/sentry-symfony": "^2.3",
         "sulu/sulu": "dev-release/2.0 as 2.0.2",

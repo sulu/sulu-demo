@@ -224,6 +224,9 @@
     "jangregor/phpstan-prophecy": {
         "version": "0.4.2"
     },
+    "jcupitt/vips": {
+        "version": "v1.0.5"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
@@ -411,6 +414,9 @@
     },
     "ramsey/uuid": {
         "version": "3.8.0"
+    },
+    "rokka/imagine-vips": {
+        "version": "0.9.0"
     },
     "sensiolabs/security-checker": {
         "version": "4.0",

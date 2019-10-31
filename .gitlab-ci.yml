@@ -22,7 +22,7 @@ composer:
     before_script:
         - composer config -g cache-dir "$(pwd)/.composer-cache"
     script:
-        - composer install -n --prefer-dist --no-scripts
+        - composer install -n --prefer-dist --no-scripts --ignore-platform-reqs
         - composer test install
         - curl --show-error --silent https://getcomposer.org/installer | php
     artifacts:
@@ -44,6 +44,9 @@ test:
     services:
         - mysql:5.7
     before_script:
+        - apt-get update
+        - apt-get install libvips-dev -y
+        - pecl install vips
         - php bin/adminconsole doctrine:database:create
         - php bin/adminconsole doctrine:schema:update --force
     script:
@@ -57,6 +60,9 @@ lint:
     services:
         - mysql:5.7
     before_script:
+        - apt-get update
+        - apt-get install libvips-dev -y
+        - pecl install vips
         - php bin/adminconsole doctrine:database:create
         - php bin/adminconsole doctrine:schema:update --force
     script:
@@ -87,6 +93,9 @@ security-check:
     stage: test
     image: sulu/php:7.3-cli
     script:
+        - apt-get update
+        - apt-get install libvips-dev  -y
+        - pecl install vips
         - php composer.phar security-check
     allow_failure: true
     except:
