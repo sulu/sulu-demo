@@ -5893,12 +5893,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sulu/sulu.git",
-                "reference": "314558532f1435696c7e9bc3f129e11830f50d91"
+                "reference": "9496a8d1b4e93e8f82679e56fa84ac4208ee1839"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sulu/sulu/zipball/314558532f1435696c7e9bc3f129e11830f50d91",
-                "reference": "314558532f1435696c7e9bc3f129e11830f50d91",
+                "url": "https://api.github.com/repos/sulu/sulu/zipball/9496a8d1b4e93e8f82679e56fa84ac4208ee1839",
+                "reference": "9496a8d1b4e93e8f82679e56fa84ac4208ee1839",
                 "shasum": ""
             },
             "require": {
@@ -6075,7 +6075,7 @@
                 "symfony",
                 "web-application"
             ],
-            "time": "2019-10-30T12:47:22+00:00"
+            "time": "2019-10-31T12:26:51+00:00"
         },
         {
             "name": "sulu/web-twig",
