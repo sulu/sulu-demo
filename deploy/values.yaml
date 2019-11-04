@@ -41,25 +41,28 @@ mysql:
     enabled: false
 
 mediaproxy:
+    enabled: true
     image:
-        repository: nginx
         tag: 1.16
-        pullPolicy: IfNotPresent
-    service:
-        type: NodePort
-        port: 80
+    persistence:
+        storageClass: do-block-storage
+        size: 4Gi
 
 jackrabbit:
+    enabled: true
     image:
-        repository: sulu/jackrabbit
         tag: 2.18
-        pullPolicy: IfNotPresent
-    service:
-        type: NodePort
-        port: 8080
+    persistence:
+        storageClass: do-block-storage
+        size: 4Gi
 
 elasticsearch:
     enabled: true
+    image:
+        tag: 5.6.16
+    persistence:
+        storageClass: do-block-storage
+        size: 4Gi
 
 imageCredentials:
     registry: registry.sulu.io

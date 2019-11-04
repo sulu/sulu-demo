@@ -1,6 +1,15 @@
 dependencies:
 - name: sulu
   repository: http://charts.sulu.cloud/
-  version: 1.3.2
-digest: sha256:0d6845e01b7376d69cc4f868a21fdd1312a0c6fc0b268ffdbb2190626952d979
-generated: 2019-10-02T18:03:52.688919+02:00
+  version: 1.3.3
+- name: elasticsearch
+  repository: http://charts.sulu.cloud/
+  version: 1.0.0
+- name: jackrabbit
+  repository: http://charts.sulu.cloud/
+  version: 1.0.0
+- name: mediaproxy
+  repository: http://charts.sulu.cloud/
+  version: 1.0.0
+digest: sha256:af923ceacf26463d1108fa8ab43ec7bd008a92e12d25cdf826dbb697a3eb5be8
+generated: 2019-11-04T16:47:18.396001+01:00
