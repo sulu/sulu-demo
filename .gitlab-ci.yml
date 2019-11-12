@@ -1,7 +1,4 @@
 variables:
-    DOCKER_HOST: tcp://localhost:2375
-    DOCKER_DRIVER: overlay2
-    DOCKER_IMAGE: 'registry.sulu.io/webapps/sulu-demo'
     APP_ENV: test
     APP_SECRET: a448d1dfcaa563fce56c2fd9981f662b
     MAILER_URL: null://localhost
@@ -13,8 +10,6 @@ variables:
 stages:
     - install
     - test
-    - build
-    - deploy
 
 composer:
     stage: install
@@ -35,8 +30,6 @@ composer:
         key: composer
         paths:
             - .composer-cache/
-    except:
-        - /^fastlane\/.+$/
 
 test:
     stage: test
@@ -48,8 +41,6 @@ test:
         - php bin/adminconsole doctrine:schema:update --force
     script:
         - php composer.phar test
-    except:
-        - /^fastlane\/.+$/
 
 lint:
     stage: test
@@ -61,8 +52,6 @@ lint:
         - php bin/adminconsole doctrine:schema:update --force
     script:
         - php composer.phar lint
-    except:
-        - /^fastlane\/.+$/
 
 js-css:
     stage: test
@@ -80,8 +69,6 @@ js-css:
         key: npm
         paths:
             - .npm-cache/
-    except:
-        - /^fastlane\/.+$/
 
 security-check:
     stage: test
@@ -89,104 +76,3 @@ security-check:
     script:
         - php composer.phar security-check
     allow_failure: true
-    except:
-        - /^fastlane\/.+$/
-
-build:
-    stage: build
-    tags:
-        - dind
-    services:
-        - docker:18-dind
-    image: docker:latest
-    dependencies: []
-    before_script:
-        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    script:
-        # try to pull previously built images to utilize docker cache during new build
-        - docker pull $DOCKER_IMAGE/composer:latest || true
-        - docker pull $DOCKER_IMAGE/node-admin:latest || true
-        - docker pull $DOCKER_IMAGE/node-website:latest || true
-        - docker pull $DOCKER_IMAGE/apache:latest || true
-        # build and tag intermediate images and application image
-        - docker build . --target composer -t $DOCKER_IMAGE/composer:latest
-            --cache-from $DOCKER_IMAGE/composer:latest
-        - docker build . --target node-admin -t $DOCKER_IMAGE/node-admin:latest
-            --cache-from $DOCKER_IMAGE/composer:latest
-            --cache-from $DOCKER_IMAGE/node-admin:latest
-        - docker build . --target node-website -t $DOCKER_IMAGE/node-website:latest
-            --cache-from $DOCKER_IMAGE/composer:latest
-            --cache-from $DOCKER_IMAGE/node-admin:latest
-            --cache-from $DOCKER_IMAGE/node-website:latest
-        - docker build . --target apache -t $DOCKER_IMAGE/apache:latest
-            --cache-from $DOCKER_IMAGE/composer:latest
-            --cache-from $DOCKER_IMAGE/node-admin:latest
-            --cache-from $DOCKER_IMAGE/node-website:latest
-            --cache-from $DOCKER_IMAGE/apache:latest
-        - docker build . --target prod -t $DOCKER_IMAGE/prod:$CI_COMMIT_SHA
-            --cache-from $DOCKER_IMAGE/composer:latest
-            --cache-from $DOCKER_IMAGE/node-admin:latest
-            --cache-from $DOCKER_IMAGE/node-website:latest
-            --cache-from $DOCKER_IMAGE/apache:latest
-        - docker build . --target stage  -t $DOCKER_IMAGE/stage:$CI_COMMIT_SHA
-            --cache-from $DOCKER_IMAGE/composer:latest
-            --cache-from $DOCKER_IMAGE/node-admin:latest
-            --cache-from $DOCKER_IMAGE/node-website:latest
-            --cache-from $DOCKER_IMAGE/apache:latest
-        # push new images to registry
-        - docker push $DOCKER_IMAGE/composer:latest
-        - docker push $DOCKER_IMAGE/node-admin:latest
-        - docker push $DOCKER_IMAGE/node-website:latest
-        - docker push $DOCKER_IMAGE/apache:latest
-        - docker push $DOCKER_IMAGE/prod:$CI_COMMIT_SHA
-        - docker push $DOCKER_IMAGE/stage:$CI_COMMIT_SHA
-    only:
-        - master
-        - /^deploy\/.+$/
-        - /^fastlane\/.+$/
-
-deploy-prod:
-    stage: deploy
-    image: sulu/helm-gcloud:2.13.1
-    dependencies: []
-    variables:
-        DEPLOY_NAME: 'sulu-demo'
-    before_script:
-        - helm init --client-only
-        - helm repo add sulu http://charts.sulu.cloud
-        - helm repo update
-        - cd deploy && helm dep build && cd ..
-    script:
-        - echo "$SECRET_PROD_VALUES" > deploy/secret.prod.yaml
-        - helm upgrade --install $DEPLOY_NAME deploy --wait --values deploy/secret.prod.yaml --set=sulu.app.image.tag=$CI_COMMIT_SHA --set=sulu.app.image.repository=$DOCKER_IMAGE/prod
-    environment:
-        name: prod
-        url: https://sulu.rocks
-    when: manual
-    only:
-        - master
-        - /^deploy\/.+$/
-        - /^fastlane\/.+$/
-
-deploy-stage:
-    stage: deploy
-    image: sulu/helm-gcloud:2.13.1
-    dependencies: []
-    variables:
-        DEPLOY_NAME: 'sulu-demo-stage'
-    before_script:
-        - helm init --client-only
-        - helm repo add sulu http://charts.sulu.cloud
-        - helm repo update
-        - cd deploy && helm dep build && cd ..
-    script:
-        - echo "$SECRET_STAGE_VALUES" > deploy/secret.stage.yaml
-        - helm upgrade --install $DEPLOY_NAME deploy --wait --values deploy/secret.stage.yaml --set=sulu.app.image.tag=$CI_COMMIT_SHA --set=sulu.app.image.repository=$DOCKER_IMAGE/stage
-    environment:
-        name: staging
-        url: https://stage.sulu.rocks
-    when: manual
-    only:
-        - master
-        - /^deploy\/.+$/
-        - /^fastlane\/.+$/
