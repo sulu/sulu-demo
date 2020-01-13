@@ -1,0 +1,10 @@
+@each $i in (1,2,3,4,5,6) {
+    h#{$i} {
+        margin: 0;
+
+        @include mediaEachMax((
+            font-size: map_get($font-sizes-headings, 'h#{$i}'),
+            line-height: map_get($line-heights-headings, 'h#{$i}'),
+        ));
+    }
+}

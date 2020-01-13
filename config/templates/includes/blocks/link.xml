@@ -1,0 +1,32 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <block name="blocks" default-type="link">
+        <types>
+            <type name="link">
+                <meta>
+                    <title lang="en">Link</title>
+                    <title lang="de">Link</title>
+                </meta>
+
+                <properties>
+                    <property name="page" type="single_page_selection" mandatory="true">
+                        <meta>
+                            <title lang="en">Page</title>
+                            <title lang="de">Seite</title>
+                        </meta>
+                    </property>
+
+                    <property name="text" type="text_line">
+                        <meta>
+                            <title lang="en">Text</title>
+                            <title lang="de">Text</title>
+                            <info_text lang="en">Leave blank if the page title should be displayed.</info_text>
+                            <info_text lang="en">Leer lassen, wenn der Seiten-Titel angezeigt werden soll.</info_text>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

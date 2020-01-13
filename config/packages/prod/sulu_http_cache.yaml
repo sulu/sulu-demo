@@ -5,6 +5,6 @@ sulu_http_cache:
         varnish:
             enabled: true
             servers:
-            - '%env(resolve:VARNISH_SERVER)%'
+                - '%env(resolve:VARNISH_SERVER)%'
     tags:
         enabled: true

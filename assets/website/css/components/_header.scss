@@ -1,0 +1,80 @@
+.header {
+    height: 300px;
+    position: relative;
+
+    @include media('tablet') {
+        height: 250px;
+    }
+
+    @include media('mobile') {
+        height: 200px;
+    }
+}
+
+.header--large {
+    height: 500px;
+
+    @include media('tablet') {
+        height: 400px;
+    }
+
+    @include media('mobile') {
+        height: 300px;
+    }
+}
+
+.header__image {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.header__text {
+    align-items: center;
+    bottom: 0;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.header__title {
+    font-family: 'Broken Wings', sans-serif;
+    font-size: 55px;
+    line-height: 1;
+    margin: 0;
+    text-align: center;
+
+    @include media('>mobile') {
+        font-size: 120px;
+    }
+}
+
+.header__subtitle {
+    display: block;
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+
+    @include media('>mobile') {
+        font-size: 18px;
+    }
+}
+
+.header__button {
+    background: $white;
+    color: $black;
+    margin-top: 20px;
+
+    &:hover,
+    &:focus {
+        background: darken($white, 15%);
+        color: $black;
+        text-decoration: none;
+    }
+}

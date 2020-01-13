@@ -1,0 +1,51 @@
+@mixin button {
+    background: $red;
+    border: 0;
+
+    /* This is just a random very high number, because border-radius 100% doesn't work */
+    border-radius: 1000px;
+    color: $white;
+    cursor: pointer;
+    font-weight: bold;
+    height: 38px;
+    letter-spacing: 2px;
+    overflow: hidden;
+    padding: 8px 30px;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &[disabled] {
+        pointer-events: none;
+    }
+
+    &:hover,
+    &:focus {
+        background: darken($red, 5%);
+        color: $white;
+        text-decoration: none;
+    }
+
+    &--full {
+        display: block;
+        width: 100%;
+    }
+
+    &--small {
+        font-weight: normal;
+        height: 28px;
+        padding: 3px 30px;
+    }
+
+    &--multiline {
+        display: block;
+        height: auto;
+        line-height: inherit;
+        overflow: inherit;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        text-overflow: inherit;
+        white-space: inherit;
+    }
+}

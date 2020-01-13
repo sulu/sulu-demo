@@ -1,13 +1,14 @@
 <?xml version="1.0" ?>
 <template xmlns="http://schemas.sulu.io/template/template"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xi="http://www.w3.org/2001/XInclude"
           xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
 
     <key>default</key>
 
     <view>pages/default</view>
     <controller>Sulu\Bundle\WebsiteBundle\Controller\DefaultController::indexAction</controller>
-    <cacheLifetime>604800</cacheLifetime>
+    <cacheLifetime>1209600</cacheLifetime>
 
     <meta>
         <title lang="en">Default</title>
@@ -36,11 +37,31 @@
             <tag name="sulu.rlp"/>
         </property>
 
-        <property name="article" type="text_editor">
+        <property name="subtitle" type="text_line">
             <meta>
-                <title lang="en">Article</title>
-                <title lang="de">Artikel</title>
+                <title lang="en">Subtitle</title>
+                <title lang="de">Untertitel</title>
             </meta>
         </property>
+
+        <property name="headerImage" type="single_media_selection">
+            <meta>
+                <title lang="en">Image</title>
+                <title lang="de">Bild</title>
+            </meta>
+
+            <params>
+                <param name="types" value="image"/>
+                <param name="formats" type="collection">
+                    <param name="2560x300" />
+                    <param name="1200x300" />
+                    <param name="991x250" />
+                    <param name="767x200" />
+                </param>
+            </params>
+        </property>
+
+        <xi:include href="../includes/blocks.xml"
+                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block)"/>
     </properties>
 </template>

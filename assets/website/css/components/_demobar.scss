@@ -5,16 +5,23 @@
     flex-direction: row;
     flex-wrap: nowrap;
     height: 50px;
+    left: 0;
     padding: 0 20px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: $z-demobar;
 }
 
 .demobar__logo {
-    display: block;
+    display: flex;
+    justify-content: center;
+    width: 36px;
 }
 
 .demobar__logo-image {
     display: block;
-    height: 35px;
+    height: 28px;
 }
 
 .demobar__title {
@@ -33,6 +40,12 @@
 }
 
 .demobar__button {
+    background-color: $light-blue;
     display: block;
     margin-left: 10px;
+
+    &:hover,
+    &:focus {
+        background-color: darken($light-blue, 10%);
+    }
 }

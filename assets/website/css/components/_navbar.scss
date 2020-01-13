@@ -1,0 +1,135 @@
+.navbar {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 50px;
+    justify-content: space-between;
+    left: 0;
+    padding: 0 20px;
+    position: fixed;
+    right: 0;
+    top: 50px;
+    transition: background-color 0.3s ease;
+    z-index: $z-navbar;
+}
+
+.navbar--scroll {
+    background-color: $grey-dark;
+}
+
+.navbar__logo {
+    display: flex;
+    justify-content: center;
+    width: 36px;
+    z-index: $z-navbar-content;
+}
+
+.navbar__logo-image {
+    display: block;
+    height: 28px;
+    width: auto;
+}
+
+.navbar__navigation {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.navbar__links {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    z-index: $z-navbar-mobile;
+
+    @include media('>tablet') {
+        display: flex !important;
+    }
+
+    @include media('<laptop') {
+        align-items: stretch;
+        background: lighten($red, 20%);
+        bottom: 0;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 50px;
+    }
+}
+
+.navbar__locales {
+    display: flex;
+    flex-direction: row;
+    padding: 0 25px;
+    z-index: $z-navbar-content;
+}
+
+.navbar__item {
+    color: $white;
+    display: block;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding: 5px;
+    position: relative;
+    text-decoration: none;
+
+    &:hover,
+    &--active {
+        &::after {
+            border-bottom: 1px solid $white;
+            content: '';
+            display: block;
+            left: 5px;
+            margin-top: 8px;
+            position: absolute;
+            right: 5px;
+        }
+    }
+
+    @include media('<laptop') {
+        &:hover,
+        &--active {
+            &::after {
+                content: none;
+                display: none;
+            }
+        }
+
+        .navbar__links > & {
+            font-size: 25px;
+            height: 50px;
+            margin: 0;
+            text-align: center;
+        }
+    }
+
+    @include media('<tablet') {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.navbar__item--locale {
+    margin: 0;
+}
+
+.navbar__toggler {
+    color: $white;
+    display: block;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    z-index: $z-navbar-content;
+
+    @include media('>tablet') {
+        display: none;
+    }
+}

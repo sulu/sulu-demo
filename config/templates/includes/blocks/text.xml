@@ -1,0 +1,23 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <block name="blocks" default-type="text">
+        <types>
+            <type name="text">
+                <meta>
+                    <title lang="en">Text</title>
+                    <title lang="de">Text</title>
+                </meta>
+
+                <properties>
+                    <property name="text" type="text_editor" mandatory="true">
+                        <meta>
+                            <title lang="en">Text</title>
+                            <title lang="de">Text</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>
