@@ -1,0 +1,12 @@
+sulu_media:
+    storage: '%env(MEDIA_STORAGE)%'
+    storages:
+        s3:
+            key: '%env(S3_KEY)%'
+            secret: '%env(S3_SECRET)%'
+            region: '%env(S3_REGION)%'
+            bucket_name: '%env(S3_BUCKET_NAME)%'
+            path_prefix: '%env(S3_PATH_PREFIX)%'
+            endpoint: '%env(S3_ENDPOINT)%'
+    format_cache:
+        save_image: '%env(bool:MEDIA_SAVE_IMAGE_LOCAL)%'

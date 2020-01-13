@@ -1,0 +1,68 @@
+.card {
+    background-color: #FAFAFA;
+}
+
+.card__body {
+    padding: 20px;
+}
+
+.card__image-holder {
+    position: relative;
+
+    &::before {
+        align-items: center;
+        background-color: $red;
+        bottom: 0;
+        left: 0;
+        opacity: 0.5;
+        padding: 20px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    @media (hover: hover) {
+        &:hover::before {
+            content: '';
+        }
+    }
+}
+
+.card__image {
+    display: block;
+    width: 100%;
+}
+
+.card__image-overlay {
+    align-items: center;
+    bottom: 0;
+    display: none;
+    justify-content: center;
+    left: 0;
+    padding: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    .card__image-holder:hover > & {
+        display: flex;
+    }
+}
+
+.card__image-title {
+    color: $white;
+    font-family: 'Broken Wings', sans-serif;
+    font-size: 64px;
+    line-height: 64px;
+    text-align: center;
+
+    @media (hover: none) {
+        display: none;
+    }
+}
+
+.card__button {
+    display: block;
+    margin-top: 20px;
+    width: min-content;
+}

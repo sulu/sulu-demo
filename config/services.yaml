@@ -8,6 +8,8 @@ services:
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        bind:
+            Sulu\Bundle\MediaBundle\Media\Storage\StorageInterface: '@sulu_media.storage'
 
     # Web Twig Extensions
     Massive\Component\Web\ComponentTwigExtension: ~
@@ -20,7 +22,7 @@ services:
     # this creates a service per class whose id is the fully-qualified class name
     App\:
         resource: '../src/*'
-        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+        exclude: '../src/{DependencyInjection,DataFixtures/Document,Entity,Migrations,Tests,Kernel.php}'
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
@@ -30,3 +32,6 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Build\UserBuilder:
+        decorates: sulu_security.build.user

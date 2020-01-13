@@ -1,0 +1,32 @@
+<nav class="navbar" id="{{ register_component('window-scroll') }}">
+    <a href="{{ sulu_content_root_path() }}" class="navbar__logo">
+        <img src="{{ asset('website/images/logo.svg') }}" alt="Sulu.rocks" class="navbar__logo-image"/>
+    </a>
+
+    <div class="navbar__navigation">
+        <div class="navbar__links" id="navigation">
+            {% for item in sulu_navigation_root_flat('main', 1) %}
+                <a href="{{ sulu_content_path(item.url) }}" title="{{ item.title }}"
+                   class="navbar__item{{ path starts with item.url ? ' navbar__item--active' : '' }}">
+                    {{ item.title|upper }}
+                </a>
+            {% endfor %}
+        </div>
+
+        <div class="navbar__locales">
+            {% for key, value in urls if key != app.request.locale %}
+                {% set itemUrl = sulu_content_path(value, request.webspaceKey, key)|default('') %}
+
+                {% if itemUrl is not empty %}
+                    <a href="{{ itemUrl }}" title="{{ key }}" class="navbar__item navbar__item--locale">
+                        {{ key|upper }}
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <button id="{{ register_component('navigation-toggler', {
+            navigation: '#navigation'
+        }) }}" class="navbar__toggler icon icon--menu"></button>
+    </div>
+</nav>

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block contentHeader %}
+    {% include 'includes/header.html.twig' with { type: 'overview' } %}
+{% endblock %}
+
+{% block content %}
+    <div class="grid">
+        {% for element in content.elements %}
+            {% set media = sulu_resolve_media(element.headerImage, app.request.locale) %}
+
+            <div class="grid__item width-4 width-tablet-6 width-mobile-12">
+                <div class="card">
+                    <div class="card__image-holder">
+                        <img src="{{ media.formats['600x400'] }}" class="card__image"/>
+
+                        <a href="{{ sulu_content_path(element.url) }}" class="card__image-overlay">
+                            <h2 class="card__image-title">{{ element.title }}</h2>
+                        </a>
+                    </div>
+
+                    <div class="card__body">
+                        <h2 class="card__title"><a href="{{ sulu_content_path(element.url) }}">{{ element.title }}</a></h2>
+
+                        <a href="{{ sulu_content_path(element.url) }}" class="button card__button">{% trans %}READ MORE{% endtrans %}</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% include 'includes/blocks.html.twig' with { blocks: content.blocks } %}
+{% endblock %}

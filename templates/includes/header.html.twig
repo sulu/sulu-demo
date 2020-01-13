@@ -1,0 +1,59 @@
+{% set type = type|default('default') %}
+
+{% set class = '' %}
+{% set formats = {
+    default: '2560x300',
+    laptop: '1200x300',
+    tablet: '991x250',
+    mobile: '767x200',
+} %}
+
+{% set title = content.title %}
+{% set subtitle = content.subtitle|default %}
+{% set image = content.headerImage|default %}
+{% set url = '' %}
+
+{% if type == 'homepage' %}
+    {% set class = ' header--large' %}
+
+    {% set formats = {
+        default: '2560x500',
+        laptop: '1200x500',
+        tablet: '991x400',
+        mobile: '767x300',
+    } %}
+
+    {% set teaser = sulu_content_load(content.teaser) %}
+
+    {% set title = teaser.content.title %}
+    {% set subtitle = teaser.content.subtitle|default(subtitle) %}
+    {% set image = teaser.content.headerImage|default %}
+    {% set url = sulu_content_path(teaser.content.url) %}
+{% endif %}
+
+<div class="header{{ class }}">
+    {% if image %}
+        {{ get_image(image, {
+            'src': formats.default,
+            'class': 'header__image',
+        }, {
+            '(max-width: 1200px)': formats.laptop,
+            '(max-width: 991px)': formats.tablet,
+            '(max-width: 767px)': formats.mobile,
+        }) }}
+    {% else %}
+        <img src="/website/images/default-header-image.jpg" class="header__image"/>
+    {% endif %}
+
+    <div class="header__text">
+        <h1 class="header__title">{{ title }}</h1>
+
+        {% if subtitle %}
+            <span class="header__subtitle">{{ subtitle }}</span>
+        {% endif %}
+
+        {% if url %}
+            <a href="{{ url }}" class="button header__button">{% trans %}READ MORE{% endtrans %}</a>
+        {% endif %}
+    </div>
+</div>

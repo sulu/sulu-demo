@@ -1,0 +1,9 @@
+{% if blocks|default([])|length %}
+    <div class="blocks">
+        {% for block in blocks %}
+            <div class="blocks__item">
+                {% include 'includes/blocks/' ~ block.type ~ '.html.twig' with block only %}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

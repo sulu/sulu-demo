@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% block meta %}
-        {% include "SuluWebsiteBundle:Extension:seo.html.twig" with {
-            "seo": extension.seo|default([]),
-            "content": content|default([]),
-            "urls": urls|default([]),
-            "shadowBaseLocale": shadowBaseLocale|default(),
-            "defaultLocale": app.request.locale
+        {% include '@SuluWebsite/Extension/seo.html.twig' with {
+            'seo': extension.seo|default([]),
+            'content': content|default([]),
+            'urls': urls|default([]),
+            'shadowBaseLocale': shadowBaseLocale|default(),
+            'defaultLocale': app.request.locale
         } %}
     {% endblock %}
 
@@ -23,42 +23,26 @@
 </head>
 <body>
     <header>
-        {% include "includes/demobar.html.twig" %}
+        {% include 'includes/demobar.html.twig' %}
 
         {% block header %}
-            <nav>
-                <ul>
-                    <li>
-                        <a href="{{ sulu_content_root_path() }}">Homepage</a>
-                    </li>
-
-                    {% for item in sulu_navigation_root_tree('main') %}
-                        <li>
-                            <a href="{{ sulu_content_path(item.url) }}"
-                               title="{{ item.title }}">{{ item.title }}</a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </nav>
+            {% include 'includes/navbar.html.twig' %}
         {% endblock %}
     </header>
 
-    <form action="{{ path('sulu_search.website_search') }}" method="GET">
-        <input name="q" type="text" placeholder="Search"/>
-        <input type="submit" value="Go"/>
-    </form>
-
     <section id="content">
-        {% block content %}{% endblock %}
-    </section>
+        {% block contentHeader %}{% endblock %}
 
-    <aside>
-        {% block aside %}{% endblock %}
-    </aside>
+        <div class="content">
+            <div class="container">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </section>
 
     <footer>
         {% block footer %}
-            <p>Copyright {{ 'now'|date('Y') }} SULU</p>
+            {% include 'includes/footer.html.twig' %}
         {% endblock %}
     </footer>
 
@@ -69,6 +53,5 @@
         </script>
         <script src="{{ preload(asset('/build/website/js/main.js'), { as: 'script' }) }}" async></script>
     {% endblock %}
-
 </body>
 </html>
