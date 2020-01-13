@@ -4,13 +4,27 @@
           xmlns:xi="http://www.w3.org/2001/XInclude"
           xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
 
+    <!-- This is the template for the "Homepage". -->
+    <!-- For further information, on how to make a Sulu template have a look at: -->
+    <!-- http://docs.sulu.io/en/latest/book/templates.html -->
+
+    <!-- This is the unique key that identifies the template. It must be identical to the file name without the ".xml" suffix!!! -->
     <key>homepage</key>
 
+    <!-- Path to "Home" page's Twig file: -->
+    <!-- templates/pages/homepage.html.twig -->
     <view>pages/homepage</view>
+
+    <!-- Path to "Home" page's Controller -->
+    <!-- In this case that's Sulu's default controller -->
+    <!-- vendor/sulu/sulu/src/Sulu/Bundle/WebsiteBundle/Controller/DefaultController.php -->
     <controller>Sulu\Bundle\WebsiteBundle\Controller\DefaultController::indexAction</controller>
+
+    <!-- Lifetime of this pages cache -->
     <cacheLifetime>86400</cacheLifetime>
 
     <meta>
+        <!-- The localized titles of the template. These titles appear in the dropdown where you select the template of a page. -->
         <title lang="en">Homepage</title>
         <title lang="de">Startseite</title>
     </meta>
