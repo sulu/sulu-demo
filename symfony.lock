@@ -107,9 +107,6 @@
     "egulias/email-validator": {
         "version": "2.1.11"
     },
-    "fig/link-util": {
-        "version": "1.0.0"
-    },
     "friendsofphp/php-cs-fixer": {
         "version": "2.2",
         "recipe": {
@@ -325,6 +322,9 @@
     "paragonie/random_compat": {
         "version": "v9.99.99"
     },
+    "php": {
+        "version": "7.3.10"
+    },
     "php-cs-fixer/diff": {
         "version": "v1.3.0"
     },
@@ -399,9 +399,6 @@
     },
     "psr/http-message": {
         "version": "1.0.1"
-    },
-    "psr/link": {
-        "version": "1.0.0"
     },
     "psr/log": {
         "version": "1.1.0"
@@ -526,6 +523,9 @@
     },
     "symfony/dotenv": {
         "version": "v4.3.4"
+    },
+    "symfony/error-handler": {
+        "version": "v4.4.2"
     },
     "symfony/event-dispatcher": {
         "version": "v4.3.4"
@@ -713,9 +713,6 @@
             "config/packages/test/swiftmailer.yaml"
         ]
     },
-    "symfony/templating": {
-        "version": "v4.3.4"
-    },
     "symfony/thanks": {
         "version": "v1.1.0"
     },
@@ -769,9 +766,6 @@
         "version": "v4.3.4"
     },
     "symfony/var-exporter": {
-        "version": "v4.3.4"
-    },
-    "symfony/web-link": {
         "version": "v4.3.4"
     },
     "symfony/web-profiler-bundle": {
