@@ -352,6 +352,12 @@
     "php-http/promise": {
         "version": "v1.0.0"
     },
+    "php-task/php-task": {
+        "version": "1.3.2"
+    },
+    "php-task/task-bundle": {
+        "version": "1.3.0"
+    },
     "phpcr/phpcr": {
         "version": "2.1.4"
     },
@@ -454,6 +460,9 @@
             "config/packages/stof_doctrine_extensions.yaml"
         ]
     },
+    "sulu/automation-bundle": {
+        "version": "2.0-dev"
+    },
     "sulu/sulu": {
         "version": "2.0.0"
     },
@@ -553,6 +562,9 @@
         "files": [
             ".env"
         ]
+    },
+    "symfony/force-lowest": {
+        "version": "v4.2.0"
     },
     "symfony/form": {
         "version": "v4.3.4"
@@ -772,7 +784,7 @@
         "version": "v4.3.4"
     },
     "symfony/web-link": {
-        "version": "v4.3.4"
+        "version": "v4.3.8"
     },
     "symfony/web-profiler-bundle": {
         "version": "3.3",
