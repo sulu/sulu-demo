@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "43202774b6ce58917c02ef3be31b51e3",
+    "content-hash": "30ff33c7c646eb81b424216f4e0893ac",
     "packages": [
         {
             "name": "aferrandini/urlizer",
@@ -5001,6 +5001,105 @@
             "time": "2016-01-26T13:27:02+00:00"
         },
         {
+            "name": "php-task/php-task",
+            "version": "1.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-task/php-task.git",
+                "reference": "271f5a9c3fc86a55b3c0d2c6ad351e3a8ece0f6e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-task/php-task/zipball/271f5a9c3fc86a55b3c0d2c6ad351e3a8ece0f6e",
+                "reference": "271f5a9c3fc86a55b3c0d2c6ad351e3a8ece0f6e",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": "^2.6",
+                "mtdowling/cron-expression": "^1.1",
+                "php": "^5.6 || ^7.0",
+                "ramsey/uuid": "^3.1",
+                "symfony/event-dispatcher": "^2.6 || ^3.4 || ^4.0"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "^1.6",
+                "phpunit/phpunit": "^4.8",
+                "psr/log": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Johannes Wachter",
+                    "email": "johannes.wachter@massiveart.at"
+                }
+            ],
+            "description": "Library to work with synchronous and asynchronous tasks in php.",
+            "time": "2019-10-22T07:56:37+00:00"
+        },
+        {
+            "name": "php-task/task-bundle",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-task/TaskBundle.git",
+                "reference": "38103601b8b78f378ad3a00922fe2fdc28fb1706"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-task/TaskBundle/zipball/38103601b8b78f378ad3a00922fe2fdc28fb1706",
+                "reference": "38103601b8b78f378ad3a00922fe2fdc28fb1706",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/orm": "^2.5",
+                "php": "^5.6 || ^7.0",
+                "php-task/php-task": "^1.3",
+                "symfony/config": "^2.8 || ^3.4 || ^4.0",
+                "symfony/console": "^2.8 || ^3.4 || ^4.0",
+                "symfony/dependency-injection": "^2.8 || ^3.4 || ^4.0",
+                "symfony/expression-language": "^2.8 || ^3.4 || ^4.0",
+                "symfony/http-kernel": "^2.8 || ^3.4 || ^4.0",
+                "symfony/process": "^2.8 || ^3.4 || ^4.0"
+            },
+            "require-dev": {
+                "doctrine/data-fixtures": "^1.1",
+                "doctrine/doctrine-bundle": "^1.5",
+                "phpunit/phpunit": "^4.8 || ^5.0",
+                "sebastian/comparator": "^1.2.3",
+                "symfony/debug": "^2.8 || ^3.4 || ^4.0",
+                "symfony/finder": "^2.8 || ^3.4 || ^4.0",
+                "symfony/framework-bundle": "^2.8 || ^3.4 || ^4.0",
+                "symfony/yaml": "^2.8 || ^3.4 || ^4.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Task\\TaskBundle\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Johannes Wachter",
+                    "email": "johannes.wachter@massiveart.at"
+                }
+            ],
+            "description": "Symfony integration for php-task library",
+            "time": "2019-09-10T13:26:06+00:00"
+        },
+        {
             "name": "phpcr/phpcr",
             "version": "2.1.4",
             "source": {
@@ -5893,6 +5992,79 @@
                 "tree"
             ],
             "time": "2017-12-24T16:06:50+00:00"
+        },
+        {
+            "name": "sulu/automation-bundle",
+            "version": "2.0.0-alpha1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sulu/SuluAutomationBundle.git",
+                "reference": "395d782909645cb3c41885b00c8ceabbc2a44654"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sulu/SuluAutomationBundle/zipball/395d782909645cb3c41885b00c8ceabbc2a44654",
+                "reference": "395d782909645cb3c41885b00c8ceabbc2a44654",
+                "shasum": ""
+            },
+            "require": {
+                "friendsofsymfony/rest-bundle": "^2.5",
+                "jms/serializer-bundle": "^3.0",
+                "php": "^7.2",
+                "php-task/php-task": "1.3.2",
+                "php-task/task-bundle": "^1.3",
+                "sulu/sulu": "^2.0.1",
+                "symfony/config": "^4.3",
+                "symfony/dependency-injection": "^4.3",
+                "symfony/force-lowest": "^4.0",
+                "symfony/http-foundation": "^4.3",
+                "symfony/http-kernel": "^4.3"
+            },
+            "require-dev": {
+                "jackalope/jackalope-doctrine-dbal": "^1.3.0",
+                "jangregor/phpstan-prophecy": "^0.4.1",
+                "php-ffmpeg/php-ffmpeg": "^0.14.0",
+                "phpstan/phpstan": "^0.11.12",
+                "phpstan/phpstan-doctrine": "^0.11.5",
+                "phpstan/phpstan-phpunit": "^0.11.2",
+                "phpstan/phpstan-symfony": "^0.11.6",
+                "phpunit/phpunit": "^8.0",
+                "symfony/browser-kit": "^4.3",
+                "symfony/dotenv": "^4.3",
+                "symfony/monolog-bundle": "^3.1",
+                "symfony/security-bundle": "^4.3",
+                "symfony/stopwatch": "^4.3",
+                "symfony/templating": "^4.3",
+                "thecodingmachine/phpstan-strict-rules": "^0.11.2",
+                "zendframework/zendsearch": "@dev"
+            },
+            "type": "sulu-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sulu\\Bundle\\AutomationBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sulu Community",
+                    "homepage": "https://github.com/sulu/SuluAutomationBundle/contributors"
+                }
+            ],
+            "description": "The Sulu Bundle which provides automation functionality",
+            "keywords": [
+                "automation",
+                "sulu"
+            ],
+            "time": "2019-11-08T12:40:07+00:00"
         },
         {
             "name": "sulu/sulu",
@@ -7415,6 +7587,99 @@
             "time": "2019-09-19T14:55:57+00:00"
         },
         {
+            "name": "symfony/force-lowest",
+            "version": "v4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/force-lowest.git",
+                "reference": "ba8231511b04809e778fd3452c60d2caad93d02b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/force-lowest/zipball/ba8231511b04809e778fd3452c60d2caad93d02b",
+                "reference": "ba8231511b04809e778fd3452c60d2caad93d02b",
+                "shasum": ""
+            },
+            "conflict": {
+                "symfony/asset": "<4.2",
+                "symfony/browser-kit": "<4.2",
+                "symfony/cache": "<4.2",
+                "symfony/config": "<4.2",
+                "symfony/console": "<4.2",
+                "symfony/css-selector": "<4.2",
+                "symfony/debug": "<4.2",
+                "symfony/debug-bundle": "<4.2",
+                "symfony/dependency-injection": "<4.2",
+                "symfony/doctrine-bridge": "<4.2",
+                "symfony/dom-crawler": "<4.2",
+                "symfony/dotenv": "<4.2",
+                "symfony/event-dispatcher": "<4.2",
+                "symfony/expression-language": "<4.2",
+                "symfony/filesystem": "<4.2",
+                "symfony/finder": "<4.2",
+                "symfony/form": "<4.2",
+                "symfony/framework-bundle": "<4.2",
+                "symfony/http-foundation": "<4.2",
+                "symfony/http-kernel": "<4.2",
+                "symfony/inflector": "<4.2",
+                "symfony/intl": "<4.2",
+                "symfony/ldap": "<4.2",
+                "symfony/lock": "<4.2",
+                "symfony/messenger": "<4.2",
+                "symfony/monolog-bridge": "<4.2",
+                "symfony/options-resolver": "<4.2",
+                "symfony/process": "<4.2",
+                "symfony/property-access": "<4.2",
+                "symfony/property-info": "<4.2",
+                "symfony/proxy-manager-bridge": "<4.2",
+                "symfony/routing": "<4.2",
+                "symfony/security": "<4.2",
+                "symfony/security-bundle": "<4.2",
+                "symfony/security-core": "<4.2",
+                "symfony/security-csrf": "<4.2",
+                "symfony/security-guard": "<4.2",
+                "symfony/security-http": "<4.2",
+                "symfony/serializer": "<4.2",
+                "symfony/stopwatch": "<4.2",
+                "symfony/symfony": "<4.2",
+                "symfony/templating": "<4.2",
+                "symfony/translation": "<4.2",
+                "symfony/twig-bridge": "<4.2",
+                "symfony/twig-bundle": "<4.2",
+                "symfony/validator": "<4.2",
+                "symfony/var-dumper": "<4.2",
+                "symfony/web-link": "<4.2",
+                "symfony/web-profiler-bundle": "<4.2",
+                "symfony/web-server-bundle": "<4.2",
+                "symfony/workflow": "<4.2",
+                "symfony/yaml": "<4.2"
+            },
+            "type": "metapackage",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.2-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "A metapackage to enforce a lowest version on installed Symfony components",
+            "homepage": "https://symfony.com",
+            "abandoned": "symfony/flex",
+            "time": "2018-05-09T23:41:04+00:00"
+        },
+        {
             "name": "symfony/form",
             "version": "v4.3.5",
             "source": {
@@ -8616,6 +8881,55 @@
                 "shim"
             ],
             "time": "2019-08-06T08:03:45+00:00"
+        },
+        {
+            "name": "symfony/process",
+            "version": "v4.3.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/process.git",
+                "reference": "50556892f3cc47d4200bfd1075314139c4c9ff4b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/process/zipball/50556892f3cc47d4200bfd1075314139c4c9ff4b",
+                "reference": "50556892f3cc47d4200bfd1075314139c4c9ff4b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Process\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Process Component",
+            "homepage": "https://symfony.com",
+            "time": "2019-09-26T21:17:10+00:00"
         },
         {
             "name": "symfony/property-access",
@@ -10094,6 +10408,7 @@
                 "code",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-code",
             "time": "2019-10-05T23:18:22+00:00"
         },
         {
@@ -10148,6 +10463,7 @@
                 "events",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-eventmanager",
             "time": "2018-04-25T15:33:34+00:00"
         },
         {
@@ -10206,6 +10522,7 @@
                 "hydrator",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-hydrator",
             "time": "2016-02-18T22:38:26+00:00"
         },
         {
@@ -10265,6 +10582,7 @@
                 "stdlib",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-stdlib",
             "time": "2016-04-12T21:17:31+00:00"
         },
         {
@@ -10301,6 +10619,7 @@
                 "lucene",
                 "zf2"
             ],
+            "abandoned": true,
             "time": "2015-01-21T16:24:14+00:00"
         }
     ],
@@ -11795,55 +12114,6 @@
             "time": "2019-10-02T08:36:26+00:00"
         },
         {
-            "name": "symfony/process",
-            "version": "v4.3.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/process.git",
-                "reference": "50556892f3cc47d4200bfd1075314139c4c9ff4b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/50556892f3cc47d4200bfd1075314139c4c9ff4b",
-                "reference": "50556892f3cc47d4200bfd1075314139c4c9ff4b",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Process\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Process Component",
-            "homepage": "https://symfony.com",
-            "time": "2019-09-26T21:17:10+00:00"
-        },
-        {
             "name": "symfony/stopwatch",
             "version": "v4.3.5",
             "source": {
@@ -12199,6 +12469,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "sulu/automation-bundle": 15,
         "sulu/sulu": 20,
         "zendframework/zendsearch": 5
     },
