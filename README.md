@@ -13,6 +13,11 @@ Our documentation is available under:
 
 ## Used Extensions
 
+### [SuluArticleBundle](https://github.com/sulu/SuluArticleBundle)
+
+The SuluArticleBundle adds support for managing articles in Sulu. Articles can be used in a lot of different ways to manage unstructured data with an own URL in an admin-list.
+Most of the features, which can be used in pages, can also be used on articles - like templates, versioning, drafting, publishing and automation.
+
 ### [SuluAutomationBundle](https://github.com/sulu/SuluAutomationBundle)
 
 The SuluAutomationBundle provides a way to manages future tasks which can be scheduled for entities in the Sulu-Admin. For example schedule the publishing of a page to a specific datetime in the future.
@@ -33,12 +38,7 @@ A collection of helpful twig extensions and a tiny js component mangaement libra
     - simplexml extension
     - gd or imagick extension (needed for image converts)
 * Composer
-* the intl extension for PHP
-* the gd or imagick extension for PHP
-* a database management system supported by Doctrine
-* Elasticsearch 5.0 or higher
-* Composer
-* Node.js and Compass (if you want to run a npm task)
+* NPM if you want to run npm tasks
 
 ## Installation
 
@@ -47,7 +47,9 @@ php composer create-project sulu/sulu-demo
 cd sulu-demo
 ```
 
-configure your `DATABASE_URL` in the `.env.local` see `.env` as reference.
+Configure now your `DATABASE_URL` in the `.env.local` see `.env` as reference.
+
+Install the demo with all fixtures by running:
 
 ```bash
 bin/console sulu:build dev
@@ -61,9 +63,9 @@ Now you can try out our demo, there is no need to configure a virtual host. Just
 bin/console server:run
 ```
 
-Then you can access the administration interface via http://127.0.0.1:8000/admin. The default user and password is “admin”.
+Then you can access the administration interface via [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin). The default user and password is “admin”.
 
-The web frontend can be found under http://127.0.0.1:8000.
+The web frontend can be found under [http://127.0.0.1:8000](http://127.0.0.1:8000).
 
 ## Tests
 
@@ -75,4 +77,4 @@ composer test
 
 ## Questions? We have answers!
 
-We've got a #Slack channel where you can talk directly to strategists, developers and designers. Just contact us under http://sulu.io/#questions.
+We've got a [#Slack](https://sulu.io/community#chat) channel where you can talk directly to strategists, developers and designers. Just contact us under http://sulu.io/#questions.
