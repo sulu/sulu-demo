@@ -1,3 +1,4 @@
 {
-  "extends": "eslint-config-ma"
+    "extends": "eslint-config-ma",
+    "parser": "babel-eslint"
 }

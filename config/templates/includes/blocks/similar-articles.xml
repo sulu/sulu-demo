@@ -1,0 +1,23 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <block name="blocks" default-type="similar-articles">
+        <types>
+            <type name="similar-articles">
+                <meta>
+                    <title lang="en">Similar articles</title>
+                    <title lang="de">Ähnliche Artikel</title>
+                </meta>
+
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Title</title>
+                            <title lang="de">Titel</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

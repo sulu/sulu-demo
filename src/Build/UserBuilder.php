@@ -54,6 +54,7 @@ class UserBuilder implements BuilderInterface, ContainerAwareInterface
             return;
         }
 
+        /** @var UserSetting|null $userSetting */
         $userSetting = $userSettingRepository->findOneBy([
             'key' => 'sulu_admin.application.navigation_pinned',
             'user' => $user->getId(),

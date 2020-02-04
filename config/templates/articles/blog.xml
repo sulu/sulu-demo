@@ -1,0 +1,74 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xi="http://www.w3.org/2001/XInclude"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>blog</key>
+
+    <view>articles/blog</view>
+    <controller>Sulu\Bundle\ArticleBundle\Controller\WebsiteArticleController::indexAction</controller>
+    <cacheLifetime>604800</cacheLifetime>
+
+    <meta>
+        <title lang="en">Blog</title>
+        <title lang="de">Blog</title>
+    </meta>
+
+    <tag name="sulu_article.type" type="article"/>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Title</title>
+                <title lang="de">Titel</title>
+            </meta>
+            <params>
+                <param name="headline" value="true"/>
+            </params>
+
+            <tag name="sulu_article.article_title"/>
+        </property>
+
+        <property name="routePath" type="route">
+            <meta>
+                <title lang="en">Resourcelocator</title>
+                <title lang="de">Adresse</title>
+            </meta>
+
+            <tag name="sulu_article.article_route"/>
+        </property>
+
+        <property name="headerImage" type="single_media_selection">
+            <meta>
+                <title lang="en">Image</title>
+                <title lang="de">Bild</title>
+            </meta>
+
+            <params>
+                <param name="types" value="image"/>
+                <param name="formats" type="collection">
+                    <param name="2560x300" />
+                    <param name="1200x300" />
+                    <param name="991x250" />
+                    <param name="767x200" />
+                </param>
+            </params>
+        </property>
+
+        <block name="blocks" default-type="text" minOccurs="0">
+            <meta>
+                <title lang="en">Content</title>
+                <title lang="de">Inhalte</title>
+            </meta>
+
+            <types>
+                <xi:include href="../includes/blocks.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/*)"/>
+
+                <xi:include href="../includes/blocks/similar-articles.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            </types>
+        </block>
+    </properties>
+</template>

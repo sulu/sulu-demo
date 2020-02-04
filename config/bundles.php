@@ -44,6 +44,8 @@ return [
     FOS\JsRoutingBundle\FOSJsRoutingBundle::class => ['all' => true, 'admin' => true],
     Symfony\Cmf\Bundle\RoutingBundle\CmfRoutingBundle::class => ['all' => true, 'website' => true],
     Sentry\SentryBundle\SentryBundle::class => ['all' => true],
+    Sulu\Bundle\ArticleBundle\SuluArticleBundle::class => ['all' => true],
+    ONGR\ElasticsearchBundle\ONGRElasticsearchBundle::class => ['all' => true],
     Task\TaskBundle\TaskBundle::class => ['all' => true],
     Sulu\Bundle\AutomationBundle\SuluAutomationBundle::class => ['all' => true],
 ];
