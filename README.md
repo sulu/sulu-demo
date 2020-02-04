@@ -32,7 +32,7 @@ A collection of helpful twig extensions and a tiny js component mangaement libra
 ## Requirements
 
 * MySQL or PostgreSQL Server
-* PHP 7.2 or higher
+* PHP 7.3 or higher
     - json extension
     - xml extension
     - simplexml extension
@@ -77,4 +77,4 @@ composer test
 
 ## Questions? We have answers!
 
-We've got a [#Slack](https://sulu.io/community#chat) channel where you can talk directly to strategists, developers and designers. Just contact us under http://sulu.io/#questions.
+We've got a [#Slack](https://sulu.io/community#chat) channel where you can talk directly to strategists, developers and designers.
