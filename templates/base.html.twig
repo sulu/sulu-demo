@@ -17,7 +17,7 @@
 
     {% block style -%}
         <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{{ preload(asset('/build/website/css/main.css'), { as: 'style' }) }}">
+        <link rel="stylesheet" href="{{ asset('/build/website/css/main.css') }}">
     {% endblock %}
 
 </head>
@@ -51,7 +51,7 @@
             window.webComponents = {{ get_components() }};
             window.webServices = {{ get_services() }};
         </script>
-        <script src="{{ preload(asset('/build/website/js/main.js'), { as: 'script' }) }}" async></script>
+        <script src="{{ asset('/build/website/js/main.js') }}" async></script>
     {% endblock %}
 </body>
 </html>

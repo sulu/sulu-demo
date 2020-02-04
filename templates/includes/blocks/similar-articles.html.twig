@@ -1,0 +1,29 @@
+{% set articles = sulu_article_load_recent(4) %}
+
+{% if articles|length %}
+    <div class="similar-articles">
+        <h2 class="block-heading">{{ title|default('Similar Articles'|trans) }}</h2>
+
+        <div class="similar-articles__list" id="{{ register_component('slick-slider') }}">
+            {% for article in articles %}
+                {% set content = article.content.content %}
+
+                <article class="similar-articles__item">
+                    <a class="similar-articles__link" href="{{ content.routePath }}">
+                        <div class="similar-articles__image">
+                            {{ get_image(content.headerImage, '400x400', {
+                                '(min-width: 400px)': '800x800',
+                                '(min-width: 768px)': '600x600',
+                                '(min-width: 992px)': '400x400',
+                            }) }}
+                        </div>
+                        <div class="similar-articles__content">
+                            <h2 class="similar-articles__title">{{ content.title }}</h2>
+                            <p class="similar-articles__date" id="{{ register_component('timeago', { date: article.authored|date('c') }) }}"></p>
+                        </div>
+                    </a>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}

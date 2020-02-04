@@ -1,0 +1,29 @@
+<div class="article-list">
+    {% for article in element.articles %}
+        <div class="article-list__item">
+            {% set article = article.content %}
+            {% set title = article.excerpt.title|default(article.title) %}
+            {% set link = sulu_content_path(article.routePath) %}
+
+            {% if article.excerpt.images|length %}
+                {% set image = sulu_resolve_media(article.excerpt.images[0].id, app.request.locale).formats['600x400'] %}
+
+                {% if image %}
+                    <div class="article-list__item-image">
+                        <a href="{{ link }}">
+                            <img src="{{ image }}" alt="{{ title }}" />
+                        </a>
+                    </div>
+                {% endif %}
+            {% endif %}
+
+            <div class="article-list__item-content">
+                <p class="article-list__item-date">{{ article.authored|date('d.m.Y') }}</p>
+                <h2 class="article-list__item-title"><a href="{{ link }}">{{ title }}</a></h2>
+                <p class="posted-by">{{ 'Posted by'|trans }} <span>{{ article.authorFullName }}</span></p>
+                <div class="article-list__item-description">{{ article.excerpt.description|default|raw }}</div>
+                <a class="article-list__item-button button" href="{{ link }}">{{ article.excerpt.more|default('READ MORE'|trans) }}</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>

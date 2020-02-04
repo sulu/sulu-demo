@@ -1,0 +1,26 @@
+<div class="grid">
+    {% for page in element.pages %}
+        {% set media = sulu_resolve_media(page.headerImage, app.request.locale) %}
+
+        <div class="grid__item width-4 width-tablet-6 width-mobile-12">
+            <div class="card">
+                <div class="card__image-holder">
+                    {{ get_image(media, {
+                        src: '600x400',
+                        class: 'card__image',
+                    }) }}
+
+                    <a href="{{ sulu_content_path(page.url) }}" class="card__image-overlay">
+                        <h2 class="card__image-title">{{ page.title }}</h2>
+                    </a>
+                </div>
+
+                <div class="card__body">
+                    <h2 class="card__title"><a href="{{ sulu_content_path(page.url) }}">{{ page.title }}</a></h2>
+
+                    <a href="{{ sulu_content_path(page.url) }}" class="button card__button">{% trans %}READ MORE{% endtrans %}</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

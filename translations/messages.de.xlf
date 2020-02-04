@@ -38,6 +38,14 @@
                 <source>READ MORE</source>
                 <target>MEHR LESEN</target>
             </trans-unit>
+            <trans-unit id="posted_by">
+                <source>Posted by</source>
+                <target>Gepostet von</target>
+            </trans-unit>
+            <trans-unit id="similar_articles">
+                <source>Similar Articles</source>
+                <target>Ähnliche Artikel</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

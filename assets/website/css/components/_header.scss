@@ -2,11 +2,11 @@
     height: 300px;
     position: relative;
 
-    @include media('tablet') {
+    @include media('<laptop') {
         height: 250px;
     }
 
-    @include media('mobile') {
+    @include media('<tablet') {
         height: 200px;
     }
 }
@@ -14,11 +14,11 @@
 .header--large {
     height: 500px;
 
-    @include media('tablet') {
+    @include media('<laptop') {
         height: 400px;
     }
 
-    @include media('mobile') {
+    @include media('<tablet') {
         height: 300px;
     }
 }
@@ -44,25 +44,34 @@
 }
 
 .header__title {
-    font-family: 'Broken Wings', sans-serif;
-    font-size: 55px;
+    font-family: $font-family-secondary;
+    font-size: 120px;
     line-height: 1;
     margin: 0;
     text-align: center;
 
-    @include media('>mobile') {
-        font-size: 120px;
+    @include media('<tablet') {
+        font-size: 55px;
+    }
+}
+
+.header__title--small {
+    font-size: 75px;
+
+    @include media('<tablet') {
+        font-size: 30px;
     }
 }
 
 .header__subtitle {
     display: block;
+    font-size: 18px;
     font-weight: bold;
     line-height: 1;
     text-align: center;
 
-    @include media('>mobile') {
-        font-size: 18px;
+    @include media('<tablet') {
+        font-size: inherit;
     }
 }
 

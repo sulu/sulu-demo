@@ -4,12 +4,14 @@ namespace App\DataFixtures\ORM;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Sulu\Bundle\ContactBundle\Entity\Account;
 use Sulu\Bundle\ContactBundle\Entity\AccountAddress;
 use Sulu\Bundle\ContactBundle\Entity\AccountInterface;
 use Sulu\Bundle\ContactBundle\Entity\Address;
 use Sulu\Bundle\ContactBundle\Entity\AddressType;
+use Sulu\Bundle\ContactBundle\Entity\Contact;
+use Sulu\Bundle\ContactBundle\Entity\ContactInterface;
 use Sulu\Bundle\MediaBundle\Entity\Collection;
 use Sulu\Bundle\MediaBundle\Entity\CollectionInterface;
 use Sulu\Bundle\MediaBundle\Entity\CollectionMeta;
@@ -51,11 +53,23 @@ class AppFixtures extends Fixture implements OrderedFixtureInterface
             return;
         }
 
+        $this->loadContact($manager);
         $this->loadAccount($manager);
         $this->loadImages($manager, $collections['Content']);
         $this->loadAnalytics($manager);
 
         $manager->flush();
+    }
+
+    private function loadContact(ObjectManager $manager): ContactInterface
+    {
+        $contact = new Contact();
+        $contact->setFirstName('Liz');
+        $contact->setLastName('Adam');
+
+        $manager->persist($contact);
+
+        return $contact;
     }
 
     private function loadAccount(ObjectManager $manager): AccountInterface
@@ -154,6 +168,8 @@ class AppFixtures extends Fixture implements OrderedFixtureInterface
         }
 
         $collection = new Collection();
+
+        /** @var CollectionType|null $collectionType */
         $collectionType = $manager->getRepository(CollectionType::class)->find(1);
 
         if (!$collectionType) {

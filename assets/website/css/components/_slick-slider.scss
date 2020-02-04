@@ -1,0 +1,6 @@
+.slick-slider {
+    // stylelint-disable-next-line selector-combinator-blacklist
+    .slick-dots button::before {
+        font-size: 20px;
+    }
+}

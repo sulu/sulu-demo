@@ -31,7 +31,9 @@
     {% set url = sulu_content_path(teaser.content.url) %}
 {% endif %}
 
-<div class="header{{ class }}">
+{% set isArticle = (type == 'article') %}
+
+<div class="header{{ isArticle ? ' header--article' }}">
     {% if image %}
         {{ get_image(image, {
             'src': formats.default,
@@ -46,7 +48,7 @@
     {% endif %}
 
     <div class="header__text">
-        <h1 class="header__title">{{ title }}</h1>
+        <h1 class="header__title{{ isArticle ? ' header__title--small' }}">{{ title }}</h1>
 
         {% if subtitle %}
             <span class="header__subtitle">{{ subtitle }}</span>

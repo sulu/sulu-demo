@@ -3,8 +3,17 @@ services:
   mysql:
     image: mysql:5.7
     ports:
-      - 3306:3306
+      - ${DOCKER_MYSQL_PORT:-3306}:3306
     volumes:
       - ./var/data/mysql:/var/lib/mysql:cached
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+
+  elasticsearch:
+    image: elasticsearch:5.6
+    ports:
+      - ${DOCKER_ES_PORT:-9200}:9200
+    volumes:
+      - ./var/data/elasticsearch:/usr/share/elasticsearch/data:cached
+    environment:
+        ES_JAVA_OPTS: "-Xms750m -Xmx750m"

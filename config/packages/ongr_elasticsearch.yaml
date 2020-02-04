@@ -1,0 +1,34 @@
+parameters:
+    env(ELASTICSEARCH_HOST): '127.0.0.1:9200'
+    env(ELASTICSEARCH_INDEX): 'su_articles'
+    env(ELASTICSEARCH_REPLICAS): 0
+    env(ELASTICSEARCH_SHARDS): 1
+
+ongr_elasticsearch:
+    analysis:
+        tokenizer:
+            pathTokenizer:
+                type: path_hierarchy
+        analyzer:
+            pathAnalyzer:
+                tokenizer: pathTokenizer
+
+    managers:
+        default:
+            index:
+                hosts:
+                    - '%env(resolve:ELASTICSEARCH_HOST)%'
+                index_name: '%env(resolve:ELASTICSEARCH_INDEX)%'
+                settings:
+                    refresh_interval: -1
+                    number_of_replicas: '%env(resolve:ELASTICSEARCH_REPLICAS)%'
+                    number_of_shards: '%env(resolve:ELASTICSEARCH_SHARDS)%'
+        live:
+            index:
+                hosts:
+                    - '%env(resolve:ELASTICSEARCH_HOST)%'
+                index_name: '%env(resolve:ELASTICSEARCH_INDEX)%_live'
+                settings:
+                    refresh_interval: -1
+                    number_of_replicas: '%env(resolve:ELASTICSEARCH_REPLICAS)%'
+                    number_of_shards: '%env(resolve:ELASTICSEARCH_SHARDS)%'

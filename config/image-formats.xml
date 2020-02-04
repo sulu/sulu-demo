@@ -96,10 +96,37 @@
 
     <format key="600x400">
         <meta>
-            <title lang="en">Header Image - Overview Element</title>
-            <title lang="de">Header Bild - Übersicht Element</title>
+            <title lang="en">Teaser - Overview Element</title>
+            <title lang="de">Teaser - Übersicht Element</title>
         </meta>
 
         <scale x="600" y="400"/>
+    </format>
+
+    <format key="800x800">
+        <meta>
+            <title lang="en">Teaser - 800x800</title>
+            <title lang="de">Teaser - 800x800</title>
+        </meta>
+
+        <scale x="800" y="800"/>
+    </format>
+
+    <format key="600x600">
+        <meta>
+            <title lang="en">Teaser - 600x600</title>
+            <title lang="de">Teaser - 600x600</title>
+        </meta>
+
+        <scale x="600" y="600"/>
+    </format>
+
+    <format key="400x400">
+        <meta>
+            <title lang="en">Teaser - 400x400</title>
+            <title lang="de">Teaser - 400x400</title>
+        </meta>
+
+        <scale x="400" y="400"/>
     </format>
 </formats>
