@@ -1237,6 +1237,8 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
         $articleDocument->setExtensionsData($extensionData);
 
         $documentManager->persist($articleDocument, $locale);
+        $documentManager->flush();
+
         $documentManager->publish($articleDocument, $locale);
 
         return $articleDocument;
