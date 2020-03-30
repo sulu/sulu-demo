@@ -7,7 +7,7 @@
     "require": {
         "php": "^7.3",
         "ext-iconv": "*",
-        "api-platform/api-pack": "^1.2",
+        "api-platform/core": "^2.1",
         "dantleech/phpcr-migrations-bundle": "^1.1",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-cache-bundle": "^1.1",

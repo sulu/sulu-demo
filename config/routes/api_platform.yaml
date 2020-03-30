@@ -1,4 +1,1 @@
-api_platform:
-    resource: .
-    type: api_platform
-    prefix: /api
+# Api Platform for admin is configured in `api_platform_admin.yaml`
