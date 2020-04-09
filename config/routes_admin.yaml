@@ -1,9 +1,1 @@
 # Define your admin routes here
-sulu_article_api:
-    resource: "@SuluArticleBundle/Resources/config/routing_api.xml"
-    type: rest
-    prefix: /admin/api
-
-sulu_article:
-    resource: "@SuluArticleBundle/Resources/config/routing.xml"
-    prefix: /admin/articles
