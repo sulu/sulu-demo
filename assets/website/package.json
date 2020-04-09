@@ -1,6 +1,6 @@
 {
   "name": "sulu_demo",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "private": true,
   "description": "Basic bundle structure for a default website project.",
   "author": "Sulu GmbH",
@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "@sulu/web": "^2.0.0-rc3",
+    "Hinclude": "^1.2.0",
     "core-js": "^3.2.1",
     "jquery": "^3.4.1",
     "normalize.css": "^8.0.1",

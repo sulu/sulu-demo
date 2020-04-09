@@ -46,6 +46,8 @@
         {% endblock %}
     </footer>
 
+    {{ render_hinclude('/admin/website-toolbar') }}
+
     {% block javascripts %}
         <script>
             window.webComponents = {{ get_components() }};

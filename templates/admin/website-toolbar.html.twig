@@ -1,0 +1,16 @@
+{% set color = 'red' %}
+{% set text = 'You not authenticated!' %}
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    {% set color = 'green' %}
+    {% set text = 'You are authenticated fully in admin!' %}
+{% elseif is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+    {% set color = 'green' %}
+    {% set text = 'You are authenticated remembered in admin!' %}
+{% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+    {% set color = 'red' %}
+    {% set text = 'You are authenticated anonymously in admin!' %}
+{% endif %}
+
+<div style="position: fixed; bottom: 0; left: 0; background-color: {{ color}}; font-weight: bold; color: white; padding: 5px 10px;">
+    {{ text }}
+</div>

@@ -1,1 +1,6 @@
 # Define your admin routes here
+app_admin.website_toolbar:
+    path: /admin/website-toolbar
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+    defaults:
+        template: admin/website-toolbar.html.twig
