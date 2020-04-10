@@ -30,7 +30,7 @@ class Kernel extends SuluKernel implements HttpCacheProvider
         parent::__construct($environment, $debug, $suluContext);
     }
 
-    protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader)
+    protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void
     {
         // Feel free to remove the "container.autowiring.strict_mode" parameter
         // if you are using symfony/dependency-injection 4.0+ as it's the default behavior

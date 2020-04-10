@@ -52,7 +52,7 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
      * @throws MetadataNotFoundException
      * @throws Exception
      */
-    public function load(DocumentManager $documentManager)
+    public function load(DocumentManager $documentManager): void
     {
         $pages = $this->loadPages($documentManager);
         $documentManager->flush();
@@ -324,10 +324,6 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
     {
         $pageDataList = [];
 
-        /**
-         * @var string
-         * @var PageDocument $pageDocument
-         */
         foreach ($pages as $url => $pageDocument) {
             switch ($url) {
                 case '/artists':
@@ -813,10 +809,6 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
     {
         $articleDataList = [];
 
-        /**
-         * @var string
-         * @var array $articleDocument
-         */
         foreach ($articles as $url => $articleDocument) {
             switch ($url) {
                 case '/blog/a-great-song-will-win':

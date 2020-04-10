@@ -34,12 +34,15 @@ class UserBuilder implements BuilderInterface, ContainerAwareInterface
         return $this->decoratedUserBuilder->getName();
     }
 
+    /**
+     * @return string[]
+     */
     public function getDependencies()
     {
         return $this->decoratedUserBuilder->getDependencies();
     }
 
-    public function build()
+    public function build(): void
     {
         $this->decoratedUserBuilder->build();
 
@@ -72,7 +75,7 @@ class UserBuilder implements BuilderInterface, ContainerAwareInterface
         $manager->flush();
     }
 
-    public function setContext(BuilderContext $context)
+    public function setContext(BuilderContext $context): void
     {
         $this->decoratedUserBuilder->setContext($context);
     }
@@ -85,7 +88,7 @@ class UserBuilder implements BuilderInterface, ContainerAwareInterface
     /**
      * Sets the container.
      */
-    public function setContainer(ContainerInterface $container = null)
+    public function setContainer(ContainerInterface $container = null): void
     {
         if (null !== $container) {
             $this->container = $container;
