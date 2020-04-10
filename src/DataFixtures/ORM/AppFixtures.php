@@ -43,7 +43,7 @@ class AppFixtures extends Fixture implements OrderedFixtureInterface
         $this->storage = $storage;
     }
 
-    public function load(ObjectManager $manager)
+    public function load(ObjectManager $manager): void
     {
         $collections = $this->loadCollections($manager);
 
