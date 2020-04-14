@@ -9,7 +9,7 @@
                 {% set content = article.content.content %}
 
                 <article class="similar-articles__item">
-                    <a class="similar-articles__link" href="{{ content.routePath }}">
+                    <a class="similar-articles__link" href="{{ sulu_content_path(content.routePath) }}">
                         <div class="similar-articles__image">
                             {{ get_image(content.headerImage, '400x400', {
                                 '(min-width: 400px)': '800x800',
