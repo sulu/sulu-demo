@@ -11,6 +11,7 @@ security:
             id: sulu_security.user_provider
 
     access_control:
+        - { path: ^/admin/website-toolbar, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/reset, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/security/reset, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
