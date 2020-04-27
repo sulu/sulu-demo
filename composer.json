@@ -7,31 +7,31 @@
     "require": {
         "php": "^7.3",
         "ext-iconv": "*",
-        "dantleech/phpcr-migrations-bundle": "^1.1",
-        "doctrine/doctrine-bundle": "^1.6",
-        "doctrine/doctrine-cache-bundle": "^1.1",
-        "doctrine/doctrine-fixtures-bundle": "~3.0",
-        "friendsofsymfony/http-cache-bundle": "~2.3",
-        "jackalope/jackalope-doctrine-dbal": "^1.3.0",
-        "jackalope/jackalope-jackrabbit": "^1.2.0",
+        "dantleech/phpcr-migrations-bundle": "^1.0",
+        "doctrine/doctrine-bundle": "^1.10",
+        "doctrine/doctrine-cache-bundle": "^1.3.1",
+        "doctrine/doctrine-fixtures-bundle": "^3.0",
+        "friendsofsymfony/http-cache-bundle": "^2.6",
+        "handcraftedinthealps/zendsearch": "^2.0",
+        "jackalope/jackalope-doctrine-dbal": "^1.3",
+        "jackalope/jackalope-jackrabbit": "^1.2",
         "league/flysystem": "^1.0",
         "league/flysystem-aws-s3-v3": "^1.0",
         "sensiolabs/security-checker": "^6.0",
         "sentry/sentry-symfony": "^2.3",
         "sulu/automation-bundle": "^2.0.0-alpha1",
-        "sulu/sulu": "^2.0.4",
-        "sulu/article-bundle": "^2.0@dev",
+        "sulu/sulu": "^2.0.6",
+        "sulu/article-bundle": "^2.0",
         "sulu/web-twig": "^1.5.0",
-        "symfony/config": "^3.4 || ^4.0",
-        "symfony/dotenv": "^3.4 || ^4.0",
+        "symfony/config": "^4.3",
+        "symfony/dotenv": "^4.3",
         "symfony/flex": "^1.2",
-        "symfony/framework-bundle": "^3.4 || ^4.0",
-        "symfony/monolog-bridge": "^3.4 || ^4.0",
+        "symfony/framework-bundle": "^4.3",
+        "symfony/monolog-bridge": "^4.3",
         "symfony/monolog-bundle": "^3.1",
-        "symfony/swiftmailer-bundle": "^2.6.4 || ^3.0",
-        "symfony/twig-bundle": "^3.4 || ^4.0",
-        "zendframework/zend-stdlib": "^2.3",
-        "zendframework/zendsearch": "^2.0.0rc6"
+        "symfony/security-bundle": "^4.4",
+        "symfony/swiftmailer-bundle": "^3.1.4",
+        "symfony/twig-bundle": "^4.3"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.15",
@@ -42,12 +42,12 @@
         "phpstan/phpstan-phpunit": "^0.12",
         "phpstan/phpstan-symfony": "^0.12",
         "phpstan/phpstan-webmozart-assert": "^0.12",
-        "symfony/debug": "^3.4 || ^4.0",
-        "symfony/debug-bundle": "^3.4 || ^4.0",
-        "symfony/phpunit-bridge": "^3.4 || ^4.0",
+        "symfony/debug-bundle": "^4.3",
+        "symfony/error-handler": "^4.4",
+        "symfony/phpunit-bridge": "^4.3",
         "symfony/thanks": "^1.1",
-        "symfony/web-profiler-bundle": "^3.4 || ^4.0",
-        "symfony/web-server-bundle": "^3.4 || ^4.0",
+        "symfony/web-profiler-bundle": "^4.3",
+        "symfony/web-server-bundle": "^4.3",
         "thecodingmachine/phpstan-strict-rules": "^0.12"
     },
     "autoload": {
@@ -65,8 +65,11 @@
         }
     },
     "replace": {
+        "paragonie/random_compat": "2.*",
         "symfony/polyfill-ctype": "*",
         "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php73": "*",
+        "symfony/polyfill-php72": "*",
         "symfony/polyfill-php71": "*",
         "symfony/polyfill-php70": "*",
         "symfony/polyfill-php56": "*"
@@ -127,9 +130,6 @@
             "php": "7.3.10"
         },
         "sort-packages": true
-    },
-    "conflict": {
-        "friendsofsymfony/jsrouting-bundle": "2.5.2 || 2.5.3"
     },
     "extra": {
         "symfony": {
