@@ -1,6 +1,6 @@
 {
   "name": "sulu_demo",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "private": true,
   "description": "Basic bundle structure for a default website project.",
   "author": "Sulu GmbH",
@@ -74,5 +74,8 @@
   "browserslist": [
     "> 1% in alt-EU",
     "last 2 versions"
-  ]
+  ],
+  "engines": {
+    "node": "^12.0"
+  }
 }
