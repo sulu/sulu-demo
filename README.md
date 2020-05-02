@@ -43,8 +43,9 @@ A collection of helpful twig extensions and a tiny js component mangaement libra
 ## Installation
 
 ```bash
-php composer create-project sulu/sulu-demo
+git clone git@github.com:sulu/sulu-demo.git
 cd sulu-demo
+composer install
 ```
 
 Configure now your `DATABASE_URL` in the `.env.local` see `.env` as reference.
