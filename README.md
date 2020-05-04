@@ -31,12 +31,13 @@ A collection of helpful twig extensions and a tiny js component mangaement libra
 
 ## Requirements
 
-* MySQL or PostgreSQL Server
 * PHP 7.3 or higher
     - json extension
     - xml extension
     - simplexml extension
     - gd or imagick extension (needed for image converts)
+* MySQL or PostgreSQL Server
+* Elasticsearch Server
 * Composer
 * NPM if you want to run npm tasks
 
