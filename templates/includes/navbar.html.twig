@@ -14,12 +14,12 @@
         </div>
 
         <div class="navbar__locales">
-            {% for key, value in urls if key != app.request.locale %}
-                {% set itemUrl = sulu_content_path(value, request.webspaceKey, key)|default('') %}
+            {% for locale, url in urls if locale != app.request.locale %}
+                {% set itemUrl = sulu_content_path(url, request.webspaceKey, locale)|default('') %}
 
                 {% if itemUrl is not empty %}
-                    <a href="{{ itemUrl }}" title="{{ key }}" class="navbar__item navbar__item--locale">
-                        {{ key|upper }}
+                    <a href="{{ itemUrl }}" title="{{ locale }}" class="navbar__item navbar__item--locale">
+                        {{ locale|upper }}
                     </a>
                 {% endif %}
             {% endfor %}
