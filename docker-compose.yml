@@ -10,7 +10,7 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
 
   elasticsearch:
-    image: elasticsearch:5.6
+    image: elasticsearch:6.8.9
     ports:
       - ${DOCKER_ES_PORT:-9200}:9200
     volumes:
