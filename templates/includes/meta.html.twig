@@ -1,0 +1,104 @@
+{%- apply spaceless %}
+{% set metaPublisher = 'Sulu GmbH' %}
+{% set metaClientName = 'Sulu' %}
+{% set metaCopyright = 'Sulu GmbH' %}
+{% set metaLocaleParts = app.request.locale|split('_') %}
+{% set metaLanguage = metaLocaleParts[0] %}
+{% set metaCountry = metaLocaleParts[1]|default(null) %}
+{% set metaLocale = metaLocaleParts|length == 1 ? metaLanguage : metaLanguage ~ '_' ~ metaCountry|upper %}
+{% set metaUrl = app.request.uri %}
+
+{# Get meta title #}
+{% set metaTitle = extension.seo.title|default(content.title|default('')) %}
+
+{# Get meta description #}
+{% set metaDescription = extension.seo.description|default(content.description|default('')|striptags) %}
+{% if metaDescription|trim %}
+    {% set metaDescription = metaDescription|length > 320 ? metaDescription|slice(0, 316) ~ ' ...' : metaDescription %}
+{% endif %}
+
+{# Get meta image #}
+{% set metaImageFormat = '600x400' %}
+{% set metaImage = metaImage|default(extension.excerpt.images[0].thumbnails[metaImageFormat]|default())  %}
+{% set metaImage = metaImage|default(content.images[0].thumbnails[metaImageFormat]|default()) %}
+{% set metaImage = metaImage|default('/website/images/logo.svg') %}
+{% set metaImage = absolute_url(asset(metaImage)) %}
+
+{% set metaDefaultTags = {
+    'language': metaLanguage,
+    'publisher': metaPublisher,
+    'author': metaClientName,
+    'copyright': metaCopyright,
+    'audience': 'all',
+    'distribution': 'global',
+    'image': metaImage,
+} %}
+
+{% set metaDCTags = {
+    'DC.Title': metaTitle,
+    'DC.Publisher': metaPublisher,
+    'DC.Copyright': metaCopyright,
+} %}
+
+{% set metaTwitterTags = {
+    'twitter:card': 'summary',
+    'twitter:url': metaUrl,
+    'twitter:title': metaTitle,
+    'twitter:description': metaDescription,
+    'twitter:image': metaImage,
+} %}
+
+{% set ogMetaTags = {
+    'og:site_name': metaClientName,
+    'og:url': metaUrl,
+    'og:title': metaTitle,
+    'og:image': metaImage,
+    'og:type': 'website',
+    'og:description': metaDescription,
+    'og:locale': metaLocale
+} %}
+{% endapply -%}
+
+{# Default Seo: http://blog.sulu.io/new-in-sulu-1-4-customizable-seo-tags #}
+{%- embed '@SuluWebsite/Extension/seo.html.twig' with {
+    seo: extension.seo|default([]),
+    content: content|default([]),
+    urls: urls|default([]),
+    shadowBaseLocale: shadowBaseLocale|default(),
+    defaultLocale: request.defaultLocale|default('en')
+} -%}
+    {% block title %}
+        {% if not seoTitle -%}
+            {% set seoTitle = app.request.pathInfo|split('/')|last|replace({'-': '_'})|humanize %}
+        {%- endif -%}
+        <title>{{ seoTitle }} - {{ metaClientName }}</title>
+    {%- endblock -%}
+{%- endembed %}
+
+{# Meta Default Tags #}
+{% block metaDefaultTags %}
+    {% for property, value in metaDefaultTags if value %}
+    <meta name="{{ property }}" content="{{ value }}"/>
+    {% endfor %}
+{% endblock %}
+
+{# Meta DC Tags #}
+{% block metaDCTags %}
+    {% for property, value in metaDCTags if value %}
+    <meta name="{{ property }}" content="{{ value }}"/>
+    {% endfor %}
+{% endblock %}
+
+{# Meta Twitter Tags #}
+{% block metaTwitterTags %}
+    {% for property, value in metaTwitterTags if value %}
+    <meta name="{{ property }}" content="{{ value }}"/>
+    {% endfor %}
+{% endblock %}
+
+{# Meta OG Tags #}
+{% block ogMetaTags %}
+    {% for property, value in ogMetaTags if value %}
+    <meta property="{{ property }}" content="{{ value }}"/>
+    {% endfor %}
+{% endblock %}
