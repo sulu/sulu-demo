@@ -37,7 +37,7 @@ A collection of helpful twig extensions and a tiny js component mangaement libra
     - simplexml extension
     - gd or imagick extension (needed for image converts)
 * MySQL or PostgreSQL Server
-* Elasticsearch Server
+* Elasticsearch 6
 * Composer
 * NPM if you want to run npm tasks
 
@@ -49,7 +49,20 @@ cd sulu-demo
 composer install
 ```
 
-Configure now your `DATABASE_URL` in the `.env.local` see `.env` as reference.
+### Configure required services
+
+The demo requires a running **MySQL**  and **ElasticSearch** instance.
+
+Configure your `DATABASE_URL` and `ELASTICSEARCH_HOST` in the `.env.local`  see `.env` as reference.
+
+If you don't want to install the services yourself you can use the provided [docker-compose.yml](https://docs.docker.com/compose/install/)
+to start this services inside an own container:
+
+```bash
+docker-compose up
+```
+
+### Install fixtures
 
 Install the demo with all fixtures by running:
 

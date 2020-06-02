@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ee4b70d0ba5ee16ad0a0dc3c10f43934",
+    "content-hash": "11233927995e1827f32c8b277e193c9b",
     "packages": [
         {
             "name": "aferrandini/urlizer",
