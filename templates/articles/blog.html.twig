@@ -4,7 +4,7 @@
     {% include 'includes/header.html.twig' with { type: 'article' } %}
 {% endblock %}
 
-{% block content %}
+{% block contentBody %}
     {% set author = sulu_resolve_contact(author) %}
 
     {% if author %}

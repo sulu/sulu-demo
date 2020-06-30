@@ -25,13 +25,15 @@
     </header>
 
     <section id="content">
-        {% block contentHeader %}{% endblock %}
+        {% block content %}
+            {% block contentHeader %}{% endblock %}
 
-        <div class="content">
-            <div class="container">
-                {% block content %}{% endblock %}
+            <div class="content">
+                <div class="container">
+                    {% block contentBody %}{% endblock %}
+                </div>
             </div>
-        </div>
+        {% endblock %}
     </section>
 
     <footer>
