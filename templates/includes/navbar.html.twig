@@ -8,6 +8,8 @@
             {% for item in sulu_navigation_root_flat('main', 1) %}
                 {% set itemUrl = sulu_content_path(item.url) %}
                 <a href="{{ itemUrl }}" title="{{ item.title }}"
+                   {# open external links as target blank and set noopener #}
+                   {% if item.nodeType == 4 %}target="_blank" rel="noopener"{% endif %}
                    class="navbar__item{{ app.request.uri starts with itemUrl ? ' navbar__item--active' : '' }}">
                     {{ item.title|upper }}
                 </a>
