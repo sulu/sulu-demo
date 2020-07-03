@@ -7,7 +7,8 @@ use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 /**
- * This is just an example Twig Extension use `intl_country` instead from sulu/web-twig.
+ * This is just an example Twig Extension.
+ * It is recommended to use `intl_country` from the `sulu/web-twig` package instead of this.
  */
 class CountryTwigExtension extends AbstractExtension
 {
