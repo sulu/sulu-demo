@@ -37,7 +37,7 @@ A collection of helpful twig extensions and a tiny js component mangaement libra
     - simplexml extension
     - gd or imagick extension (needed for image converts)
 * MySQL or PostgreSQL Server
-* Elasticsearch 6
+* Elasticsearch 7
 * Composer
 * NPM if you want to run npm tasks
 
