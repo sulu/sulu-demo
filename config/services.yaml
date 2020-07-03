@@ -11,18 +11,11 @@ services:
         bind:
             Sulu\Bundle\MediaBundle\Media\Storage\StorageInterface: '@sulu_media.storage'
 
-    # Web Twig Extensions
-    Massive\Component\Web\ComponentTwigExtension: ~
-    Massive\Component\Web\CountTwigExtension: ~
-    Massive\Component\Web\ImageTwigExtension: ~
-    Massive\Component\Web\IntlTwigExtension: ~
-    Massive\Component\Web\UrlTwigExtension: ~
-
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     App\:
         resource: '../src/*'
-        exclude: '../src/{DependencyInjection,DataFixtures/Document,Entity,Migrations,Tests,Kernel.php}'
+        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class

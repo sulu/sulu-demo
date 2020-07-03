@@ -11,7 +11,8 @@
 
 use App\Kernel;
 use Sulu\Component\HttpKernel\SuluKernel;
-use Symfony\Component\Debug\Debug;
+use Symfony\Component\Dotenv\Dotenv;
+use Symfony\Component\ErrorHandler\Debug;
 use Symfony\Component\HttpFoundation\Request;
 
 defined('SULU_MAINTENANCE') || define('SULU_MAINTENANCE', getenv('SULU_MAINTENANCE') ?: false);
@@ -25,10 +26,13 @@ if (SULU_MAINTENANCE) {
     }
 }
 
-require dirname(__DIR__) . '/config/bootstrap.php';
+require dirname(__DIR__) . '/vendor/autoload.php';
+
+(new Dotenv())->bootEnv(dirname(__DIR__) . '/.env');
 
 if ($_SERVER['APP_DEBUG']) {
     umask(0000);
+
     Debug::enable();
 }
 
@@ -50,9 +54,11 @@ $kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG'], $suluCon
 
 // Comment this line if you want to use the "varnish" http
 // caching strategy. See http://sulu.readthedocs.org/en/latest/cookbook/caching-with-varnish.html
-// if ('dev' !== $_SERVER['APP_ENV'] && SuluKernel::CONTEXT_WEBSITE === $suluContext) {
-//     $kernel = $kernel->getHttpCache();
-// }
+//if ('dev' !== $_SERVER['APP_ENV'] && SuluKernel::CONTEXT_WEBSITE === $suluContext) {
+//    // only needed for symfony http cache
+//    // demo uses varnish in prod so not required to have this if activated
+//    $kernel = $kernel->getHttpCache();
+//}
 
 // When using the HttpCache, you need to call the method in your front controller
 // instead of relying on the configuration parameter

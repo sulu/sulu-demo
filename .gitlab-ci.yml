@@ -33,7 +33,7 @@ composer:
 
 test:
     stage: test
-    image: sulu/php:7.3-cli
+    image: sulu/php:7.4-cli
     services:
         - mysql:5.7
     before_script:
@@ -44,7 +44,7 @@ test:
 
 lint:
     stage: test
-    image: sulu/php:7.3-cli
+    image: sulu/php:7.4-cli
     services:
         - mysql:5.7
     before_script:
@@ -72,7 +72,7 @@ js-css:
 
 security-check:
     stage: test
-    image: sulu/php:7.3-cli
+    image: sulu/php:7.4-cli
     script:
         - php composer.phar security-check
     allow_failure: true

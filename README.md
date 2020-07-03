@@ -75,7 +75,7 @@ bin/console sulu:build dev
 Now you can try out our demo, there is no need to configure a virtual host. Just use the build in web servers:
 
 ```bash
-bin/console server:run
+php -S 127.0.0.1:8000 -t public config/router.php
 ```
 
 Then you can access the administration interface via [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin). The default user and password is “admin”.

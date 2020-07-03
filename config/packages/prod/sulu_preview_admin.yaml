@@ -1,7 +1,0 @@
-sulu_preview:
-    cache:
-        type: redis
-        redis:
-            host: "%env(resolve:REDIS_HOST)%"
-            port: "6379"
-            password: "%env(resolve:REDIS_PASSWORD)%"

@@ -2,12 +2,6 @@ parameters:
     env(ELASTICSEARCH_HOST): '127.0.0.1:9200'
     env(ELASTICSEARCH_INDEX): 'suludemo'
 
-sulu_core:
-    content:
-        structure:
-            default_type:
-                article: 'blog'
-
 sulu_article:
     index_name: '%env(resolve:ELASTICSEARCH_INDEX)%'
     hosts:

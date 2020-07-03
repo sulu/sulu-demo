@@ -6,6 +6,9 @@ use Symfony\Component\Intl\Countries;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
+/**
+ * This is just an example Twig Extension use `intl_country` instead from sulu/web-twig.
+ */
 class CountryTwigExtension extends AbstractExtension
 {
     public function getFunctions()

@@ -5,34 +5,33 @@
     "description": "Sulu demo website",
     "keywords": ["symfony", "sulu", "cms", "application", "admin"],
     "require": {
-        "php": "^7.3",
+        "php": "^7.4",
         "ext-iconv": "*",
-        "dantleech/phpcr-migrations-bundle": "^1.0",
-        "doctrine/doctrine-bundle": "^1.10",
-        "doctrine/doctrine-cache-bundle": "^1.3.1",
+        "dantleech/phpcr-migrations-bundle": "^1.2",
+        "doctrine/doctrine-bundle": "^2",
         "doctrine/doctrine-fixtures-bundle": "^3.0",
-        "elasticsearch/elasticsearch": "^6.0",
-        "friendsofsymfony/http-cache-bundle": "^2.6",
+        "elasticsearch/elasticsearch": "^7.0",
+        "friendsofsymfony/http-cache-bundle": "^2.8",
         "handcraftedinthealps/zendsearch": "^2.0",
         "jackalope/jackalope-doctrine-dbal": "^1.3",
         "jackalope/jackalope-jackrabbit": "^1.2",
         "league/flysystem": "^1.0",
         "league/flysystem-aws-s3-v3": "^1.0",
         "sensiolabs/security-checker": "^6.0",
-        "sentry/sentry-symfony": "^2.3",
-        "sulu/article-bundle": "^2.0",
-        "sulu/automation-bundle": "^2.0.0-alpha1",
-        "sulu/sulu": "^2.0.6",
-        "sulu/web-twig": "^1.5.0",
-        "symfony/config": "^4.3",
-        "symfony/dotenv": "^4.3",
+        "sentry/sentry-symfony": "^3",
+        "sulu/article-bundle": "^2.1",
+        "sulu/automation-bundle": "^2.0@dev",
+        "sulu/sulu": "^2.1",
+        "sulu/web-twig": "^2.1",
+        "symfony/config": "^5.1",
+        "symfony/dotenv": "^5.1",
         "symfony/flex": "^1.2",
-        "symfony/framework-bundle": "^4.3",
-        "symfony/monolog-bridge": "^4.3",
+        "symfony/framework-bundle": "^5.1",
+        "symfony/monolog-bridge": "^5.1",
         "symfony/monolog-bundle": "^3.1",
-        "symfony/security-bundle": "^4.4",
-        "symfony/swiftmailer-bundle": "^3.1.4",
-        "symfony/twig-bundle": "^4.3"
+        "symfony/security-bundle": "^5.1",
+        "symfony/swiftmailer-bundle": "^3.4",
+        "symfony/twig-bundle": "^5.1"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.15",
@@ -43,12 +42,11 @@
         "phpstan/phpstan-phpunit": "^0.12",
         "phpstan/phpstan-symfony": "^0.12",
         "phpstan/phpstan-webmozart-assert": "^0.12",
-        "symfony/debug-bundle": "^4.3",
-        "symfony/error-handler": "^4.4",
-        "symfony/phpunit-bridge": "^4.3",
+        "symfony/debug-bundle": "^5.1",
+        "symfony/error-handler": "^5.1",
+        "symfony/phpunit-bridge": "^5.1",
         "symfony/thanks": "^1.1",
-        "symfony/web-profiler-bundle": "^4.3",
-        "symfony/web-server-bundle": "^4.3",
+        "symfony/web-profiler-bundle": "^5.1",
         "thecodingmachine/phpstan-strict-rules": "^0.12"
     },
     "autoload": {
@@ -69,6 +67,7 @@
         "paragonie/random_compat": "2.*",
         "symfony/polyfill-ctype": "*",
         "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php74": "*",
         "symfony/polyfill-php73": "*",
         "symfony/polyfill-php72": "*",
         "symfony/polyfill-php71": "*",
@@ -95,8 +94,7 @@
             "php -r \"file_put_contents('.env', str_replace('APP_SECRET=', 'APP_SECRET=' . bin2hex(random_bytes(16)), file_get_contents('.env')));\""
         ],
         "post-create-project-cmd": [
-            "Sulu\\Bundle\\CoreBundle\\Composer\\ScriptHandler::removeComposerLockFromGitIgnore",
-            "Sulu\\Bundle\\CoreBundle\\Composer\\ScriptHandler::removePackageLockJsonFromGitIgnore"
+            "php -r \"file_put_contents('.gitignore', str_replace(['composer.lock' . PHP_EOL, 'symfony.lock' . PHP_EOL, 'package-lock.json' . PHP_EOL], ['', '', ''], file_get_contents('.gitignore')));\""
         ],
         "lint": [
             "@phpstan",
@@ -128,7 +126,7 @@
             "*": "dist"
         },
         "platform": {
-            "php": "7.3.10"
+            "php": "7.4.6"
         },
         "sort-packages": true
     },

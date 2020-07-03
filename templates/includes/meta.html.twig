@@ -77,28 +77,28 @@
 
 {# Meta Default Tags #}
 {% block metaDefaultTags %}
-    {% for property, value in metaDefaultTags if value %}
+    {% for property, value in metaDefaultTags|filter((value) => value) %}
     <meta name="{{ property }}" content="{{ value }}"/>
     {% endfor %}
 {% endblock %}
 
 {# Meta DC Tags #}
 {% block metaDCTags %}
-    {% for property, value in metaDCTags if value %}
+    {% for property, value in metaDCTags|filter((value) => value) %}
     <meta name="{{ property }}" content="{{ value }}"/>
     {% endfor %}
 {% endblock %}
 
 {# Meta Twitter Tags #}
 {% block metaTwitterTags %}
-    {% for property, value in metaTwitterTags if value %}
+    {% for property, value in metaTwitterTags|filter((value) => value) %}
     <meta name="{{ property }}" content="{{ value }}"/>
     {% endfor %}
 {% endblock %}
 
 {# Meta OG Tags #}
 {% block ogMetaTags %}
-    {% for property, value in ogMetaTags if value %}
+    {% for property, value in ogMetaTags|filter((value) => value) %}
     <meta property="{{ property }}" content="{{ value }}"/>
     {% endfor %}
 {% endblock %}
