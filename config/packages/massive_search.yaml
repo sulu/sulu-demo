@@ -8,6 +8,6 @@ massive_search:
     adapter: elastic
     adapters:
         elastic:
-            version: 6.8
+            version: 7.8
             hosts:
                 - '%env(resolve:ELASTICSEARCH_HOST)%'

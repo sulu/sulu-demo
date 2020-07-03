@@ -15,7 +15,7 @@
         </div>
 
         <div class="navbar__locales">
-            {% for locale, url in urls if locale != app.request.locale %}
+            {% for locale, url in urls|filter((locale,  url) => locale != app.request.locale) %}
                 {% set itemUrl = sulu_content_path(url, request.webspaceKey, locale)|default('') %}
 
                 {% if itemUrl is not empty %}

@@ -2,9 +2,12 @@
 
 declare(strict_types=1);
 
-require __DIR__ . '/../config/bootstrap.php';
+use Symfony\Component\Dotenv\Dotenv;
 
-$databaseCreatedFile = __DIR__ . '/../var/cache/admin/test/adminApp_KernelTestDebugContainer.php';
+require dirname(__DIR__) . '/vendor/autoload.php';
+(new Dotenv())->bootEnv(dirname(__DIR__) . '/.env');
+
+$databaseCreatedFile = __DIR__ . '/../var/cache/admin/test/App_KernelTestDebugContainer.php';
 
 // For dev performance create database only in case of not exist cache directory.
 if (!file_exists($databaseCreatedFile)) {

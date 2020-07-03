@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autoconfigure: true
+
+    Sulu\Twig\Extensions\ComponentExtension: ~
+    Sulu\Twig\Extensions\CountExtension: ~
+    Sulu\Twig\Extensions\ImageExtension: ~
+    Sulu\Twig\Extensions\IntlExtension: ~
+    Sulu\Twig\Extensions\UrlExtension: ~
