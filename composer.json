@@ -35,7 +35,7 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.15",
-        "jangregor/phpstan-prophecy": "^0.6",
+        "jangregor/phpstan-prophecy": "^0.8",
         "phpcr/phpcr-shell": "^1.0",
         "phpstan/phpstan": "^0.12",
         "phpstan/phpstan-doctrine": "^0.12",
