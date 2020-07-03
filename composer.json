@@ -101,15 +101,15 @@
             "@php-cs",
             "@lint-twig",
             "@lint-yaml",
+            "@lint-container",
             "@lint-composer",
-            "@schemavalidate"
+            "@lint-doctrine"
         ],
         "test": [
             "@phpunit"
         ],
         "security-check": "bin/websiteconsole security:check",
         "phpunit": "SYMFONY_PHPUNIT_VERSION=8.2 vendor/bin/simple-phpunit",
-        "schemavalidate": "bin/adminconsole doctrine:schema:validate --skip-mapping",
         "phpstan": [
             "bin/websiteconsole cache:warmup --env=dev",
             "@test install",
@@ -119,7 +119,21 @@
         "php-cs-fix": "vendor/bin/php-cs-fixer fix",
         "lint-composer": "@composer validate --strict",
         "lint-twig": "bin/websiteconsole lint:twig templates/",
-        "lint-yaml": "bin/websiteconsole lint:yaml config/"
+        "lint-yaml": "bin/websiteconsole lint:yaml config/",
+        "lint-container": [
+            "bin/adminconsole lint:container --env dev",
+            "bin/websiteconsole lint:container --env dev",
+            "bin/adminconsole lint:container --env test",
+            "bin/websiteconsole lint:container --env test",
+            "bin/adminconsole lint:container --env stage",
+            "bin/websiteconsole lint:container --env stage",
+            "bin/adminconsole lint:container --env prod",
+            "bin/websiteconsole lint:container --env prod"
+        ],
+        "lint-doctrine": [
+            "bin/adminconsole doctrine:ensure-production-settings --env prod",
+            "bin/adminconsole doctrine:schema:validate"
+        ]
     },
     "config": {
         "preferred-install": {
