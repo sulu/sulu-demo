@@ -1,0 +1,4 @@
+framework:
+    cache:
+        app: cache.adapter.redis
+        default_redis_provider: "redis://%env(resolve:REDIS_PASSWORD)%@%env(resolve:REDIS_HOST)%:6379/1"
