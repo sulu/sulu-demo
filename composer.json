@@ -17,6 +17,7 @@
         "jackalope/jackalope-jackrabbit": "^1.2",
         "league/flysystem": "^1.0",
         "league/flysystem-aws-s3-v3": "^1.0",
+        "predis/predis": "^1.1",
         "sensiolabs/security-checker": "^6.0",
         "sentry/sentry-symfony": "^3",
         "sulu/article-bundle": "^2.1",
