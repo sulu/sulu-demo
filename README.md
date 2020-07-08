@@ -1,6 +1,6 @@
-# Sulu - Demo Website
+<h1 align="center">Sulu - Demo Website</h1>
 
-This is the official Sulu Demo. It was created to show a simple implementation of an application made 
+This is the official **Sulu Demo**. It was created to show a simple implementation of an application made 
 with Sulu and explains the basic steps.
 
 This project also runs here: [https://sulu.rocks](https://sulu.rocks)
@@ -10,6 +10,12 @@ For information about Sulu have a look at our Homepage:
 
 Our documentation is available under:
 [http://docs.sulu.io/](http://docs.sulu.io/)
+
+<br/>
+<p align="center">
+    <img width="80%" src="https://sulu.io/uploads/media/800x@2x/01/251-sulu-demo.gif?v=1-0" alt="Sulu Demo Slideshow">
+</p>
+<br/>
 
 ## Used Extensions
 
