@@ -25,6 +25,7 @@ composer:
         expire_in: 8 hours
         paths:
             - vendor
+            - bin/.phpunit
             - composer.phar
     cache:
         key: composer

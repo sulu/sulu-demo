@@ -16,7 +16,7 @@ parameters:
     - config
   inferPrivatePropertyTypeFromConstructor: true
   bootstrapFiles:
-    - vendor/bin/.phpunit/phpunit-8.2-0/vendor/autoload.php
+    - bin/.phpunit/phpunit-8.5-0/vendor/autoload.php
   symfony:
     container_xml_path: %rootDir%/../../../var/cache/website/dev/App_KernelDevDebugContainer.xml
     console_application_loader: tests/phpstan/console-application.php

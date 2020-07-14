@@ -110,7 +110,7 @@
             "@phpunit"
         ],
         "security-check": "bin/websiteconsole security:check",
-        "phpunit": "SYMFONY_PHPUNIT_VERSION=8.2 vendor/bin/simple-phpunit",
+        "phpunit": "bin/phpunit",
         "phpstan": [
             "bin/websiteconsole cache:warmup --env=dev",
             "@test install",
