@@ -1,0 +1,5 @@
+framework:
+    session:
+        cookie_path: /my-custom-admin
+    fragments:
+        path: /my-custom-admin/_fragments
