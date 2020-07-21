@@ -35,6 +35,7 @@
                 <title lang="en">Title</title>
                 <title lang="de">Titel</title>
             </meta>
+
             <params>
                 <param name="headline" value="true"/>
             </params>

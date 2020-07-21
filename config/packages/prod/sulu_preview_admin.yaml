@@ -1,0 +1,2 @@
+sulu_preview:
+    cache_adapter: "cache.adapter.redis"
