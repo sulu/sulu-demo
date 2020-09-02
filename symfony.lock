@@ -1,19 +1,4 @@
 {
-    "aferrandini/urlizer": {
-        "version": "1.0.0"
-    },
-    "antishov/doctrine-extensions-bundle": {
-        "version": "1.4",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "1.4",
-            "ref": "6c1ceb662f8997085f739cd089bfbef67f245983"
-        },
-        "files": [
-            "config/packages/stof_doctrine_extensions.yaml"
-        ]
-    },
     "aws/aws-sdk-php": {
         "version": "3.133.31"
     },
@@ -276,6 +261,9 @@
     },
     "league/flysystem-aws-s3-v3": {
         "version": "1.0.24"
+    },
+    "league/mime-type-detection": {
+        "version": "1.4.0"
     },
     "massive/build-bundle": {
         "version": "0.4.0"
@@ -589,9 +577,6 @@
     },
     "symfony/http-kernel": {
         "version": "v4.4.5"
-    },
-    "symfony/inflector": {
-        "version": "v5.0.5"
     },
     "symfony/intl": {
         "version": "v4.4.5"
