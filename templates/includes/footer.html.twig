@@ -37,9 +37,10 @@
                             <div class="grid__item width-6">
                                 <h4 class="footer__title">{% trans %}Quick Links{% endtrans %}</h4>
                                 <div class="footer__quicklinks">
-                                    {% for item in sulu_navigation_root_flat('footer', 1) %}
+                                    {% for item in sulu_navigation_root_flat('footer', 1, true) %}
                                         <a href="{{ sulu_content_path(item.url) }}" title="{{ item.title }}" class="footer__quicklink">
-                                            {{ item.title }}
+                                            {# fallback to content title when excerpt title not set #}
+                                            {{ item.excerpt.title|default(item.title) }}
                                         </a>
                                     {% endfor %}
                                 </div>

@@ -5,13 +5,14 @@
 
     <div class="navbar__navigation">
         <div class="navbar__links" id="navigation">
-            {% for item in sulu_navigation_root_flat('main', 1) %}
+            {% for item in sulu_navigation_root_flat('main', 1, true) %}
                 {% set itemUrl = sulu_content_path(item.url) %}
                 <a href="{{ itemUrl }}" title="{{ item.title }}"
                    {# open external links as target blank and set noopener #}
                    {% if item.nodeType == 4 %}target="_blank" rel="noopener"{% endif %}
                    class="navbar__item{{ app.request.uri starts with itemUrl ? ' navbar__item--active' : '' }}">
-                    {{ item.title|upper }}
+                    {# fallback to content title when excerpt title not set #}
+                    {{ item.excerpt.title|default(item.title) }}
                 </a>
             {% endfor %}
         </div>
