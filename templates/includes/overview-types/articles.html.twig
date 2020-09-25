@@ -20,9 +20,9 @@
             <div class="article-list__item-content">
                 <p class="article-list__item-date">{{ article.authored|date('d.m.Y') }}</p>
                 <h2 class="article-list__item-title"><a href="{{ link }}">{{ title }}</a></h2>
-                <p class="posted-by">{{ 'Posted by'|trans }} <span>{{ article.authorFullName }}</span></p>
+                <p class="posted-by">{{ 'posted_by'|trans }} <span>{{ article.authorFullName }}</span></p>
                 <div class="article-list__item-description">{{ article.excerpt.description|default|raw }}</div>
-                <a class="article-list__item-button button" href="{{ link }}">{{ article.excerpt.more|default('READ MORE'|trans) }}</a>
+                <a class="article-list__item-button button" href="{{ link }}">{{ article.excerpt.more|default('read_more'|trans) }}</a>
             </div>
         </div>
     {% endfor %}
