@@ -52,21 +52,35 @@
                     <urls>
                         <url>{host}/{localization}</url>
                     </urls>
+                    <custom-urls>
+                        <custom-url>sulu.rocks/*</custom-url>
+                    </custom-urls>
                 </environment>
                 <environment type="stage">
                     <urls>
                         <url>{host}/{localization}</url>
                     </urls>
+                    <custom-urls>
+                        <custom-url>*/*</custom-url>
+                    </custom-urls>
                 </environment>
                 <environment type="test">
                     <urls>
                         <url>{host}/{localization}</url>
                     </urls>
+                    <custom-urls>
+                        <custom-url>*/*</custom-url>
+                    </custom-urls>
                 </environment>
                 <environment type="dev">
                     <urls>
                         <url>{host}/{localization}</url>
                     </urls>
+                    <custom-urls>
+                        <custom-url>*/*</custom-url>
+                        <custom-url>sulu-demo.lo/*</custom-url>
+                        <custom-url>sulu-demo.localhost/*</custom-url>
+                    </custom-urls>
                 </environment>
             </environments>
         </portal>
