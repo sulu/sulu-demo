@@ -122,7 +122,7 @@ class AlbumAdmin extends Admin
     {
         return [
             self::SULU_ADMIN_SECURITY_SYSTEM => [
-                'Album' => [
+                'Music' => [
                     Album::SECURITY_CONTEXT => [
                         PermissionTypes::VIEW,
                         PermissionTypes::ADD,

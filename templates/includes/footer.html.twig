@@ -4,15 +4,15 @@
             <div class="footer__main">
                 <div class="grid grid--reverse">
                     <div class="grid__item width-6 width-tablet-12">
-                        <h4 class="footer__title">{% trans %}Connect with us{% endtrans %}</h4>
+                        <h4 class="footer__title">{{ 'connect_with_us'|trans }}</h4>
                         <div class="footer__newsletter">
-                            <p>{% trans %}Sign up for our weekly newsletter! We inform you about the latest Newcomers, brand new records and events.{% endtrans %}</p>
+                            <p>{{ 'sign_up_for_newsletter'|trans }}</p>
 
                             <form method="post" class="footer__newsletter-form">
                                 <label class="footer__newsletter-input-label">
                                     <input type="email" name="email" placeholder="E-Mail" class="footer__newsletter-input"/>
                                 </label>
-                                <button type="submit" class="button footer__newsletter-button">{% trans %}SIGN UP{% endtrans %}</button>
+                                <button type="submit" class="button footer__newsletter-button">{{ 'sign_up'|trans }}</button>
                             </form>
                         </div>
                     </div>
@@ -20,7 +20,7 @@
                     <div class="grid__item width-6 width-tablet-12">
                         <div class="grid">
                             <div class="grid__item width-6">
-                                <h4 class="footer__title">{% trans %}Contact{% endtrans %}</h4>
+                                <h4 class="footer__title">{{ 'contact'|trans }}</h4>
 
                                 {% set contact = sulu_snippet_load_by_area('contact').content.contact.entity %}
                                 {% set address = contact.accountAddresses[0].address %}
@@ -35,7 +35,7 @@
                             </div>
 
                             <div class="grid__item width-6">
-                                <h4 class="footer__title">{% trans %}Quick Links{% endtrans %}</h4>
+                                <h4 class="footer__title">{{ 'quick_links'|trans }}</h4>
                                 <div class="footer__quicklinks">
                                     {% for item in sulu_navigation_root_flat('footer', 1, true) %}
                                         <a href="{{ sulu_content_path(item.url) }}" title="{{ item.title }}" class="footer__quicklink">
@@ -53,13 +53,13 @@
             <div class="footer__imprint">
                 <div class="footer__imprint-item footer__imprint-item--copyright">&copy; Soundmanagement Corporation 2019</div>
                 <div class="footer__imprint-item">
-                    <a href="#" class="footer__imprint-link">{% trans %}Privacy policy and terms of use{% endtrans %}</a>
+                    <a href="#" class="footer__imprint-link">{{ 'privacy_policy'|trans }}</a>
                 </div>
                 <div class="footer__imprint-item">
-                    <a href="#" class="footer__imprint-link">{% trans %}Cookie policy{% endtrans %}</a>
+                    <a href="#" class="footer__imprint-link">{{ 'cookie_policy'|trans }}</a>
                 </div>
                 <div class="footer__imprint-item">
-                    <a href="#" class="footer__imprint-link">{% trans %}Safety and recalls{% endtrans %}</a>
+                    <a href="#" class="footer__imprint-link">{{ 'safety_recalls'|trans }}</a>
                 </div>
             </div>
         </div>
