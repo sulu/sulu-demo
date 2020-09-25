@@ -1,16 +1,16 @@
 <properties xmlns="http://schemas.sulu.io/template/template"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
-    <block name="blocks" default-type="heading">
+    <block name="blocks" default-type="text">
         <types>
-            <type name="heading">
+            <type name="albums">
                 <meta>
-                    <title lang="en">Heading</title>
-                    <title lang="de">Überschrift</title>
+                    <title lang="en">Albums</title>
+                    <title lang="de">Alben</title>
                 </meta>
 
                 <properties>
-                    <property name="heading" type="text_line"/>
+                    <property name="albums" type="album_selection"/>
                 </properties>
             </type>
         </types>

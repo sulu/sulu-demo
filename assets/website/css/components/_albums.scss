@@ -1,0 +1,109 @@
+.albums__heading {
+    color: $red;
+    font-size: 45px;
+    margin: 40px;
+    text-align: center;
+}
+
+.albums__wrapper {
+    display: flex;
+    justify-content: center;
+
+    @include media('<tablet') {
+        justify-content: flex-start;
+    }
+}
+
+.albums__links {
+    display: flex;
+    flex: 1 1 100%;
+    flex-direction: column;
+
+    @include media('<tablet') {
+        flex: 0 0 150px;
+    }
+}
+
+.albums__link {
+    cursor: pointer;
+    margin-left: auto;
+    position: relative;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    width: 300px;
+    will-change: transform, opacity;
+
+    @include media('<laptop') {
+        width: 200px;
+    }
+
+    @include media('<tablet') {
+        width: 150px;
+    }
+
+    &--active,
+    &:hover {
+        opacity: 0.8;
+        transform: scale(0.97);
+    }
+
+    > img {
+        height: auto;
+        width: 100%;
+    }
+
+    &--active {
+        &::after {
+            background: $red;
+            content: '';
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 14px;
+        }
+    }
+
+    &:first-child ~ & {
+        margin-top: 20px;
+
+        @include media('<tablet') {
+            margin-top: 10px;
+        }
+    }
+}
+
+.albums__containers {
+    flex: 1 1 100%;
+}
+
+.albums__container {
+    padding: 20px 40px;
+    position: sticky;
+    top: 100px;
+    width: 100%;
+
+    @include media('<tablet') {
+        padding: 10px 20px;
+    }
+}
+
+.albums__album-title {
+    font-family: $font-family-secondary;
+    font-size: 35px;
+}
+
+.albums__track-list {
+    list-style: none;
+    padding: 0;
+
+    > li {
+        font-size: 16px;
+        padding: 10px;
+    }
+}
+
+.albums__track-list-index {
+    font-family: $font-family-secondary;
+    font-size: 24px;
+    font-weight: bold;
+}

@@ -1,0 +1,31 @@
+{% set tabsId = register_component('tabs', {hash: true}) %}
+
+<div class="albums">
+    <h2 class="albums__heading">{{ 'Albums'|trans }}</h2>
+
+    <div class="albums__wrapper">
+        <div class="albums__links" id="{{ tabsId }}">
+            {% for album in albums %}
+                <div class="albums__link" data-name="{{ album.title }}">
+                    {% set image = sulu_resolve_media(album.image, app.request.locale) %}
+                    {{ get_image(image, {
+                        src: '400x400',
+                    }) }}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="albums__containers" id="{{ tabsId }}-container">
+            {% for album in albums %}
+                <div class="albums__container">
+                    <h3 class="albums__album-title">{{ album.title }}</h3>
+                    <ul class="albums__track-list">
+                        {% for track in album.tracklist %}
+                            <li><span class="albums__track-list-index">{{ (loop.index) ~ '. ' }}</span>{{ track.title }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

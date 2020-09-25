@@ -1,0 +1,82 @@
+<?xml version="1.0" ?>
+<list xmlns="http://schemas.sulu.io/list-builder/list">
+    <key>albums</key>
+
+    <joins name="creator">
+        <join>
+            <entity-name>%sulu.model.user.class%_creator</entity-name>
+            <field-name>App\Entity\Album.creator</field-name>
+        </join>
+        <join>
+            <entity-name>%sulu.model.contact.class%_creator</entity-name>
+            <field-name>%sulu.model.user.class%_creator.contact</field-name>
+        </join>
+    </joins>
+
+    <joins name="changer">
+        <join>
+            <entity-name>%sulu.model.user.class%_changer</entity-name>
+            <field-name>App\Entity\Album.changer</field-name>
+        </join>
+        <join>
+            <entity-name>%sulu.model.contact.class%_changer</entity-name>
+            <field-name>%sulu.model.user.class%_changer.contact</field-name>
+        </join>
+    </joins>
+
+    <properties>
+        <property name="id" visibility="no" translation="sulu_admin.id">
+            <field-name>id</field-name>
+            <entity-name>App\Entity\Album</entity-name>
+        </property>
+
+        <property name="title" visibility="always" searchability="yes" translation="sulu_admin.title">
+            <field-name>title</field-name>
+            <entity-name>App\Entity\Album</entity-name>
+        </property>
+
+        <property name="created" translation="sulu_admin.created" type="datetime" visibility="yes">
+            <field-name>created</field-name>
+            <entity-name>App\Entity\Album</entity-name>
+
+            <filter type="datetime"/>
+        </property>
+
+        <property name="changed" translation="sulu_admin.changed" type="datetime" visibility="yes">
+            <field-name>changed</field-name>
+            <entity-name>App\Entity\Album</entity-name>
+
+            <filter type="datetime"/>
+        </property>
+
+        <concatenation-property name="creator" translation="sulu_admin.creator" visibility="yes" searchability="yes">
+            <field>
+                <field-name>firstName</field-name>
+                <entity-name>%sulu.model.contact.class%_creator</entity-name>
+
+                <joins ref="creator"/>
+            </field>
+            <field>
+                <field-name>lastName</field-name>
+                <entity-name>%sulu.model.contact.class%_creator</entity-name>
+
+                <joins ref="creator"/>
+            </field>
+        </concatenation-property>
+
+        <concatenation-property name="changer" translation="sulu_admin.changer" visibility="yes" searchability="yes">
+            <field>
+                <field-name>firstName</field-name>
+                <entity-name>%sulu.model.contact.class%_changer</entity-name>
+
+                <joins ref="changer"/>
+            </field>
+            <field>
+                <field-name>lastName</field-name>
+                <entity-name>%sulu.model.contact.class%_changer</entity-name>
+
+                <joins ref="changer"/>
+            </field>
+        </concatenation-property>
+    </properties>
+</list>
