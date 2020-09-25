@@ -45,6 +45,7 @@
         "phpstan/phpstan-webmozart-assert": "^0.12",
         "symfony/debug-bundle": "^5.1",
         "symfony/error-handler": "^5.1",
+        "symfony/maker-bundle": "^1.19",
         "symfony/phpunit-bridge": "^5.1",
         "symfony/thanks": "^1.1",
         "symfony/web-profiler-bundle": "^5.1",

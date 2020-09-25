@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<form xmlns="http://schemas.sulu.io/template/template"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/form-1.0.xsd"
+>
+    <key>album_details</key>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true">
+            <meta>
+                <title>sulu_admin.title</title>
+            </meta>
+            <params>
+                <param name="headline" value="true"/>
+            </params>
+        </property>
+
+        <property name="image" type="single_media_selection" mandatory="true">
+            <meta>
+                <title>app.image</title>
+            </meta>
+            <params>
+                <param name="types" value="image"/>
+            </params>
+        </property>
+
+        <block name="tracklist" default-type="track" minOccurs="1" mandatory="true">
+            <meta>
+                <title>app.tracklist</title>
+            </meta>
+
+            <types>
+                <type name="track">
+                    <meta>
+                        <title>app.track</title>
+                    </meta>
+
+                    <properties>
+                        <property name="title" type="text_line" mandatory="true" colspan="6">
+                            <meta>
+                                <title>sulu_admin.title</title>
+                            </meta>
+                            <tag name="sulu.block_preview" priority="1024"/>
+                        </property>
+
+                        <property name="interpreter" type="text_line" colspan="6">
+                            <meta>
+                                <title>app.interpreter</title>
+                            </meta>
+                            <tag name="sulu.block_preview" priority="512"/>
+                        </property>
+                    </properties>
+                </type>
+            </types>
+        </block>
+    </properties>
+</form>

@@ -3,6 +3,7 @@
 namespace App\DataFixtures\Document;
 
 use App\DataFixtures\ORM\AppFixtures;
+use App\Entity\Album;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\NonUniqueResultException;
 use Exception;
@@ -21,16 +22,12 @@ use Sulu\Component\Content\Document\WorkflowStage;
 use Sulu\Component\DocumentManager\DocumentManager;
 use Sulu\Component\DocumentManager\Exception\DocumentManagerException;
 use Sulu\Component\DocumentManager\Exception\MetadataNotFoundException;
-use Sulu\Component\PHPCR\PathCleanup;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerAwareTrait;
+use Sulu\Component\PHPCR\PathCleanupInterface;
 
-class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterface
+class DocumentFixture implements DocumentFixtureInterface
 {
-    use ContainerAwareTrait;
-
     /**
-     * @var PathCleanup
+     * @var PathCleanupInterface
      */
     private $pathCleanup;
 
@@ -39,8 +36,20 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
      */
     private $entityManager;
 
-    /** @var DefaultSnippetManagerInterface */
+    /**
+     * @var DefaultSnippetManagerInterface
+     */
     private $defaultSnippetManager;
+
+    public function __construct(
+        PathCleanupInterface $pathCleanup,
+        EntityManagerInterface $entityManager,
+        DefaultSnippetManagerInterface $defaultSnippetManager
+    ) {
+        $this->pathCleanup = $pathCleanup;
+        $this->entityManager = $entityManager;
+        $this->defaultSnippetManager = $defaultSnippetManager;
+    }
 
     public function getOrder()
     {
@@ -139,6 +148,15 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
                         'quote' => 'I have always been a passionated songwriter. My greatest fullfillment is to touch people with my messages and to encourage them to live their dreams.',
                         'quoteReference' => 'Liam Hendrickson',
                     ],
+                    [
+                        'type' => 'albums',
+                        'albums' => [
+                            $this->getAlbumId('Vikings'),
+                            $this->getAlbumId('Civilwar'),
+                            $this->getAlbumId('collapse'),
+                            $this->getAlbumId('#no more'),
+                        ],
+                    ],
                 ],
                 'structureType' => 'default',
             ],
@@ -168,6 +186,15 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
                     [
                         'type' => 'text',
                         'text' => '<p>In 2014 Jack started his music career in San Diego, California. His talent in playing the guitar made him famous in a short period of time. His one big dream: touring around the United States. In 2016 he is as close as never before – with his new album, reaching records in the US.</p>',
+                    ],
+                    [
+                        'type' => 'albums',
+                        'albums' => [
+                            $this->getAlbumId('Wildfire'),
+                            $this->getAlbumId('Cross the River'),
+                            $this->getAlbumId('Gold Digger'),
+                            $this->getAlbumId('The Wolves'),
+                        ],
                     ],
                 ],
                 'structureType' => 'default',
@@ -199,6 +226,15 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
                         'type' => 'text',
                         'text' => '<p>In 2003 Alex, the frontman of Marshall Plan founded the band with his best friends Bronson, Albert and Ray. Those well known guitar player and songwriter in Liverpool. In 2007 Jason followed. His talent in playing the bass fullfilled the intense music vibes. Together they had one big dream: rocking the stage in front of the Times Square in New York. In 2016 they are as close as never before. With their new album, reaching records all over the world.</p>',
                     ],
+                    [
+                        'type' => 'albums',
+                        'albums' => [
+                            $this->getAlbumId('Way'),
+                            $this->getAlbumId('let the light be'),
+                            $this->getAlbumId('Variety'),
+                            $this->getAlbumId('Path'),
+                        ],
+                    ],
                 ],
                 'structureType' => 'default',
             ],
@@ -225,6 +261,15 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
                         'quote' => 'We started our career in the streets of Glasgow. There is nothing more real and authentic then playing street music. People like you, or they don\'t and pass you. You immediately get the reaction.',
                         'quoteReference' => 'Steve Avril',
                     ],
+                    [
+                        'type' => 'albums',
+                        'albums' => [
+                            $this->getAlbumId('Joy'),
+                            $this->getAlbumId('Busk'),
+                            $this->getAlbumId('Bonfire'),
+                            $this->getAlbumId('Scottlang Call\'s'),
+                        ],
+                    ],
                 ],
                 'structureType' => 'default',
             ],
@@ -250,6 +295,15 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
                         'type' => 'quote',
                         'quote' => 'We love making music. Check out our new tracks.',
                         'quoteReference' => 'TJ Fury',
+                    ],
+                    [
+                        'type' => 'albums',
+                        'albums' => [
+                            $this->getAlbumId('Rebel'),
+                            $this->getAlbumId('random'),
+                            $this->getAlbumId('down_town'),
+                            $this->getAlbumId('Railling'),
+                        ],
                     ],
                 ],
                 'structureType' => 'default',
@@ -379,6 +433,15 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
                                 'quote' => 'Ich war schon immer ein leidenschaftlicher Song Schreiber. Mein größter Wunsch ist es die Menschen zu berühren und mit meiner Botschaft ermutigen nach ihren Träumen zu leben.',
                                 'quoteReference' => 'Liam Hendrickson',
                             ],
+                            [
+                                'type' => 'albums',
+                                'albums' => [
+                                    $this->getAlbumId('Vikings'),
+                                    $this->getAlbumId('Civilwar'),
+                                    $this->getAlbumId('collapse'),
+                                    $this->getAlbumId('#no more'),
+                                ],
+                            ],
                         ],
                         'structureType' => 'default',
                     ];
@@ -412,6 +475,15 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
                             [
                                 'type' => 'text',
                                 'text' => '<p>2014 startete Jack seine Musikkarriere in San Diego, California. Sein Talent mit der Gitarre lies ihn in kurzer Zeit bekannt werden. Sein großer Traum: In einer Tour durch die Vereinigten Staaten reisen. 2016 ist er so nah an seinem Ziel wie noch nie zuvor - mit seinem neuen Album erreichte er die Spitze der Charts in den Vereinigten Staaten.</p>',
+                            ],
+                            [
+                                'type' => 'albums',
+                                'albums' => [
+                                    $this->getAlbumId('Wildfire'),
+                                    $this->getAlbumId('Cross the River'),
+                                    $this->getAlbumId('Gold Digger'),
+                                    $this->getAlbumId('The Wolves'),
+                                ],
                             ],
                         ],
                         'structureType' => 'default',
@@ -447,6 +519,15 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
                                 'type' => 'text',
                                 'text' => '<p>2003 gründete Alex, der Frontman von Marshall Plan die Band mit seinen besten freunden Albert und Ray, ein in Liverpool bekannter Gitarrenspieler und Songschreiber. 2007 folgte dann Jason. Sein Talent mit dem Bass war genau das richtige für die intensiven Vibes der Band. Sie hatten einen großen Traum zusammen: Die Bühne vor dem Times Square in New York zu rocken. 2016 sind sie so nah an ihrem Ziel wie noch nie zuvor - mit ihrem neuen Album erreichten sie die Spitze der Charts in den Vereinigten Staaten.</p>',
                             ],
+                            [
+                                'type' => 'albums',
+                                'albums' => [
+                                    $this->getAlbumId('Way'),
+                                    $this->getAlbumId('let the light be'),
+                                    $this->getAlbumId('Variety'),
+                                    $this->getAlbumId('Path'),
+                                ],
+                            ],
                         ],
                         'structureType' => 'default',
                     ];
@@ -477,6 +558,15 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
                                 'quote' => 'Unsere Karriere startete auf den Straßen von Glasgow. Es gibt nichts authentischeres als Straßenmusik. Die Menschen mögen dich, oder laufen einfach weiter. Man merkt sofort, wie die Musik ankommt.',
                                 'quoteReference' => 'Steve Avril',
                             ],
+                            [
+                                'type' => 'albums',
+                                'albums' => [
+                                    $this->getAlbumId('Joy'),
+                                    $this->getAlbumId('Busk'),
+                                    $this->getAlbumId('Bonfire'),
+                                    $this->getAlbumId('Scottlang Call\'s'),
+                                ],
+                            ],
                         ],
                         'structureType' => 'default',
                     ];
@@ -506,6 +596,15 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
                                 'type' => 'quote',
                                 'quote' => 'Wir lieben es, Musik zu kreieren. Hört euch unsere neuen Tracks an.',
                                 'quoteReference' => 'TJ Fury',
+                            ],
+                            [
+                                'type' => 'albums',
+                                'albums' => [
+                                    $this->getAlbumId('Rebel'),
+                                    $this->getAlbumId('random'),
+                                    $this->getAlbumId('down_town'),
+                                    $this->getAlbumId('Railling'),
+                                ],
                             ],
                         ],
                         'structureType' => 'default',
@@ -1015,7 +1114,7 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
 
         $snippetDocument = $this->createSnippet($documentManager, 'contact', $data);
 
-        $this->getDefaultSnippetManager()->save('demo', 'contact', $snippetDocument->getUuid(), AppFixtures::LOCALE_EN);
+        $this->defaultSnippetManager->save('demo', 'contact', $snippetDocument->getUuid(), AppFixtures::LOCALE_EN);
 
         return $snippetDocument;
     }
@@ -1036,7 +1135,7 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
 
         $snippetDocument = $this->createSnippet($documentManager, 'contact', $data);
 
-        $this->getDefaultSnippetManager()->save('demo', 'contact', $snippetDocument->getUuid(), AppFixtures::LOCALE_DE);
+        $this->defaultSnippetManager->save('demo', 'contact', $snippetDocument->getUuid(), AppFixtures::LOCALE_DE);
     }
 
     /**
@@ -1114,7 +1213,7 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
         $locale = $data['locale'] ?? AppFixtures::LOCALE_EN;
 
         if (!isset($data['url'])) {
-            $url = $this->getPathCleanup()->cleanup('/' . $data['title']);
+            $url = $this->pathCleanup->cleanup('/' . $data['title']);
             if (isset($data['parent_path'])) {
                 $url = mb_substr($data['parent_path'], mb_strlen('/cmf/demo/contents')) . $url;
             }
@@ -1236,37 +1335,10 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
         return $articleDocument;
     }
 
-    private function getPathCleanup(): PathCleanup
-    {
-        if (null === $this->pathCleanup) {
-            $this->pathCleanup = $this->container->get('sulu.content.path_cleaner');
-        }
-
-        return $this->pathCleanup;
-    }
-
-    private function getEntityManager(): EntityManagerInterface
-    {
-        if (null === $this->entityManager) {
-            $this->entityManager = $this->container->get('doctrine.orm.entity_manager');
-        }
-
-        return $this->entityManager;
-    }
-
-    private function getDefaultSnippetManager(): DefaultSnippetManagerInterface
-    {
-        if (null === $this->defaultSnippetManager) {
-            $this->defaultSnippetManager = $this->container->get('sulu_snippet.default_snippet.manager');
-        }
-
-        return $this->defaultSnippetManager;
-    }
-
     private function getMediaId(string $name): int
     {
         try {
-            $id = $this->getEntityManager()->createQueryBuilder()
+            $id = $this->entityManager->createQueryBuilder()
                 ->from(Media::class, 'media')
                 ->select('media.id')
                 ->innerJoin('media.files', 'file')
@@ -1279,6 +1351,23 @@ class DocumentFixture implements DocumentFixtureInterface, ContainerAwareInterfa
             return (int) $id;
         } catch (NonUniqueResultException $e) {
             throw new RuntimeException(sprintf('Too many images with the name "%s" found.', $name), 0, $e);
+        }
+    }
+
+    private function getAlbumId(string $title): int
+    {
+        try {
+            $id = $this->entityManager->createQueryBuilder()
+                ->from(Album::class, 'album')
+                ->select('album.id')
+                ->where('album.title = :title')
+                ->setMaxResults(1)
+                ->setParameter('title', $title)
+                ->getQuery()->getSingleScalarResult();
+
+            return (int) $id;
+        } catch (NonUniqueResultException $e) {
+            throw new RuntimeException(sprintf('Too many albums with the title "%s" found.', $title), 0, $e);
         }
     }
 }

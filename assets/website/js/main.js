@@ -5,6 +5,7 @@ import WindowScroll from '@sulu/web/packages/components/window-scroll/window-scr
 import Timeago from './components/Timeago';
 import NavigationToggler from './components/NavigationToggler';
 import SlickSlider from './components/SlickSlider';
+import Tabs from './components/Tabs';
 
 window.$ = window.jQuery = $;
 window.web = web;
@@ -13,6 +14,7 @@ web.registerComponent('timeago', Timeago);
 web.registerComponent('slick-slider', SlickSlider);
 web.registerComponent('navigation-toggler', NavigationToggler);
 web.registerComponent('window-scroll', WindowScroll);
+web.registerComponent('tabs', Tabs);
 
 if (window.webComponents) {
     web.startComponents(window.webComponents);

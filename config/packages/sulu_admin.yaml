@@ -6,3 +6,35 @@ sulu_admin:
     lists:
         directories:
             - "%kernel.project_dir%/config/lists"
+    resources:
+        albums:
+            routes:
+                list: 'app.get_albums'
+                detail: 'app.get_album'
+    field_type_options:
+        selection:
+            album_selection:
+                default_type: 'list_overlay'
+                resource_key: 'albums'
+                types:
+                    list_overlay:
+                        adapter: 'table'
+                        list_key: 'albums'
+                        display_properties:
+                            - 'title'
+                        icon: 'su-storage'
+                        label: 'app.album_selection_label'
+                        overlay_title: 'app.select_albums'
+        single_selection:
+            single_album_selection:
+                default_type: 'list_overlay'
+                resource_key: 'albums'
+                types:
+                    list_overlay:
+                        adapter: 'table'
+                        list_key: 'albums'
+                        display_properties:
+                            - 'title'
+                        icon: 'su-storage'
+                        empty_text: 'app.no_album_selected'
+                        overlay_title: 'app.select_album'

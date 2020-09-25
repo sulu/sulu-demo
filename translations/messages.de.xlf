@@ -46,6 +46,10 @@
                 <source>Similar Articles</source>
                 <target>Ähnliche Artikel</target>
             </trans-unit>
+            <trans-unit id="albums">
+                <source>Albums</source>
+                <target>Alben</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -1,1 +1,6 @@
 # Define your admin routes here
+app_albums_api:
+    type: rest
+    prefix: /admin/api
+    resource: App\Controller\Admin\AlbumController
+    name_prefix: app.

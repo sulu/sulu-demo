@@ -10,6 +10,9 @@ services:
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
         bind:
             Sulu\Bundle\MediaBundle\Media\Storage\StorageInterface: '@sulu_media.storage'
+            Sulu\Bundle\SnippetBundle\Snippet\DefaultSnippetManagerInterface: '@sulu_snippet.default_snippet.manager'
+            Sulu\Component\PHPCR\PathCleanupInterface: '@sulu.content.path_cleaner'
+            Doctrine\ORM\EntityManagerInterface: '@doctrine.orm.entity_manager'
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
@@ -23,8 +26,24 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
+    # add controllers as services that are specific to a certain sulu context
+    # a sulu context is a different mode in the kernel allowing to have a different set of services
+    # because controllers might rely on services only existing in one of both contexts
+    App\Controller\Admin\:
+        resource: '../src/Controller/Admin'
+        tags: ['controller.service_arguments', {name: 'sulu.context', context: 'admin'}]
+
+    App\Controller\Website\:
+        resource: '../src/Controller/Website'
+        tags: ['controller.service_arguments', {name: 'sulu.context', context: 'website'}]
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-
     App\Build\UserBuilder:
         decorates: sulu_security.build.user
+
+    App\Content\Type\SingleAlbumSelection:
+        tags: [{name: 'sulu.content.type', alias: 'single_album_selection'}]
+
+    App\Content\Type\AlbumSelection:
+        tags: [{name: 'sulu.content.type', alias: 'album_selection'}]

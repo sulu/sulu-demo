@@ -47,4 +47,5 @@ return [
     Task\TaskBundle\TaskBundle::class => ['all' => true],
     Sulu\Bundle\AutomationBundle\SuluAutomationBundle::class => ['all' => true],
     HandcraftedInTheAlps\RestRoutingBundle\RestRoutingBundle::class => ['all' => true],
+    Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
 ];

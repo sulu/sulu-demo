@@ -10,12 +10,7 @@
                 </meta>
 
                 <properties>
-                    <property name="text" type="text_editor" mandatory="true">
-                        <meta>
-                            <title lang="en">Text</title>
-                            <title lang="de">Text</title>
-                        </meta>
-                    </property>
+                    <property name="text" type="text_editor"/>
                 </properties>
             </type>
         </types>
