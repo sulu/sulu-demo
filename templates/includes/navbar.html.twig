@@ -7,7 +7,8 @@
         <div class="navbar__links" id="navigation">
             {% for item in sulu_navigation_root_flat('main', 1, true) %}
                 {% set itemUrl = sulu_content_path(item.url) %}
-                <a href="{{ itemUrl }}" title="{{ item.title }}"
+                <a href="{{ itemUrl }}"
+                   title="{{ item.title }}"
                    {# open external links as target blank and set noopener #}
                    {% if item.nodeType == 4 %}target="_blank" rel="noopener"{% endif %}
                    class="navbar__item{{ app.request.uri starts with itemUrl ? ' navbar__item--active' : '' }}">
@@ -18,11 +19,13 @@
         </div>
 
         <div class="navbar__locales">
-            {% for locale, url in urls|filter((locale,  url) => locale != app.request.locale) %}
+            {% for locale, url in urls %}
                 {% set itemUrl = sulu_content_path(url, request.webspaceKey, locale)|default('') %}
 
                 {% if itemUrl is not empty %}
-                    <a href="{{ itemUrl }}" title="{{ locale }}" class="navbar__item navbar__item--locale">
+                    <a href="{{ itemUrl }}"
+                       title="{{ locale }}"
+                       class="navbar__item navbar__item--locale{{ locale == app.request.locale ? ' navbar__item--active' : '' }}">
                         {{ locale|upper }}
                     </a>
                 {% endif %}
