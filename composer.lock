@@ -2766,16 +2766,16 @@
         },
         {
             "name": "handcraftedinthealps/elasticsearch-bundle",
-            "version": "5.2.6.4",
+            "version": "5.2.6.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/handcraftedinthealps/ElasticsearchBundle.git",
-                "reference": "8c29c1e8972910fb09b890b3d4ee0aa5b11ca6f6"
+                "reference": "9a1a3c0d736939e17c6a1ec9fdbc2fe7a8994b45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/handcraftedinthealps/ElasticsearchBundle/zipball/8c29c1e8972910fb09b890b3d4ee0aa5b11ca6f6",
-                "reference": "8c29c1e8972910fb09b890b3d4ee0aa5b11ca6f6",
+                "url": "https://api.github.com/repos/handcraftedinthealps/ElasticsearchBundle/zipball/9a1a3c0d736939e17c6a1ec9fdbc2fe7a8994b45",
+                "reference": "9a1a3c0d736939e17c6a1ec9fdbc2fe7a8994b45",
                 "shasum": ""
             },
             "require": {
@@ -2840,7 +2840,7 @@
             ],
             "description": "Elasticsearch bundle for Symfony.",
             "homepage": "http://ongr.io",
-            "time": "2020-09-11T08:16:05+00:00"
+            "time": "2020-09-28T16:13:37+00:00"
         },
         {
             "name": "handcraftedinthealps/elasticsearch-dsl",
@@ -12848,16 +12848,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.45",
+            "version": "0.12.46",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "90c67259212ed891ee86604a9368ef7d7bead3a4"
+                "reference": "9419738e20f0c49757be05d22969c1c44c1dff3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/90c67259212ed891ee86604a9368ef7d7bead3a4",
-                "reference": "90c67259212ed891ee86604a9368ef7d7bead3a4",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/9419738e20f0c49757be05d22969c1c44c1dff3b",
+                "reference": "9419738e20f0c49757be05d22969c1c44c1dff3b",
                 "shasum": ""
             },
             "require": {
@@ -12900,7 +12900,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-09-26T19:19:00+00:00"
+            "time": "2020-09-28T09:48:55+00:00"
         },
         {
             "name": "phpstan/phpstan-doctrine",
