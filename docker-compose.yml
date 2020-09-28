@@ -17,4 +17,4 @@ services:
             - ./var/data/elasticsearch:/usr/share/elasticsearch/data:cached
         environment:
             discovery.type: single-node
-            xpack.security.enabled: "false"
+            xpack.security.enabled: 'false'
