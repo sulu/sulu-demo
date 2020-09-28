@@ -4,6 +4,9 @@
     "type": "project",
     "description": "Sulu demo website",
     "keywords": ["symfony", "sulu", "cms", "application", "admin"],
+    "conflict": {
+        "league/flysystem-aws-s3-v3": ">=1.0.26"
+    },
     "require": {
         "php": "^7.4",
         "ext-iconv": "*",
@@ -142,7 +145,7 @@
             "*": "dist"
         },
         "platform": {
-            "php": "7.4.6"
+            "php": "7.4.10"
         },
         "sort-packages": true
     },
