@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xi="http://www.w3.org/2001/XInclude"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <key>excerpt</key>
+
+    <!-- the following attributes are required to pass template validation but not used anywhere -->
+    <controller>not used</controller>
+    <view>not used</view>
+    <cacheLifetime>0</cacheLifetime>
+    <internal>true</internal>
+
+    <properties>
+        <!-- include properties of default excerpt form -->
+        <xi:include href="../../../vendor/sulu/sulu/src/Sulu/Bundle/PageBundle/Content/templates/excerpt.xml"
+                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:template/sulu:properties/*)"/>
+
+        <!-- add custom properties -->
+        <property name="custom_text" type="text_line"/>
+    </properties>
+</template>
