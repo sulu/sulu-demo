@@ -14,5 +14,11 @@ module.exports = (env, argv) => {
     const config = webpackConfig(env, argv);
     config.entry = path.resolve(__dirname, 'index.js');
 
+    const suluPath = path.resolve(__dirname, '../../vendor/sulu/sulu/');
+    const loginScssPath = path.resolve(suluPath, 'src/Sulu/Bundle/AdminBundle/Resources/js/containers/Login/login.scss');
+
+    /* overwrite stylesheet of sulu login component with custom stylesheet of project */
+    config.resolve.alias[loginScssPath] = path.resolve(__dirname, 'style-overwrites/login.scss');
+
     return config;
 };
