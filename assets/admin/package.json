@@ -8,6 +8,7 @@
         "watch": "webpack --mode development -w"
     },
     "dependencies": {
+        "@ckeditor/ckeditor5-font": "^18.0.0",
         "mobx": "^4.0.0",
         "mobx-react": "^5.0.0",
         "react": "^16.2.0",
