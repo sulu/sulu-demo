@@ -107,8 +107,8 @@ class AppFixtures extends Fixture implements OrderedFixtureInterface
         $address->setBillingAddress(true);
 
         $account = new Account();
-        $account->setName('Z');
-        $account->setCorporation('GmbH');
+        $account->setName('Z Music GmbH');
+        $account->setCorporation('Soundmanagement Corporation');
 
         $account->setMainEmail('office@z.com');
         $account->setMainPhone('+43 5572 93482');

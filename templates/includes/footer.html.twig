@@ -22,7 +22,8 @@
                             <div class="grid__item width-6">
                                 <h4 class="footer__title">{{ 'contact'|trans }}</h4>
 
-                                {% set contact = sulu_snippet_load_by_area('contact').content.contact.entity %}
+                                {% set contactInformation = sulu_snippet_load_by_area('footer_contact_information') %}
+                                {% set contact = contactInformation.content.contact.entity %}
                                 {% set address = contact.accountAddresses[0].address %}
 
                                 <div class="footer__contact">

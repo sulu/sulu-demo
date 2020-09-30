@@ -3,12 +3,21 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
 
-    <key>contact</key>
+    <key>contact_information</key>
 
     <meta>
-        <title lang="en">Contact</title>
-        <title lang="de">Kontakt</title>
+        <title lang="en">Contact Information</title>
+        <title lang="de">Kontaktinformation</title>
     </meta>
+
+    <areas>
+        <area key="footer_contact_information">
+            <meta>
+                <title lang="en">Footer Contact Information</title>
+                <title lang="de">Footer Kontaktinformation</title>
+            </meta>
+        </area>
+    </areas>
 
     <properties>
         <property name="title" type="text_line" mandatory="true">

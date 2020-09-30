@@ -68,8 +68,8 @@ class DocumentFixture implements DocumentFixtureInterface
         $documentManager->clear();
         $this->loadPagesGerman($documentManager, $pages);
 
-        $snippet = $this->loadContactSnippet($documentManager);
-        $this->loadContactSnippetGerman($documentManager, $snippet);
+        $snippet = $this->loadContactInformationSnippet($documentManager);
+        $this->loadContactInformationSnippetGerman($documentManager, $snippet);
         $this->loadHomepage($documentManager);
 
         $articles = $this->loadArticles($documentManager);
@@ -1102,19 +1102,19 @@ class DocumentFixture implements DocumentFixtureInterface
     /**
      * @throws Exception
      */
-    private function loadContactSnippet(DocumentManager $documentManager): SnippetDocument
+    private function loadContactInformationSnippet(DocumentManager $documentManager): SnippetDocument
     {
         $data = [
             'locale' => AppFixtures::LOCALE_EN,
-            'title' => 'Z',
+            'title' => 'Contact Information - Footer',
             'contact' => [
                 'id' => 1,
             ],
         ];
 
-        $snippetDocument = $this->createSnippet($documentManager, 'contact', $data);
+        $snippetDocument = $this->createSnippet($documentManager, 'contact_information', $data);
 
-        $this->defaultSnippetManager->save('demo', 'contact', $snippetDocument->getUuid(), AppFixtures::LOCALE_EN);
+        $this->defaultSnippetManager->save('demo', 'footer_contact_information', $snippetDocument->getUuid(), AppFixtures::LOCALE_EN);
 
         return $snippetDocument;
     }
@@ -1122,20 +1122,20 @@ class DocumentFixture implements DocumentFixtureInterface
     /**
      * @throws Exception
      */
-    private function loadContactSnippetGerman(DocumentManager $documentManager, SnippetDocument $snippetDocument): void
+    private function loadContactInformationSnippetGerman(DocumentManager $documentManager, SnippetDocument $snippetDocument): void
     {
         $data = [
             'id' => $snippetDocument->getUuid(),
             'locale' => AppFixtures::LOCALE_DE,
-            'title' => 'Z',
+            'title' => 'Kontaktinformation - Footer',
             'contact' => [
                 'id' => 1,
             ],
         ];
 
-        $snippetDocument = $this->createSnippet($documentManager, 'contact', $data);
+        $snippetDocument = $this->createSnippet($documentManager, 'contact_information', $data);
 
-        $this->defaultSnippetManager->save('demo', 'contact', $snippetDocument->getUuid(), AppFixtures::LOCALE_DE);
+        $this->defaultSnippetManager->save('demo', 'footer_contact_information', $snippetDocument->getUuid(), AppFixtures::LOCALE_DE);
     }
 
     /**
