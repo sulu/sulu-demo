@@ -12,6 +12,7 @@
                                 <label class="footer__newsletter-input-label">
                                     <input type="email" name="email" placeholder="E-Mail" class="footer__newsletter-input"/>
                                 </label>
+
                                 <button type="submit" class="button footer__newsletter-button">{{ 'sign_up'|trans }}</button>
                             </form>
                         </div>
@@ -21,24 +22,29 @@
                         <div class="grid">
                             <div class="grid__item width-6">
                                 <h4 class="footer__title">{{ 'contact'|trans }}</h4>
-
+                                {# @see https://docs.sulu.io/en/2.1/reference/twig-extensions/functions/sulu_snippet_load_by_area.html #}
                                 {% set contactInformation = sulu_snippet_load_by_area('footer_contact_information') %}
-                                {% set contact = contactInformation.content.contact.entity %}
-                                {% set address = contact.accountAddresses[0].address %}
+                                {% if footerContactSnippet.content.contact.entity|default %}
+                                    {% set contact = contactInformation.content.contact.entity %}
+                                    {% set address = contact.accountAddresses[0].address %}
 
-                                <div class="footer__contact">
-                                    <p>{{ address.street ~ ' ' ~ address.number }},<br/>
-                                        {{ address.zip ~ ' ' ~ address.city }},<br/>
-                                        {{ country(address.countryCode) }}</p>
-                                    <a href="tel:{{ contact.mainPhone }}" class="footer__contact-link">{{ contact.mainPhone }}</a>
-                                    <a href="mailto:{{ contact.mainEmail }}" class="footer__contact-link">{{ contact.mainEmail }}</a>
-                                </div>
+                                    <div class="footer__contact">
+                                        <p>{{ address.street ~ ' ' ~ address.number }},<br/>
+                                            {{ address.zip ~ ' ' ~ address.city }},<br/>
+                                            {{ country(address.countryCode) }}</p>
+                                        <a href="tel:{{ contact.mainPhone }}" class="footer__contact-link">{{ contact.mainPhone }}</a>
+                                        <a href="mailto:{{ contact.mainEmail }}" class="footer__contact-link">{{ contact.mainEmail }}</a>
+                                    </div>
+                                {% endif %}
                             </div>
 
                             <div class="grid__item width-6">
                                 <h4 class="footer__title">{{ 'quick_links'|trans }}</h4>
+
                                 <div class="footer__quicklinks">
+                                    {# @see https://docs.sulu.io/en/2.1/reference/twig-extensions/functions/sulu_navigation_root_flat.html #}
                                     {% for item in sulu_navigation_root_flat('footer', 1, true) %}
+                                        {# @see https://docs.sulu.io/en/2.1/reference/twig-extensions/functions/sulu_content_path.html #}
                                         <a href="{{ sulu_content_path(item.url) }}" title="{{ item.title }}" class="footer__quicklink">
                                             {# fallback to content title when excerpt title not set #}
                                             {{ item.excerpt.title|default(item.title) }}
@@ -52,13 +58,18 @@
             </div>
 
             <div class="footer__imprint">
-                <div class="footer__imprint-item footer__imprint-item--copyright">&copy; Soundmanagement Corporation 2019</div>
+                <div class="footer__imprint-item footer__imprint-item--copyright">
+                    &copy; Soundmanagement Corporation {{ 'now'|date('Y') }}
+                </div>
+
                 <div class="footer__imprint-item">
                     <a href="#" class="footer__imprint-link">{{ 'privacy_policy'|trans }}</a>
                 </div>
+
                 <div class="footer__imprint-item">
                     <a href="#" class="footer__imprint-link">{{ 'cookie_policy'|trans }}</a>
                 </div>
+
                 <div class="footer__imprint-item">
                     <a href="#" class="footer__imprint-link">{{ 'safety_recalls'|trans }}</a>
                 </div>

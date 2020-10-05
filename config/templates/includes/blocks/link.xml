@@ -2,6 +2,8 @@
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
     <block name="blocks" default-type="link">
+        <!-- @see https://docs.sulu.io/en/2.1/reference/content-types/block.html -->
+
         <types>
             <type name="link">
                 <meta>
@@ -11,6 +13,7 @@
 
                 <properties>
                     <property name="page" type="single_page_selection" mandatory="true">
+                        <!-- @see https://docs.sulu.io/en/2.1/reference/content-types/single_page_selection.html -->
                         <meta>
                             <title lang="en">Page</title>
                             <title lang="de">Seite</title>

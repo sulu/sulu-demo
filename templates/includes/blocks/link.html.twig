@@ -1,3 +1,7 @@
-{% set page = sulu_content_load(page) %}
+{# TODO avoid sulu_content_load as its a heavy operation which should be avoided #}
+{# @see https://docs.sulu.io/en/2.1/reference/twig-extensions/functions/sulu_content_load.html #}
+{% set page = sulu_content_load(content.page) %}
 
-<a href="{{ sulu_content_path(page.content.url) }}" class="button block-link">{{ text|default(page.content.title|default('read_more'|trans)) }}</a>
+<a href="{{ sulu_content_path(page.content.url) }}" class="button block-link">
+    {{ text|default(page.content.title|default('read_more'|trans)) }}
+</a>

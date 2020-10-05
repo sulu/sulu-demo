@@ -2,6 +2,8 @@
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
     <block name="blocks" default-type="quote">
+        <!-- @see https://docs.sulu.io/en/2.1/reference/content-types/block.html -->
+
         <types>
             <type name="quote">
                 <meta>

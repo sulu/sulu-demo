@@ -1,11 +1,14 @@
 <nav class="navbar" id="{{ register_component('window-scroll') }}">
+    {# @see https://docs.sulu.io/en/2.1/reference/twig-extensions/functions/sulu_content_root_path.html #}
     <a href="{{ sulu_content_root_path() }}" class="navbar__logo">
         <img src="{{ asset('website/images/logo.svg') }}" alt="Sulu.rocks" class="navbar__logo-image"/>
     </a>
 
     <div class="navbar__navigation">
         <div class="navbar__links" id="navigation">
+            {# @see https://docs.sulu.io/en/2.1/reference/twig-extensions/functions/sulu_navigation_root_flat.html #}
             {% for item in sulu_navigation_root_flat('main', 1, true) %}
+                {# @see https://docs.sulu.io/en/2.1/reference/twig-extensions/functions/sulu_content_path.html #}
                 {% set itemUrl = sulu_content_path(item.url) %}
                 <a href="{{ itemUrl }}"
                    title="{{ item.title }}"

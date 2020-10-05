@@ -44,6 +44,7 @@
         </property>
 
         <property name="url" type="resource_locator" mandatory="true">
+            <!-- @see https://docs.sulu.io/en/2.1/reference/content-types/resource_locator.html -->
             <meta>
                 <title lang="en">Resourcelocator</title>
                 <title lang="de">Adresse</title>
@@ -59,6 +60,7 @@
             </meta>
         </property>
 
+        <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
         <xi:include href="../includes/blocks.xml"
                     xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block)"/>
     </properties>
