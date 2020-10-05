@@ -24,7 +24,7 @@ class SingleAlbumSelection extends SimpleContentType
     {
         $id = $property->getValue();
 
-        if (null === $id) {
+        if (empty($id)) {
             return $this->defaultValue;
         }
 

@@ -27,6 +27,10 @@ class AlbumSelection extends SimpleContentType
     {
         $ids = $property->getValue();
 
+        if (empty($ids)) {
+            return $this->defaultValue;
+        }
+
         return $this->albumRepository->findByIds($ids);
     }
 
