@@ -1,8 +1,11 @@
-{% if blocks|default([])|length %}
+{% if content.blocks|default([])|length %}
     <div class="blocks">
-        {% for block in blocks %}
+        {% for block in content.blocks %}
             <div class="blocks__item">
-                {% include 'includes/blocks/' ~ block.type ~ '.html.twig' with block only %}
+                {% include 'includes/blocks/' ~ block.type ~ '.html.twig' with {
+                    content: block,
+                    view: view.blocks[loop.index0],
+                } only %}
             </div>
         {% endfor %}
     </div>

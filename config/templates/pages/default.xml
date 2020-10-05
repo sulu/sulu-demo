@@ -46,6 +46,7 @@
         </property>
 
         <property name="headerImage" type="single_media_selection">
+            <!-- @see https://docs.sulu.io/en/2.1/reference/content-types/single_media_selection.html -->
             <meta>
                 <title lang="en">Image</title>
                 <title lang="de">Bild</title>
@@ -53,6 +54,7 @@
 
             <params>
                 <param name="types" value="image"/>
+
                 <param name="formats" type="collection">
                     <param name="2560x300" />
                     <param name="1200x300" />
@@ -62,6 +64,7 @@
             </params>
         </property>
 
+        <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
         <xi:include href="../includes/blocks.xml"
                     xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block)"/>
     </properties>

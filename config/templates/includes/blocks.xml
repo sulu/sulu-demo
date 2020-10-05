@@ -3,24 +3,31 @@
             xmlns:xi="http://www.w3.org/2001/XInclude"
             xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
     <block name="blocks" default-type="text" minOccurs="0">
+        <!-- @see https://docs.sulu.io/en/2.1/reference/content-types/block.html -->
+
         <meta>
             <title lang="en">Content</title>
             <title lang="de">Inhalte</title>
         </meta>
 
         <types>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
             <xi:include href="blocks/heading.xml"
                         xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
 
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
             <xi:include href="blocks/text.xml"
                         xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
 
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
             <xi:include href="blocks/quote.xml"
                         xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
 
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
             <xi:include href="blocks/link.xml"
                         xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
 
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
             <xi:include href="blocks/albums.xml"
                         xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
         </types>

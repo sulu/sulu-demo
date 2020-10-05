@@ -1,11 +1,10 @@
 <div class="grid">
     {% for page in element.pages %}
-        {% set media = sulu_resolve_media(page.headerImage, app.request.locale) %}
-
         <div class="grid__item width-4 width-tablet-6 width-mobile-12">
             <div class="card">
                 <div class="card__image-holder">
-                    {{ get_image(media, {
+                    {# @see https://github.com/sulu/web-twig/blob/v2.4.0/docs/image.md #}
+                    {{ get_image(page.headerImage, {
                         src: '600x400',
                         class: 'card__image',
                     }) }}

@@ -6,12 +6,13 @@
             {% set link = sulu_content_path(article.routePath) %}
 
             {% if article.excerpt.images|length %}
-                {% set image = sulu_resolve_media(article.excerpt.images[0].id, app.request.locale).formats['600x400'] %}
+                {% set image = article.excerpt.images[0]|default %}
 
                 {% if image %}
                     <div class="article-list__item-image">
                         <a href="{{ link }}">
-                            <img src="{{ image }}" alt="{{ title }}" />
+                            {# @see https://github.com/sulu/web-twig/blob/v2.4.0/docs/image.md #}
+                            {{ get_image(image, '600x400') }}
                         </a>
                     </div>
                 {% endif %}

@@ -11,6 +11,7 @@
     </meta>
 
     <areas>
+        <!-- @see https://docs.sulu.io/en/2.1/cookbook/default-snippets.html -->
         <area key="footer_contact_information">
             <meta>
                 <title lang="en">Footer Contact Information</title>

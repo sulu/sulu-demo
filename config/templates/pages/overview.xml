@@ -30,6 +30,7 @@
         </property>
 
         <property name="url" type="resource_locator" mandatory="true">
+            <!-- @see https://docs.sulu.io/en/2.1/reference/content-types/resource_locator.html -->
             <meta>
                 <title lang="en">Resourcelocator</title>
                 <title lang="de">Adresse</title>
@@ -46,6 +47,7 @@
         </property>
 
         <property name="headerImage" type="single_media_selection">
+            <!-- @see https://docs.sulu.io/en/2.1/reference/content-types/media_selection.html -->
             <meta>
                 <title lang="en">Image</title>
                 <title lang="de">Bild</title>
@@ -77,6 +79,7 @@
 
                     <properties>
                         <property name="pages" type="smart_content">
+                            <!-- @see https://docs.sulu.io/en/2.1/reference/content-types/smart_content.html -->
                             <meta>
                                 <title lang="en">Pages</title>
                                 <title lang="de">Seiten</title>
@@ -101,6 +104,7 @@
 
                     <properties>
                         <property name="articles" type="smart_content">
+                            <!-- @see https://docs.sulu.io/en/2.1/reference/content-types/smart_content.html -->
                             <meta>
                                 <title lang="en">Articles</title>
                                 <title lang="de">Artikel</title>
@@ -115,6 +119,7 @@
             </types>
         </block>
 
+        <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
         <xi:include href="../includes/blocks.xml"
                     xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block)"/>
     </properties>

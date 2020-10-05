@@ -6752,16 +6752,16 @@
         },
         {
             "name": "sulu/web-twig",
-            "version": "v2.4.0",
+            "version": "v2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sulu/web-twig.git",
-                "reference": "594b6d16cffc87c289ccaa1583eef7506a8e1652"
+                "reference": "b819a921cb65ca39367fa3cc59f07924e318bfd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sulu/web-twig/zipball/594b6d16cffc87c289ccaa1583eef7506a8e1652",
-                "reference": "594b6d16cffc87c289ccaa1583eef7506a8e1652",
+                "url": "https://api.github.com/repos/sulu/web-twig/zipball/b819a921cb65ca39367fa3cc59f07924e318bfd3",
+                "reference": "b819a921cb65ca39367fa3cc59f07924e318bfd3",
                 "shasum": ""
             },
             "require": {
@@ -6799,7 +6799,7 @@
                 }
             ],
             "description": "The web twig extension for web-js component management",
-            "time": "2020-09-18T15:07:01+00:00"
+            "time": "2020-10-05T06:52:51+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

@@ -23,6 +23,8 @@
         mobile: '767x300',
     } %}
 
+    {# TODO avoid sulu_content_load as its a heavy operation which should be avoided #}
+    {# @see https://docs.sulu.io/en/2.1/reference/twig-extensions/functions/sulu_content_load.html #}
     {% set teaser = sulu_content_load(content.teaser) %}
 
     {% set title = teaser.content.title %}
@@ -35,6 +37,7 @@
 
 <div class="header{{ isArticle ? ' header--article' }}">
     {% if image %}
+        {# @see https://github.com/sulu/web-twig/blob/v2.4.0/docs/image.md #}
         {{ get_image(image, {
             'src': formats.default,
             'class': 'header__image',
@@ -44,7 +47,7 @@
             '(max-width: 767px)': formats.mobile,
         }) }}
     {% else %}
-        <img src="/website/images/default-header-image.jpg" class="header__image"/>
+        <img src="/website/images/default-header-image.jpg" alt="Sulu Rocks" class="header__image"/>
     {% endif %}
 
     <div class="header__text">
