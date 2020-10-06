@@ -18,6 +18,10 @@ import 'sulu-snippet-bundle';
 import 'sulu-website-bundle';
 
 // Implement custom extensions here
+import {listFieldTransformerRegistry} from 'sulu-admin-bundle/containers';
+import ColoredTextFieldTransformer from "./fieldTransformers/ColoredTextFieldTransformer";
+
+listFieldTransformerRegistry.add('colored_text', new ColoredTextFieldTransformer());
 
 // Start admin application
 startAdmin();
