@@ -6,13 +6,20 @@
 
         <types>
             <type name="text">
-                <meta>
-                    <title lang="en">Text</title>
-                    <title lang="de">Text</title>
-                </meta>
-
                 <properties>
-                    <property name="text" type="text_editor"/>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Title</title>
+                            <title lang="de">Titel</title>
+                        </meta>
+                    </property>
+
+                    <property name="description" type="text_editor">
+                        <meta>
+                            <title lang="en">Description</title>
+                            <title lang="de">Beschreibung</title>
+                        </meta>
+                    </property>
                 </properties>
             </type>
         </types>

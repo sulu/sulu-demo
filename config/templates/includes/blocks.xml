@@ -12,10 +12,6 @@
 
         <types>
             <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
-            <xi:include href="blocks/heading.xml"
-                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
-
-            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
             <xi:include href="blocks/text.xml"
                         xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
 
