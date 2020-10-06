@@ -60,6 +60,17 @@
             </meta>
         </property>
 
+        <property name="price" type="currency">
+            <meta>
+                <title lang="en">Price</title>
+                <title lang="de">Preis</title>
+            </meta>
+
+            <params>
+                <param name="allowNegativeAmount" value="true"/>
+            </params>
+        </property>
+
         <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
         <xi:include href="../includes/blocks.xml"
                     xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block)"/>

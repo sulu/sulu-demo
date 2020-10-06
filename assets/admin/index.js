@@ -18,6 +18,10 @@ import 'sulu-snippet-bundle';
 import 'sulu-website-bundle';
 
 // Implement custom extensions here
+import {fieldRegistry} from 'sulu-admin-bundle/containers';
+import Currency from "./fields/Currency";
+
+fieldRegistry.add('currency', Currency);
 
 // Start admin application
 startAdmin();
