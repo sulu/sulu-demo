@@ -3,7 +3,7 @@
 
 {% if articles|length %}
     <div class="similar-articles">
-        <h2 class="block-heading">{{ content.title|default('similar_articles'|trans) }}</h2>
+        <h2 class="block-title">{{ content.title|default('similar_articles'|trans) }}</h2>
 
         <div class="similar-articles__list" id="{{ register_component('slick-slider') }}">
             {% for article in articles %}
