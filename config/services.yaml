@@ -44,3 +44,6 @@ services:
 
     App\Content\Type\AlbumSelection:
         tags: [{name: 'sulu.content.type', alias: 'album_selection'}]
+
+    App\Content\Type\Currency:
+        tags: [ { name: 'sulu.content.type', alias: 'currency' } ]
