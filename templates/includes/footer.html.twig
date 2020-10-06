@@ -24,7 +24,8 @@
                                 <h4 class="footer__title">{{ 'contact'|trans }}</h4>
                                 {# @see https://docs.sulu.io/en/2.1/reference/twig-extensions/functions/sulu_snippet_load_by_area.html #}
                                 {% set contactInformation = sulu_snippet_load_by_area('footer_contact_information') %}
-                                {% if footerContactSnippet.content.contact.entity|default %}
+
+                                {% if contactInformation.content.contact.entity|default %}
                                     {% set contact = contactInformation.content.contact.entity %}
                                     {% set address = contact.accountAddresses[0].address %}
 
