@@ -13,12 +13,9 @@
                     <a class="similar-articles__link" href="{{ sulu_content_path(articleContent.routePath) }}">
                         <div class="similar-articles__image">
                             {# @see https://github.com/sulu/web-twig/blob/v2.4.0/docs/image.md #}
-                            {{ get_image(articleContent.headerImage, '400x400', {
-                                '(min-width: 400px)': '800x800',
-                                '(min-width: 768px)': '600x600',
-                                '(min-width: 992px)': '400x400',
-                            }) }}
+                            {{ get_image(articleContent.headerImage, '400x400') }}
                         </div>
+
                         <div class="similar-articles__content">
                             <h2 class="similar-articles__title">{{ articleContent.title }}</h2>
                             <p class="similar-articles__date" id="{{ register_component('timeago', { date: article.authored|date('c') }) }}"></p>

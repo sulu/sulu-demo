@@ -1,12 +1,6 @@
 {% set type = type|default('default') %}
 
 {% set class = '' %}
-{% set formats = {
-    default: '2560x300',
-    laptop: '1200x300',
-    tablet: '991x250',
-    mobile: '767x200',
-} %}
 
 {% set title = content.title %}
 {% set subtitle = content.subtitle|default %}
@@ -15,13 +9,6 @@
 
 {% if type == 'homepage' %}
     {% set class = ' header--large' %}
-
-    {% set formats = {
-        default: '2560x500',
-        laptop: '1200x500',
-        tablet: '991x400',
-        mobile: '767x300',
-    } %}
 
     {# TODO avoid sulu_content_load as its a heavy operation which should be avoided #}
     {# @see https://docs.sulu.io/en/2.1/reference/twig-extensions/functions/sulu_content_load.html #}
@@ -39,12 +26,10 @@
     {% if image %}
         {# @see https://github.com/sulu/web-twig/blob/v2.4.0/docs/image.md #}
         {{ get_image(image, {
-            'src': formats.default,
+            'src': '2560x',
             'class': 'header__image',
         }, {
-            '(max-width: 1200px)': formats.laptop,
-            '(max-width: 991px)': formats.tablet,
-            '(max-width: 767px)': formats.mobile,
+            '(max-width: 991px)': '991x',
         }) }}
     {% else %}
         <img src="/website/images/default-header-image.jpg" alt="Sulu Rocks" class="header__image"/>

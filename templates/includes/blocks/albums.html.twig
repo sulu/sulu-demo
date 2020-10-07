@@ -11,9 +11,7 @@
                     {% set image = sulu_resolve_media(album.image, app.request.locale) %}
 
                     {# @see https://github.com/sulu/web-twig/blob/v2.4.0/docs/image.md #}
-                    {{ get_image(image, {
-                        src: '400x400',
-                    }) }}
+                    {{ get_image(image, '400x400') }}
                 </div>
             {% endfor %}
         </div>

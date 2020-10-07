@@ -20,6 +20,27 @@
                             <title lang="de">Beschreibung</title>
                         </meta>
                     </property>
+
+                    <property name="image" type="single_media_selection">
+                        <!-- @see https://docs.sulu.io/en/2.1/reference/content-types/single_media_selection.html -->
+                        <meta>
+                            <title lang="en">Bild</title>
+                            <title lang="de">Image</title>
+                        </meta>
+
+                        <params>
+                            <param name="types" value="image"/>
+
+                            <param name="displayOptions" type="collection">
+                                <param name="top" value="true"/>
+                                <param name="right" value="true"/>
+                                <param name="left" value="true"/>
+                                <param name="bottom" value="true"/>
+                            </param>
+
+                            <param name="defaultDisplayOption" value="top"/>
+                        </params>
+                    </property>
                 </properties>
             </type>
         </types>

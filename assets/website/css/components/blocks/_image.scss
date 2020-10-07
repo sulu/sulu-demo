@@ -1,0 +1,40 @@
+$block-image-space: 15px;
+
+.block-image {
+    width: auto;
+    margin: 0 auto;
+}
+
+.block-image__top {
+    margin-bottom: $block-image-space;
+}
+
+.block-image__bottom {
+    margin-top: $block-image-space;
+}
+
+.block-image__left,
+.block-image__right {
+    max-width: 300px;
+    margin-bottom: $block-image-space;
+}
+
+.block-image__left {
+    float: left;
+    margin-right: $block-image-space;
+
+    @include media('<tablet') {
+        float: none;
+        margin-right: auto;
+    }
+}
+
+.block-image__right {
+    float: right;
+    margin-left: $block-image-space;
+
+    @include media('<tablet') {
+        float: none;
+        margin-left: auto;
+    }
+}
