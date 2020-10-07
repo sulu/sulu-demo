@@ -1,5 +1,39 @@
-<h2 class="block-title">{{ content.title }}</h2>
+{% set displayOption = view.image.displayOption|default('top') %}
 
-<div>
-    {{ content.description|raw }}
-</div>
+{# we write the image into a variable to and then place it at the correct position depending on displayOption #}
+{% set image %}
+    {% set defaultFormat = '1380x' %}
+    {% set mobileFormat = '991x' %}
+
+    {% if displayOption in ['left', 'right'] %}
+        {% set defaultFormat = '400x' %}
+        {% set mobileFormat = '400x' %}
+    {% endif %}
+
+    <div class="block-image block-image__{{ displayOption }}">
+        {# @see https://github.com/sulu/web-twig/blob/v2.4.0/docs/image.md #}
+        {{ get_image(content.image|default, defaultFormat, {
+            '(max-width: 991px)': mobileFormat,
+        }) }}
+    </div>
+{% endset %}
+
+{% if displayOption in ['top', 'left', 'right'] %}
+    {{ image }}
+{% endif %}
+
+{# h tag should only be outputted when a title is set #}
+{% if content.title %}
+    <h2 class="block-title">{{ content.title }}</h2>
+{% endif %}
+
+{# div tag should only be outputted when a description is set #}
+{% if content.description %}
+    <div>
+        {{ content.description|raw }}
+    </div>
+{% endif %}
+
+{% if displayOption in ['bottom'] %}
+    {{ image }}
+{% endif %}

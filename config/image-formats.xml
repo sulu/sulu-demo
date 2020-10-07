@@ -22,76 +22,40 @@
     <img src="{{ image.thumbnails['300x'] }}" alt="{{ image.title }}" title="{{ image.description|default(image.title) }}">
     -->
 
-    <format key="2560x300">
+    <format key="2560x">
         <meta>
-            <title lang="en">Header Image - 4K</title>
-            <title lang="de">Header Bild - 4K</title>
+            <title lang="en">Header Image</title>
+            <title lang="de">Header Bild</title>
         </meta>
 
-        <scale x="2560" y="300"/>
+        <scale x="2560"/>
     </format>
 
-    <format key="1200x300">
+    <format key="991x">
         <meta>
-            <title lang="en">Header Image - Laptop</title>
-            <title lang="de">Header Bild - Laptop</title>
+            <title lang="en">Header Image (Mobile) / Content Image (Mobile)</title>
+            <title lang="de">Header Bild (Mobile) / Content Image (Mobile)</title>
         </meta>
 
-        <scale x="1200" y="300"/>
+        <scale x="991"/>
     </format>
 
-    <format key="991x250">
+    <format key="1380x">
         <meta>
-            <title lang="en">Header Image - Tablet</title>
-            <title lang="de">Header Bild - Tablet</title>
+            <title lang="en">Content Image - Top/Bottom</title>
+            <title lang="de">Content Bild - Oben/Unten</title>
         </meta>
 
-        <scale x="991" y="250"/>
+        <scale x="1380"/>
     </format>
 
-    <format key="767x200">
+    <format key="400x">
         <meta>
-            <title lang="en">Header Image - Mobile</title>
-            <title lang="de">Header Bild - Mobile</title>
+            <title lang="en">Content Image - Left/Right</title>
+            <title lang="de">Content Bild - Links/Rechts</title>
         </meta>
 
-        <scale x="767" y="200"/>
-    </format>
-
-    <format key="2560x500">
-        <meta>
-            <title lang="en">Header Image Detail - 4K</title>
-            <title lang="de">Header Bild Detail - 4K</title>
-        </meta>
-
-        <scale x="2560" y="500"/>
-    </format>
-
-    <format key="1200x500">
-        <meta>
-            <title lang="en">Header Image Detail - Laptop</title>
-            <title lang="de">Header Bild Detail - Laptop</title>
-        </meta>
-
-        <scale x="1200" y="500"/>
-    </format>
-
-    <format key="991x400">
-        <meta>
-            <title lang="en">Header Image Detail - Tablet</title>
-            <title lang="de">Header Bild Detail - Tablet</title>
-        </meta>
-
-        <scale x="991" y="400"/>
-    </format>
-
-    <format key="767x300">
-        <meta>
-            <title lang="en">Header Image Detail - Mobile</title>
-            <title lang="de">Header Bild Detail - Mobile</title>
-        </meta>
-
-        <scale x="767" y="300"/>
+        <scale x="400"/>
     </format>
 
     <format key="600x400">
@@ -103,28 +67,10 @@
         <scale x="600" y="400"/>
     </format>
 
-    <format key="800x800">
-        <meta>
-            <title lang="en">Teaser - 800x800</title>
-            <title lang="de">Teaser - 800x800</title>
-        </meta>
-
-        <scale x="800" y="800"/>
-    </format>
-
-    <format key="600x600">
-        <meta>
-            <title lang="en">Teaser - 600x600</title>
-            <title lang="de">Teaser - 600x600</title>
-        </meta>
-
-        <scale x="600" y="600"/>
-    </format>
-
     <format key="400x400">
         <meta>
-            <title lang="en">Teaser - 400x400</title>
-            <title lang="de">Teaser - 400x400</title>
+            <title lang="en">Teaser - Square</title>
+            <title lang="de">Teaser - Quadrat</title>
         </meta>
 
         <scale x="400" y="400"/>

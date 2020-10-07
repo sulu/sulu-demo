@@ -49,10 +49,8 @@
                 <param name="types" value="image"/>
 
                 <param name="formats" type="collection">
-                    <param name="2560x300" />
-                    <param name="1200x300" />
-                    <param name="991x250" />
-                    <param name="767x200" />
+                    <param name="2560x" />
+                    <param name="991x" />
                 </param>
             </params>
         </property>
