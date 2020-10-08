@@ -1245,6 +1245,11 @@ class DocumentFixture implements DocumentFixtureInterface
         $articleDocument->setExtensionsData($extensionData);
 
         $documentManager->persist($articleDocument, $locale);
+
+        // need to flush article before publishing to generate and assign route
+        // TODO: find a solution that does not require a flush for this
+        $documentManager->flush();
+
         $documentManager->publish($articleDocument, $locale);
 
         return $articleDocument;
