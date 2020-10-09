@@ -1249,8 +1249,13 @@ class DocumentFixture implements DocumentFixtureInterface
         // need to flush article before publishing to generate and assign route
         // TODO: find a solution that does not require a flush for this
         $documentManager->flush();
-
         $documentManager->publish($articleDocument, $locale);
+
+        // need to flush and clear document manager after publishing article in specific locale
+        // otherwise, the route will be marked as history route when the article is published in another locale
+        // TODO: find a solution that does not require a clear when publishing an article in multiple locales
+        $documentManager->flush();
+        $documentManager->clear();
 
         return $articleDocument;
     }
