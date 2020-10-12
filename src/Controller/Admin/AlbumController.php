@@ -92,9 +92,7 @@ class AlbumController extends AbstractRestController implements ClassResourceInt
     protected function mapDataToEntity(array $data, Album $entity): void
     {
         $entity->setTitle($data['title']);
-        $entity->setImage(
-            $this->mediaManager->getEntityById($data['image']['id'])
-        );
+        $entity->setImage($data['image']['id'] ? $this->mediaManager->getEntityById($data['image']['id']) : null);
         $entity->setTracklist($data['tracklist']);
     }
 

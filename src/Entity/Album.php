@@ -41,9 +41,9 @@ class Album implements AuditableInterface
 
     /**
      * @ORM\ManyToOne(targetEntity=MediaInterface::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(onDelete="SET NULL")
      */
-    private MediaInterface $image;
+    private ?MediaInterface $image = null;
 
     /**
      * @var mixed[]
@@ -52,19 +52,15 @@ class Album implements AuditableInterface
      *
      * @Serializer\Expose()
      */
-    private array $tracklist;
+    private array $tracklist = [];
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getTitle(): ?string
+    public function getTitle(): string
     {
-        if (!isset($this->title)) {
-            return null;
-        }
-
         return $this->title;
     }
 
@@ -75,10 +71,6 @@ class Album implements AuditableInterface
 
     public function getImage(): ?MediaInterface
     {
-        if (!isset($this->image)) {
-            return null;
-        }
-
         return $this->image;
     }
 
@@ -99,20 +91,16 @@ class Album implements AuditableInterface
         return null;
     }
 
-    public function setImage(MediaInterface $image): void
+    public function setImage(?MediaInterface $image): void
     {
         $this->image = $image;
     }
 
     /**
-     * @return mixed[]|null
+     * @return mixed[]
      */
-    public function getTracklist(): ?array
+    public function getTracklist(): array
     {
-        if (!isset($this->tracklist)) {
-            return null;
-        }
-
         return $this->tracklist;
     }
 

@@ -25,7 +25,9 @@
 }
 
 .albums__link {
+    background-color: lightgray;
     cursor: pointer;
+    height: 300px;
     margin-left: auto;
     position: relative;
     transition: transform 0.2s ease, opacity 0.2s ease;

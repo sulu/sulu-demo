@@ -15,7 +15,7 @@
             </params>
         </property>
 
-        <property name="image" type="single_media_selection" mandatory="true">
+        <property name="image" type="single_media_selection">
             <meta>
                 <title>app.image</title>
             </meta>
@@ -24,7 +24,7 @@
             </params>
         </property>
 
-        <block name="tracklist" default-type="track" minOccurs="1" mandatory="true">
+        <block name="tracklist" default-type="track" minOccurs="1">
             <meta>
                 <title>app.tracklist</title>
             </meta>
