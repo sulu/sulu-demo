@@ -85,9 +85,9 @@
 
                             <params>
                                 <param name="properties" type="collection">
-                                    <param name="title" value="title"/>
                                     <param name="headerImage" value="headerImage"/>
-                                    <param name="url" value="url"/>
+                                    <param name="excerptTitle" value="excerpt.title"/>
+                                    <param name="excerptImages" value="excerpt.images"/>
                                 </param>
                             </params>
                         </property>

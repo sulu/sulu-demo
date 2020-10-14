@@ -1,30 +1,34 @@
 <div class="article-list">
     {% for article in element.articles %}
-        <div class="article-list__item">
-            {% set article = article.content %}
-            {% set title = article.excerpt.title|default(article.title) %}
-            {% set link = sulu_content_path(article.routePath) %}
+        {% set article = article.content %}
 
-            {% if article.excerpt.images|length %}
-                {% set image = article.excerpt.images[0]|default %}
+        <a href="{{ sulu_content_path(article.routePath) }}" class="article-list__item">
+            {% set image = article.excerpt.images[0]|default(article.content.headerImage|default) %}
 
-                {% if image %}
-                    <div class="article-list__item-image">
-                        <a href="{{ link }}">
-                            {# @see https://github.com/sulu/web-twig/blob/v2.4.0/docs/image.md #}
-                            {{ get_image(image, '600x400') }}
-                        </a>
-                    </div>
-                {% endif %}
+            {% if image %}
+                <div class="article-list__item-image">
+                    {# @see https://github.com/sulu/web-twig/blob/v2.4.0/docs/image.md #}
+                    {{ get_image(image, '600x400') }}
+                </div>
             {% endif %}
 
             <div class="article-list__item-content">
                 <p class="article-list__item-date">{{ article.authored|date('d.m.Y') }}</p>
-                <h2 class="article-list__item-title"><a href="{{ link }}">{{ title }}</a></h2>
+
+                <h2 class="article-list__item-title">
+                    {{ article.excerpt.title|default(article.title) }}
+                </h2>
+
                 <p class="posted-by">{{ 'posted_by'|trans }} <span>{{ article.authorFullName }}</span></p>
-                <div class="article-list__item-description">{{ article.excerpt.description|default|raw }}</div>
-                <a class="article-list__item-button button" href="{{ link }}">{{ article.excerpt.more|default('read_more'|trans) }}</a>
+
+                <div class="article-list__item-description">
+                    {{ article.excerpt.description|default|raw }}
+                </div>
+
+                <span class="article-list__item-button button">
+                    {{ article.excerpt.more|default('read_more'|trans) }}
+                </span>
             </div>
-        </div>
+        </a>
     {% endfor %}
 </div>
