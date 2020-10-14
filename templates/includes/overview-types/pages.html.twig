@@ -1,25 +1,29 @@
 <div class="grid">
     {% for page in element.pages %}
         <div class="grid__item width-4 width-tablet-6 width-mobile-12">
-            <div class="card">
+            <a class="card" href="{{ sulu_content_path(page.url) }}">
                 <div class="card__image-holder">
+                    {% set image = page.excerptImages[0]|default(page.headerImage) %}
+
                     {# @see https://github.com/sulu/web-twig/blob/v2.4.0/docs/image.md #}
-                    {{ get_image(page.headerImage, {
+                    {{ get_image(image, {
                         src: '600x400',
                         class: 'card__image',
                     }) }}
 
-                    <a href="{{ sulu_content_path(page.url) }}" class="card__image-overlay">
-                        <h2 class="card__image-title">{{ page.title }}</h2>
-                    </a>
+                    <div class="card__image-overlay">
+                        <h2 class="card__image-title">{{ page.excerptTitle|default(page.title) }}</h2>
+                    </div>
                 </div>
 
                 <div class="card__body">
-                    <h2 class="card__title"><a href="{{ sulu_content_path(page.url) }}">{{ page.title }}</a></h2>
+                    <h2 class="card__title">
+                        {{ page.excerptTitle|default(page.title) }}
+                    </h2>
 
-                    <a href="{{ sulu_content_path(page.url) }}" class="button card__button">{{ 'read_more'|trans }}</a>
+                    <span class="button card__button">{{ 'read_more'|trans }}</span>
                 </div>
-            </div>
+            </a>
         </div>
     {% endfor %}
 </div>
