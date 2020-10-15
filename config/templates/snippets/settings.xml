@@ -3,19 +3,19 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
 
-    <key>contact_information</key>
+    <key>settings</key>
 
     <meta>
-        <title lang="en">Contact Information</title>
-        <title lang="de">Kontaktinformation</title>
+        <title lang="en">Settings</title>
+        <title lang="de">Settings</title>
     </meta>
 
     <areas>
         <!-- @see https://docs.sulu.io/en/2.1/cookbook/default-snippets.html -->
-        <area key="footer_contact_information">
+        <area key="webspace_settings">
             <meta>
-                <title lang="en">Footer Contact Information</title>
-                <title lang="de">Footer Kontaktinformation</title>
+                <title lang="en">Webspace Settings</title>
+                <title lang="de">Webspace Settings</title>
             </meta>
         </area>
     </areas>
@@ -30,10 +30,10 @@
             <tag name="sulu.node.name"/>
         </property>
 
-        <property name="contact" type="single_account_selection" mandatory="true">
+        <property name="account" type="single_account_selection" mandatory="true">
             <meta>
-                <title lang="en">Contact</title>
-                <title lang="de">Kontakt</title>
+                <title lang="en">Organizations</title>
+                <title lang="de">Organisation</title>
             </meta>
         </property>
     </properties>
