@@ -1042,15 +1042,15 @@ class DocumentFixture implements DocumentFixtureInterface
     {
         $data = [
             'locale' => AppFixture::LOCALE_EN,
-            'title' => 'Contact Information - Footer',
-            'contact' => [
+            'title' => 'Demo Settings',
+            'account' => [
                 'id' => 1,
             ],
         ];
 
-        $snippetDocument = $this->createSnippet($documentManager, 'contact_information', $data);
+        $snippetDocument = $this->createSnippet($documentManager, 'settings', $data);
 
-        $this->defaultSnippetManager->save('demo', 'footer_contact_information', $snippetDocument->getUuid(), AppFixture::LOCALE_EN);
+        $this->defaultSnippetManager->save('demo', 'webspace_settings', $snippetDocument->getUuid(), AppFixture::LOCALE_EN);
 
         return $snippetDocument;
     }
@@ -1063,15 +1063,15 @@ class DocumentFixture implements DocumentFixtureInterface
         $data = [
             'id' => $snippetDocument->getUuid(),
             'locale' => AppFixture::LOCALE_DE,
-            'title' => 'Kontaktinformation - Footer',
-            'contact' => [
+            'title' => 'Einstellungen Demo',
+            'account' => [
                 'id' => 1,
             ],
         ];
 
-        $snippetDocument = $this->createSnippet($documentManager, 'contact_information', $data);
+        $snippetDocument = $this->createSnippet($documentManager, 'settings', $data);
 
-        $this->defaultSnippetManager->save('demo', 'footer_contact_information', $snippetDocument->getUuid(), AppFixture::LOCALE_DE);
+        $this->defaultSnippetManager->save('demo', 'webspace_settings', $snippetDocument->getUuid(), AppFixture::LOCALE_DE);
     }
 
     /**

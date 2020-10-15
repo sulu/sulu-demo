@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ app.request.locale|split('_')[0] }}">
 <head>
+    {# @see https://docs.sulu.io/en/2.1/reference/twig-extensions/functions/sulu_snippet_load_by_area.html #}
+    {% set webspaceSettings = sulu_snippet_load_by_area('webspace_settings') %}
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
