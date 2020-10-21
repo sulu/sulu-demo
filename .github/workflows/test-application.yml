@@ -20,6 +20,15 @@ jobs:
                     - 3306:3306
                 options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
+            elasticsearch:
+                image: elasticsearch:7.8.0
+                env:
+                    discovery.type: single-node
+                    xpack.security.enabled: 'false'
+                ports:
+                    - 9200:9200
+                options: --health-cmd="curl http://localhost:9200/_cluster/health" --health-interval=10s --health-timeout=5s --health-retries=3
+
         steps:
             - name: Checkout project
               uses: actions/checkout@v2
@@ -43,7 +52,9 @@ jobs:
                   key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
 
             - name: Install dependencies
-              run: composer install --no-interaction --prefer-dist --no-scripts
+              run: |
+                  composer install --no-interaction --prefer-dist --no-scripts
+                  composer test install
 
             - name: Lint code
               run: |
@@ -60,7 +71,7 @@ jobs:
               run: bin/console sulu:build dev --destroy
 
     js-css-website:
-        name: JavaScript and CSS (Website)
+        name: JS and CSS / Website
         runs-on: ubuntu-latest
         defaults:
             run:
@@ -82,7 +93,7 @@ jobs:
             - name: Cache dependencies
               uses: actions/cache@v2
               with:
-                  path: ${{ npm.composer-cache-dir.outputs.dir }}
+                  path: ${{ steps.npm-cache-dir.outputs.dir }}
                   key: ${{ runner.os }}-composer-${{ hashFiles('**/package-lock.json') }}
 
             - name: Install dependencies
