@@ -1,0 +1,95 @@
+name: Test Application
+
+on:
+    pull_request:
+    push:
+        branches:
+            - master
+
+jobs:
+    php:
+        name: PHP
+        runs-on: ubuntu-latest
+
+        services:
+            mysql:
+                image: mysql:5.7
+                env:
+                    MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+                ports:
+                    - 3306:3306
+                options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+        steps:
+            - name: Checkout project
+              uses: actions/checkout@v2
+
+            - name: Install and configure PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: '7.4'
+                  extensions: ctype, iconv, mysql
+                  coverage: none
+                  tools: composer
+
+            - name: Get composer cache directory
+              id: composer-cache-dir
+              run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+            - name: Cache dependencies
+              uses: actions/cache@v2
+              with:
+                  path: ${{ steps.composer-cache-dir.outputs.dir }}
+                  key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+
+            - name: Install dependencies
+              run: composer install --no-interaction --prefer-dist --no-scripts
+
+            - name: Lint code
+              run: |
+                  bin/adminconsole doctrine:database:create --if-not-exists
+                  bin/adminconsole doctrine:schema:update --force
+                  composer lint
+
+            - name: Execute test cases
+              run: |
+                  composer bootstrap-test-environment
+                  composer test
+
+            - name: Test project initialization
+              run: bin/console sulu:build dev --destroy
+
+    js-css-website:
+        name: JavaScript and CSS (Website)
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: assets/website
+
+        steps:
+            - name: Checkout project
+              uses: actions/checkout@v2
+
+            - name: Install and configure Node
+              uses: actions/setup-node@v2-beta
+              with:
+                  node-version: '12'
+
+            - name: Get npm cache directory
+              id: npm-cache-dir
+              run: echo "::set-output name=dir::$(npm config get cache)"
+
+            - name: Cache dependencies
+              uses: actions/cache@v2
+              with:
+                  path: ${{ npm.composer-cache-dir.outputs.dir }}
+                  key: ${{ runner.os }}-composer-${{ hashFiles('**/package-lock.json') }}
+
+            - name: Install dependencies
+              run: npm install --ignore-optional
+
+            - name: Lint code
+              run: npm run lint
+
+            - name: Test build
+              run: npm run build

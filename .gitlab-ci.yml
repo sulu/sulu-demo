@@ -3,6 +3,7 @@ variables:
     APP_SECRET: a448d1dfcaa563fce56c2fd9981f662b
     MAILER_URL: null://localhost
     DATABASE_URL: "mysql://root:root@${MYSQL_HOST}:3306/su_sulu"
+    ELASTICSEARCH_HOST: elasticsearch:9200
     EMAIL_FROM_ADDRESS: admin@localhost
     COMPOSER_PROCESS_TIMEOUT: "1200" # int is not supported by local gitlab-runner
     MYSQL_ROOT_PASSWORD: root
@@ -32,29 +33,40 @@ composer:
         paths:
             - .composer-cache/
 
-test:
-    stage: test
-    image: sulu/php:7.4-cli
-    services:
-        - mysql:5.7
-    before_script:
-        - php bin/adminconsole doctrine:database:create
-        - php bin/adminconsole doctrine:schema:update --force
-    script:
-        - php composer.phar test
-
 lint:
     stage: test
     image: sulu/php:7.4-cli
     services:
         - mysql:5.7
     before_script:
-        - php bin/adminconsole doctrine:database:create
+        - php bin/adminconsole doctrine:database:create --if-not-exists
         - php bin/adminconsole doctrine:schema:update --force
     script:
         - php composer.phar lint
 
-js-css:
+test:
+    stage: test
+    image: sulu/php:7.4-cli
+    services:
+        - mysql:5.7
+    before_script:
+        - php composer.phar bootstrap-test-environment
+    script:
+        - php composer.phar test
+
+build:
+    stage: test
+    tags:
+        - medium
+    image: sulu/php:7.4-cli
+    services:
+        - mysql:5.7
+        - name: elasticsearch:7.8.0
+          command: [ "bin/elasticsearch", "-Expack.security.enabled=false", "-Ediscovery.type=single-node" ]
+    script:
+        - php bin/console sulu:build dev --destroy
+
+js-css-website:
     stage: test
     image: node:12
     dependencies: []
@@ -66,6 +78,7 @@ js-css:
         - cd assets/website
         - npm install --ignore-optional
         - npm run lint
+        - npm run build
     cache:
         key: npm
         paths:
