@@ -32,7 +32,7 @@ class SingleAlbumSelection extends SimpleContentType
     }
 
     /**
-     * @return array<string, array<int>>
+     * @return array<string, int|null>
      */
     public function getViewData(PropertyInterface $property): array
     {
