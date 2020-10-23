@@ -61,7 +61,7 @@ class Album implements AuditableInterface
 
     public function getTitle(): string
     {
-        return $this->title;
+        return $this->title ?? '';
     }
 
     public function setTitle(string $title): void

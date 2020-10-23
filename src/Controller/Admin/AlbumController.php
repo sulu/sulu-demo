@@ -8,6 +8,7 @@ use App\Common\DoctrineListRepresentationFactory;
 use App\Entity\Album;
 use App\Repository\AlbumRepository;
 use FOS\RestBundle\View\ViewHandlerInterface;
+use HandcraftedInTheAlps\RestRoutingBundle\Controller\Annotations\RouteResource;
 use HandcraftedInTheAlps\RestRoutingBundle\Routing\ClassResourceInterface;
 use Sulu\Bundle\MediaBundle\Media\Manager\MediaManagerInterface;
 use Sulu\Component\Rest\AbstractRestController;
@@ -17,6 +18,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
+/**
+ * @RouteResource("album")
+ */
 class AlbumController extends AbstractRestController implements ClassResourceInterface, SecuredControllerInterface
 {
     private DoctrineListRepresentationFactory $doctrineListRepresentationFactory;
@@ -91,8 +95,10 @@ class AlbumController extends AbstractRestController implements ClassResourceInt
      */
     protected function mapDataToEntity(array $data, Album $entity): void
     {
+        $imageId = $data['image']['id'] ?? null;
+
         $entity->setTitle($data['title']);
-        $entity->setImage($data['image']['id'] ? $this->mediaManager->getEntityById($data['image']['id']) : null);
+        $entity->setImage($imageId ? $this->mediaManager->getEntityById($data['image']['id']) : null);
         $entity->setTracklist($data['tracklist']);
     }
 
