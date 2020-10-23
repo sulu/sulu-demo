@@ -18,6 +18,10 @@ import 'sulu-snippet-bundle';
 import 'sulu-website-bundle';
 
 // Implement custom extensions here
+import {listItemActionRegistry} from 'sulu-admin-bundle/views';
+import AlertNameItemAction from "./listItemActions/AlertNameItemAction";
+
+listItemActionRegistry.add('app.alert_name', AlertNameItemAction);
 
 // Start admin application
 startAdmin();
