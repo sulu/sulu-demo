@@ -11,6 +11,10 @@ sulu_admin:
             routes:
                 list: 'app.get_albums'
                 detail: 'app.get_album'
+        events:
+            routes:
+                list: 'app.get_events'
+                detail: 'app.get_event'
     field_type_options:
         selection:
             album_selection:
