@@ -82,6 +82,16 @@ class AlbumControllerTest extends SuluTestCase
         $this->assertSame($album->getTracklist(), $result['tracklist']);
     }
 
+    public function testGetNotExisting(): void
+    {
+        $this->client->request('GET', '/admin/api/albums/9999');
+
+        $response = $this->client->getResponse();
+        $this->assertInstanceOf(Response::class, $response);
+        $result = json_decode($response->getContent() ?: '', true);
+        $this->assertHttpStatusCode(404, $response);
+    }
+
     public function testPost(): void
     {
         $this->client->request(
@@ -170,6 +180,26 @@ class AlbumControllerTest extends SuluTestCase
                 ],
                 $result->getTracklist()
             );
+    }
+
+    public function testPutNotExisting(): void
+    {
+        $this->client->request(
+            'PUT',
+            '/admin/api/albums/9999',
+            [
+                'title' => 'The Wolves',
+                'tracklist' => [
+                    ['type' => 'track', 'title' => 'Battle in the Nature', 'interpreter' => 'Coyoos'],
+                    ['type' => 'track', 'title' => 'Mercy on the Road', 'interpreter' => 'Coyoos'],
+                ],
+            ]
+        );
+
+        $response = $this->client->getResponse();
+        $this->assertInstanceOf(Response::class, $response);
+        $result = json_decode($response->getContent() ?: '', true);
+        $this->assertHttpStatusCode(404, $response);
     }
 
     public function testDelete(): void

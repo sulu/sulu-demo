@@ -5,17 +5,17 @@ declare(strict_types=1);
 namespace App\Content\Type;
 
 use App\Entity\Album;
-use App\Repository\AlbumRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Sulu\Component\Content\Compat\PropertyInterface;
 use Sulu\Component\Content\SimpleContentType;
 
 class SingleAlbumSelection extends SimpleContentType
 {
-    protected AlbumRepository $albumRepository;
+    protected EntityManagerInterface $entityManager;
 
-    public function __construct(AlbumRepository $albumRepository)
+    public function __construct(EntityManagerInterface $entityManager)
     {
-        $this->albumRepository = $albumRepository;
+        $this->entityManager = $entityManager;
 
         parent::__construct('single_album_selection', null);
     }
@@ -28,7 +28,7 @@ class SingleAlbumSelection extends SimpleContentType
             return $this->defaultValue;
         }
 
-        return $this->albumRepository->find($id);
+        return $this->entityManager->getRepository(Album::class)->find($id);
     }
 
     /**

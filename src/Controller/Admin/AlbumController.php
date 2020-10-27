@@ -6,7 +6,7 @@ namespace App\Controller\Admin;
 
 use App\Common\DoctrineListRepresentationFactory;
 use App\Entity\Album;
-use App\Repository\AlbumRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use FOS\RestBundle\View\ViewHandlerInterface;
 use HandcraftedInTheAlps\RestRoutingBundle\Controller\Annotations\RouteResource;
 use HandcraftedInTheAlps\RestRoutingBundle\Routing\ClassResourceInterface;
@@ -24,18 +24,18 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 class AlbumController extends AbstractRestController implements ClassResourceInterface, SecuredControllerInterface
 {
     private DoctrineListRepresentationFactory $doctrineListRepresentationFactory;
-    private AlbumRepository $albumRepository;
+    private EntityManagerInterface $entityManager;
     private MediaManagerInterface $mediaManager;
 
     public function __construct(
         DoctrineListRepresentationFactory $doctrineListRepresentationFactory,
-        AlbumRepository $albumRepository,
+        EntityManagerInterface $entityManager,
         MediaManagerInterface $mediaManager,
         ViewHandlerInterface $viewHandler,
         ?TokenStorageInterface $tokenStorage = null
     ) {
         $this->doctrineListRepresentationFactory = $doctrineListRepresentationFactory;
-        $this->albumRepository = $albumRepository;
+        $this->entityManager = $entityManager;
         $this->mediaManager = $mediaManager;
 
         parent::__construct($viewHandler, $tokenStorage);
@@ -52,7 +52,7 @@ class AlbumController extends AbstractRestController implements ClassResourceInt
 
     public function getAction(int $id): Response
     {
-        $album = $this->albumRepository->find($id);
+        $album = $this->entityManager->getRepository(Album::class)->find($id);
         if (!$album) {
             throw new NotFoundHttpException();
         }
@@ -62,30 +62,34 @@ class AlbumController extends AbstractRestController implements ClassResourceInt
 
     public function putAction(Request $request, int $id): Response
     {
-        $album = $this->albumRepository->find($id);
+        $album = $this->entityManager->getRepository(Album::class)->find($id);
         if (!$album) {
             throw new NotFoundHttpException();
         }
 
         $this->mapDataToEntity($request->request->all(), $album);
-        $this->albumRepository->save($album);
+        $this->entityManager->flush();
 
         return $this->handleView($this->view($album));
     }
 
     public function postAction(Request $request): Response
     {
-        $album = $this->albumRepository->create();
+        $album = new Album();
 
         $this->mapDataToEntity($request->request->all(), $album);
-        $this->albumRepository->save($album);
+        $this->entityManager->persist($album);
+        $this->entityManager->flush();
 
         return $this->handleView($this->view($album, 201));
     }
 
     public function deleteAction(int $id): Response
     {
-        $this->albumRepository->remove($id);
+        /** @var Album $album */
+        $album = $this->entityManager->getReference(Album::class, $id);
+        $this->entityManager->remove($album);
+        $this->entityManager->flush();
 
         return $this->handleView($this->view(null, 204));
     }

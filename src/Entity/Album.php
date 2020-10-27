@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\Repository\AlbumRepository;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
 use Sulu\Bundle\MediaBundle\Entity\MediaInterface;
@@ -10,7 +9,7 @@ use Sulu\Component\Persistence\Model\AuditableInterface;
 use Sulu\Component\Persistence\Model\AuditableTrait;
 
 /**
- * @ORM\Entity(repositoryClass=AlbumRepository::class)
+ * @ORM\Entity()
  * @ORM\Table(name="app_album")
  * @Serializer\ExclusionPolicy("all")
  */
