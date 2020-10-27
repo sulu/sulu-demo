@@ -646,7 +646,7 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
             throw new \RuntimeException(sprintf('Image "%s" could not be found!', $data['image']));
         }
 
-        $album = $manager->getRepository(Album::class)->create();
+        $album = new Album();
         $album->setTitle($data['title']);
         $album->setImage($media);
         $album->setTracklist($data['tracklist']);
