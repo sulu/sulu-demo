@@ -32,8 +32,11 @@
 
         <property name="account" type="single_account_selection" mandatory="true">
             <meta>
-                <title lang="en">Organizations</title>
+                <title lang="en">Organization</title>
+                <info_text lang="en">The selected organization will be used for displaying contact informations on the website.</info_text>
+
                 <title lang="de">Organisation</title>
+                <info_text lang="de">Die ausgewählte Organisation zur Darstellung von Kontaktinformationen auf der Webseite verwendet.</info_text>
             </meta>
         </property>
     </properties>
