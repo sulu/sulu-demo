@@ -28,7 +28,7 @@ class AlbumSelection extends SimpleContentType
         $ids = $property->getValue();
 
         if (empty($ids)) {
-            return $this->defaultValue;
+            return [];
         }
 
         $albums = $this->entityManager->getRepository(Album::class)->findBy(['id' => $ids]);

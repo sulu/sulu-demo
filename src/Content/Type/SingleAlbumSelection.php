@@ -25,7 +25,7 @@ class SingleAlbumSelection extends SimpleContentType
         $id = $property->getValue();
 
         if (empty($id)) {
-            return $this->defaultValue;
+            return null;
         }
 
         return $this->entityManager->getRepository(Album::class)->find($id);
