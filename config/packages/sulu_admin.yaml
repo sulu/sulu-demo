@@ -16,6 +16,10 @@ sulu_admin:
             album_selection:
                 default_type: 'list_overlay'
                 resource_key: 'albums'
+                view:
+                    name: 'app.album.edit_form'
+                    result_to_view:
+                        id: 'id'
                 types:
                     list_overlay:
                         adapter: 'table'
@@ -29,6 +33,10 @@ sulu_admin:
             single_album_selection:
                 default_type: 'list_overlay'
                 resource_key: 'albums'
+                view:
+                    name: 'app.album.edit_form'
+                    result_to_view:
+                        id: 'id'
                 types:
                     list_overlay:
                         adapter: 'table'
