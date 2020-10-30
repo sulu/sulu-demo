@@ -9,5 +9,9 @@
     "app.album_selection_label": "{count} {count, plural, =1 {album} other {albums}} selected",
     "app.select_albums": "Select albums",
     "app.no_album_selected": "No album selected",
-    "app.select_album": "Select album"
+    "app.select_album": "Select album",
+    "app.event_selection_label": "{count} {count, plural, =1 {event} other {events}} selected",
+    "app.select_events": "Select events",
+    "app.no_event_selected": "No event selected",
+    "app.select_event": "Select event"
 }
