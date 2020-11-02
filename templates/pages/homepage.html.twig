@@ -5,5 +5,7 @@
 {% endblock %}
 
 {% block contentBody %}
+    Price Content Type Value: {{ content.price|default('not set') }}
+
     {% include 'includes/blocks.html.twig' %}
 {% endblock %}
