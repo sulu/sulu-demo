@@ -13,5 +13,9 @@
     "app.select_album": "Album auswählen",
     "app.events": "Events",
     "app.start_date": "Startdatum",
-    "app.end_date": "Enddatum"
+    "app.end_date": "Enddatum",
+    "app.event_selection_label": "{count} {count, plural, =1 {Event} other {Events}} ausgewählt",
+    "app.select_events": "Events auswählen",
+    "app.no_event_selected": "Kein Event ausgewählt",
+    "app.select_event": "Event auswählen"
 }

@@ -44,3 +44,9 @@ services:
 
     App\Content\Type\AlbumSelection:
         tags: [{name: 'sulu.content.type', alias: 'album_selection'}]
+
+    App\Content\Type\SingleEventSelection:
+        tags: [ { name: 'sulu.content.type', alias: 'single_event_selection' } ]
+
+    App\Content\Type\EventSelection:
+        tags: [ { name: 'sulu.content.type', alias: 'event_selection' } ]
