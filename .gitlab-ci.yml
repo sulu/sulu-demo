@@ -17,6 +17,7 @@ prepare-deployemnt:
     stage: trigger
     image: curlimages/curl:latest
     script:
+        # trigger pipeline of deployment project: https://docs.gitlab.com/ee/ci/triggers/README.html#ci-job-token
         - curl --request POST --form "token=$CI_JOB_TOKEN" --form "ref=master" "$CI_SERVER_URL/api/v4/projects/46/trigger/pipeline"
     only:
         - master
