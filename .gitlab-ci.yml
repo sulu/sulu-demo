@@ -9,8 +9,17 @@ variables:
     MYSQL_ROOT_PASSWORD: root
 
 stages:
+    - prepare-deployemnt
     - install
     - test
+
+prepare-deployemnt:
+    stage: prepare-deployemnt
+    trigger:
+        project: devops/demo-deployment
+        strategy: depend
+    only:
+        - master
 
 composer:
     stage: install
