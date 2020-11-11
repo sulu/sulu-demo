@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<form xmlns="http://schemas.sulu.io/template/template"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/form-1.0.xsd"
+>
+    <key>page_block_settings</key>
+
+    <properties>
+        <section name="custom">
+            <properties>
+                <property name="theme" type="single_select">
+                    <meta>
+                        <title lang="en">Block Theme</title>
+                        <title lang="de">Block Theme</title>
+                    </meta>
+
+                    <params>
+                        <param name="default_value" value=""/>
+
+                        <param name="values" type="collection">
+                            <param name="">
+                                <meta>
+                                    <title lang="en">Default</title>
+                                    <title lang="de">Standard</title>
+                                </meta>
+                            </param>
+
+                            <param name="highlight">
+                                <meta>
+                                    <title lang="en">Highlight</title>
+                                    <title lang="de">Highlight</title>
+                                </meta>
+                            </param>
+                        </param>
+                    </params>
+                </property>
+            </properties>
+        </section>
+    </properties>
+</form>
