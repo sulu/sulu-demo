@@ -38,32 +38,50 @@
             <tag name="sulu.rlp"/>
         </property>
 
-        <property name="subtitle" type="text_line">
+        <section name="header">
             <meta>
-                <title lang="en">Subtitle</title>
-                <title lang="de">Untertitel</title>
-            </meta>
-        </property>
-
-        <property name="headerImage" type="single_media_selection">
-            <!-- @see https://docs.sulu.io/en/2.1/reference/content-types/single_media_selection.html -->
-            <meta>
-                <title lang="en">Image</title>
-                <title lang="de">Bild</title>
+                <title lang="en">Header</title>
+                <title lang="de">Header</title>
             </meta>
 
-            <params>
-                <param name="types" value="image"/>
+            <properties>
+                <property name="subtitle" type="text_line">
+                    <meta>
+                        <title lang="en">Subtitle</title>
+                        <title lang="de">Untertitel</title>
+                    </meta>
+                </property>
 
-                <param name="formats" type="collection">
-                    <param name="2560x" />
-                    <param name="991x" />
-                </param>
-            </params>
-        </property>
+                <property name="headerImage" type="single_media_selection">
+                    <!-- @see https://docs.sulu.io/en/2.1/reference/content-types/single_media_selection.html -->
+                    <meta>
+                        <title lang="en">Image</title>
+                        <title lang="de">Bild</title>
+                    </meta>
 
-        <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
-        <xi:include href="../includes/blocks.xml"
-                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block)"/>
+                    <params>
+                        <param name="types" value="image"/>
+
+                        <param name="formats" type="collection">
+                            <param name="2560x" />
+                            <param name="991x" />
+                        </param>
+                    </params>
+                </property>
+            </properties>
+        </section>
+
+        <section name="content">
+            <meta>
+                <title lang="en">Content</title>
+                <title lang="de">Inhalte</title>
+            </meta>
+
+            <properties>
+                <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+                <xi:include href="../includes/blocks.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block)"/>
+            </properties>
+        </section>
     </properties>
 </template>

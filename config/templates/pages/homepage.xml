@@ -53,15 +53,33 @@
             <tag name="sulu.rlp"/>
         </property>
 
-        <property name="teaser" type="single_page_selection">
+        <section name="header">
             <meta>
-                <title lang="en">Teaser</title>
-                <title lang="de">Teaser</title>
+                <title lang="en">Header</title>
+                <title lang="de">Header</title>
             </meta>
-        </property>
 
-        <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
-        <xi:include href="../includes/blocks.xml"
-                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block)"/>
+            <properties>
+                <property name="teaser" type="single_page_selection">
+                    <meta>
+                        <title lang="en">Teaser</title>
+                        <title lang="de">Teaser</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>
+
+        <section name="content">
+            <meta>
+                <title lang="en">Content</title>
+                <title lang="de">Inhalte</title>
+            </meta>
+
+            <properties>
+                <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+                <xi:include href="../includes/blocks.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block)"/>
+            </properties>
+        </section>
     </properties>
 </template>
