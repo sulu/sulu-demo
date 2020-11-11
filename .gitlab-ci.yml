@@ -9,15 +9,15 @@ variables:
     MYSQL_ROOT_PASSWORD: root
 
 stages:
-    - prepare-deployemnt
+    - trigger
     - install
     - test
 
 prepare-deployemnt:
-    stage: prepare-deployemnt
-    trigger:
-        project: devops/demo-deployment
-        strategy: depend
+    stage: trigger
+    image: curlimages/curl:latest
+    script:
+        - curl --request POST --form "token=$CI_JOB_TOKEN" --form ref=master https://gitlab.sulu.io/api/v4/projects/46/trigger/pipeline
     only:
         - master
 
