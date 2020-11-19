@@ -6,10 +6,10 @@ sulu_document_manager:
         default:
             backend: '%app.phpcr_backend%'
             workspace: "%env(PHPCR_WORKSPACE)%"
-            username: admin
-            password: admin
+            username: "%env(PHPCR_USER)%"
+            password: "%env(PHPCR_PASSWORD)%"
         live:
             backend: '%app.phpcr_backend%'
             workspace: "%env(PHPCR_WORKSPACE)%_live"
-            username: admin
-            password: admin
+            username: "%env(PHPCR_USER)%"
+            password: "%env(PHPCR_PASSWORD)%"
