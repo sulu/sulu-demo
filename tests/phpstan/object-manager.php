@@ -29,6 +29,8 @@ $resolveTargetEntityListener = current(array_filter(
         return $listener instanceof ResolveTargetEntityListener;
     }
 ));
-$objectManager->getEventManager()->removeEventListener([Events::loadClassMetadata], $resolveTargetEntityListener);
+if ($resolveTargetEntityListener) {
+    $objectManager->getEventManager()->removeEventListener([Events::loadClassMetadata], $resolveTargetEntityListener);
+}
 
 return $objectManager;
