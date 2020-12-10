@@ -9,8 +9,8 @@ use Doctrine\ORM\Tools\ResolveTargetEntityListener;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Dotenv\Dotenv;
 
-require dirname(dirname(__DIR__)) . '/vendor/autoload.php';
-(new Dotenv())->bootEnv(dirname(dirname(__DIR__)) . '/.env');
+require dirname(__DIR__, 2) . '/vendor/autoload.php';
+(new Dotenv())->bootEnv(dirname(__DIR__, 2) . '/.env');
 
 $kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG'], Kernel::CONTEXT_ADMIN);
 $kernel->boot();

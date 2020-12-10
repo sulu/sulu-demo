@@ -11,11 +11,11 @@
         <ini name="error_reporting" value="-1" />
         <server name="APP_ENV" value="test" force="true" />
         <server name="SHELL_VERBOSITY" value="-1" />
-        <!-- Set the phpunit version: https://symfony.com/doc/current/components/phpunit_bridge.html#modified-phpunit-script -->
-        <server name="SYMFONY_PHPUNIT_VERSION" value="8.5" />
         <!-- See: https://symfony.com/doc/current/components/phpunit_bridge.html#modified-phpunit-script -->
         <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak"/>
-        <!-- Set "SYMFONY_PHPUNIT_REMOVE" to "symfony/yaml" will install also "prophecy" see phpunit bridge docs for more information. -->
+        <!-- Set "SYMFONY_PHPUNIT_VERSION" to use fixed phpunit version: https://symfony.com/doc/current/components/phpunit_bridge.html#modified-phpunit-script -->
+        <server name="SYMFONY_PHPUNIT_VERSION" value="8.5" />
+        <!-- Set "SYMFONY_PHPUNIT_REMOVE" to "symfony/yaml" to install "prophecy": https://symfony.com/doc/current/components/phpunit_bridge.html#modified-phpunit-script -->
         <server name="SYMFONY_PHPUNIT_REMOVE" value="symfony/yaml"/>
     </php>
 
@@ -30,9 +30,5 @@
             <directory>src</directory>
         </whitelist>
     </filter>
-
-    <listeners>
-        <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
-    </listeners>
 </phpunit>
 

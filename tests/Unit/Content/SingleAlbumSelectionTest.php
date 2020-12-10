@@ -24,7 +24,7 @@ class SingleAlbumSelectionTest extends TestCase
      */
     private $albumRepository;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->albumRepository = $this->prophesize(ObjectRepository::class); // @phpstan-ignore-line
         $entityManager = $this->prophesize(EntityManagerInterface::class);
