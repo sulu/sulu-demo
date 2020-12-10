@@ -19,7 +19,7 @@ class AlbumControllerTest extends SuluTestCase
      */
     private $client;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->client = $this->createAuthenticatedClient();
         $this->purgeDatabase();

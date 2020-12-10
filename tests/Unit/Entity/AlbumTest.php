@@ -15,7 +15,7 @@ class AlbumTest extends TestCase
      */
     private $album;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->album = new Album();
     }
