@@ -23,15 +23,11 @@
 
         <div class="navbar__locales">
             {% for localization in localizations %}
-                {% set itemUrl = sulu_content_path(localization.url, request.webspaceKey, localization.locale)|default('') %}
-
-                {% if itemUrl is not empty %}
-                    <a href="{{ itemUrl }}"
-                       title="{{ localization.locale }}"
-                       class="navbar__item navbar__item--locale{{ localization.locale == app.request.locale ? ' navbar__item--active' : '' }}">
-                        {{ localization.locale|upper }}
-                    </a>
-                {% endif %}
+                <a href="{{ localization.url }}"
+                   title="{{ localization.locale }}"
+                   class="navbar__item navbar__item--locale{{ localization.locale == app.request.locale ? ' navbar__item--active' : '' }}">
+                    {{ localization.locale|upper }}
+                </a>
             {% endfor %}
         </div>
 
