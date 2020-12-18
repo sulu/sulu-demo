@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "255c66bab6551b85efbcfca5239429f1",
+    "content-hash": "78365d1c9b23c04ed57e0a2e9629ce21",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.168.1",
+            "version": "3.171.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "d648085cce7bfadc8973a8ded401921583c1e3f9"
+                "reference": "01407effc918634048346d8bd6513b2db0d07ad8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d648085cce7bfadc8973a8ded401921583c1e3f9",
-                "reference": "d648085cce7bfadc8973a8ded401921583c1e3f9",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/01407effc918634048346d8bd6513b2db0d07ad8",
+                "reference": "01407effc918634048346d8bd6513b2db0d07ad8",
                 "shasum": ""
             },
             "require": {
@@ -92,9 +92,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.168.1"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.171.1"
             },
-            "time": "2020-12-09T19:17:01+00:00"
+            "time": "2020-12-17T19:16:51+00:00"
         },
         {
             "name": "behat/transliterator",
@@ -2456,16 +2456,16 @@
         },
         {
             "name": "friendsofsymfony/rest-bundle",
-            "version": "3.0.3",
+            "version": "3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle.git",
-                "reference": "d578bd8dc7940532bcf1016d530c3375692be28d"
+                "reference": "0564bdff0e4ee08f5cd418272a749bceecde75bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/d578bd8dc7940532bcf1016d530c3375692be28d",
-                "reference": "d578bd8dc7940532bcf1016d530c3375692be28d",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/0564bdff0e4ee08f5cd418272a749bceecde75bf",
+                "reference": "0564bdff0e4ee08f5cd418272a749bceecde75bf",
                 "shasum": ""
             },
             "require": {
@@ -2479,7 +2479,7 @@
                 "symfony/http-kernel": "^4.4|^5.0",
                 "symfony/security-core": "^3.4|^4.3|^5.0",
                 "willdurand/jsonp-callback-validator": "^1.0",
-                "willdurand/negotiation": "^2.0"
+                "willdurand/negotiation": "^2.0|^3.0"
             },
             "conflict": {
                 "doctrine/inflector": "1.4.0",
@@ -2501,7 +2501,7 @@
                 "symfony/expression-language": "^4.4|^5.0",
                 "symfony/form": "^4.4|^5.0",
                 "symfony/mime": "^4.4|^5.0",
-                "symfony/phpunit-bridge": "^4.1.8|^5.0",
+                "symfony/phpunit-bridge": "^5.2",
                 "symfony/security-bundle": "^4.4|^5.0",
                 "symfony/serializer": "^4.4|^5.0",
                 "symfony/twig-bundle": "^4.4|^5.0",
@@ -2518,7 +2518,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "3.x-dev": "3.1-dev"
                 }
             },
             "autoload": {
@@ -2555,9 +2555,9 @@
             ],
             "support": {
                 "issues": "https://github.com/FriendsOfSymfony/FOSRestBundle/issues",
-                "source": "https://github.com/FriendsOfSymfony/FOSRestBundle/tree/3.0.3"
+                "source": "https://github.com/FriendsOfSymfony/FOSRestBundle/tree/3.0.4"
             },
-            "time": "2020-09-10T06:52:17+00:00"
+            "time": "2020-12-10T20:14:08+00:00"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -3054,21 +3054,21 @@
         },
         {
             "name": "handcraftedinthealps/rest-routing-bundle",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/handcraftedinthealps/RestRoutingBundle.git",
-                "reference": "985e8aef8389d21a954c8878d61e04be5afa9483"
+                "reference": "b7b75d4cff6925998451fc3e5f8a5974a7a7e42f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/handcraftedinthealps/RestRoutingBundle/zipball/985e8aef8389d21a954c8878d61e04be5afa9483",
-                "reference": "985e8aef8389d21a954c8878d61e04be5afa9483",
+                "url": "https://api.github.com/repos/handcraftedinthealps/RestRoutingBundle/zipball/b7b75d4cff6925998451fc3e5f8a5974a7a7e42f",
+                "reference": "b7b75d4cff6925998451fc3e5f8a5974a7a7e42f",
                 "shasum": ""
             },
             "require": {
                 "doctrine/inflector": "^1.4|^2.0",
-                "php": "^7.2",
+                "php": "^7.2 || ^8.0",
                 "symfony/config": "^4.4|^5.0",
                 "symfony/dependency-injection": "^4.4|^5.0",
                 "symfony/finder": "^4.4|^5.0",
@@ -3085,7 +3085,7 @@
                 "psr/http-message": "^1.0",
                 "sensio/framework-extra-bundle": "^5.2.3",
                 "symfony/http-foundation": "^4.4|^5.0",
-                "symfony/phpunit-bridge": "^4.1.8|^5.0",
+                "symfony/phpunit-bridge": "^5.2",
                 "symfony/security-core": "^3.4|^4.3|^5.0",
                 "symfony/serializer": "^4.4|^5.0",
                 "symfony/validator": "^4.4|^5.0",
@@ -3125,9 +3125,9 @@
             ],
             "support": {
                 "issues": "https://github.com/handcraftedinthealps/RestRoutingBundle/issues",
-                "source": "https://github.com/handcraftedinthealps/RestRoutingBundle/tree/master"
+                "source": "https://github.com/handcraftedinthealps/RestRoutingBundle/tree/1.0.1"
             },
-            "time": "2020-05-26T10:06:54+00:00"
+            "time": "2020-12-17T12:57:59+00:00"
         },
         {
             "name": "handcraftedinthealps/zendsearch",
@@ -4487,16 +4487,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "2.1.1",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "f9eee5cec93dfb313a38b6b288741e84e53f02d5"
+                "reference": "1cb1cde8e8dd0f70cc0fe51354a59acad9302084"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/f9eee5cec93dfb313a38b6b288741e84e53f02d5",
-                "reference": "f9eee5cec93dfb313a38b6b288741e84e53f02d5",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1cb1cde8e8dd0f70cc0fe51354a59acad9302084",
+                "reference": "1cb1cde8e8dd0f70cc0fe51354a59acad9302084",
                 "shasum": ""
             },
             "require": {
@@ -4509,16 +4509,17 @@
             "require-dev": {
                 "aws/aws-sdk-php": "^2.4.9 || ^3.0",
                 "doctrine/couchdb": "~1.0@dev",
-                "elasticsearch/elasticsearch": "^6.0",
+                "elasticsearch/elasticsearch": "^7",
                 "graylog2/gelf-php": "^1.4.2",
+                "mongodb/mongodb": "^1.8",
                 "php-amqplib/php-amqplib": "~2.4",
                 "php-console/php-console": "^3.1.3",
-                "php-parallel-lint/php-parallel-lint": "^1.0",
                 "phpspec/prophecy": "^1.6.1",
+                "phpstan/phpstan": "^0.12.59",
                 "phpunit/phpunit": "^8.5",
                 "predis/predis": "^1.1",
                 "rollbar/rollbar": "^1.3",
-                "ruflin/elastica": ">=0.90 <3.0",
+                "ruflin/elastica": ">=0.90 <7.0.1",
                 "swiftmailer/swiftmailer": "^5.3|^6.0"
             },
             "suggest": {
@@ -4538,7 +4539,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.x-dev"
+                    "dev-main": "2.x-dev"
                 }
             },
             "autoload": {
@@ -4554,11 +4555,11 @@
                 {
                     "name": "Jordi Boggiano",
                     "email": "j.boggiano@seld.be",
-                    "homepage": "http://seld.be"
+                    "homepage": "https://seld.be"
                 }
             ],
             "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
-            "homepage": "http://github.com/Seldaek/monolog",
+            "homepage": "https://github.com/Seldaek/monolog",
             "keywords": [
                 "log",
                 "logging",
@@ -4566,7 +4567,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/monolog/issues",
-                "source": "https://github.com/Seldaek/monolog/tree/2.1.1"
+                "source": "https://github.com/Seldaek/monolog/tree/2.2.0"
             },
             "funding": [
                 {
@@ -4578,7 +4579,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-23T08:41:23+00:00"
+            "time": "2020-12-14T13:15:25+00:00"
         },
         {
             "name": "mtdowling/jmespath.php",
@@ -4783,16 +4784,16 @@
         },
         {
             "name": "oro/doctrine-extensions",
-            "version": "1.3.0",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oroinc/doctrine-extensions.git",
-                "reference": "2dbedcc5ed2dbe3283a7f7cf9e3b4c16bc1abca4"
+                "reference": "3dd513580393ba8a1040c2095e2949ce549cb038"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oroinc/doctrine-extensions/zipball/2dbedcc5ed2dbe3283a7f7cf9e3b4c16bc1abca4",
-                "reference": "2dbedcc5ed2dbe3283a7f7cf9e3b4c16bc1abca4",
+                "url": "https://api.github.com/repos/oroinc/doctrine-extensions/zipball/3dd513580393ba8a1040c2095e2949ce549cb038",
+                "reference": "3dd513580393ba8a1040c2095e2949ce549cb038",
                 "shasum": ""
             },
             "require": {
@@ -4800,6 +4801,7 @@
                 "php": ">=5.4.0"
             },
             "require-dev": {
+                "doctrine/common": "<3.0.0",
                 "doctrine/data-fixtures": "^1.0",
                 "doctrine/orm": "<2.5.0",
                 "phpunit/phpunit": "4.*",
@@ -4836,9 +4838,9 @@
             ],
             "support": {
                 "issues": "https://github.com/oroinc/doctrine-extensions/issues",
-                "source": "https://github.com/oroinc/doctrine-extensions/tree/1.3.0"
+                "source": "https://github.com/oroinc/doctrine-extensions/tree/1.3.1"
             },
-            "time": "2019-09-27T10:30:38+00:00"
+            "time": "2020-12-17T16:22:54+00:00"
         },
         {
             "name": "pagerfanta/pagerfanta",
@@ -6499,23 +6501,23 @@
         },
         {
             "name": "sentry/sentry",
-            "version": "2.5.0",
+            "version": "2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-php.git",
-                "reference": "bab5b73dbaf5f0ff62317e1611d952764d5514a9"
+                "reference": "62ef344463b2cceab745381214be353ee8ae5fc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/bab5b73dbaf5f0ff62317e1611d952764d5514a9",
-                "reference": "bab5b73dbaf5f0ff62317e1611d952764d5514a9",
+                "url": "https://api.github.com/repos/getsentry/sentry-php/zipball/62ef344463b2cceab745381214be353ee8ae5fc2",
+                "reference": "62ef344463b2cceab745381214be353ee8ae5fc2",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "ext-mbstring": "*",
                 "guzzlehttp/promises": "^1.3",
-                "guzzlehttp/psr7": "^1.6",
+                "guzzlehttp/psr7": "^1.7",
                 "jean85/pretty-package-versions": "^1.2",
                 "php": "^7.1",
                 "php-http/async-client-implementation": "^1.0",
@@ -6536,13 +6538,13 @@
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^2.16",
                 "monolog/monolog": "^1.3|^2.0",
-                "php-http/mock-client": "^1.3",
+                "php-http/mock-client": "^1.4",
                 "phpstan/extension-installer": "^1.0",
                 "phpstan/phpstan": "^0.12",
                 "phpstan/phpstan-phpunit": "^0.12",
-                "phpunit/phpunit": "^7.5.18",
-                "symfony/phpunit-bridge": "^4.3|^5.0",
-                "vimeo/psalm": "^3.4"
+                "phpunit/phpunit": "^7.5.20",
+                "symfony/phpunit-bridge": "^5.2",
+                "vimeo/psalm": "^4.2"
             },
             "suggest": {
                 "monolog/monolog": "Allow sending log messages to Sentry by using the included Monolog handler."
@@ -6584,7 +6586,7 @@
             ],
             "support": {
                 "issues": "https://github.com/getsentry/sentry-php/issues",
-                "source": "https://github.com/getsentry/sentry-php/tree/2.5.0"
+                "source": "https://github.com/getsentry/sentry-php/tree/2.5.1"
             },
             "funding": [
                 {
@@ -6596,7 +6598,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2020-09-14T07:02:40+00:00"
+            "time": "2020-12-11T11:51:58+00:00"
         },
         {
             "name": "sentry/sentry-symfony",
@@ -6860,12 +6862,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sulu/SuluAutomationBundle.git",
-                "reference": "6a237e4a745364fcf7779581261ed7d4cad8e65b"
+                "reference": "d6c87542f1c9219238152c16ca1ba99daa5ab1bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sulu/SuluAutomationBundle/zipball/6a237e4a745364fcf7779581261ed7d4cad8e65b",
-                "reference": "6a237e4a745364fcf7779581261ed7d4cad8e65b",
+                "url": "https://api.github.com/repos/sulu/SuluAutomationBundle/zipball/d6c87542f1c9219238152c16ca1ba99daa5ab1bb",
+                "reference": "d6c87542f1c9219238152c16ca1ba99daa5ab1bb",
                 "shasum": ""
             },
             "require": {
@@ -6928,20 +6930,20 @@
                 "issues": "https://github.com/sulu/SuluAutomationBundle/issues",
                 "source": "https://github.com/sulu/SuluAutomationBundle/tree/develop"
             },
-            "time": "2020-06-26T10:51:10+00:00"
+            "time": "2020-12-15T13:31:35+00:00"
         },
         {
             "name": "sulu/sulu",
-            "version": "2.2.2",
+            "version": "2.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sulu/sulu.git",
-                "reference": "88f9c29c74fa23f699e6ed14f7d19bc991d1afc4"
+                "reference": "35cb4914f53bd6f51a5a8c43177ac81f1f375923"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sulu/sulu/zipball/88f9c29c74fa23f699e6ed14f7d19bc991d1afc4",
-                "reference": "88f9c29c74fa23f699e6ed14f7d19bc991d1afc4",
+                "url": "https://api.github.com/repos/sulu/sulu/zipball/35cb4914f53bd6f51a5a8c43177ac81f1f375923",
+                "reference": "35cb4914f53bd6f51a5a8c43177ac81f1f375923",
                 "shasum": ""
             },
             "require": {
@@ -7142,7 +7144,7 @@
                 "issues": "https://github.com/sulu/skeleton/issues",
                 "source": "https://github.com/sulu/skeleton"
             },
-            "time": "2020-11-26T13:45:09+00:00"
+            "time": "2020-12-18T09:33:27+00:00"
         },
         {
             "name": "sulu/web-twig",
@@ -12779,28 +12781,28 @@
         },
         {
             "name": "willdurand/negotiation",
-            "version": "v2.3.1",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/willdurand/Negotiation.git",
-                "reference": "03436ededa67c6e83b9b12defac15384cb399dc9"
+                "reference": "04e14f38d4edfcc974114a07d2777d90c98f3d9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/willdurand/Negotiation/zipball/03436ededa67c6e83b9b12defac15384cb399dc9",
-                "reference": "03436ededa67c6e83b9b12defac15384cb399dc9",
+                "url": "https://api.github.com/repos/willdurand/Negotiation/zipball/04e14f38d4edfcc974114a07d2777d90c98f3d9c",
+                "reference": "04e14f38d4edfcc974114a07d2777d90c98f3d9c",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": ">=7.1.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.5"
+                "symfony/phpunit-bridge": "^5.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -12829,9 +12831,9 @@
             ],
             "support": {
                 "issues": "https://github.com/willdurand/Negotiation/issues",
-                "source": "https://github.com/willdurand/Negotiation/tree/2.x"
+                "source": "https://github.com/willdurand/Negotiation/tree/3.0.0"
             },
-            "time": "2017-05-14T17:21:12+00:00"
+            "time": "2020-09-25T08:01:41+00:00"
         }
     ],
     "packages-dev": [
@@ -13029,16 +13031,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v2.17.1",
+            "version": "v2.17.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "5198b7308ed63f26799387fd7f3901c3db6bd7fd"
+                "reference": "aaee4f3d16a996fc0b570be0c69d3b80c909c507"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/5198b7308ed63f26799387fd7f3901c3db6bd7fd",
-                "reference": "5198b7308ed63f26799387fd7f3901c3db6bd7fd",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/aaee4f3d16a996fc0b570be0c69d3b80c909c507",
+                "reference": "aaee4f3d16a996fc0b570be0c69d3b80c909c507",
                 "shasum": ""
             },
             "require": {
@@ -13068,9 +13070,11 @@
                 "php-cs-fixer/accessible-object": "^1.0",
                 "php-cs-fixer/phpunit-constraint-isidenticalstring": "^1.2",
                 "php-cs-fixer/phpunit-constraint-xmlmatchesxsd": "^1.2.1",
-                "phpunit/phpunit": "^5.7.27 || ^6.5.14 || ^7.1",
+                "phpspec/prophecy-phpunit": "^1.1 || ^2.0",
+                "phpunit/phpunit": "^5.7.27 || ^6.5.14 || ^7.5.20 || ^8.5.13 || ^9.4.4 <9.5",
                 "phpunitgoodpractices/polyfill": "^1.5",
                 "phpunitgoodpractices/traits": "^1.9.1",
+                "sanmai/phpunit-legacy-adapter": "^6.4 || ^8.2.1",
                 "symfony/phpunit-bridge": "^5.1",
                 "symfony/yaml": "^3.0 || ^4.0 || ^5.0"
             },
@@ -13119,7 +13123,7 @@
             "description": "A tool to automatically fix PHP code style",
             "support": {
                 "issues": "https://github.com/FriendsOfPHP/PHP-CS-Fixer/issues",
-                "source": "https://github.com/FriendsOfPHP/PHP-CS-Fixer/tree/v2.17.1"
+                "source": "https://github.com/FriendsOfPHP/PHP-CS-Fixer/tree/v2.17.2"
             },
             "funding": [
                 {
@@ -13127,7 +13131,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-12-08T13:47:02+00:00"
+            "time": "2020-12-17T16:41:55+00:00"
         },
         {
             "name": "jangregor/phpstan-prophecy",
@@ -13329,16 +13333,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.59",
+            "version": "0.12.63",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "cf4107257c8ca2ad967efdd6a00f12b21acbb779"
+                "reference": "c97ec4754bd53099a06c24847bd2870b99966b6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/cf4107257c8ca2ad967efdd6a00f12b21acbb779",
-                "reference": "cf4107257c8ca2ad967efdd6a00f12b21acbb779",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/c97ec4754bd53099a06c24847bd2870b99966b6a",
+                "reference": "c97ec4754bd53099a06c24847bd2870b99966b6a",
                 "shasum": ""
             },
             "require": {
@@ -13369,7 +13373,7 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/0.12.59"
+                "source": "https://github.com/phpstan/phpstan/tree/0.12.63"
             },
             "funding": [
                 {
@@ -13385,20 +13389,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-12-07T14:46:03+00:00"
+            "time": "2020-12-15T16:37:16+00:00"
         },
         {
             "name": "phpstan/phpstan-doctrine",
-            "version": "0.12.25",
+            "version": "0.12.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-doctrine.git",
-                "reference": "1d32c427a1d8687b86f0ce5dd9a42e312e51256d"
+                "reference": "716ea5f101636cd6cf36bb7298a4fe8b62c6606d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-doctrine/zipball/1d32c427a1d8687b86f0ce5dd9a42e312e51256d",
-                "reference": "1d32c427a1d8687b86f0ce5dd9a42e312e51256d",
+                "url": "https://api.github.com/repos/phpstan/phpstan-doctrine/zipball/716ea5f101636cd6cf36bb7298a4fe8b62c6606d",
+                "reference": "716ea5f101636cd6cf36bb7298a4fe8b62c6606d",
                 "shasum": ""
             },
             "require": {
@@ -13413,20 +13417,18 @@
                 "doctrine/persistence": "<1.3"
             },
             "require-dev": {
-                "consistence/coding-standard": "^3.10",
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+                "doctrine/annotations": "^1.11.0",
                 "doctrine/collections": "^1.0",
                 "doctrine/common": "^2.7 || ^3.0",
                 "doctrine/mongodb-odm": "^1.3 || ^2.1",
                 "doctrine/orm": "^2.5",
                 "doctrine/persistence": "^1.1 || ^2.0",
-                "phing/phing": "^2.16.0",
+                "phing/phing": "^2.16.3",
                 "php-parallel-lint/php-parallel-lint": "^1.2",
-                "phpstan/phpstan-phpunit": "^0.12",
-                "phpstan/phpstan-strict-rules": "^0.12",
-                "phpunit/phpunit": "^7.0",
-                "ramsey/uuid-doctrine": "^1.5.0",
-                "slevomat/coding-standard": "^6.4"
+                "phpstan/phpstan-phpunit": "^0.12.16",
+                "phpstan/phpstan-strict-rules": "^0.12.5",
+                "phpunit/phpunit": "^7.5.20",
+                "ramsey/uuid-doctrine": "^1.5.0"
             },
             "type": "phpstan-extension",
             "extra": {
@@ -13452,41 +13454,36 @@
             "description": "Doctrine extensions for PHPStan",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan-doctrine/issues",
-                "source": "https://github.com/phpstan/phpstan-doctrine/tree/0.12.25"
+                "source": "https://github.com/phpstan/phpstan-doctrine/tree/0.12.26"
             },
-            "time": "2020-11-26T10:07:28+00:00"
+            "time": "2020-12-13T11:58:47+00:00"
         },
         {
             "name": "phpstan/phpstan-phpunit",
-            "version": "0.12.16",
+            "version": "0.12.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-phpunit.git",
-                "reference": "1dd916d181b0539dea5cd37e91546afb8b107e17"
+                "reference": "432575b41cf2d4f44e460234acaf56119ed97d36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-phpunit/zipball/1dd916d181b0539dea5cd37e91546afb8b107e17",
-                "reference": "1dd916d181b0539dea5cd37e91546afb8b107e17",
+                "url": "https://api.github.com/repos/phpstan/phpstan-phpunit/zipball/432575b41cf2d4f44e460234acaf56119ed97d36",
+                "reference": "432575b41cf2d4f44e460234acaf56119ed97d36",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1 || ^8.0",
-                "phpstan/phpstan": "^0.12.33"
+                "phpstan/phpstan": "^0.12.60"
             },
             "conflict": {
                 "phpunit/phpunit": "<7.0"
             },
             "require-dev": {
-                "consistence/coding-standard": "^3.5",
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
-                "ergebnis/composer-normalize": "^2.0.2",
-                "jakub-onderka/php-parallel-lint": "^1.0",
-                "phing/phing": "^2.16.0",
-                "phpstan/phpstan-strict-rules": "^0.12",
-                "phpunit/phpunit": "^7.0 || ^8.0 || ^9.0",
-                "satooshi/php-coveralls": "^1.0",
-                "slevomat/coding-standard": "^4.7.2"
+                "phing/phing": "^2.16.3",
+                "php-parallel-lint/php-parallel-lint": "^1.2",
+                "phpstan/phpstan-strict-rules": "^0.12.6",
+                "phpunit/phpunit": "^7.5.20"
             },
             "type": "phpstan-extension",
             "extra": {
@@ -13512,22 +13509,22 @@
             "description": "PHPUnit extensions and rules for PHPStan",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan-phpunit/issues",
-                "source": "https://github.com/phpstan/phpstan-phpunit/tree/0.12.16"
+                "source": "https://github.com/phpstan/phpstan-phpunit/tree/0.12.17"
             },
-            "time": "2020-08-05T13:28:50+00:00"
+            "time": "2020-12-13T12:12:51+00:00"
         },
         {
             "name": "phpstan/phpstan-symfony",
-            "version": "0.12.11",
+            "version": "0.12.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-symfony.git",
-                "reference": "edb6aeb171980b11dca1fd27d3fa7573af89ac8e"
+                "reference": "fb66d5e3ee2e9e60c14931d0fb8c45263bbb0b6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-symfony/zipball/edb6aeb171980b11dca1fd27d3fa7573af89ac8e",
-                "reference": "edb6aeb171980b11dca1fd27d3fa7573af89ac8e",
+                "url": "https://api.github.com/repos/phpstan/phpstan-symfony/zipball/fb66d5e3ee2e9e60c14931d0fb8c45263bbb0b6f",
+                "reference": "fb66d5e3ee2e9e60c14931d0fb8c45263bbb0b6f",
                 "shasum": ""
             },
             "require": {
@@ -13539,16 +13536,11 @@
                 "symfony/framework-bundle": "<3.0"
             },
             "require-dev": {
-                "consistence/coding-standard": "^3.10",
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
-                "ergebnis/composer-normalize": "^2.0.2",
-                "phing/phing": "^2.16.2",
+                "phing/phing": "^2.16.3",
                 "php-parallel-lint/php-parallel-lint": "^1.2",
-                "phpstan/phpstan-phpunit": "^0.12.8",
-                "phpstan/phpstan-strict-rules": "^0.12.2",
+                "phpstan/phpstan-phpunit": "^0.12.16",
+                "phpstan/phpstan-strict-rules": "^0.12.5",
                 "phpunit/phpunit": "^7.5.20",
-                "slevomat/coding-standard": "^6.4",
-                "squizlabs/php_codesniffer": "^3.5.6",
                 "symfony/console": "^4.0",
                 "symfony/framework-bundle": "^4.0",
                 "symfony/http-foundation": "^4.0",
@@ -13586,39 +13578,35 @@
             "description": "Symfony Framework extensions and rules for PHPStan",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan-symfony/issues",
-                "source": "https://github.com/phpstan/phpstan-symfony/tree/0.12.11"
+                "source": "https://github.com/phpstan/phpstan-symfony/tree/0.12.12"
             },
-            "time": "2020-10-30T09:50:09+00:00"
+            "time": "2020-12-13T13:13:56+00:00"
         },
         {
             "name": "phpstan/phpstan-webmozart-assert",
-            "version": "0.12.7",
+            "version": "0.12.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-webmozart-assert.git",
-                "reference": "afaf96ddd69133fc7a1ed527039eaca39454c4d8"
+                "reference": "5b4554e272c6c58133f487d32d07e8a83e820a4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-webmozart-assert/zipball/afaf96ddd69133fc7a1ed527039eaca39454c4d8",
-                "reference": "afaf96ddd69133fc7a1ed527039eaca39454c4d8",
+                "url": "https://api.github.com/repos/phpstan/phpstan-webmozart-assert/zipball/5b4554e272c6c58133f487d32d07e8a83e820a4b",
+                "reference": "5b4554e272c6c58133f487d32d07e8a83e820a4b",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1 || ^8.0",
-                "phpstan/phpstan": "^0.12.24"
+                "phpstan/phpstan": "^0.12.40"
             },
             "require-dev": {
-                "consistence/coding-standard": "^3.7",
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
-                "ergebnis/composer-normalize": "^2.0.2",
-                "jakub-onderka/php-parallel-lint": "^1.0",
-                "phing/phing": "^2.16.0",
+                "phing/phing": "^2.16.3",
+                "php-parallel-lint/php-parallel-lint": "^1.2",
                 "phpstan/phpstan-phpunit": "^0.12.6",
                 "phpstan/phpstan-strict-rules": "^0.12.1",
-                "phpunit/phpunit": "^7.5.18",
-                "slevomat/coding-standard": "^4.5.2",
-                "webmozart/assert": "^1.7.0"
+                "phpunit/phpunit": "^7.5.20",
+                "webmozart/assert": "^1.9.1"
             },
             "type": "phpstan-extension",
             "extra": {
@@ -13643,9 +13631,9 @@
             "description": "PHPStan webmozart/assert extension",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan-webmozart-assert/issues",
-                "source": "https://github.com/phpstan/phpstan-webmozart-assert/tree/0.12.7"
+                "source": "https://github.com/phpstan/phpstan-webmozart-assert/tree/0.12.8"
             },
-            "time": "2020-07-21T14:55:38+00:00"
+            "time": "2020-12-12T16:14:30+00:00"
         },
         {
             "name": "symfony/browser-kit",
