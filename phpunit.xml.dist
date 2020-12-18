@@ -31,4 +31,3 @@
         </whitelist>
     </filter>
 </phpunit>
-
