@@ -29,6 +29,14 @@
                 <title>app.tracklist</title>
             </meta>
 
+            <params>
+                <param name="add_button_text">
+                    <meta>
+                        <title>app.add_track</title>
+                    </meta>
+                </param>
+            </params>
+
             <types>
                 <type name="track">
                     <meta>
