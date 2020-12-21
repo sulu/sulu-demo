@@ -5,6 +5,7 @@
     "app.image": "Bild",
     "app.tracklist": "Titelliste",
     "app.track": "Titel",
+    "app.add_track": "Titel hinzufügen",
     "app.interpreter": "Interpret",
     "app.album_selection_label": "{count} {count, plural, =1 {Album} other {Alben}} ausgewählt",
     "app.select_albums": "Alben auswählen",
