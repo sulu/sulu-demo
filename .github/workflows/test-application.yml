@@ -49,7 +49,9 @@ jobs:
               uses: actions/cache@v2
               with:
                   path: ${{ steps.composer-cache-dir.outputs.dir }}
-                  key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+                  key: ${{ runner.os }}-composer-${{ hashFiles('composer.json', 'composer.lock') }}
+                  restore-keys: |
+                      ${{ runner.os }}-composer-
 
             - name: Install dependencies
               run: |
@@ -94,7 +96,9 @@ jobs:
               uses: actions/cache@v2
               with:
                   path: ${{ steps.npm-cache-dir.outputs.dir }}
-                  key: ${{ runner.os }}-composer-${{ hashFiles('**/package-lock.json') }}
+                  key: ${{ runner.os }}-npm-${{ hashFiles('**/package.json', '**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-npm-
 
             - name: Install dependencies
               run: npm install --ignore-optional
