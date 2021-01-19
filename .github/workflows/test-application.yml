@@ -76,6 +76,8 @@ jobs:
 
             - name: Install npm dependencies
               uses: bahmutov/npm-install@v1
+              with:
+                  working-directory: assets/website
 
             - name: Lint code
               run: npm run lint
