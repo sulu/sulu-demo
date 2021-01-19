@@ -8,7 +8,7 @@ on:
 
 jobs:
     php:
-        name: PHP
+        name: PHP 7.4
         runs-on: ubuntu-latest
 
         services:
@@ -41,22 +41,8 @@ jobs:
                   coverage: none
                   tools: composer
 
-            - name: Get composer cache directory
-              id: composer-cache-dir
-              run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-            - name: Cache dependencies
-              uses: actions/cache@v2
-              with:
-                  path: ${{ steps.composer-cache-dir.outputs.dir }}
-                  key: ${{ runner.os }}-composer-${{ hashFiles('composer.json', 'composer.lock') }}
-                  restore-keys: |
-                      ${{ runner.os }}-composer-
-
-            - name: Install dependencies
-              run: |
-                  composer install --no-interaction --prefer-dist --no-scripts
-                  composer test install
+            - name: Install composer dependencies
+              uses: ramsey/composer-install@v1
 
             - name: Lint code
               run: |
@@ -73,7 +59,7 @@ jobs:
               run: bin/console sulu:build dev --destroy
 
     js-css-website:
-        name: JS and CSS / Website
+        name: Node 12 / Website
         runs-on: ubuntu-latest
         defaults:
             run:
@@ -88,20 +74,8 @@ jobs:
               with:
                   node-version: '12'
 
-            - name: Get npm cache directory
-              id: npm-cache-dir
-              run: echo "::set-output name=dir::$(npm config get cache)"
-
-            - name: Cache dependencies
-              uses: actions/cache@v2
-              with:
-                  path: ${{ steps.npm-cache-dir.outputs.dir }}
-                  key: ${{ runner.os }}-npm-${{ hashFiles('**/package.json', '**/package-lock.json') }}
-                  restore-keys: |
-                      ${{ runner.os }}-npm-
-
-            - name: Install dependencies
-              run: npm install --ignore-optional
+            - name: Install npm dependencies
+              uses: bahmutov/npm-install@v1
 
             - name: Lint code
               run: npm run lint
