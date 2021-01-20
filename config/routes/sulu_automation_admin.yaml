@@ -1,8 +1,8 @@
 sulu_automation_api:
     resource: '@SuluAutomationBundle/Resources/config/routing_api.yml'
-    prefix: /admin/api
+    prefix: /my-custom-admin/api
 
 sulu_automation:
     type: rest
     resource: '@SuluAutomationBundle/Resources/config/routing.yml'
-    prefix: /admin/automation
+    prefix: /my-custom-admin/automation

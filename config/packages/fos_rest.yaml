@@ -1,3 +1,3 @@
 fos_rest:
     zone:
-        - { path: ^/admin/* }
+        - { path: ^/my-custom-admin/* }
