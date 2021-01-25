@@ -2,7 +2,7 @@
 
 {% set class = '' %}
 
-{% set title = content.title %}
+{% set title = content.title|default %}
 {% set subtitle = content.subtitle|default %}
 {% set image = content.headerImage|default %}
 {% set url = '' %}
