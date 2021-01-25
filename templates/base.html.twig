@@ -29,7 +29,9 @@
 
     <section id="content">
         {% block content %}
-            {% block contentHeader %}{% endblock %}
+            {% block contentHeader %}
+                {% include 'includes/header.html.twig' %}
+            {% endblock %}
 
             <div class="content">
                 <div class="container">
