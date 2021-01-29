@@ -102,7 +102,7 @@ class AlbumController extends AbstractRestController implements ClassResourceInt
         $imageId = $data['image']['id'] ?? null;
 
         $entity->setTitle($data['title']);
-        $entity->setImage($imageId ? $this->mediaManager->getEntityById($data['image']['id']) : null);
+        $entity->setImage($imageId ? $this->mediaManager->getEntityById($imageId) : null);
         $entity->setTracklist($data['tracklist']);
     }
 
