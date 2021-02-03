@@ -97,6 +97,9 @@ js-css-website:
 security-check:
     stage: test
     image: sulu/php:7.4-cli
+    before_script:
+        - curl -sS https://get.symfony.com/cli/installer | bash
+        - mv /root/.symfony/bin/symfony /usr/local/bin/symfony
     script:
         - php composer.phar security-check
     allow_failure: true
