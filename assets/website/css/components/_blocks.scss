@@ -5,3 +5,12 @@
 .blocks__item {
     margin: 30px 0;
 }
+
+.blocks__item--highlight {
+    background: silver;
+    padding: 30px 0;
+
+    + .blocks__item--highlight {
+        padding-top: 0;
+    }
+}
