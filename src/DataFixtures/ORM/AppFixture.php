@@ -91,7 +91,7 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
         $finder = new Finder();
 
         foreach ($finder->files()->in(__DIR__ . '/../images') as $file) {
-            $media[pathinfo($file, PATHINFO_BASENAME)] = $this->createMedia($manager, $collection, $file);
+            $media[pathinfo($file, \PATHINFO_BASENAME)] = $this->createMedia($manager, $collection, $file);
         }
 
         return $media;
@@ -682,6 +682,6 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return PHP_INT_MAX;
+        return \PHP_INT_MAX;
     }
 }

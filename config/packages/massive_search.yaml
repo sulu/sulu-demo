@@ -5,6 +5,9 @@ parameters:
 massive_search:
     metadata:
         prefix: '%env(resolve:MASSIVE_SEARCH_PREFIX)%'
+
+# By default massive search uses zend lucene index saved in var/indexes folder
+# For multi server setup you can switch to the elasticsearch adapter:
     adapter: elastic
     adapters:
         elastic:
