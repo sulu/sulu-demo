@@ -4,3 +4,9 @@ app_albums_api:
     prefix: /admin/api
     resource: App\Controller\Admin\AlbumController
     name_prefix: app.
+
+app_additional_contact_data_api:
+    type: rest
+    prefix: /admin/api
+    resource: App\Controller\Admin\AdditionalContactDataController
+    name_prefix: app.
