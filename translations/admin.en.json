@@ -10,5 +10,8 @@
     "app.album_selection_label": "{count} {count, plural, =1 {album} other {albums}} selected",
     "app.select_albums": "Select albums",
     "app.no_album_selected": "No album selected",
-    "app.select_album": "Select album"
+    "app.select_album": "Select album",
+    "app.additional_data": "Additional Data",
+    "app.social_security_number": "Social Security number",
+    "app.external_crm_id": "External CRM ID"
 }
