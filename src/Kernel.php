@@ -11,14 +11,18 @@ namespace App;
  * with this source code in the file LICENSE.
  */
 
+use App\Controller\Admin\CategoryController;
+use App\Manager\CategoryManager;
 use FOS\HttpCache\SymfonyCache\HttpCacheProvider;
 use Sulu\Bundle\HttpCacheBundle\Cache\SuluHttpCache;
 use Sulu\Component\HttpKernel\SuluKernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
+use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 
-class Kernel extends SuluKernel implements HttpCacheProvider
+class Kernel extends SuluKernel implements HttpCacheProvider, CompilerPassInterface
 {
     /**
      * @var HttpKernelInterface|null
@@ -47,5 +51,14 @@ class Kernel extends SuluKernel implements HttpCacheProvider
         }
 
         return $this->httpCache;
+    }
+
+    public function process(ContainerBuilder $container)
+    {
+        if ($container->hasDefinition('sulu_category.category_controller')) {
+            $categoryControllerDefinition = $container->getDefinition('sulu_category.category_controller');
+            $categoryControllerDefinition->setClass(CategoryController::class);
+            $categoryControllerDefinition->addArgument(new Reference('doctrine.orm.entity_manager'));
+        }
     }
 }
