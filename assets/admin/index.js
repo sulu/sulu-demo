@@ -18,6 +18,10 @@ import 'sulu-snippet-bundle';
 import 'sulu-website-bundle';
 
 // Implement custom extensions here
+import {formToolbarActionRegistry} from 'sulu-admin-bundle/views';
+import GenerateNameToolbarAction from "./formToolbarActions/GenerateNameToolbarAction";
+
+formToolbarActionRegistry.add('app.generate_name', GenerateNameToolbarAction);
 
 // Start admin application
 startAdmin();
