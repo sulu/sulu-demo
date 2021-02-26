@@ -2,7 +2,7 @@
 
 namespace App\Build;
 
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Massive\Bundle\BuildBundle\Build\BuilderContext;
 use Massive\Bundle\BuildBundle\Build\BuilderInterface;
 use Sulu\Bundle\SecurityBundle\Build\UserBuilder as SuluUserBuilder;

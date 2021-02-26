@@ -42,9 +42,9 @@
                                 <h4 class="footer__title">{{ 'quick_links'|trans }}</h4>
 
                                 <div class="footer__quicklinks">
-                                    {# @see https://docs.sulu.io/en/2.1/reference/twig-extensions/functions/sulu_navigation_root_flat.html #}
+                                    {# @see https://docs.sulu.io/en/2.2/reference/twig-extensions/functions/sulu_navigation_root_flat.html #}
                                     {% for item in sulu_navigation_root_flat('footer', 1, true) %}
-                                        {# @see https://docs.sulu.io/en/2.1/reference/twig-extensions/functions/sulu_content_path.html #}
+                                        {# @see https://docs.sulu.io/en/2.2/reference/twig-extensions/functions/sulu_content_path.html #}
                                         <a href="{{ sulu_content_path(item.url) }}" title="{{ item.title }}" class="footer__quicklink">
                                             {# fallback to content title when excerpt title not set #}
                                             {{ item.excerpt.title|default(item.title) }}
