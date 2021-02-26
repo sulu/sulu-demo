@@ -7,7 +7,7 @@
         <div class="albums__links" id="{{ tabsId }}">
             {% for album in content.albums %}
                 <div class="albums__link" data-name="{{ album.title }}">
-                    {# @see https://docs.sulu.io/en/2.1/reference/twig-extensions/functions/sulu_resolve_media.html #}
+                    {# @see https://docs.sulu.io/en/2.2/reference/twig-extensions/functions/sulu_resolve_media.html #}
                     {% set image = sulu_resolve_media(album.image, app.request.locale) %}
 
                     {# @see https://github.com/sulu/web-twig/blob/v2.4.0/docs/image.md #}

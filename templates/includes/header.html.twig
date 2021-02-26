@@ -10,9 +10,8 @@
 {% if type == 'homepage' %}
     {% set class = ' header--large' %}
 
-    {# TODO avoid sulu_content_load as its a heavy operation which should be avoided #}
-    {# @see https://docs.sulu.io/en/2.1/reference/twig-extensions/functions/sulu_content_load.html #}
-    {% set teaser = sulu_content_load(content.teaser) %}
+    {# @see https://docs.sulu.io/en/2.2/reference/twig-extensions/functions/sulu_content_load.html #}
+    {% set teaser = sulu_content_load(content.teaser, ['title', 'subtitle', 'headerImage', 'url']) %}
 
     {% set title = teaser.content.title %}
     {% set subtitle = teaser.content.subtitle|default(subtitle) %}

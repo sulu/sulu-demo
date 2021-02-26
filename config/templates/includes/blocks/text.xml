@@ -2,7 +2,7 @@
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
     <block name="blocks" default-type="text">
-        <!-- @see https://docs.sulu.io/en/2.1/reference/content-types/block.html -->
+        <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/block.html -->
 
         <types>
             <type name="text">
@@ -22,7 +22,7 @@
                     </property>
 
                     <property name="image" type="single_media_selection">
-                        <!-- @see https://docs.sulu.io/en/2.1/reference/content-types/single_media_selection.html -->
+                        <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/single_media_selection.html -->
                         <meta>
                             <title lang="en">Bild</title>
                             <title lang="de">Image</title>

@@ -53,7 +53,7 @@
                 </property>
 
                 <property name="headerImage" type="single_media_selection">
-                    <!-- @see https://docs.sulu.io/en/2.1/reference/content-types/single_media_selection.html -->
+                    <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/single_media_selection.html -->
                     <meta>
                         <title lang="en">Image</title>
                         <title lang="de">Bild</title>
@@ -78,7 +78,7 @@
             </meta>
 
             <properties>
-                <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+                <!-- @see https://docs.sulu.io/en/2.2/book/templates.html#including-other-templates -->
                 <xi:include href="../includes/blocks.xml"
                             xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block)"/>
             </properties>

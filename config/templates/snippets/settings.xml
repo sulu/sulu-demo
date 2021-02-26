@@ -11,7 +11,7 @@
     </meta>
 
     <areas>
-        <!-- @see https://docs.sulu.io/en/2.1/cookbook/default-snippets.html -->
+        <!-- @see https://docs.sulu.io/en/2.2/cookbook/default-snippets.html -->
         <area key="webspace_settings">
             <meta>
                 <title lang="en">Webspace Settings</title>
