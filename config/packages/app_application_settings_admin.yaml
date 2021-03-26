@@ -1,0 +1,5 @@
+sulu_admin:
+    resources:
+        application_settings:
+            routes:
+                detail: 'app.get_application-settings'
