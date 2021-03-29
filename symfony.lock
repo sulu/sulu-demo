@@ -464,6 +464,9 @@
     "sulu/automation-bundle": {
         "version": "2.0.0-alpha1"
     },
+    "sulu/redirect-bundle": {
+        "version": "2.0.0"
+    },
     "sulu/sulu": {
         "version": "2.0.4"
     },
