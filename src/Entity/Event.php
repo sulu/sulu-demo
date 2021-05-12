@@ -35,6 +35,13 @@ class Event
     private string $name;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @Serializer\Expose()
+     */
+    private string $routePath;
+
+    /**
      * @ORM\ManyToOne(targetEntity=MediaInterface::class)
      * @ORM\JoinColumn(onDelete="SET NULL")
      */
@@ -67,6 +74,16 @@ class Event
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    public function getRoutePath(): string
+    {
+        return $this->routePath ?? '';
+    }
+
+    public function setRoutePath(string $routePath): void
+    {
+        $this->routePath = $routePath;
     }
 
     public function getImage(): ?MediaInterface
