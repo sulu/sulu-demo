@@ -4,3 +4,38 @@ sulu_admin:
             routes:
                 list: 'app.get_events'
                 detail: 'app.get_event'
+    field_type_options:
+        selection:
+            event_selection:
+                default_type: 'list_overlay'
+                resource_key: 'events'
+                view:
+                    name: 'app.event.edit_form'
+                    result_to_view:
+                        id: 'id'
+                types:
+                    list_overlay:
+                        adapter: 'table'
+                        list_key: 'events'
+                        display_properties:
+                            - 'name'
+                        icon: 'su-calendar'
+                        label: 'app.event_selection_label'
+                        overlay_title: 'app.select_events'
+        single_selection:
+            single_event_selection:
+                default_type: 'list_overlay'
+                resource_key: 'events'
+                view:
+                    name: 'app.event.edit_form'
+                    result_to_view:
+                        id: 'id'
+                types:
+                    list_overlay:
+                        adapter: 'table'
+                        list_key: 'events'
+                        display_properties:
+                            - 'name'
+                        icon: 'su-calendar'
+                        empty_text: 'app.no_event_selected'
+                        overlay_title: 'app.select_event'
