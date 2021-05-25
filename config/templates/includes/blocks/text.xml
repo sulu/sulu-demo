@@ -24,8 +24,8 @@
                     <property name="image" type="single_media_selection">
                         <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/single_media_selection.html -->
                         <meta>
-                            <title lang="en">Bild</title>
-                            <title lang="de">Image</title>
+                            <title lang="en">Image</title>
+                            <title lang="de">Bild</title>
                         </meta>
 
                         <params>
