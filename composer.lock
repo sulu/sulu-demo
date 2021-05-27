@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "199db6c5f1b5233598df85ca756c8163",
+    "content-hash": "4b7d45d7dbb10f299b02d191f9b02015",
     "packages": [
         {
             "name": "antishov/doctrine-extensions-bundle",
@@ -6620,16 +6620,16 @@
         },
         {
             "name": "sulu/article-bundle",
-            "version": "2.2.4",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sulu/SuluArticleBundle.git",
-                "reference": "c7016d09074f4b57ff7f2cf371f0d49d43b4db86"
+                "reference": "4472c3f1fa4ef9b2ada29dd06b184bc1c81202dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sulu/SuluArticleBundle/zipball/c7016d09074f4b57ff7f2cf371f0d49d43b4db86",
-                "reference": "c7016d09074f4b57ff7f2cf371f0d49d43b4db86",
+                "url": "https://api.github.com/repos/sulu/SuluArticleBundle/zipball/4472c3f1fa4ef9b2ada29dd06b184bc1c81202dc",
+                "reference": "4472c3f1fa4ef9b2ada29dd06b184bc1c81202dc",
                 "shasum": ""
             },
             "require": {
@@ -6640,7 +6640,7 @@
                 "jms/serializer": "^3.3",
                 "jms/serializer-bundle": "^3.3",
                 "php": "^7.2 || ^8.0",
-                "sulu/sulu": "^2.0.10 || ^2.1@dev",
+                "sulu/sulu": "^2.3@dev",
                 "symfony-cmf/slugifier-api": "^1.0 || ^2.0",
                 "symfony/config": "^4.3 || ^5.0",
                 "symfony/dependency-injection": "^4.3 || ^5.0",
@@ -6701,9 +6701,9 @@
             ],
             "support": {
                 "issues": "https://github.com/sulu/SuluArticleBundle/issues",
-                "source": "https://github.com/sulu/SuluArticleBundle/tree/2.2.4"
+                "source": "https://github.com/sulu/SuluArticleBundle/tree/2.3.0"
             },
-            "time": "2021-03-25T13:20:26+00:00"
+            "time": "2021-05-27T14:50:44+00:00"
         },
         {
             "name": "sulu/automation-bundle",
@@ -14021,10 +14021,9 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.4",
+        "php": "^7.4 || ^8.0",
         "ext-ctype": "*",
-        "ext-iconv": "*",
-        "composer-runtime-api": "^2.0"
+        "ext-iconv": "*"
     },
     "platform-dev": [],
     "platform-overrides": {
