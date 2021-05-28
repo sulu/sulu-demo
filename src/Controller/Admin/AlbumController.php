@@ -5,11 +5,15 @@ declare(strict_types=1);
 namespace App\Controller\Admin;
 
 use App\Common\DoctrineListRepresentationFactory;
+use App\Domain\Event\AlbumCreatedEvent;
+use App\Domain\Event\AlbumModifiedEvent;
+use App\Domain\Event\AlbumRemovedEvent;
 use App\Entity\Album;
 use Doctrine\ORM\EntityManagerInterface;
 use FOS\RestBundle\View\ViewHandlerInterface;
 use HandcraftedInTheAlps\RestRoutingBundle\Controller\Annotations\RouteResource;
 use HandcraftedInTheAlps\RestRoutingBundle\Routing\ClassResourceInterface;
+use Sulu\Bundle\ActivityBundle\Application\Collector\DomainEventCollectorInterface;
 use Sulu\Bundle\MediaBundle\Media\Manager\MediaManagerInterface;
 use Sulu\Component\Rest\AbstractRestController;
 use Sulu\Component\Security\SecuredControllerInterface;
@@ -26,17 +30,20 @@ class AlbumController extends AbstractRestController implements ClassResourceInt
     private DoctrineListRepresentationFactory $doctrineListRepresentationFactory;
     private EntityManagerInterface $entityManager;
     private MediaManagerInterface $mediaManager;
+    private DomainEventCollectorInterface $domainEventCollector;
 
     public function __construct(
         DoctrineListRepresentationFactory $doctrineListRepresentationFactory,
         EntityManagerInterface $entityManager,
         MediaManagerInterface $mediaManager,
+        DomainEventCollectorInterface $domainEventCollector,
         ViewHandlerInterface $viewHandler,
         ?TokenStorageInterface $tokenStorage = null
     ) {
         $this->doctrineListRepresentationFactory = $doctrineListRepresentationFactory;
         $this->entityManager = $entityManager;
         $this->mediaManager = $mediaManager;
+        $this->domainEventCollector = $domainEventCollector;
 
         parent::__construct($viewHandler, $tokenStorage);
     }
@@ -62,12 +69,19 @@ class AlbumController extends AbstractRestController implements ClassResourceInt
 
     public function putAction(Request $request, int $id): Response
     {
+        /** @var Album|null $album */
         $album = $this->entityManager->getRepository(Album::class)->find($id);
         if (!$album) {
             throw new NotFoundHttpException();
         }
 
-        $this->mapDataToEntity($request->request->all(), $album);
+        $data = $request->request->all();
+        $this->mapDataToEntity($data, $album);
+
+        $this->domainEventCollector->collect(
+            new AlbumModifiedEvent($album, $data)
+        );
+
         $this->entityManager->flush();
 
         return $this->handleView($this->view($album));
@@ -77,8 +91,14 @@ class AlbumController extends AbstractRestController implements ClassResourceInt
     {
         $album = new Album();
 
-        $this->mapDataToEntity($request->request->all(), $album);
+        $data = $request->request->all();
+        $this->mapDataToEntity($data, $album);
         $this->entityManager->persist($album);
+
+        $this->domainEventCollector->collect(
+            new AlbumCreatedEvent($album, $data)
+        );
+
         $this->entityManager->flush();
 
         return $this->handleView($this->view($album, 201));
@@ -88,7 +108,14 @@ class AlbumController extends AbstractRestController implements ClassResourceInt
     {
         /** @var Album $album */
         $album = $this->entityManager->getReference(Album::class, $id);
+        $albumTitle = $album->getTitle();
+
         $this->entityManager->remove($album);
+
+        $this->domainEventCollector->collect(
+            new AlbumRemovedEvent($id, $albumTitle)
+        );
+
         $this->entityManager->flush();
 
         return $this->handleView($this->view(null, 204));
