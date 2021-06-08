@@ -4,3 +4,9 @@ app.album_api:
     prefix: /admin/api
     resource: App\Controller\Admin\AlbumController
     name_prefix: app.
+
+app.event_api:
+    type: rest
+    prefix: /admin/api
+    resource: App\Controller\Admin\EventController
+    name_prefix: app.

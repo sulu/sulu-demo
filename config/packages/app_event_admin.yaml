@@ -1,0 +1,6 @@
+sulu_admin:
+    resources:
+        events:
+            routes:
+                list: 'app.get_events'
+                detail: 'app.get_event'
