@@ -1,0 +1,33 @@
+{% if content.teasers|default([])|length == 2 %}
+    {# h tag should only be outputted when a title is set #}
+    {% if content.title|default %}
+        <h2 class="block-title">{{ content.title }}</h2>
+    {% endif %}
+
+    <div class="grid grid--stretch">
+        {% for teaser in content.teasers %}
+            <div class="grid__item width-4 width-tablet-6 width-mobile-12">
+                <a class="teaser" href="{{ sulu_content_path(teaser.url) }}">
+                    <div class="teaser__image">
+                        {% if teaser.mediaId|default %}
+                            {% set image = sulu_resolve_media(teaser.mediaId, app.request.locale) %}
+
+                            {# @see https://github.com/sulu/web-twig/blob/v2.4.0/docs/image.md #}
+                            {{ get_image(image, {
+                                src: '600x400',
+                            }) }}
+                        {% endif %}
+                    </div>
+
+                    <div class="teaser__body">
+                        <h3 class="teaser__title">{{ teaser.title }}</h3>
+
+                        {% if teaser.description|default %}
+                            <p class="teaser__description">{{ teaser.description|raw }}</p>
+                        {% endif %}
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

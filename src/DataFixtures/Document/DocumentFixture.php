@@ -67,18 +67,18 @@ class DocumentFixture implements DocumentFixtureInterface
             return;
         }
 
-        $pages = $this->loadPagesEnglish($documentManager);
-        $this->loadPagesGerman($documentManager, $pages);
+        $pagesEN = $this->loadPagesEnglish($documentManager);
+        $pagesDE = $this->loadPagesGerman($documentManager, $pagesEN);
 
         // update data-source of artist page because uuid is only available after persist
         $this->updateArtistPageDataSource($documentManager, AppFixture::LOCALE_EN);
         $this->updateArtistPageDataSource($documentManager, AppFixture::LOCALE_DE);
 
-        $articles = $this->loadArticlesEnglish($documentManager);
-        $this->loadArticlesGerman($documentManager, $articles);
+        $articlesEN = $this->loadArticlesEnglish($documentManager);
+        $articlesDE = $this->loadArticlesGerman($documentManager, $articlesEN);
 
-        $this->loadHomepageEnglish($documentManager);
-        $this->loadHomepageGerman($documentManager);
+        $this->loadHomepageEnglish($documentManager, $pagesEN, $articlesEN);
+        $this->loadHomepageGerman($documentManager, $pagesDE, $articlesDE);
 
         $snippet = $this->loadContactInformationSnippetEnglish($documentManager);
         $this->loadContactInformationSnippetGerman($documentManager, $snippet);
@@ -129,6 +129,11 @@ class DocumentFixture implements DocumentFixtureInterface
                 'headerImage' => [
                     'id' => $this->getMediaId('civil-literature.jpg'),
                 ],
+                'excerpt' => [
+                    'images' => [
+                        'ids' => [$this->getMediaId('civil-literature.jpg')],
+                    ],
+                ],
                 'blocks' => [
                     [
                         'type' => 'text',
@@ -159,6 +164,11 @@ class DocumentFixture implements DocumentFixtureInterface
                 'subtitle' => '',
                 'headerImage' => [
                     'id' => $this->getMediaId('coyoos.jpg'),
+                ],
+                'excerpt' => [
+                    'images' => [
+                        'ids' => [$this->getMediaId('coyoos.jpg')],
+                    ],
                 ],
                 'blocks' => [
                     [
@@ -195,6 +205,11 @@ class DocumentFixture implements DocumentFixtureInterface
                 'headerImage' => [
                     'id' => $this->getMediaId('marshall.jpg'),
                 ],
+                'excerpt' => [
+                    'images' => [
+                        'ids' => [$this->getMediaId('marshall.jpg')],
+                    ],
+                ],
                 'blocks' => [
                     [
                         'type' => 'text',
@@ -230,6 +245,11 @@ class DocumentFixture implements DocumentFixtureInterface
                 'headerImage' => [
                     'id' => $this->getMediaId('dudelsack.jpg'),
                 ],
+                'excerpt' => [
+                    'images' => [
+                        'ids' => [$this->getMediaId('dudelsack.jpg')],
+                    ],
+                ],
                 'blocks' => [
                     [
                         'type' => 'text',
@@ -260,6 +280,11 @@ class DocumentFixture implements DocumentFixtureInterface
                 'subtitle' => '',
                 'headerImage' => [
                     'id' => $this->getMediaId('tj-fury.jpg'),
+                ],
+                'excerpt' => [
+                    'images' => [
+                        'ids' => [$this->getMediaId('tj-fury.jpg')],
+                    ],
                 ],
                 'blocks' => [
                     [
@@ -344,8 +369,10 @@ class DocumentFixture implements DocumentFixtureInterface
      * @param PageDocument[] $englishPages
      *
      * @throws MetadataNotFoundException
+     *
+     * @return mixed[]
      */
-    private function loadPagesGerman(DocumentManager $documentManager, array $englishPages): void
+    private function loadPagesGerman(DocumentManager $documentManager, array $englishPages): array
     {
         $pagesData = [
             [
@@ -378,6 +405,11 @@ class DocumentFixture implements DocumentFixtureInterface
                 'headerImage' => [
                     'id' => $this->getMediaId('civil-literature.jpg'),
                 ],
+                'excerpt' => [
+                    'images' => [
+                        'ids' => [$this->getMediaId('civil-literature.jpg')],
+                    ],
+                ],
                 'blocks' => [
                     [
                         'type' => 'text',
@@ -409,6 +441,11 @@ class DocumentFixture implements DocumentFixtureInterface
                 'subtitle' => '',
                 'headerImage' => [
                     'id' => $this->getMediaId('coyoos.jpg'),
+                ],
+                'excerpt' => [
+                    'images' => [
+                        'ids' => [$this->getMediaId('coyoos.jpg')],
+                    ],
                 ],
                 'blocks' => [
                     [
@@ -446,6 +483,11 @@ class DocumentFixture implements DocumentFixtureInterface
                 'headerImage' => [
                     'id' => $this->getMediaId('marshall.jpg'),
                 ],
+                'excerpt' => [
+                    'images' => [
+                        'ids' => [$this->getMediaId('marshall.jpg')],
+                    ],
+                ],
                 'blocks' => [
                     [
                         'type' => 'text',
@@ -482,6 +524,11 @@ class DocumentFixture implements DocumentFixtureInterface
                 'headerImage' => [
                     'id' => $this->getMediaId('dudelsack.jpg'),
                 ],
+                'excerpt' => [
+                    'images' => [
+                        'ids' => [$this->getMediaId('dudelsack.jpg')],
+                    ],
+                ],
                 'blocks' => [
                     [
                         'type' => 'text',
@@ -513,6 +560,11 @@ class DocumentFixture implements DocumentFixtureInterface
                 'subtitle' => '',
                 'headerImage' => [
                     'id' => $this->getMediaId('tj-fury.jpg'),
+                ],
+                'excerpt' => [
+                    'images' => [
+                        'ids' => [$this->getMediaId('tj-fury.jpg')],
+                    ],
                 ],
                 'blocks' => [
                     [
@@ -586,9 +638,13 @@ class DocumentFixture implements DocumentFixtureInterface
             ],
         ];
 
+        $pages = [];
+
         foreach ($pagesData as $pageData) {
-            $this->createPage($documentManager, $pageData);
+            $pages[$pageData['url']] = $this->createPage($documentManager, $pageData);
         }
+
+        return $pages;
     }
 
     /**
@@ -778,8 +834,10 @@ class DocumentFixture implements DocumentFixtureInterface
      * @param mixed[] $englishArticles
      *
      * @throws MetadataNotFoundException
+     *
+     * @return mixed[]
      */
-    private function loadArticlesGerman(DocumentManager $documentManager, array $englishArticles): void
+    private function loadArticlesGerman(DocumentManager $documentManager, array $englishArticles): array
     {
         $articlesData = [
             [
@@ -952,31 +1010,45 @@ class DocumentFixture implements DocumentFixtureInterface
             ],
         ];
 
+        $articles = [];
+
         foreach ($articlesData as $articleData) {
-            $this->createArticle($documentManager, $articleData);
+            $article = $this->createArticle($documentManager, $articleData);
+            $articles[$article->getRoutePath()] = $article;
         }
+
+        return $articles;
     }
 
     /**
+     * @param mixed[] $pages
+     * @param mixed[] $articles
+     *
      * @throws DocumentManagerException
      */
-    private function loadHomepageEnglish(DocumentManager $documentManager): void
+    private function loadHomepageEnglish(DocumentManager $documentManager, array $pages, array $articles): void
     {
         /** @var HomeDocument $homeDocument */
         $homeDocument = $documentManager->find('/cmf/demo/contents', AppFixture::LOCALE_EN);
 
-        /** @var BasePageDocument $aboutDocument */
-        $aboutDocument = $documentManager->find('/cmf/demo/contents/about-us', AppFixture::LOCALE_EN);
+        /** @var BasePageDocument $aboutPage */
+        $aboutPage = $pages['/about'];
 
-        /** @var BasePageDocument $headerTeaserDocument */
-        $headerTeaserDocument = $documentManager->find('/cmf/demo/contents/artists/coyoos', AppFixture::LOCALE_EN);
+        /** @var BasePageDocument $coyoosPage */
+        $coyoosPage = $pages['/artists/coyoos'];
+
+        /** @var BasePageDocument $civilLiteraturePage */
+        $civilLiteraturePage = $pages['/artists/civil-literature'];
+
+        /** @var ArticleDocument $legendBehindTheMixArticle */
+        $legendBehindTheMixArticle = $articles['/blog/legend-behind-the-mix'];
 
         $homeDocument->getStructure()->bind(
             [
                 'locale' => AppFixture::LOCALE_EN,
                 'title' => $homeDocument->getTitle(),
                 'url' => '/',
-                'teaser' => $headerTeaserDocument->getUuid(),
+                'teaser' => $coyoosPage->getUuid(),
                 'blocks' => [
                     [
                         'type' => 'text',
@@ -985,8 +1057,25 @@ class DocumentFixture implements DocumentFixtureInterface
                     ],
                     [
                         'type' => 'link',
-                        'page' => $aboutDocument->getUuid(),
+                        'page' => $aboutPage->getUuid(),
                         'text' => 'READ MORE',
+                    ],
+                    [
+                        'type' => 'teasers',
+                        'title' => 'Featured',
+                        'teasers' => [
+                            'items' => [
+                                [
+                                    'id' => $legendBehindTheMixArticle->getUuid(),
+                                    'type' => 'articles',
+                                ],
+                                [
+                                    'id' => $civilLiteraturePage->getUuid(),
+                                    'type' => 'pages',
+                                ],
+                            ],
+                            'presentAs' => null,
+                        ],
                     ],
                 ],
             ]
@@ -997,25 +1086,34 @@ class DocumentFixture implements DocumentFixtureInterface
     }
 
     /**
+     * @param mixed[] $pages
+     * @param mixed[] $articles
+     *
      * @throws DocumentManagerException
      */
-    private function loadHomepageGerman(DocumentManager $documentManager): void
+    private function loadHomepageGerman(DocumentManager $documentManager, array $pages, array $articles): void
     {
         /** @var HomeDocument $homeDocument */
         $homeDocument = $documentManager->find('/cmf/demo/contents', AppFixture::LOCALE_DE);
 
-        /** @var BasePageDocument $aboutDocument */
-        $aboutDocument = $documentManager->find('/cmf/demo/contents/about-us', AppFixture::LOCALE_DE);
+        /** @var BasePageDocument $aboutPage */
+        $aboutPage = $pages['/about'];
 
-        /** @var BasePageDocument $headerTeaserDocument */
-        $headerTeaserDocument = $documentManager->find('/cmf/demo/contents/artists/coyoos', AppFixture::LOCALE_DE);
+        /** @var BasePageDocument $coyoosPage */
+        $coyoosPage = $pages['/musiker/coyoos'];
+
+        /** @var BasePageDocument $civilLiteraturePage */
+        $civilLiteraturePage = $pages['/musiker/civil-literature'];
+
+        /** @var ArticleDocument $legendBehindTheMixArticle */
+        $legendBehindTheMixArticle = $articles['/blog/eine-legende-hinter-dem-mischpult'];
 
         $homeDocument->getStructure()->bind(
             [
                 'locale' => AppFixture::LOCALE_DE,
                 'title' => $homeDocument->getTitle(),
                 'url' => '/',
-                'teaser' => $headerTeaserDocument->getUuid(),
+                'teaser' => $coyoosPage->getUuid(),
                 'blocks' => [
                     [
                         'type' => 'text',
@@ -1024,8 +1122,25 @@ class DocumentFixture implements DocumentFixtureInterface
                     ],
                     [
                         'type' => 'link',
-                        'page' => $aboutDocument->getUuid(),
+                        'page' => $aboutPage->getUuid(),
                         'text' => 'MEHR LESEN',
+                    ],
+                    [
+                        'type' => 'teasers',
+                        'title' => 'Featured',
+                        'teasers' => [
+                            'items' => [
+                                [
+                                    'id' => $legendBehindTheMixArticle->getUuid(),
+                                    'type' => 'articles',
+                                ],
+                                [
+                                    'id' => $civilLiteraturePage->getUuid(),
+                                    'type' => 'pages',
+                                ],
+                            ],
+                            'presentAs' => null,
+                        ],
                     ],
                 ],
             ]
