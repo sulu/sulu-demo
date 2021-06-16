@@ -1,0 +1,32 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <block name="blocks" default-type="teasers">
+        <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/block.html -->
+
+        <types>
+            <type name="teasers">
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Title</title>
+                            <title lang="de">Titel</title>
+                        </meta>
+                    </property>
+
+                    <property name="teasers" type="teaser_selection" mandatory="true">
+                        <meta>
+                            <title lang="en">Teasers</title>
+                            <title lang="de">Teaser</title>
+                        </meta>
+
+                        <params>
+                            <param name="min" value="2"/>
+                            <param name="max" value="2"/>
+                        </params>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

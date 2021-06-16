@@ -26,6 +26,10 @@
             <!-- @see https://docs.sulu.io/en/2.2/book/templates.html#including-other-templates -->
             <xi:include href="blocks/albums.xml"
                         xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+            <!-- @see https://docs.sulu.io/en/2.2/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/teasers.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
         </types>
     </block>
 </properties>
