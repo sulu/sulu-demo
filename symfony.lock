@@ -158,6 +158,9 @@
             ".php_cs.dist"
         ]
     },
+    "friendsofphp/proxy-manager-lts": {
+        "version": "v1.0.5"
+    },
     "friendsofsymfony/http-cache": {
         "version": "2.9.0"
     },
@@ -259,12 +262,6 @@
     "laminas/laminas-code": {
         "version": "3.4.1"
     },
-    "laminas/laminas-eventmanager": {
-        "version": "3.2.1"
-    },
-    "laminas/laminas-zendframework-bridge": {
-        "version": "1.0.4"
-    },
     "layershifter/tld-database": {
         "version": "1.0.69"
     },
@@ -315,9 +312,6 @@
         "files": [
             "config/packages/nyholm_psr7.yaml"
         ]
-    },
-    "ocramius/proxy-manager": {
-        "version": "2.2.3"
     },
     "ongr/elasticsearch-bundle": {
         "version": "v5.2.5"
@@ -688,6 +682,9 @@
     "symfony/proxy-manager-bridge": {
         "version": "v4.4.5"
     },
+    "symfony/psr-http-message-bridge": {
+        "version": "v2.1.0"
+    },
     "symfony/routing": {
         "version": "4.2",
         "recipe": {
@@ -838,9 +835,6 @@
     },
     "twig/twig": {
         "version": "v2.12.5"
-    },
-    "webimpress/safe-writer": {
-        "version": "2.0.1"
     },
     "webmozart/assert": {
         "version": "1.9.1"
