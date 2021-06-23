@@ -1,0 +1,5 @@
+sulu_admin:
+    resources:
+        contact_additional_data:
+            routes:
+                detail: 'app.get_contact-additional-data'
