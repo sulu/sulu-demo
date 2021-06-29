@@ -18,6 +18,10 @@ import 'sulu-snippet-bundle';
 import 'sulu-website-bundle';
 
 // Implement custom extensions here
+import {viewRegistry} from 'sulu-admin-bundle/containers';
+import ContactStatistics from "./views/ContactStatistics";
+
+viewRegistry.add('app.contact_statistics', ContactStatistics);
 
 // Start admin application
 startAdmin();
