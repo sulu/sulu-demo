@@ -1,0 +1,197 @@
+#######################################
+#   FAQ Url Git
+# https://github.com/griidc/pelagos/blob/34792dcdc5eceaf765a2ba23c8c926b4e8f3550a/config/services.yaml
+####
+
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    homedir_prefix: '%env(HOMEDIR_PREFIX)%'
+    locale: en
+    router.request_context.host: "%env(HOSTNAME)%"
+    router.request_context.scheme: "https"
+    router.request_context.base_url: '%env(REQUEST_CONTEXT_BASE_URL)%'
+    custom_template: '%env(CUSTOM_BASE_TEMPLATE)%'
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+
+    # controllers are imported separately to make sure services can be injected
+    # as action arguments even if you don't extend any base controller class
+    App\Controller\:
+        resource: '../src/Controller'
+        tags: ['controller.service_arguments']
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
+
+    App\Util\MaintenanceMode:
+        bind:
+            string $maintenanceModeFilename: '%kernel.project_dir%%env(MAINTENANCE_MODE_FILENAME)%'
+
+    App\Security\LoginFormAuthenticator:
+        bind:
+            $maximumPasswordAge: "%env(ACCOUNT_PASSWORD_MAX_AGE)%"
+
+    App\Util\MailSender:
+        bind:
+            string $fromAddress: "%env(MAILER_FROM_ADDR)%"
+            string $fromName: "%env(MAILER_FROM_NAME)%"
+            string $bccAddress: "%env(MAILER_BCC_ADDR)%"
+
+    App\Util\MdappLogger:
+        bind:
+            string $mdappLogfile: '%kernel.logs_dir%/mdapp.log'
+
+    App\Event\AccountListener:
+        tags:
+            - { name: kernel.event_listener, event: pelagos.entity.account.forgot_username, method: onForgotUsername }
+
+    App\Event\DIFListener:
+        tags:
+            - { name: kernel.event_listener, event: pelagos.entity.dif.saved_not_submitted, method: onSavedNotSubmitted }
+            - { name: kernel.event_listener, event: pelagos.entity.dif.submitted, method: onSubmitted }
+            - { name: kernel.event_listener, event: pelagos.entity.dif.approved, method: onApproved }
+            - { name: kernel.event_listener, event: pelagos.entity.dif.unlock_requested, method: onUnlockRequested }
+            - { name: kernel.event_listener, event: pelagos.entity.dif.unlocked, method: onUnlocked }
+
+    App\Event\DatasetSubmissionListener:
+        tags:
+            - { name: kernel.event_listener, event: pelagos.entity.dataset_submission.submitted, method: onSubmitted }
+            - { name: kernel.event_listener, event: pelagos.entity.dataset_submission.resubmitted, method: onResubmitted }
+            - { name: kernel.event_listener, event: pelagos.entity.dataset_submission.dataset_processed, method: onDatasetProcessed }
+            - { name: kernel.event_listener, event: pelagos.entity.dataset_submission.html_found, method: onHtmlFound }
+            - { name: kernel.event_listener, event: pelagos.entity.dataset_submission.dataset_unprocessable, method: onDatasetUnprocessable }
+            - { name: kernel.event_listener, event: pelagos.entity.dataset_submission.start_review, method: onStartReview }
+            - { name: kernel.event_listener, event: pelagos.entity.dataset_submission.end_review, method: onEndReview }
+            - { name: kernel.event_listener, event: pelagos.entity.dataset_submission.accept_review, method: onAcceptReview }
+            - { name: kernel.event_listener, event: pelagos.entity.dataset_submission.request_revisions, method: onRequestRevisions }
+
+    App\Event\DoctrineDatasetListener:
+        tags:
+            - { name: doctrine.event_listener, event: onFlush }
+            - { name: doctrine.orm.entity_listener, event: postUpdate, entity: App\Entity\Dataset }
+
+    App\Event\DoctrineDataCenterListener:
+        tags:
+            - { name: doctrine.event_listener, event: onFlush }
+
+    App\Event\DoiDatasetListener:
+        tags:
+            - { name: kernel.event_listener, event: pelagos.entity.dataset.delete_doi, method: onDeleteDoi }
+
+    App\Event\LogActionItemEventListener:
+        tags:
+            - { name: kernel.event_listener, event: pelagos.logactionitem.file_download, method: onNewLogCreated }
+            - { name: kernel.event_listener, event: pelagos.logactionitem.search_terms_log, method: onNewLogCreated }
+            - { name: kernel.event_listener, event: pelagos.logactionitem.restrictions_log, method: onNewLogCreated }
+            - { name: kernel.event_listener, event: pelagos.logactionitem.remotelyhosted_update_log, method: onNewLogCreated }
+
+    App\Util\DOIutil:
+        $doiApiUserName: "%env(DOI_API_USER_NAME)%"
+        $doiApiPassword: "%env(DOI_API_PASSWORD)%"
+        $doiApiPrefix: "%env(DOI_API_PREFIX)%"
+        $doiApiUrl: "%env(DOI_API_URL)%"
+
+    App\Util\Ldap\Ldap:
+        $ldapBindDn: "%env(LDAP_BIND_DN)%"
+        $ldapBindPw: "%env(LDAP_BIND_PW)%"
+        $peopleOu: "%env(LDAP_PEOPLE_OU)%"
+
+    App\Util\Ldap\LdapClient:
+        $host: "%env(LDAP_HOST)%"
+
+    App\Util\DatasetIndex:
+        autowire: false
+        arguments: ["@fos_elastica.index.pelagos.dataset"]
+
+    App\Handler\UploadHandler:
+        bind:
+            $homedirPrefix: "%env(HOMEDIR_PREFIX)%"
+
+    App\Command\AccountExpirationNotifyCommand:
+        bind:
+            string $maximumPasswordAge: "%env(ACCOUNT_PASSWORD_MAX_AGE)%"
+            string $passwordExpiryWarn: "%env(ACCOUNT_PASSWORD_EXPIRATION_WARN)%"
+            string $hostName: "%env(HOSTNAME)%"
+
+    App\Command\RebuildElasticsearchIndexCommand:
+        bind:
+            FOS\ElasticaBundle\Persister\ObjectPersister $pelagosDatasetIndexPersister: "@fos_elastica.object_persister.pelagos.dataset"
+
+    App\Util\Search:
+        bind:
+            FOS\ElasticaBundle\Finder\TransformedFinder $finder: "@fos_elastica.finder.search_pelagos.dataset"
+
+    App\Event\MaintenanceModeListener:
+        bind:
+            bool $maintenanceMode: "%env(bool:MAINTENANCE_MODE)%"
+            bool $debug: '%kernel.debug%'
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+    App\Util\VirusScanUtil:
+        bind:
+            string $clamdSock: "%env(CLAMD_SOCKET)%"
+
+    App\Util\POSIXifyAccount:
+        bind:
+            int $posixStartingUidNumber: "%env(POSIX_STARTING_UID)%"
+            int $posixGidNumber: "%env(POSIX_GID)%"
+            string $homedirPrefix: "%env(HOMEDIR_PREFIX)%"
+
+    App\Controller\UI\AccountController:
+        bind:
+            bool $passwordRules: '%env(bool:ACCOUNT_LESS_STRICT_PASSWORD_RULES)%'
+
+    App\Controller\DownloadController:
+        bind:
+            string $downloadBaseDir: '%env(DOWNLOAD_BASE_DIRECTORY)%'
+            string $downloadBaseUrl: '%env(DOWNLOAD_BASE_URL)%'
+
+    App\Controller\UI\MdAppController:
+        bind:
+            string $issueTrackingBaseUrl: '%env(ISSUE_TRACKING_BASE_URL)%'
+
+    App\Controller\Api\DatasetPublicationController:
+        bind:
+            FOS\ElasticaBundle\Persister\ObjectPersister $objectPersister: "@fos_elastica.object_persister.pelagos.dataset"
+
+    App\Util\RouterModifier:
+        bind:
+            array $excludeRoutes: "%env(json:REMOVE_BASE_URL_ROUTES)%"
+        decorates: 'router.default'
+        arguments: ['@App\Util\RouterModifier.inner']
+
+    App\Util\MailerLoggerUtil:
+        tags:
+            - { name: "swiftmailer.default.plugin" }
+
+    App\Util\FundingOrgFilter:
+        bind:
+            array $fundingOrgs: "%env(json:FILTER_BY_FUNDING_ORG)%"
+
+    App\Util\FileUploader:
+        bind:
+            $homedirPrefix: "%env(HOMEDIR_PREFIX)%"
+
+    App\Util\Datastore:
+        bind:
+            $datastoreFlysystem: "@oneup_flysystem.datastore_flysystem_filesystem"
+
+    App\MessageHandler\ZipDatasetFilesHandler:
+        bind:
+            $downloadDirectory: "%env(DOWNLOAD_PATH)%"
+

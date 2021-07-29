@@ -1,0 +1,97 @@
+<section class="section section-solo-loop" data-name="solo-loop" data-anim-scroll-group="solo-loop" data-analytics-section-engagement="name:solo loop">
+    <div class="section-main-content">
+        <div class="section-block">
+            <h2 class="section-block-headline typography-section-headline" data-text-zoom-max="1.75">
+                {% if content.title %}<span class="headline {% if content.raidbow_txt %}raidbow-txt{% endif %}">{{ content.title|raw }}</span>{% endif %}
+                {% if content.subtitle %}<span class="subhead">{{ content.subtitle|raw }}</span>{% endif %}
+            </h2>
+            {% if content.description %}<p class="section-block-intro typography-section-intro">{{ content.description|raw }}</p>{% endif %}
+        </div>
+        <div class="solo-loop-animation-container">
+            <div class="section-media" data-component-list="SoloLoop">
+                <div class="video-container" role="img" aria-label="Solo loop woven bands animation" aria-hidden="true">
+                    <div class="visuallyhidden focus-item" tabindex="-1"></div>
+                    <figure class="static" data-anim-lazy-image></figure>
+                    <figure class="start-frame image-solo-loop" data-anim-lazy-image></figure>
+                    <video class="media-video" muted="" playsinline="true" aria-hidden="true" data-video-source-basepath="/build/website/mp4/motion_wide/" data-video-source-retina-enabled="true"></video>
+                    <figure class="end-frame" data-anim-lazy-image></figure>
+                </div>
+            </div>
+        </div>
+        <div class="gallery-container solo-loop-gallery-container" data-anim-keyframe='{
+				"anchors":[".solo-loop-gallery-container"],
+				"start":"a0t - 100vh",
+				"end":"a0b",
+				"cssClass":"will-change",
+				"toggle":true,
+				"disabledWhen":["static-layout", "text-zoom"]
+			}'>
+            <div class="gallery-container-inside" data-component-list="SoloLoopCopy">
+                <div class="solo-loop-gallery">
+                    <div class="column column-copy">
+                        <figure class="image image-small image-small-solo image-solo" data-download-area-keyframe='{"start":"a0t -100vh","end":"a0b + 100vh","anchors":[".solo-loop-animation-container"]}' data-anim-lazy-image></figure>
+                        <div class="copy copy-solo">
+                            <div class="copy-block copy-block-solo anim-text-animate end" data-build-in-start="t - 50vh" data-build-in-start-s="t - 95vh" data-build-in-end="t" data-build-in-end-s="b">
+                                {% if content.solo_title %}<h3 class="copy-block-headline typography-copy-block">{{ content.solo_title|raw }}<br /></h3>{% endif %}
+                                {% if content.solo_desc %}
+                                    <p class="copy-block-copy typography-copy-block">
+                                        {{ content.solo_desc|raw }}
+                                    </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <figure class="image image-small image-small-braided image-braided" data-download-area-keyframe='{"start":"a0t -100vh","end":"a0b + 100vh","anchors":[".solo-loop-animation-container"]}' data-anim-lazy-image></figure>
+                        <div class="copy copy-braided">
+                            <div class="copy-block copy-block-braided anim-text-animate end" data-build-in-start="t - 50vh" data-build-in-start-s="t - 95vh" data-build-in-end="t" data-build-in-end-s="b">
+                                {% if content.braided_title %}
+                                    <h3 class="copy-block-headline typography-copy-block">{{ content.braided_title|raw }}<br class="large" /></h3>
+                                {% endif %}
+                                {% if content.braided_desc %}
+                                    <p class="copy-block-copy typography-copy-block">
+                                        {{ content.braided_desc|raw }}
+                                    </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column column-images solo-loop-column-images">
+                        <div class="image image-large-solo image-solo" data-download-area-keyframe='{"start":"a0t -100vh","end":"a0b + 100vh","anchors":[".solo-loop-animation-container"]}' data-anim-keyframe-1='{
+									"anchors":[".copy-braided"],
+									"start":"a0t - 50vh - 100px",
+									"end":"a0t + 200vh",
+									"cssClass":"translate",
+									"toggle":true,
+									"disabledWhen": ["static-layout", "text-zoom"],
+									"breakpointMask":"ML"
+								}' data-anim-keyframe-2='{
+									"anchors":[".copy-braided"],
+									"start":"a0b - 100vh - 50a0h",
+									"end":"a0t + 200vh",
+									"cssClass":"translate",
+									"toggle":true,
+									"disabledWhen": ["static-layout", "text-zoom"],
+									"breakpointMask":"S"
+								}' data-anim-lazy-image></div>
+                        <div class="image image-large-braided image-braided" data-download-area-keyframe='{"start":"a0t -100vh","end":"a0b + 100vh","anchors":[".solo-loop-animation-container"]}' data-anim-keyframe-1='{
+									"anchors":[".copy-braided"],
+									"start":"a0b - 100vh + 50px",
+									"end":"a0t + 200vh",
+									"cssClass":"rotate",
+									"toggle":true,
+									"disabledWhen": ["static-layout", "text-zoom"],
+									"breakpointMask":"ML"
+								}' data-anim-keyframe-2='{
+									"anchors":[".copy-braided"],
+									"start":"a0b - 100vh - 50a0h",
+									"end":"a0t + 200vh",
+									"cssClass":"rotate",
+									"toggle":true,
+									"disabledWhen": ["static-layout", "text-zoom"],
+									"breakpointMask":"S"
+								}' data-anim-lazy-image></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

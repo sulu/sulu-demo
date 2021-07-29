@@ -1,0 +1,122 @@
+{# TODO avoid sulu_content_load as its a heavy operation which should be avoided #}
+{# @see https://docs.sulu.io/en/2.2/reference/twig-extensions/functions/sulu_content_load.html #}
+{% set link_leds = sulu_content_load(content.link_leds|default(''|trans)) %}
+<section class="section section-bo-sensor" data-name="bo-sensor" data-component-list="BOSensorSticky" data-anim-scroll-group="bo-sensor" data-analytics-section-engagement="name:blood oxygen sensor">
+    <div class="section-main-content">
+        <div class="section-block">
+            <h2 class="section-block-headline typography-section-headline section-content" data-text-zoom-max="1.75">
+                {% if content.title_oxygen %}<span class="headline {% if content.raidbow_txt %}raidbow-txt{% endif %}">{{ content.title_oxygen|raw }}</span>{% endif %}
+                {% if content.subtitle_oxygen %}<span class="subhead">{{ content.subtitle_oxygen|raw }}</span>{% endif %}
+            </h2>
+            <div class="bo-sensor-profile-video-container section-media">
+                <div class="video-container">
+                    <figure class="end-frame" data-anim-lazy-image></figure>
+                </div>
+            </div>
+        </div>
+        <div class="bo-sensor-grid-block grid-block">
+            <div class="grid-item grid-item-intro">
+                <div class="section-block-intro">
+                    {% if content.description %}<p class="typography-section-intro">{{ content.description|raw }}</p>{% endif %}
+                </div>
+                <div class="sensor-video-container section-media" data-component-list="Sensor">
+                    <div class="video-container" role="img" aria-label="New watch Sensor animation" aria-hidden="true">
+                        <div class="visuallyhidden focus-item" tabindex="-1"></div>
+                        <figure class="static" data-anim-lazy-image></figure>
+                        <figure class="start-frame" data-anim-lazy-image></figure>
+                        <video class="media-video" muted="" playsinline="true" aria-hidden="true" data-video-source-basepath="/build/website/mp4/sensor/" data-video-source-retina-enabled="true"></video>
+                        <figure class="end-frame" data-anim-lazy-image></figure>
+                    </div>
+                </div>
+                {# <figure class="image-bo-sensor-front" data-anim-lazy-image></figure> #}
+            </div>
+            <div class="grid-item grid-item-bo-sensor-back">
+                <figure class="image-bo-sensor-back" data-anim-lazy-image></figure>
+            </div>
+        </div>
+        <div class="sc-manifest" data-manifest-large="/build/website/json/sensor/large/flow/flow_manifest.json" data-manifest-medium="/build/website/json/sensor/medium/flow/flow_manifest.json" data-manifest-small="/build/website/json/sensor/small/flow/flow_manifest.json"></div>
+        <!-- MEDIUM + LARGE -->
+        <div class="sc-main no-small">
+            <div class="sc-sticky-container">
+                <div class="sc-video-container">
+                    <div class="sc-video-sticky">
+                        <div class="sc-video" data-anim-lazy-image>
+                            <span class="blood-oxygen-canvas flow-canvas-enhance" style="display: none"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="sc-tile sc-tile-sensors" style="max-height:700px;"  data-anim-lazy-image>               
+                    <div class="sc-copy">
+                        <h3 class="copy-block-headline typography-copy-block">{% if content.title_sensor %}{{ content.title_sensor|raw }}{% endif %}</h3>
+                        <p class="copy-block-copy typography-copy-block">{% if content.typo_sensor %}{{ content.typo_sensor|raw }}{% endif %}</p>
+                    </div>                 
+                </div>
+                <div class="sc-tile sc-tile-leds" style="max-height:700px;" data-anim-lazy-image>
+                    <div class="sc-copy">
+                        {% if content.title_leds %}<h3 class="copy-block-headline typography-copy-block">{{ content.title_leds|raw }}</h3>{% endif %}
+                        <p class="copy-block-copy typography-copy-block">{% if content.typo_leds %}{{ content.typo_leds|raw }}{% endif %}</p>
+                        {% if link_leds is defined and link_leds is not null %}
+                            <a href="{{ sulu_content_path(link_leds.content.url) }}"
+                               data-analytics-title="{{ link_leds.content.title|default('read_more'|trans) }}"
+                               class="icon-wrapper copy-block-cta typography-copy-block"
+                               data-analytics-exit-link>
+                                {% if content.text_leds %}
+                                    <span class="icon-copy">{{ content.text_leds|raw }}</span>
+                                    <span class="icon icon-after more"></span>
+                                {% endif %}
+                            </a>
+                        {% endif %}
+                    </div>
+                    <div style="height:auto!important;" class="sc-small-tile-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /MEDIUM + LARGE -->
+        <!-- SMALL -->
+        <div class="sc-main-small small-only">
+            
+            <!--
+            <div class="container-sm">
+                <div id="tsparticles2"></div>
+            </div>
+            -->
+            
+            <div class="sc-small-sticky-container" style="display:none">
+                <div class="sticky-content">
+                    <div class="vw-clipper">
+                        <div class="image">
+                            <canvas class="blood-oxygen-canvas-small flow-canvas-enhance"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sc-small-tile sc-small-tile-sensors">              
+                <div class="sc-small-tile-image" style=""></div>
+                <div class="sc-small-copy">
+                    {% if content.title_sensor %}<h3 class="copy-block-headline typography-copy-block">{{ content.title_sensor|raw }}</h3>{% endif %}
+                    {% if content.typo_sensor %}<p class="copy-block-copy typography-copy-block">{{ content.typo_sensor|raw }}</p>{% endif %}
+                </div>
+            </div>
+            <div class="sc-small-tile sc-small-tile-leds">
+                <div class="sc-small-tile-image"></div>
+                <div class="sc-small-copy">
+                    {% if content.title_leds %}<h3 class="copy-block-headline typography-copy-block">{{ content.title_leds|raw }}</h3>{% endif %}
+                    {% if content.typo_leds %}<p class="copy-block-copy typography-copy-block">{{ content.typo_leds|raw }}</p>{% endif %}
+                    {% if link_leds is defined and link_leds is not null %}
+                    <a href="{{ sulu_content_path(link_leds.content.url) }}"
+                       data-analytics-title="{{ link_leds.content.title|default('read_more'|trans) }}" 
+                       class="icon-wrapper copy-block-cta typography-copy-block" 
+                       data-analytics-exit-link>
+                        {% if content.text_leds %}
+                            <span class="icon-copy">{{ content.text_leds|raw }}</span>
+                            <span class="icon icon-after more"></span>
+                        {% endif %}
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <!-- /SMALL -->
+    </div>
+</section>

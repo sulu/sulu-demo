@@ -1,0 +1,199 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="connected">
+        <types>
+            <type name="connected">
+                <meta>
+                    <title lang="en">Connected Block</title>
+                    <title lang="uk">Connected Block</title>
+                </meta>
+
+                <properties>
+                    
+                    <section name="organizationalTriger">
+                        <properties>
+
+                            <property name="theme_trigger" type="text_line" colspan="4">
+                                <meta>
+                                    <title lang="en">Custom Theme</title>
+                                    <title lang="uk">Спеціальна тема</title>
+                                </meta>
+                            </property>
+
+                            <property name="theme_params" type="text_line" colspan="4">
+                                <meta>
+                                    <title lang="en">Theme parameters</title>
+                                    <title lang="uk">Параметри теми</title>
+                                </meta>
+                            </property>
+                    
+                            <property name="raidbow_txt" type="checkbox" colspan="4">
+                                <meta>
+                                    <title lang="en">Text Gradient</title>
+                                    <title lang="uk">Градієнт тексту</title>
+                                </meta>
+                                <params>
+                                    <param name="type" value="toggler"/>
+                                    <param name="default_value" value="false"/>
+                                </params>
+                            </property> 
+                            
+                        </properties>
+                    </section>
+                    
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Title</title>
+                            <title lang="uk">Заголовок</title>
+                        </meta>
+                    </property> 
+                    
+                    <property name="subtitle" type="text_line">
+                        <meta>
+                            <title lang="en">SubTitle</title>
+                            <title lang="uk">Підзаголовок</title>
+                        </meta>
+                    </property> 
+
+                    <property name="description" type="text_area">
+                        <meta>
+                            <title lang="en">Description</title>
+                            <title lang="uk">Опис</title>
+                        </meta>
+                        <params>
+                            <param name="max_characters" value="300"/>
+                        </params>
+                    </property>
+                    
+                    <section name="organizationalDetailsFirst">
+                        <properties>
+                            <property name="first_title" type="text_line" colspan="12">
+                                <meta>
+                                    <title lang="en">Title 1</title>
+                                    <title lang="uk">Заголовок 1</title>
+                                </meta>
+                            </property> 
+
+                            <property name="first_desc" type="text_area" colspan="12">
+                                <meta>
+                                    <title lang="en">Description 1</title>
+                                    <title lang="uk">Опис 1</title>
+                                </meta>
+                                <params>
+                                    <param name="max_characters" value="300"/>
+                                </params>
+                            </property>
+                        </properties>
+                    </section>
+                    
+                    <section name="organizationalDetailsSecond">
+                        <properties>
+                            <property name="second_title" type="text_line" colspan="12">
+                                <meta>
+                                    <title lang="en">Title 2</title>
+                                    <title lang="uk">Заголовок 2</title>
+                                </meta>
+                            </property> 
+
+                            <property name="second_desc" type="text_area" colspan="12">
+                                <meta>
+                                    <title lang="en">Description 2</title>
+                                    <title lang="uk">Опис 2</title>
+                                </meta>
+                                <params>
+                                    <param name="max_characters" value="300"/>
+                                </params>
+                            </property>
+                        </properties>
+                    </section>
+                    
+                    <section name="organizationalDetailsThird">
+                        <properties>
+                            <property name="third_title" type="text_line" colspan="12">
+                                <meta>
+                                    <title lang="en">Title 3</title>
+                                    <title lang="uk">Заголовок 3</title>
+                                </meta>
+                            </property> 
+
+                            <property name="third_desc" type="text_area" colspan="12">
+                                <meta>
+                                    <title lang="en">Description 3</title>
+                                    <title lang="uk">Опис 3</title>
+                                </meta>
+                                <params>
+                                    <param name="max_characters" value="300"/>
+                                </params>
+                            </property>
+                        </properties>
+                    </section>
+                    
+                    <section name="organizationalDetailsFourth">
+                        <properties>
+                            <property name="fourth_title" type="text_line" colspan="12">
+                                <meta>
+                                    <title lang="en">Title 4</title>
+                                    <title lang="uk">Заголовок 4</title>
+                                </meta>
+                            </property> 
+
+                            <property name="fourth_desc" type="text_area" colspan="12">
+                                <meta>
+                                    <title lang="en">Description 4</title>
+                                    <title lang="uk">Опис 4</title>
+                                </meta>
+                                <params>
+                                    <param name="max_characters" value="300"/>
+                                </params>
+                            </property>
+                        </properties>
+                    </section>
+                    
+                    <section name="organizationalDetailsFifth">
+                        <properties>
+                            <property name="fifth_title" type="text_line" colspan="12">
+                                <meta>
+                                    <title lang="en">Title 5</title>
+                                    <title lang="uk">Заголовок 5</title>
+                                </meta>
+                            </property> 
+
+                            <property name="fifth_desc" type="text_area" colspan="12">
+                                <meta>
+                                    <title lang="en">Description 5</title>
+                                    <title lang="uk">Опис 5</title>
+                                </meta>
+                                <params>
+                                    <param name="max_characters" value="300"/>
+                                </params>
+                            </property>
+                        </properties>
+                    </section>
+                    
+                    <section name="organizationalDetailsSixth">
+                        <properties>
+                            <property name="sixth_title" type="text_line" colspan="12">
+                                <meta>
+                                    <title lang="en">Title 6</title>
+                                    <title lang="uk">Заголовок 6</title>
+                                </meta>
+                            </property> 
+
+                            <property name="sixth_desc" type="text_area" colspan="12">
+                                <meta>
+                                    <title lang="en">Description 6</title>
+                                    <title lang="uk">Опис 6</title>
+                                </meta>
+                                <params>
+                                    <param name="max_characters" value="300"/>
+                                </params>
+                            </property>
+                        </properties>
+                    </section>
+
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

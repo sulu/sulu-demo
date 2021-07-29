@@ -1,0 +1,149 @@
+<section class="section section-motivation" data-name="motivation" data-component-list="Motivation" data-anim-scroll-group="motivation" data-analytics-section-engagement="name:motivation">
+    <div class="section-main-content">
+        <div class="section-block">
+            <h2 class="section-block-headline typography-section-headline" data-text-zoom-max="1.75">
+                {% if content.title %}<span class="headline {% if content.raidbow_txt %}raidbow-txt{% endif %}">{{ content.title|raw }}</span>{% endif %}
+                {% if content.subtitle %}<span class="subhead">{{ content.subtitle|raw }}</span>{% endif %}
+            </h2>
+        </div>
+        <div class="section-wrapper motivation-section-wrapper" data-anim-keyframe='{
+				"anchors":[".motivation-section-wrapper"],
+				"start":"a0t - 100vh",
+				"end":"a0b",
+				"cssClass":"will-change",
+				"toggle":true,
+				"disabledWhen":["static-layout"]
+			}'>
+            <div class="motivation-sticky-block">
+                <div class="motivation-image-container image-container">
+                    <div class="image-container-wrapper">
+                        <div class="image-container-inside" data-anim-keyframe='{
+								"anchors":[".subsection-audio", ".subsection-competitions", ".motivation-image-container"],
+								"start":"a0b - 100vh + 75px",
+								"end":"a1b - 100vh + 56px",
+								"y":["0","-100h + 100a2h - 56px"],
+								"ease":"0.7",
+								"disabledWhen":["static-layout", "text-zoom"],
+								"breakpointMask":"S"
+							}'>
+                            <figure class="image-watch image-watch-audio" data-anim-keyframe-1='{
+										"start":"t - 100vh + 90h",
+										"end":"t - 100vh + 90h + 1px",
+										"opacity":[null,"1"],
+										"ease":"0.1",
+										"easeFunction":"easeOutQuint",
+										"disabledWhen":["static-layout"],
+										"breakpointMask":"LM"
+									}' data-anim-keyframe-2='{
+										"anchors":[".copy-block-audio"],
+										"start":"a0b - 100vh",
+										"end":"a0b - 100vh + 1px - 14px",
+										"opacity":[null,"1"],
+										"ease":"0.1",
+										"easeFunction":"easeOutQuint",
+										"disabledWhen":["static-layout", "text-zoom"],
+										"breakpointMask":"S"
+									}' data-anim-lazy-image></figure>
+                            <figure class="image-watch image-watch-rings" data-anim-keyframe-1='{
+										"start":"t - 100vh + 90h",
+										"end":"t - 100vh + 90h + 1px",
+										"opacity":[null,"1"],
+										"ease":"0.1",
+										"easeFunction":"easeOutQuint",
+										"disabledWhen":["static-layout"],
+										"breakpointMask":"LM"
+									}' data-anim-keyframe-2='{
+										"anchors":[".copy-block-rings"],
+										"start":"a0b - 100vh",
+										"end":"a0b - 100vh + 1px - 14px",
+										"opacity":[null,"1"],
+										"ease":"0.1",
+										"easeFunction":"easeOutQuint",
+										"disabledWhen":["static-layout", "text-zoom"],
+										"breakpointMask":"S"
+									}' data-anim-lazy-image></figure>
+                            <figure class="image-watch image-watch-sharing" data-anim-keyframe-1='{
+										"start":"t - 100vh + 90h",
+										"end":"t - 100vh + 90h + 1px",
+										"opacity":[null,"1"],
+										"ease":"0.1",
+										"easeFunction":"easeOutQuint",
+										"disabledWhen":["static-layout"],
+										"breakpointMask":"LM"
+									}' data-anim-keyframe-2='{
+										"anchors":[".copy-block-sharing"],
+										"start":"a0b - 100vh",
+										"end":"a0b - 100vh + 1px - 14px",
+										"opacity":[null,"1"],
+										"ease":"0.1",
+										"easeFunction":"easeOutQuint",
+										"disabledWhen":["static-layout", "text-zoom"],
+										"breakpointMask":"S"
+									}' data-anim-lazy-image></figure>
+                            <figure class="image-watch image-watch-competitions" data-anim-keyframe-1='{
+										"start":"t - 100vh + 90h",
+										"end":"t - 100vh + 90h + 1px",
+										"opacity":[null,"1"],
+										"ease":"0.1",
+										"easeFunction":"easeOutQuint",
+										"disabledWhen":["static-layout"],
+										"breakpointMask":"LM"
+									}' data-anim-keyframe-2='{
+										"anchors":[".copy-block-competitions"],
+										"start":"a0b - 100vh",
+										"end":"a0b - 100vh + 1px - 14px",
+										"opacity":[null,"1"],
+										"ease":"0.1",
+										"easeFunction":"easeOutQuint",
+										"disabledWhen":["static-layout", "text-zoom"],
+										"breakpointMask":"S"
+									}' data-anim-lazy-image></figure>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-container">
+                    <div class="subsection subsection-audio">
+                        <div class="copy-block copy-block-audio anim-text-animate" data-build-in-anchor=".image-watch-audio" data-build-in-start="a0t - 100vh + 90a0h" data-build-in-start-s="t - 90vh">
+                        {% if content.audio_title %}<h3 class="copy-block-headline typography-copy-block">{{ content.audio_title|raw }}</h3>{% endif %}
+                        {% if content.audio_desc %}
+                            <p class="copy-block-copy typography-copy-block">
+                                {{ content.audio_desc|raw }}
+                            </p>
+                        {% endif %}
+                        </div>
+                    </div>
+                    <div class="subsection subsection-rings">
+                        <div class="copy-block copy-block-rings anim-text-animate" data-build-in-anchor=".image-watch-rings" data-build-in-start="a0t - 100vh + 90a0h" data-build-in-start-s="t - 90vh">
+                        {% if content.rings_title %}<h3 class="copy-block-headline typography-copy-block">{{ content.rings_title|raw }}</h3>{% endif %}
+                        {% if content.rings_desc %}
+                            <p class="copy-block-copy typography-copy-block">
+                                {{ content.rings_desc|raw }}
+                            </p>
+                        {% endif %}
+                        </div>
+                    </div>
+                    <div class="subsection subsection-sharing">
+                        <div class="copy-block copy-block-sharing anim-text-animate" data-build-in-anchor=".image-watch-sharing" data-build-in-start="a0t - 100vh + 90a0h" data-build-in-start-s="t - 90vh">
+                        {% if content.sharing_title %}<h3 class="copy-block-headline typography-copy-block">{{ content.sharing_title|raw }}</h3>{% endif %}
+                        {% if content.sharing_desc %}
+                            <p class="copy-block-copy typography-copy-block">
+                                {{ content.sharing_desc|raw }}
+                            </p>
+                        {% endif %}
+                        </div>
+                    </div>
+                    <div class="subsection subsection-competitions">
+                        <div class="copy-block copy-block-competitions anim-text-animate" data-build-in-anchor=".image-watch-competitions" data-build-in-start="a0t - 100vh + 90a0h" data-build-in-start-s="t - 90vh">
+                        {% if content.competitions_title %}<h3 class="copy-block-headline typography-copy-block">{{ content.competitions_title|raw }}</h3>{% endif %}
+                        {% if content.competitions_desc %}
+                            <p class="copy-block-copy typography-copy-block">
+                                {{ content.competitions_desc|raw }}
+                            </p>
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

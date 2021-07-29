@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="39px" height="39px" viewBox="0 0 39 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>retail_icon_large</title>
+    <defs>
+        <radialGradient cx="-2.22044605e-14%" cy="50%" fx="-2.22044605e-14%" fy="50%" r="100%" id="radialGradient-1">
+            <stop stop-color="#FDDE5C" offset="0%"></stop>
+            <stop stop-color="#F8AB5E" offset="15.9333512%"></stop>
+            <stop stop-color="#A176C8" offset="49.992688%"></stop>
+            <stop stop-color="#759BEB" offset="66.0020854%"></stop>
+            <stop stop-color="#65BEB3" offset="83.0063375%"></stop>
+            <stop stop-color="#70DB96" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="-2.22044605e-14%" cy="50%" fx="-2.22044605e-14%" fy="50%" r="900%" gradientTransform="translate(-0.000000,0.500000),scale(0.111111,1.000000),translate(0.000000,-0.500000)" id="radialGradient-2">
+            <stop stop-color="#FDDE5C" offset="0%"></stop>
+            <stop stop-color="#F8AB5E" offset="15.9333512%"></stop>
+            <stop stop-color="#A176C8" offset="49.992688%"></stop>
+            <stop stop-color="#759BEB" offset="66.0020854%"></stop>
+            <stop stop-color="#65BEB3" offset="83.0063375%"></stop>
+            <stop stop-color="#70DB96" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="-2.22044605e-14%" cy="50%" fx="-2.22044605e-14%" fy="50%" r="1200%" gradientTransform="translate(-0.000000,0.500000),scale(0.083333,1.000000),translate(0.000000,-0.500000)" id="radialGradient-3">
+            <stop stop-color="#FDDE5C" offset="0%"></stop>
+            <stop stop-color="#F8AB5E" offset="15.9333512%"></stop>
+            <stop stop-color="#A176C8" offset="49.992688%"></stop>
+            <stop stop-color="#759BEB" offset="66.0020854%"></stop>
+            <stop stop-color="#65BEB3" offset="83.0063375%"></stop>
+            <stop stop-color="#70DB96" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon_large" fill-rule="nonzero">
+            <path d="M19.5,2.2 C29.0545262,2.2 36.8,9.94547383 36.8,19.5 C36.8,29.0545262 29.0545262,36.8 19.5,36.8 C9.94547383,36.8 2.2,29.0545262 2.2,19.5 C2.21102131,9.95004273 9.95004273,2.21102131 19.5,2.2 M19.5,0 C8.73044738,0 0,8.73044738 0,19.5 C0,30.2695526 8.73044738,39 19.5,39 C30.2695526,39 39,30.2695526 39,19.5 C39,8.73044738 30.2695526,0 19.5,0 Z" id="Shape" fill="url(#radialGradient-1)"></path>
+            <path d="M27.5,24.5 L11.5,24.5 C10.9477153,24.5 10.5,24.0522847 10.5,23.5 C10.5,22.9477153 10.9477153,22.5 11.5,22.5 L27.5,22.5 C28.0522847,22.5 28.5,22.9477153 28.5,23.5 C28.5,24.0522847 28.0522847,24.5 27.5,24.5 Z" id="Path" fill="url(#radialGradient-2)"></path>
+            <path d="M30.5,16.5 L8.5,16.5 C7.94771525,16.5 7.5,16.0522847 7.5,15.5 C7.5,14.9477153 7.94771525,14.5 8.5,14.5 L30.5,14.5 C31.0522847,14.5 31.5,14.9477153 31.5,15.5 C31.5,16.0522847 31.0522847,16.5 30.5,16.5 Z" id="Path" fill="url(#radialGradient-3)"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>asa_icon_dark_large</title>
+    <defs>
+        <radialGradient cx="-2.22044605e-14%" cy="50%" fx="-2.22044605e-14%" fy="50%" r="100%" id="radialGradient-1">
+            <stop stop-color="#FDDE5C" offset="0%"></stop>
+            <stop stop-color="#F8AB5E" offset="15.9333512%"></stop>
+            <stop stop-color="#A176C8" offset="49.992688%"></stop>
+            <stop stop-color="#759BEB" offset="66.0020854%"></stop>
+            <stop stop-color="#65BEB3" offset="83.0063375%"></stop>
+            <stop stop-color="#70DB96" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="-2.22044605e-14%" cy="50%" fx="-2.22044605e-14%" fy="50%" r="100%" gradientTransform="translate(-0.000000,0.500000),scale(1.000000,0.871299),translate(0.000000,-0.500000)" id="radialGradient-2">
+            <stop stop-color="#FDDE5C" offset="0%"></stop>
+            <stop stop-color="#F8AB5E" offset="15.9333512%"></stop>
+            <stop stop-color="#A176C8" offset="49.992688%"></stop>
+            <stop stop-color="#759BEB" offset="66.0020854%"></stop>
+            <stop stop-color="#65BEB3" offset="83.0063375%"></stop>
+            <stop stop-color="#70DB96" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon_dark_large" fill-rule="nonzero">
+            <path d="M28,36 L8,36 C3.58377808,35.9950401 0.00495988455,32.4162219 0,28 L0,8 C0.00495988455,3.58377808 3.58377808,0.00495988455 8,0 L28,0 C32.4162219,0.00495988455 35.9950401,3.58377808 36,8 L36,28 C35.9950401,32.4162219 32.4162219,35.9950401 28,36 L28,36 Z M8,2 C4.6878906,2.00385738 2.00385738,4.6878906 2,8 L2,28 C2.00385738,31.3121094 4.6878906,33.9961426 8,34 L28,34 C31.3121094,33.9961426 33.9961426,31.3121094 34,28 L34,8 C33.9961426,4.6878906 31.3121094,2.00385738 28,2 L8,2 Z" id="Shape" fill="url(#radialGradient-1)"></path>
+            <path d="M26,10 L23,10 C23,8.266 20.571,6 18,6 C15.429,6 13,8.266 13,10 L10,10 C9.44656477,9.90870581 8.88305916,10.0898061 8.48643264,10.4864326 C8.08980612,10.8830592 7.90870581,11.4465648 8,12 L8,26.75 C7.92304962,27.3231817 8.09976868,27.9014342 8.4839862,28.3336789 C8.86820371,28.7659236 9.42174955,29.0092191 10,29 L26,29 C27.367,29 28,28.117 28,26.75 L28,12 C28.0764165,11.4496638 27.8904292,10.8953308 27.4975492,10.5024508 C27.1046692,10.1095708 26.5503362,9.92358353 26,10 L26,10 Z M14,10 C14,8.658 15.666,7 18,7 C20.334,7 22,8.714 22,10 L14,10 Z" id="Shape" fill="url(#radialGradient-2)"></path>
+        </g>
+    </g>
+</svg>

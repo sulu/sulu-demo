@@ -1,0 +1,128 @@
+@font-face {
+    font-family: 'Neuropol X';
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/Neuropol-X/NeuropolXSb-Regular.eot");
+    src: url("../fonts/Neuropol-X/NeuropolXSb-Regular.woff2") format("woff2"), 
+        url("../fonts/Neuropol-X/NeuropolXSb-Regular.woff") format("woff"), 
+        url("../fonts/Neuropol-X/NeuropolXSb-Regular.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 200;
+    src: url("../fonts/SF-Pro-Display/V3/sf-pro-display_thin.woff2") format("woff2"), 
+        url("../fonts/SF-Pro-Display/V3/sf-pro-display_thin.woff") format("woff"), 
+        url("../fonts/SF-Pro-Display/V3/sf-pro-display_thin.ttf") format("truetype");
+    font-display: "swap";
+}
+
+@font-face {
+    font-family: 'SF Pro Display 200';
+    src: url("../fonts/SF-Pro-Display/V3/sf-pro-display_thin.eot");
+    font-display: "swap";
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 600;
+    src: url("../fonts/SF-Pro-Display/V3/sf-pro-display_semibold.woff2") format("woff2"), 
+        url("../fonts/SF-Pro-Display/V3/sf-pro-display_semibold.woff") format("woff"), 
+        url("../fonts/SF-Pro-Display/V3/sf-pro-display_semibold.ttf") format("truetype");
+    font-display: "swap";
+}
+
+@font-face {
+    font-family: 'SF Pro Display 600';
+    src: url("../fonts/SF-Pro-Display/V3/sf-pro-display_semibold.eot");
+    font-display: "swap";
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/SF-Pro-Display/V3/sf-pro-display_regular.eot");
+    src: url("../fonts/SF-Pro-Display/V3/sf-pro-display_regular.woff2") format("woff2"), 
+        url("../fonts/SF-Pro-Display/V3/sf-pro-display_regular.woff") format("woff"), 
+        url("../fonts/SF-Pro-Display/V3/sf-pro-display_regular.ttf") format("truetype");
+    font-display: "swap";
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 700;
+    src: url("../fonts/SF-Pro-Display/V3/sf-pro-display_bold.woff2") format("woff2"), 
+        url("../fonts/SF-Pro-Display/V3/sf-pro-display_bold.woff") format("woff"), 
+        url("../fonts/SF-Pro-Display/V3/sf-pro-display_bold.ttf") format("truetype");
+    font-display: "swap";
+}
+
+@font-face {
+    font-family: 'SF Pro Display 700';
+    src: url("../fonts/SF-Pro-Display/V3/sf-pro-display_bold.eot");
+    font-display: "swap";
+}
+
+@font-face {
+    font-family: 'SF Pro Text';
+    font-style: normal;
+    font-weight: 600;
+    src: url("../fonts/SF-Pro-Text/V3/sf-pro-text_semibold.woff2") format("woff2"), 
+        url("../fonts/SF-Pro-Text/V3/sf-pro-text_semibold.woff") format("woff"), 
+        url("../fonts/SF-Pro-Text/V3/sf-pro-text_semibold.ttf") format("truetype");
+    font-display: "swap";
+}
+
+@font-face {
+    font-family: 'SF Pro Text 600';
+    src: url("../fonts/SF-Pro-Text/V3/sf-pro-text_semibold.eot");
+    font-display: "swap";
+}
+
+@font-face {
+    font-family: 'SF Pro Text';
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/SF-Pro-Text/V3/sf-pro-text_regular.eot");
+    src: url("../fonts/SF-Pro-Text/V3/sf-pro-text_regular.woff2") format("woff2"), 
+        url("../fonts/SF-Pro-Text/V3/sf-pro-text_regular.woff") format("woff"), 
+        url("../fonts/SF-Pro-Text/V3/sf-pro-text_regular.ttf") format("truetype");
+    font-display: "swap";
+}
+
+@font-face {
+    font-family: 'SF Pro Text';
+    font-style: normal;
+    font-weight: 500;
+    src: url("../fonts/SF-Pro-Text/V3/sf-pro-text_medium.woff2") format("woff2"), 
+        url("../fonts/SF-Pro-Text/V3/sf-pro-text_medium.woff") format("woff"), 
+        url("../fonts/SF-Pro-Text/V3/sf-pro-text_medium.ttf") format("truetype");
+    font-display: "swap";
+}
+
+@font-face {
+    font-family: 'SF Pro Text 500';
+    src: url("../fonts/SF-Pro-Text/V3/sf-pro-text_medium.eot");
+    font-display: "swap";
+}
+
+@font-face {
+    font-family: 'SF Pro Text';
+    font-style: normal;
+    font-weight: 700;
+    src: url("../fonts/SF-Pro-Text/V3/sf-pro-text_bold.woff2") format("woff2"), 
+        url("../fonts/SF-Pro-Text/V3/sf-pro-text_bold.woff") format("woff"), 
+        url("../fonts/SF-Pro-Text/V3/sf-pro-text_bold.ttf") format("truetype");
+    font-display: "swap";
+}
+
+@font-face {
+    font-family: 'SF Pro Text 700';
+    src: url("../fonts/SF-Pro-Text/V3/sf-pro-text_bold.eot");
+    font-display: swap;
+}

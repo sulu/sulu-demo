@@ -1,0 +1,74 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="display">
+        <types>
+            <type name="display">
+                <meta>
+                    <title lang="en">Display Block</title>
+                    <title lang="uk">Display Block</title>
+                </meta>
+
+                <properties>
+
+                    <section name="organizationalTitles">
+                        <properties>
+                            <property name="title" type="text_line" mandatory="true" colspan="4">
+                                <meta>
+                                    <title lang="en">Title</title>
+                                    <title lang="uk">Заголовок</title>
+                                </meta>
+                            </property>
+
+                            <property name="subtitle" type="text_line" mandatory="true" colspan="8">
+                                <meta>
+                                    <title lang="en">SubTitle</title>
+                                    <title lang="uk">Підзаголовок</title>
+                                </meta>
+                            </property>
+                        </properties>
+                    </section>
+
+                    <property name="description" type="text_area">
+                        <meta>
+                            <title lang="en">Description</title>
+                            <title lang="uk">Опис</title>
+                        </meta>
+                        <params>
+                            <param name="max_characters" value="250"/>
+                        </params>
+                    </property>
+
+                    <property name="alwayson_title" type="text_line">
+                        <meta>
+                            <title lang="en">On Title</title>
+                            <title lang="uk">On Заголовок</title>
+                        </meta>
+                    </property>
+
+                    <property name="alwayson_desc" type="text_area">
+                        <meta>
+                            <title lang="en">On Description</title>
+                            <title lang="uk">On Опис</title>
+                        </meta>
+                        <params>
+                            <param name="max_characters" value="250" />
+                        </params>
+                    </property>
+                    
+                    <property name="raidbow_txt" type="checkbox">
+                        <meta>
+                            <title lang="en">Text Gradient</title>
+                            <title lang="uk">Градієнт тексту</title>
+                        </meta>
+                        <params>
+                            <param name="type" value="toggler"/>
+                            <param name="default_value" value="false"/>
+                        </params>
+                    </property> 
+
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

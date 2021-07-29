@@ -45,6 +45,6 @@ return [
     Sentry\SentryBundle\SentryBundle::class => ['all' => true],
     Sulu\Bundle\ArticleBundle\SuluArticleBundle::class => ['all' => true],
     ONGR\ElasticsearchBundle\ONGRElasticsearchBundle::class => ['all' => true],
-    Task\TaskBundle\TaskBundle::class => ['all' => true],
-    Sulu\Bundle\AutomationBundle\SuluAutomationBundle::class => ['all' => true],
+    Sulu\Bundle\FormBundle\SuluFormBundle::class => ['all' => true],
+    Sulu\Bundle\HeadlessBundle\SuluHeadlessBundle::class => ['all' => true],
 ];

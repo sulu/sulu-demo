@@ -1,11 +1,35 @@
 parameters:
     env(ELASTICSEARCH_HOST): '127.0.0.1:9200'
-    env(ELASTICSEARCH_INDEX): 'suludemo'
+    env(ELASTICSEARCH_INDEX): 'su_articles'
 
 sulu_article:
+    default_main_webspace: netexy
+#    default_additional_webspaces: []
+    smart_content:
+        default_limit:        100
     index_name: '%env(resolve:ELASTICSEARCH_INDEX)%'
     hosts:
         - '%env(resolve:ELASTICSEARCH_HOST)%'
+    types:
+        # Prototype
+        name:
+            translation_key:      ~
+
+    # Display tab 'all' in list view
+    display_tab_all:      true
+
+    # Set default author if none isset
+    default_author:       true
+    search_fields:
+        # Defaults:
+        - title
+        - excerpt.title
+        - excerpt.description
+        - excerpt.seo.title
+        - excerpt.seo.description
+        - excerpt.seo.keywords
+        - teaser_description
+        
 
 sulu_route:
     mappings:

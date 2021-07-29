@@ -1,0 +1,29 @@
+<section class="section section-designe" data-name="designe" data-component-list="Display" data-anim-scroll-group="designe" data-analytics-section-engagement="name:designe">
+    <div class="section-main-content">
+        <div class="section-content">
+            <div class="content-media">
+                <glass-container data-anim-lazy-image class="display-watch">
+                    <glass-hardware></glass-hardware>
+                    {# <glass-screen></glass-screen> #}
+                </glass-container>
+            </div>
+            <div class="content-copy">
+                <div class="section-block">
+                    <h2 class="section-block-headline typography-section-headline" data-text-zoom-max="1.75">
+                        {% if content.title %}<span class="headline {% if content.raidbow_txt %}raidbow-txt{% endif %}">{{ content.title|raw }}</span>{% endif %}
+                        {% if content.subtitle %}<span class="subhead">{{ content.subtitle|raw }}</span>{% endif %}
+                    </h2>
+                    {% if content.description %}<p class="section-block-intro typography-section-intro">{{ content.description|raw }}</p>{% endif %}
+                </div>
+                <div class="copy-block copy-block-always-on">
+                    {% if content.alwayson_title %}<h3 class="copy-block-headline typography-copy-block">{{ content.alwayson_title|raw }}<br /></h3>{% endif %}
+                    {% if content.alwayson_desc %}
+                        <p class="copy-block-copy typography-copy-block">
+                            {{ content.alwayson_desc|raw }}
+                        </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

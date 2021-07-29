@@ -1,0 +1,31 @@
+{% if content.type == 'nested' %}
+    {% for subblock in content.subblocks %}
+        {% if subblock.type == 'editor' %}
+            {% if subblock.text_editor %}<div>{{ subblock.text_editor }}</div>{% endif %}
+        {% elseif subblock.type == 'media' %}
+
+        {% elseif subblock.type == 'data' %}
+            {% if subblock.title %}<h4>{{ subblock.title|raw }}</h4>{% endif %}
+            {% if subblock.description %}<p>{{ subblock.description|raw }}</p>{% endif %}
+            {% if subblock.image_nested %}
+                    {# @see https://docs.sulu.io/en/2.1/reference/twig-extensions/functions/sulu_resolve_media.html #}
+                    {% set image = sulu_resolve_media(subblock.image_nested, app.request.locale) %}
+
+                    {# @see https://github.com/sulu/web-twig/blob/v2.4.0/docs/image.md #}
+                    {{ get_image(image, '400x400') }}
+            {% endif %}
+
+            {% set link_nested = sulu_content_load(subblock.link_nested|default(''|trans)) %}
+            <a href="{{ sulu_content_path(link_nested.content.url) }}"
+                data-analytics-title="{{ text_nested|default(link_nested.content.title|default('read_more'|trans)) }}"
+                aria-label="{{ text_nested|default(link_nested.content.title|default('read_more'|trans)) }}"
+                class="icon-wrapper entityid-{{ loop.index }}">
+                {% if subblock.text_nested %}
+                <span class="icon-copy">{{ subblock.text_nested|raw }}</span>
+                {% endif %}
+            </a>
+
+        {% endif %}
+    {% endfor %}
+{% endif %}
+

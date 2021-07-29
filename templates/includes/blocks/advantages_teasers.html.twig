@@ -1,0 +1,61 @@
+{% import 'AppBundle:macros:helpers.html.twig' as helpers %}
+{% set propertyName = propertyName|default('blocks') %}
+
+{% set customClass = '' %}
+{% if block.custom_class is defined %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+{% set customTrigger = '' %}
+{% if block.custom_trigger is defined %}
+    {% set customTrigger = block.custom_trigger|default('') %}
+{% endif %}
+
+{% if block.advantages|length %}
+<div class="row center-xs ">
+    <div class="col-xs-12 pad-lg-y {{ customClass }}">
+        <div class="row">
+            {#{% if block.display_heading|default(true) %}#}
+                {#{% set heading = {#}
+                    {#'title': block.title|default(),#}
+                    {#'heading_level': 2,#}
+                {#} %}#}
+                {#{{ helpers.loadBlock('heading', {block: heading}) }}#}
+            {#{% endif %}#}
+        </div>
+        <div class="row center-xs pad-xs-r card__row">
+            {% for advantage in block.advantages %}
+            {% set entityId = blockId ~ '_' ~ loop.index0 %}
+            {% set media = sulu_resolve_media(advantage.mediaId, context.request.locale) %}
+            {% set url = "/"~context.request.locale ~
+            advantage.url %}   
+
+                    <article {% if block.custom_trigger %}data-aos="{{ customTrigger }}"{% endif %} class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 mar-xs-b">
+                        <div class="a--subtle a--block block-grid--align-item card__item pad-xs-x z-depth-2">
+
+                            <div class="card__icon stat-icon-wrapper js-in-view is-active">
+                                <i class="material-icons c--akcent">{{ advantage.moreText }}</i>
+                            </div>
+
+                            <h2 class="col-xs-12 flush h4 center layout-text--default mar-xs-t">
+                              <span class="border">{{ advantage.title }}</span>
+                            </h2>
+
+                            <p class="sans tertiary">
+                                {{ advantage.description|raw }}
+                            </p>
+                            <div class="col-xs-12 block-grid--align-bottom center">
+                              <a href="{{ url }}" class="button button--teal">            {% if context.request.locale == 'uk' %}
+                                Детальніше
+                              {% else %}
+                                Read more
+                              {% endif %}
+                              </a>
+                            </div>
+                        </div>
+                    </article>
+              {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}

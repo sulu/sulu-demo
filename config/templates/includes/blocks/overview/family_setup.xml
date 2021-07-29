@@ -1,0 +1,43 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="family_setup">
+        <types>
+            <type name="family_setup">
+                <meta>
+                    <title lang="en">Family-setup Block</title>
+                    <title lang="uk">Family-setup Block</title>
+                </meta>
+
+                <properties>
+                    <property name="text_line_" type="text_line">
+                        <meta>
+                            <title lang="en">Text line</title>
+                        </meta>
+                        <params>
+                            <param name="headline" value="true"/>
+                        </params>
+                    </property>
+
+                    <property name="text_area_" type="text_area">
+                        <meta>
+                            <title lang="en">Text area</title>
+                        </meta>
+                    </property>
+                    
+                    <property name="raidbow_txt" type="checkbox">
+                        <meta>
+                            <title lang="en">Text Gradient</title>
+                            <title lang="uk">Градієнт тексту</title>
+                        </meta>
+                        <params>
+                            <param name="type" value="toggler"/>
+                            <param name="default_value" value="false"/>
+                        </params>
+                    </property> 
+
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

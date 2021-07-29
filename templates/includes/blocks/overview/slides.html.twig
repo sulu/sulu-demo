@@ -1,0 +1,194 @@
+{% import 'macros/helpers.html.twig' as helpers %}
+
+<style>
+{% for subblock in content.subblocks %}
+    {% if subblock.type == 'data' %}   
+    {# {% set imageLarge = subblock.image_nested_large.url|default() %} #}
+    {# {% set imageMedium = subblock.image_nested_medium.url|default() %} #}
+    {# {% set imageSmall = subblock.image_nested.url|default() %} #}
+    
+    {% set sliderImageLarge = subblock.sliderImageLarge.formats['SliderLarge.jpg']|default() %} 
+    {% set sliderImageLarge2x = subblock.sliderImageLarge.formats['SliderLarge2x.jpg']|default() %} 
+    
+    {% set sliderImageMedium = subblock.sliderImageMedium.formats['SliderMedium.jpg']|default() %} 
+    {% set sliderImageMedium2x = subblock.sliderImageMedium.formats['SliderMedium2x.jpg']|default() %} 
+    
+    {% set sliderImageSmall = subblock.sliderImageSmall.formats['SliderSmall.jpg']|default() %} 
+    {% set sliderImageSmall2x = subblock.sliderImageSmall.formats['SliderSmall2x.jpg']|default() %} 
+
+.gallery-image-{{ loop.index }} {
+    width: 960px;
+    height: 500px;
+    background-size: 960px 500px;
+    background-repeat: no-repeat;
+    background-image: url("{{ sliderImageLarge }}")
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    .gallery-image-{{ loop.index }} {
+        background-image: url("{{ sliderImageLarge2x }}")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .gallery-image-{{ loop.index }} {
+        width: 620px;
+        height: 358px;
+        background-size: 620px 358px;
+        background-repeat: no-repeat;
+        background-image: url("{{ sliderImageMedium }}")
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .gallery-image-{{ loop.index }} {
+        background-image: url("{{ sliderImageMedium2x }}")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .gallery-image-{{ loop.index }} {
+        width: 340px;
+        height: 284px;
+        background-size: 340px 284px;
+        background-repeat: no-repeat;
+        background-image: url("{{ sliderImageSmall }}")
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .gallery-image-{{ loop.index }} {
+        background-image: url("{{ sliderImageSmall2x }}")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .gallery-image-{{ loop.index }} {
+        position: relative;
+        left: 50%;
+        margin-left: -152.5px
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) {
+    .gallery-image-{{ loop.index }} {
+        left: 50%;
+        margin-left: -109px
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) {
+    .gallery-image-{{ loop.index }} {
+        left: 50%;
+        margin-left: -80px
+    }
+}    
+    
+    
+    {% endif %}
+{% endfor %}   
+</style>
+    
+    
+<section class="section section-slides" data-name="faces" data-anim-scroll-group="faces" data-analytics-section-engagement="name:faces">
+    <div class="section-main-content">
+        <div class="section-faces-gallery" data-anim-keyframe='{
+			"anchors":[".section-faces-gallery"],
+			"start":"a0t - 100vh",
+			"end":"a0b",
+			"cssClass":"will-change",
+			"toggle":true,
+			"disabledWhen":["static-layout"]
+		}'>
+            <div class="gallery-wrapper">
+                <!-- Small Gallery -->
+                <div id="faces-gallery-small" aria-label="Netexy Studio gallery" class="gallery gallery-small" data-component-list="FacesGallery" data-analytics-gallery-id="netexy gallery | small">
+                    <div class="tablist-wrapper">
+                        <div data-analytics-gallery-interaction-type="dotnav" class="dotnav">
+                            <ul role="tablist" class="dotnav-items" aria-label="Netexy Studio gallery">
+                            {% for subblock in content.subblocks %}
+                                {% if subblock.type == 'data' %}        
+                                <li><a href="#faces-gallery-small-item-{{ loop.index }}" id="faces-gallery-small-item-{{ loop.index }}-trigger" data-ac-gallery-trigger="faces-gallery-small-item-{{ loop.index }}" class="dotnav-item">{% if subblock.title %}<span class="visuallyhidden" role="tab">{{ subblock.title|raw }}</span>{% endif %}</a></li>
+                                {% endif %}
+                            {% endfor %}             
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                    {% for subblock in content.subblocks %}
+                        {% if subblock.type == 'data' %}   
+                        <div id="faces-gallery-small-item-{{ loop.index }}" data-ac-gallery-item="" class="gallery-item" role="tabpanel" aria-label="Item {{ loop.index }}">
+                            <div class="gallery-watch-block-large">
+                                <figure role="img" class="configurator-gallery-image gallery-image-{{ loop.index }} gallery-image-{{ loop.index }}-alt" aria-label="Watch face for water lovers" data-download-area-keyframe='{"breakpointMask":"S"}' data-anim-lazy-image></figure>
+                                <div class="gallery-copy-block typography-body-reduced">
+                                    {% if subblock.title %}<div class="gallery-copy-title">{{ subblock.title|raw }}</div>{% endif %}
+                                    {% if subblock.description %}<div class="gallery-copy-copy">{{ subblock.description|raw }}</div>{% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endfor %}                           
+                    </div>
+                    <div data-analytics-gallery-interaction-type="paddlenav" class="paddlenav paddlenav-framed">
+                        <ul>
+                            <li><button aria-label="Previous" class="paddlenav-arrow paddlenav-arrow-previous"></button></li>
+                            <li><button aria-label="Next" class="paddlenav-arrow paddlenav-arrow-next"></button></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Large Gallery -->
+                <div id="faces-gallery-large" aria-label="Netexy Studio gallery" class="gallery gallery-large" data-component-list="FacesGallery" data-analytics-gallery-id="netexy gallery | large">
+                    <div class="tablist-wrapper">
+                        <div data-analytics-gallery-interaction-type="dotnav" class="dotnav">
+                            <ul role="tablist" class="dotnav-items" aria-label="Netexy Studio gallery">
+                            {% for subblock in content.subblocks %}
+                                {% if subblock.type == 'data' %}        
+                                <li><a href="#faces-gallery-large-item-{{ loop.index }}" id="faces-gallery-large-item-{{ loop.index }}-trigger" data-ac-gallery-trigger="faces-gallery-large-item-{{ loop.index }}" class="dotnav-item">{% if subblock.title %}<span class="visuallyhidden" role="tab">{{ subblock.title|raw }}</span>{% endif %}</a></li>
+                                {% endif %}
+                            {% endfor %}                                      
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                    {% for subblock in content.subblocks %}
+                        {% if subblock.type == 'data' %}                          
+                        <div id="faces-gallery-large-item-{{ loop.index }}" data-ac-gallery-item="" class="gallery-item" role="tabpanel">
+                            <div class="gallery-watch-block-large">
+                                <figure role="img" class="configurator-gallery-image gallery-image-{{ loop.index }} gallery-image-{{ loop.index }}-alt" aria-label="netexy gallery" data-download-area-keyframe='{"breakpointMask":"MLX"}' data-anim-lazy-image></figure>
+                                <div class="gallery-copy-block typography-body-reduced">
+                                    {% if subblock.title %}<div class="gallery-copy-title">{{ subblock.title|raw }}</div>{% endif %}
+                                    {% if subblock.description %}<div class="gallery-copy-copy">{{ subblock.description|raw }}</div>{% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endfor %}         
+                    </div>
+                    <div data-analytics-gallery-interaction-type="paddlenav" class="paddlenav paddlenav-framed">
+                        <ul>
+                            <li><button aria-label="Previous" class="paddlenav-arrow paddlenav-arrow-previous"></button></li>
+                            <li><button aria-label="Next" class="paddlenav-arrow paddlenav-arrow-next"></button></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# {{ dump(content)  }} #}
+
+                    {# {% for i in range(0, 1) %} #}
+                    {# <div id="faces-gallery-large-item-{{ loop.index }}" data-ac-gallery-item="" class="gallery-item" role="tabpanel"> #}  
+                    {#     {% for j in range(0, 2) %} #}         
+                    {#         <a class="large-item-{{ loop.parent.loop.index + loop.index }}" href="#"></a> #}
+                    {#     {% endfor %} #} 
+                    {# </div> #}      
+                    {# {% endfor %} #}

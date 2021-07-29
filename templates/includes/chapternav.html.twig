@@ -1,0 +1,172 @@
+{% set sectionName = sectionName|default('navigation_top') %}
+
+{% set content = context.content|default([]) %}
+
+{% set customClass = '' %}
+{% if block.custom_class is defined %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+   {% set config = sulu_snippet_load_by_area('website_config').content|default([]) %}
+
+    {% set contact = config.navigation_contact|default() %}
+    {% set logo = config.logo|default() %}
+    {% set logo_wide = config.logo_wide|default() %}
+    {% set address = config.footer_address|default() %}
+    {% set active = active|default() %}
+
+    {% set ln_url = '/' %}
+
+    <input type="checkbox" id="ac-gn-menustate" class="ac-gn-menustate" />
+    <nav id="ac-globalnav" class="no-js" role="navigation" aria-label="Global" data-hires="false" data-analytics-region="global nav" lang="uk-UA" dir="ltr">
+        <div class="ac-gn-content">
+            <ul class="ac-gn-header">
+                <li class="ac-gn-item ac-gn-menuicon">
+                    <label class="ac-gn-menuicon-label" for="ac-gn-menustate" aria-hidden="true">
+                        <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-top">
+                            <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-top"></span>
+                        </span>
+                        <span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-bottom">
+                            <span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-bottom"></span>
+                        </span>
+                    </label>
+                    <a href="#ac-gn-menustate" role="button" class="ac-gn-menuanchor ac-gn-menuanchor-open" id="ac-gn-menuanchor-open">
+                        <span class="ac-gn-menuanchor-label">{{ 'open_menu'|trans }}</span>
+                    </a>
+                    <a href="#!" role="button" class="ac-gn-menuanchor ac-gn-menuanchor-close" id="ac-gn-menuanchor-close">
+                        <span class="ac-gn-menuanchor-label">{{ 'close_menu'|trans }}</span>
+                    </a>
+                </li>
+                <li class="ac-gn-item ac-gn-netexy">
+                    <a class="ac-gn-link ac-gn-link-netexy" href="/" data-analytics-title="netexy" id="ac-gn-firstfocus-small">                    
+                    {% if logo_wide|length and logo_wide[0]|length %}
+                        {% set image = sulu_resolve_media(logo_wide[0], context.request.locale) %}
+                        {% set imageMeta = image.fileVersion.defaultMeta %}
+                        <span class="ac-gn-link-text">{{ imageMeta.title }}</span>
+                    {% endif %}
+                        <!--<span class="ac-gn-link-text">NETEXY</span>-->
+                    </a>
+                </li>
+            </ul>
+            <ul class="ac-gn-list">
+                <li class="ac-gn-item ac-gn-netexy">
+                {# {% if logo_wide|length and logo_wide[0]|length %} #}
+                        {# {% set image = sulu_resolve_media(logo_wide[0], context.request.locale) %} #}
+                        {# {% set imageMeta = image.fileVersion.defaultMeta %} #}
+                    <a class="ac-gn-link ac-gn-link-netexy" href="/" data-analytics-title="apple home" id="ac-gn-firstfocus">
+                        <span class="ac-gn-link-text"> Netexy {# {{ imageMeta.title }} #}</span>
+                    </a>
+                  {# {% endif %} #}
+                </li>
+                <li class="ac-gn-item ac-gn-item-menu">
+                    <a class="ac-gn-link" href="{{ sulu_content_path('/') }}">
+                        <span class="ac-gn-link-text">
+                           {{ 'main_page'|trans }}
+                        </span>
+                    </a>
+                </li>              
+
+
+            {# @see https://docs.sulu.io/en/2.1/reference/twig-extensions/functions/sulu_navigation_root_flat.html #}
+            {% for item in sulu_navigation_root_flat('main', 1, true) %}
+                {# @see https://docs.sulu.io/en/2.1/reference/twig-extensions/functions/sulu_content_path.html #}
+                {% set itemUrl = sulu_content_path(item.url) %}
+                <li class="ac-gn-item ac-gn-item-menu">
+                    <a class="ac-gn-link {{ app.request.uri starts with itemUrl ? ' navbar__item--active' : '' }}" 
+                        href="{{ itemUrl }}"
+                        title="{{ item.title }}"
+                        {# open external links as target blank and set noopener #}
+                        {% if item.nodeType == 4 %}target="_blank" rel="noopener"{% endif %}>
+                        <span class="ac-gn-link-text">
+                        {# fallback to content title when excerpt title not set #}
+                        {{ item.excerpt.title|default(item.title) }}</span>
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+            <ul class="ac-gn-locales">
+                {% for localization in localizations %}
+                <li class="ac-gn-item ac-gn-netexy ac-gn-locale-item" style="background-color: rgba(29,29,29,1);">
+                    <a class="ac-gn-link ac-gn-link-netexy ac-gn-lang-en" href="{{ localization.url }}" title="English" data-analytics-title="netexy en" id="ac-gn-firstfocus">
+                        <span class="ac-gn-link-text">{{ localization.locale }}</span>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul> 
+        </div>
+    </nav>
+    <div class="ac-gn-blur"></div>
+    <div id="ac-gn-curtain" class="ac-gn-curtain"></div>
+    <script src="{{ asset('build/website/js/ac-globalnav.built.js') }}"></script> 
+        {% if propertyName.homepage is defined %}
+            <script src="{{ asset('build/website/js/ac-globalnav.built.js') }}"></script>
+        {% endif %}
+        {% if propertyName.default is defined %}
+            <script src="{{ asset('build/website/js/ac-globalnav.built.js') }}"></script> 
+        {% endif %}
+        {% if propertyName.app is defined %}
+            <script src="{{ asset('build/website/js/ac-globalnav.built.js') }}"></script> 
+        {% endif %}
+        {% if propertyName.overview is defined %}
+            <script src="{{ asset('build/website/js/ac-globalnav.built.js') }}"></script> 
+        {% endif %}
+        {% if propertyName.privacy is defined %}
+            <script src="{{ asset('build/website/js/privacy/ac-globalnav.built.js') }}"></script> 
+        {% endif %}
+
+<nav id="chapternav" class="chapternav theme-dark with-paddles" data-analytics-region="family browser" data-analytics-activitymap-region-id="chapternav">
+    <div class="chapternav-wrapper">
+        <ul class="chapternav-items">
+
+            <li class="chapternav-item chapternav-item-guidelines">
+                <div class="chapternav-link" data-analytics-title="">
+                    <figure class="chapternav-icon"></figure>
+                    <span class="chapternav-label">Guidelines</span>
+                    {# <span class="chapternav-new">New</span> #}
+                </div>
+            </li>
+
+            <li class="chapternav-item chapternav-item-prototyping">
+                <div class="chapternav-link" data-analytics-title="">
+                    <figure class="chapternav-icon"></figure>
+                    <span class="chapternav-label">Prototyping</span>
+                </div>
+            </li>
+
+            <li class="chapternav-item chapternav-item-wireframing">
+                <div class="chapternav-link" data-analytics-title="">
+                    <figure class="chapternav-icon"></figure>
+                    <span class="chapternav-label">Wireframing</span>
+                </div>
+            </li>
+
+            <li class="chapternav-item chapternav-item-icon-guidelines">
+                <div class="chapternav-link" data-analytics-title="">
+                    <figure class="chapternav-icon"></figure>
+                    <span class="chapternav-label">Iconography</span>
+                </div>
+            </li>
+
+            <li class="chapternav-item chapternav-item-usability">
+                <div class="chapternav-link" data-analytics-title="">
+                    <figure class="chapternav-icon"></figure>
+                    <span class="chapternav-label">Usability</span>
+                </div>
+            </li>
+
+            <li class="chapternav-item chapternav-item-multi-device">
+                <div class="chapternav-link" data-analytics-title="">
+                    <figure class="chapternav-icon"></figure>
+                    <span class="chapternav-label">Multi-Devices</span>
+                </div>
+            </li>
+        </ul>
+        <div class="chapternav-paddles">
+            <button class="chapternav-paddle chapternav-paddle-left" aria-hidden="true"></button>
+            <button class="chapternav-paddle chapternav-paddle-right" aria-hidden="true"></button>
+        </div>
+    </div>
+</nav>
+
+
+{#{{ dump(context.templateName) }}#}
+

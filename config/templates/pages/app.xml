@@ -1,0 +1,69 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xi="http://www.w3.org/2001/XInclude"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <!-- This is the template for the "Homepage". -->
+    <!-- For further information, on how to make a Sulu template have a look at: -->
+    <!-- http://docs.sulu.io/en/latest/book/templates.html -->
+
+    <!-- This is the unique key that identifies the template. It must be identical to the file name without the ".xml" suffix!!! -->
+    <key>app</key>
+
+    <!-- Path to "Home" page's Twig file: -->
+    <!-- templates/pages/homepage.html.twig -->
+    <view>pages/app</view>
+
+    <!-- Path to "Home" page's Controller -->
+    <!-- In this case that's Sulu's default controller -->
+    <!-- vendor/sulu/sulu/src/Sulu/Bundle/WebsiteBundle/Controller/DefaultController.php -->
+    <controller>Sulu\Bundle\WebsiteBundle\Controller\DefaultController::indexAction</controller>
+
+    <!-- Lifetime of this pages cache -->
+    <cacheLifetime>86400</cacheLifetime>
+
+    <meta>
+        <!-- The localized titles of the template. These titles appear in the dropdown where you select the template of a page. -->
+        <title lang="en">App</title>
+        <title lang="de">App</title>
+    </meta>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Title</title>
+                <title lang="de">Titel</title>
+            </meta>
+
+            <params>
+                <param name="headline" value="true"/>
+            </params>
+
+            <tag name="sulu.rlp.part"/>
+        </property>
+
+        <property name="url" type="resource_locator" mandatory="true">
+            <!-- @see https://docs.sulu.io/en/2.1/reference/content-types/resource_locator.html -->
+            <meta>
+                <title lang="en">Resourcelocator</title>
+                <title lang="de">Adresse</title>
+            </meta>
+
+            <tag name="sulu.rlp"/>
+        </property>
+
+        <section name="content">
+            <meta>
+                <title lang="en">Content</title>
+                <title lang="de">Inhalte</title>
+            </meta>
+
+            <properties>
+                <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+                <xi:include href="../includes/overview.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block)"/>
+            </properties>
+        </section>
+    </properties>
+</template>

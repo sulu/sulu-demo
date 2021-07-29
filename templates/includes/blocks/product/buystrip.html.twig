@@ -1,0 +1,40 @@
+{# {% if content.title %}{{ content.title|raw }}{% endif %} #}
+
+<section class="section section-buystrip buystrip buystrip-elevated buystrip-custom" data-analytics-section-engagement="name:buystrip">
+    <div class="buystrip-content tile">
+        <div class="buystrip-items">
+            <div class="buystrip-item buystrip-shipping">
+                <div class="buystrip-item-content">
+                    {# <a href="#!" class="block" data-analytics-title="learn more about free delivery"> #}
+                        <figure class="buystrip-item-icon buystrip-item-icon-shipping"></figure>
+                        {% if content.title_one %}<h3 class="buystrip-item-title">{{ content.title_one|raw }}</h3>{% endif %}
+                        {% if content.desc_one %}<p class="buystrip-item-copy">{{ content.desc_one|raw }}</p>{% endif %}
+                        {# <span class="block-link buystrip-item-cta more">Learn more</span> #}
+                    {# </a> #}
+                </div>
+            </div>
+            <div class="buystrip-item buystrip-financing">
+                <div class="buystrip-item-content">
+                    {# <a href="#!" class="block" data-analytics-title="learn more about daily cash back with apple card"> #}
+                        <figure class="buystrip-item-icon buystrip-item-icon-financing"></figure>
+                        {% if content.title_two %}<h3 class="buystrip-item-title">{{ content.title_two|raw }}</h3>{% endif %}
+                        {% if content.desc_two %}<p class="buystrip-item-copy">{{ content.desc_two|raw }}</p>{% endif %}
+                        {# <span class="block-link buystrip-item-cta more">Learn more</span> #}
+                    {# </a> #}
+                </div>
+            </div>
+            <div class="buystrip-item buystrip-personal_setup">
+                <div class="buystrip-item-content">
+                    {# <a href="#!" class="block" data-analytics-title="learn more about online sessions"> #}
+                        <figure class="buystrip-item-icon buystrip-item-icon-personal_setup"></figure>
+                        {% if content.title_three %}<h3 class="buystrip-item-title">{{ content.title_three|raw }}</h3>{% endif %}
+                        {% if content.desc_three %}<p class="buystrip-item-copy">{{ content.desc_three|raw }}</p>{% endif %}
+                        <h3 class="buystrip-item-title"></h3>
+                        <p class="buystrip-item-copy"></p>
+                        {# <span class="block-link buystrip-item-cta more">Learn more</span> #}
+                    {# </a> #}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

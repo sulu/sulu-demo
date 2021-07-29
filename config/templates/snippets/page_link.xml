@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>page_link</key>
+
+    <meta>
+        <title lang="en">Page Link</title>
+        <title lang="uk">Page Link</title>
+    </meta>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Title</title>
+                <title lang="uk">Titel</title>
+            </meta>
+
+            <tag name="sulu.node.name"/>
+        </property>
+
+        <property name="link" type="single_page_selection" mandatory="true">
+            <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/single_page_selection.html -->
+            <meta>
+                <title lang="en">Page</title>
+                <title lang="uk">Сторінка</title>
+            </meta>
+        </property>
+
+        <property name="text" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Text</title>
+                <title lang="uk">Текст</title>
+            </meta>
+        </property>
+    </properties>
+</template>

@@ -7,7 +7,7 @@
 
     <meta>
         <title lang="en">Settings</title>
-        <title lang="de">Settings</title>
+        <title lang="uk">Settings</title>
     </meta>
 
     <areas>
@@ -15,7 +15,7 @@
         <area key="webspace_settings">
             <meta>
                 <title lang="en">Webspace Settings</title>
-                <title lang="de">Webspace Settings</title>
+                <title lang="uk">Webspace Settings</title>
             </meta>
         </area>
     </areas>
@@ -24,7 +24,7 @@
         <property name="title" type="text_line" mandatory="true">
             <meta>
                 <title lang="en">Title</title>
-                <title lang="de">Titel</title>
+                <title lang="uk">Titel</title>
             </meta>
 
             <tag name="sulu.node.name"/>
@@ -35,8 +35,8 @@
                 <title lang="en">Organization</title>
                 <info_text lang="en">The selected organization will be used for displaying contact informations on the website.</info_text>
 
-                <title lang="de">Organisation</title>
-                <info_text lang="de">Die ausgewählte Organisation zur Darstellung von Kontaktinformationen auf der Webseite verwendet.</info_text>
+                <title lang="uk">Organization</title>
+                <info_text lang="uk">The selected organization will be used for displaying contact informations on the website.</info_text>
             </meta>
         </property>
     </properties>

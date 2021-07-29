@@ -1,0 +1,120 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="hero">
+        <types>
+            <type name="hero">
+                <meta>
+                    <title lang="en">Hero Block</title>
+                    <title lang="uk">Верхній блок</title>
+                </meta>
+
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Title</title>
+                            <title lang="uk">Заголовок</title>
+                            <info_text lang="en">
+                                Text <![CDATA[<br class="small" />]]> text
+                            </info_text>
+                            <info_text lang="uk">
+                                Текст <![CDATA[<br class="small" />]]> текст
+                            </info_text>
+                        </meta>
+                    </property> 
+
+                    <property name="description" type="text_area">
+                        <meta>
+                            <title lang="en">Description</title>
+                            <title lang="uk">Опис</title>
+                        </meta>
+                        <params>
+                            <param name="max_characters" value="300"/>
+                        </params>
+                    </property>
+                    
+                    <section name="organizationalDetails">
+                        <properties>
+                            <property name="page_one" type="single_page_selection" mandatory="false" colspan="4">
+                                <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/single_page_selection.html -->
+                                <meta>
+                                    <title lang="en">Page Link</title>
+                                    <title lang="uk">Посилання</title>
+                                </meta>
+                            </property>
+
+                            <property name="text_one" type="text_line" colspan="5">
+                                <meta>
+                                    <title lang="en">Text Link</title>
+                                    <title lang="uk">Текст посилання</title>
+                                </meta>
+                            </property>
+
+                            <property name="icon_one" type="text_line" colspan="3">
+                                <meta>
+                                    <title lang="en">Icon Link</title>
+                                    <title lang="uk">Іконка</title>
+                                </meta>
+                            </property>
+                        </properties>
+                    </section>
+                    
+                    <!--<section name="organizationalDetailsTwo">
+                        <properties>
+                            <property name="page_two" type="single_page_selection" mandatory="true" colspan="4">
+                                <meta>
+                                    <title lang="en">Page Link 2</title>
+                                    <title lang="uk">Посилання 2</title>
+                                </meta>
+                            </property>
+
+                            <property name="text_two" type="text_line" colspan="5">
+                                <meta>
+                                    <title lang="en">Text Link 2</title>
+                                    <title lang="uk">Текст посилання 2</title>
+                                </meta>
+                            </property>
+
+                            <property name="icon_two" type="text_line" colspan="3">
+                                <meta>
+                                    <title lang="en">Icon Link 2</title>
+                                    <title lang="uk">Іконка 2</title>
+                                </meta>
+                            </property>
+                        </properties>
+                    </section>
+                    
+                    <section name="organizationalDetailsLogo">
+                        <properties>
+                            <property name="imageLogo" type="single_media_selection" mandatory="true" colspan="6">
+                                @see https://docs.sulu.io/en/2.2/reference/content-types/single_media_selection.html
+                                <meta>
+                                    <title lang="en">Logo</title>
+                                    <title lang="uk">Логотип</title>
+                                    <title lang="ru">Логотип</title>
+                                </meta>
+
+                                <params>
+                                    <param name="types" value="image"/>
+                                </params>
+                            </property>
+                            
+                            <property name="videos" type="media_selection" mandatory="true" colspan="6">
+                                <meta>
+                                    <title lang="en">Video</title>
+                                    <title lang="uk">Відео</title>
+                                    <title lang="ru">Видео</title>
+                                </meta>
+
+                                <params>
+                                    <param name="type" value="document,image,video,audio"/>
+                                </params>
+                            </property>
+                        </properties>
+                    </section>-->
+                    
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

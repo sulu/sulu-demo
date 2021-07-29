@@ -1,0 +1,152 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="faces">
+        <types>
+            <type name="faces">
+                <meta>
+                    <title lang="en">Faces Block</title>
+                    <title lang="uk">Faces Block</title>
+                </meta>
+
+                <properties>
+
+                    <section name="organizationalTitles">
+                        <properties>
+                            <property name="title" type="text_line" mandatory="false" colspan="4">
+                                <meta>
+                                    <title lang="en">Title</title>
+                                    <title lang="uk">Заголовок</title>
+                                </meta>
+                            </property>
+
+                            <property name="subtitle" type="text_line" mandatory="false" colspan="8">
+                                <meta>
+                                    <title lang="en">SubTitle</title>
+                                    <title lang="uk">Підзаголовок</title>
+                                </meta>
+                            </property>
+                        </properties>
+                    </section>
+
+                    <property name="description" type="text_area">
+                        <meta>
+                            <title lang="en">Description</title>
+                            <title lang="uk">Опис</title>
+                        </meta>
+                        <params>
+                            <param name="max_characters" value="200"/>
+                        </params>
+                    </property>
+
+                    <property name="custom_title" type="text_line">
+                        <meta>
+                            <title lang="en">Custom Title</title>
+                            <title lang="uk">Custom Заголовок</title>
+                        </meta>
+                    </property>
+
+                    <property name="custom_desc" type="text_area">
+                        <meta>
+                            <title lang="en">Custom Description</title>
+                            <title lang="uk">Custom Опис</title>
+                        </meta>
+                        <params>
+                            <param name="max_characters" value="250" />
+                        </params>
+                    </property>
+
+                    <block name="subblocks" default-type="data" minOccurs="0">
+                        <meta>
+                            <title lang="en">Sub Blocks</title>
+                            <title lang="uk">Підблоки</title>
+                            <title lang="ru">Подблоки</title>
+                        </meta>
+                        <types>
+                            <type name="data">
+                                <meta>
+                                    <title lang="en">Data</title>
+                                    <title lang="uk">Дані</title>
+                                    <title lang="ru">Данные</title>
+                                </meta>
+                                <properties>
+                                    <property name="title" type="text_line" colspan="12">
+                                        <meta>
+                                            <title lang="en">Title</title>
+                                            <title lang="uk">Заголовок</title>
+                                            <title lang="ru">Заголовок</title>
+                                        </meta>
+                                        <params>
+                                            <param name="max_characters" value="30"/>
+                                         </params>
+                                                
+                                        <tag name="sulu.block_preview" priority="512"/>
+                                    </property>
+                                    <property name="description" type="text_editor" colspan="12">
+                                        <meta>
+                                            <title lang="en">Description</title>
+                                            <title lang="uk">Опис</title>
+                                            <title lang="ru">Описание</title>
+                                        </meta>
+                                        <params>
+                                            <param name="max_characters" value="250"/>
+                                        </params>
+                                                
+                                        <tag name="sulu.block_preview" priority="512"/>
+                                    </property>
+                                    <section name="organizationalImage">
+                                        <properties>
+                                            <property name="image_nested" type="single_media_selection" colspan="4">
+                                                <meta>
+                                                    <title lang="en">Image</title>
+                                                    <title lang="uk">Зображення</title>
+                                                    <title lang="ru">Изображение</title>
+                                                </meta>
+
+                                                <tag name="sulu.block_preview" priority="512"/>
+                                            </property>
+                                        </properties>
+                                    </section>
+                                    <!--<section name="organizationalLink">
+                                        <properties>
+                                            <property name="link_nested" type="single_page_selection" mandatory="false" colspan="5">
+                                                <meta>
+                                                    <title lang="en">Page Link</title>
+                                                    <title lang="uk">Посилання</title>
+                                                    <title lang="ru">Ссылка</title>
+                                                </meta>
+                                            </property>
+
+                                            <property name="text_nested" type="text_line" colspan="7">
+                                                <meta>
+                                                    <title lang="en">Text Link</title>
+                                                    <title lang="uk">Текст посилання</title>
+                                                    <title lang="ru">Текст ссылки</title>
+                                                </meta>
+                                                
+                                                <tag name="sulu.block_preview" priority="512"/>
+                                            </property>
+                                        </properties>
+                                    </section>-->
+                    
+                                    <property name="raidbow_txt" type="checkbox">
+                                        <meta>
+                                            <title lang="en">Text Gradient</title>
+                                            <title lang="uk">Градієнт тексту</title>
+                                        </meta>
+                                        <params>
+                                            <param name="type" value="toggler"/>
+                                            <param name="default_value" value="false"/>
+                                        </params>
+                                    </property> 
+                                    
+                                </properties>
+                            </type>
+                        </types>
+                    </block>
+
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

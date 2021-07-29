@@ -1,0 +1,654 @@
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+
+body {
+    margin: 0;
+    padding: 0
+}
+
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hgroup,
+p,
+blockquote,
+figure,
+form,
+fieldset,
+input,
+legend,
+pre,
+abbr,
+button {
+    margin: 0;
+    padding: 0
+}
+
+button {
+    background: none;
+    border: 0;
+    box-sizing: content-box;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    line-height: inherit;
+    overflow: visible;
+    vertical-align: inherit
+}
+
+button:disabled {
+    cursor: default
+}
+
+::-moz-focus-inner {
+    border: 0;
+    padding: 0
+}
+
+html {
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 106.25%;
+    quotes: "“""”"
+}
+
+
+html.ac-ls-visible #chapternav ~ #main,
+html.ac-ls-visible #chapternav ~ .main {
+    margin-top: 9px !important
+}
+
+#ac-globalnav {
+    background-color: #0a0a0a
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+.chapternav {
+    background: rgba(245, 245, 247, 0.7);
+    padding: 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+    height: 100px;
+    z-index: 9987;
+    width: 100%;
+    position: relative;
+    overflow: hidden
+}
+
+html.touch .chapternav-paddles {
+    display: none
+}
+
+.chapternav-paddle {
+    font-size: 17px;
+    line-height: 1.76471;
+    font-weight: 300;
+    letter-spacing: 0em;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    border: 0 solid #d2d2d7;
+    border-radius: 0;
+    color: #1d1d1f;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    width: 33px;
+    transition: opacity 150ms ease-out
+}
+
+.chapternav-paddle::after {
+    opacity: .8;
+    transition: opacity 200ms linear
+}
+
+.chapternav-paddle:disabled {
+    opacity: 0
+}
+
+.chapternav-paddle:hover::after {
+    opacity: 1
+}
+
+.chapternav-paddle:focus {
+    outline: none
+}
+
+.chapternav-paddle:focus::after {
+    outline: 4px solid rgba(0, 125, 250, 0.6);
+    outline-offset: 4px;
+    opacity: 1
+}
+
+.chapternav-paddle:focus::after[data-focus-method="mouse"]:not(input):not(textarea):not(select),
+.chapternav-paddle:focus::after[data-focus-method="touch"]:not(input):not(textarea):not(select) {
+    outline: none
+}
+
+.chapternav-paddle:active {
+    outline: none
+}
+
+.chapternav-paddle:active::after {
+    outline: none;
+    opacity: 1
+}
+
+.theme-dark .chapternav-paddle {
+    border-color: #424245;
+    color: #f5f5f7
+}
+
+.chapternav-paddle-left {
+    border-right-width: 1px;
+    left: 0
+}
+
+.chapternav-paddle-left::before,
+.chapternav-paddle-left::after {
+    font-family: "SF Pro Icons";
+    color: inherit;
+    display: inline-block;
+    font-style: normal;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: 1;
+    text-decoration: underline;
+    position: relative;
+    z-index: 1;
+    alt: ''
+}
+
+.chapternav-paddle-left::before,
+.chapternav-paddle-left::after {
+    text-decoration: none
+}
+
+.chapternav-paddle-left::before {
+    display: none
+}
+
+.chapternav-paddle-left::before,
+.chapternav-paddle-left::after {
+    content: ""
+}
+
+.chapternav-paddle-left::after {
+    margin-left: -.5px
+}
+
+.chapternav-paddle-right {
+    border-left-width: 1px;
+    right: 0
+}
+
+.chapternav-paddle-right::before,
+.chapternav-paddle-right::after {
+    font-family: "SF Pro Icons";
+    color: inherit;
+    display: inline-block;
+    font-style: normal;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: 1;
+    text-decoration: underline;
+    position: relative;
+    z-index: 1;
+    alt: ''
+}
+
+.chapternav-paddle-right::before,
+.chapternav-paddle-right::after {
+    text-decoration: none
+}
+
+.chapternav-paddle-right::before {
+    display: none
+}
+
+.chapternav-paddle-right::before,
+.chapternav-paddle-right::after {
+    content: ""
+}
+
+.chapternav-paddle-right::after {
+    margin-right: -.5px
+}
+
+@supports ((-webkit-backdrop-filter: initial) or (backdrop-filter: initial)) {
+    .chapternav {
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        backdrop-filter: saturate(180%) blur(20px);
+        background: rgba(245, 245, 247, 0.6)
+    }
+}
+
+.ac-nav-overlap .chapternav,
+.chapternav-overlap .chapternav {
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.ac-nav-overlap .chapternav {
+    margin-top: 44px
+}
+
+@media only screen and (max-width: 767px) {
+    .ac-nav-overlap .chapternav {
+        margin-top: 48px
+    }
+}
+
+.theme-dark .chapternav,
+.chapternav.theme-dark {
+    background: rgba(29, 29, 31, 0.7)
+}
+
+@supports ((-webkit-backdrop-filter: initial) or (backdrop-filter: initial)) {
+
+    .theme-dark .chapternav,
+    .chapternav.theme-dark {
+        background: rgba(29, 29, 31, 0.6)
+    }
+}
+
+.chapternav-wrapper {
+    position: relative;
+    height: 100%;
+    z-index: 1
+}
+
+.chapternav-items {
+    margin: 0 34px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    list-style: none;
+    padding-bottom: 50px
+}
+
+html.touch .chapternav-items {
+    margin: 0;
+    padding-left: 34px;
+    padding-right: 34px
+}
+
+@media only screen and (orientation: landscape) {
+    .chapternav-items {
+        padding-bottom: 49px
+    }
+}
+
+@supports (padding: calc(max(0px))) {
+    html.touch .chapternav-items {
+        padding-left: calc(max(env(safe-area-inset-left), 34px));
+        padding-right: calc(max(env(safe-area-inset-right), 34px))
+    }
+}
+
+.chapternav-item {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 -.11765em;
+    padding: 0 20px
+}
+
+.chapternav-item:first-child {
+    margin-left: 0;
+    padding-left: 4px
+}
+
+.chapternav-item:last-child {
+    margin-right: 0;
+    padding-right: 4px
+}
+
+.chapternav-icon {
+    background: center bottom no-repeat;
+    display: block;
+    margin: 0 auto 7px;
+    height: 54px
+}
+
+.chapternav-label {
+    font-size: 12px;
+    line-height: 1.33337;
+    font-weight: 400;
+    letter-spacing: -.01em;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    display: block;
+    margin: 0
+}
+
+.chapternav-new {
+    font-size: 10px;
+    line-height: 1.2;
+    font-weight: 400;
+    letter-spacing: -.008em;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    color: #bf4800;
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%
+}
+
+.theme-dark .chapternav-new {
+    color: #f56300
+}
+
+.chapternav-link {
+    color: #1d1d1f;
+    display: block;
+    padding: 0;
+    margin-top: 3px;
+    position: relative;
+    z-index: 1
+}
+
+.chapternav-link:hover {
+    color: #06c;
+    text-decoration: none
+}
+
+.chapternav-link:focus {
+    outline-offset: 0
+}
+
+.chapternav-link.current {
+    color: #1d1d1f;
+    cursor: default;
+    opacity: .6
+}
+
+.theme-dark .chapternav-link {
+    color: #f5f5f7
+}
+
+.theme-dark .chapternav-link:hover {
+    color: #2997ff
+}
+
+.theme-dark .chapternav-link.current {
+    color: #f5f5f7
+}
+
+@keyframes chapternav-slidein {
+    0% {
+        opacity: 0
+    }
+
+    1% {
+        transform: translateX(160px)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0)
+    }
+}
+
+.chapternav-item {
+    animation: chapternav-slidein 350ms backwards
+}
+
+.theme-dark .chapternav,
+.chapternav.theme-dark {
+    background-color: #000
+}
+
+.chapternav {
+    padding-top: 12px;
+    padding-bottom: 12px
+}
+
+.chapternav-wrapper {
+    position: relative
+}
+
+.chapternav-items {
+    -ms-overflow-style: none
+}
+
+.chapternav-items::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+    -ms-overflow-style: none
+}
+
+.chapternav-item:first-child {
+    margin-left: 0;
+    padding: 0 9px 0 4px
+}
+
+.chapternav-item-series-5,
+.chapternav-item-studio,
+.chapternav-item-nike,
+.chapternav-item-hermes,
+.chapternav-item-edition,
+.chapternav-item-series-3,
+.chapternav-item-accessories,
+.chapternav-item-se {
+    padding: 0 9px
+}
+
+.chapternav-item-compare {
+    padding: 0 16px;
+    text-indent: -1px
+}
+
+.chapternav-item-bands {
+    padding: 0 15px
+}
+
+.chapternav-item-watchos {
+    padding: 0 26px
+}
+
+.chapternav-item:last-child {
+    margin-right: 0;
+    padding: 0 4px 0 9px
+}
+
+.chapternav-icon {
+    margin: 0 auto 6px;
+    margin-bottom: 3px
+}
+
+.chapternav-label {
+    font-size: 11px;
+    white-space: normal;
+    max-width: 7em;
+    line-height: 1.2
+}
+
+.chapternav-item-se .chapternav-icon {
+    width: 25px;
+    height: 54px;
+    background-size: 25px 54px;
+    background-repeat: no-repeat;
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_series_2_dark__c5n56op28mwm_large.svg")
+}
+
+html.no-svg .chapternav-item-se .chapternav-icon {
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_series_2_dark__c5n56op28mwm_large.png")
+}
+
+.chapternav-item-nike .chapternav-icon {
+    width: 25px;
+    height: 54px;
+    background-size: 25px 54px;
+    background-repeat: no-repeat;
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_nike_dark__fwg9eohvt62y_large.svg")
+}
+
+html.no-svg .chapternav-item-nike .chapternav-icon {
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_nike_dark__fwg9eohvt62y_large.png")
+}
+
+.chapternav-item-hermes .chapternav-icon {
+    width: 37px;
+    height: 54px;
+    background-size: 37px 54px;
+    background-repeat: no-repeat;
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_hermes_dark__gj0c0tduasi2_large.svg")
+}
+
+html.no-svg .chapternav-item-hermes .chapternav-icon {
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_hermes_dark__gj0c0tduasi2_large.png")
+}
+
+.chapternav-item-series-6 .chapternav-icon {
+    width: 23px;
+    height: 54px;
+    background-size: 23px 54px;
+    background-repeat: no-repeat;
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_se_dark__b1hx7qxysfki_large.svg")
+}
+
+html.no-svg .chapternav-item-series-6 .chapternav-icon {
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_se_dark__b1hx7qxysfki_large.png")
+}
+
+.chapternav-item-series-3 .chapternav-icon {
+    width: 25px;
+    height: 54px;
+    background-size: 25px 54px;
+    background-repeat: no-repeat;
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_edition_dark__zni7jv5ygheu_large.svg")
+}
+
+html.no-svg .chapternav-item-series-3 .chapternav-icon {
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_edition_dark__zni7jv5ygheu_large.png")
+}
+
+.chapternav-item-series-1 .chapternav-icon {
+    width: 25px;
+    height: 54px;
+    background-size: 25px 54px;
+    background-repeat: no-repeat;
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_series_1_dark__c9x64bcndyy6_large.svg")
+}
+
+html.no-svg .chapternav-item-series-1 .chapternav-icon {
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_series_1_dark__c9x64bcndyy6_large.png")
+}
+
+.chapternav-item-watchos .chapternav-icon {
+    width: 35px;
+    height: 55px;
+    background-size: 35px 55px;
+    background-repeat: no-repeat;
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_watch_os_dark__6fkyqtrbbsiu_large.svg")
+}
+
+html.no-svg .chapternav-item-watchos .chapternav-icon {
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_watch_os_dark__6fkyqtrbbsiu_large.png")
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    html.no-svg .chapternav-item-watchos .chapternav-icon {
+        background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_watch_os_dark__6fkyqtrbbsiu_large_2x.png")
+    }
+}
+
+.chapternav-item-bands .chapternav-icon {
+    width: 17px;
+    height: 54px;
+    background-size: 17px 54px;
+    background-repeat: no-repeat;
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_bands_dark__dh7z3gmhelci_large.svg")
+}
+
+html.no-svg .chapternav-item-bands .chapternav-icon {
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_bands_dark__dh7z3gmhelci_large.png")
+}
+
+.chapternav-item-accessories .chapternav-icon {
+    width: 52px;
+    height: 54px;
+    background-size: 52px 54px;
+    background-repeat: no-repeat;
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_accessories_dark__bzgqttxcvqj6_large.svg")
+}
+
+html.no-svg .chapternav-item-accessories .chapternav-icon {
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_accessories_dark__bzgqttxcvqj6_large.png")
+}
+
+.chapternav-item-compare .chapternav-icon {
+    width: 71px;
+    height: 54px;
+    background-size: 71px 54px;
+    background-repeat: no-repeat;
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_compare_dark__cb9q9uau3nde_large.svg")
+}
+
+html.no-svg .chapternav-item-compare .chapternav-icon {
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_compare_dark__cb9q9uau3nde_large.png")
+}
+
+.chapternav-item-airpods .chapternav-icon {
+    width: 27px;
+    height: 54px;
+    background-size: 27px 54px;
+    background-repeat: no-repeat;
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_airpods_dark__ee13vrebrc02_large.svg")
+}
+
+html.no-svg .chapternav-item-airpods .chapternav-icon {
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_airpods_dark__ee13vrebrc02_large.png")
+}
+
+.chapternav-item-accessories .chapternav-icon {
+    width: 52px;
+    height: 54px;
+    background-size: 52px 54px;
+    background-repeat: no-repeat;
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_accessories_dark__bzgqttxcvqj6_large.svg")
+}
+
+html.no-svg .chapternav-item-accessories .chapternav-icon {
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_accessories_dark__bzgqttxcvqj6_large.png")
+}
+
+.chapternav-item-studio .chapternav-icon {
+    background-size: auto auto;
+    background-repeat: no-repeat;
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_studio_dark__fpfo8337i2em_large.svg")
+}
+
+.chapternav-item-fitness .chapternav-icon {
+    width: 35px;
+    height: 54px;
+    background-size: 35px 54px;
+    background-repeat: no-repeat;
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_fitness_dark__dou7xhdsylqq_large.svg")
+}
+
+html.no-svg .chapternav-item-fitness .chapternav-icon {
+    background-image: url("https://apple.com/v/watch/home/ah/images/overview/icons/watch_nav_fitness_dark__dou7xhdsylqq_large.png")
+}
+
+

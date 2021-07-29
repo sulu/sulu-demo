@@ -1,0 +1,152 @@
+<style>
+.section-fitness .image-scroll-anim .video-container {
+    width: 280px;
+    height: 560px;
+    position: absolute;
+    transform: skewX(19deg) skewY(19deg) rotate(17deg) scaleX(0.44) scaleY(0.78) translateX(140px) translateY(675px);
+    mix-blend-mode: lighten;
+}
+
+@media only screen and (max-width: 1068px) {
+    .section-fitness .image-scroll-anim .video-container {
+        width: 188px;
+        height: 362px;
+        -webkit-transform: skewX(19deg) skewY(19deg) rotate(17deg) scaleX(0.44) scaleY(0.78) translateX(100px) translateY(455px);
+        transform: skewX(19deg) skewY(19deg) rotate(17deg) scaleX(0.44) scaleY(0.78) translateX(100px) translateY(455px);
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .section-fitness .image-scroll-anim .video-container {
+        width: 122px;
+        height: 235px;
+        -webkit-transform: skewX(19deg) skewY(19deg) rotate(17deg) scaleX(0.44) scaleY(0.78) translateX(70px) translateY(311px);
+        transform: skewX(19deg) skewY(19deg) rotate(17deg) scaleX(0.44) scaleY(0.78) translateX(70px) translateY(311px);
+    }
+}    
+    
+</style>
+<section class="section section-fitness" data-name="fitness" data-anim-scroll-group="fitness" data-analytics-section-engagement="name:fitness">
+    <div class="section-main-content">
+        {# <div class="section-media image-center" data-component-list="FitnessHero"> #}
+        {#     <div class="video-container" role="img" aria-label="Fitness watch hardware water animation"> #}
+        {#         <div class="visuallyhidden focus-item" tabindex="-1"></div> #}
+        {#         <figure class="start-frame image-fitness" data-anim-lazy-image></figure> #}
+        {#         <video class="media-video" muted="" playsinline="true" aria-hidden="true" data-video-source-basepath="/build/website/mp4/fitness/" data-video-source-retina-enabled="true"></video> #}
+        {#         <figure class="end-frame" data-anim-lazy-image></figure> #}
+        {#     </div> #}
+        {# </div> #}
+        <div class="section-block">
+            <h2 class="section-block-headline typography-section-headline" data-text-zoom-max="1.75">
+                {% if content.title %}<span class="headline {% if content.raidbow_txt %}raidbow-txt{% endif %}">{{ content.title|raw }}</span>{% endif %}
+                {% if content.subtitle %}<span class="subhead">{{ content.subtitle|raw }}</span>{% endif %}
+            </h2>
+            {% if content.description %}<p class="section-block-intro typography-section-intro">{{ content.description|raw }}</p>{% endif %}
+        </div>
+        <div class="fitness-sticky-block" data-anim-keyframe='{
+			"anchors":[".fitness-sticky-block"],
+			"start":"a0t - 100vh",
+			"end":"a0b",
+			"cssClass":"will-change",
+			"toggle":true,
+			"disabledWhen":["static-layout", "text-zoom"]
+		}'>
+            <div class="image-container" data-anim-keyframe-1='{
+				"anchors":[".subsection-scroll", ".subsection-always-on", ".image-scroll-end"],
+				"start":"a0t",
+				"end":"a1t - 50vh",
+				"y":[null, "-240px"],
+				"ease":"0.2",
+				"disabledWhen": ["static-layout", "text-zoom"],
+				"breakpointMask": "L"
+			}' data-anim-keyframe-2='{
+				"anchors":[".subsection-scroll", ".subsection-always-on", ".image-scroll-end"],
+				"start":"a0t",
+				"end":"a1t - 50vh",
+				"y":[null, "-120px"],
+				"ease":"0.2",
+				"disabledWhen": ["static-layout", "text-zoom"],
+				"breakpointMask": "M"
+			}' data-anim-keyframe-3='{
+				"anchors":[".subsection-scroll", ".subsection-always-on", ".image-scroll-end"],
+				"start":"a0t - 50vh",
+				"end":"a1t",
+				"ease":"0.2",
+				"y":["150px", "30px + 2vh"],
+				"disabledWhen": ["static-layout", "text-zoom"],
+				"breakpointMask": "S"
+			}'>
+                <figure class="image-scroll-anim" data-anim-keyframe-1='{
+					"anchors":[".subsection-scroll", ".subsection-always-on", ".image-scroll-start", ".image-scroll-end"],
+					"start":"a0t",
+					"end":"a1t - 50vh",
+					"x":["a2l - 306px", "a3l + 300px"],
+					"ease":"0.2",
+					"disabledWhen": ["static-layout", "text-zoom"],
+					"breakpointMask": "L"
+				}' data-anim-keyframe-2='{
+					"anchors":[".subsection-scroll", ".subsection-always-on", ".image-scroll-start", ".image-scroll-end"],
+					"start":"a0t",
+					"end":"a1t - 50vh",
+					"x":["a2l - 168px", "a3l + 187px"],
+					"ease":"0.2",
+					"disabledWhen": ["static-layout", "text-zoom"],
+					"breakpointMask": "M"
+				}' data-anim-keyframe-3='{
+					"anchors":[".subsection-scroll", ".subsection-always-on", ".image-scroll-start", ".image-scroll-end"],
+					"start":"a0t - 50vh",
+					"end":"a1t",
+					"x":["a2l - 211px", "a3l + 225px"],
+					"ease":"0.2",
+					"disabledWhen": ["static-layout", "text-zoom"],
+					"breakpointMask": "S"
+				}' data-component-list="FitnessHardware" data-anim-lazy-image>
+                    <div class="video-container" role="img" aria-label="Fitness watch hardware screen animation">
+                        <div class="visuallyhidden focus-item" tabindex="-1"></div>
+                        <figure class="start-frame image-video" data-anim-lazy-image></figure>
+                        <video class="media-video" muted="" playsinline="true" aria-hidden="true" data-video-source-basepath="/build/website/mp4/fitness_workouts/" data-video-source-retina-enabled="true"></video>
+                        <figure class="end-frame" data-anim-lazy-image></figure>
+                    </div>
+                </figure>
+                <div class="image-scroll image-scroll-1">
+                    <figure class="image-scroll-on image-scroll-start" data-anim-lazy-image></figure>
+                </div>
+                <div class="image-scroll image-scroll-3">
+                    <figure class="image-scroll-on image-scroll-end" data-anim-lazy-image></figure>
+                </div>
+            </div>
+            <div class="subsections" data-component-list="FitnessCopy">
+                <div class="subsection subsection-scroll">
+                    <div class="copy-block copy-block-scroll anim-text-animate end" data-build-in-start="a0t - 50vh" data-build-in-start-s="a0b - 75vh" data-build-in-end="a0t" data-build-in-end-s="a0b">
+                        {% if content.workouts_title %}<h3 class="copy-block-headline typography-copy-block">{{ content.workouts_title|raw }}<br /></h3>{% endif %}
+                         {% if content.workouts_desc %}
+                             <p class="copy-block-copy typography-copy-block">
+                                {{ content.workouts_desc|raw }}
+                             </p>
+                         {% endif %}
+                    </div>
+                </div>
+                <div class="subsection subsection-always-on">
+                    <div class="copy-block copy-block-always-on anim-text-animate end" data-build-in-start="a0t - 50vh" data-build-in-start-s="a0b - 75vh" data-build-in-end="a0t" data-build-in-end-s="a0b">
+                        {% if content.alwayson_title %}<h3 class="copy-block-headline typography-copy-block">{{ content.alwayson_title|raw }}<br /></h3>{% endif %}
+                         {% if content.alwayson_desc %}
+                             <p class="copy-block-copy typography-copy-block">
+                                {{ content.alwayson_desc|raw }}
+                             </p>
+                         {% endif %}
+                    </div>
+                </div>
+                <div class="subsection subsection-altimeter">
+                    <div class="copy-block copy-block-altimeter anim-text-animate end" data-build-in-start="a0t - 50vh" data-build-in-start-s="a0b - 75vh" data-build-in-end="a0t" data-build-in-end-s="a0b">
+                        {% if content.altimeter_title %}<h3 class="copy-block-headline typography-copy-block">{{ content.altimeter_title|raw }}<br /></h3>{% endif %}
+                         {% if content.altimeter_desc %}
+                             <p class="copy-block-copy typography-copy-block">
+                                {{ content.altimeter_desc|raw }}
+                             </p>
+                         {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

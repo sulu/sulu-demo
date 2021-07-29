@@ -1,0 +1,36 @@
+/*/
+/* BLACK
+/*/
+
+#ac-localnav {
+    background: #000;
+}
+
+.ac-theme-dark #ac-localnav .ac-ln-background:after,
+#ac-localnav.ac-localnav-dark .ac-ln-background:after {
+    background-color: rgb(0 0 0 / 24%);
+}
+
+
+
+/*/
+/* LIGHT
+/* <section class="section section-routers localnav-routers" data-name="routers" data-anim-scroll-group="routers" data-localnav-theme="light" data-end="a0b + 200vh">
+/*/
+
+.section-routers {
+    background: #fff;
+    color: #000;
+    padding: var(--gutter) 0 50px;
+}
+
+
+
+/*/
+/* LIGHT BLUR
+/*/
+#ac-localnav.ac-ln-sticking .ac-ln-background {
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    background-color: rgba(255, 255, 255, 0.72);
+}

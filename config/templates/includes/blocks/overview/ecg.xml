@@ -1,0 +1,93 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="ecg">
+        <types>
+            <type name="ecg">
+                <meta>
+                    <title lang="en">ECG Block</title>
+                    <title lang="uk">ECG Block</title>
+                </meta>
+
+                <properties>
+
+                    <section name="organizationalTitles">
+                        <properties>
+                            <property name="title" type="text_line" mandatory="true" colspan="6">
+                                <meta>
+                                    <title lang="en">Title</title>
+                                    <title lang="uk">Заголовок</title>
+                                </meta>
+                            </property>
+
+                            <property name="subtitle" type="text_line" mandatory="true" colspan="6">
+                                <meta>
+                                    <title lang="en">SubTitle</title>
+                                    <title lang="uk">Підзаголовок</title>
+                                </meta>
+                            </property>
+                        </properties>
+                    </section>
+
+                    <property name="description" type="text_area">
+                        <meta>
+                            <title lang="en">Description</title>
+                            <title lang="uk">Опис</title>
+                        </meta>
+                        <params>
+                            <param name="max_characters" value="350"/>
+                        </params>
+                    </property>
+
+                    <property name="fingertip_title" type="text_line">
+                        <meta>
+                        <title lang="en">FT Title</title>
+                        <title lang="uk">FT Заголовок</title>
+                        </meta>
+                    </property>
+
+                    <property name="fingertip_desc" type="text_area">
+                        <meta>
+                        <title lang="en">FT Description</title>
+                        <title lang="uk">FT Опис</title>
+                        </meta>
+                        <params>
+                            <param name="max_characters" value="420" />
+                        </params>
+                    </property>
+                    
+                    <section name="organizationalEcg">
+                        <properties>
+                            <property name="link_ecg" type="single_page_selection" mandatory="false" colspan="5">
+                                <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/single_page_selection.html -->
+                                <meta>
+                                    <title lang="en">Page Link</title>
+                                    <title lang="uk">Посилання</title>
+                                </meta>
+                            </property>
+
+                            <property name="text_ecg" type="text_line" colspan="7">
+                                <meta>
+                                    <title lang="en">Text Link</title>
+                                    <title lang="uk">Текст посилання</title>
+                                </meta>
+                            </property>
+                        </properties>
+                    </section>
+                    
+                    <property name="raidbow_txt" type="checkbox">
+                        <meta>
+                            <title lang="en">Text Gradient</title>
+                            <title lang="uk">Градієнт тексту</title>
+                        </meta>
+                        <params>
+                            <param name="type" value="toggler"/>
+                            <param name="default_value" value="false"/>
+                        </params>
+                    </property> 
+
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

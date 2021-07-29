@@ -1,0 +1,119 @@
+/*
+
+	Font face
+
+	example:
+
+	@include font-face('Clarendon', 'clarendon-webfont');
+	@include font-face('Clarendon', 'clarendon-webfont', $w--bold, italic);
+
+*/
+
+@mixin font-face($name, $filename, $weight: normal, $style: normal) {
+	@font-face {
+		font-family: $name;
+		src: url('../media/fonts/#{$filename}.woff2') format('woff2'),
+			url('../media/fonts/#{$filename}.woff') format('woff');
+		font-style: $style;
+		font-weight: $weight;
+		font-display: swap;
+	}
+}
+
+@include font-face('SF Pro Display', 'sf-pro-display_light', 300, normal);
+@include font-face('SF Pro Display', 'sf-pro-display_medium', 500, normal);
+@include font-face('SF Pro Display', 'sf-pro-display_semibold', 600, normal);
+@include font-face('SF Pro Display', 'sf-pro-display_bold', 700, normal);
+@include font-face('SF Pro Display', 'sf-pro-display_regular', 400, normal);
+
+@include font-face('SF Pro Text', 'sf-pro-text_thin', 200, normal);
+@include font-face('SF Pro Text', 'sf-pro-text_regular-italic', 400, italic);
+@include font-face('SF Pro Text', 'sf-pro-text_semibold', 600, normal);
+@include font-face('SF Pro Text', 'sf-pro-text_bold', 700, normal);
+@include font-face('SF Pro Text', 'sf-pro-text_regular', 400, normal);
+
+/*
+
+	Font families
+
+*/
+
+/*@mixin font-roboto($weight: false, $size: false, $lh: false, $colour: false) {
+	font-family: 'Roboto', 'Comic Sans MS', Arial, sans-serif;
+
+	@if $weight { font-weight: $weight; }
+	@if $size { font-size: $size; }
+	@if $lh { line-height: $lh; }
+	@if $colour { color: $colour; }
+}*/
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../media/fonts/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(../media/fonts/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+       url(../media/fonts/iconfont/MaterialIcons-Regular.woff) format('woff'),
+       url(../media/fonts/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+i {
+  line-height: inherit
+}
+
+i.left {
+  float: left;
+  margin-right: 15px
+}
+
+i.right {
+  float: right;
+  margin-left: 15px
+}
+
+i.xs {
+  font-size: 1rem
+}
+
+i.sm {
+  font-size: 1.77rem
+}
+
+i.md {
+  font-size: 2.33rem
+}
+
+i.lg {
+  font-size: 3.11rem
+}
+
+i.xl {
+  font-size: 5.22rem
+}

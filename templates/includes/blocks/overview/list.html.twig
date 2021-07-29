@@ -1,0 +1,93 @@
+{% set customTheme = '' %}
+{% if content.theme_trigger is defined %}
+    {% set customTheme = content.theme_trigger|default('light') ? 'light' : 'dark' %}
+    {% set customThemeParams = content.theme_params|default('0') %}
+{% endif %}
+
+<section class="section section-watch-list localnav-watch-list"
+         data-name="watch-list" 
+         data-component-list="WatchList" 
+         data-anim-scroll-group="watch-list" 
+         data-analytics-section-engagement="name:watch list" 
+    {% if content.theme_trigger %}
+         data-localnav-theme="{{ customTheme }}" 
+         data-start="a0t + {{ customThemeParams }}vh" 
+    {% endif %}>
+    
+    <div class="section-content">
+        <div class="content-media">
+            <glass-container data-anim-lazy-image class="watch-watch-list">
+                <glass-hardware></glass-hardware>
+            </glass-container>
+        </div>
+        <div class="content-copy">
+            <div class="section-block">
+                
+                <div class="copy-block anim-text-animate">
+                    <h2 class="section-block-headline typography-section-headline" data-text-zoom-max="1.75" tabindex="-1" style="transform: matrix(1, 0, 0, 1, 0, 0); opacity: 1;">
+                        {% if content.title %}
+                        <span class="headline {% if content.raidbow_txt %}raidbow-txt{% endif %}">
+                            {{ content.title|raw }}
+                        </span>
+                        {% endif %} 
+                        {% if content.subtitle %}
+                        <span class="subhead">
+                            {{ content.subtitle|raw }}
+                        </span>
+                        {% endif %}
+                    </h2>
+                </div>
+                
+                {% if content.list_one %}
+                <div class="copy-block anim-text-animate">
+                    <p class="watch-list-item typography-watch-list-item anim-text-animate" tabindex="-1" style="transform: matrix(1, 0, 0, 1, 0, 0); opacity: 1;">
+                        {{ content.list_one|raw }}
+                    </p>
+                </div>
+                {% endif %} 
+                
+                {% if content.list_two %}
+                <div class="copy-block anim-text-animate">
+                    <p class="watch-list-item typography-watch-list-item anim-text-animate" tabindex="-1" style="transform: matrix(1, 0, 0, 1, 0, 0); opacity: 1;">
+                        {{ content.list_two|raw }}
+                    </p>
+                </div>
+                {% endif %}
+                
+                {% if content.list_three %}
+                <div class="copy-block anim-text-animate">
+                    <p class="watch-list-item typography-watch-list-item anim-text-animate" tabindex="-1" style="transform: matrix(1, 0, 0, 1, 0, 0); opacity: 1;">
+                        {{ content.list_three|raw }}
+                    </p>
+                </div>
+                {% endif %}
+                
+                {% if content.list_four %}
+                <div class="copy-block anim-text-animate">
+                    <p class="watch-list-item typography-watch-list-item anim-text-animate" tabindex="-1" style="transform: matrix(1, 0, 0, 1, 0, 0); opacity: 1;">
+                        {{ content.list_four|raw }}
+                    </p>
+                </div>
+                {% endif %}
+                
+                {% if content.list_five %}
+                <div class="copy-block anim-text-animate">
+                    <p class="watch-list-item typography-watch-list-item anim-text-animate" tabindex="-1" style="transform: matrix(1, 0, 0, 1, 0, 0); opacity: 1;">
+                        {{ content.list_five|raw }}
+                    </p>
+                </div>
+                {% endif %}
+                
+                {% if content.list_six %}
+                <div class="copy-block anim-text-animate">
+                    <p class="watch-list-item typography-watch-list-item anim-text-animate" tabindex="-1" style="transform: matrix(1, 0, 0, 1, 0, 0); opacity: 1;">
+                        {{ content.list_six|raw }}
+                    </p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+</section>
+

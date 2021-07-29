@@ -1,0 +1,37 @@
+{% extends 'light.html.twig' %}
+
+
+{% block style %}
+    <link rel="stylesheet" href="{{ asset('build/website/css/product.built.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/website/css/overview-2.built.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/website/css/overview-3.built.css') }}"> 
+    <link rel="stylesheet" href="{{ asset('build/website/css/footer.built.css') }}"> 
+{% endblock %}
+
+{% block javascripts_top %}
+    <script src="{{ asset('build/website/js/head.built.js') }}"></script>
+{% endblock %}
+
+{# {% block contentHeader %} #}
+    {# {% include 'includes/header.html.twig' with { type: 'overview' } %} #}
+{# {% endblock %} #}
+
+{% block contentBody %}
+    {# {% include 'includes/overview-types/' ~ content.element.type ~ '.html.twig' with {element: content.element} %} #}
+    <main id="main" class="main" role="main" data-page-type="overview" data-anim-scroll-group="bubble-gum-group">
+        {% include 'includes/product.html.twig' %}
+    </main>    
+{% endblock %}
+
+{% block javascripts %} 
+
+    <script src="{{ asset('/build/website/js/product/main.built.js') }}" type="text/javascript" charset="utf-8" async></script> 
+    
+    {# <link rel="stylesheet" href="https://www.apple.com/ac/ac-films/6.6.0/styles/modal.css" /> #}
+    {# <script src="https://www.apple.com/ac/ac-films/6.6.0/scripts/autofilms.built.js" type="text/javascript"></script> #}
+
+    <script>
+        window.webComponents = {{ get_components() }};
+        window.webServices = {{ get_services() }};
+    </script>
+{% endblock %}

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23">
+  <defs>
+    <style>
+      .a {
+        fill: none;
+      }
+
+      .b {
+        fill: #06c;
+      }
+    </style>
+  </defs>
+  <title>PersonCropCircle_13px@1x</title>
+  <g>
+    <rect class="a" x="0.012" y="0.012" width="22.977" height="22.977"/>
+    <g>
+      <path class="b" d="M11.5,4.45a7.05,7.05,0,1,0,7.05,7.05A7.058,7.058,0,0,0,11.5,4.45Zm4.415,11.025c-.5-.917-2.28-1.708-4.415-1.708s-3.912.791-4.415,1.708a5.95,5.95,0,1,1,8.83,0Z"/>
+      <ellipse class="b" cx="11.5" cy="10" rx="2.375" ry="2.5"/>
+    </g>
+  </g>
+</svg>

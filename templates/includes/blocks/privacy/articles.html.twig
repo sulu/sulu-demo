@@ -1,0 +1,342 @@
+{% import 'macros/helpers.html.twig' as helpers %}
+
+{% set videoTypes = {
+    'flv' : 'video/x-flv',
+    'mp4' : 'video/mp4',
+    'm3u8': 'application/x-mpegURL',
+    'ts	' : 'video/MP2T',
+    '3gp' : 'video/3gpp',
+    'mov' : 'video/quicktime',
+    'avi' : 'video/x-msvideo',
+    'wmv' : 'video/x-ms-wmv'
+} %}
+
+{% for article in content.articles %}
+    {% set entityId = article.id %}
+    {% set article = article.content %}
+    {% set articleID = article.content.article_id %}
+    {% set colorBG = article.content.color_bg %}
+    {% set colorAkcent = article.content.color_akcent %}
+    {% set colorModal = article.content.color_modal %}
+    {% set image = article.excerpt.images[0]|default(article.content.headerImage|default) %} 
+    {% set videoLarge = article.content.images[0]|default(article.content.videoLarge|default)  %}
+    {% set videoMedium = article.content.images[0]|default(article.content.videoMedium|default) %}
+    {% set videoSmall = article.content.images[0]|default(article.content.videoSmall|default) %}
+    {# {% set category = article.content.category|default(article.content.category|default) %} #}
+    {# {% set categoryName = article.content.category.name|default(article.content.category.categoryName|default) %} #}
+    {# {% set categoryId = article.content.category.id|default(article.content.category.categoryId|default) %} #}
+
+<style>
+.main .feature.section-{{ articleID }} .section-content {
+    background: {{ colorBG }}
+}
+
+.main .feature.section-{{ articleID }} .image-tilt-startframe {
+    width: 532px;
+    height: auto;
+    background-size: 532px 650px;
+    background-repeat: no-repeat;
+    background-image: url("{{ image.thumbnails['ArticleLarge.jpg'] }}")
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    .main .feature.section-{{ articleID }} .image-tilt-startframe {
+        background-image: url("{{ image.thumbnails['ArticleLarge2x.jpg'] }}")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature.section-{{ articleID }} .image-tilt-startframe {
+        width: 368px;
+        height: 450px;
+        background-size: 368px 450px;
+        background-repeat: no-repeat;
+        background-image: url("{{ image.thumbnails['ArticleMedium.jpg'] }}")
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .feature.section-{{ articleID }} .image-tilt-startframe {
+        background-image: url("{{ image.thumbnails['ArticleMedium2x.jpg'] }}")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-{{ articleID }} .image-tilt-startframe {
+        width: 320px;
+        height: 390px;
+        background-size: 320px 390px;
+        background-repeat: no-repeat;
+        background-image: url("{{ image.thumbnails['ArticleSmall.jpg'] }}")
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-{{ articleID }} .image-tilt-startframe {
+        background-image: url("{{ image.thumbnails['ArticleSmall2x.jpg'] }}")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-{{ articleID }} .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("{{ image.thumbnails['ArticleLarge.jpg'] }}");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-{{ articleID }} .image-tilt-startframe {
+        background-image: url("{{ image.thumbnails['ArticleLarge2x.jpg'] }}")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-{{ articleID }} .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.18045%
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) {
+    .main .feature.section-{{ articleID }} .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("{{ image.thumbnails['ArticleMedium.jpg'] }}");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .feature.section-{{ articleID }} .image-tilt-startframe {
+        background-image: url("{{ image.thumbnails['ArticleMedium2x.jpg'] }}")
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) {
+    .main .feature.section-{{ articleID }} .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.28261%
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) {
+    .main .feature.section-{{ articleID }} .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("{{ image.thumbnails['ArticleSmall.jpg'] }}");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-{{ articleID }} .image-tilt-startframe {
+        background-image: url("{{ image.thumbnails['ArticleSmall2x.jpg'] }}")
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) {
+    .main .feature.section-{{ articleID }} .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 121.875%
+    }
+}
+
+html.text-zoom .main .feature.section-{{ articleID }} .image-tilt-startframe {
+    background-repeat: no-repeat;
+    background-image: url("{{ image.thumbnails['ArticleLarge.jpg'] }}");
+    background-size: cover
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-{{ articleID }} .image-tilt-startframe {
+        background-image: url("{{ image.thumbnails['ArticleLarge2x.jpg'] }}")
+    }
+}
+
+html.text-zoom .main .feature.section-{{ articleID }} .image-tilt-startframe::after {
+    content: '';
+    display: block;
+    padding-bottom: 122.18045%
+}
+
+@media only screen and (max-width: 1068px) {
+    html.text-zoom .main .feature.section-{{ articleID }} .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("{{ image.thumbnails['ArticleMedium.jpg'] }}");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-{{ articleID }} .image-tilt-startframe {
+        background-image: url("{{ image.thumbnails['ArticleMedium2x.jpg'] }}")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    html.text-zoom .main .feature.section-{{ articleID }} .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.28261%
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    html.text-zoom .main .feature.section-{{ articleID }} .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("{{ image.thumbnails['ArticleSmall.jpg'] }}");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-{{ articleID }} .image-tilt-startframe {
+        background-image: url("{{ image.thumbnails['ArticleSmall2x.jpg'] }}")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    html.text-zoom .main .feature.section-{{ articleID }} .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 121.875%
+    }
+}
+
+@media only screen and (min-width: 1069px) {
+    .main .feature.section-{{ articleID }} .feature-copy {
+        max-height: 434px
+    }
+}
+
+.theme-dark .section-{{ articleID }}.modal-standard .modal-close,
+.feature.section-{{ articleID }} .feature-cta {
+    color: {{ colorAkcent }}
+}
+
+.theme-dark .modal-standard.section-{{ articleID }} {
+    background: {{ colorModal }}
+}
+</style>
+<section id="{{ articleID }}" class="section section-{{ articleID }} feature" data-component-list='OverviewFeature ProgressiveImage AutoPlay' data-analytics-section-engagement="name:{{ articleID }}">
+    <div class="section-content">
+        <input type="checkbox" class="feature-toggle" id="feature-toggle-{{ articleID }}" data-analytics-title="open-card-{{ articleID }}" data-analytics-click="prop3:open-card-{{ articleID }}" data-analytics-intrapage-link>
+        <div class="feature-media-object">
+            <div class="video-wrapper">
+                <figure class="image-tilt-startframe" role="img" aria-label="{{ articleID }}-animation" data-progressive-image></figure>
+                <video class="{{ articleID }}-video" id="{{ articleID }}-video" data-component-list="VideoViewportSource" data-pause-relative-to=".section-{{ articleID }}" data-src-large="{{ article.content.videoLarge.url }}" data-src-medium="{{ article.content.videoMedium.url }}" data-src-small="{{ article.content.videoSmall.url }}" data-replay data-enable-retina muted playsinline aria-hidden="true" role="presentation">
+                </video>
+                <div class="playback-control-container">
+                    <button data-component-list="PlaybackControl" class="playback-control is-loading" aria-hidden="true" disabled data-for="{{ articleID }}-video" data-analytics-click-template="prop3:{controlState}-{{ articleID }}" data-analytics-title-template="{controlState}-{{ articleID }}" data-analytics-intrapage-link data-play-label="Play {{ articleID }} animation" data-pause-label="Stop {{ articleID }} animation" data-loading-label="Loading {{ articleID }} animation">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="feature-violator">
+            {# <span class="violator violator-reduced">{{ article.authored|date('d.m.Y') }}</span> #}         
+            {# {% for tag in sulu_tags() %} #}  
+            {#  <span class="violator violator-reduced">{{ tag.name }}</span> #}   
+            {# {% endfor %} #}  
+            {# {% for category in sulu_categories('category_key') %} #} 
+            {# <a id="{{ category.key }}" href="{{ sulu_category_url(category) }}"> #} 
+            {#     <span class="violator violator-reduced">{{ category.name }}</span> #} 
+            {# </a> #} 
+            {# {% endfor %} #} 
+            {# {% for category in sulu_categories('article.content.category_key') %} #}  
+            {#  <a id="{{ article.content.category.name }}" href="{{ sulu_category_url(article.content.categories) }}"> #}  
+            {#      <span class="violator violator-reduced">{{ article.content.category.name }}</span> #} 
+            {#  </a> #}  
+            {# {% endfor %} #} 
+            {# {% if article.content.category %} #}
+            {# <a id="{{ article.content.category.name }}-{{ article.content.category.id }}" href="{{ sulu_category_url(article.content.category) }}"> #}
+            {#     <span class="violator violator-reduced">{{ article.content.category.name }}</span> #}
+            {# </a> #}
+            {# {% endif %} #}
+            {% for category in article.content.categories %}
+                {# <a href="{{ sulu_category_url(category) }}"> #}
+                    <span class="violator violator-reduced">{{ category.name }}</span>
+                {# </a> #}
+            {% endfor %}
+            
+        </div>
+        <h3 class="typography-overview-feature-headline feature-headline">{{ article.excerpt.title|default(article.title) }}</h3>
+        <p class="typography-overview-feature-copy feature-excerpt">{{ article.content.description_short|default|raw }}</p>
+        <label tabindex="0" class="typography-body-tight feature-cta" for="feature-toggle-{{ articleID }}">
+            <span class="icon cta-icon-default material-icons">add_circle_outline</span>
+            <span class="icon cta-icon-hover material-icons">add_circle</span>
+            <span class="feature-cta-text" role="button">
+                <span class="visuallyhidden material-icons">highlight_off</span> {{ article.excerpt.more|default('read_more'|trans) }}<span class="visuallyhidden"> about Safari</span>
+            </span>
+        </label>
+        <div class="typography-overview-feature-copy feature-copy">
+            <h2 class="typography-overview-feature-modal-headline feature-modal-headline">{{ article.excerpt.title|default(article.title) }}</h2>
+            <div class="feature-copy-columns">
+                {# <p>{{ article.excerpt.description|default|raw }}</p> #}
+                {{ article.content.description|default|raw }}
+            </div>
+        </div>
+    </div>
+</section>
+{% endfor %}
+{# {{ dump(content)  }} #}
+
+
+
+{# <div class="article-list"> #}
+{#    {% for article in content.articles %} #}
+{#        {% set article = article.content %} #}
+
+{#        <a href="{{ sulu_content_path(article.routePath) }}" class="article-list__item"> #}
+{#            {% set image = article.excerpt.images[0]|default(article.content.headerImage|default) %} #}
+
+{#            {% if image %} #}
+{#                <div class="article-list__item-image"> #}
+                    {# @see https://github.com/sulu/web-twig/blob/v2.4.0/docs/image.md #}
+{#                    {{ get_image(image, '600x400') }} #}
+{#                </div> #}
+{#            {% endif %} #}
+
+{#            <div class="article-list__item-content"> #}
+{#                <p class="article-list__item-date">{{ article.authored|date('d.m.Y') }}</p> #}
+
+{#                <h2 class="article-list__item-title"> #}
+{#                    {{ article.excerpt.title|default(article.title) }} #}
+{#                </h2> #}
+
+{#                <p class="posted-by">{{ 'posted_by'|trans }} <span>{{ article.authorFullName }}</span></p> #}
+
+{#                <div class="article-list__item-description"> #}
+{#                    {{ article.excerpt.description|default|raw }} #}
+{#                </div> #}
+
+{#                <span class="article-list__item-button button"> #}
+{#                    {{ article.excerpt.more|default('read_more'|trans) }} #}
+{#                </span> #}
+{#           </div> #}
+{#        </a> #}
+{#    {% endfor %} #}
+{#</div> #}
+
+

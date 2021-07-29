@@ -1,0 +1,75 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="studio">
+        <types>
+            <type name="studio">
+                <meta>
+                    <title lang="en">Studio</title>
+                    <title lang="uk">Studio</title>
+                </meta>
+
+                <properties>
+
+                    <section name="organizationalTitles">
+                        <properties>
+                            <property name="title" type="text_line" colspan="4">
+                                <meta>
+                                    <title lang="en">Title</title>
+                                    <title lang="uk">Заголовок</title>
+                                </meta>
+                            </property>
+
+                            <property name="subtitle" type="text_line" colspan="8">
+                                <meta>
+                                    <title lang="en">SubTitle</title>
+                                    <title lang="uk">Підзаголовок</title>
+                                </meta>
+                            </property>
+                        </properties>
+                    </section>
+
+                    <property name="description" type="text_area">
+                        <meta>
+                            <title lang="en">Description</title>
+                            <title lang="uk">Опис</title>
+                        </meta>
+                        <params>
+                            <param name="max_characters" value="300"/>
+                        </params>
+                    </property>
+                    
+                    <section name="organizationalDetails">
+                        <properties>
+
+                            <property name="text_one" type="text_line" colspan="8">
+                                <meta>
+                                    <title lang="en">Text Link</title>
+                                    <title lang="uk">Текст посилання</title>
+                                </meta>
+                            </property>
+
+                            <property name="icon_one" type="text_line" colspan="4">
+                                <meta>
+                                    <title lang="en">Icon Link</title>
+                                    <title lang="uk">Іконка</title>
+                                </meta>
+                            </property>
+                        </properties>
+                    </section>
+        
+                    <property name="modal" type="single_snippet_selection" mandatory="false">
+                        <meta>
+                            <title lang="en">Modal</title>
+                            <title lang="uk">Модальне вікно</title>
+                        </meta>
+                        <params>
+                            <param name="types" value="modal"/>
+                        </params>
+                    </property>
+
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

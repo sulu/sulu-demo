@@ -1,0 +1,74 @@
+{% for article in content.articles %}
+    {% set article = article.content %}
+<section id="safari" class="section section-safari feature" data-component-list='OverviewFeature ProgressiveImage AutoPlay' data-analytics-section-engagement="name:safari">
+    <div class="section-content">
+        <input type="checkbox" class="feature-toggle" id="feature-toggle-safari" data-analytics-title="open-card-safari" data-analytics-click="prop3:open-card-safari" data-analytics-intrapage-link>
+        <div class="feature-media-object">
+            <div class="video-wrapper">
+                <figure class="image-tilt-startframe" role="img" aria-label="safari-animation" data-progressive-image></figure>
+                <video class="safari-video" id="safari-video" data-component-list="VideoViewportSource" data-pause-relative-to=".section-safari" data-src-large="/build/website/mpfour/safari/large.mp4" data-src-medium="/build/website/mpfour/safari/medium.mp4" data-src-small="/build/website/mpfour/safari/small.mp4" data-replay data-enable-retina muted playsinline aria-hidden="true" role="presentation">
+                </video>
+                <div class="playback-control-container">
+                    <button data-component-list="PlaybackControl" class="playback-control is-loading" aria-hidden="true" disabled data-for="safari-video" data-analytics-click-template="prop3:{controlState}-safari" data-analytics-title-template="{controlState}-safari" data-analytics-intrapage-link data-play-label="Play safari animation" data-pause-label="Stop safari animation" data-loading-label="Loading safari animation">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="feature-violator">
+            <span class="violator violator-reduced">{{ article.authored|date('d.m.Y') }}</span>
+        </div>
+        <h3 class="typography-overview-feature-headline feature-headline">{{ article.excerpt.title|default(article.title) }}</h3>
+        <p class="typography-overview-feature-copy feature-excerpt">{{ article.excerpt.description|default|raw }}</p>
+        <label tabindex="0" class="typography-body-tight feature-cta" for="feature-toggle-safari">
+            <span class="icon cta-icon-default material-icons">add_circle_outline</span>
+            <span class="icon cta-icon-hover material-icons">add_circle</span>
+            <span class="feature-cta-text" role="button">
+                <span class="visuallyhidden material-icons">highlight_off</span> {{ article.excerpt.more|default('read_more'|trans) }}<span class="visuallyhidden"> about Safari</span>
+            </span>
+        </label>
+        <div class="typography-overview-feature-copy feature-copy">
+            <h2 class="typography-overview-feature-modal-headline feature-modal-headline">{{ article.excerpt.title|default(article.title) }}</h2>
+            <div class="feature-copy-columns">
+                <p>{{ article.excerpt.description|default|raw }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endfor %}
+
+{# <div class="article-list"> #}
+{#    {% for article in content.articles %} #}
+{#        {% set article = article.content %} #}
+
+{#        <a href="{{ sulu_content_path(article.routePath) }}" class="article-list__item"> #}
+{#            {% set image = article.excerpt.images[0]|default(article.content.headerImage|default) %} #}
+
+{#            {% if image %} #}
+{#                <div class="article-list__item-image"> #}
+                    {# @see https://github.com/sulu/web-twig/blob/v2.4.0/docs/image.md #}
+{#                    {{ get_image(image, '600x400') }} #}
+{#                </div> #}
+{#            {% endif %} #}
+
+{#            <div class="article-list__item-content"> #}
+{#                <p class="article-list__item-date">{{ article.authored|date('d.m.Y') }}</p> #}
+
+{#                <h2 class="article-list__item-title"> #}
+{#                    {{ article.excerpt.title|default(article.title) }} #}
+{#                </h2> #}
+
+{#                <p class="posted-by">{{ 'posted_by'|trans }} <span>{{ article.authorFullName }}</span></p> #}
+
+{#                <div class="article-list__item-description"> #}
+{#                    {{ article.excerpt.description|default|raw }} #}
+{#                </div> #}
+
+{#                <span class="article-list__item-button button"> #}
+{#                    {{ article.excerpt.more|default('read_more'|trans) }} #}
+{#                </span> #}
+{#           </div> #}
+{#        </a> #}
+{#    {% endfor %} #}
+{#</div> #}
+
+

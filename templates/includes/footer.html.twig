@@ -1,90 +1,91 @@
-<footer>
-    <div class="footer">
-        <div class="container">
-            <div class="footer__main">
-                <div class="grid grid--reverse">
-                    <div class="grid__item width-6 width-tablet-12">
-                        <h4 class="footer__title">{{ 'connect_with_us'|trans }}</h4>
-                        <div class="footer__newsletter">
-                            <p>{{ 'sign_up_for_newsletter'|trans }}</p>
 
-                            <form method="post" class="footer__newsletter-form">
-                                <label class="footer__newsletter-input-label">
-                                    <input type="email" name="email" placeholder="E-Mail" class="footer__newsletter-input"/>
-                                </label>
+    <div class="pulse-grid">
+        <div class="blur-line"></div>
+        <div class="linebox"></div>
+    </div>
+    <section class="site-footer js-site-footer ">
+        <div class="site-footer__section site-footer__section--secondary">
+            <ul class="site-footer__legal">
+                <li class="item item-menu">
+                    <a href="{{ sulu_content_path('/') }}" title="{{ 'main_page'|trans }}" class="link">
+                        {{ 'main_page'|trans }}
+                    </a>
+                </li>
+                {# @see https://docs.sulu.io/en/2.2/reference/twig-extensions/functions/sulu_navigation_root_flat.html #}
+                {% for item in sulu_navigation_root_flat('footer', 1, true) %}
+                {# @see https://docs.sulu.io/en/2.2/reference/twig-extensions/functions/sulu_content_path.html #}
+                <li class="item item-menu">
+                    <a href="{{ sulu_content_path(item.url) }}" title="{{ item.title }}" class="link">
+                        {# fallback to content title when excerpt title not set #}
+                        {{ item.excerpt.title|default(item.title) }}
+                    </a>
+                </li>
+                {% endfor %}
 
-                                <button type="submit" class="button footer__newsletter-button">{{ 'sign_up'|trans }}</button>
-                            </form>
-                        </div>
-                    </div>
+                {#         {{ 'privacy_policy'|trans }} #}
+                {#         {{ 'cookie_policy'|trans }} #}
+                {#         {{ 'safety_recalls'|trans }} #}
+            </ul>
+        </div>
+        <div class="site-footer__bottom footer-bottom-gradient-bg">
+            <div class="site-footer__inner container__inner">
 
-                    <div class="grid__item width-6 width-tablet-12">
-                        <div class="grid">
-                            <div class="grid__item width-6">
-                                <h4 class="footer__title">{{ 'contact'|trans }}</h4>
-
-                                {% set account = webspaceSettings.content.account.entity|default %}
-
-                                {% if account %}
-                                    {% set address = account.accountAddresses[0].address %}
-
-                                    <div class="footer__contact">
-                                        <p>{{ address.street ~ ' ' ~ address.number }},<br/>
-                                            {{ address.zip ~ ' ' ~ address.city }},<br/>
-                                            {{ country(address.countryCode) }}</p>
-                                        <a href="tel:{{ account.mainPhone }}" class="footer__contact-link">{{ account.mainPhone }}</a>
-                                        <a href="mailto:{{ account.mainEmail }}" class="footer__contact-link">{{ account.mainEmail }}</a>
-                                    </div>
-                                {% endif %}
-                            </div>
-
-                            <div class="grid__item width-6">
-                                <h4 class="footer__title">{{ 'quick_links'|trans }}</h4>
-
-                                <div class="footer__quicklinks">
-                                    {# @see https://docs.sulu.io/en/2.2/reference/twig-extensions/functions/sulu_navigation_root_flat.html #}
-                                    {% for item in sulu_navigation_root_flat('footer', 1, true) %}
-                                        {# @see https://docs.sulu.io/en/2.2/reference/twig-extensions/functions/sulu_content_path.html #}
-                                        <a href="{{ sulu_content_path(item.url) }}" title="{{ item.title }}" class="footer__quicklink">
-                                            {# fallback to content title when excerpt title not set #}
-                                            {{ item.excerpt.title|default(item.title) }}
-                                        </a>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="socials_footer-wrap">
+                    <div class="socials_footer-title">{{ 'follow_us'|trans }}</div>
+                    <ul class="socials socials_footer fa-white">
+                        <li>
+                            <a href="https://www.fb.com/netexy" target="_blank" rel="nofollow">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://t.me/netexy" target="_blank" rel="nofollow">
+                                <i class="fa fa-telegram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/netexy" target="_blank" rel="nofollow">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/netexy" target="_blank" rel="nofollow">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-
-            <div class="footer__imprint">
-                <div class="footer__imprint-item footer__imprint-item--copyright">
-                    &copy; Soundmanagement Corporation {{ 'now'|date('Y') }}
-                </div>
-
-                <div class="footer__imprint-item">
-                    <a href="#" class="footer__imprint-link">{{ 'privacy_policy'|trans }}</a>
-                </div>
-
-                <div class="footer__imprint-item">
-                    <a href="#" class="footer__imprint-link">{{ 'cookie_policy'|trans }}</a>
-                </div>
-
-                <div class="footer__imprint-item">
-                    <a href="#" class="footer__imprint-link">{{ 'safety_recalls'|trans }}</a>
-                </div>
+                <ul class="site-footer__contact">
+                {% set account = webspaceSettings.content.account.entity|default %}
+                    <li>
+                        <a href="sms:{{ account.mainPhone }}&body=Hi...">
+                            <span class="binct-phone-number-1">{{ account.mainPhone }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tel:{{ account.mainFax }}">
+                            <span class="binct-phone-number-2">{{ account.mainFax }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:{{ account.mainEmail }}">{{ account.mainEmail }}</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
-
-    <div class="social-footer">
-        <div class="container">
-            <div class="social-footer__links">
-                <a href="#" class="social-footer__link icon icon--facebook"></a>
-                <a href="#" class="social-footer__link icon icon--instagram"></a>
-                <a href="#" class="social-footer__link icon icon--youtube"></a>
-                <a href="#" class="social-footer__link icon icon--spotify"></a>
-            </div>
+        <div class="site-footer__bottom footer-bottom-black-bg">
+            <div class="totop-wrap">
+                <a href="#" uk-totop="" uk-scroll="" class="uk-totop uk-icon">
+                    <svg width="18" height="10" viewBox="0 0 18 10" xmlns="http://www.w3.org/2000/svg" ratio="1">
+                            <polyline fill="none" stroke="#000" stroke-width="1.2" points="1 9 9 1 17 9 "></polyline>
+                    </svg>
+                </a>
+            <div>
+            <div class="ecopyright">
+                <span class="copy-name">© Netexy</span> 
+                <span class="footer-year-info"> {# 2016 - #} {{ 'now'|date('Y') }} </span>
+                
+                {# <span class="copy-info">{{ 'copyright_text'|trans }}</span> #}
+            <div>
         </div>
-    </div>
-</footer>
+    </section>

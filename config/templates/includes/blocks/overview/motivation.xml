@@ -1,0 +1,115 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="motivation">
+        <types>
+            <type name="motivation">
+                <meta>
+                    <title lang="en">Motivation Block</title>
+                    <title lang="uk">Motivation Block</title>
+                </meta>
+
+                <properties>
+
+                    <section name="organizationalTitles">
+                        <properties>
+                            <property name="title" type="text_line" mandatory="true" colspan="6">
+                                <meta>
+                                    <title lang="en">Title</title>
+                                    <title lang="uk">Заголовок</title>
+                                </meta>
+                            </property>
+
+                            <property name="subtitle" type="text_line" mandatory="true" colspan="6">
+                                <meta>
+                                    <title lang="en">SubTitle</title>
+                                    <title lang="uk">Підзаголовок</title>
+                                </meta>
+                            </property>
+                        </properties>
+                    </section>
+
+                    <property name="audio_title" type="text_line">
+                        <meta>
+                            <title lang="en">Audio Title</title>
+                            <title lang="uk">Audio Заголовок</title>
+                        </meta>
+                    </property>
+
+                    <property name="audio_desc" type="text_area">
+                        <meta>
+                            <title lang="en">Audio Description</title>
+                            <title lang="uk">Audio Опис</title>
+                        </meta>
+                        <params>
+                            <param name="max_characters" value="100" />
+                        </params>
+                    </property>
+
+                    <property name="rings_title" type="text_line">
+                        <meta>
+                            <title lang="en">Ring Title</title>
+                            <title lang="uk">Ring Заголовок</title>
+                        </meta>
+                    </property>
+
+                    <property name="rings_desc" type="text_area">
+                        <meta>
+                            <title lang="en">Ring Description</title>
+                            <title lang="uk">Ring Опис</title>
+                        </meta>
+                        <params>
+                            <param name="max_characters" value="100" />
+                        </params>
+                    </property>
+
+                    <property name="sharing_title" type="text_line">
+                        <meta>
+                            <title lang="en">Share Title</title>
+                            <title lang="uk">Share Заголовок</title>
+                        </meta>
+                    </property>
+
+                    <property name="sharing_desc" type="text_area">
+                        <meta>
+                            <title lang="en">Share Description</title>
+                            <title lang="uk">Share Опис</title>
+                        </meta>
+                        <params>
+                            <param name="max_characters" value="100" />
+                        </params>
+                    </property>
+
+                    <property name="competitions_title" type="text_line">
+                        <meta>
+                            <title lang="en">Com Title</title>
+                            <title lang="uk">Com Заголовок</title>
+                        </meta>
+                    </property>
+
+                    <property name="competitions_desc" type="text_area">
+                        <meta>
+                            <title lang="en">Com Description</title>
+                            <title lang="uk">Com Опис</title>
+                        </meta>
+                        <params>
+                            <param name="max_characters" value="100" />
+                        </params>
+                    </property>
+                    
+                    <property name="raidbow_txt" type="checkbox">
+                        <meta>
+                            <title lang="en">Text Gradient</title>
+                            <title lang="uk">Градієнт тексту</title>
+                        </meta>
+                        <params>
+                            <param name="type" value="toggler"/>
+                            <param name="default_value" value="false"/>
+                        </params>
+                    </property> 
+
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

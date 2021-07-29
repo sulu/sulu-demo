@@ -1,0 +1,104 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:xi="http://www.w3.org/2001/XInclude"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <block name="blocks" default-type="text" minOccurs="0">
+        <!-- @see https://docs.sulu.io/en/2.1/reference/content-types/block.html -->
+
+        <meta>
+            <title lang="en">Blocks</title>
+            <title lang="uk">Блоки</title>
+            <title lang="ru">Блоки</title>
+        </meta>
+
+        <types>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/text.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/hero.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/sensor.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/ecg.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/sleep.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/about.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/fitness.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/motion.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/dev.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/motivation.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/fitness_plus.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/colors.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/solo_loop.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/display.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/designe.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/faces.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/connected.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/family_setup.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/routers.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/gallery.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/nested.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/slides.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/list.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/more.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/products.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/products_grid.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/video.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/overview/studio.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+            <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/form.xml"
+                        xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+        </types>
+    </block>
+</properties>

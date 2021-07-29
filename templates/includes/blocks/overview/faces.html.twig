@@ -1,0 +1,256 @@
+<section class="section section-faces" data-name="faces" data-anim-scroll-group="faces" data-analytics-section-engagement="name:faces">
+    <div class="section-main-content">
+        <div class="section-block">
+            <h2 class="section-block-headline typography-section-headline" data-text-zoom-max="1.75">
+                {% if content.title %}<span class="headline {% if content.raidbow_txt %}raidbow-txt{% endif %}">{{ content.title|raw }}</span>{% endif %}
+                {% if content.subtitle %}<span class="subhead">{{ content.subtitle|raw }}</span>{% endif %}
+            </h2>
+            {% if content.description %}<p class="section-block-intro typography-section-intro">{{ content.description|raw }}</p>{% endif %}
+        </div>
+        <div class="faces-video-container section-media" data-component-list="Faces">
+            <div class="video-container" role="img" aria-label="New watch faces animation" aria-hidden="true">
+                <div class="visuallyhidden focus-item" tabindex="-1"></div>
+                <figure class="static" data-anim-lazy-image></figure>
+                <figure class="start-frame image-faces" data-anim-lazy-image></figure>
+                <video class="media-video" muted="" playsinline="true" aria-hidden="true" data-video-source-basepath="/build/website/mp4/faces/" data-video-source-retina-enabled="true"></video>
+                <figure class="end-frame" data-anim-lazy-image></figure>
+            </div>
+        </div>
+        <div class="section-faces-gallery" data-anim-keyframe='{
+			"anchors":[".section-faces-gallery"],
+			"start":"a0t - 100vh",
+			"end":"a0b",
+			"cssClass":"will-change",
+			"toggle":true,
+			"disabledWhen":["static-layout"]
+		}'>
+            <div class="section-block">
+                <div class="copy-block copy-block-custom-faces">
+                    {% if content.custom_title %}<h3 class="copy-block-headline typography-copy-block">{{ content.custom_title|raw }}<br /></h3>{% endif %}
+                    {% if content.custom_desc %}
+                        <p class="copy-block-copy typography-copy-block">
+                            {{ content.custom_desc|raw }}
+                        </p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="gallery-wrapper">
+                <!-- Small Gallery -->
+                <div id="faces-gallery-small" aria-label="Apple Watch Series 6 - watch face gallery" class="gallery gallery-small" data-component-list="FacesGallery" data-analytics-gallery-id="apple watch faces gallery | small">
+                    <div class="tablist-wrapper">
+                        <div data-analytics-gallery-interaction-type="dotnav" class="dotnav">
+                            <ul role="tablist" class="dotnav-items" aria-label="Apple Watch Series 6 - watch face gallery">
+                                
+
+                            {% for subblock in content.subblocks %}
+                                {% if subblock.type == 'data' %}        
+                                <li><a href="#faces-gallery-small-item-{{ loop.index }}" id="faces-gallery-small-item-{{ loop.index }}-trigger" data-ac-gallery-trigger="faces-gallery-small-item-{{ loop.index }}" class="dotnav-item">{% if subblock.title %}<span class="visuallyhidden" role="tab">{{ subblock.title|raw }}</span>{% endif %}</a></li>
+                                {% endif %}
+                            {% endfor %}                                
+                                
+                                
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="item-container">
+
+                    {% for subblock in content.subblocks %}
+                        {% if subblock.type == 'data' %}   
+                        <div id="faces-gallery-small-item-{{ loop.index }}" data-ac-gallery-item="" class="gallery-item" role="tabpanel" aria-label="Item {{ loop.index }}">
+                            <div class="gallery-watch-block-large">
+                                <figure role="img" class="configurator-gallery-image gallery-image-{{ loop.index }} gallery-image-{{ loop.index }}-alt" aria-label="Watch face for water lovers" data-download-area-keyframe='{"breakpointMask":"S"}' data-anim-lazy-image></figure>
+                                <div class="gallery-copy-block typography-body-reduced">
+                                    <div class="gallery-copy-title">Faces Title</div>
+                                    <div class="gallery-copy-copy">Faces Description</div>
+                                    <a href="/build/website/img/faces/watersports__uy3r5e0uxnmm.watchface" class="download-faces-button" aria-label="Download Watch Face for Water Lovers">
+                                        <svg width="268px" height="56px" viewBox="0 0 268 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <title>E-Commerce (E-Shop)</title>
+                                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <g id="Symbol-and-Text---Dark">
+                                                    <rect id="Bezel" fill="#FFFFFF" x="0" y="0" width="268" height="56" rx="28"></rect>
+                                                    <text id="Add-Apple-Watch-Face" font-family="SFProText-Regular, SF Pro Text" font-size="17" font-weight="normal" letter-spacing="-0.43" fill="#000000">
+                                                        <tspan x="62.5" y="33.5">Add Item</tspan>
+                                                    </text>
+                                                    <path d="M48.7899564,16 C51.3804168,16 53.5002,18.0364455 53.5002,20.525544 L53.5002,20.525544 L53.5002,34.474456 C53.5002,36.9635545 51.3804168,39 48.7899564,39 L48.7899564,39 L37.7099477,39 C35.1194873,39 33.0002,36.9635545 33.0002,34.474456 L33.0002,34.474456 L33.0002,20.525544 C33.0002,18.0364455 35.1194873,16 37.7099477,16 L37.7099477,16 Z M48.7465297,17.25 L37.7429778,17.25 C35.8831115,17.25 34.37,18.7022094 34.37,20.4871031 L34.37,20.4871031 L34.37,34.5128969 C34.37,36.2977906 35.8831115,37.75 37.7429778,37.75 L37.7429778,37.75 L48.7465297,37.75 C50.6063959,37.75 52.12,36.2977906 52.12,34.5128969 L52.12,34.5128969 L52.12,20.4871031 C52.12,18.7022094 50.6063959,17.25 48.7465297,17.25 L48.7465297,17.25 Z M43.2448895,20.75 C46.94684,20.75 50,23.8015731 50,27.502676 C50,31.2028057 46.9517071,34.25 43.2497566,34.25 C39.5478062,34.25 36.5,31.2028057 36.5,27.502676 C36.5,23.8015731 39.5424523,20.75 43.2448895,20.75 Z M43.2472619,22.75 C42.8445167,22.75 42.5358616,23.0253116 42.5358616,23.4290354 L42.5358616,28.6699495 L42.6115319,30.243373 L41.8772313,29.3484852 L40.8571759,28.2777179 C40.7526314,28.154802 40.5719188,28.072858 40.3852322,28.072858 C40.011859,28.072858 39.75,28.3421738 39.75,28.7049256 C39.75,28.8982933 39.8082462,29.0381975 39.9366866,29.1786015 L42.6817261,31.9926761 C42.8504907,32.1680561 43.0312033,32.25 43.2472619,32.25 C43.4682988,32.25 43.6490115,32.1620602 43.8182739,31.9926761 L46.5573394,29.1786015 C46.6857798,29.0381975 46.75,28.8982933 46.75,28.7049256 C46.75,28.3421738 46.4816692,28.072858 46.1087938,28.072858 C45.9221072,28.072858 45.7533426,28.1493057 45.6368502,28.2777179 L44.6282448,29.3369931 L43.8819963,30.2493689 L43.9581644,28.6699495 L43.9581644,23.4290354 C43.9581644,23.0253116 43.6549854,22.75 43.2472619,22.75 Z M54.9997777,19.8449373 C55.3020394,19.8449373 55.5480894,20.1087383 55.5480894,20.4341752 L55.5480894,24.374426 C55.5480894,24.6998628 55.3020394,24.9636638 54.9997777,24.9636638 L54.4593553,24.9636638 L54.4593553,23.2191253 C54.4549175,22.0159953 54.451959,21.5199507 54.4440697,21.0140444 C54.4376595,20.6314096 54.428784,20.2398992 54.4056089,19.848882 C54.4243462,19.8464166 54.4430835,19.8449373 54.4618208,19.8449373 L54.9997777,19.8449373 Z" id="Glyph" fill="#000000"></path>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        {% endif %}
+                    {% endfor %}                           
+                        
+                        
+                        
+                    </div>
+                    <div data-analytics-gallery-interaction-type="paddlenav" class="paddlenav paddlenav-framed">
+                        <ul>
+                            <li><button aria-label="Previous" class="paddlenav-arrow paddlenav-arrow-previous"></button></li>
+                            <li><button aria-label="Next" class="paddlenav-arrow paddlenav-arrow-next"></button></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Large Gallery -->
+                <div id="faces-gallery-large" aria-label="Apple Watch Series 6 - watch face gallery" class="gallery gallery-large" data-component-list="FacesGallery" data-analytics-gallery-id="apple watch faces gallery | large">
+                    <div class="tablist-wrapper">
+                        <div data-analytics-gallery-interaction-type="dotnav" class="dotnav">
+                            <ul role="tablist" class="dotnav-items" aria-label="Apple Watch Series 6 - watch face gallery">
+                                <li><a href="#faces-gallery-large-item-1" id="faces-gallery-large-item-1-trigger" data-ac-gallery-trigger="faces-gallery-large-item-1" class="dotnav-item"><span class="visuallyhidden" role="tab">Watch faces for water lovers, sun and stars, and for adventurers</span></a></li>
+                                <li><a href="#faces-gallery-large-item-2" id="faces-gallery-large-item-2-trigger" data-ac-gallery-trigger="faces-gallery-large-item-2" class="dotnav-item"><span class="visuallyhidden" role="tab">Watch faces weather nerds, planners and photographers</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                    {# {% for i in range(0, 1) %} #}
+                    {# <div id="faces-gallery-large-item-{{ loop.index }}" data-ac-gallery-item="" class="gallery-item" role="tabpanel"> #}  
+                    {#     {% for j in range(0, 2) %} #}         
+                    {#         <a class="large-item-{{ loop.parent.loop.index + loop.index }}" href="#"></a> #}
+                    {#     {% endfor %} #} 
+                    {# </div> #}      
+                    {# {% endfor %} #}
+                    <div id="faces-gallery-large-item-1" data-ac-gallery-item="" class="gallery-item" role="tabpanel">
+                        <div class="gallery-watch-block-large">
+                            <figure role="img" class="configurator-gallery-image gallery-image-1 gallery-image-1-alt" aria-label="Watch face for water lovers" data-download-area-keyframe='{"breakpointMask":"MLX"}' data-anim-lazy-image></figure>
+                            <div class="gallery-copy-block typography-body-reduced">
+                                <div class="gallery-copy-title">Watch face for water lovers</div>
+                                <div class="gallery-copy-copy">Get surfing forecasts and conditions from Dawn Patrol, plus data for your sailing, kayaking, and more from Waterspeed.</div>
+                                <a href="https://netexy.com/uploads/hype/apple/img/v/apple-watch-series-6/c/faces/watersports__uy3r5e0uxnmm.watchface" class="download-faces-button" aria-label="Download Watch Face for Water Lovers">
+                                    <svg width="268px" height="56px" viewBox="0 0 268 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <title>Symbol and Text - Dark@1x</title>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="Symbol-and-Text---Dark">
+                                                <rect id="Bezel" fill="#FFFFFF" x="0" y="0" width="268" height="56" rx="28"></rect>
+                                                <text id="Add-Apple-Watch-Face" font-family="SFProText-Regular, SF Pro Text" font-size="17" font-weight="normal" letter-spacing="-0.43" fill="#000000">
+                                                    <tspan x="62.5" y="33.5">Add Apple Watch Face</tspan>
+                                                </text>
+                                                <path d="M48.7899564,16 C51.3804168,16 53.5002,18.0364455 53.5002,20.525544 L53.5002,20.525544 L53.5002,34.474456 C53.5002,36.9635545 51.3804168,39 48.7899564,39 L48.7899564,39 L37.7099477,39 C35.1194873,39 33.0002,36.9635545 33.0002,34.474456 L33.0002,34.474456 L33.0002,20.525544 C33.0002,18.0364455 35.1194873,16 37.7099477,16 L37.7099477,16 Z M48.7465297,17.25 L37.7429778,17.25 C35.8831115,17.25 34.37,18.7022094 34.37,20.4871031 L34.37,20.4871031 L34.37,34.5128969 C34.37,36.2977906 35.8831115,37.75 37.7429778,37.75 L37.7429778,37.75 L48.7465297,37.75 C50.6063959,37.75 52.12,36.2977906 52.12,34.5128969 L52.12,34.5128969 L52.12,20.4871031 C52.12,18.7022094 50.6063959,17.25 48.7465297,17.25 L48.7465297,17.25 Z M43.2448895,20.75 C46.94684,20.75 50,23.8015731 50,27.502676 C50,31.2028057 46.9517071,34.25 43.2497566,34.25 C39.5478062,34.25 36.5,31.2028057 36.5,27.502676 C36.5,23.8015731 39.5424523,20.75 43.2448895,20.75 Z M43.2472619,22.75 C42.8445167,22.75 42.5358616,23.0253116 42.5358616,23.4290354 L42.5358616,28.6699495 L42.6115319,30.243373 L41.8772313,29.3484852 L40.8571759,28.2777179 C40.7526314,28.154802 40.5719188,28.072858 40.3852322,28.072858 C40.011859,28.072858 39.75,28.3421738 39.75,28.7049256 C39.75,28.8982933 39.8082462,29.0381975 39.9366866,29.1786015 L42.6817261,31.9926761 C42.8504907,32.1680561 43.0312033,32.25 43.2472619,32.25 C43.4682988,32.25 43.6490115,32.1620602 43.8182739,31.9926761 L46.5573394,29.1786015 C46.6857798,29.0381975 46.75,28.8982933 46.75,28.7049256 C46.75,28.3421738 46.4816692,28.072858 46.1087938,28.072858 C45.9221072,28.072858 45.7533426,28.1493057 45.6368502,28.2777179 L44.6282448,29.3369931 L43.8819963,30.2493689 L43.9581644,28.6699495 L43.9581644,23.4290354 C43.9581644,23.0253116 43.6549854,22.75 43.2472619,22.75 Z M54.9997777,19.8449373 C55.3020394,19.8449373 55.5480894,20.1087383 55.5480894,20.4341752 L55.5480894,24.374426 C55.5480894,24.6998628 55.3020394,24.9636638 54.9997777,24.9636638 L54.4593553,24.9636638 L54.4593553,23.2191253 C54.4549175,22.0159953 54.451959,21.5199507 54.4440697,21.0140444 C54.4376595,20.6314096 54.428784,20.2398992 54.4056089,19.848882 C54.4243462,19.8464166 54.4430835,19.8449373 54.4618208,19.8449373 L54.9997777,19.8449373 Z" id="Glyph" fill="#000000"></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="gallery-watch-block-large">
+                            <figure role="img" class="configurator-gallery-image gallery-image-2 " aria-label="Watch face for stargazing" data-download-area-keyframe='{"breakpointMask":"MLX"}' data-anim-lazy-image></figure>
+                            <div class="gallery-copy-block typography-body-reduced">
+                                <div class="gallery-copy-title">For the sun and stars</div>
+                                <div class="gallery-copy-copy">See a visualization of the day and night cycle on SolarWatch, while Night Sky shows you stargazing conditions.</div>
+                                <a href="https://netexy.com/uploads/hype/apple/img/v/apple-watch-series-6/c/faces/stargazer__bau2y3gshroy.watchface" class="download-faces-button" aria-label="Download Watch Face for Sargazers">
+                                    <svg width="268px" height="56px" viewBox="0 0 268 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <title>Symbol and Text - Dark@1x</title>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="Symbol-and-Text---Dark">
+                                                <rect id="Bezel" fill="#FFFFFF" x="0" y="0" width="268" height="56" rx="28"></rect>
+                                                <text id="Add-Apple-Watch-Face" font-family="SFProText-Regular, SF Pro Text" font-size="17" font-weight="normal" letter-spacing="-0.43" fill="#000000">
+                                                    <tspan x="62.5" y="33.5">Add Apple Watch Face</tspan>
+                                                </text>
+                                                <path d="M48.7899564,16 C51.3804168,16 53.5002,18.0364455 53.5002,20.525544 L53.5002,20.525544 L53.5002,34.474456 C53.5002,36.9635545 51.3804168,39 48.7899564,39 L48.7899564,39 L37.7099477,39 C35.1194873,39 33.0002,36.9635545 33.0002,34.474456 L33.0002,34.474456 L33.0002,20.525544 C33.0002,18.0364455 35.1194873,16 37.7099477,16 L37.7099477,16 Z M48.7465297,17.25 L37.7429778,17.25 C35.8831115,17.25 34.37,18.7022094 34.37,20.4871031 L34.37,20.4871031 L34.37,34.5128969 C34.37,36.2977906 35.8831115,37.75 37.7429778,37.75 L37.7429778,37.75 L48.7465297,37.75 C50.6063959,37.75 52.12,36.2977906 52.12,34.5128969 L52.12,34.5128969 L52.12,20.4871031 C52.12,18.7022094 50.6063959,17.25 48.7465297,17.25 L48.7465297,17.25 Z M43.2448895,20.75 C46.94684,20.75 50,23.8015731 50,27.502676 C50,31.2028057 46.9517071,34.25 43.2497566,34.25 C39.5478062,34.25 36.5,31.2028057 36.5,27.502676 C36.5,23.8015731 39.5424523,20.75 43.2448895,20.75 Z M43.2472619,22.75 C42.8445167,22.75 42.5358616,23.0253116 42.5358616,23.4290354 L42.5358616,28.6699495 L42.6115319,30.243373 L41.8772313,29.3484852 L40.8571759,28.2777179 C40.7526314,28.154802 40.5719188,28.072858 40.3852322,28.072858 C40.011859,28.072858 39.75,28.3421738 39.75,28.7049256 C39.75,28.8982933 39.8082462,29.0381975 39.9366866,29.1786015 L42.6817261,31.9926761 C42.8504907,32.1680561 43.0312033,32.25 43.2472619,32.25 C43.4682988,32.25 43.6490115,32.1620602 43.8182739,31.9926761 L46.5573394,29.1786015 C46.6857798,29.0381975 46.75,28.8982933 46.75,28.7049256 C46.75,28.3421738 46.4816692,28.072858 46.1087938,28.072858 C45.9221072,28.072858 45.7533426,28.1493057 45.6368502,28.2777179 L44.6282448,29.3369931 L43.8819963,30.2493689 L43.9581644,28.6699495 L43.9581644,23.4290354 C43.9581644,23.0253116 43.6549854,22.75 43.2472619,22.75 Z M54.9997777,19.8449373 C55.3020394,19.8449373 55.5480894,20.1087383 55.5480894,20.4341752 L55.5480894,24.374426 C55.5480894,24.6998628 55.3020394,24.9636638 54.9997777,24.9636638 L54.4593553,24.9636638 L54.4593553,23.2191253 C54.4549175,22.0159953 54.451959,21.5199507 54.4440697,21.0140444 C54.4376595,20.6314096 54.428784,20.2398992 54.4056089,19.848882 C54.4243462,19.8464166 54.4430835,19.8449373 54.4618208,19.8449373 L54.9997777,19.8449373 Z" id="Glyph" fill="#000000"></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="gallery-watch-block-large">
+                            <figure role="img" class="configurator-gallery-image gallery-image-3 " aria-label="Watch face for adventurers" data-download-area-keyframe='{"breakpointMask":"MLX"}' data-anim-lazy-image></figure>
+                            <div class="gallery-copy-block typography-body-reduced">
+                                <div class="gallery-copy-title">For adventurers</div>
+                                <div class="gallery-copy-copy">Know what direction you’re facing, where the sun is, and your current elevation in this great face for explorers.</div>
+                                <a href="https://netexy.com/uploads/hype/apple/img/v/apple-watch-series-6/c/faces/adventurer__jku2ftghi8ii.watchface" class="download-faces-button" aria-label="Download Watch Face for Adventurers">
+                                    <svg width="268px" height="56px" viewBox="0 0 268 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <title>Symbol and Text - Dark@1x</title>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="Symbol-and-Text---Dark">
+                                                <rect id="Bezel" fill="#FFFFFF" x="0" y="0" width="268" height="56" rx="28"></rect>
+                                                <text id="Add-Apple-Watch-Face" font-family="SFProText-Regular, SF Pro Text" font-size="17" font-weight="normal" letter-spacing="-0.43" fill="#000000">
+                                                    <tspan x="62.5" y="33.5">Add Apple Watch Face</tspan>
+                                                </text>
+                                                <path d="M48.7899564,16 C51.3804168,16 53.5002,18.0364455 53.5002,20.525544 L53.5002,20.525544 L53.5002,34.474456 C53.5002,36.9635545 51.3804168,39 48.7899564,39 L48.7899564,39 L37.7099477,39 C35.1194873,39 33.0002,36.9635545 33.0002,34.474456 L33.0002,34.474456 L33.0002,20.525544 C33.0002,18.0364455 35.1194873,16 37.7099477,16 L37.7099477,16 Z M48.7465297,17.25 L37.7429778,17.25 C35.8831115,17.25 34.37,18.7022094 34.37,20.4871031 L34.37,20.4871031 L34.37,34.5128969 C34.37,36.2977906 35.8831115,37.75 37.7429778,37.75 L37.7429778,37.75 L48.7465297,37.75 C50.6063959,37.75 52.12,36.2977906 52.12,34.5128969 L52.12,34.5128969 L52.12,20.4871031 C52.12,18.7022094 50.6063959,17.25 48.7465297,17.25 L48.7465297,17.25 Z M43.2448895,20.75 C46.94684,20.75 50,23.8015731 50,27.502676 C50,31.2028057 46.9517071,34.25 43.2497566,34.25 C39.5478062,34.25 36.5,31.2028057 36.5,27.502676 C36.5,23.8015731 39.5424523,20.75 43.2448895,20.75 Z M43.2472619,22.75 C42.8445167,22.75 42.5358616,23.0253116 42.5358616,23.4290354 L42.5358616,28.6699495 L42.6115319,30.243373 L41.8772313,29.3484852 L40.8571759,28.2777179 C40.7526314,28.154802 40.5719188,28.072858 40.3852322,28.072858 C40.011859,28.072858 39.75,28.3421738 39.75,28.7049256 C39.75,28.8982933 39.8082462,29.0381975 39.9366866,29.1786015 L42.6817261,31.9926761 C42.8504907,32.1680561 43.0312033,32.25 43.2472619,32.25 C43.4682988,32.25 43.6490115,32.1620602 43.8182739,31.9926761 L46.5573394,29.1786015 C46.6857798,29.0381975 46.75,28.8982933 46.75,28.7049256 C46.75,28.3421738 46.4816692,28.072858 46.1087938,28.072858 C45.9221072,28.072858 45.7533426,28.1493057 45.6368502,28.2777179 L44.6282448,29.3369931 L43.8819963,30.2493689 L43.9581644,28.6699495 L43.9581644,23.4290354 C43.9581644,23.0253116 43.6549854,22.75 43.2472619,22.75 Z M54.9997777,19.8449373 C55.3020394,19.8449373 55.5480894,20.1087383 55.5480894,20.4341752 L55.5480894,24.374426 C55.5480894,24.6998628 55.3020394,24.9636638 54.9997777,24.9636638 L54.4593553,24.9636638 L54.4593553,23.2191253 C54.4549175,22.0159953 54.451959,21.5199507 54.4440697,21.0140444 C54.4376595,20.6314096 54.428784,20.2398992 54.4056089,19.848882 C54.4243462,19.8464166 54.4430835,19.8449373 54.4618208,19.8449373 L54.9997777,19.8449373 Z" id="Glyph" fill="#000000"></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="faces-gallery-large-item-2" data-ac-gallery-item="" class="gallery-item" role="tabpanel">
+                        <div class="gallery-watch-block-large">
+                            <figure role="img" class="configurator-gallery-image gallery-image-4 " aria-label="Watch face for weather nerds" data-anim-lazy-image></figure>
+                            <div class="gallery-copy-block typography-body-reduced">
+                                <div class="gallery-copy-title">For weather nerds</div>
+                                <div class="gallery-copy-copy">See detailed forecasts and weather data, including humidity, barometric pressure, and more with CARROT Weather.</div>
+                                <a href="https://netexy.com/uploads/hype/apple/img/v/apple-watch-series-6/c/faces/Carrot__fu824y5u9lu2.watchface" class="download-faces-button" aria-label="Download Watch Face for Weather Nerds">
+                                    <svg width="268px" height="56px" viewBox="0 0 268 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <title>Symbol and Text - Dark@1x</title>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="Symbol-and-Text---Dark">
+                                                <rect id="Bezel" fill="#FFFFFF" x="0" y="0" width="268" height="56" rx="28"></rect>
+                                                <text id="Add-Apple-Watch-Face" font-family="SFProText-Regular, SF Pro Text" font-size="17" font-weight="normal" letter-spacing="-0.43" fill="#000000">
+                                                    <tspan x="62.5" y="33.5">Add Apple Watch Face</tspan>
+                                                </text>
+                                                <path d="M48.7899564,16 C51.3804168,16 53.5002,18.0364455 53.5002,20.525544 L53.5002,20.525544 L53.5002,34.474456 C53.5002,36.9635545 51.3804168,39 48.7899564,39 L48.7899564,39 L37.7099477,39 C35.1194873,39 33.0002,36.9635545 33.0002,34.474456 L33.0002,34.474456 L33.0002,20.525544 C33.0002,18.0364455 35.1194873,16 37.7099477,16 L37.7099477,16 Z M48.7465297,17.25 L37.7429778,17.25 C35.8831115,17.25 34.37,18.7022094 34.37,20.4871031 L34.37,20.4871031 L34.37,34.5128969 C34.37,36.2977906 35.8831115,37.75 37.7429778,37.75 L37.7429778,37.75 L48.7465297,37.75 C50.6063959,37.75 52.12,36.2977906 52.12,34.5128969 L52.12,34.5128969 L52.12,20.4871031 C52.12,18.7022094 50.6063959,17.25 48.7465297,17.25 L48.7465297,17.25 Z M43.2448895,20.75 C46.94684,20.75 50,23.8015731 50,27.502676 C50,31.2028057 46.9517071,34.25 43.2497566,34.25 C39.5478062,34.25 36.5,31.2028057 36.5,27.502676 C36.5,23.8015731 39.5424523,20.75 43.2448895,20.75 Z M43.2472619,22.75 C42.8445167,22.75 42.5358616,23.0253116 42.5358616,23.4290354 L42.5358616,28.6699495 L42.6115319,30.243373 L41.8772313,29.3484852 L40.8571759,28.2777179 C40.7526314,28.154802 40.5719188,28.072858 40.3852322,28.072858 C40.011859,28.072858 39.75,28.3421738 39.75,28.7049256 C39.75,28.8982933 39.8082462,29.0381975 39.9366866,29.1786015 L42.6817261,31.9926761 C42.8504907,32.1680561 43.0312033,32.25 43.2472619,32.25 C43.4682988,32.25 43.6490115,32.1620602 43.8182739,31.9926761 L46.5573394,29.1786015 C46.6857798,29.0381975 46.75,28.8982933 46.75,28.7049256 C46.75,28.3421738 46.4816692,28.072858 46.1087938,28.072858 C45.9221072,28.072858 45.7533426,28.1493057 45.6368502,28.2777179 L44.6282448,29.3369931 L43.8819963,30.2493689 L43.9581644,28.6699495 L43.9581644,23.4290354 C43.9581644,23.0253116 43.6549854,22.75 43.2472619,22.75 Z M54.9997777,19.8449373 C55.3020394,19.8449373 55.5480894,20.1087383 55.5480894,20.4341752 L55.5480894,24.374426 C55.5480894,24.6998628 55.3020394,24.9636638 54.9997777,24.9636638 L54.4593553,24.9636638 L54.4593553,23.2191253 C54.4549175,22.0159953 54.451959,21.5199507 54.4440697,21.0140444 C54.4376595,20.6314096 54.428784,20.2398992 54.4056089,19.848882 C54.4243462,19.8464166 54.4430835,19.8449373 54.4618208,19.8449373 L54.9997777,19.8449373 Z" id="Glyph" fill="#000000"></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="gallery-watch-block-large">
+                            <figure role="img" class="configurator-gallery-image gallery-image-5 " aria-label="Watch face for planners" data-anim-lazy-image></figure>
+                            <div class="gallery-copy-block typography-body-reduced">
+                                <div class="gallery-copy-title">For planners</div>
+                                <div class="gallery-copy-copy">Plan your day, keep organized, and stay focused. Right from your wrist with apps like Actions, Focus, and Fantastical.</div>
+                                <a href="https://netexy.com/uploads/hype/apple/img/v/apple-watch-series-6/c/faces/productivity__eb4ac270t526.watchface" class="download-faces-button" aria-label="Download Watch Face for Planners">
+                                    <svg width="268px" height="56px" viewBox="0 0 268 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <title>Symbol and Text - Dark@1x</title>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="Symbol-and-Text---Dark">
+                                                <rect id="Bezel" fill="#FFFFFF" x="0" y="0" width="268" height="56" rx="28"></rect>
+                                                <text id="Add-Apple-Watch-Face" font-family="SFProText-Regular, SF Pro Text" font-size="17" font-weight="normal" letter-spacing="-0.43" fill="#000000">
+                                                    <tspan x="62.5" y="33.5">Add Apple Watch Face</tspan>
+                                                </text>
+                                                <path d="M48.7899564,16 C51.3804168,16 53.5002,18.0364455 53.5002,20.525544 L53.5002,20.525544 L53.5002,34.474456 C53.5002,36.9635545 51.3804168,39 48.7899564,39 L48.7899564,39 L37.7099477,39 C35.1194873,39 33.0002,36.9635545 33.0002,34.474456 L33.0002,34.474456 L33.0002,20.525544 C33.0002,18.0364455 35.1194873,16 37.7099477,16 L37.7099477,16 Z M48.7465297,17.25 L37.7429778,17.25 C35.8831115,17.25 34.37,18.7022094 34.37,20.4871031 L34.37,20.4871031 L34.37,34.5128969 C34.37,36.2977906 35.8831115,37.75 37.7429778,37.75 L37.7429778,37.75 L48.7465297,37.75 C50.6063959,37.75 52.12,36.2977906 52.12,34.5128969 L52.12,34.5128969 L52.12,20.4871031 C52.12,18.7022094 50.6063959,17.25 48.7465297,17.25 L48.7465297,17.25 Z M43.2448895,20.75 C46.94684,20.75 50,23.8015731 50,27.502676 C50,31.2028057 46.9517071,34.25 43.2497566,34.25 C39.5478062,34.25 36.5,31.2028057 36.5,27.502676 C36.5,23.8015731 39.5424523,20.75 43.2448895,20.75 Z M43.2472619,22.75 C42.8445167,22.75 42.5358616,23.0253116 42.5358616,23.4290354 L42.5358616,28.6699495 L42.6115319,30.243373 L41.8772313,29.3484852 L40.8571759,28.2777179 C40.7526314,28.154802 40.5719188,28.072858 40.3852322,28.072858 C40.011859,28.072858 39.75,28.3421738 39.75,28.7049256 C39.75,28.8982933 39.8082462,29.0381975 39.9366866,29.1786015 L42.6817261,31.9926761 C42.8504907,32.1680561 43.0312033,32.25 43.2472619,32.25 C43.4682988,32.25 43.6490115,32.1620602 43.8182739,31.9926761 L46.5573394,29.1786015 C46.6857798,29.0381975 46.75,28.8982933 46.75,28.7049256 C46.75,28.3421738 46.4816692,28.072858 46.1087938,28.072858 C45.9221072,28.072858 45.7533426,28.1493057 45.6368502,28.2777179 L44.6282448,29.3369931 L43.8819963,30.2493689 L43.9581644,28.6699495 L43.9581644,23.4290354 C43.9581644,23.0253116 43.6549854,22.75 43.2472619,22.75 Z M54.9997777,19.8449373 C55.3020394,19.8449373 55.5480894,20.1087383 55.5480894,20.4341752 L55.5480894,24.374426 C55.5480894,24.6998628 55.3020394,24.9636638 54.9997777,24.9636638 L54.4593553,24.9636638 L54.4593553,23.2191253 C54.4549175,22.0159953 54.451959,21.5199507 54.4440697,21.0140444 C54.4376595,20.6314096 54.428784,20.2398992 54.4056089,19.848882 C54.4243462,19.8464166 54.4430835,19.8449373 54.4618208,19.8449373 L54.9997777,19.8449373 Z" id="Glyph" fill="#000000"></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="gallery-watch-block-large">
+                            <figure role="img" class="configurator-gallery-image gallery-image-6 " aria-label="Watch face for photographers" data-anim-lazy-image></figure>
+                            <div class="gallery-copy-block typography-body-reduced">
+                                <div class="gallery-copy-title">For photographers</div>
+                                <div class="gallery-copy-copy">Capture your best images with Lumy, which lets you track sunrises and sunsets, lighting conditions, and weather.</div>
+                                <a href="https://netexy.com/uploads/hype/apple/img/v/apple-watch-series-6/c/faces/photographer__cifqb5i2kbbm.watchface" class="download-faces-button" aria-label="Download Watch Face for Photographers">
+                                    <svg width="268px" height="56px" viewBox="0 0 268 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <title>Symbol and Text - Dark@1x</title>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="Symbol-and-Text---Dark">
+                                                <rect id="Bezel" fill="#FFFFFF" x="0" y="0" width="268" height="56" rx="28"></rect>
+                                                <text id="Add-Apple-Watch-Face" font-family="SFProText-Regular, SF Pro Text" font-size="17" font-weight="normal" letter-spacing="-0.43" fill="#000000">
+                                                    <tspan x="62.5" y="33.5">Add Apple Watch Face</tspan>
+                                                </text>
+                                                <path d="M48.7899564,16 C51.3804168,16 53.5002,18.0364455 53.5002,20.525544 L53.5002,20.525544 L53.5002,34.474456 C53.5002,36.9635545 51.3804168,39 48.7899564,39 L48.7899564,39 L37.7099477,39 C35.1194873,39 33.0002,36.9635545 33.0002,34.474456 L33.0002,34.474456 L33.0002,20.525544 C33.0002,18.0364455 35.1194873,16 37.7099477,16 L37.7099477,16 Z M48.7465297,17.25 L37.7429778,17.25 C35.8831115,17.25 34.37,18.7022094 34.37,20.4871031 L34.37,20.4871031 L34.37,34.5128969 C34.37,36.2977906 35.8831115,37.75 37.7429778,37.75 L37.7429778,37.75 L48.7465297,37.75 C50.6063959,37.75 52.12,36.2977906 52.12,34.5128969 L52.12,34.5128969 L52.12,20.4871031 C52.12,18.7022094 50.6063959,17.25 48.7465297,17.25 L48.7465297,17.25 Z M43.2448895,20.75 C46.94684,20.75 50,23.8015731 50,27.502676 C50,31.2028057 46.9517071,34.25 43.2497566,34.25 C39.5478062,34.25 36.5,31.2028057 36.5,27.502676 C36.5,23.8015731 39.5424523,20.75 43.2448895,20.75 Z M43.2472619,22.75 C42.8445167,22.75 42.5358616,23.0253116 42.5358616,23.4290354 L42.5358616,28.6699495 L42.6115319,30.243373 L41.8772313,29.3484852 L40.8571759,28.2777179 C40.7526314,28.154802 40.5719188,28.072858 40.3852322,28.072858 C40.011859,28.072858 39.75,28.3421738 39.75,28.7049256 C39.75,28.8982933 39.8082462,29.0381975 39.9366866,29.1786015 L42.6817261,31.9926761 C42.8504907,32.1680561 43.0312033,32.25 43.2472619,32.25 C43.4682988,32.25 43.6490115,32.1620602 43.8182739,31.9926761 L46.5573394,29.1786015 C46.6857798,29.0381975 46.75,28.8982933 46.75,28.7049256 C46.75,28.3421738 46.4816692,28.072858 46.1087938,28.072858 C45.9221072,28.072858 45.7533426,28.1493057 45.6368502,28.2777179 L44.6282448,29.3369931 L43.8819963,30.2493689 L43.9581644,28.6699495 L43.9581644,23.4290354 C43.9581644,23.0253116 43.6549854,22.75 43.2472619,22.75 Z M54.9997777,19.8449373 C55.3020394,19.8449373 55.5480894,20.1087383 55.5480894,20.4341752 L55.5480894,24.374426 C55.5480894,24.6998628 55.3020394,24.9636638 54.9997777,24.9636638 L54.4593553,24.9636638 L54.4593553,23.2191253 C54.4549175,22.0159953 54.451959,21.5199507 54.4440697,21.0140444 C54.4376595,20.6314096 54.428784,20.2398992 54.4056089,19.848882 C54.4243462,19.8464166 54.4430835,19.8449373 54.4618208,19.8449373 L54.9997777,19.8449373 Z" id="Glyph" fill="#000000"></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div data-analytics-gallery-interaction-type="paddlenav" class="paddlenav paddlenav-framed">
+                        <ul>
+                            <li><button aria-label="Previous" class="paddlenav-arrow paddlenav-arrow-previous"></button></li>
+                            <li><button aria-label="Next" class="paddlenav-arrow paddlenav-arrow-next"></button></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

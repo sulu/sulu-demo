@@ -1,5 +1,9 @@
 # Learn more about services, parameters and containers at
 # http://symfony.com/doc/current/book/service_container.html
+imports:
+    - { resource: parameters.yaml }
+
+
 parameters:
     default_locale: en
 
@@ -17,7 +21,7 @@ services:
     # this creates a service per class whose id is the fully-qualified class name
     App\:
         resource: '../src/*'
-        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Form,Util,Kernel.php}'
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
@@ -46,3 +50,18 @@ services:
 
     App\Content\Type\AlbumSelection:
         tags: [{name: 'sulu.content.type', alias: 'album_selection'}]
+
+    App\Form\Extension\ButtonTypeIconExtension:
+        tags:
+            - { name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\ButtonType }
+
+    App\Util\MailerLoggerUtil:
+        arguments: ["@logger"]
+        tags:
+            - { name: monolog.logger, channel: mailer }
+            - { name: "swiftmailer.default.plugin" }
+                
+    #App\Util\:
+    #    resource: '../src/Util/MailerLoggerUtil'
+    #    arguments: ['logger']
+    #    tags: [{name: 'monolog.logger', channel: 'mailer'}, {name: 'swiftmailer.default.plugin'}]

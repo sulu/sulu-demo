@@ -1,0 +1,90 @@
+ {# TODO avoid sulu_content_load as its a heavy operation which should be avoided #}
+{# @see https://docs.sulu.io/en/2.2/reference/twig-extensions/functions/sulu_content_load.html #}
+{% set link_ecg = sulu_content_load(content.link_ecg|default(''|trans)) %}
+<section class="section section-ecg" data-name="ecg" data-anim-scroll-group="ecg" data-analytics-section-engagement="name:ecg">
+     <div class="section-main-content">
+         <div class="ecg-animation-container" data-anim-keyframe-1='{
+			"anchors":[".ecg-fingertip-block","#ac-globalfooter"],
+			"start":"a0t - 100vh + ((100vh - 417px) / 2) - 87px",
+			"end":"a1b",
+			"cssClass":"static-container",
+			"toggle":true,
+			"disabledWhen":["static-layout", "no-ecg", "text-zoom"],
+			"breakpointMask":"S"
+		}' data-anim-keyframe-2='{
+			"anchors":[".ecg-animation-container"],
+			"start":"a0t - 100vh",
+			"end":"a0b",
+			"cssClass":"will-change",
+			"toggle":true,
+			"disabledWhen":["static-layout", "no-ecg", "text-zoom"]
+		}'>
+             <div class="ecg-animation-start-block">
+                 <figure class="image-start" data-anim-keyframe-1='{
+					"anchors":[".ecg-headline-block", ".ecg-fingertip-block"],
+					"start":"a0t + 25vh",
+					"end":"a1t - 25vh",
+					"scale":[0.45,"1"],
+					"x":["-13px","33px"],
+					"y":["20px","311px"],
+					"ease":"0.5",
+					"easeFunction": "easeInOutQuad",
+					"disabledWhen":["static-layout", "no-ecg", "text-zoom"],
+					"breakpointMask":"L"
+				}' data-anim-keyframe-2='{
+					"anchors":[".ecg-headline-block", ".ecg-fingertip-block"],
+					"start":"a0t + 25vh",
+					"end":"a1t - 25vh",
+					"scale":[null,"1"],
+					"x":[null,"44px"],
+					"y":["-30px","155px"],
+					"ease":"0.5",
+					"easeFunction": "easeInOutQuad",
+					"disabledWhen":["static-layout", "no-ecg", "text-zoom"],
+					"breakpointMask":"M"
+				}' data-anim-keyframe-3='{
+					"anchors":[".ecg-headline-block", ".ecg-fingertip-block"],
+					"start":"a0b + (482px / 2) - 50vh - 20px",
+					"end":"a1t - (482px / 2) - 50vh - 55px",
+					"scale":[null,"1"],
+					"x":[null,"64px"],
+					"y":[null,"188px"],
+					"ease":"0.5",
+					"easeFunction": "easeInOutQuad",
+					"disabledWhen":["static-layout", "no-ecg", "text-zoom"],
+					"breakpointMask":"S"
+				}' data-download-area-keyframe='{"start":"50px"}' data-anim-lazy-image></figure>
+             </div>
+             <div class="ecg-animation-end-block">
+                 <figure class="image-start" data-download-area-keyframe='{"start":"50px"}' data-anim-lazy-image></figure>
+             </div>
+         </div>
+         <div class="ecg-headline-block">
+             <div class="section-block">
+                 <h2 class="section-block-headline typography-section-headline" data-text-zoom-max="1.75">
+                     {% if content.title %}<span class="headline {% if content.raidbow_txt %}raidbow-txt{% endif %}">{{ content.title|raw }}</span>{% endif %}
+                     {% if content.subtitle %}<span class="subhead">{{ content.subtitle|raw }}</span>{% endif %}
+                 </h2>
+                 {% if content.description %}<p class="section-block-intro typography-section-intro">{{ content.description|raw }}</p>{% endif %}
+             </div>
+         </div>
+         <div class="ecg-fingertip-block">
+             <div class="copy-block copy-block-fingertip anim-text-animate">
+                 {% if content.fingertip_title %}<h3 class="copy-block-headline typography-copy-block">{{ content.fingertip_title|raw }}</h3>{% endif %}
+                 {% if content.fingertip_desc %}
+                     <p class="copy-block-copy typography-copy-block">
+                        {{ content.fingertip_desc|raw }}
+                     </p>
+                 {% endif %}
+                 {% if link_ecg is defined and link_ecg is not null %}
+                 <a href="{{ sulu_content_path(link_ecg.content.url) }}" 
+                    data-analytics-title="{{ link_ecg.content.title|default('read_more'|trans) }}" 
+                    class="icon-wrapper copy-block-cta typography-copy-block" 
+                    data-analytics-exit-link>
+                     {% if content.text_ecg %}<span class="icon-copy">{{ content.text_ecg|raw }}</span><span class="icon icon-after more"></span>{% endif %}
+                 </a>
+                 {% endif %}
+             </div>
+         </div>
+     </div>
+ </section>

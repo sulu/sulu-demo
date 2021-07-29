@@ -1,0 +1,156 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="slider">
+        <types>
+            <type name="image_slider">
+                <meta>
+                    <title lang="en">Slider w/ images</title>
+                    <title lang="uk">Слайдер з зображеннями</title>
+                </meta>
+
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Block caption</title>
+                            <title lang="uk">Назва блоку</title>
+                        </meta>
+                    </property>
+                    <property name="slide_images" type="media_selection">
+                        <meta>
+                            <title lang="en">Slide Images</title>
+                            <title lang="uk">Зображення Слайдів</title>
+                        </meta>
+
+                        <params>
+                            <param name="type" value="image"/>
+                        </params>
+                    </property>
+
+                    <!--<property name="slide_teasers" type="teaser_selection">-->
+                        <!--<meta>-->
+                            <!--<title lang="en">Slide Teasers</title>-->
+                            <!--<title lang="uk">Тізери Слайдів</title>-->
+                        <!--</meta>-->
+                    <!--</property>-->
+
+                    <!-- options -->
+                    <property name="show_arrows" type="checkbox">
+                        <meta>
+                            <title lang="en">Display Arrows</title>
+                            <title lang="uk">Показати Стрілки</title>
+                        </meta>
+                        <params>
+                            <param name="type" value="toggler"/>
+                        </params>
+                    </property>
+                    <property name="pagination" type="checkbox">
+                        <meta>
+                            <title lang="en">Pagination</title>
+                            <title lang="uk">Пагінація</title>
+                        </meta>
+                        <params>
+                            <param name="type" value="toggler"/>
+                        </params>
+                    </property>
+
+                    <property name="autoplay" type="single_select">
+                        <meta>
+                            <title lang="en">Autoplay</title>
+                            <title lang="uk">Автоплей</title>
+                        </meta>
+
+                        <params>
+                            <param name="values" type="collection">
+                                <!--<param name="desktop">-->
+                                    <!--<meta>-->
+                                        <!--<title lang="en">Desktop</title>-->
+                                        <!--<title lang="uk">Десктоп</title>-->
+                                    <!--</meta>-->
+                                <!--</param>-->
+                                <!--<param name="mobile">-->
+                                    <!--<meta>-->
+                                        <!--<title lang="en">Mobile</title>-->
+                                        <!--<title lang="uk">Мобільні девайси</title>-->
+                                    <!--</meta>-->
+                                <!--</param>-->
+                                <param name="true">
+                                    <meta>
+                                        <title lang="en">All</title>
+                                        <title lang="uk">Всі девайси</title>
+                                    </meta>
+                                </param>
+                                <param name="false">
+                                    <meta>
+                                        <title lang="en">None</title>
+                                        <title lang="uk">Відключений</title>
+                                    </meta>
+                                </param>
+                            </param>
+                        </params>
+                    </property>
+
+                    <property name="speed" type="text_line">
+                        <meta>
+                            <title lang="en">Speed</title>
+                            <title lang="uk">Швидкість</title>
+                        </meta>
+                    </property>
+                    <!--<property name="speed" type="single_select">-->
+                        <!--<meta>-->
+                            <!--<title lang="en">Speed</title>-->
+                            <!--<title lang="uk">Швидкість</title>-->
+                        <!--</meta>-->
+
+                        <!--<params>-->
+                            <!--<param name="values" type="collection">-->
+                                <!--<param name="2500">-->
+                                    <!--<meta>-->
+                                        <!--<title lang="en">2500</title>-->
+                                        <!--<title lang="uk">2500</title>-->
+                                    <!--</meta>-->
+                                <!--</param>-->
+                                <!--<param name="5000">-->
+                                    <!--<meta>-->
+                                        <!--<title lang="en">5000</title>-->
+                                        <!--<title lang="uk">5000</title>-->
+                                    <!--</meta>-->
+                                <!--</param>-->
+                                <!--<param name="7500">-->
+                                    <!--<meta>-->
+                                        <!--<title lang="en">7500</title>-->
+                                        <!--<title lang="uk">7500</title>-->
+                                    <!--</meta>-->
+                                <!--</param>-->
+                                <!--<param name="0">-->
+                                    <!--<meta>-->
+                                        <!--<title lang="en">Static</title>-->
+                                        <!--<title lang="uk">Статичний</title>-->
+                                    <!--</meta>-->
+                                <!--</param>-->
+                            <!--</param>-->
+                        <!--</params>-->
+                    <!--</property>-->
+
+                    <property name="custom_class" type="text_line">
+                        <meta>
+                            <title lang="en">Custom CSS Class</title>
+                            <title lang="uk">CSS Клас</title>
+                        </meta>
+                    </property>
+
+                    <property name="snippet_data" type="snippet">
+                        <meta>
+                            <title lang="en">Existing HTML Snippets</title>
+                            <title lang="uk">Сніпети</title>
+                        </meta>
+                        <params>
+                            <!-- We restrict the selection to snippets of type "snippet_html_code" -->
+                            <param name="snippetType" value="html_code"/>
+                        </params>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

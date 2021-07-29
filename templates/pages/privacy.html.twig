@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+
+{% block style %}
+    <link rel="stylesheet" href="{{ asset('build/website/css/fonts.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/website/css/privacy/main.built.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/website/css/privacy/overview.built.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/website/css/footer.built.css') }}"> 
+{% endblock %}    
+{% block javascripts_top %}
+    <script src="{{ asset('build/website/js/privacy/head.built.js') }}"></script>
+{% endblock %}  
+
+{# {% block contentHeader %} #}
+    {# {% include 'includes/header.html.twig' with { type: 'overview' } %} #}
+{# {% endblock %} #}
+
+{% block contentBody %}
+    <main id="main" class="page-overview theme-dark ac-localnav-overlap main" role="main" data-page-type="overview">
+        {% include 'includes/privacy.html.twig' %}
+    </main>
+{% endblock %}
+
+
+{% block javascripts %}    
+        <script src="{{ asset('/build/website/js/privacy/main.built.min.js') }}" type="text/javascript" charset="utf-8" async></script>
+{% endblock %}

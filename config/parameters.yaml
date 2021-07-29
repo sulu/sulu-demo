@@ -1,0 +1,14 @@
+parameters:
+    MAILER_URL: smtp://ssl0.ovh.net:465?encryption=ssl&auth_mode=login&username=studio%40netexy.com&password=xMotora4!
+                # gmail://netexy.studio:xMotora4!@localhost
+                # smtp://SSL0.OVH.NET:587?encryption=ssl&auth_mode=login&username=studio@netexy.com&password=xMotora4!
+    #mailer_host: ssl0.ovh.net
+    #mailer_port: 587
+    #mailer_encryption: ssl
+    #mailer_auth: login
+    #mailer_user: studio@netexy.com
+    #mailer_password: xMotora4!
+    #mailer_transport: sendmail
+    
+    
+

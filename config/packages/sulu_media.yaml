@@ -12,8 +12,11 @@ sulu_media:
         save_image: '%env(bool:MEDIA_SAVE_IMAGE_LOCAL)%'
 
     format_manager:
-        # @see https://docs.sulu.io/en/2.2/book/image-formats.html#global-image-compression
+        # @see https://docs.sulu.io/en/2.1/book/image-formats.html#global-image-compression
         default_imagine_options:
             jpeg_quality: 95
             webp_quality: 95
             png_compression_level: 6
+    ffmpeg:
+        ffmpeg_binary: /usr/local/bin/ffmpeg # path to ffmpeg
+        ffprobe_binary: /usr/local/bin/ffprobe # path to ffprobe

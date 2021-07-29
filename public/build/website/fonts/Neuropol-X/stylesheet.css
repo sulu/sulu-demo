@@ -1,0 +1,348 @@
+@font-face {
+    font-family: 'Neuropol X';
+    src: url('NeuropolXRg-Bold.eot');
+    src: local('Neuropol X Bold'), local('NeuropolXRg-Bold'),
+        url('NeuropolXRg-Bold.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXRg-Bold.woff2') format('woff2'),
+        url('NeuropolXRg-Bold.woff') format('woff'),
+        url('NeuropolXRg-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neuropol X Cond';
+    src: url('NeuropolXCdRg-Bold.eot');
+    src: local('Neuropol X Cond Bold'), local('NeuropolXCdRg-Bold'),
+        url('NeuropolXCdRg-Bold.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXCdRg-Bold.woff2') format('woff2'),
+        url('NeuropolXCdRg-Bold.woff') format('woff'),
+        url('NeuropolXCdRg-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neuropol X Cond';
+    src: url('NeuropolXCdRg-BoldItalic.eot');
+    src: local('Neuropol X Cond Bold Italic'), local('NeuropolXCdRg-BoldItalic'),
+        url('NeuropolXCdRg-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXCdRg-BoldItalic.woff2') format('woff2'),
+        url('NeuropolXCdRg-BoldItalic.woff') format('woff'),
+        url('NeuropolXCdRg-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neuropol X';
+    src: url('NeuropolXRg-BoldItalic.eot');
+    src: local('Neuropol X Bold Italic'), local('NeuropolXRg-BoldItalic'),
+        url('NeuropolXRg-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXRg-BoldItalic.woff2') format('woff2'),
+        url('NeuropolXRg-BoldItalic.woff') format('woff'),
+        url('NeuropolXRg-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neuropol X Cond';
+    src: url('NeuropolXCdLt-Italic.eot');
+    src: local('Neuropol X Cond Light Italic'), local('NeuropolXCdLt-Italic'),
+        url('NeuropolXCdLt-Italic.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXCdLt-Italic.woff2') format('woff2'),
+        url('NeuropolXCdLt-Italic.woff') format('woff'),
+        url('NeuropolXCdLt-Italic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neuropol X Cond';
+    src: url('NeuropolXCdHv-Regular.eot');
+    src: local('Neuropol X Cond Heavy'), local('NeuropolXCdHv-Regular'),
+        url('NeuropolXCdHv-Regular.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXCdHv-Regular.woff2') format('woff2'),
+        url('NeuropolXCdHv-Regular.woff') format('woff'),
+        url('NeuropolXCdHv-Regular.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neuropol X Cond';
+    src: url('NeuropolXCdSb-Italic.eot');
+    src: local('Neuropol X Cond Semibold Italic'), local('NeuropolXCdSb-Italic'),
+        url('NeuropolXCdSb-Italic.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXCdSb-Italic.woff2') format('woff2'),
+        url('NeuropolXCdSb-Italic.woff') format('woff'),
+        url('NeuropolXCdSb-Italic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neuropol X Cond';
+    src: url('NeuropolXCdSb-Regular.eot');
+    src: local('Neuropol X Cond Semibold'), local('NeuropolXCdSb-Regular'),
+        url('NeuropolXCdSb-Regular.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXCdSb-Regular.woff2') format('woff2'),
+        url('NeuropolXCdSb-Regular.woff') format('woff'),
+        url('NeuropolXCdSb-Regular.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neuropol X Cond';
+    src: url('NeuropolXCdLt-Regular.eot');
+    src: local('Neuropol X Cond Light'), local('NeuropolXCdLt-Regular'),
+        url('NeuropolXCdLt-Regular.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXCdLt-Regular.woff2') format('woff2'),
+        url('NeuropolXCdLt-Regular.woff') format('woff'),
+        url('NeuropolXCdLt-Regular.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neuropol X Cond';
+    src: url('NeuropolXCdRg-Regular.eot');
+    src: local('Neuropol X Cond'), local('NeuropolXCdRg-Regular'),
+        url('NeuropolXCdRg-Regular.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXCdRg-Regular.woff2') format('woff2'),
+        url('NeuropolXCdRg-Regular.woff') format('woff'),
+        url('NeuropolXCdRg-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neuropol X Exp';
+    src: url('NeuropolXExRg-BoldItalic.eot');
+    src: local('Neuropol X Exp Bold Italic'), local('NeuropolXExRg-BoldItalic'),
+        url('NeuropolXExRg-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXExRg-BoldItalic.woff2') format('woff2'),
+        url('NeuropolXExRg-BoldItalic.woff') format('woff'),
+        url('NeuropolXExRg-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neuropol X Cond';
+    src: url('NeuropolXCdHv-Italic.eot');
+    src: local('Neuropol X Cond Heavy Italic'), local('NeuropolXCdHv-Italic'),
+        url('NeuropolXCdHv-Italic.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXCdHv-Italic.woff2') format('woff2'),
+        url('NeuropolXCdHv-Italic.woff') format('woff'),
+        url('NeuropolXCdHv-Italic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neuropol X Cond';
+    src: url('NeuropolXCdRg-Italic.eot');
+    src: local('Neuropol X Cond Italic'), local('NeuropolXCdRg-Italic'),
+        url('NeuropolXCdRg-Italic.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXCdRg-Italic.woff2') format('woff2'),
+        url('NeuropolXCdRg-Italic.woff') format('woff'),
+        url('NeuropolXCdRg-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neuropol X Exp';
+    src: url('NeuropolXExLt-Italic.eot');
+    src: local('Neuropol X Exp Light Italic'), local('NeuropolXExLt-Italic'),
+        url('NeuropolXExLt-Italic.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXExLt-Italic.woff2') format('woff2'),
+        url('NeuropolXExLt-Italic.woff') format('woff'),
+        url('NeuropolXExLt-Italic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neuropol X';
+    src: url('NeuropolXHv-Italic.eot');
+    src: local('Neuropol X Heavy Italic'), local('NeuropolXHv-Italic'),
+        url('NeuropolXHv-Italic.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXHv-Italic.woff2') format('woff2'),
+        url('NeuropolXHv-Italic.woff') format('woff'),
+        url('NeuropolXHv-Italic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neuropol X Exp';
+    src: url('NeuropolXExRg-Italic.eot');
+    src: local('Neuropol X Exp Italic'), local('NeuropolXExRg-Italic'),
+        url('NeuropolXExRg-Italic.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXExRg-Italic.woff2') format('woff2'),
+        url('NeuropolXExRg-Italic.woff') format('woff'),
+        url('NeuropolXExRg-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neuropol X Exp';
+    src: url('NeuropolXExHv-Regular.eot');
+    src: local('Neuropol X Exp Heavy'), local('NeuropolXExHv-Regular'),
+        url('NeuropolXExHv-Regular.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXExHv-Regular.woff2') format('woff2'),
+        url('NeuropolXExHv-Regular.woff') format('woff'),
+        url('NeuropolXExHv-Regular.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neuropol X Exp';
+    src: url('NeuropolXExLt-Regular.eot');
+    src: local('Neuropol X Exp Light'), local('NeuropolXExLt-Regular'),
+        url('NeuropolXExLt-Regular.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXExLt-Regular.woff2') format('woff2'),
+        url('NeuropolXExLt-Regular.woff') format('woff'),
+        url('NeuropolXExLt-Regular.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neuropol X';
+    src: url('NeuropolXHv-Regular.eot');
+    src: local('Neuropol X Heavy'), local('NeuropolXHv-Regular'),
+        url('NeuropolXHv-Regular.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXHv-Regular.woff2') format('woff2'),
+        url('NeuropolXHv-Regular.woff') format('woff'),
+        url('NeuropolXHv-Regular.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neuropol X Exp';
+    src: url('NeuropolXExRg-Bold.eot');
+    src: local('Neuropol X Exp Bold'), local('NeuropolXExRg-Bold'),
+        url('NeuropolXExRg-Bold.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXExRg-Bold.woff2') format('woff2'),
+        url('NeuropolXExRg-Bold.woff') format('woff'),
+        url('NeuropolXExRg-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neuropol X Exp';
+    src: url('NeuropolXExHv-Italic.eot');
+    src: local('Neuropol X Exp Heavy Italic'), local('NeuropolXExHv-Italic'),
+        url('NeuropolXExHv-Italic.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXExHv-Italic.woff2') format('woff2'),
+        url('NeuropolXExHv-Italic.woff') format('woff'),
+        url('NeuropolXExHv-Italic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neuropol X Exp';
+    src: url('NeuropolXExSb-Italic.eot');
+    src: local('Neuropol X Exp Semibold Italic'), local('NeuropolXExSb-Italic'),
+        url('NeuropolXExSb-Italic.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXExSb-Italic.woff2') format('woff2'),
+        url('NeuropolXExSb-Italic.woff') format('woff'),
+        url('NeuropolXExSb-Italic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neuropol X Exp';
+    src: url('NeuropolXExSb-Regular.eot');
+    src: local('Neuropol X Exp Semibold'), local('NeuropolXExSb-Regular'),
+        url('NeuropolXExSb-Regular.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXExSb-Regular.woff2') format('woff2'),
+        url('NeuropolXExSb-Regular.woff') format('woff'),
+        url('NeuropolXExSb-Regular.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neuropol X';
+    src: url('NeuropolXRg-Regular.eot');
+    src: local('Neuropol X'), local('NeuropolXRg-Regular'),
+        url('NeuropolXRg-Regular.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXRg-Regular.woff2') format('woff2'),
+        url('NeuropolXRg-Regular.woff') format('woff'),
+        url('NeuropolXRg-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neuropol X';
+    src: url('NeuropolXLt-Italic.eot');
+    src: local('Neuropol X Light Italic'), local('NeuropolXLt-Italic'),
+        url('NeuropolXLt-Italic.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXLt-Italic.woff2') format('woff2'),
+        url('NeuropolXLt-Italic.woff') format('woff'),
+        url('NeuropolXLt-Italic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neuropol X';
+    src: url('NeuropolXRg-Italic.eot');
+    src: local('Neuropol X Italic'), local('NeuropolXRg-Italic'),
+        url('NeuropolXRg-Italic.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXRg-Italic.woff2') format('woff2'),
+        url('NeuropolXRg-Italic.woff') format('woff'),
+        url('NeuropolXRg-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neuropol X';
+    src: url('NeuropolXSb-Regular.eot');
+    src: local('Neuropol X Semibold'), local('NeuropolXSb-Regular'),
+        url('NeuropolXSb-Regular.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXSb-Regular.woff2') format('woff2'),
+        url('NeuropolXSb-Regular.woff') format('woff'),
+        url('NeuropolXSb-Regular.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neuropol X';
+    src: url('NeuropolXSb-Italic.eot');
+    src: local('Neuropol X Semibold Italic'), local('NeuropolXSb-Italic'),
+        url('NeuropolXSb-Italic.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXSb-Italic.woff2') format('woff2'),
+        url('NeuropolXSb-Italic.woff') format('woff'),
+        url('NeuropolXSb-Italic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Neuropol X';
+    src: url('NeuropolXLt-Regular.eot');
+    src: local('Neuropol X Light'), local('NeuropolXLt-Regular'),
+        url('NeuropolXLt-Regular.eot?#iefix') format('embedded-opentype'),
+        url('NeuropolXLt-Regular.woff2') format('woff2'),
+        url('NeuropolXLt-Regular.woff') format('woff'),
+        url('NeuropolXLt-Regular.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+

@@ -1,0 +1,14 @@
+{
+    "version": 5,
+    "frameCount": 0,
+    "blockSize": 0,
+    "imagesRequired": 0,
+    "reversible": true,
+    "superframeFrequency": 0,
+    "frames": [{
+        "type": "diff",
+        "startImageIndex": 0,
+        "startBlockIndex": 0,
+        "value": ""
+    }]
+}

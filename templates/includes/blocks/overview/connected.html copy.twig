@@ -1,0 +1,194 @@
+{% set customTheme = '' %}
+{% if content.theme_trigger is defined %}
+    {% set customTheme = content.theme_trigger|default('') %}
+    {% set customThemeParams = content.theme_params|default('') %}
+{% endif %}
+
+<section class="section section-connected" data-name="connected" data-component-list="Connected" data-anim-scroll-group="connected" data-analytics-section-engagement="name:connected" {% if content.theme_trigger %}data-localnav-theme="{{ customTheme }}" data-end="{{ customThemeParams }}"{% endif %}>
+    <div class="section-main-content">
+        <div class="section-content">
+            <div class="section-block">
+                <h2 class="section-block-headline typography-section-headline" data-text-zoom-max="1.75">
+                    {% if content.title %}<span class="headline {% if content.raidbow_txt %}raidbow-txt{% endif %}">{{ content.title|raw }}</span>{% endif %}
+                    {% if content.subtitle %}<span class="subhead">{{ content.subtitle|raw }}</span>{% endif %}
+                </h2>
+                {% if content.description %}<p class="section-block-intro typography-section-intro">{{ content.description|raw }}</p>{% endif %}
+            </div>
+            <div class="image-main-container">
+                <figure class="image-main" data-anim-lazy-image></figure>
+            </div>
+        </div>
+        <div class="section-wrapper large connected-section-wrapper-large" data-anim-keyframe='{
+				"anchors":[".connected-section-wrapper-large"],
+				"start":"a0t - 100vh",
+				"end":"a0b",
+				"cssClass":"will-change",
+				"toggle":true,
+				"disabledWhen":["static-layout"],
+				"breakpointMask":"LM"
+			}'>
+            <div class="connected-grid-block">
+                <div class="image image-phone subsection" data-anim-keyframe='{
+							"start":"t - 100vh + 90h",
+							"end":"t - 100vh + 90h + 1px",
+							"opacity":[null,"1"],
+							"ease":"0.1",
+							"easeFunction":"easeOutQuint",
+							"disabledWhen":["static-layout"],
+							"breakpointMask":"LM"
+						}'>
+                    <figure class="image-watch image-watch-phone" data-download-area-keyframe='{"breakpointMask":"MLX"}' data-anim-lazy-image></figure>
+                </div>
+                <div class="text subsection subsection-phone">
+                    <div class="copy-block copy-block-phone anim-text-animate" data-build-in-anchor=".image-phone" data-build-in-start="a0t - 100vh + 90a0h">
+                        {% if content.first_title %}<h3 class="copy-block-headline typography-copy-block">{{ content.first_title|raw }}</h3>{% endif %}
+                        {% if content.first_desc %}<p class="copy-block-copy typography-copy-block">{{ content.first_desc|raw }}</p>{% endif %}
+                    </div>
+                </div>
+                <div class="image image-apple-pay subsection" data-anim-keyframe='{
+							"start":"t - 100vh + 90h",
+							"end":"t - 100vh + 90h + 1px",
+							"opacity":[null,"1"],
+							"ease":"0.1",
+							"easeFunction":"easeOutQuint",
+							"disabledWhen":["static-layout"],
+							"breakpointMask":"LM"
+						}'>
+                    <figure class="image-watch image-watch-apple-pay" data-download-area-keyframe='{"breakpointMask":"MLX"}' data-anim-lazy-image></figure>
+                </div>
+                <div class="text subsection subsection-apple-pay">
+                    <div class="copy-block copy-block-apple-pay anim-text-animate" data-build-in-anchor=".image-apple-pay" data-build-in-start="a0t - 100vh + 90a0h">
+                        {% if content.second_title %}<h3 class="copy-block-headline typography-copy-block">{{ content.second_title|raw }}</h3>{% endif %}
+                        {% if content.second_desc %}<p class="copy-block-copy typography-copy-block">{{ content.second_desc|raw }}</p>{% endif %}
+                    </div>
+                </div>
+                <div class="image image-siri subsection" data-anim-keyframe='{
+							"start":"t - 100vh + 90h",
+							"end":"t - 100vh + 90h + 1px",
+							"opacity":[null,"1"],
+							"ease":"0.1",
+							"easeFunction":"easeOutQuint",
+							"disabledWhen":["static-layout"],
+							"breakpointMask":"LM"
+						}'>
+                    <figure class="image-watch image-watch-siri" data-download-area-keyframe='{"breakpointMask":"MLX"}' data-anim-lazy-image></figure>
+                </div>
+                <div class="text subsection subsection-siri">
+                    <div class="copy-block copy-block-siri anim-text-animate" data-build-in-anchor=".image-siri" data-build-in-start="a0t - 100vh + 90a0h">
+                        {% if content.third_title %}<h3 class="copy-block-headline typography-copy-block">{{ content.third_title|raw }}</h3>{% endif %}
+                        {% if content.third_desc %}<p class="copy-block-copy typography-copy-block">{{ content.third_desc|raw }}</p>{% endif %}
+                    </div>
+                </div>
+                <div class="image image-apple-maps subsection" data-anim-keyframe='{
+							"start":"t - 100vh + 90h",
+							"end":"t - 100vh + 90h + 1px",
+							"opacity":[null,"1"],
+							"ease":"0.1",
+							"easeFunction":"easeOutQuint",
+							"disabledWhen":["static-layout"],
+							"breakpointMask":"LM"
+						}'>
+                    <figure class="image-watch image-watch-apple-maps" data-download-area-keyframe='{"breakpointMask":"MLX"}' data-anim-lazy-image></figure>
+                </div>
+                <div class="text subsection subsection-apple-maps">
+                    <div class="copy-block copy-block-apple-maps anim-text-animate" data-build-in-anchor=".image-apple-maps" data-build-in-start="a0t - 100vh + 90a0h">
+                        {% if content.fourth_title %}<h3 class="copy-block-headline typography-copy-block">{{ content.fourth_title|raw }}</h3>{% endif %}
+                        {% if content.fourth_desc %}<p class="copy-block-copy typography-copy-block">{{ content.fourth_desc|raw }}</p>{% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-wrapper small connected-section-wrapper-small" data-anim-keyframe='{
+				"anchors":[".connected-section-wrapper-small"],
+				"start":"a0t - 100vh",
+				"end":"a0b",
+				"cssClass":"will-change",
+				"toggle":true,
+				"disabledWhen":["static-layout", "text-zoom"],
+				"breakpointMask":"S"
+			}'>
+            <div class="connected-sticky-block">
+                <div class="connected-image-container image-container">
+                    <div class="image-container-wrapper">
+                        <div class="image-container-inside" data-anim-keyframe='{
+								"anchors":[".subsection-small-phone", ".subsection-small-apple-maps", ".connected-image-container"],
+								"start":"a0b - 100vh + 75px",
+								"end":"a1b - 100vh + 56px",
+								"y":["0","-100h + 100a2h - 56px"],
+								"ease":"0.7",
+								"disabledWhen":["static-layout", "text-zoom"],
+								"breakpointMask":"S"
+							}'>
+                            <figure class="image-watch image-watch-phone image-watch-small-phone" data-anim-keyframe-1='{
+										"anchors":[".copy-block-small-phone"],
+										"start":"a0b - 100vh",
+										"end":"a0b - 100vh + 1px - 14px",
+										"opacity":[null,"1"],
+										"ease":"0.1",
+										"easeFunction":"easeOutQuint",
+										"disabledWhen":["static-layout", "text-zoom"],
+										"breakpointMask":"S"
+									}' data-anim-lazy-image data-download-area-keyframe='{"breakpointMask":"S"}'></figure>
+                            <figure class="image-watch image-watch-apple-pay image-watch-small-apple-pay" data-anim-keyframe-1='{
+										"anchors":[".copy-block-small-apple-pay"],
+										"start":"a0b - 100vh",
+										"end":"a0b - 100vh + 1px - 14px",
+										"opacity":[null,"1"],
+										"ease":"0.1",
+										"easeFunction":"easeOutQuint",
+										"disabledWhen":["static-layout", "text-zoom"],
+										"breakpointMask":"S"
+									}' data-anim-lazy-image data-download-area-keyframe='{"breakpointMask":"S"}'></figure>
+                            <figure class="image-watch image-watch-siri image-watch-small-siri" data-anim-keyframe-1='{
+										"anchors":[".copy-block-small-siri"],
+										"start":"a0b - 100vh",
+										"end":"a0b - 100vh + 1px - 14px",
+										"opacity":[null,"1"],
+										"ease":"0.1",
+										"easeFunction":"easeOutQuint",
+										"disabledWhen":["static-layout", "text-zoom"],
+										"breakpointMask":"S"
+									}' data-anim-lazy-image data-download-area-keyframe='{"breakpointMask":"S"}'></figure>
+                            <figure class="image-watch image-watch-apple-maps image-watch-small-apple-maps" data-anim-keyframe-1='{
+										"anchors":[".copy-block-small-apple-maps"],
+										"start":"a0b - 100vh",
+										"end":"a0b - 100vh + 1px - 14px",
+										"opacity":[null,"1"],
+										"ease":"0.1",
+										"easeFunction":"easeOutQuint",
+										"disabledWhen":["static-layout", "text-zoom"],
+										"breakpointMask":"S"
+									}' data-anim-lazy-image data-download-area-keyframe='{"breakpointMask":"S"}'></figure>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-container">
+                    <div class="subsection subsection-small-phone">
+                        <div class="copy-block copy-block-small-phone anim-text-animate">
+                            {% if content.first_title %}<h3 class="copy-block-headline typography-copy-block">{{ content.first_title|raw }}</h3>{% endif %}
+                            {% if content.first_desc %}<p class="copy-block-copy typography-copy-block">{{ content.first_desc|raw }}</p>{% endif %}
+                        </div>
+                    </div>
+                    <div class="subsection subsection-small-apple-pay">
+                        <div class="copy-block copy-block-small-apple-pay anim-text-animate">
+                            {% if content.second_title %}<h3 class="copy-block-headline typography-copy-block">{{ content.second_title|raw }}</h3>{% endif %}
+                            {% if content.second_desc %}<p class="copy-block-copy typography-copy-block">{{ content.second_desc|raw }}</p>{% endif %}
+                        </div>
+                    </div>
+                    <div class="subsection subsection-small-siri">
+                        <div class="copy-block copy-block-small-siri anim-text-animate">
+                            {% if content.third_title %}<h3 class="copy-block-headline typography-copy-block">{{ content.third_title|raw }}</h3>{% endif %}
+                            {% if content.third_desc %}<p class="copy-block-copy typography-copy-block">{{ content.third_desc|raw }}</p>{% endif %}
+                        </div>
+                    </div>
+                    <div class="subsection subsection-small-apple-maps">
+                        <div class="copy-block copy-block-small-apple-maps anim-text-animate">
+                            {% if content.fourth_title %}<h3 class="copy-block-headline typography-copy-block">{{ content.fourth_title|raw }}</h3>{% endif %}
+                            {% if content.fourth_desc %}<p class="copy-block-copy typography-copy-block">{{ content.fourth_desc|raw }}</p>{% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,150 @@
+{# TODO avoid sulu_content_load as its a heavy operation which should be avoided #}
+{# @see https://docs.sulu.io/en/2.2/reference/twig-extensions/functions/sulu_content_load.html #}
+{% set page_link = sulu_content_load(content.modal.page_link|default(''|trans)) %}
+{% if content.title %}
+<section class="section section-studio" data-analytics-section-engagement="name:hero">
+    <div class="section-content">
+        <div class="tile tile-hero">
+            <div class="tile-content">
+                <div class="tile-content-wrapper">
+                    <h2 class="tile-headline tile-headline-image">
+                        {% if content.title %}<span class="visuallyhidden">{{ content.title|raw }}</span>{% endif %}
+                        <figure class="image-unity-series-6-logo"></figure>
+                    </h2>
+                    {% if content.subtitle %}<h3 class="typography-headline-unity-hero">{{ content.subtitle|raw }}</h3>{% endif %}
+                    {% if content.description %}<p class="tile-copy typography-intro-unity">{{ content.description|raw }}</p>{% endif %}
+                    {% if content.modal %}
+                    <button class="button button-custom js-unity-modal-trigger" data-analytics-title="open black unity modal" aria-label="{{ text_one|default(page_one.content.title|default('read_more'|trans)) }}" data-analytics-intrapage-link="">
+                        <span>
+                            {% if content.text_one %}{{ content.text_one|raw }}{% endif %} 
+                            {% if content.icon_one %}<span class="icon icon-after material-icons">{{ content.icon_one|raw }}</span>{% endif %}
+                        </span>
+                    </button>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="tile-media-container" data-component-list="HeroInlineVideo">
+                <div class="tile-image">
+                    <figure class="image image-hero-studio"></figure>
+                </div>
+                <div class="top-shape"></div>
+                <div class="bottom-shape"></div>
+            </div>
+        </div>
+        <div class="products">
+            <div class="product-grid">
+                <div class="product-grid-item product-web-ux">
+                    <h3 class="typography-unity-product-title">Web & UX</h3>
+                    <p class="typography-body-reduced">Best practice design thinking<br> and user experience that delivers results.</p>
+                    {# <a href="#!" data-analytics-title="order | web & ux product" aria-label="Order Web & UX" class="icon-wrapper button button-pill"><span class="icon-copy">Buy</span></a> #}
+                    <figure class="image image-designe-web-ux"></figure>
+                </div>
+                <div class="product-grid-item product-sport-band">
+                    <h3 class="typography-unity-product-title">Digital Branding</h3>
+                    <p class="typography-body-reduced">Creating you a striking<br> and meaningful digital brand.</p>
+                    {# <a href="#!" data-analytics-title="order | digital branding product" aria-label="Order Digital Branding" class="icon-wrapper button button-pill"><span class="icon-copy">Buy</span></a> #}
+                    <figure class="image image-unity-sport-band"></figure>
+                </div>
+                <div class="product-grid-item product-watch-face">
+                    <h3 class="typography-unity-product-title">Motion Graphics</h3>
+                    <p class="typography-body-reduced">Connecting your audience to your brand’s story in a more immersive ways than ever.</p>
+                    <figure class="image image-unity-watch-face"></figure>
+                    {# <a href="#!" data-analytics-title="order | motion graphics product" aria-label="Order Motion Graphics" class="icon-wrapper button button-pill"><span class="icon-copy">Buy</span></a> #}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="unity-modal-content" class="modal-matrix" data-alt-component-list="UnityModalScroll" data-analytics-activitymap-region-id="black unity modal">
+    <div class="visually-hidden focus-helper" tabindex="0"></div> <!-- used for focusing the modal to the top -->
+    <div class="matrix-header">
+        {% if content.modal.title %}<h3 class="typography-eyebrow-unity-modal">{{ content.modal.title|raw(0) }}</h3>{% endif %}
+        {% if content.modal.headline %}<h3 class="typography-headline-unity-modal">{{ content.modal.headline|raw(0) }}</h3>{% endif %}
+        {% if content.modal.body_tight %}<p class="typography-body-tight">{{ content.modal.body_tight|raw(0) }}</p>{% endif %}
+    </div>
+    <div class="matrix-content matrix-content-product-details">
+        <div class="product-grid">
+            <div class="product-grid-item product-unity-face">
+                <div class="grid-item-image">
+                    <figure class="image image-unity-face"></figure>
+                </div>
+                {% if content.modal.caption_one %}<p class="typography-caption">{{ content.modal.caption_one|raw(0) }}</p>{% endif %}
+            </div>
+            <div class="product-grid-item product-unity-band">
+                <div class="grid-item-image">
+                    <figure class="image image-unity-band"></figure>
+                </div>
+                {% if content.modal.caption_two %}<p class="typography-caption">{{ content.modal.caption_two|raw(0) }}</p>{% endif %}
+            </div>
+            <div class="product-grid-item product-unity-crystal">
+                <div class="grid-item-image">
+                    <figure class="image image-unity-crystal"></figure>
+                </div>
+                {% if content.modal.caption_tree %}<p class="typography-caption">{{ content.modal.caption_tree|raw(0) }}</p>{% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="matrix-content matrix-content-displays">
+        {% if content.modal.headline_two %}<h3 class="typography-headline-unity-modal-reduced">{{ content.modal.headline_two|raw(0) }}</h3>{% endif %}
+        {% if content.modal.body_tight_two %}<p class="typography-body-tight">{{ content.modal.body_tight_two|raw(0) }}</p>{% endif %}
+        <figure class="image image-downloads"></figure>
+        <div class="displays-downloads-container">
+            <div class="device device-mac">
+                {% if content.modal.img_caption_one %}<p class="typography-body-tight">{{ content.modal.img_caption_one|raw(0) }}</p>{% endif %}
+                {# <a href="https://www.apple.com/v/watch/home/ah/images/overview/black-unity/bhm_wallpaper__fct4dd9hzn6u_mac.png" data-analytics-title="download mac wallpaper" data-analytics-click="prop3:download mac wallpaper" aria-label="Download Black Unity Wallpaper for Mac" class="icon-wrapper typography-body-reduced" download data-analytics-intrapage-link><span class="icon-copy">Get wallpaper</span><span class="icon icon-after icon-downloadcircle"></span></a> #}
+            </div>
+            <div class="device device-ipad">
+                {% if content.modal.img_caption_two %}<p class="typography-body-tight">{{ content.modal.img_caption_two|raw(0) }}</p>{% endif %}
+                {# <a href="https://www.apple.com/v/watch/home/ah/images/overview/black-unity/bhm_wallpaper__fct4dd9hzn6u_sq.png" data-analytics-title="download ipad wallpaper" data-analytics-click="prop3:download ipad wallpaper" aria-label="Download Black Unity Wallpaper for iPad" class="icon-wrapper typography-body-reduced" download data-analytics-intrapage-link><span class="icon-copy">Get wallpaper</span><span class="icon icon-after icon-downloadcircle"></span></a> #}
+            </div>
+            <div class="device device-iphone">
+                {% if content.modal.img_caption_tree %}<p class="typography-body-tight">{{ content.modal.img_caption_tree|raw(0) }}</p>{% endif %}
+                {# <a href="https://www.apple.com/v/watch/home/ah/images/overview/black-unity/bhm_wallpaper__fct4dd9hzn6u_phone.png" data-analytics-title="download iphone wallpaper" data-analytics-click="prop3:download iphone wallpaper" aria-label="Download Black Unity Wallpaper for iPhone" class="icon-wrapper typography-body-reduced" download data-analytics-intrapage-link><span class="icon-copy">Get wallpaper</span><span class="icon icon-after icon-downloadcircle"></span></a> #}
+            </div>
+        </div>
+    </div>
+    <div class="matrix-content matrix-content-support">
+        {% if content.modal.headline_tree %}<h3 class="typography-headline-unity-modal-reduced">{{ content.modal.headline_tree|raw(0) }}</h3>{% endif %}
+        {% if content.modal.body_tight_tree %}<p class="typography-body-tight">{{ content.modal.body_tight_tree|raw(0) }}</p>{% endif %}
+    </div>
+    <div class="matrix-content matrix-content-action">
+        {% if content.modal.headline_four %}<h3 class="typography-headline-unity-modal-reduced">{{ content.modal.headline_four|raw(0) }}</h3>{% endif %}
+        {% if content.modal.body_tight_four %}<p class="typography-body-tight">{{ content.modal.body_tight_four|raw(0) }}</p>{% endif %}
+        {% if content.modal.page_link %}
+        <a href="{{ sulu_content_path(page_link.content.url) }}"
+            data-analytics-title="{{ content.page_link|default(0) }}"
+            aria-label="{{ text_link|default(page_link.modal.content.title|default('read_more'|trans)) }}"
+            class="button button-custom">
+            {% if content.modal.text_link %}
+            <span class="icon-copy">{{ content.modal.text_link|raw }}</span>
+            {% endif %}
+            {% if content.modal.icon_link %}
+            <span class="icon icon-after material-icons">{{ content.modal.icon_link|raw }}</span>
+            {% endif %}
+        </a> 
+        {% endif %}
+    </div>
+    <div class="modal-shape modal-shape-1" aria-hidden="true">
+        <figure class="image image-shape-1"></figure>
+    </div>
+    <div class="modal-shape modal-shape-2" aria-hidden="true">
+        <figure class="image image-shape-2"></figure>
+    </div>
+    <div class="modal-shape modal-shape-3" aria-hidden="true">
+        <figure class="image image-shape-3"></figure>
+    </div>
+    <div class="modal-shape modal-shape-4" aria-hidden="true">
+        <figure class="image image-shape-4"></figure>
+    </div>
+    <div class="modal-shape modal-shape-5" aria-hidden="true">
+        <figure class="image image-shape-5"></figure>
+    </div>
+    <div class="modal-shape modal-shape-6" aria-hidden="true">
+        <figure class="image image-shape-6"></figure>
+    </div>
+</div>
+
+
+{% endif %}

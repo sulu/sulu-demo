@@ -1,0 +1,52 @@
+<section class="section section-colors" data-name="colors" data-anim-scroll-group="colors" data-analytics-section-engagement="name:colors" aria-label="About the Apple Watch Series 6 Cases Gallery">
+    <div class="section-main-content">
+        <div class="colors-watches-container" data-anim-keyframe='{
+			"anchors":[".colors-watches-container"],
+			"start":"a0t - 100vh",
+			"end":"a0b",
+			"cssClass":"will-change",
+			"toggle":true,
+			"disabledWhen":["static-layout"]
+		}'>
+            <div class="colors-container colors-container-red" data-anim-keyframe='{
+				"anchors":[".colors-watches-container"],
+				"start":"a0t - 25vh",
+				"end":"a0b - 25vh",
+				"y":[null,"15vw"],
+				"disabledWhen": ["static-layout"]
+			}'>
+                <figure class="colors-watch colors-watch-red" data-anim-lazy-image></figure>
+            </div>
+            <div class="colors-container colors-container-blue" data-anim-keyframe='{
+				"anchors":[".colors-watches-container"],
+				"start":"a0t - 25vh",
+				"end":"a0b - 25vh",
+				"y":[null,"-50vw"],
+				"disabledWhen": ["static-layout"]
+			}'>
+                <figure class="colors-watch colors-watch-blue" data-anim-lazy-image></figure>
+            </div>
+        </div>
+        <div class="section-block">
+            <div class="copy-block anim-text-animate">
+                <h2 class="section-block-headline typography-section-headline" data-text-zoom-max="1.75">
+                    {% if content.title %}<span class="headline {% if content.raidbow_txt %}raidbow-txt{% endif %}">{{ content.title|raw }}</span>{% endif %}
+                    {% if content.subtitle %}<span class="subhead">{{ content.subtitle|raw }}</span>{% endif %}
+                </h2>
+            </div>
+            <div class="copy-block anim-text-animate">
+                {% if content.description %}<p class="section-block-intro typography-section-intro">{{ content.description|raw }}</p>{% endif %}
+            </div>
+        </div>
+        <div class="colors-finishes-container">
+            <div class="colors-finishes">
+                <div class="colors-finishes-image-container">
+                    <figure class="colors-finishes-image" data-anim-lazy-image></figure>
+                </div>
+            </div>
+            <div class="color-finishes-copy">
+                {% if content.finishes_caption %}<p>{{ content.finishes_caption|raw }}</p>{% endif %}
+            </div>
+        </div>
+    </div>
+</section>

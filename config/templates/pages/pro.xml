@@ -1,0 +1,88 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xi="http://www.w3.org/2001/XInclude"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>pro</key>
+
+    <view>pages/pro</view>
+    <controller>Sulu\Bundle\WebsiteBundle\Controller\DefaultController::indexAction</controller>
+    <cacheLifetime>86400</cacheLifetime>
+
+    <meta>
+        <title lang="en">Overview</title>
+        <title lang="de">Übersicht</title>
+    </meta>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Title</title>
+                <title lang="de">Titel</title>
+            </meta>
+
+            <params>
+                <param name="headline" value="true"/>
+            </params>
+
+            <tag name="sulu.rlp.part"/>
+        </property>
+
+        <property name="url" type="resource_locator" mandatory="true">
+            <meta>
+                <title lang="en">Resourcelocator</title>
+                <title lang="de">Adresse</title>
+            </meta>
+
+            <tag name="sulu.rlp"/>
+        </property>
+
+        <section name="header">
+            <meta>
+                <title lang="en">Header</title>
+                <title lang="de">Header</title>
+            </meta>
+
+            <properties>
+                <property name="subtitle" type="text_line">
+                    <meta>
+                        <title lang="en">Subtitle</title>
+                        <title lang="de">Untertitel</title>
+                    </meta>
+                </property>
+
+                <property name="headerImage" type="single_media_selection">
+                    <!-- @see https://docs.sulu.io/en/2.1/reference/content-types/single_media_selection.html -->
+                    <meta>
+                        <title lang="en">Image</title>
+                        <title lang="de">Bild</title>
+                    </meta>
+
+                    <params>
+                        <param name="types" value="image"/>
+
+                        <param name="formats" type="collection">
+                            <param name="2560x" />
+                            <param name="991x" />
+                        </param>
+                    </params>
+                </property>
+            </properties>
+        </section>
+
+        <section name="content">
+            <meta>
+                <title lang="en">Content</title>
+                <title lang="de">Inhalte</title>
+            </meta>
+
+            <properties>
+
+                <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
+                <xi:include href="../includes/pro.xml"
+                            xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block)"/>
+            </properties>
+        </section>
+    </properties>
+</template>

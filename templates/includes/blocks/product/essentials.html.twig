@@ -1,0 +1,44 @@
+{# {% if content.title %}{{ content.title|raw }}{% endif %} #}
+
+<section class="section section-essentials">
+    <h3 class="copy-block-headline typography-copy-block"><br /></h3>
+    {% if content.headline %}<h3 class="section-headline typography-headline">{{ content.headline|raw }}</h3>{% endif %}
+    <div class="tile tile-bands
+	tile-bottom
+	tile-half
+	tile-airpods-engraving-update" data-analytics-section-engagement="name:bands">
+        <div class="tile-content">
+            <div class="tile-content-wrapper tile-content-wrapper-alt tile-bands-content">
+                {% if content.title_one %}<h2 class="tile-headline  typography-headline">{{ content.title_one|raw }}</h2>{% endif %}
+                {% if content.desc_one %}<p class="tile-copy  typography-body-custom">{{ content.desc_one|raw }}</p>{% endif %}
+                {# <div class="cta-container"> #}
+                    {# <p class="tile-cta"> #}
+                        {# <a href="#!" data-analytics-title="shop the latest band styles and colors" aria-label="Shop the latest band styles and colors" class="icon-wrapper available-more-links typography-body-custom"><span class="icon-copy">Shop the latest band<br> styles and colors</span><span class="icon icon-after more"></span></a> #}
+                    {# </p> #}
+                {# </div> #}
+            </div>
+        </div>
+        <div class="tile-image">
+            <figure class="image image-bands image-bands-winter"></figure>
+        </div>
+    </div>
+    <div class="tile tile-airpods-engraving
+	tile-bottom
+	tile-half
+	tile-airpods-engraving-update" data-analytics-section-engagement="name:airpods engraving">
+        <div class="tile-content">
+            <div class="tile-content-wrapper tile-content-wrapper-alt tile-airpods-engraving-content">
+                {% if content.title_two %}<h2 class="tile-headline  typography-headline">{{ content.title_two|raw }}</h2>{% endif %}
+                {% if content.desc_two %}<p class="tile-copy  typography-body-custom">{{ content.desc_two|raw }}</p>{% endif %}
+                {# <div class="cta-container"> #}
+                    {# <p class="tile-cta"> #}
+                        {# <a href="#!" data-analytics-title="learn more | airpods" aria-label="Learn more about personalized engraving" class="icon-wrapper available-more-links typography-body-custom"><span class="icon-copy">Learn more</span><span class="icon icon-after more"></span></a> #}
+                    {# </p> #}
+                {# </div> #}
+            </div>
+        </div>
+        <div class="tile-image">
+            <figure class="image image-airpods-engraving "></figure>
+        </div>
+    </div>
+</section>

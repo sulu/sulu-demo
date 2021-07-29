@@ -1,0 +1,81 @@
+<style>
+    .section-dev .image-scroll-anim .video-container {
+        width: 1365px;
+        height: 768px;
+        position: absolute;
+        -webkit-transform: skewX(26deg) skewY(321deg) rotate(39.5deg) scaleX(0.41) scaleY(0.31) translateX(130px) translateY(90px);
+        transform: skewX(26deg) skewY(321deg) rotate(39.5deg) scaleX(0.41) scaleY(0.31) translateX(130px) translateY(90px);
+        mix-blend-mode: lighten;
+    }
+
+    .section-dev .image-main-container {
+        margin-top: -718px;
+        z-index: -1;
+    }
+
+    @media only screen and (max-width: 1068px) {
+        .section-dev .image-scroll-anim .video-container {
+            width: 1080px;
+            height: 608px;
+            position: absolute;
+            -webkit-transform: skewX(26deg) skewY(321deg) rotate(39.5deg) scaleX(0.38) scaleY(0.295) translateX(0px) translateY(20px);
+            transform: skewX(26deg) skewY(321deg) rotate(39.5deg) scaleX(0.38) scaleY(0.295) translateX(0px) translateY(20px);
+            mix-blend-mode: lighten;
+        }
+
+        .section-dev .image-main-container {
+            margin-top: -536px;
+        }
+    }
+
+    @media only screen and (max-width: 734px) {
+        .section-dev .image-scroll-anim .video-container {
+            width: 734px;
+            height: 413px;
+            position: absolute;
+            -webkit-transform: skewX(26deg) skewY(321deg) rotate(39.5deg) scaleX(0.39) scaleY(0.295) translateX(0px) translateY(20px);
+            transform: skewX(26deg) skewY(321deg) rotate(39.5deg) scaleX(0.39) scaleY(0.295) translateX(0px) translateY(20px);
+            mix-blend-mode: lighten;
+        }
+
+        .section-dev .image-main-container {
+            margin-top: -364px;
+        }
+    }
+
+</style>
+<section class="section section-dev" data-name="dev" data-anim-scroll-group="dev" data-analytics-section-engagement="name:dev">
+    <div class="section-main-content">
+        <div class="section-block">
+            <div class="copy-block anim-text-animate">
+                <h2 class="section-block-headline typography-section-headline" data-text-zoom-max="1.75">
+                    {% if content.title %}<span class="headline {% if content.raidbow_txt %}raidbow-txt{% endif %}">{{ content.title|raw }}</span>{% endif %}
+                    {% if content.subtitle %}<span class="subhead">{{ content.subtitle|raw }}</span>{% endif %}
+                </h2>
+            </div>
+            
+            <div class="copy-block anim-text-animate">
+                <ul class="fa-white">
+                    <li><i class="fa fa-web"></i>Web</li>
+                    <li><i class="fa fa-android"></i>Android</li>
+                    <li><i class="fa fa-ios"></i>iOS</li>
+                    <li><i class="fa fa-macos"></i>MacOS</li>
+                    <li><i class="fa fa-windows"></i>Windows</li>
+                    <li><i class="fa fa-cross-platform"></i>Native</li>
+                </ul>
+                {% if content.description %}<p class="section-block-intro typography-section-intro">{{ content.description|raw }}</p>{% endif %}
+            </div>
+        </div>
+        <div class="image-scroll-anim">
+            <div class="video-container" data-component-list="Sensor" role="img" aria-label="Dev watch hardware screen animation">
+                <div class="visuallyhidden focus-item" tabindex="-1"></div>
+                <figure class="start-frame image-video" data-anim-lazy-image></figure>
+                <video class="media-video" muted="" playsinline="true" aria-hidden="true" data-video-source-basepath="/build/website/mp4/flutter_coding/" data-video-source-retina-enabled="true"></video>
+                <figure class="end-frame" data-anim-lazy-image></figure>
+            </div>
+        </div>
+        <div class="image-main-container">
+            <figure class="image-main" data-anim-lazy-image></figure>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,108 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="about">
+        <types>
+            <type name="about">
+                <meta>
+                    <title lang="en">About Block</title>
+                    <title lang="uk">About Block</title>
+                </meta>
+
+                <properties>
+
+                    <section name="organizationalTitles">
+                        <properties>
+                            <property name="title" type="text_line" mandatory="true" colspan="6">
+                                <meta>
+                                    <title lang="en">Title</title>
+                                    <title lang="uk">Заголовок</title>
+                                </meta>
+                            </property>
+
+                            <property name="subtitle" type="text_line" mandatory="true" colspan="6">
+                                <meta>
+                                    <title lang="en">SubTitle</title>
+                                    <title lang="uk">Підзаголовок</title>
+                                </meta>
+                            </property>
+                        </properties>
+                    </section>
+
+                    <property name="description" type="text_area">
+                        <meta>
+                            <title lang="en">Description</title>
+                            <title lang="uk">Опис</title>
+                        </meta>
+                        <params>
+                            <param name="max_characters" value="300"/>
+                        </params>
+                    </property>
+
+                    <property name="workouts_title" type="text_line">
+                        <meta>
+                            <title lang="en">Work Title</title>
+                            <title lang="uk">Work Заголовок</title>
+                        </meta>
+                    </property>
+
+                    <property name="workouts_desc" type="text_area">
+                        <meta>
+                            <title lang="en">Work Description</title>
+                            <title lang="uk">Work Опис</title>
+                        </meta>
+                        <params>
+                            <param name="max_characters" value="250" />
+                        </params>
+                    </property>
+
+                    <property name="alwayson_title" type="text_line">
+                        <meta>
+                            <title lang="en">On Title</title>
+                            <title lang="uk">On Заголовок</title>
+                        </meta>
+                    </property>
+
+                    <property name="alwayson_desc" type="text_area">
+                        <meta>
+                            <title lang="en">On Description</title>
+                            <title lang="uk">On Опис</title>
+                        </meta>
+                        <params>
+                            <param name="max_characters" value="250" />
+                        </params>
+                    </property>
+
+                    <property name="altimeter_title" type="text_line">
+                        <meta>
+                            <title lang="en">Alt Title</title>
+                            <title lang="uk">Alt Заголовок</title>
+                        </meta>
+                    </property>
+
+                    <property name="altimeter_desc" type="text_area">
+                        <meta>
+                            <title lang="en">Alt Description</title>
+                            <title lang="uk">Alt Опис</title>
+                        </meta>
+                        <params>
+                            <param name="max_characters" value="250" />
+                        </params>
+                    </property>
+                    
+                    <property name="raidbow_txt" type="checkbox">
+                        <meta>
+                            <title lang="en">Text Gradient</title>
+                            <title lang="uk">Градієнт тексту</title>
+                        </meta>
+                        <params>
+                            <param name="type" value="toggler"/>
+                            <param name="default_value" value="false"/>
+                        </params>
+                    </property> 
+
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

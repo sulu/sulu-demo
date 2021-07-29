@@ -1,0 +1,133 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="list">
+        <types>
+            <type name="list">
+                <meta>
+                    <title lang="en">List Block</title>
+                    <title lang="uk">List Block</title>
+                </meta>
+
+                <properties>
+
+                    <section name="organizationalTitles">
+                        <properties>
+                            <property name="title" type="text_line" mandatory="false" colspan="6">
+                                <meta>
+                                    <title lang="en">Title</title>
+                                    <title lang="uk">Заголовок</title>
+                                </meta>
+                            </property>
+
+                            <property name="subtitle" type="text_line" mandatory="false" colspan="6">
+                                <meta>
+                                    <title lang="en">SubTitle</title>
+                                    <title lang="uk">Підзаголовок</title>
+                                    <info_text lang="en">
+                                        Text <![CDATA[<br class="large"><br class="medium">]]> text
+                                    </info_text>
+                                    <info_text lang="uk">
+                                        Текст <![CDATA[<br class="large"><br class="medium">]]> текст
+                                    </info_text>
+                                </meta>
+                            </property>                         
+                            
+                        </properties>
+                    </section>
+                    
+                    <section name="organizationalTriger">
+                        <properties>
+<!--
+                            <property name="theme_trigger" type="text_line" colspan="6">
+                                <meta>
+                                    <title lang="en">Custom Theme</title>
+                                    <title lang="uk">Спеціальна тема</title>
+                                </meta>
+                            </property>
+
+                            <property name="theme_params" type="text_line" colspan="6">
+                                <meta>
+                                    <title lang="en">Theme parameters</title>
+                                    <title lang="uk">Параметри теми</title>
+                                </meta>
+                            </property>
+-->
+                            <property name="theme_trigger" type="checkbox" colspan="6">
+                                <meta>
+                                    <title lang="en">Light Theme</title>
+                                    <title lang="uk">Світла тема</title>
+                                </meta>
+                                <params>
+                                    <param name="type" value="toggler"/>
+                                </params>
+                            </property>      
+
+                            <property name="theme_params" type="text_line" colspan="6">
+                                <meta>
+                                    <title lang="en">Offset area (%)</title>
+                                    <title lang="uk">Відступ області (%)</title>
+                                </meta>
+                            </property>                      
+                            
+                        </properties>
+                    </section>
+
+                    <property name="list_one" type="text_line">
+                        <meta>
+                            <title lang="en">Share Title</title>
+                            <title lang="uk">Share Заголовок</title>
+                        </meta>
+                    </property>
+
+                    <property name="list_two" type="text_line">
+                        <meta>
+                            <title lang="en">Share Title</title>
+                            <title lang="uk">Share Заголовок</title>
+                        </meta>
+                    </property>
+
+                    <property name="list_three" type="text_line">
+                        <meta>
+                            <title lang="en">Share Title</title>
+                            <title lang="uk">Share Заголовок</title>
+                        </meta>
+                    </property>
+
+                    <property name="list_four" type="text_line">
+                        <meta>
+                            <title lang="en">Share Title</title>
+                            <title lang="uk">Share Заголовок</title>
+                        </meta>
+                    </property>
+
+                    <property name="list_five" type="text_line">
+                        <meta>
+                            <title lang="en">Share Title</title>
+                            <title lang="uk">Share Заголовок</title>
+                        </meta>
+                    </property>
+
+                    <property name="list_six" type="text_line">
+                        <meta>
+                            <title lang="en">Share Title</title>
+                            <title lang="uk">Share Заголовок</title>
+                        </meta>
+                    </property>
+                    
+                    <property name="raidbow_txt" type="checkbox">
+                        <meta>
+                            <title lang="en">Text Gradient</title>
+                            <title lang="uk">Градієнт тексту</title>
+                        </meta>
+                        <params>
+                            <param name="type" value="toggler"/>
+                            <param name="default_value" value="false"/>
+                        </params>
+                    </property> 
+                    
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

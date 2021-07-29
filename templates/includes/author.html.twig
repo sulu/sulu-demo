@@ -1,0 +1,14 @@
+{% set authorContact = "" %}
+{% if author|length %}
+    {% set authorContact = sulu_resolve_contact(author) %}
+{% else %}
+    {% set authorContact = sulu_resolve_contact(creator) %}
+{% endif %}
+
+{% if authorContact|default('') %}
+    <div class="content-main">
+        <div class="row">
+            <p class="author-by">{{ 'posted'|trans }}: {{ authorContact.fullName }}</p>
+        </div>
+    </div>
+{% endif %}

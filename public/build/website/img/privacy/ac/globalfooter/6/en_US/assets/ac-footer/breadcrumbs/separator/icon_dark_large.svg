@@ -1,0 +1,9 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="8px" height="36px" viewBox="0 0 8 36" xml:space="preserve">
+	<defs>
+		<symbol id="seperator">
+			<path d="M1.29,0.98L7.5,9l-6.21,8.01l-0.68-0.54L6.42,9l-5.8-7.49L1.29,0.98z" />
+		</symbol>
+	</defs>
+	<use xlink:href="#seperator" x="0" y="0" fill="#444" />
+	<use xlink:href="#seperator" x="0" y="18" fill="#424245" />
+</svg>

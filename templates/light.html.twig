@@ -1,0 +1,93 @@
+{% import 'macros/helpers.html.twig' as helpers %}
+{% set isArticle = pages|default()|length %}
+{% set templateName = _self %}
+
+<!DOCTYPE html>
+<html class="no-js" xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{ app.request.locale|split('_')[0] }}" lang="{{ app.request.locale|split('_')[0] }}" dir="ltr" prefix="og: http://ogp.me/ns#">
+<head>
+    {# @see https://docs.sulu.io/en/2.2/reference/twig-extensions/functions/sulu_snippet_load_by_area.html #}
+    {% set webspaceSettings = sulu_snippet_load_by_area('webspace_settings') %}    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    
+    {% for localization in localizations %}
+    <link rel="alternate" href="{{ localization.url }}" hreflang="{{ localization.locale }}" />
+    {% endfor %}
+
+    {% block meta %}
+        {% include 'includes/meta.html.twig' %}
+        <link rel="apple-touch-icon" sizes="180x180" href="/website/images/icons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/website/images/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/website/images/icons/favicon-16x16.png">
+        <link rel="manifest" href="/website/images/icons/site.webmanifest">
+        <link rel="mask-icon" href="/website/images/icons/safari-pinned-tab.svg" color="#3adaff">
+    {% endblock %}
+    
+    <base href="{{ sulu_content_path('/') }}"> 
+    
+    <link rel="manifest" href="/manifest.json">
+    
+    <link rel="preload" href="/build/website/fonts/Neuropol-X/NeuropolXSb-Regular.woff" as="font" type="font/woff" crossorigin />
+    <link rel="preload" href="/build/website/fonts/Neuropol-X/NeuropolXSb-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/build/website/fonts/SF-Pro-Display/V3/sf-pro-display_thin.woff" as="font" type="font/woff" crossorigin />
+    <link rel="preload" href="/build/website/fonts/SF-Pro-Display/V3/sf-pro-display_thin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/build/website/fonts/SF-Pro-Display/V3/sf-pro-display_semibold.woff" as="font" type="font/woff" crossorigin />
+    <link rel="preload" href="/build/website/fonts/SF-Pro-Display/V3/sf-pro-display_semibold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/build/website/fonts/SF-Pro-Display/V3/sf-pro-display_regular.woff" as="font" type="font/woff" crossorigin />
+    <link rel="preload" href="/build/website/fonts/SF-Pro-Display/V3/sf-pro-display_regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/build/website/fonts/SF-Pro-Display/V3/sf-pro-display_bold.woff" as="font" type="font/woff" crossorigin />
+    <link rel="preload" href="/build/website/fonts/SF-Pro-Display/V3/sf-pro-display_bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/build/website/fonts/SF-Pro-Text/V3/sf-pro-text_semibold.woff" as="font" type="font/woff" crossorigin />
+    <link rel="preload" href="/build/website/fonts/SF-Pro-Text/V3/sf-pro-text_semibold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/build/website/fonts/SF-Pro-Text/V3/sf-pro-text_regular.woff" as="font" type="font/woff" crossorigin />
+    <link rel="preload" href="/build/website/fonts/SF-Pro-Text/V3/sf-pro-text_regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/build/website/fonts/SF-Pro-Text/V3/sf-pro-text_medium.woff" as="font" type="font/woff" crossorigin />
+    <link rel="preload" href="/build/website/fonts/SF-Pro-Text/V3/sf-pro-text_medium.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/build/website/fonts/SF-Pro-Text/V3/sf-pro-text_bold.woff" as="font" type="font/woff" crossorigin />
+    <link rel="preload" href="/build/website/fonts/SF-Pro-Text/V3/sf-pro-text_bold.woff2" as="font" type="font/woff2" crossorigin />
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>.material-icons.md-18{font-size:18px}.material-icons.md-24{font-size:24px}.material-icons.md-36{font-size:36px}.material-icons.md-48{font-size:48px}.material-icons.md-dark{color:rgba(0,0,0,.54)}.material-icons.md-dark.md-inactive{color:rgba(0,0,0,.26)}.material-icons.md-light{color:rgba(255,255,255,1)}.material-icons.md-light.md-inactive{color:rgba(255,255,255,.3)}</style>
+
+    <link rel="stylesheet" href="{{ asset('/build/website/css/ac-globalnav.built.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/build/website/css/ac-localnav.built.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/build/website/css/grid.min.css') }}" />
+
+    {% block style %}
+        {# {{ helpers.loadSection('style_top', _context) }} #}
+        {% if app.request.get('send') == 'true' %}
+            <link type="text/css" rel="stylesheet" href="{{ asset('/build/website/vendor/noty/noty.css') }}">
+        {% endif %}    
+    {% endblock %}
+    {% block javascripts_top %}
+        {% block contentJavascripts_top %}{% endblock %}
+    {% endblock %}
+    
+</head> 
+<body class="page-overview page-watch ac-gn-current-watch page-family download-faces-active scrollspy" data-anim-scroll-group="body">
+    
+    {% block header %}
+        {% block contentHeader %}{% endblock %}
+        {% include 'includes/chapternav.html.twig' %}
+    {% endblock %}
+
+    {% block content %}
+        {% block contentBody %}{% endblock %}
+    {% endblock %}
+
+    <footer id="ac-globalfooter" class="no-js" lang="uk-UA" dir="ltr" data-analytics-region="global footer" role="contentinfo" aria-labelledby="ac-gf-label">
+        {% block footer %}
+            {% include 'includes/footer.html.twig' %}
+        {% endblock %}
+    </footer>
+
+    {% block javascripts %} 
+        {% block contentJavascripts %}{% endblock %}
+        {% if app.request.get('send') == 'true' %}
+            <script src="{{ asset('/build/website/vendor/noty/noty.min.js') }}"></script>
+        {% endif %}
+    {% endblock %}
+  
+</body>
+</html>

@@ -1,0 +1,25 @@
+{# TODO avoid sulu_content_load as its a heavy operation which should be avoided #}
+{# @see https://docs.sulu.io/en/2.2/reference/twig-extensions/functions/sulu_content_load.html #}
+{% set link_ribbon = sulu_content_load(content.link_ribbon|default(''|trans)) %}
+{% if content.caption %}
+<div class="theme-dark">
+    <div class="ribbon ribbon-blue-to-default" data-analytics-activitymap-region-id="ribbon"> <!-- acmi-ribbon | ribbon-blue-to-default  -->
+        <div class="ribbon-drop-wrapper">
+            <div class="ribbon-content-wrapper typography-caption"> <!-- +/-div ribbon-drop-wrapper  -->
+                <div class="ribbon-content row">
+                    <div class="column large-12 large-centered typography-caption">
+                        <p class="ribbon-copy typography-caption small-centered">{{ content.caption|raw }} 
+                        <a href="{{ sulu_content_path(link_ribbon.content.url) }}"
+                            data-analytics-title="{{ text_ribbon|default(link_ribbon.content.title|default('read_more'|trans)) }}"
+                            aria-label="{{ text_ribbon|default(link_ribbon.content.title|default('read_more'|trans)) }}"
+                            class="ribbon-link more">{% if content.text_ribbon %}{{ content.text_ribbon|raw }}{% endif %}
+                        </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endif %}

@@ -1,0 +1,45 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="advantages_teasers">
+        <types>
+            <type name="advantages_teasers">
+                <meta>
+                    <title lang="en">Advantages (Teasers)</title>
+                    <title lang="uk">Переваги (Тізери)</title>
+                </meta>
+
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Block caption</title>
+                            <title lang="uk">Назва блоку</title>
+                        </meta>
+                    </property>
+                    <!-- todo: help text (how to fill) -->
+
+                    <property name="advantages" type="teaser_selection" mandatory="true">
+                        <meta>
+                            <title lang="en">Advantages Teasers</title>
+                            <title lang="uk">Тізери переваг</title>
+                        </meta>
+                    </property>
+
+                    <property name="custom_class" type="text_line">
+                        <meta>
+                            <title lang="en">Custom CSS Class</title>
+                            <title lang="uk">CSS Клас</title>
+                        </meta>
+                    </property>
+
+                    <property name="custom_trigger" type="text_line">
+                        <meta>
+                            <title lang="en">Custom Trigger</title>
+                            <title lang="uk">Спеціальний тригер</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

@@ -1,0 +1,120 @@
+{% set customTheme = '' %}
+{% if content.theme_trigger is defined %}
+    {% set customTheme = content.theme_trigger|default('light') ? 'light' : 'dark' %}
+    {% set customThemeParams = content.theme_params|default('0') %}
+{% endif %}
+
+<section class="section section-more-apps localnav-more-apps" 
+         data-name="more-apps" 
+         data-component-list="MoreApps" 
+         data-anim-scroll-group="more-apps" 
+         data-analytics-section-engagement="name:more apps"
+    {% if content.theme_trigger %}
+         data-localnav-theme="{{ customTheme }}" 
+         data-start="a0t + {{ customThemeParams }}vh" 
+    {% endif %}>
+    
+    <div class="section-content">
+        <div class="content-copy">
+           <div class="copy-block anim-text-animate">            
+                <h2 class="section-block-headline typography-section-headline" data-text-zoom-max="1.75" tabindex="-1" style="transform: matrix(1, 0, 0, 1, 0, 0); opacity: 1;">
+                {% if content.title %}
+                    <span class="headline {% if content.raidbow_txt %}raidbow-txt{% endif %}">
+                    {{ content.title|raw }}
+                    </span>
+                {% endif %}
+                {% if content.subtitle %}
+                    <span class="subhead" style="color:#1d1d1f">{{ content.subtitle|raw }}</span>
+                {% endif %}
+                </h2>            
+            </div>
+            
+            {% if content.description %}
+            <div class="copy-block anim-text-animate">
+                <p class="section-block-intro typography-section-intro"  data-text-zoom-max="1.75" tabindex="-1" style="color:black;margin-bottom:54px;transform:matrix(1, 0, 0, 1, 0, 0);opacity: 1;">
+                    {{ content.description|raw }}
+                </p>
+            </div>
+            {% endif %}
+            
+            <div class="apps">
+                <div class="app app-weather">
+                    <figure class="image-app-seo" data-anim-lazy-image-download-complete=""></figure>
+                    <div class="copy-block typography-copy-block anim-text-animate">
+                    {% if content.block_one_title %}
+                        <h3 class="copy-block-headline typography-copy-block">
+                            {{ content.block_one_title|raw }}
+                        </h3>
+                    {% endif %}
+                    {% if content.block_one_desc %}
+                        <p class="copy-block-copy typography-copy-block">
+                            {{ content.block_one_desc|raw }}
+                        </p>
+                    {% endif %}
+                    </div>
+                </div>
+                <div class="app app-calendar">
+                    <figure class="image-app-content" data-anim-lazy-image-download-complete=""></figure>
+                    <div class="copy-block typography-copy-block anim-text-animate">
+                    {% if content.block_two_title %}
+                        <h3 class="copy-block-headline typography-copy-block">
+                            {{ content.block_two_title|raw }}
+                        </h3>
+                    {% endif %}
+                    {% if content.block_two_desc %}
+                        <p class="copy-block-copy typography-copy-block">
+                            {{ content.block_two_desc|raw }}
+                        </p>
+                    {% endif %}
+                    </div>
+                </div>
+                <div class="app app-reminders">
+                    <figure class="image-app-mail" data-anim-lazy-image-download-complete=""></figure>
+                    <div class="copy-block typography-copy-block anim-text-animate">
+                    {% if content.block_three_title %}
+                        <h3 class="copy-block-headline typography-copy-block">
+                            {{ content.block_three_title|raw }}
+                        </h3>
+                    {% endif %}
+                    {% if content.block_three_desc %}
+                        <p class="copy-block-copy typography-copy-block">
+                            {{ content.block_three_desc|raw }}
+                        </p>
+                    {% endif %}
+                    </div>
+                </div>
+                <div class="app app-app-store">
+                    <figure class="image-app-ppc" data-anim-lazy-image-download-complete=""></figure>
+                    <div class="copy-block typography-copy-block anim-text-animate">
+                    {% if content.block_four_title %}
+                        <h3 class="copy-block-headline typography-copy-block">
+                            {{ content.block_four_title|raw }}
+                        </h3>
+                    {% endif %}
+                    {% if content.block_four_desc %}
+                        <p class="copy-block-copy typography-copy-block">
+                            {{ content.block_four_desc|raw }}
+                        </p>
+                    {% endif %}
+                    </div>
+                </div>
+                <!--
+                <div class="app app-walkie-talkie">
+                    <figure class="image-app-walkie-talkie" data-anim-lazy-image-download-complete=""></figure>
+                    <div class="copy-block typography-copy-block anim-text-animate">
+                        <h3 class="copy-block-headline typography-copy-block">Walkie-Talkie</h3>
+                        <p class="copy-block-copy typography-copy-block">A fun way to chat with other Apple&nbsp;Watch wearers that’s quicker than a call and more personal than a text. Over&nbsp;and&nbsp;out.</p>
+                    </div>
+                </div>
+                <div class="app app-camera-remote">
+                    <figure class="image-app-camera-remote" data-anim-lazy-image-download-complete=""></figure>
+                    <div class="copy-block typography-copy-block anim-text-animate">
+                        <h3 class="copy-block-headline typography-copy-block">Camera Remote</h3>
+                        <p class="copy-block-copy typography-copy-block">Use Apple Watch as a viewfinder for your iPhone camera. See a preview, then set a timer or just snap&nbsp;away.</p>
+                    </div>
+                </div>
+                -->
+            </div>
+        </div>
+    </div>
+</section>

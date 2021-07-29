@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block meta %}
+    {% include 'includes/meta.html.twig' %}
+{% endblock %}
+
 {% block contentHeader %}
     {% include 'includes/header.html.twig' with { type: 'article' } %}
 {% endblock %}

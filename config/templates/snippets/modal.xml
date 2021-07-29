@@ -1,0 +1,189 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>modal</key>
+
+    <meta>
+        <title lang="en">Modal</title>
+        <title lang="uk">Модальне вікно</title>
+    </meta>
+
+    <!--<areas>-->
+
+        <!--<area key="copyright">-->
+            <!--<meta>-->
+                <!--<title lang="en">Copyright</title>-->
+                <!--<title lang="uk">Копірайт</title>-->
+            <!--</meta>-->
+        <!--</area>-->
+    <!--</areas>-->
+
+    <properties>
+
+        <property name="title" type="text_line" mandatory="false">
+            <meta>
+                <title lang="en">Title</title>
+                <title lang="uk">Назва</title>
+            </meta>
+
+            <tag name="sulu.node.name"/>
+        </property>
+        
+        <section name="organizationalModal">
+            <properties>
+                <property name="headline" type="text_line" colspan="12">
+                    <meta>
+                        <title lang="en">Headline</title>
+                        <title lang="uk">Колонтитул</title>
+                    </meta>
+                </property>
+
+                <property name="body_tight" type="text_area" colspan="12">
+                    <meta>
+                        <title lang="en">Body tight</title>
+                        <title lang="uk">Корпус</title>
+                    </meta>
+                    <params>
+                        <param name="max_characters" value="400"/>
+                    </params>
+                </property>
+
+                <property name="caption_one" type="text_line" colspan="12">
+                    <meta>
+                        <title lang="en">Caption 1</title>
+                        <title lang="uk">Підпис 1</title>
+                    </meta>
+                </property>
+
+                <property name="caption_two" type="text_line" colspan="12">
+                    <meta>
+                        <title lang="en">Caption 2</title>
+                        <title lang="uk">Підпис 2</title>
+                    </meta>
+                </property>
+
+                <property name="caption_tree" type="text_line" colspan="12">
+                    <meta>
+                        <title lang="en">Caption 3</title>
+                        <title lang="uk">Підпис 3</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>
+        
+        <section name="organizationalModalMid">
+            <properties>
+                <property name="headline_two" type="text_line" colspan="12">
+                    <meta>
+                        <title lang="en">Headline 2</title>
+                        <title lang="uk">Колонтитул 2</title>
+                    </meta>
+                </property>
+
+                <property name="body_tight_two" type="text_area" colspan="12">
+                    <meta>
+                        <title lang="en">Body tight 2</title>
+                        <title lang="uk">Корпус 2</title>
+                    </meta>
+                    <params>
+                        <param name="max_characters" value="400"/>
+                    </params>
+                </property>
+
+                <property name="img_caption_one" type="text_line" colspan="12">
+                    <meta>
+                        <title lang="en">Caption 1</title>
+                        <title lang="uk">Підпис 1</title>
+                    </meta>
+                </property>
+
+                <property name="img_caption_two" type="text_line" colspan="12">
+                    <meta>
+                        <title lang="en">Caption 2</title>
+                        <title lang="uk">Підпис 2</title>
+                    </meta>
+                </property>
+
+                <property name="img_caption_tree" type="text_line" colspan="12">
+                    <meta>
+                        <title lang="en">Caption 3</title>
+                        <title lang="uk">Підпис 3</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>        
+        
+        <section name="organizationalModalBot">
+            <properties>
+                <property name="headline_tree" type="text_line" colspan="12">
+                    <meta>
+                        <title lang="en">Headline 3</title>
+                        <title lang="uk">Колонтитул 3</title>
+                    </meta>
+                </property>
+
+                <property name="body_tight_tree" type="text_area" colspan="12">
+                    <meta>
+                        <title lang="en">Body tight 3</title>
+                        <title lang="uk">Корпус 3</title>
+                    </meta>
+                    <params>
+                        <param name="max_characters" value="400"/>
+                    </params>
+                </property>
+                
+            </properties>
+        </section>        
+        
+        <section name="organizationalModalFoot">
+            <properties>
+                <property name="headline_four" type="text_line" colspan="12">
+                    <meta>
+                        <title lang="en">Headline 4</title>
+                        <title lang="uk">Колонтитул 4</title>
+                    </meta>
+                </property>
+
+                <property name="body_tight_four" type="text_area" colspan="12">
+                    <meta>
+                        <title lang="en">Body tight 4</title>
+                        <title lang="uk">Корпус 4</title>
+                    </meta>
+                    <params>
+                        <param name="max_characters" value="400"/>
+                    </params>
+                </property>
+                
+            </properties>
+        </section>
+                    
+        <section name="organizationalLink">
+            <properties>
+                <property name="page_link" type="single_page_selection" mandatory="false" colspan="4">
+                    <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/single_page_selection.html -->
+                    <meta>
+                        <title lang="en">Page Link</title>
+                        <title lang="uk">Посилання</title>
+                    </meta>
+                </property>
+
+                <property name="text_link" type="text_line" colspan="5">
+                    <meta>
+                        <title lang="en">Text Link</title>
+                        <title lang="uk">Текст посилання</title>
+                    </meta>
+                </property>
+
+                <property name="icon_link" type="text_line" colspan="3">
+                    <meta>
+                        <title lang="en">Icon Link</title>
+                        <title lang="uk">Іконка</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>
+        
+    </properties>
+</template>

@@ -12,7 +12,7 @@
 
     <meta>
         <title lang="en">Blog</title>
-        <title lang="de">Blog</title>
+        <title lang="uk">Блог</title>
     </meta>
 
     <tag name="sulu_article.type" type="article"/>
@@ -21,7 +21,7 @@
         <property name="title" type="text_line" mandatory="true">
             <meta>
                 <title lang="en">Title</title>
-                <title lang="de">Titel</title>
+                <title lang="uk">Заголовок</title>
             </meta>
 
             <params>
@@ -32,49 +32,169 @@
         <property name="routePath" type="route">
             <meta>
                 <title lang="en">Resourcelocator</title>
-                <title lang="de">Adresse</title>
+                <title lang="uk">Локатор ресурсу</title>
             </meta>
 
             <tag name="sulu_article.article_route"/>
+        </property>
+        
+        <!--
+        <property name="category" type="single_category_selection">
+            <meta>
+                <title lang="en">Category</title>
+                <title lang="uk">Категорія</title>
+            </meta>
+        </property>
+        -->
+        
+        <property name="categories" type="category_selection">
+            <meta>
+                <title lang="en">Categories</title>
+                <title lang="uk">Категорії</title>
+            </meta>
         </property>
 
         <section name="header">
             <meta>
                 <title lang="en">Header</title>
-                <title lang="de">Header</title>
+                <title lang="uk">Header</title>
             </meta>
-
             <properties>
                 <property name="headerImage" type="single_media_selection">
                     <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/single_media_selection.html -->
                     <meta>
                         <title lang="en">Image</title>
-                        <title lang="de">Bild</title>
+                        <title lang="uk">Зображення</title>
                     </meta>
 
                     <params>
                         <param name="types" value="image"/>
 
                         <param name="formats" type="collection">
-                            <param name="2560x" />
-                            <param name="991x" />
+                            <param name="1064x1300" />
+                            <param name="532x650" />
+                            <param name="736x900" />
+                            <param name="368x450" />
+                            <param name="640x780" />
+                            <param name="320x390" />
                         </param>
                     </params>
                 </property>
             </properties>
         </section>
 
+        <section name="organizationalDescription">
+            <properties>
+                <property name="description_short" type="text_area" colspan="12">
+                    <meta>
+                        <title lang="en">Short Description</title>
+                        <title lang="uk">Короткий опис</title>
+                    </meta>
+                    <params>
+                        <param name="max_characters" value="200"/>
+                    </params>
+                </property>
+
+                <property name="description" type="text_editor" colspan="12">
+                    <meta>
+                        <title lang="en">Full Description</title>
+                        <title lang="uk">Повний опис</title>
+                    </meta>
+                    <params>
+                        <param name="max_characters" value="480"/>
+                    </params>
+                </property>
+                
+            </properties>
+        </section> 
+
+        <section name="organizationalStyle">
+            <properties>
+
+                <property name="article_id" type="text_line" colspan="3">
+                    <meta>
+                        <title lang="en">Article ID</title>
+                        <title lang="uk">ID статті</title>
+                    </meta>
+                </property>
+
+                <property name="color_bg" type="color" colspan="3">
+                    <meta>
+                        <title lang="en">Color</title>
+                        <title lang="uk">Колір фону</title>
+                    </meta>
+                </property>
+
+                <property name="color_akcent" type="color" colspan="3">
+                    <meta>
+                        <title lang="en">Akcent Color</title>
+                        <title lang="uk">Акцентний колір</title>
+                    </meta>
+                </property>
+
+                <property name="color_modal" type="text_line" colspan="3">
+                    <meta>
+                        <title lang="en">Modal Color</title>
+                        <title lang="uk">Модальний колір</title>
+                    </meta>
+                </property>
+                
+            </properties>
+        </section>  
+
+        <section name="organizationalVideo">
+            <meta>
+                <title lang="en">Video</title>
+                <title lang="uk">Відео</title>
+            </meta>
+            <properties>
+                <property name="videoLarge" type="single_media_selection" colspan="4">
+                    <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/single_media_selection.html -->
+                    <meta>
+                        <title lang="en">Video Large</title>
+                        <title lang="uk">Відео - ПК</title>
+                    </meta>
+
+                    <params>
+                        <param name="types" value="video"/>
+                    </params>
+                </property>
+                <property name="videoMedium" type="single_media_selection" colspan="4">
+                    <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/single_media_selection.html -->
+                    <meta>
+                        <title lang="en">Video Medium</title>
+                        <title lang="uk">Відео - Планшети</title>
+                    </meta>
+
+                    <params>
+                        <param name="types" value="video"/>
+                    </params>
+                </property>
+                <property name="videoSmall" type="single_media_selection" colspan="4">
+                    <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/single_media_selection.html -->
+                    <meta>
+                        <title lang="en">Video Small</title>
+                        <title lang="uk">Відео - Мобільні</title>
+                    </meta>
+
+                    <params>
+                        <param name="types" value="video"/>
+                    </params>
+                </property>
+            </properties>
+        </section>     
+
         <section name="content">
             <meta>
                 <title lang="en">Content</title>
-                <title lang="de">Inhalte</title>
+                <title lang="uk">Контент</title>
             </meta>
 
             <properties>
                 <block name="blocks" default-type="text" minOccurs="0">
                     <meta>
                         <title lang="en">Blocks</title>
-                        <title lang="de">Blöcke</title>
+                        <title lang="uk">Блоки</title>
                     </meta>
 
                     <types>

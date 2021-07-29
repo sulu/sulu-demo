@@ -1,12 +1,17 @@
 {%- apply spaceless %}
-{% set metaPublisher = 'Sulu GmbH' %}
-{% set metaClientName = 'Sulu' %}
-{% set metaCopyright = 'Sulu GmbH' %}
+{% set webAppCapable = 'yes' %}
+{% set metaStyleColor = '#000000' %}
+{% set metaThemeColor = '#111111' %}
+{% set metaPublisher = 'Netexy Solutions' %}
+{% set metaClientName = 'Netexy' %}
+{% set metaCopyright = 'Netexy Solutions' %}
 {% set metaLocaleParts = app.request.locale|split('_') %}
 {% set metaLanguage = metaLocaleParts[0] %}
 {% set metaCountry = metaLocaleParts[1]|default(null) %}
 {% set metaLocale = metaLocaleParts|length == 1 ? metaLanguage : metaLanguage ~ '_' ~ metaCountry|upper %}
 {% set metaUrl = app.request.uri %}
+{% set metaImageWidth = '1200' %}
+{% set metaImageHeight = '630' %}
 
 {# Get meta title #}
 {% set metaTitle = extension.seo.title|default(content.title|default('')) %}
@@ -24,8 +29,21 @@
 {% set metaImage = metaImage|default('/website/images/logo.svg') %}
 {% set metaImage = absolute_url(asset(metaImage)) %}
 
+{# Get meta icon #}
+{# {% set metaIconFormat = '192x192' %} #}
+{# {% set metaIcon = metaIcon|default(extension.excerpt.icons[0].thumbnails[metaIconFormat]|default())  %} #}
+{# {% set metaIcon = metaIcon|default(content.icons[0].thumbnails[metaIconFormat]|default()) %} #}
+{# {% set metaIcon = metaIcon|default('/website/images/logo-192x192.png') %} #}
+{# {% set metaIcon = absolute_url(asset(metaIcon)) %} #}
+
 {% set metaDefaultTags = {
+    'mobile-web-app-capable': webAppCapable,
+    'apple-mobile-web-app-capable': webAppCapable,
+    'theme-color': metaThemeColor,
+    'apple-mobile-web-app-status-bar-style': metaStyleColor,
+    'msapplication-TileColor': metaStyleColor,
     'language': metaLanguage,
+    'apple-mobile-web-app-title': metaTitle,
     'publisher': metaPublisher,
     'author': metaClientName,
     'copyright': metaCopyright,
@@ -53,9 +71,20 @@
     'og:url': metaUrl,
     'og:title': metaTitle,
     'og:image': metaImage,
+    'og:image:width': metaImageWidth,
+    'og:image:height': metaImageHeight,
     'og:type': 'website',
     'og:description': metaDescription,
     'og:locale': metaLocale
+} %}
+
+{# {% set metaIcons = { #}
+{#     'icon': metaIcon #}
+{# } %} #}
+
+{% set itemDrop = {
+    'copyrightYear': 2021,
+    'isFamilyFriendly': true
 } %}
 {% endapply -%}
 
@@ -82,6 +111,13 @@
     {% endfor %}
 {% endblock %}
 
+{# Meta Icons Tags #}
+{# {% block metaIcons %} #}
+{#     {% for property, value in metaIcons|filter((value) => value) %} #}
+{#     <link rel="{{ property }}" sizes="192x192" href="{{ value }}" type="image/png"> #}
+{#     {% endfor %} #}
+{# {% endblock %} #}
+
 {# Meta DC Tags #}
 {% block metaDCTags %}
     {% for property, value in metaDCTags|filter((value) => value) %}
@@ -102,3 +138,12 @@
     <meta property="{{ property }}" content="{{ value }}"/>
     {% endfor %}
 {% endblock %}
+
+
+{% block itemDrop %}
+    {% for property, value in itemDrop|filter((value) => value) %}
+    <meta itemprop="{{ property }}" content="{{ value }}"/>
+    {% endfor %}
+{% endblock %}
+
+{# {{ dump(content) }} #}

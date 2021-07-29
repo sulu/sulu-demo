@@ -1,0 +1,4144 @@
+.theme-dark {
+    background-color: #000;
+    color: #f5f5f7
+}
+
+.theme-dark h1,
+.theme-dark h2,
+.theme-dark h3,
+.theme-dark h4,
+.theme-dark h5,
+.theme-dark h6 {
+    color: #f5f5f7
+}
+
+.theme-dark a,
+.theme-dark .link {
+    color: #2997ff
+}
+
+.theme-dark sup a,
+.theme-dark sup .link,
+.theme-dark sub a,
+.theme-dark sub .link {
+    color: inherit
+}
+
+.theme-dark sup a:hover,
+.theme-dark sup .link:hover,
+.theme-dark sub a:hover,
+.theme-dark sub .link:hover {
+    color: #2997ff
+}
+
+.has-modal {
+    overflow: hidden
+}
+
+.has-modal-full-viewport {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden
+}
+
+.has-modal-full-viewport body {
+    height: 100%;
+    overflow: hidden
+}
+
+.modal {
+    position: fixed;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: none
+}
+
+.modal-standard {
+    overflow: auto;
+    padding: 54px 0;
+    background: rgba(0, 0, 0, 0.48);
+    -webkit-overflow-scrolling: touch
+}
+
+.modal-standard .content-table {
+    display: table;
+    width: 100%;
+    height: 100%
+}
+
+.modal-standard .content-cell {
+    display: table-cell;
+    vertical-align: middle
+}
+
+.modal-standard .content-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    width: 980px
+}
+
+@media only screen and (min-width: 1441px) {
+    .modal-standard .content-wrapper {
+        margin-left: auto;
+        margin-right: auto;
+        width: 980px
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .modal-standard .content-wrapper {
+        margin-left: auto;
+        margin-right: auto;
+        width: 692px
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .modal-standard .content-wrapper {
+        margin-left: auto;
+        margin-right: auto;
+        width: 87.5%
+    }
+}
+
+.modal-standard .content-padding {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+    padding: 80px 8.33333%;
+    background: #fff;
+    border-radius: 18px
+}
+
+@media only screen and (max-width: 734px) {
+    .modal-standard .content-padding {
+        padding-top: 60px;
+        padding-bottom: 60px
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .modal-standard .modal-close {
+        left: 22px
+    }
+}
+
+.theme-dark .modal-standard .content-padding,
+.modal-standard.theme-dark .content-padding {
+    background: #1d1d1f
+}
+
+.theme-dark .modal-standard .modal-close,
+.modal-standard.theme-dark .modal-close {
+    color: rgba(110, 110, 115, 0.8)
+}
+
+.theme-dark .modal-standard .modal-close:hover,
+.modal-standard.theme-dark .modal-close:hover {
+    color: #6e6e73
+}
+
+.modal-full-viewport {
+    background: #fff;
+    padding: 96px 0
+}
+
+@media only screen and (max-width: 1068px) {
+    .modal-full-viewport {
+        padding: 76px 0
+    }
+}
+
+.modal-full-viewport.remove-container-padding {
+    padding: 0
+}
+
+.theme-dark .modal-full-viewport,
+.modal-full-viewport.theme-dark {
+    background: #000;
+    color: rgba(110, 110, 115, 0.8)
+}
+
+.theme-dark .modal-full-viewport:hover,
+.modal-full-viewport.theme-dark:hover {
+    color: #6e6e73
+}
+
+.modal-open {
+    display: block;
+    z-index: 11000
+}
+
+.modal-open:focus {
+    outline-offset: -4px
+}
+
+.modal-close {
+    position: absolute;
+    z-index: 9999;
+    overflow: hidden;
+    top: 28px;
+    left: 28px;
+    margin: 0;
+    padding: 0;
+    font-size: 40px;
+    line-height: 1;
+    width: .75em;
+    height: .75em;
+    cursor: pointer;
+    background: none;
+    border: 0;
+    color: rgba(134, 134, 139, 0.8)
+}
+
+.modal-close::before,
+.modal-close::after {
+    font-family: "Material Icons";
+    color: inherit;
+    display: inline-block;
+    font-style: normal;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: 1;
+    text-decoration: underline;
+    position: relative;
+    z-index: 1;
+    alt: ''
+}
+
+.modal-close::before,
+.modal-close::after {
+    text-decoration: none
+}
+
+.modal-close::before {
+    display: none
+}
+
+.modal-close::before,
+.modal-close::after {
+    content: "highlight_off"
+}
+
+.modal-close:hover {
+    color: #86868b
+}
+
+.modal-close::after {
+    position: absolute;
+    top: -.025em;
+    left: -.1em;
+    padding: 0;
+    font-weight: 300
+}
+
+@media only screen and (max-width: 1068px) {
+    .modal-close {
+        top: 22px;
+        left: 22px;
+        font-size: 32px;
+        width: .75em;
+        height: .75em
+    }
+
+    .modal-close::after {
+        left: -.09375em
+    }
+}
+
+.main .violator {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    white-space: nowrap;
+    display: inline-block;
+    border: 1px solid;
+    background: transparent;
+    border-color: #bf4800;
+    color: #bf4800;
+    font-size: 17px;
+    line-height: 1.17648;
+    font-weight: 400;
+    letter-spacing: -.022em;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    border-radius: 18px;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 7px;
+    padding-bottom: 7px
+}
+
+.main .violator:lang(ar) {
+    letter-spacing: 0em;
+    font-family: "SF Pro AR", "SF Pro Gulf", "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+.main .violator:lang(ja) {
+    letter-spacing: 0em;
+    font-family: "SF Pro JP", "SF Pro Text", "SF Pro Icons", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+.main .violator:lang(ko) {
+    letter-spacing: 0em;
+    font-family: "SF Pro KR", "SF Pro Text", "SF Pro Icons", "Apple Gothic", "HY Gulim", "MalgunGothic", "HY Dotum", "Lexi Gulim", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+.main .violator:lang(zh) {
+    letter-spacing: 0em
+}
+
+.main .violator:lang(th) {
+    font-family: "SF Pro TH", "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+.main .violator:lang(zh-CN) {
+    font-family: "SF Pro SC", "SF Pro Text", "SF Pro Icons", "PingFang SC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+.main .violator:lang(zh-HK) {
+    font-family: "SF Pro HK", "SF Pro Text", "SF Pro Icons", "PingFang HK", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+.main .violator:lang(zh-MO) {
+    font-family: "SF Pro HK", "SF Pro TC", "SF Pro Text", "SF Pro Icons", "PingFang HK", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+.main .violator:lang(zh-TW) {
+    font-family: "SF Pro TC", "SF Pro Text", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+.main .violator-inline {
+    margin-left: 10px;
+    display: inline-block
+}
+
+.main .violator-secondary {
+    background: transparent;
+    border-color: #6e6e73;
+    color: #6e6e73
+}
+
+.main .violator-reduced {
+    font-size: 12px;
+    line-height: 1.33337;
+    font-weight: 400;
+    letter-spacing: -.01em;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    border-radius: 12px;
+    padding-left: 11px;
+    padding-right: 11px;
+    padding-top: 3px;
+    padding-bottom: 3px
+}
+
+.main .violator-reduced:lang(ar) {
+    letter-spacing: 0em;
+    font-family: "SF Pro AR", "SF Pro Gulf", "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+.main .violator-reduced:lang(ja) {
+    letter-spacing: 0em;
+    font-family: "SF Pro JP", "SF Pro Text", "SF Pro Icons", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+.main .violator-reduced:lang(ko) {
+    letter-spacing: 0em;
+    font-family: "SF Pro KR", "SF Pro Text", "SF Pro Icons", "Apple Gothic", "HY Gulim", "MalgunGothic", "HY Dotum", "Lexi Gulim", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+.main .violator-reduced:lang(zh) {
+    letter-spacing: 0em
+}
+
+.main .violator-reduced:lang(th) {
+    font-family: "SF Pro TH", "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+.main .violator-reduced:lang(zh-CN) {
+    font-family: "SF Pro SC", "SF Pro Text", "SF Pro Icons", "PingFang SC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+.main .violator-reduced:lang(zh-HK) {
+    font-family: "SF Pro HK", "SF Pro Text", "SF Pro Icons", "PingFang HK", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+.main .violator-reduced:lang(zh-MO) {
+    font-family: "SF Pro HK", "SF Pro TC", "SF Pro Text", "SF Pro Icons", "PingFang HK", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+.main .violator-reduced:lang(zh-TW) {
+    font-family: "SF Pro TC", "SF Pro Text", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+.main .violator-reduced.violator-inline {
+    margin-left: 6px;
+    display: inline-block
+}
+
+.main .violator-frameless {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    white-space: nowrap;
+    display: block;
+    color: #bf4800
+}
+
+.main .violator-frameless-inline {
+    margin-left: 10px;
+    display: inline-block
+}
+
+.main .violator-frameless.violator-frameless-reduced {
+    font-size: 12px;
+    line-height: 1.33337;
+    font-weight: 400;
+    letter-spacing: -.01em;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    border-radius: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    display: block
+}
+
+.main .violator-frameless.violator-frameless-reduced:lang(ar) {
+    letter-spacing: 0em;
+    font-family: "SF Pro AR", "SF Pro Gulf", "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+.main .violator-frameless.violator-frameless-reduced:lang(ja) {
+    letter-spacing: 0em;
+    font-family: "SF Pro JP", "SF Pro Text", "SF Pro Icons", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+.main .violator-frameless.violator-frameless-reduced:lang(ko) {
+    letter-spacing: 0em;
+    font-family: "SF Pro KR", "SF Pro Text", "SF Pro Icons", "Apple Gothic", "HY Gulim", "MalgunGothic", "HY Dotum", "Lexi Gulim", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+.main .violator-frameless.violator-frameless-reduced:lang(zh) {
+    letter-spacing: 0em
+}
+
+.main .violator-frameless.violator-frameless-reduced:lang(th) {
+    font-family: "SF Pro TH", "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+.main .violator-frameless.violator-frameless-reduced:lang(zh-CN) {
+    font-family: "SF Pro SC", "SF Pro Text", "SF Pro Icons", "PingFang SC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+.main .violator-frameless.violator-frameless-reduced:lang(zh-HK) {
+    font-family: "SF Pro HK", "SF Pro Text", "SF Pro Icons", "PingFang HK", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+.main .violator-frameless.violator-frameless-reduced:lang(zh-MO) {
+    font-family: "SF Pro HK", "SF Pro TC", "SF Pro Text", "SF Pro Icons", "PingFang HK", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+.main .violator-frameless.violator-frameless-reduced:lang(zh-TW) {
+    font-family: "SF Pro TC", "SF Pro Text", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+.main .violator-frameless.violator-frameless-reduced.violator-frameless-inline {
+    margin-left: 6px;
+    display: inline-block
+}
+
+.main .feature .section-content {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 70px 1fr 1fr;
+    grid-template-columns: [margin-start] 70px [violator-start headline-start excerpt-start cta-start] 1fr [media-start headline-end violator-end excerpt-end cta-end copy-start] 1fr [margin-end media-end];
+    -ms-grid-rows: 143px max-content auto max-content 64px;
+    grid-template-rows: [margin-start media-start] 143px [violator-start headline-start copy-start] -webkit-max-content [violator-end headline-end excerpt-start] auto [excerpt-end copy-end cta-start] -webkit-max-content [cta-end] 64px [margin-end media-end];
+    grid-template-rows: [margin-start media-start] 143px [violator-start headline-start copy-start] max-content [violator-end headline-end excerpt-start] auto [excerpt-end copy-end cta-start] max-content [cta-end] 64px [margin-end media-end]
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature .section-content {
+        -ms-grid-columns: 38px 1fr 1fr;
+        grid-template-columns: [margin-start] 38px [violator-start headline-start excerpt-start cta-start] 1fr [media-start violator-end headline-end excerpt-end cta-end copy-start] 1fr [margin-end media-end];
+        -ms-grid-rows: 96px max-content auto max-content 40px;
+        grid-template-rows: [margin-start media-start] 96px [violator-start headline-start copy-start] -webkit-max-content [violator-end headline-end excerpt-start] auto [excerpt-end copy-end cta-start] -webkit-max-content [cta-end] 40px [margin-end media-end];
+        grid-template-rows: [margin-start media-start] 96px [violator-start headline-start copy-start] max-content [violator-end headline-end excerpt-start] auto [excerpt-end copy-end cta-start] max-content [cta-end] 40px [margin-end media-end]
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature .section-content {
+        display: block
+    }
+}
+
+.main .feature-violator {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-column: violator-start/violator-end;
+    grid-row: violator-start/violator-end
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature-violator {
+        -ms-grid-column: 2;
+        -ms-grid-column-span: 1;
+        -ms-grid-row: 2;
+        -ms-grid-row-span: 1
+    }
+}
+
+.main .feature-headline {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-column: headline-start/headline-end;
+    grid-row: headline-start/headline-end
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature-headline {
+        -ms-grid-column: 2;
+        -ms-grid-column-span: 1;
+        -ms-grid-row: 2;
+        -ms-grid-row-span: 1
+    }
+}
+
+.main .feature-excerpt {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    grid-column: excerpt-start/excerpt-end;
+    grid-row: excerpt-start/excerpt-end
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature-excerpt {
+        -ms-grid-column: 2;
+        -ms-grid-column-span: 1;
+        -ms-grid-row: 3;
+        -ms-grid-row-span: 1
+    }
+}
+
+.main .feature-cta {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    -ms-grid-row: 4;
+    -ms-grid-row-span: 1;
+    grid-column: cta-start/cta-end;
+    grid-row: cta-start/cta-end
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature-cta {
+        -ms-grid-column: 2;
+        -ms-grid-column-span: 1;
+        -ms-grid-row: 4;
+        -ms-grid-row-span: 1
+    }
+}
+
+.main .feature-copy {
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 2;
+    grid-column: copy-start/copy-end;
+    grid-row: copy-start/copy-end
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature-copy {
+        -ms-grid-column: 3;
+        -ms-grid-column-span: 1;
+        -ms-grid-row: 2;
+        -ms-grid-row-span: 2
+    }
+}
+
+.main .feature-media-object {
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 5;
+    grid-column: media-start/media-end;
+    grid-row: media-start/media-end
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature-media-object {
+        -ms-grid-column: 3;
+        -ms-grid-column-span: 1;
+        -ms-grid-row: 1;
+        -ms-grid-row-span: 5
+    }
+}
+
+.main .features-subheader {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 194px;
+    margin-bottom: 138px;
+    text-align: center;
+    max-width: 12em
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .features-subheader {
+        margin-top: 138px;
+        margin-bottom: 90px;
+        max-width: 12.3em
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .features-subheader {
+        margin-top: 70px;
+        margin-bottom: 68px;
+        text-align: left
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .features-subheader {
+        margin-left: 0
+    }
+}
+
+.main .feature {
+    margin-top: 0;
+    margin-bottom: 150px
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature {
+        margin-bottom: 100px
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature {
+        margin-bottom: 75px
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature {
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 5px
+    }
+}
+
+.main .feature *,
+.main .feature *::before,
+.main .feature *::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.main .feature .video-wrapper {
+    opacity: 1;
+    -webkit-transition: opacity .2s;
+    transition: opacity .2s
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature .video-wrapper .image-tilt-startframe {
+        width: 100% !important;
+        height: auto !important
+    }
+}
+
+.main .feature .playback-control {
+    opacity: 0;
+    -webkit-transition: opacity .3s;
+    transition: opacity .3s
+}
+
+.main .feature .playback-control:focus {
+    opacity: 1
+}
+
+html.reduced-motion .main .feature .playback-control {
+    display: none
+}
+
+.main .feature.show-replay .playback-control {
+    opacity: 1
+}
+
+.main .feature.hover-control .video-wrapper:hover .playback-control {
+    opacity: 1
+}
+
+.main .feature .section-content {
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    min-height: 650px;
+    max-width: 1068px
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature .section-content {
+        min-height: 450px;
+        max-width: 736px
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature .section-content {
+        min-height: auto;
+        max-width: 702px
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature .section-content {
+        border-radius: 20px
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature .section-content {
+        padding-bottom: 60px
+    }
+}
+
+.main .feature .section-content video,
+.main .feature .section-content .image-tilt-startframe {
+    border-radius: 0 30px 30px 0
+}
+
+@media only screen and (max-width: 1068px) {
+
+    .main .feature .section-content video,
+    .main .feature .section-content .image-tilt-startframe {
+        border-radius: 0 20px 20px 0
+    }
+}
+
+@media only screen and (max-width: 734px) {
+
+    .main .feature .section-content video,
+    .main .feature .section-content .image-tilt-startframe {
+        border-radius: 20px 20px 0 0
+    }
+}
+
+.main .feature-toggle {
+    position: absolute;
+    display: none
+}
+
+.main .feature-toggle ~ .feature-cta .close-copy {
+    display: none
+}
+
+.main .feature-toggle:checked ~ .feature-media-object .video-wrapper {
+    opacity: 0
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature-toggle:checked ~ .feature-media-object .video-wrapper {
+        opacity: 0.2
+    }
+}
+
+@media only screen and (min-width: 1069px) {
+    .main .feature-toggle:checked ~ .feature-cta .icon {
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg)
+    }
+
+    .main .feature-toggle:checked ~ .feature-cta .feature-cta-text {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+        opacity: 0
+    }
+
+    .main .feature-toggle:checked ~ .feature-cta .close-copy {
+        display: block
+    }
+
+    .main .feature-toggle:checked ~ .feature-copy {
+        opacity: 1;
+        visibility: visible;
+        z-index: 3
+    }
+}
+
+.main .feature-headline,
+.main .feature-excerpt,
+.main .feature-cta {
+    padding-right: 1em
+}
+
+.main .feature-headline {
+    margin-bottom: .5em
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature-headline {
+        margin-bottom: .45em
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature-headline {
+        margin-bottom: .625em
+    }
+}
+
+.main .feature-excerpt {
+    margin: 0 0 2em;
+    max-width: 17em
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature-excerpt {
+        max-width: 16em
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature-excerpt {
+        max-width: 100%
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature-excerpt {
+        margin-bottom: 1.33em
+    }
+}
+
+.main .feature-cta {
+    display: block;
+    margin: 0;
+    cursor: pointer;
+    -ms-flex-item-align: end;
+    align-self: end;
+    justify-self: start;
+    position: relative
+}
+
+.main .feature-cta .icon {
+    position: absolute;
+    -webkit-transition-property: opacity, -webkit-transform;
+    transition-property: opacity, -webkit-transform;
+    transition-property: transform, opacity;
+    transition-property: transform, opacity, -webkit-transform;
+    -webkit-transition-duration: .1s;
+    transition-duration: .1s;
+    top: -0.25em;
+    font-weight: 200;
+    font-size: 32px
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature-cta .icon {
+        font-size: 28px
+    }
+}
+
+@media only screen and (min-width: 1069px) {
+    .main .feature-cta .icon {
+        line-height: 2;
+        top: -0.65em
+    }
+}
+
+.main .feature-cta-text {
+    display: inline-block;
+    -webkit-transition-property: opacity, -webkit-transform;
+    transition-property: opacity, -webkit-transform;
+    transition-property: transform, opacity;
+    transition-property: transform, opacity, -webkit-transform;
+    -webkit-transition-duration: .1s;
+    transition-duration: .1s;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+    margin-left: 45px
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature-cta-text {
+        margin-left: 40px
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature-cta {
+        margin-bottom: 1em
+    }
+}
+
+.main .feature-cta .cta-icon-hover {
+    opacity: 0
+}
+
+.main .feature-cta:hover .cta-icon-default {
+    opacity: 0
+}
+
+.main .feature-cta:hover .cta-icon-hover {
+    opacity: 1
+}
+
+.main .feature-modal-headline {
+    display: none
+}
+
+.main .feature-copy {
+    -webkit-transition: opacity .1s linear;
+    transition: opacity .1s linear;
+    padding-right: 6.5em;
+    opacity: 0;
+    visibility: hidden;
+    margin-top: -12px
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature-copy {
+        display: none
+    }
+}
+
+.main .feature-media-object {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 0
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature-media-object {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        margin-bottom: 55px
+    }
+}
+
+@media only screen and (max-width: 734px) {
+
+    .main .feature-headline,
+    .main .feature-excerpt,
+    .main .feature-cta,
+    .main .feature-copy {
+        padding: 0 30px
+    }
+
+    .main .feature-excerpt {
+        padding-right: 50px
+    }
+
+    .main .feature-media-object {
+        z-index: 2
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .section.feature {
+        background: transparent !important
+    }
+}
+
+.main .theme-dark .typography-intro.feature-cta {
+    color: #2997ff
+}
+
+.main .video-wrapper {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden
+}
+
+.main .video-wrapper .image-tilt-startframe {
+    position: relative;
+    z-index: 3
+}
+
+.main .video-wrapper video {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    /* width: 100% */
+}
+
+.main .playback-control-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    z-index: 3;
+    top: 557px
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .playback-control-container {
+        top: 383px
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .playback-control-container {
+        top: auto;
+        bottom: 30px
+    }
+}
+
+.main .playback-control {
+    display: block;
+    position: relative;
+    z-index: 2;
+    background-repeat: no-repeat;
+    margin: auto
+}
+
+html.no-js .main .playback-control {
+    display: none
+}
+
+.main .playback-control.is-paused {
+    width: 36px;
+    height: 36px;
+    background-size: 36px 36px;
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/button_play_2__ciu8vkz233ma_large.png")
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    .main .playback-control.is-paused {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/button_play_2__ciu8vkz233ma_large_2x.png")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .playback-control.is-paused {
+        width: 31px;
+        height: 31px;
+        background-size: 31px 31px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/button_play_2__ciu8vkz233ma_medium.png")
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .playback-control.is-paused {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/button_play_2__ciu8vkz233ma_medium_2x.png")
+    }
+}
+
+.main .playback-control.is-paused:hover {
+    width: 36px;
+    height: 36px;
+    background-size: 36px 36px;
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/button_play_1__f5kstp3e9aem_large.png")
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    .main .playback-control.is-paused:hover {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/button_play_1__f5kstp3e9aem_large_2x.png")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .playback-control.is-paused:hover {
+        width: 31px;
+        height: 31px;
+        background-size: 31px 31px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/button_play_1__f5kstp3e9aem_medium.png")
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .playback-control.is-paused:hover {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/button_play_1__f5kstp3e9aem_medium_2x.png")
+    }
+}
+
+.main .playback-control.is-playing {
+    width: 36px;
+    height: 36px;
+    background-size: 36px 36px;
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/button_stop_2__b4ywbsdnb4uu_large.png")
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    .main .playback-control.is-playing {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/button_stop_2__b4ywbsdnb4uu_large_2x.png")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .playback-control.is-playing {
+        width: 31px;
+        height: 31px;
+        background-size: 31px 31px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/button_stop_2__b4ywbsdnb4uu_medium.png")
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .playback-control.is-playing {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/button_stop_2__b4ywbsdnb4uu_medium_2x.png")
+    }
+}
+
+.main .playback-control.is-playing:hover {
+    width: 36px;
+    height: 36px;
+    background-size: 36px 36px;
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/button_stop_1__b5yrn8rilfle_large.png")
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    .main .playback-control.is-playing:hover {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/button_stop_1__b5yrn8rilfle_large_2x.png")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .playback-control.is-playing:hover {
+        width: 31px;
+        height: 31px;
+        background-size: 31px 31px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/button_stop_1__b5yrn8rilfle_medium.png")
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .playback-control.is-playing:hover {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/button_stop_1__b5yrn8rilfle_medium_2x.png")
+    }
+}
+
+.main .playback-control:focus {
+    -webkit-box-shadow: 0 0 0 4px rgba(0, 0, 0, 0, 0.6);
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0, 0.6);
+    outline: none
+}
+
+.main .playback-control:focus[data-focus-method="mouse"]:not(input):not(textarea):not(select),
+.main .playback-control:focus[data-focus-method="touch"]:not(input):not(textarea):not(select) {
+    -webkit-box-shadow: none;
+    box-shadow: none
+}
+
+.main .playback-control.is-loading {
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-name: clockwise;
+    animation-name: clockwise
+}
+
+.main .playback-control.is-playing,
+.main .playback-control.is-paused {
+    -webkit-animation: none;
+    animation: none
+}
+
+@-webkit-keyframes clockwise {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes clockwise {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+.main .section-hero {
+    position: relative;
+    overflow: hidden;
+    padding-top: 200px;
+    padding-bottom: 217px
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .section-hero {
+        padding-top: 150px;
+        padding-bottom: 144px
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .section-hero {
+        padding-top: 135px;
+        padding-bottom: 118px
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .section-hero .section-content {
+        padding-left: 32px
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .section-hero .section-content {
+        padding-left: 0
+    }
+}
+
+.main .section-hero .lock-animation {
+    display: inline-block;
+    background-position: 0 0;
+    position: relative;
+    top: 2px;
+    background-size: 64px 84px;
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/hero-logo__large.png");
+    width: 64px;
+    height: 84px;
+    margin-left: -3px;
+    margin-right: -12px
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    .main .section-hero .lock-animation {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/hero-logo__large_2x.png")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .section-hero .lock-animation {
+        background-size: 42px 58px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/hero-logo__medium.png")
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .section-hero .lock-animation {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/hero-logo__medium_2x.png")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .section-hero .lock-animation {
+        background-size: 36px 50px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/hero-logo__small.png")
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .section-hero .lock-animation {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/hero-logo__small_2x.png")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .section-hero .lock-animation {
+        width: 42px;
+        height: 58px;
+        margin-left: 0;
+        margin-right: -5px
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .section-hero .lock-animation {
+        width: 36px;
+        height: 50px;
+        margin-left: 0;
+        margin-right: -7px
+    }
+}
+
+.main .section-hero .hero-intro {
+    max-width: 25.5em
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .section-hero .hero-intro {
+        max-width: 26em;
+        margin-top: 1.3em
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .section-hero .hero-intro {
+        margin-top: 1.18em
+    }
+}
+
+.main .section-hero .hero-intro,
+.main .section-hero h1 {
+    position: relative;
+    z-index: 3
+}
+
+.main .section-hero .hero-gradient {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 3008px;
+    height: 834px;
+    background-size: 3008px 834px;
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/hero_bg__d8l40djyo5g2_large.jpg")
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .section-hero .hero-gradient {
+        width: 1068px;
+        height: 584px;
+        background-size: 1068px 584px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/hero_bg__d8l40djyo5g2_medium.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .section-hero .hero-gradient {
+        width: 735px;
+        height: 771px;
+        background-size: 735px 771px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/hero_bg__d8l40djyo5g2_small.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .section-aditl {
+        padding: 0 5px
+    }
+}
+
+.main .aditl-section-content {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1068px
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .aditl-section-content {
+        max-width: 736px
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .aditl-section-content {
+        max-width: 702px
+    }
+}
+
+.main .aditl-card {
+    border-radius: 30px;
+    overflow: hidden;
+    padding: 94px 0 104px;
+    margin-top: 80px;
+    background: -webkit-linear-gradient(329deg, #14102A 0%, #0D122C 25%, #031C26 75%);
+    background: linear-gradient(121deg, #14102A 0%, #0D122C 25%, #031C26 75%)
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .aditl-card {
+        padding: 72px 0 79px
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .aditl-card {
+        padding: 56px 30px 63px
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .aditl-card {
+        border-radius: 20px
+    }
+}
+
+@media only screen and (min-width: 735px) {
+    .main .aditl-card {
+        text-align: center
+    }
+}
+
+.main .aditl-link-outlined {
+    display: inline-block;
+    position: relative;
+    margin-top: 1.35em;
+    border: 1px solid #06c;
+    border-radius: 16px;
+    padding: 8px 16px 8px 28px;
+    color: #2997ff;
+    border-color: #2997ff
+}
+
+.main .aditl-link-outlined .icon-copy {
+    display: inline-block;
+    padding-left: 8px
+}
+
+.main .aditl-link-outlined:before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 12px;
+    left: 14px
+}
+
+.main .aditl-link-outlined:before {
+    width: 14px;
+    height: 18px;
+    background-size: 14px 18px;
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/icon_paper__8b8pffsk04y2_large.png")
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    .main .aditl-link-outlined:before {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/icon_paper__8b8pffsk04y2_large_2x.png")
+    }
+}
+
+.main .feature.section-safari .section-content {
+    background: #041725
+}
+
+.main .feature.section-safari .image-tilt-startframe {
+    width: 532px;
+    height: 650px;
+    background-size: 532px 650px;
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/safari_startframe__ewv8osgctjma_large.jpg")
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    .main .feature.section-safari .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/safari_startframe__ewv8osgctjma_large_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature.section-safari .image-tilt-startframe {
+        width: 368px;
+        height: 450px;
+        background-size: 368px 450px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/safari_startframe__ewv8osgctjma_medium.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .feature.section-safari .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/safari_startframe__ewv8osgctjma_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-safari .image-tilt-startframe {
+        width: 320px;
+        height: 390px;
+        background-size: 320px 390px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/safari_startframe__ewv8osgctjma_small.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-safari .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/safari_startframe__ewv8osgctjma_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-safari .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/safari_startframe__ewv8osgctjma_large.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-safari .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/safari_startframe__ewv8osgctjma_large_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-safari .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.18045%
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) {
+    .main .feature.section-safari .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/safari_startframe__ewv8osgctjma_medium.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .feature.section-safari .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/safari_startframe__ewv8osgctjma_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) {
+    .main .feature.section-safari .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.28261%
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) {
+    .main .feature.section-safari .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/safari_startframe__ewv8osgctjma_small.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-safari .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/safari_startframe__ewv8osgctjma_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) {
+    .main .feature.section-safari .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 121.875%
+    }
+}
+
+html.text-zoom .main .feature.section-safari .image-tilt-startframe {
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/safari_startframe__ewv8osgctjma_large.jpg");
+    background-size: cover
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-safari .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/safari_startframe__ewv8osgctjma_large_2x.jpg")
+    }
+}
+
+html.text-zoom .main .feature.section-safari .image-tilt-startframe::after {
+    content: '';
+    display: block;
+    padding-bottom: 122.18045%
+}
+
+@media only screen and (max-width: 1068px) {
+    html.text-zoom .main .feature.section-safari .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/safari_startframe__ewv8osgctjma_medium.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-safari .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/safari_startframe__ewv8osgctjma_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    html.text-zoom .main .feature.section-safari .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.28261%
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    html.text-zoom .main .feature.section-safari .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/safari_startframe__ewv8osgctjma_small.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-safari .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/safari_startframe__ewv8osgctjma_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    html.text-zoom .main .feature.section-safari .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 121.875%
+    }
+}
+
+@media only screen and (min-width: 1069px) {
+    .main .feature.section-safari .feature-copy {
+        max-height: 434px
+    }
+}
+
+.theme-dark .section-safari.modal-standard .modal-close,
+.feature.section-safari .feature-cta {
+    color: #17acf8
+}
+
+.theme-dark .modal-standard.section-safari {
+    background: rgba(4, 23, 37, 0.9)
+}
+
+.main .feature.section-maps .section-content {
+    background: #261901
+}
+
+.main .feature.section-maps .image-tilt-startframe {
+    width: 532px;
+    height: 650px;
+    background-size: 532px 650px;
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/maps_startframe__ete6ogigjiqa_large.jpg")
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    .main .feature.section-maps .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/maps_startframe__ete6ogigjiqa_large_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature.section-maps .image-tilt-startframe {
+        width: 368px;
+        height: 450px;
+        background-size: 368px 450px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/maps_startframe__ete6ogigjiqa_medium.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .feature.section-maps .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/maps_startframe__ete6ogigjiqa_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-maps .image-tilt-startframe {
+        width: 320px;
+        height: 390px;
+        background-size: 320px 390px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/maps_startframe__ete6ogigjiqa_small.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-maps .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/maps_startframe__ete6ogigjiqa_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-maps .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/maps_startframe__ete6ogigjiqa_large.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-maps .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/maps_startframe__ete6ogigjiqa_large_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-maps .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.18045%
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) {
+    .main .feature.section-maps .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/maps_startframe__ete6ogigjiqa_medium.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .feature.section-maps .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/maps_startframe__ete6ogigjiqa_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) {
+    .main .feature.section-maps .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.28261%
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) {
+    .main .feature.section-maps .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/maps_startframe__ete6ogigjiqa_small.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-maps .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/maps_startframe__ete6ogigjiqa_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) {
+    .main .feature.section-maps .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 121.875%
+    }
+}
+
+html.text-zoom .main .feature.section-maps .image-tilt-startframe {
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/maps_startframe__ete6ogigjiqa_large.jpg");
+    background-size: cover
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-maps .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/maps_startframe__ete6ogigjiqa_large_2x.jpg")
+    }
+}
+
+html.text-zoom .main .feature.section-maps .image-tilt-startframe::after {
+    content: '';
+    display: block;
+    padding-bottom: 122.18045%
+}
+
+@media only screen and (max-width: 1068px) {
+    html.text-zoom .main .feature.section-maps .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/maps_startframe__ete6ogigjiqa_medium.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-maps .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/maps_startframe__ete6ogigjiqa_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    html.text-zoom .main .feature.section-maps .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.28261%
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    html.text-zoom .main .feature.section-maps .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/maps_startframe__ete6ogigjiqa_small.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-maps .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/maps_startframe__ete6ogigjiqa_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    html.text-zoom .main .feature.section-maps .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 121.875%
+    }
+}
+
+.theme-dark .section-maps.modal-standard .modal-close,
+.feature.section-maps .feature-cta {
+    color: #ffa109
+}
+
+.theme-dark .modal-standard.section-maps {
+    background: rgba(38, 24, 1, 0.9)
+}
+
+.main .feature.section-photos .section-content {
+    background: #262107
+}
+
+.main .feature.section-photos .feature-headline {
+    max-width: 8.4em
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature.section-photos .feature-headline {
+        max-width: 10.1em
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-photos .feature-headline {
+        max-width: 9.1em
+    }
+}
+
+.main .feature.section-photos .image-tilt-startframe {
+    width: 532px;
+    height: 650px;
+    background-size: 532px 650px;
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/photos_startframe__crjqqjz88lea_large.jpg")
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    .main .feature.section-photos .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/photos_startframe__crjqqjz88lea_large_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature.section-photos .image-tilt-startframe {
+        width: 368px;
+        height: 450px;
+        background-size: 368px 450px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/photos_startframe__crjqqjz88lea_medium.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .feature.section-photos .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/photos_startframe__crjqqjz88lea_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-photos .image-tilt-startframe {
+        width: 320px;
+        height: 390px;
+        background-size: 320px 390px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/photos_startframe__crjqqjz88lea_small.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-photos .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/photos_startframe__crjqqjz88lea_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-photos .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/photos_startframe__crjqqjz88lea_large.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-photos .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/photos_startframe__crjqqjz88lea_large_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-photos .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.18045%
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) {
+    .main .feature.section-photos .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/photos_startframe__crjqqjz88lea_medium.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .feature.section-photos .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/photos_startframe__crjqqjz88lea_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) {
+    .main .feature.section-photos .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.28261%
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) {
+    .main .feature.section-photos .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/photos_startframe__crjqqjz88lea_small.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-photos .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/photos_startframe__crjqqjz88lea_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) {
+    .main .feature.section-photos .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 121.875%
+    }
+}
+
+html.text-zoom .main .feature.section-photos .image-tilt-startframe {
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/photos_startframe__crjqqjz88lea_large.jpg");
+    background-size: cover
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-photos .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/photos_startframe__crjqqjz88lea_large_2x.jpg")
+    }
+}
+
+html.text-zoom .main .feature.section-photos .image-tilt-startframe::after {
+    content: '';
+    display: block;
+    padding-bottom: 122.18045%
+}
+
+@media only screen and (max-width: 1068px) {
+    html.text-zoom .main .feature.section-photos .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/photos_startframe__crjqqjz88lea_medium.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-photos .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/photos_startframe__crjqqjz88lea_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    html.text-zoom .main .feature.section-photos .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.28261%
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    html.text-zoom .main .feature.section-photos .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/photos_startframe__crjqqjz88lea_small.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-photos .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/photos_startframe__crjqqjz88lea_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    html.text-zoom .main .feature.section-photos .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 121.875%
+    }
+}
+
+.theme-dark .section-photos.modal-standard .modal-close,
+.feature.section-photos .feature-cta {
+    color: #ffda2f
+}
+
+.theme-dark .modal-standard.section-photos {
+    background: rgba(38, 33, 8, 0.9)
+}
+
+.main .feature.section-messages .section-content {
+    background: #001f10
+}
+
+.main .feature.section-messages .image-tilt-startframe {
+    width: 532px;
+    height: 650px;
+    background-size: 532px 650px;
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/messages_startframe__b67bcth6b29y_large.jpg")
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    .main .feature.section-messages .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/messages_startframe__b67bcth6b29y_large_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature.section-messages .image-tilt-startframe {
+        width: 368px;
+        height: 450px;
+        background-size: 368px 450px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/messages_startframe__b67bcth6b29y_medium.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .feature.section-messages .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/messages_startframe__b67bcth6b29y_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-messages .image-tilt-startframe {
+        width: 320px;
+        height: 390px;
+        background-size: 320px 390px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/messages_startframe__b67bcth6b29y_small.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-messages .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/messages_startframe__b67bcth6b29y_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-messages .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/messages_startframe__b67bcth6b29y_large.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-messages .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/messages_startframe__b67bcth6b29y_large_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-messages .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.18045%
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) {
+    .main .feature.section-messages .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/messages_startframe__b67bcth6b29y_medium.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .feature.section-messages .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/messages_startframe__b67bcth6b29y_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) {
+    .main .feature.section-messages .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.28261%
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) {
+    .main .feature.section-messages .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/messages_startframe__b67bcth6b29y_small.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-messages .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/messages_startframe__b67bcth6b29y_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) {
+    .main .feature.section-messages .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 121.875%
+    }
+}
+
+html.text-zoom .main .feature.section-messages .image-tilt-startframe {
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/messages_startframe__b67bcth6b29y_large.jpg");
+    background-size: cover
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-messages .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/messages_startframe__b67bcth6b29y_large_2x.jpg")
+    }
+}
+
+html.text-zoom .main .feature.section-messages .image-tilt-startframe::after {
+    content: '';
+    display: block;
+    padding-bottom: 122.18045%
+}
+
+@media only screen and (max-width: 1068px) {
+    html.text-zoom .main .feature.section-messages .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/messages_startframe__b67bcth6b29y_medium.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-messages .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/messages_startframe__b67bcth6b29y_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    html.text-zoom .main .feature.section-messages .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.28261%
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    html.text-zoom .main .feature.section-messages .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/messages_startframe__b67bcth6b29y_small.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-messages .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/messages_startframe__b67bcth6b29y_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    html.text-zoom .main .feature.section-messages .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 121.875%
+    }
+}
+
+.theme-dark .section-messages.modal-standard .modal-close,
+.feature.section-messages .feature-cta {
+    color: #00ca61
+}
+
+.theme-dark .modal-standard.section-messages {
+    background: rgba(0, 31, 16, 0.9)
+}
+
+.main .feature.section-siri .section-content {
+    background: #0f0e1c
+}
+
+.main .feature.section-siri .feature-headline {
+    max-width: 9.3em
+}
+
+.main .feature.section-siri .image-tilt-startframe {
+    width: 532px;
+    height: 650px;
+    background-size: 532px 650px;
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/siri_startframe__ozet2k9584am_large.jpg")
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    .main .feature.section-siri .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/siri_startframe__ozet2k9584am_large_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature.section-siri .image-tilt-startframe {
+        width: 368px;
+        height: 450px;
+        background-size: 368px 450px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/siri_startframe__ozet2k9584am_medium.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .feature.section-siri .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/siri_startframe__ozet2k9584am_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-siri .image-tilt-startframe {
+        width: 320px;
+        height: 390px;
+        background-size: 320px 390px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/siri_startframe__ozet2k9584am_small.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-siri .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/siri_startframe__ozet2k9584am_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-siri .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/siri_startframe__ozet2k9584am_large.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-siri .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/siri_startframe__ozet2k9584am_large_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-siri .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.18045%
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) {
+    .main .feature.section-siri .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/siri_startframe__ozet2k9584am_medium.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .feature.section-siri .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/siri_startframe__ozet2k9584am_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) {
+    .main .feature.section-siri .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.28261%
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) {
+    .main .feature.section-siri .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/siri_startframe__ozet2k9584am_small.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-siri .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/siri_startframe__ozet2k9584am_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) {
+    .main .feature.section-siri .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 121.875%
+    }
+}
+
+html.text-zoom .main .feature.section-siri .image-tilt-startframe {
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/siri_startframe__ozet2k9584am_large.jpg");
+    background-size: cover
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-siri .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/siri_startframe__ozet2k9584am_large_2x.jpg")
+    }
+}
+
+html.text-zoom .main .feature.section-siri .image-tilt-startframe::after {
+    content: '';
+    display: block;
+    padding-bottom: 122.18045%
+}
+
+@media only screen and (max-width: 1068px) {
+    html.text-zoom .main .feature.section-siri .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/siri_startframe__ozet2k9584am_medium.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-siri .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/siri_startframe__ozet2k9584am_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    html.text-zoom .main .feature.section-siri .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.28261%
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    html.text-zoom .main .feature.section-siri .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/siri_startframe__ozet2k9584am_small.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-siri .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/siri_startframe__ozet2k9584am_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    html.text-zoom .main .feature.section-siri .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 121.875%
+    }
+}
+
+.theme-dark .section-siri.modal-standard .modal-close,
+.feature.section-siri .feature-cta {
+    color: #8c85e4
+}
+
+.theme-dark .modal-standard.section-siri {
+    background: rgba(16, 14, 29, 0.9)
+}
+
+.main .feature.section-health .section-content {
+    background: #260d16
+}
+
+.main .feature.section-health .image-tilt-startframe {
+    width: 532px;
+    height: 650px;
+    background-size: 532px 650px;
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/health_startframe__gknk13y3ob6u_large.jpg")
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    .main .feature.section-health .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/health_startframe__gknk13y3ob6u_large_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature.section-health .image-tilt-startframe {
+        width: 368px;
+        height: 450px;
+        background-size: 368px 450px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/health_startframe__gknk13y3ob6u_medium.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .feature.section-health .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/health_startframe__gknk13y3ob6u_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-health .image-tilt-startframe {
+        width: 320px;
+        height: 390px;
+        background-size: 320px 390px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/health_startframe__gknk13y3ob6u_small.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-health .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/health_startframe__gknk13y3ob6u_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-health .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/health_startframe__gknk13y3ob6u_large.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-health .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/health_startframe__gknk13y3ob6u_large_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-health .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.18045%
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) {
+    .main .feature.section-health .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/health_startframe__gknk13y3ob6u_medium.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .feature.section-health .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/health_startframe__gknk13y3ob6u_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) {
+    .main .feature.section-health .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.28261%
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) {
+    .main .feature.section-health .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/health_startframe__gknk13y3ob6u_small.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-health .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/health_startframe__gknk13y3ob6u_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) {
+    .main .feature.section-health .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 121.875%
+    }
+}
+
+html.text-zoom .main .feature.section-health .image-tilt-startframe {
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/health_startframe__gknk13y3ob6u_large.jpg");
+    background-size: cover
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-health .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/health_startframe__gknk13y3ob6u_large_2x.jpg")
+    }
+}
+
+html.text-zoom .main .feature.section-health .image-tilt-startframe::after {
+    content: '';
+    display: block;
+    padding-bottom: 122.18045%
+}
+
+@media only screen and (max-width: 1068px) {
+    html.text-zoom .main .feature.section-health .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/health_startframe__gknk13y3ob6u_medium.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-health .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/health_startframe__gknk13y3ob6u_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    html.text-zoom .main .feature.section-health .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.28261%
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    html.text-zoom .main .feature.section-health .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/health_startframe__gknk13y3ob6u_small.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-health .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/health_startframe__gknk13y3ob6u_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    html.text-zoom .main .feature.section-health .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 121.875%
+    }
+}
+
+.theme-dark .section-health.modal-standard .modal-close,
+.feature.section-health .feature-cta {
+    color: #ff5081
+}
+
+.theme-dark .modal-standard.section-health {
+    background: rgba(38, 13, 21, 0.9)
+}
+
+.main .feature.section-app-store .section-content {
+    background: #0d2151
+}
+
+.main .feature.section-app-store .image-tilt-startframe {
+    width: 532px;
+    height: 650px;
+    background-size: 532px 650px;
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/appstore_startframe__bhsz6ga0kpma_large.jpg")
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    .main .feature.section-app-store .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/appstore_startframe__bhsz6ga0kpma_large_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature.section-app-store .image-tilt-startframe {
+        width: 368px;
+        height: 450px;
+        background-size: 368px 450px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/appstore_startframe__bhsz6ga0kpma_medium.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .feature.section-app-store .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/appstore_startframe__bhsz6ga0kpma_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-app-store .image-tilt-startframe {
+        width: 320px;
+        height: 390px;
+        background-size: 320px 390px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/appstore_startframe__bhsz6ga0kpma_small.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-app-store .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/appstore_startframe__bhsz6ga0kpma_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-app-store .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/appstore_startframe__bhsz6ga0kpma_large.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-app-store .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/appstore_startframe__bhsz6ga0kpma_large_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-app-store .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.18045%
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) {
+    .main .feature.section-app-store .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/appstore_startframe__bhsz6ga0kpma_medium.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .feature.section-app-store .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/appstore_startframe__bhsz6ga0kpma_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) {
+    .main .feature.section-app-store .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.28261%
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) {
+    .main .feature.section-app-store .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/appstore_startframe__bhsz6ga0kpma_small.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-app-store .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/appstore_startframe__bhsz6ga0kpma_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) {
+    .main .feature.section-app-store .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 121.875%
+    }
+}
+
+html.text-zoom .main .feature.section-app-store .image-tilt-startframe {
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/appstore_startframe__bhsz6ga0kpma_large.jpg");
+    background-size: cover
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-app-store .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/appstore_startframe__bhsz6ga0kpma_large_2x.jpg")
+    }
+}
+
+html.text-zoom .main .feature.section-app-store .image-tilt-startframe::after {
+    content: '';
+    display: block;
+    padding-bottom: 122.18045%
+}
+
+@media only screen and (max-width: 1068px) {
+    html.text-zoom .main .feature.section-app-store .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/appstore_startframe__bhsz6ga0kpma_medium.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-app-store .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/appstore_startframe__bhsz6ga0kpma_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    html.text-zoom .main .feature.section-app-store .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.28261%
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    html.text-zoom .main .feature.section-app-store .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/appstore_startframe__bhsz6ga0kpma_small.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-app-store .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/appstore_startframe__bhsz6ga0kpma_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    html.text-zoom .main .feature.section-app-store .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 121.875%
+    }
+}
+
+@media only screen and (min-width: 735px) and (max-width: 1068px) {
+    .main .feature.section-app-store .feature-excerpt {
+        max-width: 17em;
+        margin-bottom: 1em
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-app-store .feature-media-object {
+        margin-bottom: 62px
+    }
+}
+
+@media only screen and (min-width: 1069px) {
+    .main .feature.section-app-store .feature-copy {
+        max-height: 434px
+    }
+}
+
+.theme-dark .section-app-store.modal-standard .modal-close,
+.feature.section-app-store .feature-cta {
+    color: #17acf8
+}
+
+.theme-dark .modal-standard.section-app-store {
+    background: rgba(4, 23, 37, 0.9)
+}
+
+.main .feature.section-apple-pay .section-content {
+    background: #20201f
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature.section-apple-pay .feature-headline {
+        max-width: 10.2em
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-apple-pay .feature-headline {
+        max-width: 100%
+    }
+}
+
+.main .feature.section-apple-pay .image-tilt-startframe {
+    width: 532px;
+    height: 650px;
+    background-size: 532px 650px;
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/wallet_startframe__4zp7qpzrzhuu_large.jpg")
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    .main .feature.section-apple-pay .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/wallet_startframe__4zp7qpzrzhuu_large_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature.section-apple-pay .image-tilt-startframe {
+        width: 368px;
+        height: 450px;
+        background-size: 368px 450px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/wallet_startframe__4zp7qpzrzhuu_medium.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .feature.section-apple-pay .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/wallet_startframe__4zp7qpzrzhuu_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-apple-pay .image-tilt-startframe {
+        width: 320px;
+        height: 390px;
+        background-size: 320px 390px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/wallet_startframe__4zp7qpzrzhuu_small.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-apple-pay .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/wallet_startframe__4zp7qpzrzhuu_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-apple-pay .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/wallet_startframe__4zp7qpzrzhuu_large.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-apple-pay .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/wallet_startframe__4zp7qpzrzhuu_large_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-apple-pay .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.18045%
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) {
+    .main .feature.section-apple-pay .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/wallet_startframe__4zp7qpzrzhuu_medium.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .feature.section-apple-pay .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/wallet_startframe__4zp7qpzrzhuu_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) {
+    .main .feature.section-apple-pay .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.28261%
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) {
+    .main .feature.section-apple-pay .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/wallet_startframe__4zp7qpzrzhuu_small.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-apple-pay .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/wallet_startframe__4zp7qpzrzhuu_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) {
+    .main .feature.section-apple-pay .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 121.875%
+    }
+}
+
+html.text-zoom .main .feature.section-apple-pay .image-tilt-startframe {
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/wallet_startframe__4zp7qpzrzhuu_large.jpg");
+    background-size: cover
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-apple-pay .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/wallet_startframe__4zp7qpzrzhuu_large_2x.jpg")
+    }
+}
+
+html.text-zoom .main .feature.section-apple-pay .image-tilt-startframe::after {
+    content: '';
+    display: block;
+    padding-bottom: 122.18045%
+}
+
+@media only screen and (max-width: 1068px) {
+    html.text-zoom .main .feature.section-apple-pay .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/wallet_startframe__4zp7qpzrzhuu_medium.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-apple-pay .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/wallet_startframe__4zp7qpzrzhuu_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    html.text-zoom .main .feature.section-apple-pay .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.28261%
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    html.text-zoom .main .feature.section-apple-pay .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/wallet_startframe__4zp7qpzrzhuu_small.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-apple-pay .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/wallet_startframe__4zp7qpzrzhuu_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    html.text-zoom .main .feature.section-apple-pay .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 121.875%
+    }
+}
+
+.theme-dark .section-apple-pay.modal-standard .modal-close,
+.feature.section-apple-pay .feature-cta {
+    color: #3587f7
+}
+
+.theme-dark .modal-standard.section-apple-pay {
+    background: rgba(32, 32, 31, 0.9)
+}
+
+.main .feature.section-apple-news .section-content {
+    background: #26080e
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature.section-apple-news .feature-headline {
+        max-width: 10.2em
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-apple-news .feature-headline {
+        max-width: 100%
+    }
+}
+
+.main .feature.section-apple-news .image-tilt-startframe {
+    width: 532px;
+    height: 650px;
+    background-size: 532px 650px;
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/news_startframe__bz63vx0io6pe_large.jpg")
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    .main .feature.section-apple-news .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/news_startframe__bz63vx0io6pe_large_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .feature.section-apple-news .image-tilt-startframe {
+        width: 368px;
+        height: 450px;
+        background-size: 368px 450px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/news_startframe__bz63vx0io6pe_medium.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .feature.section-apple-news .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/news_startframe__bz63vx0io6pe_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-apple-news .image-tilt-startframe {
+        width: 320px;
+        height: 390px;
+        background-size: 320px 390px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/news_startframe__bz63vx0io6pe_small.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-apple-news .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/news_startframe__bz63vx0io6pe_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-apple-news .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/news_startframe__bz63vx0io6pe_large.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-apple-news .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/news_startframe__bz63vx0io6pe_large_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .feature.section-apple-news .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.18045%
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) {
+    .main .feature.section-apple-news .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/news_startframe__bz63vx0io6pe_medium.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .feature.section-apple-news .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/news_startframe__bz63vx0io6pe_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 1068px) {
+    .main .feature.section-apple-news .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.28261%
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) {
+    .main .feature.section-apple-news .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/news_startframe__bz63vx0io6pe_small.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .feature.section-apple-news .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/news_startframe__bz63vx0io6pe_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) and (max-width: 734px) {
+    .main .feature.section-apple-news .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 121.875%
+    }
+}
+
+html.text-zoom .main .feature.section-apple-news .image-tilt-startframe {
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/news_startframe__bz63vx0io6pe_large.jpg");
+    background-size: cover
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-apple-news .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/news_startframe__bz63vx0io6pe_large_2x.jpg")
+    }
+}
+
+html.text-zoom .main .feature.section-apple-news .image-tilt-startframe::after {
+    content: '';
+    display: block;
+    padding-bottom: 122.18045%
+}
+
+@media only screen and (max-width: 1068px) {
+    html.text-zoom .main .feature.section-apple-news .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/news_startframe__bz63vx0io6pe_medium.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-apple-news .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/news_startframe__bz63vx0io6pe_medium_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    html.text-zoom .main .feature.section-apple-news .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 122.28261%
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    html.text-zoom .main .feature.section-apple-news .image-tilt-startframe {
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/news_startframe__bz63vx0io6pe_small.jpg");
+        background-size: cover
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    html.text-zoom .main .feature.section-apple-news .image-tilt-startframe {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/news_startframe__bz63vx0io6pe_small_2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    html.text-zoom .main .feature.section-apple-news .image-tilt-startframe::after {
+        content: '';
+        display: block;
+        padding-bottom: 121.875%
+    }
+}
+
+.theme-dark .section-apple-news.modal-standard .modal-close,
+.feature.section-apple-news .feature-cta {
+    color: #fd345a
+}
+
+.theme-dark .modal-standard.section-apple-news {
+    background: rgba(38, 8, 14, 0.9)
+}
+
+@media only screen and (max-width: 734px) {
+    .main .section-tiles {
+        padding: 0 5px;
+        margin-top: 140px
+    }
+}
+
+.main .section-tiles .section-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1068px
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .section-tiles .section-content {
+        max-width: 736px
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .section-tiles .section-content {
+        max-width: 702px
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .section-tiles .section-content {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column
+    }
+}
+
+.main .tile {
+    background: rgba(0, 0, 0, 0.64);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 30px;
+    overflow: hidden;
+    padding: 93px 65px 100px 70px;
+    width: 49.2%
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .tile {
+        padding: 50px 50px 70px;
+        width: 48.6%
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .tile {
+        padding: 50px 60px 70px 30px;
+        width: 100%
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .tile {
+        border-radius: 20px
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .tile:not(:last-child) {
+        margin-bottom: 20px
+    }
+}
+
+.main .tile-icon {
+    margin-bottom: 1.3em
+}
+
+@media only screen and (max-width: 734px) {
+    .main .tile-icon {
+        margin-bottom: 1.55em
+    }
+}
+
+.main .tile-copy {
+    margin-top: .6em
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .tile-copy {
+        margin-top: 1em
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .tile-copy {
+        margin-top: .75em
+    }
+}
+
+.main .tile-sign-in .tile-icon {
+    width: 52px;
+    height: 52px;
+    background-size: 52px 52px;
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/icon_apple_sign_in__frcu1q71nwq6_large.png")
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    .main .tile-sign-in .tile-icon {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/icon_apple_sign_in__frcu1q71nwq6_large_2x.png")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .tile-sign-in .tile-icon {
+        width: 37px;
+        height: 37px;
+        background-size: 37px 37px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/icon_apple_sign_in__frcu1q71nwq6_medium.png")
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .tile-sign-in .tile-icon {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/icon_apple_sign_in__frcu1q71nwq6_medium_2x.png")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .tile-sign-in .tile-icon {
+        width: 44px;
+        height: 44px;
+        background-size: 44px 44px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/icon_apple_sign_in__frcu1q71nwq6_small.png")
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .tile-sign-in .tile-icon {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/icon_apple_sign_in__frcu1q71nwq6_small_2x.png")
+    }
+}
+
+.main .tile-app-store .tile-icon {
+    width: 52px;
+    height: 52px;
+    background-size: 52px 52px;
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/icon_app_store__brjd8xgfnhg2_large.png")
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    .main .tile-app-store .tile-icon {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/icon_app_store__brjd8xgfnhg2_large_2x.png")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .tile-app-store .tile-icon {
+        width: 37px;
+        height: 37px;
+        background-size: 37px 37px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/icon_app_store__brjd8xgfnhg2_medium.png")
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .tile-app-store .tile-icon {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/icon_app_store__brjd8xgfnhg2_medium_2x.png")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .tile-app-store .tile-icon {
+        width: 44px;
+        height: 44px;
+        background-size: 44px 44px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/icon_app_store__brjd8xgfnhg2_small.png")
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .tile-app-store .tile-icon {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/icon_app_store__brjd8xgfnhg2_small_2x.png")
+    }
+}
+
+.main .section-router {
+    padding-bottom: 200px
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .section-router {
+        margin-top: 100px;
+        padding-bottom: 100px
+    }
+}
+
+.main .section-router .typography-router-headline {
+    color: #fff;
+    max-width: 10.5em
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .section-router .typography-router-headline {
+        max-width: 11em
+    }
+}
+
+.main .section-router .router-image {
+    width: 405px;
+    height: 92px;
+    background-size: 405px 92px;
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/learn_more__djuwynxw3quu_large.png")
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 1.5dppx),
+(-webkit-min-device-pixel-ratio: 1.5),
+(min-resolution: 144dpi) {
+    .main .section-router .router-image {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/learn_more__djuwynxw3quu_large_2x.png")
+    }
+}
+
+@media only screen and (max-width: 1068px) {
+    .main .section-router .router-image {
+        width: 308px;
+        height: 61px;
+        background-size: 308px 61px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/learn_more__djuwynxw3quu_medium.png")
+    }
+}
+
+@media only screen and (max-width: 1068px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1068px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 1068px) and (min-resolution: 144dpi) {
+    .main .section-router .router-image {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/learn_more__djuwynxw3quu_medium_2x.png")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .main .section-router .router-image {
+        width: 259px;
+        height: 57px;
+        background-size: 259px 57px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/learn_more__djuwynxw3quu_small.png")
+    }
+}
+
+@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 734px) and (min-resolution: 1.5dppx),
+only screen and (max-width: 734px) and (min-resolution: 144dpi) {
+    .main .section-router .router-image {
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/learn_more__djuwynxw3quu_small_2x.png")
+    }
+}
+
+html.text-zoom .main .features-subheader {
+    margin-top: 70px;
+    margin-bottom: 70px;
+    text-align: left;
+    margin-left: 0
+}
+
+html.text-zoom .main .feature {
+    margin-bottom: 75px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 5px
+}
+
+html.text-zoom .main .feature .section-content {
+    display: block;
+    min-height: auto;
+    max-width: 702px;
+    padding-bottom: 60px
+}
+
+html.text-zoom .main .feature .section-content video,
+html.text-zoom .main .feature .section-content .image-tilt-startframe {
+    border-radius: 20px 20px 0 0
+}
+
+html.text-zoom .main .feature .video-wrapper .image-tilt-startframe {
+    width: 100% !important;
+    height: auto !important
+}
+
+html.text-zoom .main .feature-headline {
+    margin-bottom: 0.625em
+}
+
+html.text-zoom .main .feature-excerpt {
+    max-width: 100%;
+    margin-bottom: 1.33em
+}
+
+html.text-zoom .main .feature-cta .icon {
+    font-size: 28px;
+    top: -0.18em
+}
+
+html.text-zoom .main .feature-cta-text {
+    margin-left: 2em;
+    margin-bottom: 1em;
+    margin-top: 0.5em
+}
+
+@media only screen and (max-width: 1068px) {
+    html.text-zoom .main .feature-cta-text {
+        margin-top: 0
+    }
+}
+
+html.text-zoom .main .feature-media-object {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-bottom: 55px
+}
+
+html.text-zoom .main .feature-headline,
+html.text-zoom .main .feature-excerpt,
+html.text-zoom .main .feature-cta,
+html.text-zoom .main .feature-copy {
+    padding: 0 30px
+}
+
+html.text-zoom .main .feature-excerpt {
+    padding-right: 50px
+}
+
+html.text-zoom .main .feature-media-object {
+    z-index: 2
+}
+
+html.text-zoom .main .section.feature {
+    background: transparent !important
+}
+
+html.text-zoom .main .playback-control-container {
+    top: auto;
+    bottom: 30px
+}
+
+html.text-zoom .main .section-hero {
+    padding-top: 135px;
+    padding-bottom: 118px
+}
+
+html.text-zoom .main .section-hero .hero-gradient {
+    height: 100%;
+    background-size: cover
+}
+
+html.text-zoom .main .section-hero .section-content {
+    padding-left: 0
+}
+
+html.text-zoom .main .section-hero .hero-intro {
+    margin-top: 1.18em
+}
+
+.feature-copy-columns {
+    -webkit-columns: 1 !important;
+    columns: 1 !important
+}
+
+.feature-copy-columns p {
+    max-width: 100% !important
+}
+
+html.text-zoom .main .section-tiles {
+    padding: 0 5px;
+    margin-top: 140px
+}
+
+html.text-zoom .main .section-tiles .section-content {
+    max-width: 702px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column
+}
+
+html.text-zoom .main .tile {
+    padding: 50px 60px 70px 30px;
+    width: 100%
+}
+
+html.text-zoom .main .tile:not(:last-child) {
+    margin-bottom: 20px
+}
+
+html.text-zoom .main .tile-icon {
+    margin-bottom: 1.55em
+}
+
+html.text-zoom .main .tile-copy {
+    margin-top: 0.75em
+}
+
+html.text-zoom .main .section-router {
+    margin-top: 111px;
+    padding-bottom: 132px
+}
+
+html.text-zoom .main .section-router .links-stacked {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 20px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column
+}
+
+html.text-zoom .main .section-router .links-stacked li + li {
+    margin-top: 7px
+}
+
+html.text-zoom .main .section-router .router-image {
+    margin-bottom: 29px
+}
+
+.theme-dark {
+    background: #000
+}
+
+.theme-dark .typography-overview-hero-headline,
+.theme-dark .typography-overview-hero-intro,
+.theme-dark .typography-overview-features-subheader,
+.theme-dark .typography-overview-feature-headline,
+.theme-dark .typography-overview-feature-copy,
+.theme-dark .typography-overview-tile-headline,
+.theme-dark .typography-overview-tile-copy,
+.theme-dark .typography-body-tght {
+    color: #fff
+}
+
+.theme-dark main {
+    position: relative
+}
+
+.theme-dark main a {
+    color: #6bf
+}
+
+.theme-dark .main-gradient {
+    position: relative;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 3008px;
+    height: 2000px;
+    background-size: 3008px 2000px;
+    background-repeat: no-repeat;
+    background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/footer_bg__eb5axcd562ie_large.jpg")
+}
+
+.theme-dark .main-gradient-holder {
+    z-index: -1;
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%
+}
+
+@media only screen and (max-width: 1068px) {
+    .theme-dark .main-gradient {
+        width: 1068px;
+        height: 1363px;
+        background-size: 1068px 1363px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/footer_bg__eb5axcd562ie_medium.jpg")
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .theme-dark .main-gradient {
+        width: 735px;
+        height: 2385px;
+        background-size: 735px 2385px;
+        background-repeat: no-repeat;
+        background-image: url("https://cmp.netexy.com/build/website/img/privacy/overview/footer_bg__eb5axcd562ie_small.jpg")
+    }
+}
+
+.theme-dark .feature-violator + .feature-headline {
+    margin-top: 37px
+}
+
+@media only screen and (max-width: 1068px) {
+    .theme-dark .feature-violator + .feature-headline {
+        margin-top: 40px
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .theme-dark .feature-violator + .feature-headline {
+        margin-top: 0px
+    }
+}
+
+@media only screen and (max-width: 734px) {
+    .theme-dark .feature-violator {
+        padding: 0 30px;
+        margin-bottom: 12px
+    }
+}
+
+.theme-dark .violator {
+    color: #fff;
+    border-color: #fff
+}
+
+.theme-dark .modal-standard {
+    background: rgba(0, 0, 0, 0.9);
+    -webkit-backdrop-filter: saturate(180%) blur(50px);
+    backdrop-filter: saturate(180%) blur(50px)
+}
+
+@media only screen and (max-width: 1068px) {
+    .theme-dark .modal-standard.modal-open {
+        -webkit-animation: displayAndFadeIn .2s;
+        animation: displayAndFadeIn .2s
+    }
+}
+
+@-webkit-keyframes displayAndFadeIn {
+    0% {
+        display: none;
+        opacity: 0
+    }
+
+    1% {
+        display: block;
+        opacity: 0
+    }
+
+    100% {
+        display: block;
+        opacity: 1
+    }
+}
+
+@keyframes displayAndFadeIn {
+    0% {
+        display: none;
+        opacity: 0
+    }
+
+    1% {
+        display: block;
+        opacity: 0
+    }
+
+    100% {
+        display: block;
+        opacity: 1
+    }
+}
+
+.theme-dark .modal .content-padding {
+    padding: 78px 16px;
+    margin: 0;
+    max-width: 100%
+}
+
+@media only screen and (max-width: 734px) {
+    .theme-dark .modal .content-padding {
+        padding: 72px 7% 20px
+    }
+}
+
+.theme-dark .modal-standard .content-padding {
+    background: transparent
+}
+
+@media only screen and (max-width: 734px) {
+    .theme-dark .modal .content-cell {
+        vertical-align: initial
+    }
+}
+
+.theme-dark .modal .feature-copy {
+    margin-top: 5px
+}
+
+.theme-dark .modal .feature-copy-columns {
+    margin-top: 18px
+}
+
+.theme-dark .modal-close {
+    width: 1em;
+    height: 1em;
+    left: 17px;
+    padding: 0;
+    overflow: visible
+}
+
+.theme-dark .modal-close:before,
+.theme-dark .modal-close:after {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    -webkit-transition: opacity 0.1s;
+    transition: opacity 0.1s;
+    line-height: 1.2;
+    font-weight: 300;
+    font-size: 32px
+}
+
+.theme-dark .modal-close:before::before,
+.theme-dark .modal-close:before::after,
+.theme-dark .modal-close:after::before,
+.theme-dark .modal-close:after::after {
+    font-family: "Material Icons";
+    color: inherit;
+    display: inline-block;
+    font-style: normal;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: 1;
+    text-decoration: underline;
+    position: relative;
+    z-index: 1;
+    alt: ''
+}
+
+.theme-dark .modal-close:before::before,
+.theme-dark .modal-close:before::after,
+.theme-dark .modal-close:after::before,
+.theme-dark .modal-close:after::after {
+    text-decoration: none
+}
+
+.theme-dark .modal-close:before::before,
+.theme-dark .modal-close:after::before {
+    display: none
+}
+
+@media only screen and (max-width: 1068px) {
+
+    .theme-dark .modal-close:before,
+    .theme-dark .modal-close:after {
+        font-size: 28px
+    }
+}
+
+@media only screen and (max-width: 734px) {
+
+    .theme-dark .modal-close:before,
+    .theme-dark .modal-close:after {
+        top: 7px
+    }
+}
+
+.theme-dark .modal-close:before {
+    content: "highlight_off";
+    opacity: 0;
+    display: inline-block
+}
+
+.theme-dark .modal-close:after {
+    content: "highlight_off"
+}
+
+.theme-dark .modal-close:hover:before {
+    opacity: 1
+}
+
+.theme-dark .modal-close:hover:after {
+    opacity: 0
+}
+
+@media only screen and (max-width: 734px) {
+    .theme-dark .modal-close {
+        top: 16px;
+        left: 6.5%
+    }
+}
+
+@media only screen and (min-width: 735px) and (max-width: 1068px) {
+    .theme-dark .feature-copy-columns {
+        -webkit-columns: 2;
+        columns: 2;
+        -webkit-column-gap: 4px;
+        column-gap: 4px
+    }
+
+    .theme-dark .feature-copy-columns p {
+        max-width: 17em
+    }
+}
+
+.theme-dark #ac-globalfooter {
+    background-color: #000
+}
+
+.theme-dark #ac-globalfooter.ac-globalfooter-dark .ac-gf-directory-column-section-title {
+    background-color: #000
+}

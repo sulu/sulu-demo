@@ -1,0 +1,61 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="essentials">
+        <types>
+            <type name="essentials">
+                <meta>
+                    <title lang="en">Essentials</title>
+                    <title lang="uk">Essentials</title>
+                </meta>
+
+                <properties>
+
+                    <property name="headline" type="text_line">
+                        <meta>
+                            <title lang="en">Title</title>
+                            <title lang="uk">Колонтитул</title>
+                        </meta>
+                    </property>
+
+                    <section name="organizationalTileOne">
+                        <properties>
+                            <property name="title_one" type="text_line" colspan="12">
+                                <meta>
+                                    <title lang="en">Title</title>
+                                    <title lang="uk">Заголовок</title>
+                                </meta>
+                            </property>
+
+                            <property name="desc_one" type="text_area" colspan="12">
+                                <meta>
+                                    <title lang="en">Description</title>
+                                    <title lang="uk">Опис</title>
+                                </meta>
+                            </property>
+                        </properties>
+                    </section>
+
+                    <section name="organizationalTileTwo">
+                        <properties>
+                            <property name="title_two" type="text_line" colspan="12">
+                                <meta>
+                                    <title lang="en">Title</title>
+                                    <title lang="uk">Заголовок</title>
+                                </meta>
+                            </property>
+
+                            <property name="desc_two" type="text_area" colspan="12">
+                                <meta>
+                                    <title lang="en">Description</title>
+                                    <title lang="uk">Опис</title>
+                                </meta>
+                            </property>
+                        </properties>
+                    </section>
+
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

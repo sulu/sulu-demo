@@ -1,0 +1,37 @@
+{
+  "name": "Netexy Studio",
+  "short_name": "Netexy",
+  "icons": [{
+    "src": "/website/images/icons/128.png",
+    "sizes": "128x128",
+    "type": "image/png"
+    }, {
+    "src": "/website/images/icons/142.png",
+    "sizes": "144x144",
+    "type": "image/png"
+    }, {
+    "src": "/website/images/icons/152.png",
+    "sizes": "152x152",
+    "type": "image/png"
+    }, {
+    "src": "/website/images/icons/192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+    }, {
+    "src": "/website/images/icons/56.png",
+    "sizes": "256x256",
+    "type": "image/png"
+    }, {
+    "src": "/website/images/icons/512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+    }],
+  "display": "standalone",
+  "start_url": "/",
+  "short_name": "starter",
+  "theme_color": "#3ADAFF",
+  "description": "Developing innovative solutions for business",
+  "orientation": "any",
+  "background_color": "#000000",
+  "related_applications": []
+}

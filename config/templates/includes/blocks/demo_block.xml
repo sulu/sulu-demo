@@ -1,0 +1,276 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="demo_block">
+        <types>
+            <type name="demo_block">
+                <meta>
+                    <title lang="en">Demo Block</title>
+                    <title lang="uk">Демо-Блок</title>
+                </meta>
+
+                <properties>
+                    <property name="text_line_" type="text_line">
+                        <meta>
+                            <title lang="en">Text line</title>
+                        </meta>
+                        <params>
+                            <param name="headline" value="true"/>
+                        </params>
+                    </property>
+
+                    <property name="text_area_" type="text_area">
+                        <meta>
+                            <title lang="en">Text area</title>
+                        </meta>
+                    </property>
+
+                    <property name="text_editor_" type="text_editor">
+                        <meta>
+                            <title lang="en">Text editor</title>
+                        </meta>
+                        <params>
+                            <param name="table" value="true"/>
+                            <param name="link" value="true"/>
+                            <param name="paste_from_word" value="true"/>
+                            <param name="height" value="100"/>
+                            <param name="max_height" value="200"/>
+                            <!-- CKEditor Parameters examples: -->
+                            <param name="extra_allowed_content" value="img(*)[*]; span(*)[*]; div(*)[*];iframe(*)[*]; script(*)[*]" />
+                            <param name="ui_color" value="#ffcc00"/>
+                        </params>
+                    </property>
+
+                    <property name="snippet_" type="snippet_selection">
+                        <meta>
+                            <title lang="en">Snippets collection</title>
+                        </meta>
+                        <params>
+                            <!-- We restrict the selection to snippets of type "snippet_html_code" -->
+                            <param name="snippetType" value="snippet_html_code"/>
+                        </params>
+                    </property>
+
+                    <property name="media_selection_" type="media_selection">
+                        <meta>
+                            <title lang="en">Media (document,image,video,audio)</title>
+                        </meta>
+
+                        <params>
+                            <param name="type" value="document,image,video,audio"/>
+                            <param name="displayOptions" type="collection">
+                                <param name="leftTop" value="true"/>
+                                <param name="top" value="true"/>
+                                <param name="rightTop" value="true"/>
+                                <param name="left" value="true"/>
+                                <param name="middle" value="false"/>
+                                <param name="right" value="true"/>
+                                <param name="leftBottom" value="true"/>
+                                <param name="bottom" value="true"/>
+                                <param name="rightBottom" value="true"/>
+                            </param>
+                            <param name="defaultDisplayOption" value="left"/>
+                            <!--<param name="formats" type="collection">-->
+                                <!--<param name="640x960"/>-->
+                            <!--</param>-->
+                        </params>
+                    </property>
+
+                    <property name="checker" type="checkbox">
+                        <meta>
+                            <title lang="en">Checkbox</title>
+                        </meta>
+                    </property>
+
+                    <property name="checker_toggler" type="checkbox">
+                        <meta>
+                            <title lang="en">Toggler</title>
+                        </meta>
+                        <params>
+                            <param name="type" value="toggler"/>
+                        </params>
+                    </property>
+
+
+                    <property name="single_select_" type="single_select">
+                        <meta>
+                            <title lang="en">Single Select</title>
+                        </meta>
+                        <params>
+                            <param name="default_value" value="option4"/>
+                            <param name="values" type="collection">
+                                <param name="option1">
+                                    <meta>
+                                        <title lang="en">First</title>
+                                    </meta>
+                                </param>
+                                <param name="option2">
+                                    <meta>
+                                        <title lang="en">Second</title>
+                                    </meta>
+                                </param>
+                                <param name="option3">
+                                    <meta>
+                                        <title lang="en">Third</title>
+                                    </meta>
+                                </param>
+                                <param name="option4">
+                                    <meta>
+                                        <title lang="en">Fourth (Default)</title>
+                                    </meta>
+                                </param>
+                            </param>
+                        </params>
+                    </property>
+
+                    <property name="multiple_select_" type="select">
+                        <meta>
+                            <title lang="en">Multiple Select</title>
+                        </meta>
+                        <params>
+                            <param name="values" type="collection">
+                                <param name="option1">
+                                    <meta>
+                                        <title lang="en">First</title>
+                                    </meta>
+                                </param>
+                                <param name="option2">
+                                    <meta>
+                                        <title lang="en">Second</title>
+                                    </meta>
+                                </param>
+                                <param name="option3">
+                                    <meta>
+                                        <title lang="en">Third</title>
+                                    </meta>
+                                </param>
+                            </param>
+                        </params>
+                    </property>
+
+                    <!-- teaser shows image and title/description from excerpt -->
+                    <!-- these values may be overridden -->
+                    <!-- and we can also implement our own teaser provider for some king of entity collection -->
+                    <property name="teaser_selection_" type="teaser_selection">
+                        <meta>
+                            <title lang="en">Teasers Collection</title>
+                        </meta>
+                    </property>
+
+                    <property name="color_" type="color">
+                        <meta>
+                            <title lang="en">Color</title>
+                        </meta>
+                    </property>
+
+                    <property name="date_" type="date">
+                        <meta>
+                            <title lang="en">Date</title>
+                        </meta>
+                        <params>
+                            <param name="display_options" type="collection">
+                                <param name="format" value="yyyy-mm-dd"/>
+                                <param name="startDate" value="2000-01-01"/>
+                            </param>
+                        </params>
+                    </property>
+
+                    <property name="location_" type="location">
+                        <meta>
+                            <title lang="en">Location</title>
+                        </meta>
+                        <params>
+                            <param name="countries" type="collection">
+                                <param name="AT" value="Austria"/>
+                                <param name="FR" value="France"/>
+                                <param name="GB" value="Great Britain"/>
+                            </param>
+                        </params>
+                    </property>
+
+                    <property name="time_" type="time">
+                        <meta>
+                            <title lang="en">Time</title>
+                        </meta>
+                    </property>
+
+                    <property name="url_" type="url">
+                        <meta>
+                            <title lang="en">URL</title>
+                        </meta>
+                        <params>
+                            <param name="defaults" type="collection">
+                                <param name="scheme" value="http://"/>
+                                <param name="specific_part" value="www.google.at"/> </param>
+                            <param name="schemes" type="collection"> <param name="http://"/>
+                                <param name="https://"/>
+                                <param name="//"/>
+                            </param>
+                        </params>
+                    </property>
+
+                    <property name="email" type="email">
+                        <meta>
+                            <title lang="en">Email</title>
+                        </meta>
+                    </property>
+
+                    <property name="phone_" type="phone">
+                        <meta>
+                            <title lang="en">Phone</title>
+                        </meta>
+                    </property>
+
+                    <property name="form_" type="single_form_selection">
+                        <meta>
+                            <title lang="uk">Форма</title>
+                            <title lang="en">Form</title>
+                        </meta>
+
+                        <params>
+                            <param name="resourceKey" value="page"/>
+                        </params>
+                    </property>
+
+                    <property name="smart_content_" type="smart_content">
+                        <meta>
+                            <title lang="en">Smart Content</title>
+                        </meta>
+                    </property>
+
+                    <!-- slug for a page -->
+                    <property name="resource_locator_" type="resource_locator">
+                        <meta>
+                            <title lang="en">Resource Locator (slug)</title>
+                        </meta>
+                    </property>
+
+                    <property name="tag_list_" type="tag_selection">
+                        <meta>
+                            <title lang="en">Tags</title>
+                        </meta>
+                    </property>
+
+                    <property name="category_single_" type="single_category_selection">
+                        <meta>
+                            <title lang="en">Single Category</title>
+                        </meta>
+                    </property>
+
+                    <property name="category_list_" type="category_selection">
+                        <meta>
+                            <title lang="en">Categories</title>
+                        </meta>
+                    </property>
+
+                    <property name="contact_" type="contact_selection">
+                        <meta>
+                            <title lang="en">Contacts</title>
+                        </meta>
+                    </property>     
+
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

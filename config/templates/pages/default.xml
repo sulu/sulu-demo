@@ -53,7 +53,7 @@
                 </property>
 
                 <property name="headerImage" type="single_media_selection">
-                    <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/single_media_selection.html -->
+                    <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/media_selection.html -->
                     <meta>
                         <title lang="en">Image</title>
                         <title lang="de">Bild</title>
@@ -61,7 +61,6 @@
 
                     <params>
                         <param name="types" value="image"/>
-
                         <param name="formats" type="collection">
                             <param name="2560x" />
                             <param name="991x" />
@@ -78,7 +77,61 @@
             </meta>
 
             <properties>
-                <!-- @see https://docs.sulu.io/en/2.2/book/templates.html#including-other-templates -->
+                <block name="element" default-type="pages" minOccurs="1" maxOccurs="1">
+                    <meta>
+                        <title lang="en">Elements</title>
+                        <title lang="de">Elemente</title>
+                    </meta>
+
+                    <types>
+                        <type name="pages">
+                            <meta>
+                                <title lang="en">Pages</title>
+                                <title lang="de">Seiten</title>
+                            </meta>
+
+                            <properties>
+                                <property name="pages" type="smart_content">
+                                    <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/smart_content.html -->
+                                    <meta>
+                                        <title lang="en">Pages</title>
+                                        <title lang="de">Seiten</title>
+                                    </meta>
+
+                                    <params>
+                                        <param name="properties" type="collection">
+                                            <param name="headerImage" value="headerImage"/>
+                                            <param name="excerptTitle" value="excerpt.title"/>
+                                            <param name="excerptImages" value="excerpt.images"/>
+                                        </param>
+                                    </params>
+                                </property>
+                            </properties>
+                        </type>
+
+                        <type name="articles">
+                            <meta>
+                                <title lang="en">Articles</title>
+                                <title lang="de">Artikel</title>
+                            </meta>
+
+                            <properties>
+                                <property name="articles" type="smart_content">
+                                    <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/smart_content.html -->
+                                    <meta>
+                                        <title lang="en">Articles</title>
+                                        <title lang="de">Artikel</title>
+                                    </meta>
+
+                                    <params>
+                                        <param name="provider" value="articles"/>
+                                    </params>
+                                </property>
+                            </properties>
+                        </type>
+                    </types>
+                </block>
+                <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
                 <xi:include href="../includes/blocks.xml"
                             xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block)"/>
             </properties>

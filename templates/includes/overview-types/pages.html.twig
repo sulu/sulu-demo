@@ -25,5 +25,10 @@
                 </div>
             </a>
         </div>
+
+    <div class="{{ view.pages.presentAs }}">
+        <h2><a href="{{ sulu_content_path(page.url) }}">{{ page.title }}</a></h2>
+        <p>{{ page.description|raw }}</p>
+    </div>    
     {% endfor %}
 </div>

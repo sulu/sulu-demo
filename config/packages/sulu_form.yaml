@@ -1,0 +1,14 @@
+sulu_form:
+    mail:
+        from: "%env(SULU_ADMIN_EMAIL)%"
+        to: "%env(SULU_ADMIN_EMAIL)%"
+        sender: "%env(SULU_ADMIN_EMAIL)%"        
+        #templates:
+            #notify: 'mails/dynamic-notify.html.twig'
+            #notify_plain_text: 'mails/dynamic-notify-plain-text.html.twig'
+            #customer: 'mails/dynamic-customer.html.twig'
+            #customer_plain_text: 'mails/dynamic-customer-plain-text.html.twig'
+
+framework:
+    esi: ~
+    fragments: ~

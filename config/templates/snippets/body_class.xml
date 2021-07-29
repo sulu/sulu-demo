@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <!-- This is the template for a "snippet_css_code" type snippet. -->
+    <!-- For further information have a look at pages/homepage.xml. -->
+    <key>body_class</key>
+
+    <meta>
+        <title lang="en">body Class</title>
+        <title lang="uk">body Class</title>
+    </meta>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="false">
+            <meta>
+                <title lang="en">Block caption</title>
+                <title lang="uk">Назва блоку</title>
+            </meta>
+            <tag name="sulu.node.name"/>
+            <!--<tag name="sulu.search.field" role="description"/>-->
+        </property>
+
+        <property name="body_class" type="text_line">
+            <meta>
+                <title lang="en">body Class</title>
+                <title lang="uk">body Class</title>
+            </meta>
+        </property>
+    </properties>
+</template>

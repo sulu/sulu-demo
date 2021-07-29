@@ -1,0 +1,86 @@
+{% set customTheme = '' %}
+{% if content.theme_trigger is defined %}
+    {% set customTheme = content.theme_trigger|default('light') ? 'light' : 'dark' %}
+    {% set customThemeParams = content.theme_params|default('0') %}
+{% endif %}
+
+<section class="section section-routers localnav-routers" data-name="routers" data-anim-scroll-group="routers" {% if content.theme_trigger %}data-localnav-theme="{{ customTheme }}" data-end="a0b + {{ customThemeParams }}vh"{% endif %}>
+    <div class="section-main-content">
+        
+        <section class="section section-brandbook-style" data-analytics-section-engagement="name:apple fitness plus | router">
+            <div class="content">
+                <div class="brandbook-style-top">
+                    <div class="tools-icon sketch-icon" data-anim-lazy-image></div>
+                    <div class="tools-icon illustrator-icon" data-anim-lazy-image></div>
+                    <div class="tools-icon photoshop-icon" data-anim-lazy-image></div>
+                </div>
+                {% if content.block_one_title %}
+                <h2 class="brandbook-style-subhead typography-headline bold">
+                    {{ content.block_one_title|raw }}
+                </h2>
+                {% endif %}
+                {% if content.block_one_desc %}
+                <div class="brandbook-style-copy typography-ar-copy">
+                    {{ content.block_one_desc|raw }}
+                </div>
+                {% endif %}
+            </div>
+            <figure class="image-brandbook-style" data-anim-lazy-image></figure>
+        </section>
+        <section class="section section-router-fitness-plus" data-analytics-section-engagement="name:apple fitness plus | router">
+            <div class="content">
+                <div class="fitness-plus-top">
+                    {# <h2> #}
+                    {#     <span class="visuallyhidden">Netexy Studio</span> #}
+                    {#     <figure class="image-router-fitness-plus-logo" data-anim-lazy-image></figure> #}
+                    {# </h2> #}
+                    <div class="tools-icon sketch-icon" data-anim-lazy-image></div>
+                    <div class="tools-icon xd-icon" data-anim-lazy-image></div>
+                    <div class="tools-icon ae-icon" data-anim-lazy-image></div>
+                    <div class="tools-icon illustrator-icon" data-anim-lazy-image></div>
+                    <div class="tools-icon photoshop-icon" data-anim-lazy-image></div>
+                </div>
+                {% if content.block_two_title %}
+                <h2 class="router-fitness-plus-subhead typography-headline bold">
+                    {{ content.block_two_title|raw }}
+                </h2>
+                {% endif %}
+                {% if content.block_two_desc %}
+                <div class="router-fitness-plus-copy typography-ar-copy">
+                    {{ content.block_two_desc|raw }}
+                </div>
+                {% endif %}
+            </div>
+            <figure class="image-router-fitness-plus" data-anim-lazy-image></figure>
+        </section>
+        
+        <div class="tile tile-configure configure-strip" data-analytics-section-engagement="name:netexy studio msg">
+            <div class="tile-wrapper">
+                <div class="copy-wrap">
+                    {% if content.create_style_title %}
+                    <h2 class="typography-eyebrow-elevated eyebrow">{{ content.create_style_title|raw }}</h2>
+                    {% endif %}
+                    {% if content.create_style_msg %}
+                    <p>
+                        <span class="typography-headline headline">{{ content.create_style_msg|raw }}</span>
+                    </p>
+                    {% endif %}
+                </div>
+                <div class="configure-cta-container">
+                    {% if content.create_style_link %}
+                    <a href="{{ content.create_style_link|raw }}" class="configure-cta cta-series-6" data-analytics-title="netexy create your style">
+                        {% if content.create_style_text %}
+                        <span>{{ content.create_style_text|raw }}</span>
+                        {% endif %}
+                    </a>
+                    {% endif %}
+                </div>
+                {#  <div class="section-configure-wrapper" role="list"> #}
+                {#      <figure class="configure-item-bands" data-anim-classname-1='{"start":"1vh + t - 150h","breakpointMask":"L", "cssClass":"slidein", "disabledWhen":["static-layout", "prefers-reduced-motion"]}' data-anim-classname-2='{"start":"-24vh + t - 150h","breakpointMask":"M", "cssClass":"slidein", "disabledWhen":["static-layout", "prefers-reduced-motion"]}' data-anim-classname-3='{"start":"-30vh + t - 150h","breakpointMask":"S", "cssClass":"slidein", "disabledWhen":["static-layout", "prefers-reduced-motion"]}'> #}
+                {#          <figure class="configure-item-case"></figure> #}
+                {#      </figure> #}
+                {#  </div> #}
+            </div>
+        </div>
+    </div>
+</section>

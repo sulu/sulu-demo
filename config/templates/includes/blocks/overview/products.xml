@@ -1,0 +1,98 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="products">
+        <types>
+            <type name="products">
+                <meta>
+                    <title lang="en">Products Block</title>
+                    <title lang="uk">Products Block</title>
+                </meta>
+
+                <properties>
+
+                        <property name="title_1" type="text_line">
+                            <meta>
+                                <title lang="en">Title</title>
+                                <title lang="uk">Заголовок</title>
+                            </meta>
+                        </property>
+                        
+                        <property name="description_1" type="text_area">
+                            <meta>
+                                <title lang="en">Description</title>
+                                <title lang="uk">Опис</title>
+                            </meta>
+                            <params>
+                                <param name="max_characters" value="200"/>
+                            </params>
+                        </property>
+
+                        <property name="title_2" type="text_line">
+                            <meta>
+                                <title lang="en">Title</title>
+                                <title lang="uk">Заголовок</title>
+                            </meta>
+                        </property>
+                        
+                        <property name="description_2" type="text_area">
+                            <meta>
+                                <title lang="en">Description</title>
+                                <title lang="uk">Опис</title>
+                            </meta>
+                            <params>
+                                <param name="max_characters" value="200"/>
+                            </params>
+                        </property>
+
+                        <property name="title_3" type="text_line">
+                            <meta>
+                                <title lang="en">Title</title>
+                                <title lang="uk">Заголовок</title>
+                            </meta>
+                        </property>
+                        
+                        <property name="description_3" type="text_area">
+                            <meta>
+                                <title lang="en">Description</title>
+                                <title lang="uk">Опис</title>
+                            </meta>
+                            <params>
+                                <param name="max_characters" value="200"/>
+                            </params>
+                        </property>
+                    
+                        <property name="images_available" type="checkbox">
+                            <meta>
+                                <title lang="en">Images</title>
+                                <title lang="uk">Зображення</title>
+                            </meta>
+                            <params>
+                                <param name="type" value="toggler"/>
+                                <param name="default_value" value="false"/>
+                            </params>
+                        </property>  
+                    
+                        <property name="gradient_available" type="checkbox">
+                            <meta>
+                                <title lang="en">Blocks Gradient</title>
+                                <title lang="uk">Градієнт блоків</title>
+                            </meta>
+                            <params>
+                                <param name="type" value="toggler"/>
+                                <param name="default_value" value="false"/>
+                            </params>
+                        </property>  
+
+                        <property name="class" type="text_line">
+                            <meta>
+                                <title lang="en">CSS Class</title>
+                                <title lang="uk">CSS Class</title>
+                            </meta>
+                        </property>
+
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

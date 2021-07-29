@@ -1,0 +1,139 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <block name="blocks" default-type="default">
+        <meta>
+            <title lang="en">Nested Blocks</title>
+            <title lang="uk">Вкладені блоки</title>
+            <title lang="ru">Вложенные блоки</title>
+        </meta>
+        <types>
+            <type name="nested">
+                <meta>
+                    <title lang="en">Nesteds</title>
+                    <title lang="uk">Вкладені</title>
+                    <title lang="ru">Вложенные</title>
+                </meta>
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Title</title>
+                            <title lang="en">Заголовок</title>
+                            <title lang="en">Заголовок</title>
+                        </meta>
+                    </property>
+
+                    <block name="subblocks" default-type="editor" minOccurs="0">
+                        <meta>
+                            <title lang="en">Sub Blocks</title>
+                            <title lang="uk">Підблоки</title>
+                            <title lang="ru">Подблоки</title>
+                        </meta>
+                        <types>
+                            <type name="editor">
+                                <meta>
+                                    <title lang="en">Editor</title>
+                                    <title lang="uk">Редактор</title>
+                                    <title lang="ru">Редактор</title>
+                                </meta>
+                                <properties>
+                                    <property name="text_editor" type="text_editor">
+                                        <meta>
+                                            <title lang="en">Text Editor</title>
+                                            <title lang="uk">Текстовий редактор</title>
+                                            <title lang="ru">Текстовый редактор</title>
+                                        </meta>
+                                    </property>
+                                </properties>
+                            </type>
+                            <type name="media">
+                                <meta>
+                                    <title lang="en">Media</title>
+                                    <title lang="uk">Медіафайли</title>
+                                    <title lang="ru">Медиа файлы</title>
+                                </meta>
+                                <properties>
+                                    <property name="media_selection" type="media_selection">
+                                        <meta>
+                                            <title lang="en">Media selection</title>
+                                            <title lang="uk">Вибір медіафайлів</title>
+                                            <title lang="ru">Выбор медиафайлов</title>
+                                        </meta>
+                                    </property>
+                                </properties>
+                            </type>
+                            <type name="data">
+                                <meta>
+                                    <title lang="en">Data</title>
+                                    <title lang="uk">Дані</title>
+                                    <title lang="ru">Данные</title>
+                                </meta>
+                                <properties>
+                                    <property name="title" type="text_line" colspan="12">
+                                        <meta>
+                                            <title lang="en">Title</title>
+                                            <title lang="uk">Заголовок</title>
+                                            <title lang="ru">Заголовок</title>
+                                        </meta>
+                                        <params>
+                                            <param name="max_characters" value="30"/>
+                                         </params>
+                                                
+                                        <tag name="sulu.block_preview" priority="512"/>
+                                    </property>
+                                    <property name="description" type="text_editor" colspan="12">
+                                        <meta>
+                                            <title lang="en">Description</title>
+                                            <title lang="uk">Опис</title>
+                                            <title lang="ru">Описание</title>
+                                        </meta>
+                                        <params>
+                                            <param name="max_characters" value="250"/>
+                                        </params>
+                                                
+                                        <tag name="sulu.block_preview" priority="512"/>
+                                    </property>
+                                    <section name="organizationalImage">
+                                        <properties>
+                                            <property name="image_nested" type="single_media_selection" colspan="4">
+                                                <meta>
+                                                    <title lang="en">Image</title>
+                                                    <title lang="uk">Зображення</title>
+                                                    <title lang="ru">Изображение</title>
+                                                </meta>
+
+                                                <tag name="sulu.block_preview" priority="512"/>
+                                            </property>
+                                        </properties>
+                                    </section>
+                                    <section name="organizationalLink">
+                                        <properties>
+                                            <property name="link_nested" type="single_page_selection" mandatory="true" colspan="5">
+                                                <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/single_page_selection.html -->
+                                                <meta>
+                                                    <title lang="en">Page Link</title>
+                                                    <title lang="uk">Посилання</title>
+                                                    <title lang="ru">Ссылка</title>
+                                                </meta>
+                                            </property>
+
+                                            <property name="text_nested" type="text_line" colspan="7">
+                                                <meta>
+                                                    <title lang="en">Text Link</title>
+                                                    <title lang="uk">Текст посилання</title>
+                                                    <title lang="ru">Текст ссылки</title>
+                                                </meta>
+                                                
+                                                <tag name="sulu.block_preview" priority="512"/>
+                                            </property>
+                                        </properties>
+                                    </section>
+                                </properties>
+                            </type>
+                        </types>
+                    </block>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

@@ -1,0 +1,25 @@
+{% import '../../helpers.html.twig' as helpers %}
+{% set propertyName = propertyName|default('blocks') %}
+
+{% set customClass = '' %}
+{% if block.custom_class is defined %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+{% if block.slide_images|length %}
+    <div class="row">
+        <div class="col-xs-12">
+            {% include('../slider.html.twig') with {
+                'slides': block.slide_images,
+                'options': {
+                    'show_arrows' : block.show_arrows|default(false) ? 'true' : 'false',
+                    'pagination' : block.pagination|default(false) ? 'true' : 'false',
+                    'autoplay' : block.autoplay ? 'true' : 'false',
+                    'speed' : block.speed|default('5000'),
+                    'customClass' : customClass,
+                    'blockId': blockId,
+                }
+            } %}
+        </div>
+    </div>
+{% endif %}

@@ -1,0 +1,48 @@
+<div class="main-gradient-holder">
+    <div class="main-gradient"></div>
+</div>
+<section class="section section-hero" data-analytics-section-engagement="name:hero">
+    <div class="section-content">
+        <h1 class="typography-overview-hero-headline">
+            <div class="lock-animation" data-component-list="SequencePlayer"></div> Статті Netexy Studio
+        </h1>
+        <div class="typography-overview-hero-intro hero-intro">
+            <p>Тут ми розповідаємо про цікаві продукти, технології та рішення з якими працюємо. Також публікуємо цікаві новини з Netexy Space.</p>
+        </div>
+        <div class="hero-gradient"></div>
+    </div>
+</section>
+{# <section class="section section-aditl" data-analytics-section-engagement="name:your data your choice"> #}
+{#    <div class="aditl-section-content"> #}
+{#        <div class="aditl-card"> #}
+{#            <h2 class="typography-aditl-headline">Your data. <br class="small" />Your choice.</h2> #}
+{#            <div class="large-6 medium-9 small-12 typography-overview-feature-copy large-centered small-uncentered"> #}
+{#                <p>Starting in early 2021, you get greater control over how apps track you. Learn about the practices of the data collection industry to see what having more choice means for you.</p> #}
+{#            </div> #}
+{#            <a href="#!" data-analytics-title="view a day in the life of your data" aria-label="View A Day in the Life of Your Data (PDF)" class="icon-wrapper aditl-link-outlined"><span class="icon-copy">Переглянути презентацію (PDF)</span></a> #}
+{#         </div> #}
+{#     </div> #}
+{# </section> #}
+<div class="section-content" data-analytics-section-engagement="name:subheader">
+    <h2 class="typography-overview-features-subheader features-subheader">Everyday Solutions. <br>Design and Development for your business.</h2>
+</div>
+
+{% if content.blocks|default([])|length %}
+    {% for block in content.blocks %}
+        {% include 'includes/blocks/privacy/' ~ block.type ~ '.html.twig' with {
+            content: block,
+            view: view.blocks[loop.index0],
+        } only %}
+    {% endfor %}
+{% endif %}
+
+{# <section class="section section-router typography-router-copy" data-analytics-section-engagement="name:router"> #}
+{#     <div class="section-content"> #}
+{#         <figure class="router-image"></figure> #}
+{#         <h2 class="typography-router-headline">Learn more about privacy at Netexy Studio.</h2> #}
+{#         <ul class="links-stacked"> #}
+{#             <li><a href="/privacy/features/" data-analytics-title="Review privacy features" aria-label="Review privacy features" class="icon-wrapper"><span class="icon-copy">Review privacy features</span><span class="icon icon-after more"></span></a></li> #}
+{#             <li><a href="/privacy/control/" data-analytics-title="Control what you share" aria-label="Control what you share" class="icon-wrapper"><span class="icon-copy">Control what you share</span><span class="icon icon-after more"></span></a></li> #}
+{#         </ul> #}
+{#     </div> #}
+{# </section> #}

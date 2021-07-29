@@ -1,0 +1,244 @@
+
+{% set customClass = '' %}
+{% if custom_class is defined %}
+    {% set customClass = custom_class|default('') %}
+{% endif %}
+
+
+
+    {% set block = content %}
+
+ <!-- This is the modal -->
+
+                  <div class="row center-xsmall">
+                      {% if display_heading|default(true) %}
+                          <div class="xsmall-12">
+                              {% set heading = {
+                                  'title': title|default(),
+                                  'heading_level': 2,
+                              } %}
+                          </div>
+                      {% endif %}
+
+                      {% if app.request.get('send') == 'true' %}
+                          <script>
+                              document.onreadystatechange = function () {
+                                  if (document.readyState === 'complete') {
+                                      new Noty({
+                                          theme: 'sunset',
+                                          text: ' {{ view.form.entity.successText|trim|raw }}  ',
+                                          type: 'success',
+                                          container: '.ac-ln-wrapper',
+                                          timeout: 0
+                                          //timeout: 5000
+                                      }).show();
+                                  }
+                              };
+                          </script>
+                      {% endif %}
+                      {% set submit = null %}
+
+
+                      {% form_theme block.form '@SuluForm/themes/dynamic.html.twig' %}
+                      {{ form_start(block.form, {'attr': {'class': 'xsmall-10 small-9 medium-7 large-6 xlarge-5 '}}) }}
+                      
+                      <div class="xsmall-12">
+                      {% for name, content in block.form %}
+                          {% set widget = attribute(block.form, name) %}
+                          {% if
+                              (('hidden' not in widget.vars.block_prefixes)
+                              and ('submit' not in widget.vars.block_prefixes))
+                              or 'freeText' == widget.vars.attr.type|default() %}
+                              {% if 'freeText' == widget.vars.attr.type|default() %}
+                                  <div class="row">
+                                      <div class="input-field xsmall-12">
+                                          {{ form_row(widget) }}
+                                      </div>
+                                  </div>
+                              {% elseif 'textarea' in content.vars.block_prefixes %}
+                                  <div class="row">
+                                      <div class="input-field xsmall-12">
+                                          {{ form_widget(widget, {'attr': {'class': 'materialize-textarea validate'}}) }}
+                                          {{ form_label(widget, null, {'label_attr': {'class': 'active'} }) }}
+                                          <div class="form-errors">
+                                              {{ form_errors(widget) }}
+                                          </div>
+                                      </div>
+                                  </div>
+                              {% elseif 'date' in content.vars.block_prefixes %}
+                                  <div class="row">
+                                      <div class="input-field xsmall-12 center">
+                                          <div>
+                                              <span>
+                                                  {{ form_label(widget) }}
+                                              </span>
+
+
+                                              {% for child in widget.children %}
+                                                  <div>
+                                                      {% if child.vars.name == 'day' %}
+                                                          {% set _ph = 'day_placeholder' %}
+                                                      {% elseif child.vars.name == 'month' %}
+                                                          {% set _ph = 'month_placeholder' %}
+                                                      {% elseif child.vars.name == 'year' %}
+                                                          {% set _ph = 'year_placeholder' %}
+                                                      {% else %}
+                                                          {% set _ph = 'select_placeholder' %}
+                                                      {% endif %}
+
+                                                      {{ form_widget(child, {'attr': {'class': 'validate'}, 'placeholder': _ph|trans}) }}
+                                                  </div>
+                                              {% endfor %}
+
+                                              <div class="form-errors">
+                                                  {{ form_errors(widget) }}
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              {% elseif 'choice' in content.vars.block_prefixes %}
+                                  <div class="row">
+                                      <div class="input-field xsmall-12">
+                                          {% if widget.children|length %}
+                                              <div class="pad-xs-y">
+                                                  {{ form_label(widget, null, {'label_attr': {'class': 'pos-rel display-block'}}) }}
+                                              </div>
+                                              {% for child in widget.children %}
+                                                  <div class="pad-xs-x">
+                                                      <label>
+                                                          {{ form_widget(child, {'attr': {'class': 'validate'}}) }}
+                                                          <span>
+                                                              {{ form_label(child) }}
+                                                          </span>
+                                                          <div class="form-errors">
+                                                              {{ form_errors(child) }}
+                                                          </div>
+                                                      </label>
+                                                  </div>
+                                              {% endfor %}
+                                          {% else %}
+                                              <div class="row">
+                                                  <div class="input-field xsmall-12">
+                                                      {% if not content.vars.multiple %}
+                                                          {{ form_widget(widget, {'attr': {'class': 'validate'}, 'placeholder': 'select_placeholder'|trans}) }}
+                                                      {% else %}
+                                                          {{ form_widget(widget, {'attr': {'class': 'validate'}}) }}
+                                                      {% endif %}
+                                                      {{ form_label(widget) }}
+                                                      <div class="form-errors">
+                                                          {{ form_errors(widget) }}
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          {% endif %}
+                                      </div>
+                                  </div>
+                              {% elseif 'file' in content.vars.block_prefixes %}
+                                  <div class="file-field input-field xsmall-12">
+                                      <div class="button button--light btn">
+                                          <span>
+                                              {{ form_label(widget) }}
+                                          </span>
+                                          {{ form_widget(widget, {'attr': {'class': ''}}) }}
+                                      </div>
+                                      <div class="file-path-wrapper">
+                                          <input class="file-path validate" type="text" placeholder="{{ 'file_upload_btn'|trans }}">
+                                      </div>
+                                      <div class="row pad-xs">
+                                          <div class="form-errors">
+                                              {{ form_errors(widget) }}
+                                          </div>
+                                      </div>
+                                  </div>
+                              {% elseif '_dynamic_form_phone' in content.vars.block_prefixes %}
+                                  <div class="row">
+                                      <div class="input-field xsmall-12">
+                                          {{ form_widget(widget, {'type': 'tel', 'attr': {'class': 'validate'}}) }}
+                                          {{ form_label(widget) }}
+                                          <div class="form-errors">
+                                              {{ form_errors(widget) }}
+                                          </div>
+                                      </div>
+                                  </div>
+                              {% elseif 'text' in content.vars.block_prefixes %}
+                                  <div class="row">
+                                      <div class="input-field xsmall-12 center">
+                                          {{ form_widget(widget, {'attr': {'class': 'validate'}}) }}
+                                          {{ form_label(widget) }}
+                                          <div class="form-errors">
+                                              {{ form_errors(widget) }}
+                                          </div>
+                                      </div>
+                                  </div>
+                              {% elseif 'checkbox' in content.vars.block_prefixes %}
+                                    {% if widget.children|length %}
+                                            {% for child in widget.children %}
+                                                <div class="row">
+                                                    <div class="input-field xsmall-12">
+                                                        <span>
+                                                            {{ form_label(widget) }}
+                                                        </span>
+                                                        {{ form_widget(widget, {'attr': {'class': 'validate'}}) }}
+                                                        <div class="form-errors">
+                                                            {{ form_errors(widget) }}
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                              {% endfor %}
+                                          {% else %}
+                                              <div class="row">
+                                                  <div class="input-field xsmall-12">
+                                                      <span class="display-block">
+                                                          {{ form_label(widget) }}
+                                                      </span>
+                                                      <div class="switch">
+                                                          <label>
+                                                              {{ 'toogle_off'|trans }}
+                                                              {{ form_widget(widget, {'attr': {'class': 'checkbox'}}) }}
+                                                              <span class="lever"></span>
+                                                              {{ 'toogle_on'|trans }}
+                                                          </label>
+                                                      </div>    
+                                                  </div>
+                                              </div>
+                                        {% endif %} 
+                              {% else %}
+                                  {{ form_row(widget) }}
+                              {% endif %}
+                          {% elseif 'submit' in content.vars.block_prefixes %}
+                              {% set submit = widget %}
+                          {% else %}
+                              {% if '_dynamic_form_headline' in content.vars.block_prefixes %}
+                                  <div class="row">
+                                      <div class="input-field xsmall-12">
+                                          {{ form_row(widget) }}
+                                      </div>
+                                  </div>
+                              {% elseif '_dynamic_form_spacer' in content.vars.block_prefixes %}
+                                  <div class="row">
+                                      <div class="input-field xsmall-12">
+                                          {{ form_row(widget) }}
+                                          <hr>
+                                      </div>
+                                  </div>
+                              {#{% elseif 'hidden' in content.vars.block_prefixes %}#}
+                                  {#{{ form_row(widget) }}#}
+                              {% else %}
+                                  {{ form_row(widget) }}
+                                  {#{{ dump(content.vars.block_prefixes) }}#}
+                              {% endif %}
+                          {% endif %}
+                      {% endfor %}
+
+                      {% if submit %}
+                          <div class="row">
+                              <div class="xsmall-12">
+                                {{ form_widget(submit,  {'label': 'send'|trans, 'icon': 'send', 'attr': {'class': 'button button--future'}}) }}
+                              </div>
+                          </div>
+                      {% endif %}
+                      {{ form_end(block.form) }}
+                      </div>
+                  </div>
+ 
+{# {{ dump(content)  }} #}

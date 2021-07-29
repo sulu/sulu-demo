@@ -1,0 +1,67 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <block name="element" default-type="pages" minOccurs="1" maxOccurs="1">
+        <meta>
+        <title lang="en">Elements</title>
+        <title lang="uk">Елементи</title>
+        </meta>
+
+        <types>
+            <type name="pages">
+                <meta>
+                    <title lang="en">Pages</title>
+                    <title lang="uk">Сторінки</title>
+                </meta>
+
+                <properties>
+                    <property name="pages" type="smart_content">
+                        <!-- @see https://docs.sulu.io/en/2.1/reference/content-types/smart_content.html -->
+                        <meta>
+                            <title lang="en">Pages</title>
+                            <title lang="uk">Сторінки</title>
+                        </meta>
+
+                        <params>
+                            <param name="properties" type="collection">
+                            <param name="headerImage" value="headerImage" />
+                            <param name="excerptTitle" value="excerpt.title" />
+                            <param name="excerptImages" value="excerpt.images" />
+                            </param>
+                        </params>
+                    </property>
+                </properties>
+            </type>
+
+            <type name="articles">
+                <meta>
+                    <title lang="en">Articles</title>
+                    <title lang="uk">Статті</title>
+                </meta>
+
+                <properties>
+                    <property name="articles" type="smart_content">
+                        <!-- @see https://docs.sulu.io/en/2.1/reference/content-types/smart_content.html -->
+                        <meta>
+                            <title lang="en">Articles</title>
+                            <title lang="uk">Статті</title>
+                        </meta>
+
+                        <params>
+                            <param name="provider" value="articles"/>
+                            <param name="max_per_page" value="12"/>
+                            <param name="page_parameter" value="p"/>
+                            <param name="excerptTitle" value="excerpt.title"/>
+                            <param name="excerptTags" value="excerpt.tags"/>
+                            <param name="excerptCategories" value="excerpt.categories"/>
+                            <param name="excerptImages" value="excerpt.images"/>
+                            <param name="excerptDescription" value="excerpt.description"/>
+                        </params>
+                    </property>
+                    
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

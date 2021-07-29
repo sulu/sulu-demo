@@ -1,0 +1,55 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+<block name="blocks" default-type="text" minOccurs="0">
+    <meta>
+        <title lang="en">Content</title>
+        <title lang="de">Inhalt</title>
+    </meta>
+    <types>
+        <type name="text">
+            <meta>
+                <title lang="en">Text</title>
+                <title lang="de">Text</title>
+            </meta>
+            <properties>
+                <property name="title" type="text_line">
+                    <meta>
+                        <title lang="en">Title</title>
+                        <title lang="de">Titel</title>
+                    </meta>
+                </property>
+                <property name="description" type="text_editor">
+                    <meta>
+                        <title lang="en">Description</title>
+                        <title lang="de">Beschreibung</title>
+                    </meta>
+                </property>
+            </properties>
+        </type>
+        <type name="gallery">
+            <meta>
+                <title lang="en">Gallery</title>
+                <title lang="en">Gallery</title>
+            </meta>
+            <properties>
+                <property name="title" type="text_line">
+                    <meta>
+                        <title lang="en">Title</title>
+                        <title lang="de">Titel</title>
+                    </meta>
+                </property>
+                <property name="images" type="media_selection">
+                    <meta>
+                        <title lang="en">Images</title>
+                        <title lang="en">Bilder</title>
+                    </meta>
+                    <params>
+                        <param name="types" value="image"/>
+                    </params>
+                </property>
+            </properties>
+        </type>
+    </types>
+</block>
+</properties>

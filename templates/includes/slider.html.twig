@@ -1,0 +1,138 @@
+{% set videoTypes = {
+    'flv' : 'video/x-flv',
+    'mp4' : 'video/mp4',
+    'm3u8': 'application/x-mpegURL',
+    'ts	' : 'video/MP2T',
+    '3gp' : 'video/3gpp',
+    'mov' : 'video/quicktime',
+    'avi' : 'video/x-msvideo',
+    'wmv' : 'video/x-ms-wmv'
+} %}
+
+{% if slides|length %}
+    <style>
+        {% for slide in slides if slide.id is not null or slide.mediaId is not null %}
+        {% set entityId = blockId ~ '_' ~ slide.id %}
+        {% set mediaId = slide.mediaId|default(slide.id) %}
+        {% set image = sulu_resolve_media(mediaId, context.request.locale) %}
+        {% set imageMeta = image.fileVersion|default() ? image.fileVersion.defaultMeta : [] %}
+
+        {% set description = slide.description|default(imageMeta.description|default('')) %}
+
+        {% set defaultImageSM = asset(image.thumbnails['600x343']|default()) %}
+        {% set defaultImageLG = asset(image.thumbnails['1280x658']|default()) %}
+        {% if image is not empty %}
+        .home .mega .slide-{{ entityId }} {
+            background-image: url('{{ defaultImageSM }}');
+        }
+
+        @media screen and (min-width: 768px) {
+            .home .mega .slide-{{ entityId }} {
+                background-image: url('{{ defaultImageLG }}');
+            }
+        }
+
+        {% if description is not empty %}
+        /*
+        .slide-{{ entityId }} .slide__heading:before {
+            content: '{{ description }}';
+        }
+        */
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+    </style>
+
+    <div class="home ntx-slider {{ customClass }}">
+        <div class="content wrapper main-wrapper">
+            <section class="mega">
+                <div class="nl-gallery ready"
+                     data-paused="true"
+                     data-arrows="{{ options.show_arrows }}"
+                     data-pagination="{{ options.pagination }}"
+                     data-auto="{{ options.autoplay }}"
+                        {% if options.speed %}
+                            data-speed="{{ options.speed }}"
+                        {% endif %}
+                     data-transition-style="crossfade"
+                     style="-webkit-user-select: none; -webkit-user-drag: none;">
+                    {% if block.snippet_data|length %}
+                      {% for snippet in block.snippet_data %}
+                      <!-- snippet "{{ snippet.title|default('<unnamed snippet>') }}" begin -->
+                        {% if snippet.content|default('') %}
+                        {{ snippet.content|raw }}
+                        {% endif %}
+                      <!-- snippet "{{ snippet.title|default('<unnamed snippet>') }}" end -->
+                      {% endfor %}
+                    {% endif %}                
+                    <ul class="nl-slides">
+                        {% for slide in slides if slide.id is not null or slide.mediaId is not null or slide.description is not null %}
+                            {% set entityId = blockId ~ '_' ~ slide.id %}
+                            {% set mediaId = slide.mediaId|default(slide.id) %}
+                            {% set current = loop.first ? 'current' : '' %}
+                            {% set image = sulu_resolve_media(mediaId, context.request.locale) %}
+                            {% set description = slide.description|default(imageMeta.description|default('')) %}
+
+                            {# slide options parsing #}
+                            {% set _parts = slide.moreText|default('')|split(';;;') %}
+                            {% set moreText = _parts[0] %}
+                            {% set _unparsed = _parts[0] %}
+                            {% if _parts|length > 1 %}
+                                {% set _unparsed = _parts[1] %}
+                            {% endif %}
+                            {% set slideOptions = _unparsed|default('[]')|json_decode() %}
+                            {# /end slide options parsing #}
+
+                            {% set isYoutubeVideo = slideOptions.type|default() == 'youtube' %}
+
+                            {#{{ dump(slideOptions, _unparsed) }}#}
+                            {% if image is empty %}
+                                {% if isYoutubeVideo %}
+                                    <li class="slider slide-{{ entityId }} {{ current }} video-container center">
+                                        {{ description|raw }}
+                                    </li>
+                                {% endif %}
+                            {% else %}
+                                {% set imageMeta = image.fileVersion|default() ? image.fileVersion.defaultMeta : [] %}
+                                {% set url = slide.url is same as(image.url) ? '' : slide.url %}
+                                {% set url = "/"~context.request.locale ~
+                                    url %}
+                                {#{% set url = context.request.locale %}#}
+
+                                {% set ext = image.url|split('.')|last|split('?')|first %}
+                                <li class="slider slide-{{ entityId }} {{ current }}">  
+                                    {% if ext in videoTypes|keys %}
+                                        {# 640 : 329 #}
+                                        {# or #}
+                                        {# 600 : 343 #}
+                                        {# = #}
+                                        {# 1/2 #}
+                                        <video src="{{ image.url }}" class="slide__video js-slider__video" playsinline autoplay preload muted onplaying="this.controls=false" loop poster="/media/490/download/netexy-bg-style.jpg?v=1&inline=1"> Your browser does not support the video tag. </video>
+                                    {% endif %}
+                                    {% if description is not empty %}
+                                        <div class="row middle-xs slide__inner">
+                                            <article class="row center-xs">
+                                                <div class="col-xs-11 col-sm-10 col-md-9 col-lg-9 col-xl-8">
+                                                    <div class="center">
+                                                        <h1 class="slide__heading">{{ description|raw|striptags('<br><hr>') }}</h1>
+                                                        {% if url|length %}
+                                                            <a href="{{ url }}"
+                                                               class="button button--future slide__button">
+                                                                {{ moreText|default('more'|trans) }}
+                                                            </a>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </article>
+                                        </div>
+                                    {% endif %}
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endif %}

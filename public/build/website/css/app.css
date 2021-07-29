@@ -1,0 +1,42 @@
+/* 
+// Fixed Viewport M0bile Safari 
+*/
+
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+html {
+  height: -webkit-fill-available;
+}
+
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait) {
+    .foo {                           
+        height: 1024px;                         
+    }                       
+}   
+                                            
+/* iPad landscape. */                       
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape) {                         
+    .foo {                           
+        height: 768px;                         
+    }                       
+}
+                                               
+/* iPhone 5 
+You can also target devices with aspect ratio. */                       
+@media screen and (device-aspect-ratio: 40/71) {                              
+    .foo {                           
+        height: 500px;                         
+    }                       
+}
+
+img, iframe {
+  max-width: 100%;
+  display: block;
+}
+
+img, embed, object, video {
+  max-width: 100%;
+}

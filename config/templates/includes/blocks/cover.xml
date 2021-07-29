@@ -1,0 +1,57 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="media">
+        <types>
+            <type name="cover">
+                <meta>
+                    <title lang="en">Cover Image</title>
+                    <title lang="uk">Зображення та відео</title>
+                </meta>
+
+                <properties>
+
+                <property name="imageCover" type="single_media_selection">
+                    @see https://docs.sulu.io/en/2.2/reference/content-types/single_media_selection.html
+                    <meta>
+                        <title lang="en">Image</title>
+                        <title lang="de">Bild</title>
+                    </meta>
+
+                    <params>
+                        <param name="types" value="image"/>
+
+                         <param name="formats" type="collection">
+                            <param name="2560x" />
+                            <param name="991x" />
+                        </param>
+                    </params>
+                </property>              
+                <property name="videos" type="media_selection">
+                    <meta>
+                        <title lang="en">Video</title>
+                    </meta>
+
+                    <params>
+                        <!--<param name="type" value="document,image,video,audio"/>-->
+                        <param name="type" value="video"/>
+                        
+                        <param name="displayOptions" type="collection">
+                            <param name="leftTop" value="true"/>
+                            <param name="top" value="true"/>
+                            <param name="rightTop" value="true"/>
+                            <param name="left" value="true"/>
+                            <param name="middle" value="false"/>
+                            <param name="right" value="true"/>
+                            <param name="leftBottom" value="true"/>
+                            <param name="bottom" value="true"/>
+                            <param name="rightBottom" value="true"/>
+                        </param>
+                        <param name="defaultDisplayOption" value="left"/>
+                    </params>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

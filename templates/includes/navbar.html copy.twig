@@ -1,0 +1,38 @@
+<nav class="navbar" id="{{ register_component('window-scroll') }}">
+    {# @see https://docs.sulu.io/en/2.1/reference/twig-extensions/functions/sulu_content_root_path.html #}
+    <a href="{{ sulu_content_root_path() }}" class="navbar__logo">
+        <img src="{{ asset('website/images/logo.svg') }}" alt="Sulu.rocks" class="navbar__logo-image"/>
+    </a>
+
+    <div class="navbar__navigation">
+        <div class="navbar__links" id="navigation">
+            {# @see https://docs.sulu.io/en/2.1/reference/twig-extensions/functions/sulu_navigation_root_flat.html #}
+            {% for item in sulu_navigation_root_flat('main', 1, true) %}
+                {# @see https://docs.sulu.io/en/2.1/reference/twig-extensions/functions/sulu_content_path.html #}
+                {% set itemUrl = sulu_content_path(item.url) %}
+                <a href="{{ itemUrl }}"
+                   title="{{ item.title }}"
+                   {# open external links as target blank and set noopener #}
+                   {% if item.nodeType == 4 %}target="_blank" rel="noopener"{% endif %}
+                   class="navbar__item{{ app.request.uri starts with itemUrl ? ' navbar__item--active' : '' }}">
+                    {# fallback to content title when excerpt title not set #}
+                    {{ item.excerpt.title|default(item.title) }}
+                </a>
+            {% endfor %}
+        </div>
+
+        <div class="navbar__locales">
+            {% for localization in localizations %}
+                <a href="{{ localization.url }}"
+                   title="{{ localization.locale }}"
+                   class="navbar__item navbar__item--locale{{ localization.locale == app.request.locale ? ' navbar__item--active' : '' }}">
+                    {{ localization.locale|upper }}
+                </a>
+            {% endfor %}
+        </div>
+
+        <button id="{{ register_component('navigation-toggler', {
+            navigation: '#navigation'
+        }) }}" class="navbar__toggler icon icon--menu"></button>
+    </div>
+</nav>

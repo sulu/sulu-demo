@@ -1,0 +1,325 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: services.yml }
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: uk
+    # Sulu overridden classes
+    sulu_content.extension.seo.class: AppBundle\Content\Structure\SeoStructureExtension
+    sulu_media.file_validator.class: Sulu\Bundle\MediaBundle\Media\FileValidator\FileValidator
+
+framework:
+    esi:             ~
+    translator: { fallbacks: ["%locale%"] }
+    secret: "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/%sulu.context%/routing_%kernel.environment%.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    #serializer:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+        #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    session:
+        handler_id: session.handler.native_file
+        save_path: "%kernel.var_dir%/sessions/%sulu.context%/%kernel.environment%"
+    fragments:       ~
+    http_method_override: true
+    # Sulu Form Bundle
+    esi: ~
+    fragments: ~
+
+#    profiler: { only_exceptions: false }
+#
+#web_profiler:
+#    toolbar: true
+#    intercept_redirects: false
+
+# LIIP Theme Configuration
+#liip_theme:
+#    themes: ["default"]
+#    active_theme: "default"
+#    load_controllers: false
+#    assetic_integration: true
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+#    form_themes:
+#        - '@App/themes/contact.html.twig'
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   "%database_driver%"
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+        server_version: "%database_version%"
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+
+# DoctrineCache Configuration
+doctrine_cache:
+    providers:
+        phpcr_meta:
+            type: "%phpcr_cache%"
+        phpcr_nodes:
+            type: "%phpcr_cache%"
+
+# Swiftmailer Configuration 
+swiftmailer:
+    transport:  "%mailer_transport%"
+    auth_mode:  login
+    host:       "%mailer_host%"
+    encryption: "%mailer_encryption%"
+    port:       "%mailer_port%"
+    username:   "%mailer_user%"
+    password:   "%mailer_password%"
+    spool:      { type: memory }
+
+#    mailer_transport: smtp
+#        mailer_auth_mode: login
+#        mailer_encryption: ssl
+#        mailer_host: ssl0.ovh.net
+#        mailer_port: 465
+#        mailer_user: votre-email@votre-domaine.com
+#        mailer_password: mot-de-passe
+
+# MassiveSearch Configuration
+massive_search:
+    adapters:
+        zend_lucene:
+            basepath: "%kernel.var_dir%/indexes"
+
+# JMS Serializer Configuration
+jms_serializer:
+    metadata:
+        debug: "%kernel.debug%"
+
+# SuluCore Configuration
+sulu_core:
+    locales:
+       en: 'en'
+#       de: 'de'
+#       fr: 'fr'
+#       nl: 'nl'
+       uk: 'uk'
+
+    translations:
+        - en
+#        - de
+#        - fr
+#        - nl
+        - uk
+
+    webspace:
+        config_dir: "%kernel.root_dir%/Resources/webspaces"
+    content:
+        structure:
+            default_type:
+                snippet: "html_code"
+                article: "blog"
+            paths:
+                homepage:
+                    path: "%kernel.root_dir%/Resources/templates/pages"
+                    type: "home"
+                page:
+                    path: "%kernel.root_dir%/Resources/templates/pages"
+                    type: "page"
+                snippet:
+                    path: "%kernel.root_dir%/Resources/templates/snippets"
+                    type: "snippet"
+                article:
+                    path: "%kernel.root_dir%/Resources/templates/articles"
+                    type: "article"
+
+# SuluDocumentManager Configuration
+sulu_document_manager:
+    sessions:
+        default:
+            backend: "%phpcr_backend%"
+            workspace: "%phpcr_workspace%"
+            username: "%phpcr_user%"
+            password: "%phpcr_pass%"
+        live:
+            backend: "%phpcr_backend%"
+            workspace: "%phpcr_workspace%_live"
+            username: "%phpcr_user%"
+            password: "%phpcr_pass%"
+
+# SuluWebsocket Configuration
+sulu_websocket:
+    server:
+        http_host: "%websocket_url%"
+        port: "%websocket_port%"
+
+sulu_website:
+    sitemap:
+        dump_dir: %kernel.var_dir%/sitemaps
+
+# SuluHttpCache Configuration
+sulu_http_cache:
+    handlers:
+        debug:
+            enabled: "%kernel.debug%"
+#        public:
+#            max_age: 240
+#            shared_max_age: 240
+#            use_page_ttl: true
+#            enabled: true
+
+#    proxy_client:
+#        symfony:
+#            enabled: true
+
+#    proxy_client:
+#        varnish:
+#            enabled: true
+#            servers: [ 'staging.netexy.if.ua:8080' ]
+
+# SuluMedia Configuration
+sulu_media:
+    storage:
+        local:
+            path: "%kernel.var_dir%/uploads/media"
+    format_manager:
+        default_imagine_options:
+            jpeg_quality: 65
+            png_compression_level: 9
+#            jpeg_quality: 85
+#            png_compression_level: 6
+            jpeg_quality_inheritance: true
+            png_compression_level_inheritance: true
+
+
+dubture_f_fmpeg:
+    ffmpeg_binary: /usr/bin/ffmpeg # path to ffmpeg
+    ffprobe_binary: /usr/bin/ffprobe # path to ffprobe
+    binary_timeout: 300 # Use 0 for infinite
+    threads_count: 4
+
+# Just a dirty hack to get the jms serializer bundle correctly working
+# https://github.com/schmittjoh/JMSSerializerBundle/pull/270#issuecomment-21171800
+services:
+    jms_serializer.cache_naming_strategy: "@sulu_core.serialize_caching_strategy"
+    twig.extension.intl:
+        class: Twig_Extensions_Extension_Intl
+        tags:
+            - { name: twig.extension }
+
+#sulu_route:
+#    mappings:
+#        Sulu\Bundle\ArticleBundle\Document\ArticleDocument:
+#            generator: schema
+#            generator: type
+#            generator: template
+#            options:
+#                route_schema: /articles/{object.getTitle()}
+#                article_default: /articles/{object.getTitle()}
+#                netexy_article: /netexy/articles/{object.getTitle()}
+#                blog: /blog/{object.getTitle()}
+
+sulu_route:
+    mappings:
+        Sulu\Bundle\ArticleBundle\Document\ArticlePageDocument:
+            generator: "article_page"
+            options:
+                route_schema: "/{translator.trans(\"page\")}-{object.getPageNumber()}"
+                parent: "{object.getParent().getRoutePath()}"
+                
+                
+ongr_elasticsearch:
+    analysis:
+        tokenizer:
+            pathTokenizer:
+                type: path_hierarchy
+        analyzer:
+            pathAnalyzer:
+                tokenizer: pathTokenizer
+    managers:
+        default:
+            index:
+                index_name: sulu_rocks_articles
+            mappings:
+                - SuluArticleBundle
+        live:
+            index:
+                index_name: sulu_rocks_articles_live
+            mappings:
+                - SuluArticleBundle
+
+sulu_article:
+    default_main_webspace: core-ntx
+#    default_additional_webspaces: []
+    smart_content:
+        default_limit:        100
+    content_types:
+        article:
+            template:             'SuluArticleBundle:Template:content-types/article-selection.html.twig'
+        page_tree_route:
+            template:             'SuluArticleBundle:Template:content-types/page-tree-route.html.twig'
+            page_route_cascade: task # "request" or "off"
+    documents:
+        article:
+            view:                 Sulu\Bundle\ArticleBundle\Document\ArticleViewDocument
+        article_page:
+            view:                 Sulu\Bundle\ArticleBundle\Document\ArticlePageViewObject
+    types:
+
+        # Prototype
+        name:
+            translation_key:      ~
+
+    # Display tab 'all' in list view
+    display_tab_all:      true
+
+    # Set default author if none isset
+    default_author:       true
+    search_fields:
+        # Defaults:
+        - title
+        - excerpt.title
+        - excerpt.description
+        - excerpt.seo.title
+        - excerpt.seo.description
+        - excerpt.seo.keywords
+        - teaser_description
+
+sulu_form:
+    mail:
+        from: "%sulu_admin.email%"
+        to:   "%sulu_admin.email%"
+
+
+ewz_recaptcha:
+    public_key:  6LeVACMUAAAAAELfkVru8e_5Cilb5a0tHy03vWnQ
+    private_key: 6LeVACMUAAAAANOxG7jTrVxNQjylc0IbxiLlxTTS
+
+
+minishlink_web_push:
+  api_keys:                       # you should put api keys in your "app/config/parameters.yml" file
+    GCM: ''
+  VAPID:
+    subject: https://netexy.com # can be an URL or a mailto:
+    publicKey: QkE3WDhJMm9USl9qN3cxZVlSQUN5V3Z2SkZyRHc3V3d4SGRaMjJnN0dUenNpY2JJUTFmNFdvZ3ZyNnRFeFNuNFRHMmVEVG11MTJvSwpkaW1UTUlXTExKYyA=          # uncompressed public key P-256 encoded in Base64-URL
+    privateKey: cEtXaFM3ZmYySm9sS3Y3X3NPZFhFR3lmbFFlekpWcURFcDlZSGFTaTAyMA==         # the secret multiplier of the private key encoded in Base64-URL
+    pemFile: /home/sulu/cmp          # if you have a PEM file and can link to it on your filesystem
+    pem: private_key.pem          # if you have a PEM file and want to hardcode its content
+  ttl: 2419200                    # Time to Live of notifications in seconds
+  urgency: ~                      # can be very-low / low / normal / high
+  topic: ~                        # default identifier for your notifications
+  timeout: 30                     # Timeout of each request in seconds
+  automatic_padding: true         # pad messages automatically for better security (against more bandwith usage)

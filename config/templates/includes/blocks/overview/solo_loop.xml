@@ -1,0 +1,91 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="solo_loop">
+        <types>
+            <type name="solo_loop">
+                <meta>
+                    <title lang="en">Solo-loop Block</title>
+                    <title lang="uk">Solo-loop Block</title>
+                </meta>
+
+                <properties>
+
+                    <section name="organizationalTitles">
+                        <properties>
+                            <property name="title" type="text_line" mandatory="true" colspan="4">
+                                <meta>
+                                    <title lang="en">Title</title>
+                                    <title lang="uk">Заголовок</title>
+                                </meta>
+                            </property>
+
+                            <property name="subtitle" type="text_line" mandatory="true" colspan="8">
+                                <meta>
+                                    <title lang="en">SubTitle</title>
+                                    <title lang="uk">Підзаголовок</title>
+                                </meta>
+                            </property>
+                        </properties>
+                    </section>
+
+                    <property name="description" type="text_area">
+                        <meta>
+                            <title lang="en">Description</title>
+                            <title lang="uk">Опис</title>
+                        </meta>
+                        <params>
+                            <param name="max_characters" value="200"/>
+                        </params>
+                    </property>
+
+                    <property name="solo_title" type="text_line">
+                        <meta>
+                            <title lang="en">Solo Title</title>
+                            <title lang="uk">Solo Заголовок</title>
+                        </meta>
+                    </property>
+
+                    <property name="solo_desc" type="text_area">
+                        <meta>
+                            <title lang="en">Solo Description</title>
+                            <title lang="uk">Solo Опис</title>
+                        </meta>
+                        <params>
+                            <param name="max_characters" value="180" />
+                        </params>
+                    </property>
+
+                    <property name="braided_title" type="text_line">
+                        <meta>
+                            <title lang="en">Braid Title</title>
+                            <title lang="uk">Braid Заголовок</title>
+                        </meta>
+                    </property>
+
+                    <property name="braided_desc" type="text_area">
+                        <meta>
+                            <title lang="en">Braid Description</title>
+                            <title lang="uk">Braid Опис</title>
+                        </meta>
+                        <params>
+                            <param name="max_characters" value="180" />
+                        </params>
+                    </property>
+                    
+                    <property name="raidbow_txt" type="checkbox">
+                        <meta>
+                            <title lang="en">Text Gradient</title>
+                            <title lang="uk">Градієнт тексту</title>
+                        </meta>
+                        <params>
+                            <param name="type" value="toggler"/>
+                            <param name="default_value" value="false"/>
+                        </params>
+                    </property> 
+
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

@@ -1,0 +1,15 @@
+{% for block in content.blocks %}
+    <section>
+        {% if block.type == 'text' %}
+            <h2>{{ block.title }}</h2>
+            {{ block.description|raw }}
+        {% elseif block.type == 'gallery' %}
+            <h2>{{ block.title }}</h2>
+            <div class="gallery">
+                {% for image in block.images %}
+                    <img src="{{ image.thumbnails['sulu-260x'] }}" alt="{{ image.title }}"/>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </section>
+{% endfor %}

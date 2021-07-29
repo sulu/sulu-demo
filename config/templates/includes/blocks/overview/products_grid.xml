@@ -1,0 +1,116 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="products_grid">
+        <types>
+            <type name="products_grid">
+                <meta>
+                    <title lang="en">Products Grid Block</title>
+                    <title lang="uk">Products Grid Block</title>
+                </meta>
+
+                <properties>
+
+                    <section name="organizationalBlockOne">
+                        <properties>
+                            <property name="block_one_title" type="text_line" colspan="12">
+                                <meta>
+                                    <title lang="en">Title 1</title>
+                                    <title lang="uk">Заголовок 1</title>
+                                </meta>
+                            </property>
+
+                            <property name="block_one_desc" type="text_area" colspan="12">
+                                <meta>
+                                    <title lang="en">Description 1</title>
+                                    <title lang="uk">Опис 1</title>
+                                </meta>
+                            </property>
+                        </properties>
+                    </section>
+                    
+                    <section name="organizationalBlockTwo">
+                        <properties>
+                            
+                            <property name="block_two_title" type="text_line" colspan="12">
+                                <meta>
+                                    <title lang="en">Title 2</title>
+                                    <title lang="uk">Заголовок 2</title>
+                                </meta>
+                            </property>
+
+                            <property name="block_two_desc" type="text_area" colspan="12">
+                                <meta>
+                                    <title lang="en">Description 2</title>
+                                    <title lang="uk">Опис 2</title>
+                                </meta>
+                            </property>
+                            
+                        </properties>
+                    </section>
+                    
+                    <section name="organizationalBlockThree">
+                        <properties>
+                            
+                            <property name="block_three_title" type="text_line" colspan="12">
+                                <meta>
+                                    <title lang="en">Title 3</title>
+                                    <title lang="uk">Заголовок 3</title>
+                                </meta>
+                            </property>
+
+                            <property name="block_three_desc" type="text_area" colspan="12">
+                                <meta>
+                                    <title lang="en">Description 3</title>
+                                    <title lang="uk">Опис 3</title>
+                                </meta>
+                            </property>
+                            
+                        </properties>
+                    </section>
+                    
+                    <section name="organizationalBlockFour">
+                        <properties>
+                            
+                            <property name="block_four_title" type="text_line" colspan="12">
+                                <meta>
+                                    <title lang="en">Title 4</title>
+                                    <title lang="uk">Заголовок 4</title>
+                                </meta>
+                            </property>
+
+                            <property name="block_four_desc" type="text_area" colspan="12">
+                                <meta>
+                                    <title lang="en">Description 4</title>
+                                    <title lang="uk">Опис 4</title>
+                                </meta>
+                            </property>
+                            
+                        </properties>
+                    </section>
+                    
+                    <section name="organizationalBlockFive">
+                        <properties>
+                            
+                            <property name="block_five_title" type="text_line" colspan="12">
+                                <meta>
+                                    <title lang="en">Title 5</title>
+                                    <title lang="uk">Заголовок 5</title>
+                                </meta>
+                            </property>
+
+                            <property name="block_five_desc" type="text_area" colspan="12">
+                                <meta>
+                                    <title lang="en">Description 5</title>
+                                    <title lang="uk">Опис 5</title>
+                                </meta>
+                            </property>
+                            
+                        </properties>
+                    </section>
+
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

@@ -1,0 +1,17 @@
+{% set sectionName = sectionName|default('header') %}
+
+{# necessary for sections #}
+{% set content = context.content|default([]) %}
+
+{% set block = array_split_by_double_underscore(content)[sectionName]|default([]) %}
+{% set enabled = block and not block.disabled|default(false) %}
+
+{% set customClass = '' %}
+{% if block.custom_class is defined  %}
+    {% set customClass = block.custom_class|default('') %}
+{% endif %}
+
+{% if enabled and block.media|length %}
+    <!-- your header here -->
+{% endif %}
+

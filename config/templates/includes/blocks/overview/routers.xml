@@ -1,0 +1,129 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="routers">
+        <types>
+            <type name="routers">
+                <meta>
+                    <title lang="en">Routers Block</title>
+                    <title lang="uk">Routers Block</title>
+                </meta>
+
+                <properties>
+                    
+                    <section name="organizationalBlockOne">
+                        <properties>
+                            <property name="block_one_title" type="text_line" colspan="12">
+                                <meta>
+                                    <title lang="en">Title 1</title>
+                                    <title lang="uk">Заголовок 1</title>
+                                </meta>
+<!--
+                                <info_text lang="en">
+                                    Text <![CDATA[<br class="large"><br class="medium">]]> text
+                                </info_text>
+                                <info_text lang="uk">
+                                    Текст <![CDATA[<br class="large"><br class="medium">]]> текст
+                                </info_text>
+-->
+                            </property>
+
+                            <property name="block_one_desc" type="text_area" colspan="12">
+                                <meta>
+                                    <title lang="en">Description 1</title>
+                                    <title lang="uk">Опис 1</title>
+                                </meta>
+                            </property>
+                        </properties>
+                    </section>
+                    
+                    <section name="organizationalBlockTwo">
+                        <properties>
+                            
+                            <property name="block_two_title" type="text_line" colspan="12">
+                                <meta>
+                                    <title lang="en">Title 2</title>
+                                    <title lang="uk">Заголовок 2</title>
+                                </meta>
+                            </property>
+
+                            <property name="block_two_desc" type="text_area" colspan="12">
+                                <meta>
+                                    <title lang="en">Description 2</title>
+                                    <title lang="uk">Опис 2</title>
+                                </meta>
+                            </property>
+                            
+                        </properties>
+                    </section>
+                    
+                    <section name="organizationalBlockCreateStyle">
+                        <properties>
+                            
+                            <property name="create_style_title" type="text_line" colspan="12">
+                                <meta>
+                                    <title lang="en">Info Title</title>
+                                    <title lang="uk">Заголовок</title>
+                                </meta>
+                            </property>
+
+                            <property name="create_style_msg" type="text_area" colspan="12">
+                                <meta>
+                                    <title lang="en">Info Description</title>
+                                    <title lang="uk">Опис</title>
+                                </meta>
+                            </property>
+                            
+                        </properties>
+                    </section>
+                    
+                    <section name="organizationalLink">
+                        <properties>
+                            <property name="create_style_link" type="single_page_selection" mandatory="false" colspan="5">
+                                <meta>
+                                    <title lang="en">Page Link</title>
+                                    <title lang="uk">Посилання</title>
+                                    <title lang="ru">Ссылка</title>
+                                </meta>
+                            </property>
+                            
+                            <property name="create_style_text" type="text_line" colspan="7">
+                                <meta>
+                                    <title lang="en">Text Link</title>
+                                    <title lang="uk">Текст посилання</title>
+                                    <title lang="ru">Текст ссылки</title>
+                                </meta>
+                                <tag name="sulu.block_preview" priority="512"/>
+                            </property>
+                            
+                        </properties>
+                    </section>
+                    
+                    <section name="organizationalTriger">
+                        <properties>
+                            
+                            <property name="theme_trigger" type="checkbox" colspan="6">
+                                <meta>
+                                    <title lang="en">Light Theme</title>
+                                    <title lang="uk">Світла тема</title>
+                                </meta>
+                                <params>
+                                    <param name="type" value="toggler"/>
+                                </params>
+                            </property>      
+
+                            <property name="theme_params" type="text_line" colspan="6">
+                                <meta>
+                                    <title lang="en">Offset area (%)</title>
+                                    <title lang="uk">Відступ області (%)</title>
+                                </meta>
+                            </property>                      
+                            
+                        </properties>
+                    </section>
+
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

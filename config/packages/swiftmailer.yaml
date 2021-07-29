@@ -1,3 +1,21 @@
+imports:
+    - { resource: ../parameters.yaml }
+
 swiftmailer:
-    url: '%env(MAILER_URL)%'
+    url: '%env(MAILER_URL)%' #MAILER_URL=smtp://SSL0.OVH.NET:465?encryption=ssl&auth_mode=login&username=contact%40domain.com&password=XXXXXXXXX
     spool: { type: 'memory' }
+    #transport: '%mailer_transport%' #sendmail
+    #host: '%mailer_host%' #ssl0.ovh.net
+    #port: '%mailer_port%' #587
+    #encryption: '%mailer_encryption%' #null
+    #username: '%mailer_user%' #studio@netexy.com
+    #password: '%mailer_password%' #xMotora4!
+    #auth_mode: '%mailer_auth%' #login
+    #spool: { type: 'memory' }
+    #sender_address:       ~
+    #antiflood:
+    #    threshold:            99
+    #    sleep:                0
+    #delivery_addresses:   []
+    #disable_delivery:     ~
+    #logging:              '%kernel.debug%'

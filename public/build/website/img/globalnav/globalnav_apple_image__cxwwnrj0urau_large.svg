@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="20px" viewBox="0 0 16 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>globalnav_apple_image__cxwwnrj0urau_large</title>
+    <defs>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="-93.6500727%" id="linearGradient-1">
+            <stop stop-color="#10457C" offset="0%"></stop>
+            <stop stop-color="#306CA9" offset="28.5875123%"></stop>
+            <stop stop-color="#3775B1" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-57.1%" y="-44.4%" width="214.3%" height="188.9%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.12 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="1.49075255%" id="linearGradient-3">
+            <stop stop-color="#109F32" offset="0%"></stop>
+            <stop stop-color="#36AF53" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="-1.11022302e-14%" y1="50%" x2="95.7541356%" y2="50%" id="linearGradient-4">
+            <stop stop-color="#12A034" offset="0%"></stop>
+            <stop stop-color="#3EB259" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-57.1%" y="-44.4%" width="214.3%" height="188.9%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.12 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <linearGradient x1="50%" y1="98.3936543%" x2="50%" y2="3.32083459%" id="linearGradient-6">
+            <stop stop-color="#EFB61F" offset="0%"></stop>
+            <stop stop-color="#F1BE38" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="3.8803412%" x2="50%" y2="99.6858334%" id="linearGradient-7">
+            <stop stop-color="#EFB824" offset="0%"></stop>
+            <stop stop-color="#F1C348" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Logotype">
+            <g id="N-Center" transform="translate(8.066836, 10.367212) scale(1, -1) translate(-8.066836, -10.367212) translate(4.066836, 6.367212)" fill="#FFFFFF">
+                <polygon id="Triangle" transform="translate(6.031619, 1.927303) scale(-1, 1) rotate(90.000000) translate(-6.031619, -1.927303) " points="6.03161903 0.204224694 7.79401501 3.65038136 4.26922305 3.65038136"></polygon>
+                <polygon id="Triangle" transform="translate(5.745418, 3.990463) rotate(90.000000) translate(-5.745418, -3.990463) " points="5.74541797 2.26738428 7.50781396 5.71354094 3.98302199 5.71354094"></polygon>
+                <polygon id="Triangle" transform="translate(2.024804, 3.990463) scale(-1, 1) rotate(90.000000) translate(-2.024804, -3.990463) " points="2.02480423 2.26738428 3.78720021 5.71354094 0.262408244 5.71354094"></polygon>
+                <polygon id="Triangle" transform="translate(1.738603, 6.053622) rotate(90.000000) translate(-1.738603, -6.053622) " points="1.73860317 4.33054386 3.50099916 7.77670052 -0.0237928128 7.77670052"></polygon>
+            </g>
+            <g id="N-Sides" transform="translate(0.073000, 2.272855)" fill="#FFFFFF">
+                <polygon id="Triangle" transform="translate(14.106345, 8.103894) scale(-1, 1) rotate(90.000000) translate(-14.106345, -8.103894) " points="14.1063451 6.38597239 15.8791081 9.82181508 12.333582 9.82181508"></polygon>
+                <polygon id="Triangle" transform="translate(14.106345, 12.217863) scale(-1, 1) rotate(90.000000) translate(-14.106345, -12.217863) " points="14.1063451 10.4999419 15.8791081 13.9357846 12.333582 13.9357846"></polygon>
+                <polygon id="Triangle" transform="translate(13.818460, 10.160879) rotate(90.000000) translate(-13.818460, -10.160879) " points="13.8184605 8.44295716 15.5912235 11.8787998 12.0456974 11.8787998"></polygon>
+                <polygon id="Triangle" transform="translate(13.818460, 14.274848) rotate(90.000000) translate(-13.818460, -14.274848) " points="13.8184605 12.5569267 15.5912235 15.9927694 12.0456974 15.9927694"></polygon>
+                <polygon id="Triangle" transform="translate(13.818460, 1.932939) rotate(90.000000) translate(-13.818460, -1.932939) " points="13.8184605 0.215018082 15.5912235 3.65086077 12.0456974 3.65086077"></polygon>
+                <polygon id="Triangle" transform="translate(14.106345, 3.989924) scale(-1, 1) rotate(90.000000) translate(-14.106345, -3.989924) " points="14.1063451 2.27200285 15.8791081 5.70784554 12.333582 5.70784554"></polygon>
+                <polygon id="Triangle" transform="translate(13.818460, 6.046909) rotate(90.000000) translate(-13.818460, -6.046909) " points="13.8184605 4.32898762 15.5912235 7.76483031 12.0456974 7.76483031"></polygon>
+                <polyline id="Triangle" points="0.287884593 1.93293943 3.74249971 3.69606923 3.74249971 0.169809626"></polyline>
+                <polyline id="Triangle" points="0.287884593 6.04690896 3.74249971 7.81003877 3.74249971 4.28377916"></polyline>
+                <polyline id="Triangle" points="3.45461511 3.9899242 1.17563227e-15 5.753054 1.17563227e-15 2.22679439"></polyline>
+                <polyline id="Triangle" points="3.45461511 8.10389373 1.17563227e-15 9.86702353 1.17563227e-15 6.34076393"></polyline>
+                <polygon id="Triangle" transform="translate(2.015192, 10.160879) scale(-1, 1) rotate(90.000000) translate(-2.015192, -10.160879) " points="2.01519215 8.44295716 3.78795517 11.8787998 0.242429131 11.8787998"></polygon>
+                <polygon id="Triangle" transform="translate(2.015192, 14.274848) scale(-1, 1) rotate(90.000000) translate(-2.015192, -14.274848) " points="2.01519215 12.5569267 3.78795517 15.9927694 0.242429131 15.9927694"></polygon>
+                <polygon id="Triangle" transform="translate(1.727308, 12.217863) rotate(90.000000) translate(-1.727308, -12.217863) " points="1.72730756 10.4999419 3.50007058 13.9357846 -0.045455462 13.9357846"></polygon>
+            </g>
+            <g id="ArrowBottom" filter="url(#filter-2)" transform="translate(4.456214, 11.117232)" fill="#009925" stroke-width="0.53125">
+                <path d="M4.01089451,5.64837956 L5.34445216,8.24119334 L2.67733686,8.24119334 L4.01089451,5.64837956 Z" id="Triangle" stroke="url(#linearGradient-3)" transform="translate(4.010895, 6.787221) scale(-1, 1) rotate(90.000000) translate(-4.010895, -6.787221) "></path>
+                <path d="M3.45785306,0.820943397 L6.56028609,6.8529519 L0.355420021,6.8529519 L3.45785306,0.820943397 Z" id="Triangle" stroke="url(#linearGradient-4)" transform="translate(3.457853, 3.679382) rotate(90.000000) translate(-3.457853, -3.679382) "></path>
+            </g>
+            <g id="ArrowTop" filter="url(#filter-5)" transform="translate(7.936865, 5.076534) scale(-1, -1) translate(-7.936865, -5.076534) translate(4.436865, 0.576534)" fill="#EEB211" stroke-width="0.53125">
+                <path d="M3.45042015,0.819907699 L6.54284376,6.83575141 L0.357996535,6.83575141 L3.45042015,0.819907699 Z" id="Triangle" stroke="url(#linearGradient-6)" transform="translate(3.450420, 3.670138) rotate(90.000000) translate(-3.450420, -3.670138) "></path>
+                <path d="M3.99988178,5.63175476 L5.32848927,8.21636024 L2.67127429,8.21636024 L3.99988178,5.63175476 Z" id="Triangle" stroke="url(#linearGradient-7)" transform="translate(3.999882, 6.766366) scale(-1, 1) rotate(90.000000) translate(-3.999882, -6.766366) "></path>
+            </g>
+        </g>
+        <g id="globalnav_apple_image__cxwwnrj0urau_small" transform="translate(0.000000, 1.000000)"></g>
+    </g>
+</svg>

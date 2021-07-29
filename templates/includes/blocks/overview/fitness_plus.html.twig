@@ -1,0 +1,43 @@
+<section class="section section-fitness-plus" data-name="fitness-plus" data-component-list="FitnessPlus" data-anim-scroll-group="fitness-plus" data-analytics-section-engagement="name:apple fitness plus">
+    <div class="section-main-content">
+        <div class="content-fitness-plus fitness-plus-sticky-wrapper">
+            <div class="content-media">
+                <glass-container data-anim-lazy-image class="fitness-watch">
+                    <glass-hardware></glass-hardware>
+                    <glass-screen></glass-screen>
+                </glass-container>
+                <glass-container data-anim-lazy-image class="fitness-phone">
+                    <glass-hardware></glass-hardware>
+                    <glass-screen>
+                        <figure class="fitness-metrics" data-anim-lazy-image></figure>
+                    </glass-screen>
+                </glass-container>
+            </div>
+        </div>
+        <div class="content-copy">
+            <div class="copy-primary">
+                {% if content.caption %}<p class="typography-caption-copy caption-small">{{ content.caption|raw }}</p>{% endif %}
+                <div class="fitness-plus-top">
+                    <h2 class="fitness-headline">
+                        {% if content.fitness_title %}<span class="visuallyhidden">{{ content.fitness_title|raw }}</span>{% endif %}
+                        <figure class="fitness-logo" data-anim-lazy-image></figure>
+                    </h2>
+                </div>
+            </div>
+            <div class="copy-secondary">
+                {% if content.caption %}<p class="typography-caption-copy caption">{{ content.caption|raw }}</p>{% endif %}
+                <div class="copy-block copy-block-fitness-plus">
+                    {% if content.fitness_title %}<h3 class="copy-block-headline typography-copy-block">{{ content.fitness_title|raw }}</h3>{% endif %}
+                    {% if content.fitness_desc %}<p class="copy-block-copy typography-copy-block">{{ content.fitness_desc|raw }}</p>{% endif %}
+                {% if link_fitness is defined and link_fitness is not null %}
+                    <a href="{{ sulu_content_path(link_fitness.content.url) }}"
+                       data-analytics-title="{{ link_fitness.content.title|default('read_more'|trans) }}"
+                       class="icon-wrapper copy-block-cta typography-copy-block">
+                        {% if content.text_fitness %}<span class="icon-copy">{{ content.text_fitness|raw }}</span><span class="icon icon-after more"></span>{% endif %}
+                    </a>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

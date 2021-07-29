@@ -1,0 +1,8 @@
+{% if content.blocks|default([])|length %}
+    {% for block in content.blocks %}
+        {% include 'includes/blocks/product/' ~ block.type ~ '.html.twig' with {
+            content: block,
+            view: view.blocks[loop.index0],
+        } only %}
+    {% endfor %}
+{% endif %}

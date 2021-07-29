@@ -1,0 +1,95 @@
+<section class="section section-productivity">
+
+    <div class="grid-container">
+        <div class="grid-item tile-tile1 span-6-col span-12-col-small tile-vertical left-offset span-12-col-small">
+            <div class="row tile-content align-items-center">
+                <div class="column tile-image">
+                    <figure class="image-tile1 small-hide"></figure>
+                    <figure class="image-tile1-small small-show"></figure>
+                </div>
+                <div class="column tile-copy">
+                {% if content.block_one_title %}
+                    <h3 class="typography-body-semibold">
+                        {{ content.block_one_title|raw }}
+                    </h3>
+                {% endif %}
+                {% if content.block_one_desc %}
+                    <p>{{ content.block_one_desc|raw }}</p>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="grid-item tile-tile2 span-6-col span-12-col-small tile-vertical right-offset span-12-col-small">
+            <div class="row tile-content align-items-center">
+                <div class="column tile-image">
+                    <figure class="image-tile2 small-hide"></figure>
+                    <figure class="image-tile2-small small-show"></figure>
+                </div>
+                <div class="column tile-copy">
+                {% if content.block_two_title %}
+                    <h3 class="typography-body-semibold">
+                        {{ content.block_two_title|raw }}
+                    </h3>
+                {% endif %}
+                {% if content.block_two_desc %}
+                    <p>{{ content.block_two_desc|raw }}</p>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="grid-item tile-tile3 span-4-col span-6-col-medium span-2-row span-12-col-small tile-vertical span-12-col-small">
+            <div class="row tile-content align-items-center">
+                <div class="column tile-image">
+                    <figure class="image-tile3"></figure>
+                </div>
+                <div class="column tile-copy">
+                {% if content.block_three_title %}
+                    <h3 class="typography-body-semibold">
+                        {{ content.block_three_title|raw }}
+                    </h3>
+                {% endif %}
+                {% if content.block_three_desc %}
+                    <p>{{ content.block_three_desc|raw }}</p>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="grid-item tile-tile4 span-8-col span-6-col-medium span-12-col-small tile-horizontal-large span-12-col-small">
+            <div class="row tile-content align-items-center">
+                <div class="column tile-image">
+                    <figure class="image-tile4 small-hide"></figure>
+                    <figure class="image-tile4-small small-show"></figure>
+                </div>
+                <div class="column tile-copy">
+                {% if content.block_four_title %}
+                    <h3 class="typography-body-semibold">
+                        {{ content.block_four_title|raw }}
+                    </h3>
+                {% endif %}
+                {% if content.block_four_desc %}
+                    <p>{{ content.block_four_desc|raw }}</p>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="grid-item tile-tile5 span-8-col span-6-col-medium span-12-col-small tile-horizontal-large span-12-col-small">
+            <div class="row tile-content align-items-center">
+                <div class="column tile-image">
+                    <figure class="image-tile5 small-hide"></figure>
+                    <figure class="image-tile5-small small-show"></figure>
+                </div>
+                <div class="column tile-copy">
+                {% if content.block_five_title %}
+                    <h3 class="typography-body-semibold">
+                        {{ content.block_five_title|raw }}
+                    </h3>
+                {% endif %}
+                {% if content.block_five_desc %}
+                    <p>{{ content.block_five_desc|raw }}</p>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>

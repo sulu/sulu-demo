@@ -1,0 +1,77 @@
+{% set videoTypes = {
+    'flv' : 'video/x-flv',
+    'mp4' : 'video/mp4',
+    'm3u8': 'application/x-mpegURL',
+    'ts	' : 'video/MP2T',
+    '3gp' : 'video/3gpp',
+    'mov' : 'video/quicktime',
+    'avi' : 'video/x-msvideo',
+    'wmv' : 'video/x-ms-wmv'
+} %}
+
+{% set class = '' %}
+{% set image = content.imageCover|default %}
+
+    <style>
+        .home .mega .slide-id {
+            background-image: url('{{ image.thumbnails['991x'] }}');
+        }
+
+        @media screen and (min-width: 768px) {
+            .home .mega .slide-id {
+                background-image: url('{{ image.thumbnails['2560x'] }}');
+            }
+        }
+        
+    </style>
+{% set video = content.videos|default %}
+
+    {% for video in content.videos %}
+        <video src="{{ video.url }}" class="slide__video js-slider__video" playsinline autoplay preload muted onplaying="this.controls=false" poster=""> Your browser does not support the video tag. </video>
+    {% endfor %}
+
+
+{# {% set title = content.title|default %} #}
+{# {% set subtitle = content.subtitle|default %} #}
+{# {% set image = content.headerImage|default %} #}
+{# {% set url = '' %} #}
+
+{# {% if type == 'homepage' %} #}
+    {# {% set class = ' header--large' %} #}
+
+    {# @see https://docs.sulu.io/en/2.2/reference/twig-extensions/functions/sulu_content_load.html #}
+    {# {% set teaser = sulu_content_load(content.teaser, ['title', 'subtitle', 'headerImage', 'url']) %} #}
+
+    {# {% set title = teaser.content.title %} #}
+    {# {% set subtitle = teaser.content.subtitle|default(subtitle) %} #}
+    {# {% set image = teaser.content.headerImage|default %} #}
+    {# {% set url = sulu_content_path(teaser.content.url) %} #}
+{# {% endif %} #}
+
+{# {% set isArticle = (type == 'article') %} #}
+
+{# <div class="header{{ isArticle ? ' header--article' }}"> #}
+    {# {% if image %} #}
+        {# @see https://github.com/sulu/web-twig/blob/v2.4.0/docs/image.md #}
+        {# {{ get_image(image, { #}
+            {# 'src': '2560x', #}
+            {# 'class': 'header__image', #}
+        {# }, { #}
+        {#     '(max-width: 991px)': '991x', #}
+        {# }) }} #}
+    {# {% else %} #}
+        {# <img src="/website/images/default-header-image.jpg" alt="Sulu Rocks" class="header__image"/> #}
+    {# {% endif %} #}
+
+    {# <div class="header__text"> #}
+        {# <h1 class="header__title{{ isArticle ? ' header__title--small' }}">{{ title }}</h1> #}
+
+        {# {% if subtitle %} #}
+            {# <span class="header__subtitle">{{ subtitle }}</span> #}
+        {# {% endif %} #}
+
+        {# {% if url %} #}
+            {# <a href="{{ url }}" class="button header__button">{{ 'read_more'|trans }}</a> #}
+        {# {% endif %} #}
+    {# </div> #}
+{# </div> #}

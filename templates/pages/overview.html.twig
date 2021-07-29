@@ -1,11 +1,45 @@
 {% extends 'base.html.twig' %}
 
-{% block contentHeader %}
-    {% include 'includes/header.html.twig' with { type: 'overview' } %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ asset('build/website/css/fonts.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/website/css/overview.built.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/website/css/forms.built.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/website/css/overview-2.built.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/website/css/overview-3.built.css') }}"> 
+    <link rel="stylesheet" href="{{ asset('build/website/css/footer.built.css') }}"> 
+        {% if app.request.get('send') == 'true' %}
+            <link type="text/css" rel="stylesheet" href="{{ asset('/build/website/vendor/noty/noty.css') }}">
+        {% endif %}    
+{% endblock %}
+
+{% block javascripts_top %}
+    <script src="{{ asset('build/website/js/head.built.js') }}"></script>
 {% endblock %}
 
 {% block contentBody %}
-    {% include 'includes/overview-types/' ~ content.element.type ~ '.html.twig' with {element: content.element} %}
+    <main id="main" class="main" role="main" data-page-type="overview">
+        {% include 'includes/overview.html.twig' %}
+    </main>    
+{% endblock %}
 
-    {% include 'includes/blocks.html.twig' %}
+{% block javascripts %}    
+    <script src="{{ asset('/build/website/js/main.built.js') }}" type="text/javascript" charset="utf-8" async></script>
+
+    {# Forms - #}
+    {# <script src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js') }}"></script> #}
+
+    <script src="{{ asset('/build/website/js/forms.built.js') }}" type="text/javascript" charset="utf-8" async></script>
+
+
+        {% if app.request.get('send') == 'true' %}
+            <script src="{{ asset('/build/website/vendor/noty/noty.min.js') }}"></script>
+        {% endif %}
+
+    {# <script src="{{ asset('/build/website/js/init.js') }}" type="text/javascript" charset="utf-8" async></script> #}
+
+    <script>
+        window.webComponents = {{ get_components() }};
+        window.webServices = {{ get_services() }};
+    </script>
 {% endblock %}

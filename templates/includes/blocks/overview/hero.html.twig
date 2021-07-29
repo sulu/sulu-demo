@@ -1,0 +1,75 @@
+{# TODO avoid sulu_content_load as its a heavy operation which should be avoided #}
+{# @see https://docs.sulu.io/en/2.2/reference/twig-extensions/functions/sulu_content_load.html #}
+{% set page_one = sulu_content_load(content.page_one|default(''|trans)) %}
+{% set page_two = sulu_content_load(content.page_two|default(''|trans)) %}
+<section class="section section-hero" data-name="hero" data-anim-scroll-group="hero" data-analytics-section-engagement="name:hero">
+    <div class="section-main-content">
+        <div class="hero-content" data-component-list="Hero">
+            <div class="hero-copy">
+                <div>
+                    {# {% set image = content.imageLogo|default %} #}
+                    {# {% if image %} #}
+                        {# <style> 
+                            .section-hero .hero-copy .image-hero-logo{background-image: url('{{ image.url }}');/* background-image: url('{{ image.thumbnails['200x76'] }}'); */
+                            }@media only screen and (max-width: 734px) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 734px) and (min-resolution: 1.5dppx), only screen and (max-width: 734px) and (min-resolution: 144dpi){.section-hero .hero-copy .image-hero-logo {background-image: url('{{ image.url }}');}}</style> #}
+                    {# {% endif %} #}
+                    <h1 class="hero-headline">
+                        <figure class="image-hero-logo" data-anim-lazy-image>
+                            <figcaption class="visuallyhidden">Future Ready Solutions</figcaption>
+                        </figure>
+                    </h1>
+                    <p class="hero-subhead typography-hero-headline">{% if content.title %}{{ content.title|raw }}{% endif %}</p>
+                    <div class="hero-intro">
+                        <p class="hero-intro-copy typography-section-intro">{% if content.description %}{{ content.description|raw }}{% endif %}</p>
+                        <div class="hero-ctas">
+                            <p class="hero-cta typography-section-intro">
+                                <a href="{{ sulu_content_path(page_one.content.url) }}"
+                                    data-analytics-title="{{ text_one|default(page_one.content.title|default('read_more'|trans)) }}"
+                                    aria-label="{{ text_one|default(page_one.content.title|default('read_more'|trans)) }}"
+                                    class="icon-wrapper">
+                                    {% if content.text_one %}
+                                    <span class="icon-copy">{{ content.text_one|raw }}</span>
+                                    {% endif %}
+                                    {% if content.icon_one %}
+                                    <span class="icon icon-after material-icons">{{ content.icon_one|raw }}</span>
+                                    {% endif %}
+                                </a>
+                            </p>
+                            {# <p class="hero-cta typography-section-intro"> #}
+                            {#     <a href="{{ sulu_content_path(page_two.content.url) }}" #}
+                            {#        data-analytics-title="{{ text_two|default(page_two.content.title|default('read_more'|trans)) }}" #}
+                            {#        aria-label="{{ text_two|default(page_two.content.title|default('read_more'|trans)) }}" id="films-apple-watch-series-6" #}
+                            {#        class="icon-wrapper" #}
+                            {#        data-films-modal-link data-analytics-id="{{ text_two|default(page_two.content.title|default('read_more'|trans)) }}"> #}
+                            {#         {% if content.text_two %} #}
+                            {#         <span class="icon-copy">{{ content.text_two|raw }}</span> #}
+                            {#         {% endif %} #}
+                            {#         {% if content.icon_two %} #}
+                            {#         <span class="icon icon-after material-icons">{{ content.icon_two|raw }}</span> #}
+                            {#         {% endif %} #}
+                            {#     </a> #}
+                            {# </p> #}
+                        </div>
+                        <p class="hero-avail typography-hero-copy"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-glow">
+                <div class="hero-glow-inside"></div>
+            </div>
+            <div class="hero-animation-container v2">
+                <div class="section-media">
+                    <div class="video-container" role="img" aria-label="Hero watch hardware animation" aria-hidden="true">
+                        <div class="visuallyhidden focus-item" tabindex="-1"></div>
+                        <figure class="start-frame image-hero" data-anim-lazy-image></figure>
+                                <video id="header-video" class="media-video" muted="" playsinline="true" aria-hidden="true" data-video-source-basepath="/build/website/mp4/netexy/hero/" data-video-source-retina-enabled="true">
+                                </video>
+                        <figure class="end-frame" data-anim-lazy-image></figure>
+                    </div>
+                </div>
+                <div class="hero-gutter"></div>
+            </div>
+            <div class="hero-spacer"></div>
+        </div>
+    </div>
+</section>

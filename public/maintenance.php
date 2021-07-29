@@ -5,6 +5,9 @@ define('DEFAULT_LOCALE', 'en');
 // allow acces for following ips
 $allowedIPs = [
   '127.0.0.1',
+  '176.117.169.147',
+  '93.175.194.64',
+  '46.133.78.97',
 ];
 
 // translations for maintenance
@@ -14,10 +17,10 @@ $translations = [
         'heading' => 'The page is currently down for maintenance',
         'description' => 'Sorry for any inconvenience caused. Please try again shortly.',
     ],
-    'de' => [
-        'title' => 'Wartungsarbeiten',
-        'heading' => 'Die Seite wird derzeit gewartet',
-        'description' => 'Wir bitten um Verständnis. Bitte versuche es in Kürze erneut.',
+    'uk' => [
+        'title' => 'Технічне обслуговування',
+        'heading' => 'Наразі сторінка не працює для технічного обслуговування',
+        'description' => 'Вибачте за завдані незручності. Будь ласка, спробуйте ще раз незабаром.',
     ],
 ];
 

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+
+{% block style %}
+    <link rel="stylesheet" href="{{ asset('build/website/css/pro/main.built.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/website/css/pro/overview.built.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/website/css/pro/overview-2.built.css') }}"> 
+    <link rel="stylesheet" href="{{ asset('build/website/css/footer.built.css') }}"> 
+{% endblock %}
+
+{% block javascripts_top %}
+    <script src="{{ asset('build/website/js/pro/head.built.js') }}"></script>
+{% endblock %}
+
+{# {% block contentHeader %} #}
+    {# {% include 'includes/header.html.twig' with { type: 'overview' } %} #}
+{# {% endblock %} #}
+
+{% block contentBody %}
+    {# {% include 'includes/overview-types/' ~ content.element.type ~ '.html.twig' with {element: content.element} %} #}
+    <main id="main" class="main" role="main" data-page-type="overview">
+        {% include 'includes/pro.html.twig' %}
+    </main>    
+{% endblock %}
+
+{% block javascripts %}    
+    <script src="{{ asset('/build/website/js/pro/main.built.js') }}" type="text/javascript" charset="utf-8" async></script>
+
+
+    <link rel="stylesheet" href="{{ asset('build/website/css/pro/modal.css') }}"> 
+
+    <script src="{{ asset('/build/website/js/pro/autofilms.built.js') }}" type="text/javascript" charset="utf-8" async></script>
+{% endblock %}

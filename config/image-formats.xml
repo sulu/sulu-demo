@@ -21,7 +21,62 @@
 
     <img src="{{ image.thumbnails['300x'] }}" alt="{{ image.title }}" title="{{ image.description|default(image.title) }}">
     -->
-
+    <!--
+    {% set defaultImageLG2x = asset(image.thumbnails['1064x1300']|default()) %}
+    {% set defaultImageLG = asset(image.thumbnails['532x650']|default()) %}
+    {% set defaultImageMD2x = asset(image.thumbnails['736x900']|default()) %}
+    {% set defaultImageMD = asset(image.thumbnails['368x450']|default()) %}
+    {% set defaultImageSM2x = asset(image.thumbnails['640x780']|default()) %}
+    {% set defaultImageSM = asset(image.thumbnails['320x390']|default()) %}
+    -->
+    <format key="SliderLarge2x">
+        <scale x="1920" y="1000"/>
+    </format>
+    
+    <format key="SliderLarge">
+        <scale x="960" y="500"/>
+    </format>
+    
+    <format key="SliderMedium2x">
+        <scale x="1240" y="716"/>
+    </format>
+    
+    <format key="SliderMedium">
+        <scale x="620" y="358"/>
+    </format>
+    
+    <format key="SliderSmall2x">
+        <scale x="680" y="568"/>
+    </format>
+    
+    <format key="SliderSmall">
+        <scale x="340" y="284"/>
+    </format>
+    
+    <format key="ArticleLarge2x">
+        <scale x="1064" y="1300"/>
+    </format>
+    
+    <format key="ArticleLarge">
+        <scale x="532" y="650"/>
+    </format>
+    
+    <format key="ArticleMedium2x">
+        <scale x="736" y="900"/>
+    </format>
+    
+    <format key="ArticleMedium">
+        <scale x="368" y="450"/>
+    </format>
+    
+    <format key="ArticleSmall2x">
+        <scale x="640" y="780"/>
+    </format>
+    
+    <format key="ArticleSmall">
+        <scale x="320" y="390"/>
+    </format>
+    
     <format key="2560x">
         <meta>
             <title lang="en">Header Image</title>

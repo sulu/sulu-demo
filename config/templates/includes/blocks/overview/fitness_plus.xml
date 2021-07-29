@@ -1,0 +1,64 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="fitness_plus">
+        <types>
+            <type name="fitness_plus">
+                <meta>
+                    <title lang="en">Fitness-plus Block</title>
+                    <title lang="uk">Fitness-plus Block</title>
+                </meta>
+
+                <properties>
+
+                    <property name="caption" type="text_area">
+                        <meta>
+                            <title lang="en">Caption</title>
+                            <title lang="uk">Підпис</title>
+                        </meta>
+                        <params>
+                            <param name="max_characters" value="100" />
+                        </params>
+                    </property>
+
+                    <property name="fitness_title" type="text_line">
+                        <meta>
+                            <title lang="en">Fit Title</title>
+                            <title lang="uk">Fit Заголовок</title>
+                        </meta>
+                    </property>
+
+                    <property name="fitness_desc" type="text_area">
+                        <meta>
+                            <title lang="en">Fit Description</title>
+                            <title lang="uk">Fit Опис</title>
+                        </meta>
+                        <params>
+                            <param name="max_characters" value="220" />
+                        </params>
+                    </property>
+                    
+                    <section name="organizationalFit">
+                        <properties>
+                            <property name="link_fitness" type="single_page_selection" mandatory="true" colspan="5">
+                                <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/single_page_selection.html -->
+                                <meta>
+                                    <title lang="en">Page Link</title>
+                                    <title lang="uk">Посилання</title>
+                                </meta>
+                            </property>
+
+                            <property name="text_fitness" type="text_line" colspan="7">
+                                <meta>
+                                    <title lang="en">Text Link</title>
+                                    <title lang="uk">Текст посилання</title>
+                                </meta>
+                            </property>
+                        </properties>
+                    </section>
+
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

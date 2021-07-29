@@ -1,0 +1,58 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="ribbon">
+        <types>
+            <type name="ribbon">
+                <meta>
+                    <title lang="en">Ribbon</title>
+                    <title lang="uk">Стрічка</title>
+                </meta>
+
+                <properties>
+
+                    <section name="organizationalCaption">
+                        <properties>
+                            <property name="caption" type="text_area" colspan="12">
+                                <meta>
+                                    <title lang="en">Caption</title>
+                                    <title lang="uk">Підпис</title>
+                                </meta>
+                                <params>
+                                    <param name="max_characters" value="300"/>
+                                </params>
+                            </property>
+                        </properties>
+                    </section>
+                    
+                    <section name="organizationalLink">
+                        <properties>
+                            <property name="link_ribbon" type="single_page_selection" mandatory="false" colspan="4">
+                                <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/single_page_selection.html -->
+                                <meta>
+                                    <title lang="en">Link Ribbon</title>
+                                    <title lang="uk">Посилання</title>
+                                </meta>
+                            </property>
+
+                            <property name="text_ribbon" type="text_line" colspan="5">
+                                <meta>
+                                    <title lang="en">Link Text</title>
+                                    <title lang="uk">Текст посилання</title>
+                                </meta>
+                            </property>
+
+                            <property name="icon_ribbon" type="text_line" colspan="3">
+                                <meta>
+                                    <title lang="en">Link Icon</title>
+                                    <title lang="uk">Іконка</title>
+                                </meta>
+                            </property>
+                        </properties>
+                    </section>
+
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

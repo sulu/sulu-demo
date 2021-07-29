@@ -1,0 +1,22 @@
+{% set customTheme = '' %}
+{% if content.theme_trigger is defined %}
+    {% set customTheme = content.theme_trigger|default('') %}
+    {% set customThemeParams = content.theme_params|default('') %}
+{% endif %}
+
+<section class="section section-connected" data-name="connected" data-component-list="Connected" data-anim-scroll-group="connected" data-analytics-section-engagement="name:connected" {% if content.theme_trigger %}data-localnav-theme="{{ customTheme }}" data-end="{{ customThemeParams }}"{% endif %}>
+    <div class="section-main-content">
+        <div class="section-content">
+            <div class="section-block">
+                <h2 class="section-block-headline typography-section-headline" data-text-zoom-max="1.75">
+                    {% if content.title %}<span class="headline {% if content.raidbow_txt %}raidbow-txt{% endif %}">{{ content.title|raw }}</span>{% endif %}
+                    {% if content.subtitle %}<span class="subhead">{{ content.subtitle|raw }}</span>{% endif %}
+                </h2>
+                {% if content.description %}<p class="section-block-intro typography-section-intro">{{ content.description|raw }}</p>{% endif %}
+            </div>
+            <div class="image-main-container">
+                <figure class="image-main" data-anim-lazy-image></figure>
+            </div>
+        </div>
+    </div>
+</section>

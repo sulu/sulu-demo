@@ -1,0 +1,16 @@
+  
+{% extends "base.html.twig" %}
+
+{% block content %}
+    <h1>{{ content.title }}</h1>
+
+    <div>
+        {{ content.article|default()|raw }}
+    </div>
+
+    <ul>
+        {% for page in pages %}
+            <li><a href="{{ sulu_content_path(page.routePath) }}">{{ page.title|default('Page '~page.pageNumber) }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

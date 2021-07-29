@@ -1,0 +1,72 @@
+/* Big Sur Image */
+.section-router .grid-item-router .shared-router-macos-bigsur {
+	height: 100%;
+}
+
+/* Business Image */
+@media only screen and (min-width: 734px) {
+	.section-router .grid-item-router .shared-router-business {
+		width: 100%;
+		height: 100%;
+		left: 0;
+		margin-left: 0;
+	}
+}
+
+/* avail strip */
+#ac-localnav .ac-ln-title-subhead, #ac-localnav .ac-ln-title-comingsoon {
+	font-size: 11px;
+}
+
+/* section thermal */
+.section-chip .grid-item-efficiency .grid-headline-reduced {
+	font-size: 28px;
+}
+
+@media only screen and (max-width: 1068px) {
+	.section-chip .grid-item-efficiency .grid-headline-reduced {
+		font-size: 24px;
+	}
+}
+
+/* Touch ID Tile */
+@media only screen and (max-width: 405px) {
+	.grid-item-touchid .touchid-icon-grid .touchid-icon-item-customized {
+		padding-left: 0 !important;
+	}
+}
+
+/* App Store Icon */
+.overview-touchid-icon-applepay-img {
+	width: 87px;
+	height: 75px;
+}
+
+@media only screen and (min-width: 1068px) and (max-width: 734px) {
+	.overview-touchid-icon-applepay-img {
+		width: 73px;
+		height: 62px;
+	}
+}
+
+@media only screen and (min-width: 1068px) and (max-width: 734px) {
+	.overview-touchid-icon-applepay-img {
+		margin: 11px 0;
+	}
+}
+
+.overview-touchid-icon-applepay-img {
+	margin: 4px 0;
+}
+
+@media only screen and (max-width: 734px) {
+	.app-store-caption {
+		margin-top: -1px !important;
+	}
+}
+
+@media only screen and (max-width: 734px) {
+	.grid-item-touchid .touchid-icon-grid .touchid-icon-item .overview-touchid-icon-applepay-img {
+		margin-top: -12px !important;
+	}
+}

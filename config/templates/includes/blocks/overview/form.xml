@@ -1,0 +1,51 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="form">
+        <types>
+            <type name="form">
+                <meta>
+                    <title lang="uk">Форма</title>
+                    <title lang="en">Form</title>
+                </meta>
+
+                <properties>
+                    <property name="title" type="text_line">
+                        <meta>
+                            <title lang="en">Title</title>
+                            <title lang="uk">Назва</title>
+                        </meta>
+                    </property>
+                    <property name="form" type="single_form_selection">
+                        <meta>
+                            <title lang="uk">Форма</title>
+                            <title lang="en">Form</title>
+                        </meta>
+
+                        <params>
+                            <param name="resourceKey" value="page"/>
+                        </params>
+                    </property>
+
+                    <property name="request_mod" type="text_line">
+                        <meta>
+                            <title lang="en">Request modal - ID</title>
+                            <title lang="uk">Запит модальний - ID</title>
+                        </meta>
+
+                        <params>
+                            <param name="type" value="toggler"/>
+                        </params>
+                    </property>
+                    
+                    <property name="custom_class" type="text_line">
+                        <meta>
+                            <title lang="en">Custom CSS Class</title>
+                            <title lang="uk">CSS Клас</title>
+                        </meta>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

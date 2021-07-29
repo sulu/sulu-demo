@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block contentBody %}
+    {% include 'includes/overview-types/' ~ content.element.type ~ '.html.twig' with {element: content.element} %}
+
     {% include 'includes/blocks.html.twig' %}
 {% endblock %}

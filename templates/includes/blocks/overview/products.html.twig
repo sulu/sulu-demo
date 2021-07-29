@@ -1,0 +1,45 @@
+<section class="section section-product-{% if content.class %}{{ content.class|raw }}{% endif %} section-hero-poster-background">
+
+    <div class="grid-container">
+        <div class="grid-item span-4-col span-6-col-medium span-12-col-small {% if content.gradient_available %}grid-item-processor{% endif %}">
+            <div class="tile-content">
+                {% if content.images_available %}<figure class="image-tile image-tile1"></figure>{% endif %}
+                <div class="tile-copy">
+                    {% if content.title_1 %}<h3 class=" typography-body-semibold">{{ content.title_1|raw }}</h3>{% endif %}
+                    {% if content.description_1 %}
+                        <p>
+                            {{ content.description_1|raw }}
+                        </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="grid-item span-4-col span-6-col-medium span-12-col-small {% if content.gradient_available %}grid-item-storage{% endif %}">
+            <div class="tile-content">
+                {% if content.images_available %}<figure class="image-tile image-tile2"></figure>{% endif %}
+                <div class="tile-copy">
+                    {% if content.title_2 %}<h3 class=" typography-body-semibold">{{ content.title_2|raw }}</h3>{% endif %}
+                    {% if content.description_2 %}
+                        <p>
+                            {{ content.description_2|raw }}
+                        </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="grid-item span-4-col span-6-col-medium span-12-col-small {% if content.gradient_available %}grid-item-battery{% endif %}">
+            <div class="tile-content">
+                {% if content.images_available %}<figure class="image-tile image-tile3"></figure>{% endif %}
+                <div class="tile-copy">
+                    {% if content.title_3 %}<h3 class=" typography-body-semibold">{{ content.title_3|raw }}</h3>{% endif %}
+                    {% if content.description_3 %}
+                        <p>
+                            {{ content.description_3|raw }}
+                        </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>

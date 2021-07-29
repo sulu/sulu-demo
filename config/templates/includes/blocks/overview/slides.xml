@@ -1,0 +1,188 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.1.xsd">
+    <block name="blocks" default-type="slides">
+        <types>
+            <type name="slides">
+                <meta>
+                    <title lang="en">Slides Block</title>
+                    <title lang="uk">Slides Block</title>
+                </meta>
+
+                <properties>
+                    <!--
+                    <section name="organizationalTitles">
+                        <properties>
+                            <property name="title" type="text_line" mandatory="false" colspan="4">
+                                <meta>
+                                    <title lang="en">Title</title>
+                                    <title lang="uk">Заголовок</title>
+                                </meta>
+                            </property>
+
+                            <property name="subtitle" type="text_line" mandatory="false" colspan="8">
+                                <meta>
+                                    <title lang="en">SubTitle</title>
+                                    <title lang="uk">Підзаголовок</title>
+                                </meta>
+                            </property>
+                        </properties>
+                    </section>
+
+                    <property name="description" type="text_area">
+                        <meta>
+                            <title lang="en">Description</title>
+                            <title lang="uk">Опис</title>
+                        </meta>
+                        <params>
+                            <param name="max_characters" value="200"/>
+                        </params>
+                    </property>
+
+                    <property name="custom_title" type="text_line">
+                        <meta>
+                            <title lang="en">Custom Title</title>
+                            <title lang="uk">Custom Заголовок</title>
+                        </meta>
+                    </property>
+
+                    <property name="custom_desc" type="text_area">
+                        <meta>
+                            <title lang="en">Custom Description</title>
+                            <title lang="uk">Custom Опис</title>
+                        </meta>
+                        <params>
+                            <param name="max_characters" value="250" />
+                        </params>
+                    </property>
+                    -->
+
+                    <block name="subblocks" default-type="data" minOccurs="0">
+                        <meta>
+                            <title lang="en">Sub Blocks</title>
+                            <title lang="uk">Підблоки</title>
+                            <title lang="ru">Подблоки</title>
+                        </meta>
+                        <types>
+                            <type name="data">
+                                <meta>
+                                    <title lang="en">Data</title>
+                                    <title lang="uk">Дані</title>
+                                    <title lang="ru">Данные</title>
+                                </meta>
+                                <properties>
+                                    <property name="title" type="text_line" colspan="12">
+                                        <meta>
+                                            <title lang="en">Title</title>
+                                            <title lang="uk">Заголовок</title>
+                                            <title lang="ru">Заголовок</title>
+                                        </meta>
+                                        <params>
+                                            <param name="max_characters" value="30"/>
+                                         </params>
+                                                
+                                        <tag name="sulu.block_preview" priority="512"/>
+                                    </property>
+                                    <property name="description" type="text_editor" colspan="12">
+                                        <meta>
+                                            <title lang="en">Description</title>
+                                            <title lang="uk">Опис</title>
+                                            <title lang="ru">Описание</title>
+                                        </meta>
+                                        <params>
+                                            <param name="max_characters" value="250"/>
+                                        </params>
+                                                
+                                        <tag name="sulu.block_preview" priority="512"/>
+                                    </property>
+                                    
+                                    <section name="organizationalImage">
+                                        <properties>
+                                            
+                                            <property name="sliderImageSmall" type="single_media_selection" colspan="4">
+                                                <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/single_media_selection.html -->
+                                                <meta>
+                                                    <title lang="en">Image Small</title>
+                                                    <title lang="uk">Зображення (small)</title>
+                                                    <title lang="ru">Изображение (small)</title>
+                                                </meta>
+
+                                                <params>
+                                                    <param name="types" value="image"/>
+
+                                                    <param name="formats" type="collection">
+                                                        <param name="680x568" />
+                                                        <param name="340x284" />
+                                                    </param>
+                                                </params>
+                                            </property>
+                                            
+                                            <property name="sliderImageMedium" type="single_media_selection" colspan="4">
+                                                <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/single_media_selection.html -->
+                                                <meta>
+                                                    <title lang="en">Image Medium</title>
+                                                    <title lang="uk">Зображення (medium)</title>
+                                                    <title lang="ru">Изображение (medium)</title>
+                                                </meta>
+
+                                                <params>
+                                                    <param name="types" value="image"/>
+
+                                                    <param name="formats" type="collection">
+                                                        <param name="1240x716" />
+                                                        <param name="620x358" />
+                                                    </param>
+                                                </params>
+                                            </property>
+                                            
+                                            <property name="sliderImageLarge" type="single_media_selection" colspan="4">
+                                                <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/single_media_selection.html -->
+                                                <meta>
+                                                    <title lang="en">Image Large</title>
+                                                    <title lang="uk">Зображення (large)</title>
+                                                    <title lang="ru">Изображение (large)</title>
+                                                </meta>
+
+                                                <params>
+                                                    <param name="types" value="image"/>
+
+                                                    <param name="formats" type="collection">
+                                                        <param name="1920x1000" />
+                                                        <param name="960x500" />
+                                                    </param>
+                                                </params>
+                                            </property>
+                                            
+                                        </properties>
+                                    </section>
+                                    <!--<section name="organizationalLink">
+                                        <properties>
+                                            <property name="link_nested" type="single_page_selection" mandatory="false" colspan="5">
+                                                <meta>
+                                                    <title lang="en">Page Link</title>
+                                                    <title lang="uk">Посилання</title>
+                                                    <title lang="ru">Ссылка</title>
+                                                </meta>
+                                            </property>
+
+                                            <property name="text_nested" type="text_line" colspan="7">
+                                                <meta>
+                                                    <title lang="en">Text Link</title>
+                                                    <title lang="uk">Текст посилання</title>
+                                                    <title lang="ru">Текст ссылки</title>
+                                                </meta>
+                                                
+                                                <tag name="sulu.block_preview" priority="512"/>
+                                            </property>
+                                        </properties>
+                                    </section>-->
+                                </properties>
+                            </type>
+                        </types>
+                    </block>
+
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>

@@ -32,6 +32,8 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 class AppFixture extends Fixture implements OrderedFixtureInterface
 {
     const LOCALE_EN = 'en';
+    const LOCALE_UK = 'uk';
+    const LOCALE_RU = 'ru';
     const LOCALE_DE = 'de';
 
     /**
