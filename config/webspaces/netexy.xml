@@ -68,18 +68,38 @@
                         <url language="en">netexy.com</url>
                         <url>netexy.com/{localization}</url>
                     </urls>
+<<<<<<< HEAD:config/webspaces/netexy.xml
+=======
+                    <custom-urls>
+                        <custom-url>*.*/*</custom-url>
+                    </custom-urls>
+>>>>>>> 38b3cecf8efa919aa38f92c9a243d3fe75a6bf69:config/webspaces/demo.xml
                 </environment>
                 <environment type="test">
                     <urls>
                         <url language="en">netexy.com</url>
                         <url>netexy.com/{localization}</url>
                     </urls>
+<<<<<<< HEAD:config/webspaces/netexy.xml
+=======
+                    <custom-urls>
+                        <custom-url>*.*/*</custom-url>
+                    </custom-urls>
+>>>>>>> 38b3cecf8efa919aa38f92c9a243d3fe75a6bf69:config/webspaces/demo.xml
                 </environment>
                 <environment type="dev">
                     <urls>
                         <url language="en">netexy.com</url>
                         <url>netexy.com/{localization}</url>
                     </urls>
+<<<<<<< HEAD:config/webspaces/netexy.xml
+=======
+                    <custom-urls>
+                        <custom-url>*.*/*</custom-url>
+                        <custom-url>sulu-demo.lo/*</custom-url>
+                        <custom-url>sulu-demo.localhost/*</custom-url>
+                    </custom-urls>
+>>>>>>> 38b3cecf8efa919aa38f92c9a243d3fe75a6bf69:config/webspaces/demo.xml
                 </environment>
             </environments>
         </portal>

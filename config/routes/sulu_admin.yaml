@@ -89,6 +89,7 @@ sulu_search:
     resource: "@SuluSearchBundle/Resources/config/routing.yml"
     prefix: /admin/search
 
+<<<<<<< HEAD
 sulu_form_api:
     type: rest
     resource: "@SuluFormBundle/Resources/config/routing_api.yml"
@@ -98,3 +99,9 @@ sulu_article_api:
     resource: "@SuluArticleBundle/Resources/config/routing_api.yml"
     type: rest
     prefix: /admin/api
+=======
+sulu_activity_api:
+    resource: "@SuluActivityBundle/Resources/config/routing_api.yml"
+    type: rest
+    prefix: /admin/api
+>>>>>>> 38b3cecf8efa919aa38f92c9a243d3fe75a6bf69

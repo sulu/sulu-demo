@@ -13,8 +13,6 @@ services:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
         bind:
-            Sulu\Bundle\SnippetBundle\Snippet\DefaultSnippetManagerInterface: '@sulu_snippet.default_snippet.manager'
-            Sulu\Component\PHPCR\PathCleanupInterface: '@sulu.content.path_cleaner'
             Doctrine\ORM\EntityManagerInterface: '@doctrine.orm.entity_manager'
 
     # makes classes in src/ available to be used as services

@@ -31,6 +31,7 @@
             <xi:include href="blocks/albums.xml"
                         xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
 
+<<<<<<< HEAD
             <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
             <xi:include href="blocks/advantages_teasers.xml"
                         xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
@@ -47,6 +48,10 @@
                         xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
             <!-- @see https://docs.sulu.io/en/2.1/book/templates.html#including-other-templates -->
             <xi:include href="blocks/nested.xml"
+=======
+            <!-- @see https://docs.sulu.io/en/2.2/book/templates.html#including-other-templates -->
+            <xi:include href="blocks/teasers.xml"
+>>>>>>> 38b3cecf8efa919aa38f92c9a243d3fe75a6bf69
                         xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
         </types>
     </block>

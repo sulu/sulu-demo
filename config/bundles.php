@@ -36,15 +36,22 @@ return [
     Symfony\Bundle\WebProfilerBundle\WebProfilerBundle::class => ['dev' => true, 'test' => true],
     Sulu\Bundle\TestBundle\SuluTestBundle::class => ['dev' => true, 'test' => true],
     Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true, 'test' => true],
-    Symfony\Bundle\SecurityBundle\SecurityBundle::class => ['all' => true, 'admin' => true],
-    Sulu\Bundle\AdminBundle\SuluAdminBundle::class => ['all' => true, 'admin' => true],
-    Sulu\Bundle\PreviewBundle\SuluPreviewBundle::class => ['all' => true, 'admin' => true],
-    FOS\JsRoutingBundle\FOSJsRoutingBundle::class => ['all' => true, 'admin' => true],
+    Symfony\Bundle\SecurityBundle\SecurityBundle::class => ['all' => true],
+    Sulu\Bundle\AdminBundle\SuluAdminBundle::class => ['all' => true],
+    Sulu\Bundle\PreviewBundle\SuluPreviewBundle::class => ['all' => true],
+    Sulu\Bundle\ActivityBundle\SuluActivityBundle::class => ['all' => true],
+    FOS\JsRoutingBundle\FOSJsRoutingBundle::class => ['all' => true],
     Symfony\Cmf\Bundle\RoutingBundle\CmfRoutingBundle::class => ['all' => true, 'website' => true],
     Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle::class => ['all' => true],
     Sentry\SentryBundle\SentryBundle::class => ['all' => true],
     Sulu\Bundle\ArticleBundle\SuluArticleBundle::class => ['all' => true],
     ONGR\ElasticsearchBundle\ONGRElasticsearchBundle::class => ['all' => true],
+<<<<<<< HEAD
     Sulu\Bundle\FormBundle\SuluFormBundle::class => ['all' => true],
     Sulu\Bundle\HeadlessBundle\SuluHeadlessBundle::class => ['all' => true],
+=======
+    Task\TaskBundle\TaskBundle::class => ['all' => true],
+    Sulu\Bundle\AutomationBundle\SuluAutomationBundle::class => ['all' => true],
+    Sulu\Bundle\RedirectBundle\SuluRedirectBundle::class => ['all' => true],
+>>>>>>> 38b3cecf8efa919aa38f92c9a243d3fe75a6bf69
 ];

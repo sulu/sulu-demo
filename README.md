@@ -1,6 +1,6 @@
 <h1 align="center">Sulu - Demo Website</h1>
 
-This is the official **Sulu Demo**. It was created to show a simple implementation of an application made 
+This is the official **Sulu Demo**. It was created to show a simple implementation of an application made
 with Sulu and explains the basic steps.
 
 This project also runs here: [https://sulu.rocks](https://sulu.rocks)
@@ -37,7 +37,7 @@ A collection of helpful twig extensions and a tiny js component mangaement libra
 
 ## Requirements
 
-* PHP 7.4
+* PHP 8.0
     - json extension
     - xml extension
     - simplexml extension
