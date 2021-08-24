@@ -16,11 +16,11 @@ use Sulu\Component\Security\Authorization\SecurityCheckerInterface;
 
 class AlbumAdmin extends Admin
 {
-    const LIST_VIEW = 'app.album.list';
-    const ADD_FORM_VIEW = 'app.album.add_form';
-    const ADD_FORM_DETAILS_VIEW = 'app.album.add_form.details';
-    const EDIT_FORM_VIEW = 'app.album.edit_form';
-    const EDIT_FORM_DETAILS_VIEW = 'app.album.edit_form.details';
+    public const LIST_VIEW = 'app.album.list';
+    public const ADD_FORM_VIEW = 'app.album.add_form';
+    public const ADD_FORM_DETAILS_VIEW = 'app.album.add_form.details';
+    public const EDIT_FORM_VIEW = 'app.album.edit_form';
+    public const EDIT_FORM_DETAILS_VIEW = 'app.album.edit_form.details';
 
     private ViewBuilderFactoryInterface $viewBuilderFactory;
     private SecurityCheckerInterface $securityChecker;
