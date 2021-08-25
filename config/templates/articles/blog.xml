@@ -79,8 +79,24 @@
 
                     <types>
                         <!-- @see https://docs.sulu.io/en/2.2/book/templates.html#including-other-templates -->
-                        <xi:include href="../includes/blocks.xml"
-                                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/*)"/>
+                        <xi:include href="../includes/blocks/text.xml"
+                                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                        <!-- @see https://docs.sulu.io/en/2.2/book/templates.html#including-other-templates -->
+                        <xi:include href="../includes/blocks/quote.xml"
+                                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                        <!-- @see https://docs.sulu.io/en/2.2/book/templates.html#including-other-templates -->
+                        <xi:include href="../includes/blocks/link.xml"
+                                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                        <!-- @see https://docs.sulu.io/en/2.2/book/templates.html#including-other-templates -->
+                        <xi:include href="../includes/blocks/albums.xml"
+                                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
+
+                        <!-- @see https://docs.sulu.io/en/2.2/book/templates.html#including-other-templates -->
+                        <xi:include href="../includes/blocks/teasers.xml"
+                                    xpointer="xmlns(sulu=http://schemas.sulu.io/template/template)xpointer(/sulu:properties/sulu:block/sulu:types/sulu:type)"/>
 
                         <!-- @see https://docs.sulu.io/en/2.2/book/templates.html#including-other-templates -->
                         <xi:include href="../includes/blocks/similar-articles.xml"
