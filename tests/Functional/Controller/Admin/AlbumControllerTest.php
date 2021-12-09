@@ -7,6 +7,7 @@ namespace App\Tests\Functional\Controller\Admin;
 use App\Entity\Album;
 use App\Tests\Functional\Traits\CreateAlbumTrait;
 use Sulu\Bundle\TestBundle\Testing\SuluTestCase;
+use Sulu\Bundle\TrashBundle\Domain\Model\TrashItemInterface;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -266,6 +267,8 @@ class AlbumControllerTest extends SuluTestCase
 
         $albumId = $album->getId();
         $this->assertNotNull($albumId);
+        $this->assertNotNull($this->getEntityManager()->getRepository(Album::class)->findOneBy(['id' => $albumId]));
+        $this->assertCount(0, $this->getEntityManager()->getRepository(TrashItemInterface::class)->findAll());
 
         $this->client->request('DELETE', '/admin/api/albums/' . $albumId);
 
@@ -274,5 +277,6 @@ class AlbumControllerTest extends SuluTestCase
         $this->assertHttpStatusCode(204, $response);
 
         $this->assertNull($this->getEntityManager()->getRepository(Album::class)->findOneBy(['id' => $albumId]));
+        $this->assertCount(1, $this->getEntityManager()->getRepository(TrashItemInterface::class)->findAll());
     }
 }
