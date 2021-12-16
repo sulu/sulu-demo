@@ -1208,7 +1208,7 @@ class DocumentFixture implements DocumentFixtureInterface
 
             /** @var SnippetDocument $snippetDocument */
             $snippetDocument = $documentManager->find($data['id'], $locale);
-        } catch (DocumentManagerException | OutOfBoundsException $e) {
+        } catch (DocumentManagerException|OutOfBoundsException $e) {
             /** @var SnippetDocument $snippetDocument */
             $snippetDocument = $documentManager->create('snippet');
         }
@@ -1290,7 +1290,7 @@ class DocumentFixture implements DocumentFixtureInterface
 
             /** @var PageDocument $pageDocument */
             $pageDocument = $documentManager->find($data['id'], $locale);
-        } catch (DocumentManagerException | OutOfBoundsException $e) {
+        } catch (DocumentManagerException|OutOfBoundsException $e) {
             /** @var PageDocument $pageDocument */
             $pageDocument = $documentManager->create('page');
         }
@@ -1346,7 +1346,7 @@ class DocumentFixture implements DocumentFixtureInterface
 
             /** @var ArticleDocument $articleDocument */
             $articleDocument = $documentManager->find($data['id'], $locale, ['load_ghost_content' => false]);
-        } catch (DocumentManagerException | OutOfBoundsException $e) {
+        } catch (DocumentManagerException|OutOfBoundsException $e) {
             /** @var ArticleDocument $articleDocument */
             $articleDocument = $documentManager->create('article');
         }

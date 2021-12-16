@@ -46,6 +46,21 @@ class AlbumControllerTest extends SuluTestCase
 
         $response = $this->client->getResponse();
         $this->assertInstanceOf(Response::class, $response);
+        /**
+         * @var array{
+         *     _embedded: array{
+         *         albums: array<array{
+         *             id: int,
+         *             title: string,
+         *             changed: string,
+         *             created: string,
+         *             changer: string|null,
+         *             creator: string|null,
+         *         }>
+         *     },
+         *     total: int,
+         * } $result
+         */
         $result = json_decode($response->getContent() ?: '', true);
         $this->assertHttpStatusCode(200, $response);
 
@@ -73,6 +88,19 @@ class AlbumControllerTest extends SuluTestCase
 
         $response = $this->client->getResponse();
         $this->assertInstanceOf(Response::class, $response);
+
+        /**
+         * @var array{
+         *     id: int,
+         *     title: string,
+         *     image: array{id: int}|null,
+         *     tracklist: array<array{
+         *         type: string,
+         *         title: string|null,
+         *         interpreter: string|null,
+         *     }>,
+         * } $result
+         */
         $result = json_decode($response->getContent() ?: '', true);
         $this->assertHttpStatusCode(200, $response);
 
@@ -107,6 +135,19 @@ class AlbumControllerTest extends SuluTestCase
 
         $response = $this->client->getResponse();
         $this->assertInstanceOf(Response::class, $response);
+
+        /**
+         * @var array{
+         *     id: int,
+         *     title: string,
+         *     image: array{id: int}|null,
+         *     tracklist: array<array{
+         *         type: string,
+         *         title: string|null,
+         *         interpreter: string|null,
+         *     }>,
+         * } $result
+         */
         $result = json_decode($response->getContent() ?: '', true);
         $this->assertHttpStatusCode(201, $response);
 
@@ -153,6 +194,18 @@ class AlbumControllerTest extends SuluTestCase
 
         $response = $this->client->getResponse();
         $this->assertInstanceOf(Response::class, $response);
+        /**
+         * @var array{
+         *     id: int,
+         *     title: string,
+         *     image: array{id: int}|null,
+         *     tracklist: array<array{
+         *         type: string,
+         *         title: string|null,
+         *         interpreter: string|null,
+         *     }>,
+         * } $result
+         */
         $result = json_decode($response->getContent() ?: '', true);
         $this->assertHttpStatusCode(200, $response);
 

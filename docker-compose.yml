@@ -2,23 +2,31 @@ version: '3'
 
 services:
 ###> doctrine/doctrine-bundle ###
-    mysql:
-        image: mysql/mysql-server:5.7
-        ports:
-            - ${DOCKER_MYSQL_PORT:-3306}:3306
-        volumes:
-            - ./var/data/mysql:/var/lib/mysql:cached
+    database:
+        # arm compatible mysql docker image
+        image: mysql/mysql-server:${MYSQL_VERSION:-5.7} # arm and x86/x64 compatible mysql image
         environment:
-            MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+            MYSQL_DATABASE: ${MYSQL_DATABASE:-su_demo}
+            # You should definitely change the password in production
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-ChangeMe}
             MYSQL_ROOT_HOST: '%'
+        volumes:
+            - db-data:/var/lib/mysql
+            # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
+            # - ./docker/db/data:/var/lib/mysql:rw
 ###< doctrine/doctrine-bundle ###
 
     elasticsearch:
         image: elasticsearch:7.13.2
-        ports:
-            - ${DOCKER_ES_PORT:-9200}:9200
-        volumes:
-            - ./var/data/elasticsearch:/usr/share/elasticsearch/data:cached
         environment:
             discovery.type: single-node
             xpack.security.enabled: 'false'
+        volumes:
+            - elasticsearch-data:/usr/share/elasticsearch/data
+
+volumes:
+###> doctrine/doctrine-bundle ###
+    db-data:
+###< doctrine/doctrine-bundle ###
+    elasticsearch-data:
+

@@ -6,18 +6,23 @@ namespace App\Tests\Functional\Traits;
 
 use App\Entity\Album;
 use Doctrine\ORM\EntityManagerInterface;
+use Sulu\Bundle\MediaBundle\Entity\MediaInterface;
 
 trait CreateAlbumTrait
 {
     /**
-     * @param mixed[] $data
+     * @param array{
+     *    title?: string|null,
+     *    image?: MediaInterface|null,
+     *    tracklist?: mixed[]|null,
+     * } $data
      */
     public function createAlbum(array $data): Album
     {
         $entityManager = static::getEntityManager();
 
         $album = new Album();
-        $album->setTitle($data['title'] ?? null);
+        $album->setTitle($data['title'] ?? '');
         $album->setImage($data['image'] ?? null);
         $album->setTracklist($data['tracklist'] ?? []);
 

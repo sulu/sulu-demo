@@ -95,10 +95,22 @@ class AlbumController extends AbstractRestController implements ClassResourceInt
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @param mixed[] $data
      */
     protected function mapDataToEntity(array $data, Album $entity): void
     {
+        /**
+         * @var array{
+         *     id: int,
+         *     title: string,
+         *     image: array{id: int}|null,
+         *     tracklist: array<array{
+         *         type: string,
+         *         title: string|null,
+         *         interpreter: string|null,
+         *     }>,
+         * } $data
+         */
         $imageId = $data['image']['id'] ?? null;
 
         $entity->setTitle($data['title']);

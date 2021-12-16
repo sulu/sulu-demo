@@ -85,11 +85,25 @@ sulu_preview:
     resource: "@SuluPreviewBundle/Resources/config/routing.yml"
     prefix: /admin/preview
 
+sulu_preview_api:
+    type: rest
+    resource: "@SuluPreviewBundle/Resources/config/routing_api.yml"
+    prefix: /admin/api
+
+sulu_preview_public:
+    resource: "@SuluPreviewBundle/Resources/config/routing_public.yml"
+    prefix: /admin/p
+
 sulu_search:
     resource: "@SuluSearchBundle/Resources/config/routing.yml"
     prefix: /admin/search
 
 sulu_activity_api:
     resource: "@SuluActivityBundle/Resources/config/routing_api.yml"
+    type: rest
+    prefix: /admin/api
+
+sulu_trash_api:
+    resource: "@SuluTrashBundle/Resources/config/routing_api.yml"
     type: rest
     prefix: /admin/api

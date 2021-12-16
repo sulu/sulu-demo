@@ -1,26 +1,26 @@
 includes:
-  - vendor/jangregor/phpstan-prophecy/extension.neon
-  - vendor/phpstan/phpstan-doctrine/extension.neon
-  - vendor/phpstan/phpstan-doctrine/rules.neon
-  - vendor/phpstan/phpstan-symfony/extension.neon
-  - vendor/phpstan/phpstan-phpunit/extension.neon
-  - vendor/phpstan/phpstan-phpunit/rules.neon
-  - vendor/phpstan/phpstan-webmozart-assert/extension.neon
-  - vendor/thecodingmachine/phpstan-strict-rules/phpstan-strict-rules.neon
+    - vendor/jangregor/phpstan-prophecy/extension.neon
+    - vendor/phpstan/phpstan-doctrine/extension.neon
+    - vendor/phpstan/phpstan-doctrine/rules.neon
+    - vendor/phpstan/phpstan-symfony/extension.neon
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor/phpstan/phpstan-phpunit/rules.neon
+    - vendor/phpstan/phpstan-webmozart-assert/extension.neon
+    - vendor/thecodingmachine/phpstan-strict-rules/phpstan-strict-rules.neon
 
 parameters:
-  level: max
-  paths:
-    - src
-    - tests
-    - config
-  inferPrivatePropertyTypeFromConstructor: true
-  bootstrapFiles:
-    - bin/.phpunit/phpunit-8.5-0/vendor/autoload.php
-  symfony:
-    container_xml_path: %rootDir%/../../../var/cache/website/dev/App_KernelDevDebugContainer.xml
-    console_application_loader: tests/phpstan/console-application.php
-  doctrine:
-    objectManagerLoader: tests/phpstan/object-manager.php
-  excludes_analyse:
-    - %rootDir%/../../../config/packages/phpcr.php
+    level: max
+    paths:
+        - src
+        - tests
+        - config
+    inferPrivatePropertyTypeFromConstructor: true
+    symfony:
+        container_xml_path: '%rootDir%/../../../var/cache/website/dev/App_KernelDevDebugContainer.xml'
+        console_application_loader: 'tests/phpstan/console-application.php'
+    doctrine:
+        objectManagerLoader: 'tests/phpstan/object-manager.php'
+    excludePaths:
+        - '%rootDir%/../../../config/packages/phpcr.php'
+        - '%rootDir%/../../../src/DataFixtures/Document/DocumentFixture.php'
+        - '%rootDir%/../../../src/DataFixtures/ORM/AppFixture.php'
