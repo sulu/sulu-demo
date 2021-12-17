@@ -32,8 +32,8 @@ class DoctrineListRepresentationFactory
     }
 
     /**
-     * @param mixed[] $filters
-     * @param mixed[] $parameters
+     * @param array<string, string> $filters
+     * @param array<string, string|int> $parameters
      * @param string[] $includedFields
      */
     public function createDoctrineListRepresentation(

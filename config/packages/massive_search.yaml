@@ -13,3 +13,7 @@ massive_search:
         elastic:
             version: 7.13
             hosts: ['%env(resolve:ELASTICSEARCH_HOST)%']
+
+when@test:
+    massive_search:
+        adapter: test

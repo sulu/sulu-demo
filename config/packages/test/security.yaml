@@ -1,4 +1,6 @@
 security:
+    access_decision_manager:
+        strategy: affirmative
     providers:
         sulu:
             id: test_user_provider
