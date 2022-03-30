@@ -151,7 +151,11 @@
         "platform": {
             "php": "8.0.3"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "symfony/flex": true,
+            "symfony/thanks": true
+        }
     },
     "extra": {
         "symfony": {

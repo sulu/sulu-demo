@@ -1,0 +1,63 @@
+<properties xmlns="http://schemas.sulu.io/template/template"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <block name="blocks" default-type="image-map">
+        <!-- @see https://docs.sulu.io/en/2.2/reference/content-types/block.html -->
+
+        <types>
+            <type name="image-map">
+                <meta>
+                    <title lang="en">Image Map</title>
+                    <title lang="de">Bild Map</title>
+                </meta>
+
+                <properties>
+                    <property name="imageMap" type="image_map" >
+                        <meta>
+                            <title lang="en">Image Map</title>
+                            <title lang="de">Bild Map</title>
+                        </meta>
+
+                        <types>
+                            <type name="basic">
+                                <meta>
+                                    <title lang="en">Basic</title>
+                                    <title lang="de">Grundlegend</title>
+                                </meta>
+                                <properties>
+                                    <property name="title" type="text_line">
+                                        <meta>
+                                            <title lang="en">Title</title>
+                                            <title lang="de">Titel</title>
+                                        </meta>
+                                    </property>
+                                    <property name="description" type="text_area">
+                                        <meta>
+                                            <title lang="en">Description</title>
+                                            <title lang="de">Beschreibung</title>
+                                        </meta>
+                                    </property>
+                                </properties>
+                            </type>
+
+                            <type name="advanced">
+                                <meta>
+                                    <title lang="en">Advanced</title>
+                                    <title lang="de">Erweitert</title>
+                                </meta>
+                                <properties>
+                                    <property name="text" type="text_editor">
+                                        <meta>
+                                            <title lang="en">Text</title>
+                                            <title lang="de">Text</title>
+                                        </meta>
+                                    </property>
+                                </properties>
+                            </type>
+                        </types>
+                    </property>
+                </properties>
+            </type>
+        </types>
+    </block>
+</properties>
