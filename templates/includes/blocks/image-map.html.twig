@@ -1,0 +1,38 @@
+<div class="imagemap__container">
+    <img class="imagemap__img" src="{{ content.imageMap.image.url }}" alt="{{ content.imageMap.image.title }}"/>
+
+    {% for index, hotspot in content.imageMap.hotspots %}
+        {% set left = hotspot.hotspot.left * 100 %}
+        {% set top = hotspot.hotspot.top * 100 %}
+
+        {% if hotspot.hotspot.type == 'rectangle' %}
+            {% set width = hotspot.hotspot.width * 100 %}
+            {% set height = hotspot.hotspot.height * 100 %}
+
+            <div class="imagemap__hotspot imagemap__hotspot--rectangle"
+                 style="left: {{ left }}%; top: {{ top }}%; width: {{ width }}%; height: {{ height }}%;">
+                <span class="imagemap__hotspot-text">{{ index + 1 }}</span>
+            </div>
+        {% elseif hotspot.hotspot.type == 'circle' %}
+            {% set diameter = hotspot.hotspot.radius * 100 * 2 %}
+            {% set width = 0 %}
+            {% set height = diameter %}
+
+            <div class="imagemap__hotspot imagemap__hotspot--circle"
+                 style="left: {{ left }}%; top: {{ top }}%; width: {{ diameter }}%; padding-top: {{ diameter }}%;">
+                <span class="imagemap__hotspot-text">{{ index + 1 }}</span>
+            </div>
+        {% elseif hotspot.hotspot.type == 'point' %}
+            <div class="imagemap__hotspot imagemap__hotspot--point"
+                 style="left: {{ left }}%; top: {{ top }}%;">
+                <span class="imagemap__hotspot-text">{{ index + 1 }}</span>
+            </div>
+        {% endif %}
+
+        <div class="imagemap__hotspot-content" style="left: {{ left + (width|default(0) / 2) }}%; top: {{ top + height|default(0) }}%;">
+            {% include 'includes/hotspots/' ~ hotspot.type ~ '.html.twig' with {
+                content: hotspot,
+            } only %}
+        </div>
+    {% endfor %}
+</div>

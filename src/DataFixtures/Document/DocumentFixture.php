@@ -186,6 +186,58 @@ class DocumentFixture implements DocumentFixtureInterface
                         'description' => '<p>In 2014 Jack started his music career in San Diego, California. His talent in playing the guitar made him famous in a short period of time. His one big dream: touring around the United States. In 2016 he is as close as never before – with his new album, reaching records in the US.</p>',
                     ],
                     [
+                        'type' => 'image-map',
+                        'imageMap' => [
+                            'imageId' => $this->getMediaId('band.jpg'),
+                            'hotspots' => [
+                                [
+                                    'type' => 'basic',
+                                    'hotspot' => [
+                                        'type' => 'circle',
+                                        'left' => 0.5052987808664333,
+                                        'top' => 0.5940029375917998,
+                                        'radius' => 0.09,
+                                    ],
+                                    'title' => 'Lead Singer',
+                                    'description' => 'This is our lead singer',
+                                ],
+                                [
+                                    'type' => 'basic',
+                                    'hotspot' => [
+                                        'type' => 'circle',
+                                        'left' => 0.2867240701260532,
+                                        'top' => 0.6000031250976593,
+                                        'radius' => 0.09,
+                                    ],
+                                    'title' => 'Basist',
+                                    'description' => 'This is our basist',
+                                ],
+                                [
+                                    'type' => 'basic',
+                                    'hotspot' => [
+                                        'type' => 'circle',
+                                        'left' => 0.7927576428704489,
+                                        'top' => 0.5880027500859402,
+                                        'radius' => 0.09,
+                                    ],
+                                    'title' => 'Guitarist',
+                                    'description' => 'This is our guitarist',
+                                ],
+                                [
+                                    'type' => 'advanced',
+                                    'hotspot' => [
+                                        'type' => 'rectangle',
+                                        'width' => 1,
+                                        'height' => 0.20797524922653826,
+                                        'left' => 0,
+                                        'top' => 0.7920247507734617,
+                                    ],
+                                    'text' => 'This was an <b>awesome</b> crowd',
+                                ],
+                            ],
+                        ],
+                    ],
+                    [
                         'type' => 'albums',
                         'albums' => [
                             $this->getAlbumId('Wildfire'),

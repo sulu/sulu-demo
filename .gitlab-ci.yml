@@ -77,7 +77,7 @@ build:
 
 js-css-website:
     stage: test
-    image: node:12
+    image: node:14
     dependencies: []
     variables:
         NODE_OPTIONS: --max-old-space-size=1536
