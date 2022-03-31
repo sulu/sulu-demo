@@ -120,9 +120,9 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
         $accounts = [];
 
         $accounts[] = $this->createAccount($manager, [
-            'name' => 'Z Music GmbH',
+            'name' => 'N Music GmbH',
             'corporation' => 'Soundmanagement Corporation',
-            'email' => 'office@z.com',
+            'email' => 'office@n.com',
             'phone' => '+43 5572 93482',
             'address' => [
                 'title' => 'Office Dornbirn',

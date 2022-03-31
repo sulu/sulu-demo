@@ -5,7 +5,6 @@
     "stylelint-order"
   ],
   "rules": {
-    "font-weight-notation": "named-where-possible",
     "selector-class-pattern": "^[a-z-_0-9]*$",
     "scss/dollar-variable-pattern": "^[a-z-0-9]*$",
     "value-keyword-case": null,
