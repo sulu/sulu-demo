@@ -221,3 +221,18 @@
         url('/website/fonts/karla/karla-v21-latin-800italic.woff2') format('woff2'), /* Super Modern Browsers */
         url('/website/fonts/karla/karla-v21-latin-800italic.woff') format('woff') /* Modern Browsers */;
 }
+
+/* permanent-marker-regular - latin */
+@font-face {
+    font-family: 'Permanent Marker';
+    font-style: normal;
+    font-weight: 400;
+    // src: url('/website/fonts/permanent-marker/permanent-marker-v10-latin-regular.eot'); /* IE9 Compat Modes */
+    src:
+        // local(''),
+        // url('/website/fonts/permanent-marker/permanent-marker-v10-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        // url('/website/fonts/permanent-marker/permanent-marker-v10-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+        // url('/website/fonts/permanent-marker/permanent-marker-v10-latin-regular.svg#PermanentMarker') format('svg'), /* Legacy iOS */
+        url('/website/fonts/permanent-marker/permanent-marker-v10-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+        url('/website/fonts/permanent-marker/permanent-marker-v10-latin-regular.woff') format('woff') /* Modern Browsers */;
+}
