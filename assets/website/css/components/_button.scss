@@ -6,7 +6,7 @@
     border-radius: 1000px;
     color: $white;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 700;
     height: 38px;
     letter-spacing: 2px;
     overflow: hidden;
@@ -33,7 +33,7 @@
     }
 
     &--small {
-        font-weight: normal;
+        font-weight: 400;
         height: 28px;
         padding: 3px 30px;
     }
