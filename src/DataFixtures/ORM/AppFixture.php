@@ -493,7 +493,15 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
 
         $analytics[] = $this->createAnalytics(
             $manager,
-            ['title' => 'Google Analytics', 'type' => 'google', 'content' => 'UA-46229871-6', 'allDomains' => true]
+            [
+                'title' => 'Sulu Matomo',
+                'type' => 'custom',
+                'content' => [
+                    'value' => "<script>\n  var _paq = window._paq = window._paq || [];\n  /* tracker methods like \"setCustomDimension\" should be called before \"trackPageView\" */\n  _paq.push(['trackPageView']);\n  _paq.push(['enableLinkTracking']);\n  (function() {\n    var u=\"//sulu.rocks/\";\n    _paq.push(['setTrackerUrl', u+'matomo.php']);\n    _paq.push(['setSiteId', '4']);\n    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];\n    g.async=true; g.src=u+'matomo.php'; s.parentNode.insertBefore(g,s);\n  })();\n</script>",
+                    'position' => 'headClose',
+                ],
+                'allDomains' => true,
+            ]
         );
 
         return $analytics;
