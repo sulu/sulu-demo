@@ -71,9 +71,9 @@ class AdminControllerTest extends SuluTestCase
         $finder = new Finder();
         $path = __DIR__ . '/../../../../config/' . $type;
 
-        $path = realpath($path);
+        $path = \realpath($path);
         if (!$path) {
-            throw new \RuntimeException(sprintf('Could not find path: "%s"', $path));
+            throw new \RuntimeException(\sprintf('Could not find path: "%s"', $path));
         }
 
         $finder->in($path);

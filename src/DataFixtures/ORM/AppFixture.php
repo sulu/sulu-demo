@@ -91,7 +91,7 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
         $finder = new Finder();
 
         foreach ($finder->files()->in(__DIR__ . '/../images') as $file) {
-            $media[pathinfo($file, \PATHINFO_BASENAME)] = $this->createMedia($manager, $collection, $file);
+            $media[\pathinfo($file, \PATHINFO_BASENAME)] = $this->createMedia($manager, $collection, $file);
         }
 
         return $media;
@@ -651,7 +651,7 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
     private function createAlbum(ObjectManager $manager, array $images, array $data): Album
     {
         if (!($media = $images[$data['image']] ?? null)) {
-            throw new \RuntimeException(sprintf('Image "%s" could not be found!', $data['image']));
+            throw new \RuntimeException(\sprintf('Image "%s" could not be found!', $data['image']));
         }
 
         $album = new Album();

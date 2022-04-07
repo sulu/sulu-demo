@@ -33,8 +33,8 @@ class AlbumSelection extends SimpleContentType
 
         $albums = $this->entityManager->getRepository(Album::class)->findBy(['id' => $ids]);
 
-        $idPositions = array_flip($ids);
-        usort($albums, function (Album $a, Album $b) use ($idPositions) {
+        $idPositions = \array_flip($ids);
+        \usort($albums, function (Album $a, Album $b) use ($idPositions) {
             return $idPositions[$a->getId()] - $idPositions[$b->getId()];
         });
 

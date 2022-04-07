@@ -61,7 +61,7 @@ class AlbumControllerTest extends SuluTestCase
          *     total: int,
          * } $result
          */
-        $result = json_decode($response->getContent() ?: '', true);
+        $result = \json_decode($response->getContent() ?: '', true);
         $this->assertHttpStatusCode(200, $response);
 
         $this->assertSame(2, $result['total']);
@@ -101,7 +101,7 @@ class AlbumControllerTest extends SuluTestCase
          *     }>,
          * } $result
          */
-        $result = json_decode($response->getContent() ?: '', true);
+        $result = \json_decode($response->getContent() ?: '', true);
         $this->assertHttpStatusCode(200, $response);
 
         $this->assertSame($album->getId(), $result['id']);
@@ -116,7 +116,7 @@ class AlbumControllerTest extends SuluTestCase
 
         $response = $this->client->getResponse();
         $this->assertInstanceOf(Response::class, $response);
-        $result = json_decode($response->getContent() ?: '', true);
+        $result = \json_decode($response->getContent() ?: '', true);
         $this->assertHttpStatusCode(404, $response);
     }
 
@@ -148,7 +148,7 @@ class AlbumControllerTest extends SuluTestCase
          *     }>,
          * } $result
          */
-        $result = json_decode($response->getContent() ?: '', true);
+        $result = \json_decode($response->getContent() ?: '', true);
         $this->assertHttpStatusCode(201, $response);
 
         $this->assertArrayHasKey('id', $result);
@@ -206,7 +206,7 @@ class AlbumControllerTest extends SuluTestCase
          *     }>,
          * } $result
          */
-        $result = json_decode($response->getContent() ?: '', true);
+        $result = \json_decode($response->getContent() ?: '', true);
         $this->assertHttpStatusCode(200, $response);
 
         $this->assertArrayHasKey('id', $result);
@@ -251,7 +251,7 @@ class AlbumControllerTest extends SuluTestCase
 
         $response = $this->client->getResponse();
         $this->assertInstanceOf(Response::class, $response);
-        $result = json_decode($response->getContent() ?: '', true);
+        $result = \json_decode($response->getContent() ?: '', true);
         $this->assertHttpStatusCode(404, $response);
     }
 

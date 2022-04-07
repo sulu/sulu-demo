@@ -15,6 +15,9 @@ $config
             'multi_line_extends_each_single_line' => true,
         ],
         'linebreak_after_opening_tag' => true,
+        'native_constant_invocation' => true,
+        'native_function_casing' => true,
+        'native_function_invocation' => ['include' => ['@internal']],
         'no_php4_constructor' => true,
         'no_superfluous_phpdoc_tags' => true,
         'no_unreachable_default_argument_value' => true,
@@ -25,6 +28,7 @@ $config
         'semicolon_after_instruction' => true,
         'strict_comparison' => true,
         'strict_param' => true,
+        'single_line_comment_spacing' => false,
     ])
     ->setFinder(
         PhpCsFixer\Finder::create()
