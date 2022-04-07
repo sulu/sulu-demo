@@ -24,7 +24,7 @@
         "sulu/article-bundle": "^2.3",
         "sulu/automation-bundle": "^2.0",
         "sulu/redirect-bundle": "^2.0",
-        "sulu/sulu": "~2.4.0",
+        "sulu/sulu": "~2.4.2",
         "sulu/web-twig": "^2.4",
         "symfony/config": "^5.4",
         "symfony/dotenv": "^5.4",
@@ -32,6 +32,7 @@
         "symfony/framework-bundle": "^5.4",
         "symfony/monolog-bridge": "^5.4",
         "symfony/monolog-bundle": "^3.7",
+        "symfony/runtime": "^5.4",
         "symfony/security-bundle": "^5.4",
         "symfony/swiftmailer-bundle": "^3.5",
         "symfony/twig-bundle": "^5.4"
@@ -154,7 +155,8 @@
         "sort-packages": true,
         "allow-plugins": {
             "symfony/flex": true,
-            "symfony/thanks": true
+            "symfony/thanks": true,
+            "symfony/runtime": true
         }
     },
     "extra": {

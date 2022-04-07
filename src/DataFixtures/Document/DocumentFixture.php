@@ -1292,7 +1292,7 @@ class DocumentFixture implements DocumentFixtureInterface
             return;
         }
 
-        $data['element'] = array_map(function (array $element) use ($artistsDocument): array {
+        $data['element'] = \array_map(function (array $element) use ($artistsDocument): array {
             if ('pages' === $element['type']) {
                 $element['pages']['dataSource'] = $artistsDocument->getUuid();
             }
@@ -1318,7 +1318,7 @@ class DocumentFixture implements DocumentFixtureInterface
         if (!isset($data['url'])) {
             $url = $this->pathCleanup->cleanup('/' . $data['title']);
             if (isset($data['parent_path'])) {
-                $url = mb_substr($data['parent_path'], mb_strlen('/cmf/demo/contents')) . $url;
+                $url = \mb_substr($data['parent_path'], \mb_strlen('/cmf/demo/contents')) . $url;
             }
 
             $data['url'] = $url;
@@ -1442,7 +1442,7 @@ class DocumentFixture implements DocumentFixtureInterface
 
             return (int) $id;
         } catch (NonUniqueResultException $e) {
-            throw new RuntimeException(sprintf('Too many images with the name "%s" found.', $name), 0, $e);
+            throw new RuntimeException(\sprintf('Too many images with the name "%s" found.', $name), 0, $e);
         }
     }
 
@@ -1459,7 +1459,7 @@ class DocumentFixture implements DocumentFixtureInterface
 
             return (int) $id;
         } catch (NonUniqueResultException $e) {
-            throw new RuntimeException(sprintf('Too many albums with the title "%s" found.', $title), 0, $e);
+            throw new RuntimeException(\sprintf('Too many albums with the title "%s" found.', $title), 0, $e);
         }
     }
 }
