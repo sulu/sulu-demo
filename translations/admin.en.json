@@ -10,5 +10,8 @@
     "app.album_selection_label": "{count} {count, plural, =1 {album} other {albums}} selected",
     "app.select_albums": "Select albums",
     "app.no_album_selected": "No album selected",
-    "app.select_album": "Select album"
+    "app.select_album": "Select album",
+    "sulu_activity.description.albums.created": "{userFullName} has created the album \"{resourceTitle}\"",
+    "sulu_activity.description.albums.modified": "{userFullName} has changed the album \"{resourceTitle}\"",
+    "sulu_activity.description.albums.removed": "{userFullName} has removed the album \"{resourceTitle}\""
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Admin;
 
 use App\Entity\Album;
+use Sulu\Bundle\ActivityBundle\Infrastructure\Sulu\Admin\View\ActivityViewBuilderFactoryInterface;
 use Sulu\Bundle\AdminBundle\Admin\Admin;
 use Sulu\Bundle\AdminBundle\Admin\Navigation\NavigationItem;
 use Sulu\Bundle\AdminBundle\Admin\Navigation\NavigationItemCollection;
@@ -23,13 +24,16 @@ class AlbumAdmin extends Admin
     public const EDIT_FORM_DETAILS_VIEW = 'app.album.edit_form.details';
 
     private ViewBuilderFactoryInterface $viewBuilderFactory;
+    private ActivityViewBuilderFactoryInterface $activityViewBuilderFactory;
     private SecurityCheckerInterface $securityChecker;
 
     public function __construct(
         ViewBuilderFactoryInterface $viewBuilderFactory,
+        ActivityViewBuilderFactoryInterface $activityViewBuilderFactory,
         SecurityCheckerInterface $securityChecker
     ) {
         $this->viewBuilderFactory = $viewBuilderFactory;
+        $this->activityViewBuilderFactory = $activityViewBuilderFactory;
         $this->securityChecker = $securityChecker;
     }
 
@@ -102,6 +106,7 @@ class AlbumAdmin extends Admin
                 $this->viewBuilderFactory->createResourceTabViewBuilder(static::EDIT_FORM_VIEW, '/albums/:id')
                     ->setResourceKey(Album::RESOURCE_KEY)
                     ->setBackView(static::LIST_VIEW)
+                    ->setTitleProperty('title')
             );
 
             $viewCollection->add(
@@ -112,6 +117,18 @@ class AlbumAdmin extends Admin
                     ->addToolbarActions($formToolbarActions)
                     ->setParent(static::EDIT_FORM_VIEW)
             );
+
+            if ($this->activityViewBuilderFactory->hasActivityListPermission()) {
+                $viewCollection->add(
+                    $this->activityViewBuilderFactory
+                        ->createActivityListViewBuilder(
+                            static::EDIT_FORM_VIEW . '.activity',
+                            '/activity',
+                            Album::RESOURCE_KEY
+                        )
+                        ->setParent(static::EDIT_FORM_VIEW)
+                );
+            }
         }
     }
 
