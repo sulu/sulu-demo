@@ -11,6 +11,7 @@ use FOS\RestBundle\View\ViewHandlerInterface;
 use HandcraftedInTheAlps\RestRoutingBundle\Controller\Annotations\RouteResource;
 use HandcraftedInTheAlps\RestRoutingBundle\Routing\ClassResourceInterface;
 use Sulu\Bundle\MediaBundle\Media\Manager\MediaManagerInterface;
+use Sulu\Bundle\TrashBundle\Application\TrashManager\TrashManagerInterface;
 use Sulu\Component\Rest\AbstractRestController;
 use Sulu\Component\Security\SecuredControllerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,17 +27,20 @@ class AlbumController extends AbstractRestController implements ClassResourceInt
     private DoctrineListRepresentationFactory $doctrineListRepresentationFactory;
     private EntityManagerInterface $entityManager;
     private MediaManagerInterface $mediaManager;
+    private TrashManagerInterface $trashManager;
 
     public function __construct(
         DoctrineListRepresentationFactory $doctrineListRepresentationFactory,
         EntityManagerInterface $entityManager,
         MediaManagerInterface $mediaManager,
+        TrashManagerInterface $trashManager,
         ViewHandlerInterface $viewHandler,
         ?TokenStorageInterface $tokenStorage = null
     ) {
         $this->doctrineListRepresentationFactory = $doctrineListRepresentationFactory;
         $this->entityManager = $entityManager;
         $this->mediaManager = $mediaManager;
+        $this->trashManager = $trashManager;
 
         parent::__construct($viewHandler, $tokenStorage);
     }
@@ -86,10 +90,14 @@ class AlbumController extends AbstractRestController implements ClassResourceInt
 
     public function deleteAction(int $id): Response
     {
-        /** @var Album $album */
-        $album = $this->entityManager->getReference(Album::class, $id);
-        $this->entityManager->remove($album);
-        $this->entityManager->flush();
+        $album = $this->entityManager->getRepository(Album::class)->find($id);
+
+        if ($album) {
+            $this->trashManager->store(Album::RESOURCE_KEY, $album);
+
+            $this->entityManager->remove($album);
+            $this->entityManager->flush();
+        }
 
         return $this->handleView($this->view(null, 204));
     }
