@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/pages/*": ["./cypress/support/pages/*"]
+    },
+    "module": "amd",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "target": "es2021",
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "types": ["cypress", "cypress-wait-until", "node"],
+    "allowSyntheticDefaultImports": true,
+    "typeRoots": ["node_modules/@types"]
+  },
+  "include": ["**/*.ts"]
+}
