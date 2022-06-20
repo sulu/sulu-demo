@@ -9,7 +9,7 @@ sulu_admin:
     resources:
         albums:
             routes:
-                list: 'app.get_albums'
+                list: 'app.get_album_list'
                 detail: 'app.get_album'
     field_type_options:
         selection:

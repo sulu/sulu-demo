@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use JMS\Serializer\Annotation as Serializer;
 use Sulu\Bundle\MediaBundle\Entity\MediaInterface;
 use Sulu\Component\Persistence\Model\AuditableInterface;
 use Sulu\Component\Persistence\Model\AuditableTrait;
@@ -11,7 +10,6 @@ use Sulu\Component\Persistence\Model\AuditableTrait;
 /**
  * @ORM\Entity()
  * @ORM\Table(name="app_album")
- * @Serializer\ExclusionPolicy("all")
  */
 class Album implements AuditableInterface
 {
@@ -26,15 +24,11 @@ class Album implements AuditableInterface
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     *
-     * @Serializer\Expose()
      */
     private ?int $id = null;
 
     /**
      * @ORM\Column(type="string", length=255)
-     *
-     * @Serializer\Expose()
      */
     private string $title;
 
@@ -48,8 +42,6 @@ class Album implements AuditableInterface
      * @var mixed[]
      *
      * @ORM\Column(type="json")
-     *
-     * @Serializer\Expose()
      */
     private array $tracklist = [];
 
@@ -71,23 +63,6 @@ class Album implements AuditableInterface
     public function getImage(): ?MediaInterface
     {
         return $this->image;
-    }
-
-    /**
-     * @return array<string, mixed>
-     *
-     * @Serializer\VirtualProperty()
-     * @Serializer\SerializedName("image")
-     */
-    public function getImageData(): ?array
-    {
-        if ($image = $this->getImage()) {
-            return [
-                'id' => $image->getId(),
-            ];
-        }
-
-        return null;
     }
 
     public function setImage(?MediaInterface $image): void
