@@ -7,21 +7,23 @@ namespace App\Controller\Admin;
 use App\Common\DoctrineListRepresentationFactory;
 use App\Entity\Album;
 use Doctrine\ORM\EntityManagerInterface;
-use FOS\RestBundle\View\ViewHandlerInterface;
-use HandcraftedInTheAlps\RestRoutingBundle\Controller\Annotations\RouteResource;
-use HandcraftedInTheAlps\RestRoutingBundle\Routing\ClassResourceInterface;
 use Sulu\Bundle\MediaBundle\Media\Manager\MediaManagerInterface;
-use Sulu\Component\Rest\AbstractRestController;
 use Sulu\Component\Security\SecuredControllerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @RouteResource("album")
+ * @phpstan-type AlbumData array{
+ *     id: int|null,
+ *     title: string,
+ *     image: array{id: int}|null,
+ *     tracklist: mixed[],
+ * }
  */
-class AlbumController extends AbstractRestController implements ClassResourceInterface, SecuredControllerInterface
+class AlbumController extends AbstractController implements SecuredControllerInterface
 {
     private DoctrineListRepresentationFactory $doctrineListRepresentationFactory;
     private EntityManagerInterface $entityManager;
@@ -30,26 +32,16 @@ class AlbumController extends AbstractRestController implements ClassResourceInt
     public function __construct(
         DoctrineListRepresentationFactory $doctrineListRepresentationFactory,
         EntityManagerInterface $entityManager,
-        MediaManagerInterface $mediaManager,
-        ViewHandlerInterface $viewHandler,
-        ?TokenStorageInterface $tokenStorage = null
+        MediaManagerInterface $mediaManager
     ) {
         $this->doctrineListRepresentationFactory = $doctrineListRepresentationFactory;
         $this->entityManager = $entityManager;
         $this->mediaManager = $mediaManager;
-
-        parent::__construct($viewHandler, $tokenStorage);
     }
 
-    public function cgetAction(): Response
-    {
-        $listRepresentation = $this->doctrineListRepresentationFactory->createDoctrineListRepresentation(
-            Album::RESOURCE_KEY
-        );
-
-        return $this->handleView($this->view($listRepresentation));
-    }
-
+    /**
+     * @Route("/admin/api/albums/{id}", methods={"GET"}, name="app.get_album")
+     */
     public function getAction(int $id): Response
     {
         $album = $this->entityManager->getRepository(Album::class)->find($id);
@@ -57,9 +49,12 @@ class AlbumController extends AbstractRestController implements ClassResourceInt
             throw new NotFoundHttpException();
         }
 
-        return $this->handleView($this->view($album));
+        return $this->json($this->getDataForEntity($album));
     }
 
+    /**
+     * @Route("/admin/api/albums/{id}", methods={"PUT"}, name="app.put_album")
+     */
     public function putAction(Request $request, int $id): Response
     {
         $album = $this->entityManager->getRepository(Album::class)->find($id);
@@ -67,23 +62,29 @@ class AlbumController extends AbstractRestController implements ClassResourceInt
             throw new NotFoundHttpException();
         }
 
-        $this->mapDataToEntity($request->request->all(), $album);
+        $this->mapDataToEntity($request->toArray(), $album);
         $this->entityManager->flush();
 
-        return $this->handleView($this->view($album));
+        return $this->json($this->getDataForEntity($album));
     }
 
+    /**
+     * @Route("/admin/api/albums", methods={"POST"}, name="app.post_album")
+     */
     public function postAction(Request $request): Response
     {
         $album = new Album();
 
-        $this->mapDataToEntity($request->request->all(), $album);
+        $this->mapDataToEntity($request->toArray(), $album);
         $this->entityManager->persist($album);
         $this->entityManager->flush();
 
-        return $this->handleView($this->view($album, 201));
+        return $this->json($this->getDataForEntity($album), 201);
     }
 
+    /**
+     * @Route("/admin/api/albums/{id}", methods={"DELETE"}, name="app.delete_album")
+     */
     public function deleteAction(int $id): Response
     {
         /** @var Album $album */
@@ -91,7 +92,19 @@ class AlbumController extends AbstractRestController implements ClassResourceInt
         $this->entityManager->remove($album);
         $this->entityManager->flush();
 
-        return $this->handleView($this->view(null, 204));
+        return $this->json(null, 204);
+    }
+
+    /**
+     * @Route("/admin/api/albums", methods={"GET"}, name="app.get_album_list")
+     */
+    public function getListAction(): Response
+    {
+        $listRepresentation = $this->doctrineListRepresentationFactory->createDoctrineListRepresentation(
+            Album::RESOURCE_KEY
+        );
+
+        return $this->json($listRepresentation->toArray());
     }
 
     /**
@@ -100,16 +113,7 @@ class AlbumController extends AbstractRestController implements ClassResourceInt
     protected function mapDataToEntity(array $data, Album $entity): void
     {
         /**
-         * @var array{
-         *     id: int,
-         *     title: string,
-         *     image: array{id: int}|null,
-         *     tracklist: array<array{
-         *         type: string,
-         *         title: string|null,
-         *         interpreter: string|null,
-         *     }>,
-         * } $data
+         * @var AlbumData $data
          */
         $imageId = $data['image']['id'] ?? null;
 
@@ -118,8 +122,30 @@ class AlbumController extends AbstractRestController implements ClassResourceInt
         $entity->setTracklist($data['tracklist']);
     }
 
+    /**
+     * @return AlbumData $data
+     */
+    protected function getDataForEntity(Album $entity): array
+    {
+        $image = $entity->getImage();
+
+        return [
+            'id' => $entity->getId(),
+            'title' => $entity->getTitle(),
+            'image' => $image
+                ? ['id' => $image->getId()]
+                : null,
+            'tracklist' => $entity->getTracklist(),
+        ];
+    }
+
     public function getSecurityContext(): string
     {
         return Album::SECURITY_CONTEXT;
+    }
+
+    public function getLocale(Request $request): ?string
+    {
+        return $request->query->get('locale');
     }
 }

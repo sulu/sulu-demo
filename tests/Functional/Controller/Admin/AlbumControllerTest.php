@@ -4,12 +4,16 @@ declare(strict_types=1);
 
 namespace App\Tests\Functional\Controller\Admin;
 
+use App\Controller\Admin\AlbumController;
 use App\Entity\Album;
 use App\Tests\Functional\Traits\CreateAlbumTrait;
 use Sulu\Bundle\TestBundle\Testing\SuluTestCase;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * @phpstan-import-type AlbumData from AlbumController
+ */
 class AlbumControllerTest extends SuluTestCase
 {
     use CreateAlbumTrait;
@@ -42,7 +46,7 @@ class AlbumControllerTest extends SuluTestCase
             ],
         ]);
 
-        $this->client->request('GET', '/admin/api/albums');
+        $this->client->jsonRequest('GET', '/admin/api/albums');
 
         $response = $this->client->getResponse();
         $this->assertInstanceOf(Response::class, $response);
@@ -84,22 +88,13 @@ class AlbumControllerTest extends SuluTestCase
             ],
         ]);
 
-        $this->client->request('GET', '/admin/api/albums/' . $album->getId());
+        $this->client->jsonRequest('GET', '/admin/api/albums/' . $album->getId());
 
         $response = $this->client->getResponse();
         $this->assertInstanceOf(Response::class, $response);
 
         /**
-         * @var array{
-         *     id: int,
-         *     title: string,
-         *     image: array{id: int}|null,
-         *     tracklist: array<array{
-         *         type: string,
-         *         title: string|null,
-         *         interpreter: string|null,
-         *     }>,
-         * } $result
+         * @var AlbumData $result
          */
         $result = \json_decode($response->getContent() ?: '', true);
         $this->assertHttpStatusCode(200, $response);
@@ -112,7 +107,7 @@ class AlbumControllerTest extends SuluTestCase
 
     public function testGetNotExisting(): void
     {
-        $this->client->request('GET', '/admin/api/albums/9999');
+        $this->client->jsonRequest('GET', '/admin/api/albums/9999');
 
         $response = $this->client->getResponse();
         $this->assertInstanceOf(Response::class, $response);
@@ -122,7 +117,7 @@ class AlbumControllerTest extends SuluTestCase
 
     public function testPost(): void
     {
-        $this->client->request(
+        $this->client->jsonRequest(
                 'POST',
                 '/admin/api/albums',
                 [
@@ -137,16 +132,7 @@ class AlbumControllerTest extends SuluTestCase
         $this->assertInstanceOf(Response::class, $response);
 
         /**
-         * @var array{
-         *     id: int,
-         *     title: string,
-         *     image: array{id: int}|null,
-         *     tracklist: array<array{
-         *         type: string,
-         *         title: string|null,
-         *         interpreter: string|null,
-         *     }>,
-         * } $result
+         * @var AlbumData $result
          */
         $result = \json_decode($response->getContent() ?: '', true);
         $this->assertHttpStatusCode(201, $response);
@@ -180,7 +166,7 @@ class AlbumControllerTest extends SuluTestCase
                 ],
             ]);
 
-        $this->client->request(
+        $this->client->jsonRequest(
                 'PUT',
                 '/admin/api/albums/' . $album->getId(),
                 [
@@ -195,16 +181,7 @@ class AlbumControllerTest extends SuluTestCase
         $response = $this->client->getResponse();
         $this->assertInstanceOf(Response::class, $response);
         /**
-         * @var array{
-         *     id: int,
-         *     title: string,
-         *     image: array{id: int}|null,
-         *     tracklist: array<array{
-         *         type: string,
-         *         title: string|null,
-         *         interpreter: string|null,
-         *     }>,
-         * } $result
+         * @var AlbumData $result
          */
         $result = \json_decode($response->getContent() ?: '', true);
         $this->assertHttpStatusCode(200, $response);
@@ -237,7 +214,7 @@ class AlbumControllerTest extends SuluTestCase
 
     public function testPutNotExisting(): void
     {
-        $this->client->request(
+        $this->client->jsonRequest(
             'PUT',
             '/admin/api/albums/9999',
             [
@@ -267,7 +244,7 @@ class AlbumControllerTest extends SuluTestCase
         $albumId = $album->getId();
         $this->assertNotNull($albumId);
 
-        $this->client->request('DELETE', '/admin/api/albums/' . $albumId);
+        $this->client->jsonRequest('DELETE', '/admin/api/albums/' . $albumId);
 
         $response = $this->client->getResponse();
         $this->assertInstanceOf(Response::class, $response);

@@ -35,12 +35,10 @@ class AlbumTest extends TestCase
         $image->getId()->willReturn(1234);
 
         $this->assertNull($this->album->getImage());
-        $this->assertNull($this->album->getImageData());
 
         $this->album->setImage($image->reveal());
 
         $this->assertSame($image->reveal(), $this->album->getImage());
-        $this->assertSame(['id' => 1234], $this->album->getImageData());
     }
 
     public function testTracklist(): void
