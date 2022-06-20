@@ -29,7 +29,7 @@ class AlbumControllerTest extends SuluTestCase
         $this->purgeDatabase();
     }
 
-    public function testCGet(): void
+    public function testGetList(): void
     {
         $album1 = $this->createAlbum([
             'title' => 'Railling',
