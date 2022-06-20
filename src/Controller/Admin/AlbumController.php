@@ -62,7 +62,9 @@ class AlbumController extends AbstractController implements SecuredControllerInt
             throw new NotFoundHttpException();
         }
 
-        $this->mapDataToEntity($request->toArray(), $album);
+        /** @var AlbumData $data */
+        $data = $request->toArray();
+        $this->mapDataToEntity($data, $album);
         $this->entityManager->flush();
 
         return $this->json($this->getDataForEntity($album));
@@ -75,7 +77,9 @@ class AlbumController extends AbstractController implements SecuredControllerInt
     {
         $album = new Album();
 
-        $this->mapDataToEntity($request->toArray(), $album);
+        /** @var AlbumData $data */
+        $data = $request->toArray();
+        $this->mapDataToEntity($data, $album);
         $this->entityManager->persist($album);
         $this->entityManager->flush();
 
@@ -108,21 +112,6 @@ class AlbumController extends AbstractController implements SecuredControllerInt
     }
 
     /**
-     * @param mixed[] $data
-     */
-    protected function mapDataToEntity(array $data, Album $entity): void
-    {
-        /**
-         * @var AlbumData $data
-         */
-        $imageId = $data['image']['id'] ?? null;
-
-        $entity->setTitle($data['title']);
-        $entity->setImage($imageId ? $this->mediaManager->getEntityById($imageId) : null);
-        $entity->setTracklist($data['tracklist']);
-    }
-
-    /**
      * @return AlbumData $data
      */
     protected function getDataForEntity(Album $entity): array
@@ -137,6 +126,18 @@ class AlbumController extends AbstractController implements SecuredControllerInt
                 : null,
             'tracklist' => $entity->getTracklist(),
         ];
+    }
+
+    /**
+     * @param AlbumData $data
+     */
+    protected function mapDataToEntity(array $data, Album $entity): void
+    {
+        $imageId = $data['image']['id'] ?? null;
+
+        $entity->setTitle($data['title']);
+        $entity->setImage($imageId ? $this->mediaManager->getEntityById($imageId) : null);
+        $entity->setTracklist($data['tracklist']);
     }
 
     public function getSecurityContext(): string
