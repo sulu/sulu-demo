@@ -14,6 +14,19 @@
             <params>
                 <param name="headline" value="true"/>
             </params>
+
+            <tag name="sulu.rlp.part"/>
+        </property>
+
+        <property name="routePath" type="route" mandatory="true" colspan="12">
+            <meta>
+                <title>sulu_admin.url</title>
+            </meta>
+
+            <params>
+                <param name="entity_class" value="App\Entity\Event"/>
+                <param name="route_schema" value="/events/{implode('-', object)}"/>
+            </params>
         </property>
 
         <property name="image" type="single_media_selection" colspan="12">
