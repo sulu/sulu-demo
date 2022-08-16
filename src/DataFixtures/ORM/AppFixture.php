@@ -1,11 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\DataFixtures\ORM;
 
 use App\Entity\Album;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
+use RuntimeException;
 use Sulu\Bundle\ContactBundle\Entity\Account;
 use Sulu\Bundle\ContactBundle\Entity\AccountAddress;
 use Sulu\Bundle\ContactBundle\Entity\AccountInterface;
@@ -31,17 +34,11 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class AppFixture extends Fixture implements OrderedFixtureInterface
 {
-    public const LOCALE_EN = 'en';
-    public const LOCALE_DE = 'de';
+    final public const LOCALE_EN = 'en';
+    final public const LOCALE_DE = 'de';
 
-    /**
-     * @var StorageInterface
-     */
-    private $storage;
-
-    public function __construct(StorageInterface $storage)
+    public function __construct(private readonly StorageInterface $storage)
     {
-        $this->storage = $storage;
     }
 
     public function load(ObjectManager $manager): void
@@ -72,14 +69,10 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
      */
     private function loadCollections(ObjectManager $manager): array
     {
-        $collections = [];
-
-        $collections['Content Images'] = $this->createCollection(
+        return ['Content Images' => $this->createCollection(
             $manager,
-            ['title' => 'Content Images']
-        );
-
-        return $collections;
+            ['title' => 'Content Images'],
+        )];
     }
 
     /**
@@ -91,7 +84,7 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
         $finder = new Finder();
 
         foreach ($finder->files()->in(__DIR__ . '/../images') as $file) {
-            $media[\pathinfo($file, \PATHINFO_BASENAME)] = $this->createMedia($manager, $collection, $file);
+            $media[\pathinfo($file->getPathname(), \PATHINFO_BASENAME)] = $this->createMedia($manager, $collection, $file);
         }
 
         return $media;
@@ -102,14 +95,10 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
      */
     private function loadContacts(ObjectManager $manager): array
     {
-        $contacts = [];
-
-        $contacts[] = $this->createContact(
+        return [$this->createContact(
             $manager,
-            ['firstName' => 'Liz', 'lastName' => 'Adam']
-        );
-
-        return $contacts;
+            ['firstName' => 'Liz', 'lastName' => 'Adam'],
+        )];
     }
 
     /**
@@ -117,9 +106,7 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
      */
     private function loadAccounts(ObjectManager $manager): array
     {
-        $accounts = [];
-
-        $accounts[] = $this->createAccount($manager, [
+        return [$this->createAccount($manager, [
             'name' => 'N Music GmbH',
             'corporation' => 'Soundmanagement Corporation',
             'email' => 'office@n.com',
@@ -132,9 +119,7 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
                 'city' => 'Dornbirn',
                 'countryCode' => 'AT',
             ],
-        ]);
-
-        return $accounts;
+        ])];
     }
 
     /**
@@ -144,9 +129,7 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
      */
     private function loadAlbums(ObjectManager $manager, array $images): array
     {
-        $albums = [];
-
-        $albums[] = $this->createAlbum(
+        return [$this->createAlbum(
             $manager,
             $images,
             [
@@ -163,9 +146,8 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
                     ['type' => 'track', 'title' => 'Worthless Words', 'interpreter' => 'Civil Literature'],
                     ['type' => 'track', 'title' => 'Cheating Death', 'interpreter' => 'Civil Literature'],
                 ],
-            ]
-        );
-        $albums[] = $this->createAlbum(
+            ],
+        ), $this->createAlbum(
             $manager,
             $images,
             [
@@ -181,9 +163,8 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
                     ['type' => 'track', 'title' => 'Home again', 'interpreter' => 'Civil Literature'],
                     ['type' => 'track', 'title' => 'My Story', 'interpreter' => 'Civil Literature'],
                 ],
-            ]
-        );
-        $albums[] = $this->createAlbum(
+            ],
+        ), $this->createAlbum(
             $manager,
             $images,
             [
@@ -199,9 +180,8 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
                     ['type' => 'track', 'title' => 'Hunt for Glory', 'interpreter' => 'Civil Literature'],
                     ['type' => 'track', 'title' => 'Devotion', 'interpreter' => 'Civil Literature'],
                 ],
-            ]
-        );
-        $albums[] = $this->createAlbum(
+            ],
+        ), $this->createAlbum(
             $manager,
             $images,
             [
@@ -215,9 +195,8 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
                     ['type' => 'track', 'title' => 'Europe is Lost', 'interpreter' => 'Civil Literature'],
                     ['type' => 'track', 'title' => 'Break Through', 'interpreter' => 'Civil Literature'],
                 ],
-            ]
-        );
-        $albums[] = $this->createAlbum(
+            ],
+        ), $this->createAlbum(
             $manager,
             $images,
             [
@@ -234,9 +213,8 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
                     ['type' => 'track', 'title' => 'Alive in us', 'interpreter' => 'Coyoos'],
                     ['type' => 'track', 'title' => 'Dance you Life', 'interpreter' => 'Coyoos'],
                 ],
-            ]
-        );
-        $albums[] = $this->createAlbum(
+            ],
+        ), $this->createAlbum(
             $manager,
             $images,
             [
@@ -251,9 +229,8 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
                     ['type' => 'track', 'title' => 'Campfire in Murainen', 'interpreter' => 'Coyoos'],
                     ['type' => 'track', 'title' => 'A huge Drink', 'interpreter' => 'Coyoos'],
                 ],
-            ]
-        );
-        $albums[] = $this->createAlbum(
+            ],
+        ), $this->createAlbum(
             $manager,
             $images,
             [
@@ -267,9 +244,8 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
                     ['type' => 'track', 'title' => 'Wild World', 'interpreter' => 'Coyoos'],
                     ['type' => 'track', 'title' => 'Go to San Francisco', 'interpreter' => 'Coyoos'],
                 ],
-            ]
-        );
-        $albums[] = $this->createAlbum(
+            ],
+        ), $this->createAlbum(
             $manager,
             $images,
             [
@@ -283,9 +259,8 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
                     ['type' => 'track', 'title' => 'Mercy on the Road', 'interpreter' => 'Coyoos'],
                     ['type' => 'track', 'title' => 'Battle in the Nature', 'interpreter' => 'Coyoos'],
                 ],
-            ]
-        );
-        $albums[] = $this->createAlbum(
+            ],
+        ), $this->createAlbum(
             $manager,
             $images,
             [
@@ -302,9 +277,8 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
                     ['type' => 'track', 'title' => 'Live - Follow', 'interpreter' => 'Marshall Plan'],
                     ['type' => 'track', 'title' => 'Goal', 'interpreter' => 'Marshall Plan'],
                 ],
-            ]
-        );
-        $albums[] = $this->createAlbum(
+            ],
+        ), $this->createAlbum(
             $manager,
             $images,
             [
@@ -319,9 +293,8 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
                     ['type' => 'track', 'title' => 'Light the Sun', 'interpreter' => 'Marshall Plan'],
                     ['type' => 'track', 'title' => 'Let the light be', 'interpreter' => 'Marshall Plan'],
                 ],
-            ]
-        );
-        $albums[] = $this->createAlbum(
+            ],
+        ), $this->createAlbum(
             $manager,
             $images,
             [
@@ -334,9 +307,8 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
                     ['type' => 'track', 'title' => 'Again again', 'interpreter' => 'Marshall Plan'],
                     ['type' => 'track', 'title' => 'Right Now	', 'interpreter' => 'Marshall Plan'],
                 ],
-            ]
-        );
-        $albums[] = $this->createAlbum(
+            ],
+        ), $this->createAlbum(
             $manager,
             $images,
             [
@@ -351,9 +323,8 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
                     ['type' => 'track', 'title' => 'No more valleys', 'interpreter' => 'Marshall Plan'],
                     ['type' => 'track', 'title' => 'Wonder', 'interpreter' => 'Marshall Plan'],
                 ],
-            ]
-        );
-        $albums[] = $this->createAlbum(
+            ],
+        ), $this->createAlbum(
             $manager,
             $images,
             [
@@ -368,9 +339,8 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
                     ['type' => 'track', 'title' => 'Turn Over', 'interpreter' => 'The Bagpipes'],
                     ['type' => 'track', 'title' => 'Love is in the streets', 'interpreter' => 'The Bagpipes'],
                 ],
-            ]
-        );
-        $albums[] = $this->createAlbum(
+            ],
+        ), $this->createAlbum(
             $manager,
             $images,
             [
@@ -384,9 +354,8 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
                     ['type' => 'track', 'title' => 'Live alive', 'interpreter' => 'The Bagpipes'],
                     ['type' => 'track', 'title' => 'Battle Cry', 'interpreter' => 'The Bagpipes'],
                 ],
-            ]
-        );
-        $albums[] = $this->createAlbum(
+            ],
+        ), $this->createAlbum(
             $manager,
             $images,
             [
@@ -400,9 +369,8 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
                     ['type' => 'track', 'title' => 'Movement', 'interpreter' => 'The Bagpipes'],
                     ['type' => 'track', 'title' => 'Bagpipe Revival', 'interpreter' => 'The Bagpipes'],
                 ],
-            ]
-        );
-        $albums[] = $this->createAlbum(
+            ],
+        ), $this->createAlbum(
             $manager,
             $images,
             [
@@ -412,9 +380,8 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
                     ['type' => 'track', 'title' => 'Scottland Call\'s', 'interpreter' => 'The Bagpipes'],
                     ['type' => 'track', 'title' => 'Scottland Call\'s live', 'interpreter' => 'The Bagpipes'],
                 ],
-            ]
-        );
-        $albums[] = $this->createAlbum(
+            ],
+        ), $this->createAlbum(
             $manager,
             $images,
             [
@@ -428,9 +395,8 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
                     ['type' => 'track', 'title' => 'Neighbourhood', 'interpreter' => 'TJ Fury'],
                     ['type' => 'track', 'title' => 'Warning', 'interpreter' => 'TJ Fury'],
                 ],
-            ]
-        );
-        $albums[] = $this->createAlbum(
+            ],
+        ), $this->createAlbum(
             $manager,
             $images,
             [
@@ -445,9 +411,8 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
                     ['type' => 'track', 'title' => 'No more Violence', 'interpreter' => 'TJ Fury'],
                     ['type' => 'track', 'title' => 'Good Life', 'interpreter' => 'TJ Fury'],
                 ],
-            ]
-        );
-        $albums[] = $this->createAlbum(
+            ],
+        ), $this->createAlbum(
             $manager,
             $images,
             [
@@ -461,9 +426,8 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
                     ['type' => 'track', 'title' => 'My mom', 'interpreter' => 'TJ Fury'],
                     ['type' => 'track', 'title' => 'Barbershop', 'interpreter' => 'TJ Fury'],
                 ],
-            ]
-        );
-        $albums[] = $this->createAlbum(
+            ],
+        ), $this->createAlbum(
             $manager,
             $images,
             [
@@ -478,10 +442,8 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
                     ['type' => 'track', 'title' => 'There it is', 'interpreter' => 'TJ Fury'],
                     ['type' => 'track', 'title' => 'Fight for your Aim', 'interpreter' => 'TJ Fury'],
                 ],
-            ]
-        );
-
-        return $albums;
+            ],
+        )];
     }
 
     /**
@@ -489,9 +451,7 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
      */
     private function loadAnalytics(ObjectManager $manager): array
     {
-        $analytics = [];
-
-        $analytics[] = $this->createAnalytics(
+        return [$this->createAnalytics(
             $manager,
             [
                 'title' => 'Sulu Matomo',
@@ -501,10 +461,8 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
                     'position' => 'headClose',
                 ],
                 'allDomains' => true,
-            ]
-        );
-
-        return $analytics;
+            ],
+        )];
     }
 
     /**
@@ -514,11 +472,10 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
     {
         $collection = new Collection();
 
-        /** @var CollectionType|null $collectionType */
         $collectionType = $manager->getRepository(CollectionType::class)->find(1);
 
-        if (!$collectionType) {
-            throw new \RuntimeException('CollectionType "1" not found. Have you loaded the Sulu fixtures?');
+        if (!$collectionType instanceof CollectionType) {
+            throw new RuntimeException('CollectionType "1" not found. Have you loaded the Sulu fixtures?');
         }
 
         $collection->setType($collectionType);
@@ -540,7 +497,7 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
     private function createMedia(
         ObjectManager $manager,
         CollectionInterface $collection,
-        SplFileInfo $fileInfo
+        SplFileInfo $fileInfo,
     ): MediaInterface {
         $fileName = $fileInfo->getBasename();
         $title = $fileInfo->getFilename();
@@ -548,12 +505,12 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
 
         $storageOptions = $this->storage->save(
             $uploadedFile->getPathname(),
-            $fileName
+            $fileName,
         );
 
         $mediaType = $manager->getRepository(MediaType::class)->find(2);
         if (!$mediaType instanceof MediaType) {
-            throw new \RuntimeException('MediaType "2" not found. Have you loaded the Sulu fixtures?');
+            throw new RuntimeException('MediaType "2" not found. Have you loaded the Sulu fixtures?');
         }
 
         $media = new Media();
@@ -617,10 +574,9 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
         $account->setMainEmail($data['email']);
         $account->setMainPhone($data['phone']);
 
-        /** @var AddressType|null $addressType */
         $addressType = $manager->getRepository(AddressType::class)->find(1);
-        if (!$addressType) {
-            throw new \RuntimeException('AddressType "1" not found. Have you loaded the Sulu fixtures?');
+        if (!$addressType instanceof AddressType) {
+            throw new RuntimeException('AddressType "1" not found. Have you loaded the Sulu fixtures?');
         }
 
         $address = new Address();
@@ -650,8 +606,8 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
      */
     private function createAlbum(ObjectManager $manager, array $images, array $data): Album
     {
-        if (!($media = $images[$data['image']] ?? null)) {
-            throw new \RuntimeException(\sprintf('Image "%s" could not be found!', $data['image']));
+        if (($media = $images[$data['image']] ?? null) === null) {
+            throw new RuntimeException(\sprintf('Image "%s" could not be found!', $data['image']));
         }
 
         $album = new Album();
@@ -683,10 +639,6 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
 
     /**
      * @return array<string, mixed>
-     */
-
-    /**
-     * {@inheritdoc}
      */
     public function getOrder()
     {

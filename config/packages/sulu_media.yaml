@@ -12,8 +12,9 @@ sulu_media:
         save_image: '%env(bool:MEDIA_SAVE_IMAGE_LOCAL)%'
 
     format_manager:
-        # @see https://docs.sulu.io/en/2.2/book/image-formats.html#global-image-compression
         default_imagine_options:
+            # a value between 95 and 75 is recommended
+            # see also: https://docs.sulu.io/en/2.5/book/image-formats.html
             jpeg_quality: 95
             webp_quality: 95
             png_compression_level: 6

@@ -11,12 +11,8 @@ use Sulu\Component\Content\SimpleContentType;
 
 class AlbumSelection extends SimpleContentType
 {
-    protected EntityManagerInterface $entityManager;
-
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(protected EntityManagerInterface $entityManager)
     {
-        $this->entityManager = $entityManager;
-
         parent::__construct('album_selection', []);
     }
 
@@ -34,9 +30,7 @@ class AlbumSelection extends SimpleContentType
         $albums = $this->entityManager->getRepository(Album::class)->findBy(['id' => $ids]);
 
         $idPositions = \array_flip($ids);
-        \usort($albums, function (Album $a, Album $b) use ($idPositions) {
-            return $idPositions[$a->getId()] - $idPositions[$b->getId()];
-        });
+        \usort($albums, fn (Album $a, Album $b) => $idPositions[$a->getId()] - $idPositions[$b->getId()]);
 
         return $albums;
     }

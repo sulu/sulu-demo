@@ -2,17 +2,20 @@ parameters:
     env(PHPCR_WORKSPACE): 'default'
 
 sulu_document_manager:
+    versioning:
+        enabled: false # See https://docs.sulu.io/en/2.0/bundles/page/versioning.html if you want to enable versioning
     sessions:
+        # See https://docs.sulu.io/en/2.0/cookbook/jackrabbit.html if you want to use Jackrabbit
         default:
             backend: '%app.phpcr_backend%'
-            workspace: "%env(PHPCR_WORKSPACE)%"
-            username: "%env(PHPCR_USER)%"
-            password: "%env(PHPCR_PASSWORD)%"
+            workspace: '%env(PHPCR_WORKSPACE)%'
+            username: '%env(PHPCR_USER)%'
+            password: '%env(PHPCR_PASSWORD)%'
         live:
             backend: '%app.phpcr_backend%'
-            workspace: "%env(PHPCR_WORKSPACE)%_live"
-            username: "%env(PHPCR_USER)%"
-            password: "%env(PHPCR_PASSWORD)%"
+            workspace: '%env(PHPCR_WORKSPACE)%_live'
+            username: '%env(PHPCR_USER)%'
+            password: '%env(PHPCR_PASSWORD)%'
 
 when@prod: &prod
     sulu_document_manager:
@@ -30,7 +33,8 @@ when@prod: &prod
 
     services:
         doctrine_phpcr.meta_cache_provider:
-            class: Symfony\Component\Cache\DoctrineProvider
+            class: Doctrine\Common\Cache\Psr6\DoctrineProvider
+            factory: ['Doctrine\Common\Cache\Psr6\DoctrineProvider', 'wrap']
             public: false
             arguments:
                 - '@doctrine_phpcr.meta_cache_pool'
@@ -38,7 +42,8 @@ when@prod: &prod
                 - { name: 'kernel.reset', method: 'reset' }
 
         doctrine_phpcr.nodes_cache_provider:
-            class: Symfony\Component\Cache\DoctrineProvider
+            class: Doctrine\Common\Cache\Psr6\DoctrineProvider
+            factory: ['Doctrine\Common\Cache\Psr6\DoctrineProvider', 'wrap']
             public: false
             arguments:
                 - '@doctrine_phpcr.nodes_cache_pool'

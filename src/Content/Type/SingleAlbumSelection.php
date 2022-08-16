@@ -11,12 +11,8 @@ use Sulu\Component\Content\SimpleContentType;
 
 class SingleAlbumSelection extends SimpleContentType
 {
-    protected EntityManagerInterface $entityManager;
-
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(protected EntityManagerInterface $entityManager)
     {
-        $this->entityManager = $entityManager;
-
         parent::__construct('single_album_selection', null);
     }
 

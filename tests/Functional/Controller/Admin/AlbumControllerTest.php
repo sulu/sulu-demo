@@ -18,10 +18,7 @@ class AlbumControllerTest extends SuluTestCase
 {
     use CreateAlbumTrait;
 
-    /**
-     * @var KernelBrowser
-     */
-    private $client;
+    private KernelBrowser $client;
 
     protected function setUp(): void
     {
@@ -65,7 +62,7 @@ class AlbumControllerTest extends SuluTestCase
          *     total: int,
          * } $result
          */
-        $result = \json_decode($response->getContent() ?: '', true);
+        $result = \json_decode($response->getContent() ?: '', true, 512, \JSON_THROW_ON_ERROR);
         $this->assertHttpStatusCode(200, $response);
 
         $this->assertSame(2, $result['total']);
@@ -96,7 +93,7 @@ class AlbumControllerTest extends SuluTestCase
         /**
          * @var AlbumData $result
          */
-        $result = \json_decode($response->getContent() ?: '', true);
+        $result = \json_decode($response->getContent() ?: '', true, 512, \JSON_THROW_ON_ERROR);
         $this->assertHttpStatusCode(200, $response);
 
         $this->assertSame($album->getId(), $result['id']);
@@ -111,22 +108,22 @@ class AlbumControllerTest extends SuluTestCase
 
         $response = $this->client->getResponse();
         $this->assertInstanceOf(Response::class, $response);
-        $result = \json_decode($response->getContent() ?: '', true);
+        $result = \json_decode($response->getContent() ?: '', true, 512, \JSON_THROW_ON_ERROR);
         $this->assertHttpStatusCode(404, $response);
     }
 
     public function testPost(): void
     {
         $this->client->jsonRequest(
-                'POST',
-                '/admin/api/albums',
-                [
-                    'title' => 'Railling',
-                    'tracklist' => [
-                        ['type' => 'track', 'title' => 'Railling', 'interpreter' => 'TJ Fury'],
-                    ],
-                ]
-            );
+            'POST',
+            '/admin/api/albums',
+            [
+                'title' => 'Railling',
+                'tracklist' => [
+                    ['type' => 'track', 'title' => 'Railling', 'interpreter' => 'TJ Fury'],
+                ],
+            ],
+        );
 
         $response = $this->client->getResponse();
         $this->assertInstanceOf(Response::class, $response);
@@ -134,7 +131,7 @@ class AlbumControllerTest extends SuluTestCase
         /**
          * @var AlbumData $result
          */
-        $result = \json_decode($response->getContent() ?: '', true);
+        $result = \json_decode($response->getContent() ?: '', true, 512, \JSON_THROW_ON_ERROR);
         $this->assertHttpStatusCode(201, $response);
 
         $this->assertArrayHasKey('id', $result);
@@ -142,9 +139,9 @@ class AlbumControllerTest extends SuluTestCase
         $this->assertSame('Railling', $result['title']);
         $this->assertNull($result['image']);
         $this->assertSame(
-                [['type' => 'track', 'title' => 'Railling', 'interpreter' => 'TJ Fury']],
-                $result['tracklist']
-            );
+            [['type' => 'track', 'title' => 'Railling', 'interpreter' => 'TJ Fury']],
+            $result['tracklist'],
+        );
 
         /** @var Album|null $result */
         $result = $this->getEntityManager()->getRepository(Album::class)->findOneBy(['id' => $result['id']]);
@@ -152,38 +149,38 @@ class AlbumControllerTest extends SuluTestCase
         $this->assertSame('Railling', $result->getTitle());
         $this->assertNull($result->getImage());
         $this->assertSame(
-                [['type' => 'track', 'title' => 'Railling', 'interpreter' => 'TJ Fury']],
-                $result->getTracklist()
-            );
+            [['type' => 'track', 'title' => 'Railling', 'interpreter' => 'TJ Fury']],
+            $result->getTracklist(),
+        );
     }
 
     public function testPut(): void
     {
         $album = $this->createAlbum([
-                'title' => 'Railling',
-                'tracklist' => [
-                    ['type' => 'track', 'title' => 'Railling', 'interpreter' => 'TJ Fury'],
-                ],
-            ]);
+            'title' => 'Railling',
+            'tracklist' => [
+                ['type' => 'track', 'title' => 'Railling', 'interpreter' => 'TJ Fury'],
+            ],
+        ]);
 
         $this->client->jsonRequest(
-                'PUT',
-                '/admin/api/albums/' . $album->getId(),
-                [
-                    'title' => 'The Wolves',
-                    'tracklist' => [
-                        ['type' => 'track', 'title' => 'Battle in the Nature', 'interpreter' => 'Coyoos'],
-                        ['type' => 'track', 'title' => 'Mercy on the Road', 'interpreter' => 'Coyoos'],
-                    ],
-                ]
-            );
+            'PUT',
+            '/admin/api/albums/' . $album->getId(),
+            [
+                'title' => 'The Wolves',
+                'tracklist' => [
+                    ['type' => 'track', 'title' => 'Battle in the Nature', 'interpreter' => 'Coyoos'],
+                    ['type' => 'track', 'title' => 'Mercy on the Road', 'interpreter' => 'Coyoos'],
+                ],
+            ],
+        );
 
         $response = $this->client->getResponse();
         $this->assertInstanceOf(Response::class, $response);
         /**
          * @var AlbumData $result
          */
-        $result = \json_decode($response->getContent() ?: '', true);
+        $result = \json_decode($response->getContent() ?: '', true, 512, \JSON_THROW_ON_ERROR);
         $this->assertHttpStatusCode(200, $response);
 
         $this->assertArrayHasKey('id', $result);
@@ -191,12 +188,12 @@ class AlbumControllerTest extends SuluTestCase
         $this->assertSame('The Wolves', $result['title']);
         $this->assertNull($result['image']);
         $this->assertSame(
-                [
-                    ['type' => 'track', 'title' => 'Battle in the Nature', 'interpreter' => 'Coyoos'],
-                    ['type' => 'track', 'title' => 'Mercy on the Road', 'interpreter' => 'Coyoos'],
-                ],
-                $result['tracklist']
-            );
+            [
+                ['type' => 'track', 'title' => 'Battle in the Nature', 'interpreter' => 'Coyoos'],
+                ['type' => 'track', 'title' => 'Mercy on the Road', 'interpreter' => 'Coyoos'],
+            ],
+            $result['tracklist'],
+        );
 
         /** @var Album|null $result */
         $result = $this->getEntityManager()->getRepository(Album::class)->findOneBy(['id' => $result['id']]);
@@ -204,12 +201,12 @@ class AlbumControllerTest extends SuluTestCase
         $this->assertSame('The Wolves', $result->getTitle());
         $this->assertNull($result->getImage());
         $this->assertSame(
-                [
-                    ['type' => 'track', 'title' => 'Battle in the Nature', 'interpreter' => 'Coyoos'],
-                    ['type' => 'track', 'title' => 'Mercy on the Road', 'interpreter' => 'Coyoos'],
-                ],
-                $result->getTracklist()
-            );
+            [
+                ['type' => 'track', 'title' => 'Battle in the Nature', 'interpreter' => 'Coyoos'],
+                ['type' => 'track', 'title' => 'Mercy on the Road', 'interpreter' => 'Coyoos'],
+            ],
+            $result->getTracklist(),
+        );
     }
 
     public function testPutNotExisting(): void
@@ -223,23 +220,23 @@ class AlbumControllerTest extends SuluTestCase
                     ['type' => 'track', 'title' => 'Battle in the Nature', 'interpreter' => 'Coyoos'],
                     ['type' => 'track', 'title' => 'Mercy on the Road', 'interpreter' => 'Coyoos'],
                 ],
-            ]
+            ],
         );
 
         $response = $this->client->getResponse();
         $this->assertInstanceOf(Response::class, $response);
-        $result = \json_decode($response->getContent() ?: '', true);
+        $result = \json_decode($response->getContent() ?: '', true, 512, \JSON_THROW_ON_ERROR);
         $this->assertHttpStatusCode(404, $response);
     }
 
     public function testDelete(): void
     {
         $album = $this->createAlbum([
-                'title' => 'Railling',
-                'tracklist' => [
-                    ['type' => 'track', 'title' => 'Railling', 'interpreter' => 'TJ Fury'],
-                ],
-            ]);
+            'title' => 'Railling',
+            'tracklist' => [
+                ['type' => 'track', 'title' => 'Railling', 'interpreter' => 'TJ Fury'],
+            ],
+        ]);
 
         $albumId = $album->getId();
         $this->assertNotNull($albumId);

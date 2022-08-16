@@ -14,21 +14,8 @@ use Sulu\Component\Rest\RestHelperInterface;
 
 class DoctrineListRepresentationFactory
 {
-    private RestHelperInterface $restHelper;
-    private ListRestHelperInterface $listRestHelper;
-    private DoctrineListBuilderFactoryInterface $listBuilderFactory;
-    private FieldDescriptorFactoryInterface $fieldDescriptorFactory;
-
-    public function __construct(
-        RestHelperInterface $restHelper,
-        ListRestHelperInterface $listRestHelper,
-        DoctrineListBuilderFactoryInterface $listBuilderFactory,
-        FieldDescriptorFactoryInterface $fieldDescriptorFactory
-    ) {
-        $this->restHelper = $restHelper;
-        $this->listRestHelper = $listRestHelper;
-        $this->listBuilderFactory = $listBuilderFactory;
-        $this->fieldDescriptorFactory = $fieldDescriptorFactory;
+    public function __construct(private readonly RestHelperInterface $restHelper, private readonly ListRestHelperInterface $listRestHelper, private readonly DoctrineListBuilderFactoryInterface $listBuilderFactory, private readonly FieldDescriptorFactoryInterface $fieldDescriptorFactory)
+    {
     }
 
     /**
@@ -40,7 +27,7 @@ class DoctrineListRepresentationFactory
         string $resourceKey,
         array $filters = [],
         array $parameters = [],
-        array $includedFields = []
+        array $includedFields = [],
     ): PaginatedRepresentation {
         /** @var DoctrineFieldDescriptor[] $fieldDescriptors */
         $fieldDescriptors = $this->fieldDescriptorFactory->getFieldDescriptors($resourceKey);
@@ -68,9 +55,7 @@ class DoctrineListRepresentationFactory
         if (null !== $requestedIds) {
             $idPositions = \array_flip($requestedIds);
 
-            \usort($items, function ($a, $b) use ($idPositions) {
-                return $idPositions[$a['id']] - $idPositions[$b['id']];
-            });
+            \usort($items, fn ($a, $b) => $idPositions[$a['id']] - $idPositions[$b['id']]);
         }
 
         return new PaginatedRepresentation(
@@ -78,7 +63,7 @@ class DoctrineListRepresentationFactory
             $resourceKey,
             (int) $listBuilder->getCurrentPage(),
             (int) $listBuilder->getLimit(),
-            (int) $listBuilder->count()
+            (int) $listBuilder->count(),
         );
     }
 }
