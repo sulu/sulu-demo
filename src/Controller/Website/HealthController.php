@@ -9,9 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HealthController
 {
-    /**
-     * @Route("/_health/check", name="app.health_check", defaults={"_requestAnalyzer": false})
-     */
+    #[Route(path: '/_health/check', name: 'app.health_check', defaults: ['_requestAnalyzer' => false])]
     public function healthAction(): Response
     {
         return new Response();

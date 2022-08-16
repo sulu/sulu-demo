@@ -7,12 +7,10 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Events;
 use Doctrine\ORM\Tools\ResolveTargetEntityListener;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\Dotenv\Dotenv;
 
-require \dirname(__DIR__, 2) . '/vendor/autoload.php';
-(new Dotenv())->bootEnv(\dirname(__DIR__, 2) . '/.env');
+require \dirname(__DIR__) . '/bootstrap.php';
 
-$kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG'], Kernel::CONTEXT_ADMIN);
+$kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
 $kernel->boot();
 
 /** @var ContainerInterface $container */
@@ -25,11 +23,10 @@ $objectManager = $container->get('doctrine')->getManager();
 // this is a workaround for the following phpstan issue: https://github.com/phpstan/phpstan-doctrine/issues/98
 $resolveTargetEntityListener = \current(\array_filter(
     $objectManager->getEventManager()->getListeners('loadClassMetadata'),
-    static function ($listener) {
-        return $listener instanceof ResolveTargetEntityListener;
-    }
+    static fn ($listener) => $listener instanceof ResolveTargetEntityListener,
 ));
-if ($resolveTargetEntityListener) {
+
+if (false !== $resolveTargetEntityListener) {
     $objectManager->getEventManager()->removeEventListener([Events::loadClassMetadata], $resolveTargetEntityListener);
 }
 

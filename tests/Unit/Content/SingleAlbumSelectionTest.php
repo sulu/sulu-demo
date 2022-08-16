@@ -9,20 +9,20 @@ use App\Entity\Album;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectRepository;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 use Sulu\Component\Content\Compat\PropertyInterface;
 
 class SingleAlbumSelectionTest extends TestCase
 {
-    /**
-     * @var SingleAlbumSelection
-     */
-    private $singleAlbumSelection;
+    use ProphecyTrait;
+
+    private SingleAlbumSelection $singleAlbumSelection;
 
     /**
      * @var ObjectProphecy<ObjectRepository<Album>>
      */
-    private $albumRepository;
+    private ObjectProphecy $albumRepository;
 
     protected function setUp(): void
     {

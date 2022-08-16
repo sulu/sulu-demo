@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\DataFixtures\Document;
 
 use App\DataFixtures\ORM\AppFixture;
@@ -26,29 +28,8 @@ use Sulu\Component\PHPCR\PathCleanupInterface;
 
 class DocumentFixture implements DocumentFixtureInterface
 {
-    /**
-     * @var PathCleanupInterface
-     */
-    private $pathCleanup;
-
-    /**
-     * @var EntityManagerInterface
-     */
-    private $entityManager;
-
-    /**
-     * @var DefaultSnippetManagerInterface
-     */
-    private $defaultSnippetManager;
-
-    public function __construct(
-        PathCleanupInterface $pathCleanup,
-        EntityManagerInterface $entityManager,
-        DefaultSnippetManagerInterface $defaultSnippetManager
-    ) {
-        $this->pathCleanup = $pathCleanup;
-        $this->entityManager = $entityManager;
-        $this->defaultSnippetManager = $defaultSnippetManager;
+    public function __construct(private readonly PathCleanupInterface $pathCleanup, private readonly EntityManagerInterface $entityManager, private readonly DefaultSnippetManagerInterface $defaultSnippetManager)
+    {
     }
 
     public function getOrder()
@@ -1130,7 +1111,7 @@ class DocumentFixture implements DocumentFixtureInterface
                         ],
                     ],
                 ],
-            ]
+            ],
         );
 
         $documentManager->persist($homeDocument, AppFixture::LOCALE_EN);
@@ -1195,7 +1176,7 @@ class DocumentFixture implements DocumentFixtureInterface
                         ],
                     ],
                 ],
-            ]
+            ],
         );
 
         $documentManager->persist($homeDocument, AppFixture::LOCALE_DE);
@@ -1260,7 +1241,7 @@ class DocumentFixture implements DocumentFixtureInterface
 
             /** @var SnippetDocument $snippetDocument */
             $snippetDocument = $documentManager->find($data['id'], $locale);
-        } catch (DocumentManagerException|OutOfBoundsException $e) {
+        } catch (DocumentManagerException|OutOfBoundsException) {
             /** @var SnippetDocument $snippetDocument */
             $snippetDocument = $documentManager->create('snippet');
         }
@@ -1318,7 +1299,7 @@ class DocumentFixture implements DocumentFixtureInterface
         if (!isset($data['url'])) {
             $url = $this->pathCleanup->cleanup('/' . $data['title']);
             if (isset($data['parent_path'])) {
-                $url = \mb_substr($data['parent_path'], \mb_strlen('/cmf/demo/contents')) . $url;
+                $url = \mb_substr((string) $data['parent_path'], \mb_strlen('/cmf/demo/contents')) . $url;
             }
 
             $data['url'] = $url;
@@ -1342,7 +1323,7 @@ class DocumentFixture implements DocumentFixtureInterface
 
             /** @var PageDocument $pageDocument */
             $pageDocument = $documentManager->find($data['id'], $locale);
-        } catch (DocumentManagerException|OutOfBoundsException $e) {
+        } catch (DocumentManagerException|OutOfBoundsException) {
             /** @var PageDocument $pageDocument */
             $pageDocument = $documentManager->create('page');
         }
@@ -1365,7 +1346,7 @@ class DocumentFixture implements DocumentFixtureInterface
         $documentManager->persist(
             $pageDocument,
             $locale,
-            ['parent_path' => $data['parent_path'] ?? '/cmf/demo/contents']
+            ['parent_path' => $data['parent_path'] ?? '/cmf/demo/contents'],
         );
         $documentManager->publish($pageDocument, $locale);
 
@@ -1398,7 +1379,7 @@ class DocumentFixture implements DocumentFixtureInterface
 
             /** @var ArticleDocument $articleDocument */
             $articleDocument = $documentManager->find($data['id'], $locale, ['load_ghost_content' => false]);
-        } catch (DocumentManagerException|OutOfBoundsException $e) {
+        } catch (DocumentManagerException|OutOfBoundsException) {
             /** @var ArticleDocument $articleDocument */
             $articleDocument = $documentManager->create('article');
         }

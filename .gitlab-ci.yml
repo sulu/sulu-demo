@@ -1,7 +1,6 @@
 variables:
     APP_ENV: test
     APP_SECRET: a448d1dfcaa563fce56c2fd9981f662b
-    MAILER_URL: null://localhost
     DATABASE_URL: "mysql://root:root@mysql:3306/su_demo_test?serverVersion=8.0"
     ELASTICSEARCH_HOST: elasticsearch:9200
     EMAIL_FROM_ADDRESS: admin@localhost
@@ -44,7 +43,7 @@ composer:
 
 lint:
     stage: test
-    image: sulu/php:8.0-cli
+    image: sulu/php:8.1-cli
     services:
         - mysql:8.0
     before_script:
@@ -55,7 +54,7 @@ lint:
 
 test:
     stage: test
-    image: sulu/php:8.0-cli
+    image: sulu/php:8.1-cli
     services:
         - mysql:8.0
     before_script:
@@ -67,7 +66,7 @@ build:
     stage: test
     tags:
         - medium
-    image: sulu/php:8.0-cli
+    image: sulu/php:8.1-cli
     services:
         - mysql:8.0
         - name: elasticsearch:7.13.2
@@ -95,7 +94,7 @@ js-css-website:
 
 security-check:
     stage: test
-    image: sulu/php:8.0-cli
+    image: sulu/php:8.1-cli
     before_script:
         - curl -sS https://get.symfony.com/cli/installer | bash
         - mv /root/.symfony/bin/symfony /usr/local/bin/symfony

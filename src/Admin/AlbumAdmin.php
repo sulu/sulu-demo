@@ -16,21 +16,14 @@ use Sulu\Component\Security\Authorization\SecurityCheckerInterface;
 
 class AlbumAdmin extends Admin
 {
-    public const LIST_VIEW = 'app.album.list';
-    public const ADD_FORM_VIEW = 'app.album.add_form';
-    public const ADD_FORM_DETAILS_VIEW = 'app.album.add_form.details';
-    public const EDIT_FORM_VIEW = 'app.album.edit_form';
-    public const EDIT_FORM_DETAILS_VIEW = 'app.album.edit_form.details';
+    final public const LIST_VIEW = 'app.album.list';
+    final public const ADD_FORM_VIEW = 'app.album.add_form';
+    final public const ADD_FORM_DETAILS_VIEW = 'app.album.add_form.details';
+    final public const EDIT_FORM_VIEW = 'app.album.edit_form';
+    final public const EDIT_FORM_DETAILS_VIEW = 'app.album.edit_form.details';
 
-    private ViewBuilderFactoryInterface $viewBuilderFactory;
-    private SecurityCheckerInterface $securityChecker;
-
-    public function __construct(
-        ViewBuilderFactoryInterface $viewBuilderFactory,
-        SecurityCheckerInterface $securityChecker
-    ) {
-        $this->viewBuilderFactory = $viewBuilderFactory;
-        $this->securityChecker = $securityChecker;
+    public function __construct(private readonly ViewBuilderFactoryInterface $viewBuilderFactory, private readonly SecurityCheckerInterface $securityChecker)
+    {
     }
 
     public function configureNavigationItems(NavigationItemCollection $navigationItemCollection): void
@@ -79,13 +72,13 @@ class AlbumAdmin extends Admin
                     ->addListAdapters(['table'])
                     ->setAddView(static::ADD_FORM_VIEW)
                     ->setEditView(static::EDIT_FORM_VIEW)
-                    ->addToolbarActions($listToolbarActions)
+                    ->addToolbarActions($listToolbarActions),
             );
 
             $viewCollection->add(
                 $this->viewBuilderFactory->createResourceTabViewBuilder(static::ADD_FORM_VIEW, '/albums/add')
                     ->setResourceKey(Album::RESOURCE_KEY)
-                    ->setBackView(static::LIST_VIEW)
+                    ->setBackView(static::LIST_VIEW),
             );
 
             $viewCollection->add(
@@ -95,13 +88,13 @@ class AlbumAdmin extends Admin
                     ->setTabTitle('sulu_admin.details')
                     ->setEditView(static::EDIT_FORM_VIEW)
                     ->addToolbarActions($formToolbarActions)
-                    ->setParent(static::ADD_FORM_VIEW)
+                    ->setParent(static::ADD_FORM_VIEW),
             );
 
             $viewCollection->add(
                 $this->viewBuilderFactory->createResourceTabViewBuilder(static::EDIT_FORM_VIEW, '/albums/:id')
                     ->setResourceKey(Album::RESOURCE_KEY)
-                    ->setBackView(static::LIST_VIEW)
+                    ->setBackView(static::LIST_VIEW),
             );
 
             $viewCollection->add(
@@ -110,7 +103,7 @@ class AlbumAdmin extends Admin
                     ->setFormKey(Album::FORM_KEY)
                     ->setTabTitle('sulu_admin.details')
                     ->addToolbarActions($formToolbarActions)
-                    ->setParent(static::EDIT_FORM_VIEW)
+                    ->setParent(static::EDIT_FORM_VIEW),
             );
         }
     }

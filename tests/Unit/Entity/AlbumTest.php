@@ -6,14 +6,14 @@ namespace App\Tests\Unit\Entity;
 
 use App\Entity\Album;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Sulu\Bundle\MediaBundle\Entity\MediaInterface;
 
 class AlbumTest extends TestCase
 {
-    /**
-     * @var Album
-     */
-    private $album;
+    use ProphecyTrait;
+
+    private Album $album;
 
     protected function setUp(): void
     {
@@ -55,7 +55,7 @@ class AlbumTest extends TestCase
                 ['type' => 'track', 'title' => 'Shelter from the Storm', 'interpreter' => 'Coyoos'],
                 ['type' => 'track', 'title' => 'Sunrise', 'interpreter' => 'Coyoos'],
             ],
-            $this->album->getTracklist()
+            $this->album->getTracklist(),
         );
     }
 }

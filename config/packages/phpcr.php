@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 if ('doctrinedbal' === $_ENV['PHPCR_BACKEND']) {
     $container->setParameter(
         'app.phpcr_backend',
         [
             'type' => 'doctrinedbal',
-        ]
+        ],
     );
 } elseif ('jackrabbit' === $_ENV['PHPCR_BACKEND']) {
     $container->setParameter(
@@ -16,7 +18,7 @@ if ('doctrinedbal' === $_ENV['PHPCR_BACKEND']) {
             'parameters' => [
                 'jackalope.jackrabbit_version' => '%env(JACKRABBIT_VERSION)%',
             ],
-        ]
+        ],
     );
 
     $container->loadFromExtension(
@@ -25,6 +27,6 @@ if ('doctrinedbal' === $_ENV['PHPCR_BACKEND']) {
             'versioning' => [
                 'enabled' => true,
             ],
-        ]
+        ],
     );
 }

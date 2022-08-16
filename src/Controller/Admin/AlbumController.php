@@ -25,43 +25,28 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class AlbumController extends AbstractController implements SecuredControllerInterface
 {
-    private DoctrineListRepresentationFactory $doctrineListRepresentationFactory;
-    private EntityManagerInterface $entityManager;
-    private MediaManagerInterface $mediaManager;
-
-    public function __construct(
-        DoctrineListRepresentationFactory $doctrineListRepresentationFactory,
-        EntityManagerInterface $entityManager,
-        MediaManagerInterface $mediaManager
-    ) {
-        $this->doctrineListRepresentationFactory = $doctrineListRepresentationFactory;
-        $this->entityManager = $entityManager;
-        $this->mediaManager = $mediaManager;
+    public function __construct(private readonly DoctrineListRepresentationFactory $doctrineListRepresentationFactory, private readonly EntityManagerInterface $entityManager, private readonly MediaManagerInterface $mediaManager)
+    {
     }
 
-    /**
-     * @Route("/admin/api/albums/{id}", methods={"GET"}, name="app.get_album")
-     */
+    #[Route(path: '/admin/api/albums/{id}', methods: ['GET'], name: 'app.get_album')]
     public function getAction(int $id): Response
     {
         $album = $this->entityManager->getRepository(Album::class)->find($id);
-        if (!$album) {
+        if (!$album instanceof Album) {
             throw new NotFoundHttpException();
         }
 
         return $this->json($this->getDataForEntity($album));
     }
 
-    /**
-     * @Route("/admin/api/albums/{id}", methods={"PUT"}, name="app.put_album")
-     */
+    #[Route(path: '/admin/api/albums/{id}', methods: ['PUT'], name: 'app.put_album')]
     public function putAction(Request $request, int $id): Response
     {
         $album = $this->entityManager->getRepository(Album::class)->find($id);
-        if (!$album) {
+        if (!$album instanceof Album) {
             throw new NotFoundHttpException();
         }
-
         /** @var AlbumData $data */
         $data = $request->toArray();
         $this->mapDataToEntity($data, $album);
@@ -70,13 +55,10 @@ class AlbumController extends AbstractController implements SecuredControllerInt
         return $this->json($this->getDataForEntity($album));
     }
 
-    /**
-     * @Route("/admin/api/albums", methods={"POST"}, name="app.post_album")
-     */
+    #[Route(path: '/admin/api/albums', methods: ['POST'], name: 'app.post_album')]
     public function postAction(Request $request): Response
     {
         $album = new Album();
-
         /** @var AlbumData $data */
         $data = $request->toArray();
         $this->mapDataToEntity($data, $album);
@@ -86,9 +68,7 @@ class AlbumController extends AbstractController implements SecuredControllerInt
         return $this->json($this->getDataForEntity($album), 201);
     }
 
-    /**
-     * @Route("/admin/api/albums/{id}", methods={"DELETE"}, name="app.delete_album")
-     */
+    #[Route(path: '/admin/api/albums/{id}', methods: ['DELETE'], name: 'app.delete_album')]
     public function deleteAction(int $id): Response
     {
         /** @var Album $album */
@@ -99,13 +79,11 @@ class AlbumController extends AbstractController implements SecuredControllerInt
         return $this->json(null, 204);
     }
 
-    /**
-     * @Route("/admin/api/albums", methods={"GET"}, name="app.get_album_list")
-     */
+    #[Route(path: '/admin/api/albums', methods: ['GET'], name: 'app.get_album_list')]
     public function getListAction(): Response
     {
         $listRepresentation = $this->doctrineListRepresentationFactory->createDoctrineListRepresentation(
-            Album::RESOURCE_KEY
+            Album::RESOURCE_KEY,
         );
 
         return $this->json($listRepresentation->toArray());
@@ -121,7 +99,7 @@ class AlbumController extends AbstractController implements SecuredControllerInt
         return [
             'id' => $entity->getId(),
             'title' => $entity->getTitle(),
-            'image' => $image
+            'image' => null !== $image
                 ? ['id' => $image->getId()]
                 : null,
             'tracklist' => $entity->getTracklist(),

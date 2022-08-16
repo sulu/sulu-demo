@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Twig;
 
 use Symfony\Component\Intl\Countries;
@@ -15,7 +17,7 @@ class CountryTwigExtension extends AbstractExtension
     public function getFunctions()
     {
         return [
-            new TwigFunction('country', [$this, 'getCountryByCode']),
+            new TwigFunction('country', fn (?string $countryCode): string => $this->getCountryByCode($countryCode)),
         ];
     }
 

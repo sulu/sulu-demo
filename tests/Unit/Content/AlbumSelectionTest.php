@@ -9,20 +9,20 @@ use App\Entity\Album;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectRepository;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Prophecy\ObjectProphecy;
 use Sulu\Component\Content\Compat\PropertyInterface;
 
 class AlbumSelectionTest extends TestCase
 {
-    /**
-     * @var AlbumSelection
-     */
-    private $albumSelection;
+    use ProphecyTrait;
+
+    private AlbumSelection $albumSelection;
 
     /**
      * @var ObjectProphecy<ObjectRepository<Album>>
      */
-    private $albumRepository;
+    private ObjectProphecy $albumRepository;
 
     protected function setUp(): void
     {
@@ -72,7 +72,7 @@ class AlbumSelectionTest extends TestCase
                 $album45->reveal(),
                 $album22->reveal(),
             ],
-            $this->albumSelection->getContentData($property->reveal())
+            $this->albumSelection->getContentData($property->reveal()),
         );
         $this->assertSame(['ids' => [45, 22]], $this->albumSelection->getViewData($property->reveal()));
     }

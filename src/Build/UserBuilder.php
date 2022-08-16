@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Build;
 
 use Doctrine\Persistence\ObjectManager;
@@ -9,23 +11,15 @@ use Sulu\Bundle\SecurityBundle\Build\UserBuilder as SuluUserBuilder;
 use Sulu\Bundle\SecurityBundle\Entity\User;
 use Sulu\Bundle\SecurityBundle\Entity\UserSetting;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class UserBuilder implements BuilderInterface, ContainerAwareInterface
 {
-    /**
-     * @var SuluUserBuilder
-     */
-    private $decoratedUserBuilder;
+    use ContainerAwareTrait;
 
-    /**
-     * @var ContainerInterface
-     */
-    private $container;
-
-    public function __construct(SuluUserBuilder $decoratedUserBuilder, ContainerInterface $container = null)
+    public function __construct(private readonly SuluUserBuilder $decoratedUserBuilder, ContainerInterface $container = null)
     {
-        $this->decoratedUserBuilder = $decoratedUserBuilder;
         $this->setContainer($container);
     }
 
@@ -50,20 +44,18 @@ class UserBuilder implements BuilderInterface, ContainerAwareInterface
         $userRepository = $manager->getRepository(User::class);
         $userSettingRepository = $manager->getRepository(UserSetting::class);
 
-        /** @var User|null $user */
         $user = $userRepository->findOneBy(['username' => 'admin']);
 
-        if (null === $user) {
+        if (!$user instanceof User) {
             return;
         }
 
-        /** @var UserSetting|null $userSetting */
         $userSetting = $userSettingRepository->findOneBy([
             'key' => 'sulu_admin.application.navigation_pinned',
             'user' => $user->getId(),
         ]);
 
-        if (null === $userSetting) {
+        if (!$userSetting instanceof UserSetting) {
             $userSetting = new UserSetting();
             $userSetting->setKey('sulu_admin.application.navigation_pinned');
             $userSetting->setUser($user);
