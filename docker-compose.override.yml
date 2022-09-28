@@ -2,17 +2,17 @@ version: '3'
 
 services:
 ###> symfony/mailer ###
-    mailer:
-        image: schickling/mailcatcher
-        ports: [1025, 1080]
+  mailer:
+    image: schickling/mailcatcher
+    ports: [1025, 1080]
 ###< symfony/mailer ###
 
 ###> doctrine/doctrine-bundle ###
-    database:
-        ports:
-            - "3306:3306"
+  database:
+    ports:
+      - "3306:3306"
 ###< doctrine/doctrine-bundle ###
 
-    elasticsearch:
-        ports:
-            - "9200:9200"
+  elasticsearch:
+    ports:
+      - "9200:9200"
