@@ -310,9 +310,6 @@
     "phar-io/version": {
         "version": "3.2.1"
     },
-    "php-cs-fixer/diff": {
-        "version": "v1.3.0"
-    },
     "php-http/client-common": {
         "version": "2.1.0"
     },
@@ -759,9 +756,6 @@
     },
     "symfony/polyfill-php81": {
         "version": "v1.23.0"
-    },
-    "symfony/polyfill-uuid": {
-        "version": "v1.17.1"
     },
     "symfony/process": {
         "version": "v4.4.5"

@@ -2,14 +2,16 @@
 
 declare(strict_types=1);
 
-if ('doctrinedbal' === $_ENV['PHPCR_BACKEND']) {
+$phpcrBackend = $_SERVER['PHPCR_BACKEND'] ?? 'doctrinedbal';
+
+if ('doctrinedbal' === $phpcrBackend) {
     $container->setParameter(
         'app.phpcr_backend',
         [
             'type' => 'doctrinedbal',
         ],
     );
-} elseif ('jackrabbit' === $_ENV['PHPCR_BACKEND']) {
+} elseif ('jackrabbit' === $phpcrBackend) {
     $container->setParameter(
         'app.phpcr_backend',
         [
