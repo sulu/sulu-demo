@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Tests\Functional\Controller\Admin;
 
-use Generator;
-use RuntimeException;
 use Sulu\Bundle\TestBundle\Testing\SuluTestCase;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Component\Finder\Finder;
@@ -47,7 +45,7 @@ class AdminControllerTest extends SuluTestCase
     }
 
     /**
-     * @return Generator<array<string>>
+     * @return \Generator<array<string>>
      */
     public function loadFormKeys()
     {
@@ -55,24 +53,24 @@ class AdminControllerTest extends SuluTestCase
     }
 
     /**
-     * @return Generator<array<string>>
+     * @return \Generator<array<string>>
      */
-    public function loadListKeys(): Generator
+    public function loadListKeys(): \Generator
     {
         return $this->getFileKeys('lists');
     }
 
     /**
-     * @return Generator<array<string>>
+     * @return \Generator<array<string>>
      */
-    private function getFileKeys(string $type): Generator
+    private function getFileKeys(string $type): \Generator
     {
         $finder = new Finder();
         $path = __DIR__ . '/../../../../config/' . $type;
 
         $path = \realpath($path);
         if (!$path) {
-            throw new RuntimeException(\sprintf('Could not find path: "%s"', $path));
+            throw new \RuntimeException(\sprintf('Could not find path: "%s"', $path));
         }
 
         $finder->in($path);

@@ -8,9 +8,6 @@ use App\DataFixtures\ORM\AppFixture;
 use App\Entity\Album;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\NonUniqueResultException;
-use Exception;
-use OutOfBoundsException;
-use RuntimeException;
 use Sulu\Bundle\ArticleBundle\Document\ArticleDocument;
 use Sulu\Bundle\DocumentManagerBundle\DataFixtures\DocumentFixtureInterface;
 use Sulu\Bundle\MediaBundle\Entity\Media;
@@ -40,7 +37,7 @@ class DocumentFixture implements DocumentFixtureInterface
     /**
      * @throws DocumentManagerException
      * @throws MetadataNotFoundException
-     * @throws Exception
+     * @throws \Exception
      */
     public function load(DocumentManager $documentManager): void
     {
@@ -1184,7 +1181,7 @@ class DocumentFixture implements DocumentFixtureInterface
     }
 
     /**
-     * @throws Exception
+     * @throws \Exception
      */
     private function loadContactInformationSnippetEnglish(DocumentManager $documentManager): SnippetDocument
     {
@@ -1204,7 +1201,7 @@ class DocumentFixture implements DocumentFixtureInterface
     }
 
     /**
-     * @throws Exception
+     * @throws \Exception
      */
     private function loadContactInformationSnippetGerman(DocumentManager $documentManager, SnippetDocument $snippetDocument): void
     {
@@ -1236,12 +1233,12 @@ class DocumentFixture implements DocumentFixtureInterface
 
         try {
             if (!isset($data['id']) || !$data['id']) {
-                throw new OutOfBoundsException();
+                throw new \OutOfBoundsException();
             }
 
             /** @var SnippetDocument $snippetDocument */
             $snippetDocument = $documentManager->find($data['id'], $locale);
-        } catch (DocumentManagerException|OutOfBoundsException) {
+        } catch (DocumentManagerException|\OutOfBoundsException) {
             /** @var SnippetDocument $snippetDocument */
             $snippetDocument = $documentManager->create('snippet');
         }
@@ -1318,12 +1315,12 @@ class DocumentFixture implements DocumentFixtureInterface
 
         try {
             if (!isset($data['id']) || !$data['id']) {
-                throw new OutOfBoundsException();
+                throw new \OutOfBoundsException();
             }
 
             /** @var PageDocument $pageDocument */
             $pageDocument = $documentManager->find($data['id'], $locale);
-        } catch (DocumentManagerException|OutOfBoundsException) {
+        } catch (DocumentManagerException|\OutOfBoundsException) {
             /** @var PageDocument $pageDocument */
             $pageDocument = $documentManager->create('page');
         }
@@ -1374,12 +1371,12 @@ class DocumentFixture implements DocumentFixtureInterface
 
         try {
             if (!isset($data['id']) || !$data['id']) {
-                throw new OutOfBoundsException();
+                throw new \OutOfBoundsException();
             }
 
             /** @var ArticleDocument $articleDocument */
             $articleDocument = $documentManager->find($data['id'], $locale, ['load_ghost_content' => false]);
-        } catch (DocumentManagerException|OutOfBoundsException) {
+        } catch (DocumentManagerException|\OutOfBoundsException) {
             /** @var ArticleDocument $articleDocument */
             $articleDocument = $documentManager->create('article');
         }
@@ -1423,7 +1420,7 @@ class DocumentFixture implements DocumentFixtureInterface
 
             return (int) $id;
         } catch (NonUniqueResultException $e) {
-            throw new RuntimeException(\sprintf('Too many images with the name "%s" found.', $name), 0, $e);
+            throw new \RuntimeException(\sprintf('Too many images with the name "%s" found.', $name), 0, $e);
         }
     }
 
@@ -1440,7 +1437,7 @@ class DocumentFixture implements DocumentFixtureInterface
 
             return (int) $id;
         } catch (NonUniqueResultException $e) {
-            throw new RuntimeException(\sprintf('Too many albums with the title "%s" found.', $title), 0, $e);
+            throw new \RuntimeException(\sprintf('Too many albums with the title "%s" found.', $title), 0, $e);
         }
     }
 }
