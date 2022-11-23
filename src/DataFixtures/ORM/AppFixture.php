@@ -8,7 +8,6 @@ use App\Entity\Album;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
-use RuntimeException;
 use Sulu\Bundle\ContactBundle\Entity\Account;
 use Sulu\Bundle\ContactBundle\Entity\AccountAddress;
 use Sulu\Bundle\ContactBundle\Entity\AccountInterface;
@@ -475,7 +474,7 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
         $collectionType = $manager->getRepository(CollectionType::class)->find(1);
 
         if (!$collectionType instanceof CollectionType) {
-            throw new RuntimeException('CollectionType "1" not found. Have you loaded the Sulu fixtures?');
+            throw new \RuntimeException('CollectionType "1" not found. Have you loaded the Sulu fixtures?');
         }
 
         $collection->setType($collectionType);
@@ -510,7 +509,7 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
 
         $mediaType = $manager->getRepository(MediaType::class)->find(2);
         if (!$mediaType instanceof MediaType) {
-            throw new RuntimeException('MediaType "2" not found. Have you loaded the Sulu fixtures?');
+            throw new \RuntimeException('MediaType "2" not found. Have you loaded the Sulu fixtures?');
         }
 
         $media = new Media();
@@ -576,7 +575,7 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
 
         $addressType = $manager->getRepository(AddressType::class)->find(1);
         if (!$addressType instanceof AddressType) {
-            throw new RuntimeException('AddressType "1" not found. Have you loaded the Sulu fixtures?');
+            throw new \RuntimeException('AddressType "1" not found. Have you loaded the Sulu fixtures?');
         }
 
         $address = new Address();
@@ -607,7 +606,7 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
     private function createAlbum(ObjectManager $manager, array $images, array $data): Album
     {
         if (($media = $images[$data['image']] ?? null) === null) {
-            throw new RuntimeException(\sprintf('Image "%s" could not be found!', $data['image']));
+            throw new \RuntimeException(\sprintf('Image "%s" could not be found!', $data['image']));
         }
 
         $album = new Album();
