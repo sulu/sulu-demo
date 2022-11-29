@@ -97,7 +97,7 @@ security-check:
     image: sulu/php:8.1-cli
     before_script:
         - curl -sS https://get.symfony.com/cli/installer | bash
-        - mv /root/.symfony/bin/symfony /usr/local/bin/symfony
+        - mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
     script:
         - php composer.phar security-check
     allow_failure: true
