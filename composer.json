@@ -22,7 +22,7 @@
         "sentry/sentry-symfony": "^4.2",
         "sulu/article-bundle": "^2.4",
         "sulu/automation-bundle": "^2.1",
-        "sulu/redirect-bundle": "^2.1",
+        "sulu/redirect-bundle": "^2.1.2",
         "scheb/2fa-bundle": "^6.1",
         "scheb/2fa-email": "^6.1",
         "scheb/2fa-trusted-device": "^6.1",
