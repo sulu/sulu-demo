@@ -29,7 +29,7 @@ class DocumentFixture implements DocumentFixtureInterface
     {
     }
 
-    public function getOrder()
+    public function getOrder(): int
     {
         return 10;
     }
