@@ -32,7 +32,7 @@
                                         <p>{{ address.street ~ ' ' ~ address.number }},<br/>
                                             {{ address.zip ~ ' ' ~ address.city }},<br/>
                                             {{ country(address.countryCode) }}</p>
-                                        <a href="tel:{{ account.mainPhone }}" class="footer__contact-link">{{ account.mainPhone }}</a>
+                                        <a href="tel:{{ account.mainPhone|replace({' ':''}) }}" class="footer__contact-link">{{ account.mainPhone }}</a>
                                         <a href="mailto:{{ account.mainEmail }}" class="footer__contact-link">{{ account.mainEmail }}</a>
                                     </div>
                                 {% endif %}
