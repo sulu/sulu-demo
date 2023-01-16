@@ -23,7 +23,7 @@
                         <h3 class="teaser__title">{{ teaser.title }}</h3>
 
                         {% if teaser.description|default %}
-                            <p class="teaser__description">{{ teaser.description|raw }}</p>
+                            <div class="teaser__description">{{ teaser.description|raw }}</div>
                         {% endif %}
                     </div>
                 </a>

@@ -40,11 +40,9 @@
         {% endblock %}
     </main>
 
-    <footer>
-        {% block footer %}
-            {% include 'includes/footer.html.twig' %}
-        {% endblock %}
-    </footer>
+    {% block footer %}
+        {% include 'includes/footer.html.twig' %}
+    {% endblock %}
 
     {% block javascripts %}
         <script>
