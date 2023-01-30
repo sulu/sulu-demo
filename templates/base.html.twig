@@ -3,7 +3,8 @@
 <head>
     {# @see https://docs.sulu.io/en/2.2/reference/twig-extensions/functions/sulu_snippet_load_by_area.html #}
     {% set webspaceSettings = sulu_snippet_load_by_area('webspace_settings') %}
-    {% set applicationSettings = load_application_settings() %}
+
+    {% set webspaceSetting = load_webspace_setting(app.request.attributes.get('_sulu').getAttribute('webspace').key) %}
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
