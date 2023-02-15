@@ -1,21 +1,16 @@
-import $ from 'jquery';
-
 export default class NavigationToggler {
-    initialize($el, options) {
-        this.toggler = $el;
-        this.navigation = options.navigation;
-        this.togglerActiveIconClass = options.togglerActiveIconClass || 'icon icon--times';
-        this.togglerInactiveIconClass = options.togglerInactiveIconClass || 'icon icon--menu';
+    initialize(el, options) {
+        this.toggler = el;
+        this.navigation = document.querySelector(options.navigation);
+        this.togglerActiveIconClass = options.togglerActiveIconClass || 'icon--times';
+        this.togglerInactiveIconClass = options.togglerInactiveIconClass || 'icon--menu';
 
-        // Needed to let jquery know to set display to flex when calling fadeIn
-        $(this.navigation).css('display', 'flex').hide();
-
-        $(this.toggler).click(this.click.bind(this));
+        this.toggler.addEventListener('click', this.click.bind(this));
     }
 
     click() {
-        $(this.navigation).fadeToggle('fast');
-        $(this.toggler).toggleClass(this.togglerActiveIconClass);
-        $(this.toggler).toggleClass(this.togglerInactiveIconClass);
+        this.navigation.style.display = this.navigation.style.display === 'flex' ? 'none' : 'flex';
+        this.toggler.classList.toggle(this.togglerActiveIconClass);
+        this.toggler.classList.toggle(this.togglerInactiveIconClass);
     }
 }

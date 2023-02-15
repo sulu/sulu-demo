@@ -1,5 +1,6 @@
 import web from '@sulu/web';
 import $ from 'jquery';
+import '../css/main.scss';
 import './polyfill';
 import WindowScroll from '@sulu/web/packages/components/window-scroll/window-scroll';
 import Timeago from './components/Timeago';

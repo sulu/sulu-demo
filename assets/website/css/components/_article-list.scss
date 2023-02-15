@@ -1,6 +1,5 @@
 .article-list__item {
     display: flex;
-    flex-direction: row;
     flex-wrap: nowrap;
 
     &:first-child ~ .article-list__item {

@@ -19,13 +19,13 @@
         "league/flysystem": "^1.1",
         "league/flysystem-aws-s3-v3": "^1.0",
         "predis/predis": "^1.1",
+        "scheb/2fa-bundle": "^6.1",
+        "scheb/2fa-email": "^6.1",
+        "scheb/2fa-trusted-device": "^6.1",
         "sentry/sentry-symfony": "^4.2",
         "sulu/article-bundle": "^2.4",
         "sulu/automation-bundle": "^2.1",
         "sulu/redirect-bundle": "^2.1.2",
-        "scheb/2fa-bundle": "^6.1",
-        "scheb/2fa-email": "^6.1",
-        "scheb/2fa-trusted-device": "^6.1",
         "sulu/sulu": "^2.5.5",
         "sulu/web-twig": "^2.4",
         "symfony/config": "^6.0",
@@ -37,7 +37,8 @@
         "symfony/monolog-bundle": "^3.7",
         "symfony/runtime": "^6.0",
         "symfony/security-bundle": "^6.0",
-        "symfony/twig-bundle": "^6.0"
+        "symfony/twig-bundle": "^6.0",
+        "symfony/webpack-encore-bundle": "^1.16"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.9",
@@ -59,6 +60,7 @@
         "symfony/error-handler": "^6.0",
         "symfony/phpunit-bridge": "^6.0",
         "symfony/thanks": "^1.2",
+        "symfony/web-link": "^6.0",
         "symfony/web-profiler-bundle": "^6.0",
         "thecodingmachine/phpstan-strict-rules": "^1.0"
     },

@@ -1,8 +1,10 @@
+@use 'sass:math';
+
 .grid {
     align-items: flex-start;
     display: flex;
     flex-wrap: wrap;
-    margin: $grid-gutter-width / -2;
+    margin: math.div($grid-gutter-width, -2);
 
     &--middle {
         align-items: center;
@@ -31,7 +33,7 @@
 
 .grid__item {
     flex: 1;
-    padding: $grid-gutter-width / 2;
+    padding: math.div($grid-gutter-width, 2);
     width: 100%;
 
     &--flex {

@@ -8,7 +8,6 @@
     "selector-class-pattern": "^[a-z-_0-9]*$",
     "scss/dollar-variable-pattern": "^[a-z-0-9]*$",
     "value-keyword-case": null,
-    "selector-combinator-blacklist": [" "],
     "order/order": [
       "custom-properties",
       "declarations"

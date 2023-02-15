@@ -11,10 +11,10 @@
 @import '../../../public/website/fonts/icomoon/variables';
 
 // Tools:
-@import '../node_modules/@sulu/web/packages/scss/tools/media/media';
+@import '~@sulu/web/packages/scss/tools/media/media';
 
 // Generics:
-@import '../node_modules/normalize.css/normalize';
+@import '~normalize.css/normalize';
 @import 'generics/font';
 @import 'generics/box-sizing';
 @import 'generics/font-settings';
@@ -30,8 +30,8 @@
 @import 'objects/container';
 @import 'objects/grid';
 @import 'objects/width';
-@import '../node_modules/slick-carousel/slick/slick.scss';
-@import '../node_modules/slick-carousel/slick/slick-theme.scss';
+@import '~slick-carousel/slick/slick.scss';
+@import '~slick-carousel/slick/slick-theme.scss';
 
 // Components:
 @import 'components/article-list';
