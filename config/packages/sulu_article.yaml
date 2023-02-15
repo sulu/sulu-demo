@@ -6,6 +6,8 @@ sulu_article:
     index_name: '%env(resolve:ELASTICSEARCH_INDEX)%'
     hosts:
         - '%env(resolve:ELASTICSEARCH_HOST)%'
+    default_main_webspace: demo
+    default_additional_webspaces: []
 
 sulu_route:
     mappings:
