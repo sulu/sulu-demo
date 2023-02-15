@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .container {
     margin: 0 auto;
     max-width: $container-width;
@@ -29,7 +31,7 @@
 }
 
 .container-left {
-    padding-right: calc(#{percentage(5 / 12)} + 10px);
+    padding-right: calc(#{percentage(math.div(5, 12))} + 10px);
 
     @include media('<tablet') {
         padding-right: 0;
@@ -37,7 +39,7 @@
 }
 
 .container-right {
-    padding-left: calc(#{percentage(5 / 12)} + 10px);
+    padding-left: calc(#{percentage(math.div(5, 12))} + 10px);
 
     @include media('<tablet') {
         padding-left: 0;

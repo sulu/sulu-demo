@@ -13,9 +13,12 @@
     {% endblock %}
 
     {% block style -%}
-        <link rel="stylesheet" href="{{ asset('/build/website/css/main.css') }}">
-    {% endblock %}
+        {# only preload css as the js is not as important as the content and images #}
+        {% set assetCss = asset('build/website/app.css') %}
+        {% do preload(assetCss, {as: 'style'}) %}
 
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
 </head>
 <body>
     <header>
@@ -45,11 +48,12 @@
     {% endblock %}
 
     {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+
         <script>
             window.webComponents = {{ get_components() }};
             window.webServices = {{ get_services() }};
         </script>
-        <script src="{{ asset('/build/website/js/main.js') }}" async></script>
     {% endblock %}
 </body>
 </html>

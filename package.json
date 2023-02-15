@@ -1,0 +1,55 @@
+{
+    "name": "sulu_demo",
+    "version": "1.0.58",
+    "private": true,
+    "description": "Basic assets structure for a default website project.",
+    "author": "Sulu GmbH",
+    "dependencies": {
+        "@sulu/web": "^2.4.1",
+        "jquery": "^3.6.3",
+        "normalize.css": "^8.0.1",
+        "slick-carousel": "^1.8.1",
+        "timeago.js": "^4.0.1"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.17.0",
+        "@babel/preset-env": "^7.16.0",
+        "@symfony/webpack-encore": "^4.0.0",
+        "autoprefixer": "^10.4.13",
+        "babel-eslint": "^10.1.0",
+        "core-js": "^3.23.0",
+        "eslint": "^6.5.1",
+        "eslint-config-ma": "^1.1.0",
+        "postcss-loader": "^7.0.0",
+        "postcss-scss": "^4.0.6",
+        "regenerator-runtime": "^0.13.9",
+        "sass": "^1.58.1",
+        "sass-loader": "^13.0.0",
+        "stylelint": "^14.16.0",
+        "stylelint-config-ma": "^1.1.9",
+        "stylelint-order": "^5.0.0",
+        "stylelint-scss": "^4.3.0",
+        "webpack": "^5.74.0",
+        "webpack-cli": "^4.10.0",
+        "webpack-notifier": "^1.15.0"
+    },
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress",
+        "lint": "npm run lint:css && npm run lint:js",
+        "lint:fix": "npm run lint:css:fix && npm run lint:js:fix",
+        "lint:css": "stylelint assets/website/css/*.scss assets/website/css/**/*.scss --custom-syntax postcss-scss",
+        "lint:css:fix": "stylelint assets/website/css/*.scss assets/website/css/**/*.scss --custom-syntax postcss-scss --fix",
+        "lint:js": "eslint assets/website/js",
+        "lint:js:fix": "eslint assets/website/js --fix"
+    },
+    "browserslist": [
+        "> 1% in alt-EU",
+        "last 2 versions"
+    ],
+    "engines": {
+        "node": "^14.0"
+    }
+}

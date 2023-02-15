@@ -50,4 +50,5 @@ return [
     Task\TaskBundle\TaskBundle::class => ['all' => true],
     Sulu\Bundle\AutomationBundle\SuluAutomationBundle::class => ['all' => true],
     Sulu\Bundle\RedirectBundle\SuluRedirectBundle::class => ['all' => true],
+    Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
 ];
