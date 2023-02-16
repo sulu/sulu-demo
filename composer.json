@@ -38,6 +38,7 @@
         "symfony/runtime": "^6.0",
         "symfony/security-bundle": "^6.0",
         "symfony/twig-bundle": "^6.0",
+        "symfony/web-link": "^6.0",
         "symfony/webpack-encore-bundle": "^1.16"
     },
     "require-dev": {
@@ -60,7 +61,6 @@
         "symfony/error-handler": "^6.0",
         "symfony/phpunit-bridge": "^6.0",
         "symfony/thanks": "^1.2",
-        "symfony/web-link": "^6.0",
         "symfony/web-profiler-bundle": "^6.0",
         "thecodingmachine/phpstan-strict-rules": "^1.0"
     },
