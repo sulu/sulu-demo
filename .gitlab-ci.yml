@@ -82,15 +82,17 @@ js-css-website:
         NODE_OPTIONS: --max-old-space-size=1536
     before_script:
         - npm config set cache "$(pwd)/.npm-cache"
+        - yarn config set cache-folder "$(pwd)/.yarn-cache" 
     script:
         - cd assets/website
-        - npm install --ignore-optional
-        - npm run lint
-        - npm run build
+        - yarn install --frozen-lockfile
+        - yarn run lint
+        - yarn run build
     cache:
-        key: npm
+        key: yarn_npm
         paths:
             - .npm-cache/
+            - .yarn-cache/
 
 security-check:
     stage: test

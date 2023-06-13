@@ -50,6 +50,8 @@
         "last 2 versions"
     ],
     "engines": {
-        "node": "^14.0"
+        "node": "^14.0",
+        "npm": "please-use-yarn",
+        "yarn": ">=1"
     }
 }
