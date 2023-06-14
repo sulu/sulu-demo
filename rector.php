@@ -32,7 +32,7 @@ return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->sets([
         SymfonySetList::SYMFONY_CODE_QUALITY,
         SymfonySetList::SYMFONY_CONSTRUCTOR_INJECTION,
-        SymfonyLevelSetList::UP_TO_SYMFONY_60,
+        SymfonyLevelSetList::UP_TO_SYMFONY_62,
         SymfonySetList::ANNOTATIONS_TO_ATTRIBUTES,
     ]);
 

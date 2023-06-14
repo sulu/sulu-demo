@@ -7,6 +7,7 @@ namespace App\Controller\Admin;
 use App\Common\DoctrineListRepresentationFactory;
 use App\Entity\Album;
 use Doctrine\ORM\EntityManagerInterface;
+use Sulu\Bundle\MediaBundle\Entity\MediaInterface;
 use Sulu\Bundle\MediaBundle\Media\Manager\MediaManagerInterface;
 use Sulu\Component\Security\SecuredControllerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -99,7 +100,7 @@ class AlbumController extends AbstractController implements SecuredControllerInt
         return [
             'id' => $entity->getId(),
             'title' => $entity->getTitle(),
-            'image' => null !== $image
+            'image' => $image instanceof MediaInterface
                 ? ['id' => $image->getId()]
                 : null,
             'tracklist' => $entity->getTracklist(),

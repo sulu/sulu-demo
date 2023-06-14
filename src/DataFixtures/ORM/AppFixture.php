@@ -60,7 +60,7 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
     {
         $firstExistingAlbum = $manager->getRepository(Album::class)->findOneBy([]);
 
-        return null !== $firstExistingAlbum;
+        return $firstExistingAlbum instanceof Album;
     }
 
     /**
@@ -605,7 +605,7 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
      */
     private function createAlbum(ObjectManager $manager, array $images, array $data): Album
     {
-        if (($media = $images[$data['image']] ?? null) === null) {
+        if (!($media = $images[$data['image']] ?? null) instanceof MediaInterface) {
             throw new \RuntimeException(\sprintf('Image "%s" could not be found!', $data['image']));
         }
 

@@ -82,7 +82,7 @@ class UserBuilder implements BuilderInterface, ContainerAwareInterface
      */
     public function setContainer(ContainerInterface $container = null): void
     {
-        if (null !== $container) {
+        if ($container instanceof ContainerInterface) {
             $this->container = $container;
             $this->decoratedUserBuilder->setContainer($container);
         }
