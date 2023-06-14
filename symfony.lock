@@ -198,10 +198,7 @@
         "version": "1.6.1"
     },
     "handcraftedinthealps/elasticsearch-bundle": {
-        "version": "5.2.6.2"
-    },
-    "handcraftedinthealps/elasticsearch-dsl": {
-        "version": "7.2.0.1"
+        "version": "5.x-dev"
     },
     "handcraftedinthealps/goodby-csv": {
         "version": "1.4.0"
@@ -827,9 +824,6 @@
     },
     "symfony/string": {
         "version": "v5.0.7"
-    },
-    "symfony/templating": {
-        "version": "v4.4.5"
     },
     "symfony/thanks": {
         "version": "v1.2.5"
