@@ -14,9 +14,4 @@ sulu_route:
         Sulu\Bundle\ArticleBundle\Document\ArticleDocument:
             generator: 'schema'
             options:
-                route_schema: '/blog/{object.getTitle()}'
-        Sulu\Bundle\ArticleBundle\Document\ArticlePageDocument:
-            generator: 'article_page'
-            options:
-                route_schema: '/{translator.trans("page")}-{object.getPageNumber()}'
-                parent: '{object.getParent().getRoutePath()}'
+                route_schema: '/blog/{is_array(object) ? implode("-", object) : object.getTitle()}'

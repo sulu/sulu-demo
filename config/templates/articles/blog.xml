@@ -27,6 +27,8 @@
             <params>
                 <param name="headline" value="true"/>
             </params>
+
+            <tag name="sulu.rlp.part"/>
         </property>
 
         <property name="routePath" type="route">
