@@ -8,7 +8,6 @@ use Rector\PHPUnit\Set\PHPUnitLevelSetList;
 use Rector\PHPUnit\Set\PHPUnitSetList;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
-use Rector\Symfony\CodeQuality\Rector\ClassMethod\ActionSuffixRemoverRector;
 use Rector\Symfony\Set\SymfonyLevelSetList;
 use Rector\Symfony\Set\SymfonySetList;
 use Sulu\Rector\Set\SuluLevelSetList;
@@ -34,8 +33,6 @@ return static function (RectorConfig $rectorConfig): void {
 
     // symfony rules
     $rectorConfig->symfonyContainerPhp(__DIR__ . '/var/cache/website/dev/App_KernelDevDebugContainer.xml');
-
-    $rectorConfig->skip([ActionSuffixRemoverRector::class]);
 
     $rectorConfig->sets([
         SymfonySetList::SYMFONY_CODE_QUALITY,

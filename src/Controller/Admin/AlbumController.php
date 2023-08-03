@@ -31,7 +31,7 @@ class AlbumController extends AbstractController implements SecuredControllerInt
     }
 
     #[Route(path: '/admin/api/albums/{id}', methods: ['GET'], name: 'app.get_album')]
-    public function getAction(int $id): Response
+    public function get(int $id): Response
     {
         $album = $this->entityManager->getRepository(Album::class)->find($id);
         if (!$album instanceof Album) {
@@ -42,7 +42,7 @@ class AlbumController extends AbstractController implements SecuredControllerInt
     }
 
     #[Route(path: '/admin/api/albums/{id}', methods: ['PUT'], name: 'app.put_album')]
-    public function putAction(Request $request, int $id): Response
+    public function put(Request $request, int $id): Response
     {
         $album = $this->entityManager->getRepository(Album::class)->find($id);
         if (!$album instanceof Album) {
@@ -57,7 +57,7 @@ class AlbumController extends AbstractController implements SecuredControllerInt
     }
 
     #[Route(path: '/admin/api/albums', methods: ['POST'], name: 'app.post_album')]
-    public function postAction(Request $request): Response
+    public function post(Request $request): Response
     {
         $album = new Album();
         /** @var AlbumData $data */
@@ -70,7 +70,7 @@ class AlbumController extends AbstractController implements SecuredControllerInt
     }
 
     #[Route(path: '/admin/api/albums/{id}', methods: ['DELETE'], name: 'app.delete_album')]
-    public function deleteAction(int $id): Response
+    public function delete(int $id): Response
     {
         /** @var Album $album */
         $album = $this->entityManager->getReference(Album::class, $id);
@@ -81,7 +81,7 @@ class AlbumController extends AbstractController implements SecuredControllerInt
     }
 
     #[Route(path: '/admin/api/albums', methods: ['GET'], name: 'app.get_album_list')]
-    public function getListAction(): Response
+    public function getList(): Response
     {
         $listRepresentation = $this->doctrineListRepresentationFactory->createDoctrineListRepresentation(
             Album::RESOURCE_KEY,
