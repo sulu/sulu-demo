@@ -64,8 +64,6 @@ test:
 
 build:
     stage: test
-    tags:
-        - medium
     image: sulu/php:8.1-cli
     services:
         - mysql:8.0
