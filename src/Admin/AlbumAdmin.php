@@ -30,7 +30,7 @@ class AlbumAdmin extends Admin
     {
         if ($this->securityChecker->hasPermission(Album::SECURITY_CONTEXT, PermissionTypes::EDIT)) {
             $rootNavigationItem = new NavigationItem('app.music');
-            $rootNavigationItem->setIcon('fa-music');
+            $rootNavigationItem->setIcon('su-app-rocket');
             $rootNavigationItem->setPosition(25);
 
             $navigationItem = new NavigationItem('app.albums');
