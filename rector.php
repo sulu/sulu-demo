@@ -8,6 +8,7 @@ use Rector\PHPUnit\Set\PHPUnitLevelSetList;
 use Rector\PHPUnit\Set\PHPUnitSetList;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
+use Rector\Symfony\CodeQuality\Rector\ClassMethod\ActionSuffixRemoverRector;
 use Rector\Symfony\Set\SymfonyLevelSetList;
 use Rector\Symfony\Set\SymfonySetList;
 use Sulu\Rector\Set\SuluLevelSetList;
@@ -15,7 +16,12 @@ use Sulu\Rector\Set\SuluLevelSetList;
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->paths([__DIR__ . '/src', __DIR__ . '/tests']);
 
-    $rectorConfig->phpstanConfig(__DIR__ . '/phpstan.neon');
+    $rectorConfig->phpstanConfigs([
+        __DIR__ . '/phpstan.dist.neon',
+        // rector does not load phpstan extension automatically so require them manually here:
+        __DIR__ . '/vendor/phpstan/phpstan-doctrine/extension.neon',
+        __DIR__ . '/vendor/phpstan/phpstan-symfony/extension.neon',
+    ]);
 
     // basic rules
     $rectorConfig->importNames();
@@ -29,27 +35,30 @@ return static function (RectorConfig $rectorConfig): void {
     // symfony rules
     $rectorConfig->symfonyContainerPhp(__DIR__ . '/var/cache/website/dev/App_KernelDevDebugContainer.xml');
 
+    $rectorConfig->skip([ActionSuffixRemoverRector::class]);
+
     $rectorConfig->sets([
         SymfonySetList::SYMFONY_CODE_QUALITY,
         SymfonySetList::SYMFONY_CONSTRUCTOR_INJECTION,
-        SymfonyLevelSetList::UP_TO_SYMFONY_62,
-        SymfonySetList::ANNOTATIONS_TO_ATTRIBUTES,
+        // activate when doing updates:
+        // SymfonyLevelSetList::UP_TO_SYMFONY_63,
     ]);
 
     // doctrine rules
     $rectorConfig->sets([
         DoctrineSetList::DOCTRINE_CODE_QUALITY,
-        DoctrineSetList::ANNOTATIONS_TO_ATTRIBUTES,
     ]);
 
     // phpunit rules
     $rectorConfig->sets([
-        PHPUnitLevelSetList::UP_TO_PHPUNIT_90,
-        PHPUnitSetList::PHPUNIT_91,
+        // activate when doing updates:
+        // PHPUnitLevelSetList::UP_TO_PHPUNIT_90,
+        // PHPUnitSetList::PHPUNIT_91,
     ]);
 
     // sulu rules
     $rectorConfig->sets([
-        SuluLevelSetList::UP_TO_SULU_25,
+        // activate for updates when doing updates:
+        // SuluLevelSetList::UP_TO_SULU_25,
     ]);
 };

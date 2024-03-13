@@ -4,13 +4,29 @@ when@prod: &prod
         register_error_listener: false # Disable ErrorListener to avoid duplicated events because of monolog handler
         options:
             attach_stacktrace: true # Attach stacktrace to monolog events that do not include an exception
-            send_default_pii: false # Do not include personally identifiable information like user, cookies and headers
+            send_default_pii: true # Include personally identifiable information like user, cookies and headers
+            integrations:
+                - 'Sentry\Integration\IgnoreErrorsIntegration'
 
+    # monolog configuration for sentry
+    # see also: https://docs.sentry.io/platforms/php/guides/symfony/
     monolog:
         handlers:
             sentry:
                 type: sentry
                 level: !php/const Monolog\Logger::ERROR
                 hub_id: Sentry\State\HubInterface
+
+    services:
+        Monolog\Processor\PsrLogMessageProcessor:
+            tags: { name: monolog.processor, handler: sentry }
+
+        Sentry\Integration\IgnoreErrorsIntegration:
+            arguments:
+                $options:
+                    ignore_exceptions:
+                        - 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException'
+                        - 'Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException'
+                        - 'Sulu\Component\Webspace\Analyzer\Exception\UrlMatchNotFoundException'
 
 when@stage: *prod

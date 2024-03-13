@@ -26,19 +26,19 @@
         "sulu/article-bundle": "2.5.*",
         "sulu/automation-bundle": "^2.1",
         "sulu/redirect-bundle": "^2.1.2",
-        "sulu/sulu": "~2.5.7",
+        "sulu/sulu": "~2.5.13",
         "sulu/web-twig": "^2.4",
-        "symfony/config": "^6.2",
-        "symfony/dotenv": "^6.2",
+        "symfony/config": "^6.4",
+        "symfony/dotenv": "^6.4",
         "symfony/flex": "^1.17 || ^2.0",
-        "symfony/framework-bundle": "^6.2",
+        "symfony/framework-bundle": "^6.4",
         "symfony/mailer": "^6.0",
-        "symfony/monolog-bridge": "^6.2",
+        "symfony/monolog-bridge": "^6.4",
         "symfony/monolog-bundle": "^3.7",
-        "symfony/runtime": "^6.2",
-        "symfony/security-bundle": "^6.2",
-        "symfony/twig-bundle": "^6.2",
-        "symfony/web-link": "^6.2",
+        "symfony/runtime": "^6.4",
+        "symfony/security-bundle": "^6.4",
+        "symfony/twig-bundle": "^6.4",
+        "symfony/web-link": "^6.4",
         "symfony/webpack-encore-bundle": "^1.16"
     },
     "require-dev": {
@@ -53,13 +53,13 @@
         "phpstan/phpstan-symfony": "^1.1",
         "phpstan/phpstan-webmozart-assert": "^1.0",
         "phpunit/phpunit": "^9.5",
-        "rector/rector": "^0.17.1",
-        "sulu/sulu-rector": "^0.1.4",
-        "symfony/browser-kit": "^6.2",
-        "symfony/css-selector": "^6.2",
-        "symfony/debug-bundle": "^6.2",
-        "symfony/error-handler": "^6.2",
-        "symfony/phpunit-bridge": "^6.2",
+        "rector/rector": "^1.0",
+        "sulu/sulu-rector": "^1.0",
+        "symfony/browser-kit": "^6.4",
+        "symfony/css-selector": "^6.4",
+        "symfony/debug-bundle": "^6.4",
+        "symfony/error-handler": "^6.4",
+        "symfony/phpunit-bridge": "^6.4",
         "symfony/thanks": "^1.2",
         "symfony/web-profiler-bundle": "^6.0",
         "thecodingmachine/phpstan-strict-rules": "^1.0"
@@ -164,7 +164,7 @@
     },
     "config": {
         "platform": {
-            "php": "8.1.25"
+            "php": "8.1.27"
         },
         "preferred-install": {
             "*": "dist"
@@ -183,7 +183,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": true,
-            "require": "6.3.*"
+            "require": "6.3.* || 6.4.*"
         }
     }
 }
