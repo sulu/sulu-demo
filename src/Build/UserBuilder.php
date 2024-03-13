@@ -18,7 +18,7 @@ class UserBuilder implements BuilderInterface, ContainerAwareInterface
 {
     use ContainerAwareTrait;
 
-    public function __construct(private readonly SuluUserBuilder $decoratedUserBuilder, ContainerInterface $container = null)
+    public function __construct(private readonly SuluUserBuilder $decoratedUserBuilder, ?ContainerInterface $container = null)
     {
         $this->setContainer($container);
     }
@@ -74,13 +74,17 @@ class UserBuilder implements BuilderInterface, ContainerAwareInterface
 
     private function getManager(): ObjectManager
     {
+        if (!$this->container instanceof ContainerInterface) {
+            throw new \RuntimeException('Expect Container to be defined.');
+        }
+
         return $this->container->get('doctrine')->getManager();
     }
 
     /**
      * Sets the container.
      */
-    public function setContainer(ContainerInterface $container = null): void
+    public function setContainer(?ContainerInterface $container = null): void
     {
         if ($container instanceof ContainerInterface) {
             $this->container = $container;
