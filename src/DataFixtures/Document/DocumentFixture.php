@@ -1087,8 +1087,13 @@ class DocumentFixture implements DocumentFixtureInterface
                     ],
                     [
                         'type' => 'link',
-                        'page' => $aboutPage->getUuid(),
-                        'text' => 'READ MORE',
+                        'link' => [
+                            'href' => $aboutPage->getUuid(),
+                            'provider' => 'page',
+                            'locale' => 'en',
+                            'target' => '_self',
+                            'title' => 'READ MORE',
+                        ],
                     ],
                     [
                         'type' => 'teasers',
@@ -1152,8 +1157,13 @@ class DocumentFixture implements DocumentFixtureInterface
                     ],
                     [
                         'type' => 'link',
-                        'page' => $aboutPage->getUuid(),
-                        'text' => 'MEHR LESEN',
+                        'link' => [
+                            'href' => $aboutPage->getUuid(),
+                            'provider' => 'page',
+                            'locale' => 'en',
+                            'target' => '_self',
+                            'title' => 'MEHR LESEN',
+                        ],
                     ],
                     [
                         'type' => 'teasers',
