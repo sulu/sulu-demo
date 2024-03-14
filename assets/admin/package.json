@@ -9,6 +9,7 @@
         "watch": "webpack --mode development --watch"
     },
     "dependencies": {
+        "@ckeditor/ckeditor5-font": "^27.1.0",
         "mobx": "^4.0.0",
         "mobx-react": "^5.0.0",
         "react": "^17.0.0",
