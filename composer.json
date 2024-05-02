@@ -26,7 +26,7 @@
         "sulu/article-bundle": "2.5.*",
         "sulu/automation-bundle": "^2.1",
         "sulu/redirect-bundle": "^2.1.2",
-        "sulu/sulu": "~2.5.14",
+        "sulu/sulu": "~2.5.16",
         "sulu/web-twig": "^2.4",
         "symfony/config": "^6.4",
         "symfony/dotenv": "^6.4",
