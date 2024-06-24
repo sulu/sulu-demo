@@ -40,8 +40,12 @@ return (new PhpCsFixer\Config())
         'single_line_throw' => false,
         'visibility_required' => ['elements' => ['property', 'method', 'const']],
         'phpdoc_to_comment' => [
-            'ignored_tags' => ['todo', 'var'],
+            'ignored_tags' => ['todo', 'var', 'see', 'phpstan-ignore-next-line'],
         ],
         'trailing_comma_in_multiline' => ['elements' => ['arrays', 'arguments', 'parameters']],
+        'nullable_type_declaration_for_default_null_value' => true,
+        'fully_qualified_strict_types' => false,
+        'no_null_property_initialization' => false,
+        'nullable_type_declaration' => false,
     ])
     ->setFinder($finder);

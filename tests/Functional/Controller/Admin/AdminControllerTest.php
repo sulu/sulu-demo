@@ -7,6 +7,7 @@ namespace App\Tests\Functional\Controller\Admin;
 use Sulu\Bundle\TestBundle\Testing\SuluTestCase;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Component\Finder\Finder;
+use Symfony\Component\HttpFoundation\Request;
 
 class AdminControllerTest extends SuluTestCase
 {
@@ -22,7 +23,7 @@ class AdminControllerTest extends SuluTestCase
      */
     public function testFormMetadata(string $formKey): void
     {
-        $this->client->request('GET', '/admin/metadata/form/' . $formKey);
+        $this->client->request(Request::METHOD_GET, '/admin/metadata/form/' . $formKey);
 
         $this->assertHttpStatusCode(200, $this->client->getResponse());
     }
@@ -32,14 +33,14 @@ class AdminControllerTest extends SuluTestCase
      */
     public function testListMetadata(string $listKey): void
     {
-        $this->client->request('GET', '/admin/metadata/list/' . $listKey);
+        $this->client->request(Request::METHOD_GET, '/admin/metadata/list/' . $listKey);
 
         $this->assertHttpStatusCode(200, $this->client->getResponse());
     }
 
     public function testConfig(): void
     {
-        $this->client->request('GET', '/admin/config');
+        $this->client->request(Request::METHOD_GET, '/admin/config');
 
         $this->assertHttpStatusCode(200, $this->client->getResponse());
     }

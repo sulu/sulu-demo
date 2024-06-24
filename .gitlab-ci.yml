@@ -43,7 +43,7 @@ composer:
 
 lint:
     stage: test
-    image: sulu/php:8.1-cli
+    image: sulu/php:8.2-cli
     services:
         - mysql:8.0
     before_script:
@@ -54,7 +54,7 @@ lint:
 
 test:
     stage: test
-    image: sulu/php:8.1-cli
+    image: sulu/php:8.2-cli
     services:
         - mysql:8.0
     before_script:
@@ -64,7 +64,7 @@ test:
 
 build:
     stage: test
-    image: sulu/php:8.1-cli
+    image: sulu/php:8.2-cli
     services:
         - mysql:8.0
         - name: elasticsearch:7.13.2
@@ -74,13 +74,13 @@ build:
 
 js-css-website:
     stage: test
-    image: node:14
+    image: node:18
     dependencies: []
     variables:
         NODE_OPTIONS: --max-old-space-size=1536
     before_script:
         - npm config set cache "$(pwd)/.npm-cache"
-        - yarn config set cache-folder "$(pwd)/.yarn-cache" 
+        - yarn config set cache-folder "$(pwd)/.yarn-cache"
     script:
         - cd assets/website
         - yarn install --frozen-lockfile
@@ -94,7 +94,7 @@ js-css-website:
 
 security-check:
     stage: test
-    image: sulu/php:8.1-cli
+    image: sulu/php:8.2-cli
     before_script:
         - curl -sS https://get.symfony.com/cli/installer | bash
         - mv /root/.symfony5/bin/symfony /usr/local/bin/symfony

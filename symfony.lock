@@ -32,9 +32,6 @@
     "dantleech/glob-finder": {
         "version": "1.0.0"
     },
-    "dantleech/phpcr-migrations-bundle": {
-        "version": "1.1.0"
-    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -339,6 +336,9 @@
     },
     "phpcr/phpcr-migrations": {
         "version": "1.2.0"
+    },
+    "phpcr/phpcr-migrations-bundle": {
+        "version": "1.6.0"
     },
     "phpcr/phpcr-shell": {
         "version": "1.1.1"
@@ -753,9 +753,6 @@
     },
     "symfony/polyfill-mbstring": {
         "version": "v1.14.0"
-    },
-    "symfony/polyfill-php81": {
-        "version": "v1.23.0"
     },
     "symfony/polyfill-uuid": {
         "version": "v1.17.1"
