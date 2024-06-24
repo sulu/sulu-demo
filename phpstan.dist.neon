@@ -1,8 +1,10 @@
 parameters:
     paths:
+        - bin/
+        - config
+        - public/
         - src
         - tests
-        - config
     level: max
     inferPrivatePropertyTypeFromConstructor: true
     symfony:

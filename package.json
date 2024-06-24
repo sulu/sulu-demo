@@ -12,14 +12,15 @@
         "timeago.js": "^4.0.1"
     },
     "devDependencies": {
-        "@babel/core": "^7.17.0",
+        "@babel/core": "^7.24.7",
+        "@babel/eslint-parser": "^7.24.7",
         "@babel/preset-env": "^7.16.0",
         "@symfony/webpack-encore": "^4.0.0",
         "autoprefixer": "^10.4.13",
         "babel-eslint": "^10.1.0",
         "core-js": "^3.23.0",
-        "eslint": "^6.5.1",
-        "eslint-config-ma": "^1.1.0",
+        "eslint": "^8.0.0",
+        "eslint-config-ma": "^2.0.0",
         "postcss-loader": "^7.0.0",
         "postcss-scss": "^4.0.6",
         "regenerator-runtime": "^0.13.9",
@@ -50,7 +51,6 @@
         "last 2 versions"
     ],
     "engines": {
-        "node": "^14.0",
         "npm": "please-use-yarn",
         "yarn": ">=1"
     }
