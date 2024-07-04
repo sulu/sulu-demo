@@ -10,5 +10,8 @@
     "app.album_selection_label": "{count} {count, plural, =1 {Album} other {Alben}} ausgewählt",
     "app.select_albums": "Alben auswählen",
     "app.no_album_selected": "Kein Album ausgewählt",
-    "app.select_album": "Album auswählen"
+    "app.select_album": "Album auswählen",
+    "app.events": "Events",
+    "app.start_date": "Startdatum",
+    "app.end_date": "Enddatum"
 }

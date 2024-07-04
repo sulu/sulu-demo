@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<form xmlns="http://schemas.sulu.io/template/template"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/form-1.0.xsd"
+>
+    <key>event_details</key>
+
+    <properties>
+        <property name="name" type="text_line" mandatory="true" colspan="12">
+            <meta>
+                <title>sulu_admin.name</title>
+            </meta>
+
+            <params>
+                <param name="headline" value="true"/>
+            </params>
+        </property>
+
+        <property name="image" type="single_media_selection" colspan="12">
+            <meta>
+                <title>app.image</title>
+            </meta>
+        </property>
+
+        <property name="startDate" type="date" colspan="6">
+            <meta>
+                <title>app.start_date</title>
+            </meta>
+        </property>
+
+        <property name="endDate" type="date" colspan="6">
+            <meta>
+                <title>app.end_date</title>
+            </meta>
+        </property>
+    </properties>
+</form>
