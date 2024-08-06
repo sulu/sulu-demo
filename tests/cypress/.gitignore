@@ -1,0 +1,9 @@
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+node_modules/
+.DS_Store
+.idea/
+*.code-workspace
+.vscode
+tmp

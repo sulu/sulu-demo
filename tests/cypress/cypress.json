@@ -1,0 +1,11 @@
+{
+  "env": {
+    "URL": "https://sulu.rocks",
+    "username": "admin",
+    "password": "admin"
+  },
+  "viewportWidth": 1280,
+  "viewportHight": 1000,
+  "defaultCommandTimeout": 15000,
+  "videoCompression": false
+}
