@@ -639,7 +639,7 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
     /**
      * @return array<string, mixed>
      */
-    public function getOrder()
+    public function getOrder(): int
     {
         return \PHP_INT_MAX;
     }
