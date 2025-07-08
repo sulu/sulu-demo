@@ -13,6 +13,7 @@ parameters:
     doctrine:
         objectManagerLoader: 'tests/phpstan/object-manager.php'
     excludePaths:
+        - '%rootDir%/../../../config/packages/cache.php'
         - '%rootDir%/../../../config/packages/phpcr.php'
         - '%rootDir%/../../../src/DataFixtures/Document/DocumentFixture.php'
         - '%rootDir%/../../../src/DataFixtures/ORM/AppFixture.php'

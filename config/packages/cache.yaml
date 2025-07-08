@@ -20,10 +20,3 @@ framework:
         # Namespaced pools use the above "app" backend by default
         #pools:
         #my.dedicated.cache: null
-
-when@prod: &prod
-    framework:
-        cache:
-            app: cache.adapter.redis
-
-when@stage: *prod
