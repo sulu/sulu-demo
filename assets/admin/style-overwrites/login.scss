@@ -1,0 +1,7 @@
+/* import original stylesheet to keep original styling */
+@import 'sulu-admin-bundle/containers/Login/login.scss';
+
+/* overwrite style for specific elements */
+.login-container {
+    background-color: lightpink;
+}
