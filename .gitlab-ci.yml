@@ -27,7 +27,7 @@ composer:
     before_script:
         - composer config -g cache-dir "$(pwd)/.composer-cache"
     script:
-        - composer install --no-interaction --prefer-dist --no-scripts
+        - composer install --no-interaction --prefer-dist --no-scripts --ignore-platform-req=ext-ffi
         - curl --show-error --silent https://getcomposer.org/installer | php
     artifacts:
         name: composer-dependencies
