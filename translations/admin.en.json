@@ -10,5 +10,9 @@
     "app.album_selection_label": "{count} {count, plural, =1 {album} other {albums}} selected",
     "app.select_albums": "Select albums",
     "app.no_album_selected": "No album selected",
-    "app.select_album": "Select album"
+    "app.select_album": "Select album",
+    "app.contact_statistics": "Statistics",
+    "app.refresh_statistics": "Refresh Statistics",
+    "app.contact_statistics_count_text": "The application includes {contactCount} contacts at the moment.",
+    "app.contact_statistics_link_text": "Navigate to the contact list"
 }
