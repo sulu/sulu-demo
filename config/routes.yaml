@@ -4,6 +4,16 @@ controllers:
         namespace: App\Controller
     type: attribute
 
+robots_txt:
+    path: /robots.txt
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+    defaults:
+        template: robots.txt.twig
+        private: false
+        maxAge: 240
+        sharedAge: 480
+        _requestAnalyzer: false
+
 #static:
 #    path: /static-route
 #    controller: App\Controller\DefaultController::index

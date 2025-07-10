@@ -1,0 +1,10 @@
+# www.robotstxt.org/
+# www.google.com/support/webmasters/bin/answer.py?hl=en&answer=156449
+
+User-agent: *
+
+{% set sulu = app.request.attributes.get('_sulu') -%}
+{% set webspace = sulu ? sulu.getAttribute('webspace') : null -%}
+{%- if webspace.key|default -%}
+    Sitemap: {{ absolute_url('/sitemap.xml') }}
+{% endif %}
