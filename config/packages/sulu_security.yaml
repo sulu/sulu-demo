@@ -1,4 +1,7 @@
 sulu_security:
+    objects:
+        user:
+            model: App\Entity\User
     checker:
         enabled: true
     password_policy:

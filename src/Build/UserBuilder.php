@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Build;
 
+use App\Entity\User;
 use Doctrine\Persistence\ObjectManager;
 use Massive\Bundle\BuildBundle\Build\BuilderContext;
 use Massive\Bundle\BuildBundle\Build\BuilderInterface;
 use Sulu\Bundle\SecurityBundle\Build\UserBuilder as SuluUserBuilder;
-use Sulu\Bundle\SecurityBundle\Entity\User;
 use Sulu\Bundle\SecurityBundle\Entity\UserSetting;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
