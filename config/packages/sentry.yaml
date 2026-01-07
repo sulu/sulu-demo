@@ -5,8 +5,13 @@ when@prod: &prod
         options:
             attach_stacktrace: true # Attach stacktrace to monolog events that do not include an exception
             send_default_pii: true # Include personally identifiable information like user, cookies and headers
-            integrations:
-                - 'Sentry\Integration\IgnoreErrorsIntegration'
+            # Add request headers, cookies, IP address and the authenticated user
+            # see https://docs.sentry.io/platforms/php/data-management/data-collected/ for more info
+            # send_default_pii: true
+            ignore_exceptions:
+                - 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException'
+                - 'Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException'
+                - 'Sulu\Component\Webspace\Analyzer\Exception\UrlMatchNotFoundException'
 
     # monolog configuration for sentry
     # see also: https://docs.sentry.io/platforms/php/guides/symfony/
@@ -16,17 +21,16 @@ when@prod: &prod
                 type: sentry
                 level: !php/const Monolog\Logger::ERROR
                 hub_id: Sentry\State\HubInterface
-
-    services:
-        Monolog\Processor\PsrLogMessageProcessor:
-            tags: { name: monolog.processor, handler: sentry }
-
-        Sentry\Integration\IgnoreErrorsIntegration:
-            arguments:
-                $options:
-                    ignore_exceptions:
-                        - 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException'
-                        - 'Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException'
-                        - 'Sulu\Component\Webspace\Analyzer\Exception\UrlMatchNotFoundException'
+                fill_extra_context: true # Enables sending monolog context to Sentry
+                process_psr_3_messages: false # Disables the resolution of PSR-3 placeholders
+#            # Use this for structured log integration
+#            sentry_logs:
+#                type: service
+#                id: Sentry\SentryBundle\Monolog\LogsHandler
+#
+#    services:
+#        Sentry\SentryBundle\Monolog\LogsHandler:
+#            arguments:
+#                - !php/const Monolog\Logger::INFO
 
 when@stage: *prod

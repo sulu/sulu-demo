@@ -1,0 +1,6 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Parameter \\#1 \\$entityName of method Sulu\\\\Component\\\\Rest\\\\ListBuilder\\\\Doctrine\\\\DoctrineListBuilderFactoryInterface\\:\\:create\\(\\) expects class\\-string, string given\\.$#"
+			count: 1
+			path: src/Common/DoctrineListRepresentationFactory.php
