@@ -4,7 +4,7 @@ doctrine:
 
         # IMPORTANT: You MUST configure your server version,
         # either here or in the DATABASE_URL env var (see .env file)
-        #server_version: '8.0.27'
+        #server_version: '8.4.7'
 
         profiling_collect_backtrace: '%kernel.debug%'
         use_savepoints: true
@@ -14,6 +14,8 @@ doctrine:
         report_fields_where_declared: true
         validate_xml_mapping: false # required for gedmo/doctrine-extensions to be false
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+        identity_generation_preferences:
+            Doctrine\DBAL\Platforms\PostgreSQLPlatform: identity
         auto_mapping: true
         mappings:
             App:
@@ -23,7 +25,7 @@ doctrine:
                 prefix: 'App\Entity'
                 alias: App
         controller_resolver:
-            auto_mapping: true
+            auto_mapping: false
 
 when@test:
     doctrine:
