@@ -1,4 +1,6 @@
 {
+    "sulu_category.category_selection_label": "{count} {count, plural, =1 {Kategorie} other {Kategorien}} ausgewählt",
+    "sulu_category.category_selection_overlay_title": "Kategorien auswählen",
     "app.music": "Musik",
     "app.album": "Album",
     "app.albums": "Alben",

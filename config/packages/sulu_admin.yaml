@@ -29,6 +29,19 @@ sulu_admin:
                         icon: 'su-storage'
                         label: 'app.album_selection_label'
                         overlay_title: 'app.select_albums'
+
+            category_selection:
+                default_type: 'list_overlay' # change type to list_overlay by default
+                types:
+                    # adds new list overlay config
+                    list_overlay:
+                        adapter: 'tree_table_slim'
+                        list_key: 'categories'
+                        display_properties:
+                            - 'name'
+                        icon: 'su-tag'
+                        label: 'sulu_category.category_selection_label'
+                        overlay_title: 'sulu_category.category_selection_overlay_title'
         single_selection:
             single_album_selection:
                 default_type: 'list_overlay'
