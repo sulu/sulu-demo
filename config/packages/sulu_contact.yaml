@@ -1,0 +1,4 @@
+sulu_contact:
+    objects:
+        contact:
+            model: 'App\Entity\Contact'
