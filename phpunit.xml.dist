@@ -1,25 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- https://phpunit.de/manual/current/en/appendixes.configuration.html -->
+<!-- https://docs.phpunit.de/en/11.5/configuration.html -->
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
-         backupGlobals="false"
          colors="true"
          bootstrap="tests/bootstrap.php"
-         convertDeprecationsToExceptions="false"
+         cacheDirectory=".phpunit.cache"
 >
     <php>
         <ini name="display_errors" value="1" />
         <ini name="error_reporting" value="-1" />
         <server name="APP_ENV" value="test" force="true" />
         <server name="SHELL_VERBOSITY" value="-1" />
-        <!-- See: https://symfony.com/doc/current/components/phpunit_bridge.html#modified-phpunit-script -->
         <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak"/>
-        <!-- Set "SYMFONY_PHPUNIT_VERSION" to use fixed phpunit version: https://symfony.com/doc/current/components/phpunit_bridge.html#modified-phpunit-script -->
-        <!-- <server name="SYMFONY_PHPUNIT_VERSION" value="8.5" /> -->
-        <!-- Set "SYMFONY_PHPUNIT_REMOVE" to "symfony/yaml" to install "prophecy": https://symfony.com/doc/current/components/phpunit_bridge.html#modified-phpunit-script -->
-        <server name="SYMFONY_PHPUNIT_REMOVE" value="symfony/yaml"/>
-        <server name="SYMFONY_PHPUNIT_VERSION" value="9.5" />
     </php>
 
     <testsuites>
@@ -28,16 +21,13 @@
         </testsuite>
     </testsuites>
 
-    <coverage processUncoveredFiles="true">
+    <source>
         <include>
             <directory suffix=".php">src</directory>
         </include>
-    </coverage>
-
-    <listeners>
-        <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
-    </listeners>
+    </source>
 
     <extensions>
+        <bootstrap class="Symfony\Bridge\PhpUnit\SymfonyExtension"/>
     </extensions>
 </phpunit>

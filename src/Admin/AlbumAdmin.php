@@ -34,7 +34,7 @@ class AlbumAdmin extends Admin
             $rootNavigationItem->setPosition(25);
 
             $navigationItem = new NavigationItem('app.albums');
-            $navigationItem->setView(static::LIST_VIEW);
+            $navigationItem->setView(self::LIST_VIEW);
 
             $rootNavigationItem->addChild($navigationItem);
             $navigationItemCollection->add($rootNavigationItem);
@@ -65,45 +65,45 @@ class AlbumAdmin extends Admin
 
         if ($this->securityChecker->hasPermission(Album::SECURITY_CONTEXT, PermissionTypes::EDIT)) {
             $viewCollection->add(
-                $this->viewBuilderFactory->createListViewBuilder(static::LIST_VIEW, '/albums')
+                $this->viewBuilderFactory->createListViewBuilder(self::LIST_VIEW, '/albums')
                     ->setResourceKey(Album::RESOURCE_KEY)
                     ->setListKey(Album::LIST_KEY)
                     ->setTitle('app.albums')
                     ->addListAdapters(['table'])
-                    ->setAddView(static::ADD_FORM_VIEW)
-                    ->setEditView(static::EDIT_FORM_VIEW)
+                    ->setAddView(self::ADD_FORM_VIEW)
+                    ->setEditView(self::EDIT_FORM_VIEW)
                     ->addToolbarActions($listToolbarActions),
             );
 
             $viewCollection->add(
-                $this->viewBuilderFactory->createResourceTabViewBuilder(static::ADD_FORM_VIEW, '/albums/add')
+                $this->viewBuilderFactory->createResourceTabViewBuilder(self::ADD_FORM_VIEW, '/albums/add')
                     ->setResourceKey(Album::RESOURCE_KEY)
-                    ->setBackView(static::LIST_VIEW),
+                    ->setBackView(self::LIST_VIEW),
             );
 
             $viewCollection->add(
-                $this->viewBuilderFactory->createFormViewBuilder(static::ADD_FORM_DETAILS_VIEW, '/details')
+                $this->viewBuilderFactory->createFormViewBuilder(self::ADD_FORM_DETAILS_VIEW, '/details')
                     ->setResourceKey(Album::RESOURCE_KEY)
                     ->setFormKey(Album::FORM_KEY)
                     ->setTabTitle('sulu_admin.details')
-                    ->setEditView(static::EDIT_FORM_VIEW)
+                    ->setEditView(self::EDIT_FORM_VIEW)
                     ->addToolbarActions($formToolbarActions)
-                    ->setParent(static::ADD_FORM_VIEW),
+                    ->setParent(self::ADD_FORM_VIEW),
             );
 
             $viewCollection->add(
-                $this->viewBuilderFactory->createResourceTabViewBuilder(static::EDIT_FORM_VIEW, '/albums/:id')
+                $this->viewBuilderFactory->createResourceTabViewBuilder(self::EDIT_FORM_VIEW, '/albums/:id')
                     ->setResourceKey(Album::RESOURCE_KEY)
-                    ->setBackView(static::LIST_VIEW),
+                    ->setBackView(self::LIST_VIEW),
             );
 
             $viewCollection->add(
-                $this->viewBuilderFactory->createFormViewBuilder(static::EDIT_FORM_DETAILS_VIEW, '/details')
+                $this->viewBuilderFactory->createFormViewBuilder(self::EDIT_FORM_DETAILS_VIEW, '/details')
                     ->setResourceKey(Album::RESOURCE_KEY)
                     ->setFormKey(Album::FORM_KEY)
                     ->setTabTitle('sulu_admin.details')
                     ->addToolbarActions($formToolbarActions)
-                    ->setParent(static::EDIT_FORM_VIEW),
+                    ->setParent(self::EDIT_FORM_VIEW),
             );
         }
     }
