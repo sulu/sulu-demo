@@ -1,0 +1,34 @@
+# Read the documentation at https://github.com/thephpleague/flysystem-bundle/blob/master/docs/1-getting-started.md
+# Sulu media storage runs through flysystem since Sulu 3.0. The directory keeps the path the
+# media was stored under before the upgrade so existing files stay reachable.
+flysystem:
+    storages:
+        default.storage:
+            adapter: 'local'
+            options:
+                directory: '%kernel.project_dir%/var/uploads/media'
+
+# The S3 setup this project used before the upgrade translates to the following. The public url
+# now has to contain the path prefix as well.
+#
+#flysystem:
+#    storages:
+#        default.storage:
+#            adapter: 'aws'
+#            public_url: '%env(S3_ENDPOINT)%/%env(S3_PATH_PREFIX)%'
+#            options:
+#                client: 'app.s3_client'
+#                bucket: '%env(S3_BUCKET_NAME)%'
+#                prefix: '%env(S3_PATH_PREFIX)%'
+#                streamReads: true
+#
+#services:
+#    app.s3_client:
+#        class: Aws\S3\S3Client
+#        arguments:
+#            -   version: 'latest'
+#                region: '%env(S3_REGION)%'
+#                endpoint: '%env(S3_ENDPOINT)%'
+#                credentials:
+#                    key: '%env(S3_KEY)%'
+#                    secret: '%env(S3_SECRET)%'

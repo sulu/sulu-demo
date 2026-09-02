@@ -27,8 +27,11 @@ services:
     App\Build\UserBuilder:
         decorates: sulu_security.build.user
 
-    App\Content\Type\SingleAlbumSelection:
-        tags: [{name: 'sulu.content.type', alias: 'single_album_selection'}]
+    App\Content\ResourceLoader\AlbumResourceLoader:
+        tags: [{name: 'sulu_content.resource_loader', alias: 'album'}]
 
-    App\Content\Type\AlbumSelection:
-        tags: [{name: 'sulu.content.type', alias: 'album_selection'}]
+    App\Content\PropertyResolver\SingleAlbumSelectionPropertyResolver:
+        tags: [{name: 'sulu_content.property_resolver', alias: 'single_album_selection'}]
+
+    App\Content\PropertyResolver\AlbumSelectionPropertyResolver:
+        tags: [{name: 'sulu_content.property_resolver', alias: 'album_selection'}]

@@ -18,6 +18,22 @@
                             <title lang="de">Titel</title>
                         </meta>
                     </property>
+
+                    <property name="articles" type="smart_content">
+                        <!-- @see https://docs.sulu.io/en/3.x/reference/content-types/smart_content.html -->
+                        <meta>
+                            <title lang="en">Articles</title>
+                            <title lang="de">Artikel</title>
+                        </meta>
+
+                        <params>
+                            <param name="provider" value="articles"/>
+                            <param name="max_per_page" value="4"/>
+                            <param name="properties" type="collection">
+                                <param name="headerImage" value="content.headerImage"/>
+                            </param>
+                        </params>
+                    </property>
                 </properties>
             </type>
         </types>

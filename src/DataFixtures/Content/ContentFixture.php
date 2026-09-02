@@ -2,93 +2,470 @@
 
 declare(strict_types=1);
 
-namespace App\DataFixtures\Document;
+namespace App\DataFixtures\Content;
 
 use App\DataFixtures\ORM\AppFixture;
 use App\Entity\Album;
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\NonUniqueResultException;
-use Sulu\Bundle\ArticleBundle\Document\ArticleDocument;
-use Sulu\Bundle\DocumentManagerBundle\DataFixtures\DocumentFixtureInterface;
+use Doctrine\Persistence\ObjectManager;
+use Sulu\Article\Application\Message\ApplyWorkflowTransitionArticleMessage;
+use Sulu\Article\Application\Message\CreateArticleMessage;
+use Sulu\Article\Application\Message\ModifyArticleMessage;
+use Sulu\Article\Domain\Model\ArticleInterface;
+use Sulu\Bundle\ContactBundle\Entity\Account;
 use Sulu\Bundle\MediaBundle\Entity\Media;
-use Sulu\Bundle\PageBundle\Document\BasePageDocument;
-use Sulu\Bundle\PageBundle\Document\HomeDocument;
-use Sulu\Bundle\PageBundle\Document\PageDocument;
-use Sulu\Bundle\SnippetBundle\Document\SnippetDocument;
-use Sulu\Bundle\SnippetBundle\Snippet\DefaultSnippetManagerInterface;
-use Sulu\Component\Content\Document\RedirectType;
-use Sulu\Component\Content\Document\WorkflowStage;
-use Sulu\Component\DocumentManager\DocumentManager;
-use Sulu\Component\DocumentManager\Exception\DocumentManagerException;
-use Sulu\Component\DocumentManager\Exception\MetadataNotFoundException;
-use Sulu\Component\PHPCR\PathCleanupInterface;
+use Sulu\Content\Domain\Model\WorkflowInterface;
+use Sulu\Messenger\Infrastructure\Symfony\Messenger\FlushMiddleware\EnableFlushStamp;
+use Sulu\Page\Application\Message\ApplyWorkflowTransitionPageMessage;
+use Sulu\Page\Application\Message\CreatePageMessage;
+use Sulu\Page\Application\Message\ModifyPageMessage;
+use Sulu\Page\Domain\Model\PageInterface;
+use Sulu\Page\Domain\Repository\PageRepositoryInterface;
+use Sulu\Snippet\Application\Message\ApplyWorkflowTransitionSnippetMessage;
+use Sulu\Snippet\Application\Message\CreateSnippetMessage;
+use Sulu\Snippet\Application\Message\ModifySnippetAreaMessage;
+use Sulu\Snippet\Application\Message\ModifySnippetMessage;
+use Sulu\Snippet\Domain\Model\SnippetInterface;
+use Symfony\Component\Messenger\Envelope;
+use Symfony\Component\Messenger\MessageBusInterface;
+use Symfony\Component\Messenger\Stamp\HandledStamp;
+use Symfony\Component\Uid\Uuid;
 
-class DocumentFixture implements DocumentFixtureInterface
+/**
+ * Creates the demo pages, articles and snippets on the Sulu 3.0 content storage.
+ *
+ * The content is the same data the PHPCR document fixtures used, so the diff against 2.6 shows
+ * what the upgrade forced and nothing else. Only the way it is written changed: instead of a
+ * document manager, every resource is created in English through a create message, translated
+ * into German with a modify message, and published per locale.
+ */
+class ContentFixture extends Fixture implements OrderedFixtureInterface
 {
-    public function __construct(private readonly PathCleanupInterface $pathCleanup, private readonly EntityManagerInterface $entityManager, private readonly DefaultSnippetManagerInterface $defaultSnippetManager)
-    {
+    private const WEBSPACE_KEY = 'demo';
+
+    public function __construct(
+        private readonly MessageBusInterface $messageBus,
+        private readonly PageRepositoryInterface $pageRepository,
+        private readonly EntityManagerInterface $entityManager,
+    ) {
     }
 
     public function getOrder(): int
     {
-        return 10;
+        return \PHP_INT_MAX;
+    }
+
+    public function load(ObjectManager $manager): void
+    {
+        $pages = $this->loadPages();
+        $articles = $this->loadArticles();
+
+        $this->loadHomepage($pages, $articles);
+        $this->loadSettingsSnippet();
     }
 
     /**
-     * @throws DocumentManagerException
-     * @throws MetadataNotFoundException
-     * @throws \Exception
+     * @return array<string, PageInterface> indexed by the english url
      */
-    public function load(DocumentManager $documentManager): void
+    private function loadPages(): array
     {
-        if ($this->fixturesAlreadyLoaded($documentManager)) {
-            return;
+        $pages = [];
+
+        foreach ($this->pagesEnglish() as $data) {
+            $parentUrl = $data['parentOf'] ?? null;
+            unset($data['parentOf']);
+
+            $parent = \is_string($parentUrl)
+                ? $pages[$parentUrl]->getUuid()
+                : $this->homepage()->getUuid();
+
+            // the uuid is generated up front so a pages smart content can point at its own
+            // subtree in the same pass, CreatePageMessage accepts a supplied uuid
+            $uuid = (string) Uuid::v7();
+            $data['uuid'] = $uuid;
+            $data = $this->withPagesDataSource($data, $uuid);
+
+            $pages[$this->stringValue($data, 'url')] = $this->createPage($data, $parent);
         }
 
-        $pagesEN = $this->loadPagesEnglish($documentManager);
-        $pagesDE = $this->loadPagesGerman($documentManager, $pagesEN);
+        foreach ($this->pagesGerman() as $data) {
+            $englishUrl = $this->stringValue($data, 'translationOf');
+            unset($data['translationOf'], $data['parentOf']);
 
-        // update data-source of artist page because uuid is only available after persist
-        $this->updateArtistPageDataSource($documentManager, AppFixture::LOCALE_EN);
-        $this->updateArtistPageDataSource($documentManager, AppFixture::LOCALE_DE);
+            $page = $pages[$englishUrl];
+            $this->translatePage($page, $this->withPagesDataSource($data, $page->getUuid()));
+        }
 
-        $articlesEN = $this->loadArticlesEnglish($documentManager);
-        $articlesDE = $this->loadArticlesGerman($documentManager, $articlesEN);
-
-        $this->loadHomepageEnglish($documentManager, $pagesEN, $articlesEN);
-        $this->loadHomepageGerman($documentManager, $pagesDE, $articlesDE);
-
-        $snippet = $this->loadContactInformationSnippetEnglish($documentManager);
-        $this->loadContactInformationSnippetGerman($documentManager, $snippet);
-
-        $documentManager->flush();
-        $documentManager->clear();
-    }
-
-    private function fixturesAlreadyLoaded(DocumentManager $documentManager): bool
-    {
-        // TODO: find a way for checking if the fixtures were already loaded
-        return false;
+        return $pages;
     }
 
     /**
-     * @throws MetadataNotFoundException
-     *
-     * @return mixed[]
+     * @return array<string, ArticleInterface> indexed by the english url
      */
-    private function loadPagesEnglish(DocumentManager $documentManager): array
+    private function loadArticles(): array
     {
-        $pagesData = [
+        $articles = [];
+
+        foreach ($this->articlesEnglish() as $data) {
+            $url = '/blog/' . $this->slugify($this->stringValue($data, 'title'));
+            $data['url'] = $url;
+            $articles[$url] = $this->createArticle($data);
+        }
+
+        foreach ($this->articlesGerman() as $data) {
+            $englishUrl = $this->stringValue($data, 'translationOf');
+            unset($data['translationOf']);
+            $data['url'] = '/blog/' . $this->slugify($this->stringValue($data, 'title'));
+
+            $this->translateArticle($articles[$englishUrl], $data);
+        }
+
+        return $articles;
+    }
+
+    /**
+     * In 2.6 a pages smart content without a data source listed the children of the current
+     * page. In 3.0 the data source has to be given explicitly.
+     *
+     * @param array<string, mixed> $data
+     *
+     * @return array<string, mixed>
+     */
+    private function withPagesDataSource(array $data, string $uuid): array
+    {
+        $elements = $data['element'] ?? null;
+        if (!\is_array($elements)) {
+            return $data;
+        }
+
+        $result = [];
+        foreach ($elements as $element) {
+            if (\is_array($element) && 'pages' === ($element['type'] ?? null)) {
+                $pages = $element['pages'] ?? null;
+                $pages = \is_array($pages) ? $pages : [];
+                $pages['dataSource'] = $uuid;
+                $element['pages'] = $pages;
+            }
+
+            $result[] = $element;
+        }
+
+        $data['element'] = $result;
+
+        return $data;
+    }
+
+    private function homepage(): PageInterface
+    {
+        return $this->pageRepository->getOneBy([
+            'webspaceKey' => self::WEBSPACE_KEY,
+            'parentId' => null,
+        ]);
+    }
+
+    /**
+     * @param array<string, PageInterface> $pages
+     * @param array<string, ArticleInterface> $articles
+     */
+    private function loadHomepage(array $pages, array $articles): void
+    {
+        $homepage = $this->homepage();
+
+        foreach ($this->homepageContent($pages, $articles) as $locale => $data) {
+            $data['locale'] = $locale;
+
+            // sulu:page:initialize leaves a second draft dimension content per locale behind
+            // that has no route attached. Without clearing the identity map first, the modify
+            // picks that one up and inserts a second "/" route, which the unique index on
+            // ro_routes rejects.
+            $this->entityManager->clear();
+
+            $this->dispatch(new ModifyPageMessage(['uuid' => $homepage->getUuid()], $data));
+            $this->dispatch(new ApplyWorkflowTransitionPageMessage(
+                ['uuid' => $homepage->getUuid()],
+                $locale,
+                WorkflowInterface::WORKFLOW_TRANSITION_PUBLISH,
+            ));
+        }
+    }
+
+    /**
+     * @param array<string, mixed> $data
+     */
+    private function createPage(array $data, string $parentUuid): PageInterface
+    {
+        /** @var PageInterface $page */
+        $page = $this->dispatch(new CreatePageMessage(self::WEBSPACE_KEY, $parentUuid, $data));
+
+        $this->publishPage($page, $this->stringValue($data, 'locale'));
+
+        return $page;
+    }
+
+    /**
+     * @param array<string, mixed> $data
+     */
+    private function translatePage(PageInterface $page, array $data): void
+    {
+        $this->dispatch(new ModifyPageMessage(['uuid' => $page->getUuid()], $data));
+        $this->publishPage($page, $this->stringValue($data, 'locale'));
+    }
+
+    private function publishPage(PageInterface $page, string $locale): void
+    {
+        $this->dispatch(new ApplyWorkflowTransitionPageMessage(
+            ['uuid' => $page->getUuid()],
+            $locale,
+            WorkflowInterface::WORKFLOW_TRANSITION_PUBLISH,
+        ));
+    }
+
+    /**
+     * @param array<string, mixed> $data
+     */
+    private function createArticle(array $data): ArticleInterface
+    {
+        /** @var ArticleInterface $article */
+        $article = $this->dispatch(new CreateArticleMessage($data));
+
+        $this->publishArticle($article, $this->stringValue($data, 'locale'));
+
+        return $article;
+    }
+
+    /**
+     * @param array<string, mixed> $data
+     */
+    private function translateArticle(ArticleInterface $article, array $data): void
+    {
+        $this->dispatch(new ModifyArticleMessage(['uuid' => $article->getUuid()], $data));
+        $this->publishArticle($article, $this->stringValue($data, 'locale'));
+    }
+
+    private function publishArticle(ArticleInterface $article, string $locale): void
+    {
+        $this->dispatch(new ApplyWorkflowTransitionArticleMessage(
+            ['uuid' => $article->getUuid()],
+            $locale,
+            WorkflowInterface::WORKFLOW_TRANSITION_PUBLISH,
+        ));
+    }
+
+    private function loadSettingsSnippet(): void
+    {
+        $accountId = $this->firstAccountId();
+
+        /** @var SnippetInterface $snippet */
+        $snippet = $this->dispatch(new CreateSnippetMessage([
+            'locale' => AppFixture::LOCALE_EN,
+            'template' => 'settings',
+            'title' => 'Demo Settings',
+            'account' => $accountId,
+        ]));
+        $this->publishSnippet($snippet, AppFixture::LOCALE_EN);
+
+        $this->dispatch(new ModifySnippetMessage(['uuid' => $snippet->getUuid()], [
+            'locale' => AppFixture::LOCALE_DE,
+            'template' => 'settings',
+            'title' => 'Einstellungen Demo',
+            'account' => $accountId,
+        ]));
+        $this->publishSnippet($snippet, AppFixture::LOCALE_DE);
+
+        // the footer resolves the settings through the webspace_settings area
+        foreach ([AppFixture::LOCALE_EN, AppFixture::LOCALE_DE] as $locale) {
+            $this->dispatch(new ModifySnippetAreaMessage([
+                'webspaceKey' => self::WEBSPACE_KEY,
+                'areaKey' => 'webspace_settings',
+                'snippetIdentifier' => ['uuid' => $snippet->getUuid()],
+                'locale' => $locale,
+            ]));
+        }
+    }
+
+    private function publishSnippet(SnippetInterface $snippet, string $locale): void
+    {
+        $this->dispatch(new ApplyWorkflowTransitionSnippetMessage(
+            ['uuid' => $snippet->getUuid()],
+            $locale,
+            WorkflowInterface::WORKFLOW_TRANSITION_PUBLISH,
+        ));
+    }
+
+    private function dispatch(object $message): mixed
+    {
+        $envelope = $this->messageBus->dispatch(new Envelope($message, [new EnableFlushStamp()]));
+
+        /** @var HandledStamp|null $handled */
+        $handled = $envelope->last(HandledStamp::class);
+
+        return $handled?->getResult();
+    }
+
+    /**
+     * @param array<string, mixed> $data
+     */
+    private function stringValue(array $data, string $key): string
+    {
+        $value = $data[$key] ?? null;
+        \assert(\is_string($value), \sprintf('Expected fixture key "%s" to be a string.', $key));
+
+        return $value;
+    }
+
+    private function slugify(string $value): string
+    {
+        $slug = \iconv('UTF-8', 'ASCII//TRANSLIT', $value);
+        $slug = \strtolower((string) $slug);
+        $slug = (string) \preg_replace('/[^a-z0-9]+/', '-', $slug);
+
+        return \trim($slug, '-');
+    }
+
+    private function mediaId(string $name): int
+    {
+        /** @var int|string $id */
+        $id = $this->entityManager->createQueryBuilder()
+            ->from(Media::class, 'media')
+            ->select('media.id')
+            ->innerJoin('media.files', 'file')
+            ->innerJoin('file.fileVersions', 'fileVersion')
+            ->where('fileVersion.name = :name')
+            ->setMaxResults(1)
+            ->setParameter('name', $name)
+            ->getQuery()->getSingleScalarResult();
+
+        return (int) $id;
+    }
+
+    private function albumId(string $title): int
+    {
+        /** @var int|string $id */
+        $id = $this->entityManager->createQueryBuilder()
+            ->from(Album::class, 'album')
+            ->select('album.id')
+            ->where('album.title = :title')
+            ->setMaxResults(1)
+            ->setParameter('title', $title)
+            ->getQuery()->getSingleScalarResult();
+
+        return (int) $id;
+    }
+
+    private function firstAccountId(): int
+    {
+        /** @var int|string $id */
+        $id = $this->entityManager->createQueryBuilder()
+            ->from(Account::class, 'account')
+            ->select('account.id')
+            ->setMaxResults(1)
+            ->getQuery()->getSingleScalarResult();
+
+        return (int) $id;
+    }
+
+    /**
+     * The homepage references pages and articles, so it is filled after they exist.
+     * German reuses the english page keys because loadPages() indexes by the english url.
+     *
+     * @param array<string, PageInterface> $pages
+     * @param array<string, ArticleInterface> $articles
+     *
+     * @return array<string, array<string, mixed>>
+     */
+    private function homepageContent(array $pages, array $articles): array
+    {
+        $aboutPage = $pages['/about'];
+        $coyoosPage = $pages['/artists/coyoos'];
+        $civilLiteraturePage = $pages['/artists/civil-literature'];
+        $legendArticle = $articles['/blog/legend-behind-the-mix'];
+
+        $teasers = [
+            'items' => [
+                ['id' => $legendArticle->getUuid(), 'type' => 'articles'],
+                ['id' => $civilLiteraturePage->getUuid(), 'type' => 'pages'],
+            ],
+            'presentAs' => null,
+        ];
+
+        return [
+            AppFixture::LOCALE_EN => [
+                'title' => 'Homepage',
+                'url' => '/',
+                'template' => 'homepage',
+                'teaser' => $coyoosPage->getUuid(),
+                'blocks' => [
+                    [
+                        'type' => 'text',
+                        'title' => 'Our Label',
+                        'description' => '<h3>International Talents was founded 1998</h3><p>From Great Britain all over the world International Talents become one of the worldwide leading music brand. With over 20 years of recorded music history, our passion for artistry in music continues today. We love to inspire young talents with all of our knowledge and experience.&nbsp;The desire to speak into the heart and soul of the listeners is what fueled the creative and strategic efforts of the label.</p>',
+                    ],
+                    [
+                        'type' => 'link',
+                        'link' => [
+                            'href' => $aboutPage->getUuid(),
+                            'provider' => 'page',
+                            'locale' => 'en',
+                            'target' => '_self',
+                            'title' => 'READ MORE',
+                        ],
+                    ],
+                    [
+                        'type' => 'teasers',
+                        'title' => 'Featured',
+                        'teasers' => $teasers,
+                    ],
+                ],
+            ],
+            AppFixture::LOCALE_DE => [
+                'title' => 'Startseite',
+                'url' => '/',
+                'template' => 'homepage',
+                'teaser' => $coyoosPage->getUuid(),
+                'blocks' => [
+                    [
+                        'type' => 'text',
+                        'title' => 'Unser Label',
+                        'description' => '<h3>International Talents wurde 1998 gegründet</h3><p>Von Großbritanien aus wuchs International Talents über die ganze Welt zu einer der weltweit führenden Musik Marken.Wie lieben es junge Talente mit all unserem Wissen und Erfahrungen zu begleiten und inspirieren. Mit über 20 Jahren an Musik Aufnahmen, unserer Leidenschaft für die Musik Künstler geht heute weiter. Der Wunsch den Höreren und Fans ins Herz zusprechen ist die Motivation für immer neue kreative Ideen und Strategien des Labels.</p>',
+                    ],
+                    [
+                        'type' => 'link',
+                        'link' => [
+                            'href' => $aboutPage->getUuid(),
+                            'provider' => 'page',
+                            'locale' => 'en',
+                            'target' => '_self',
+                            'title' => 'MEHR LESEN',
+                        ],
+                    ],
+                    [
+                        'type' => 'teasers',
+                        'title' => 'Featured',
+                        'teasers' => $teasers,
+                    ],
+                ],
+            ],
+        ];
+    }
+
+    /**
+     * @return array<int, array<string, mixed>>
+     */
+    private function pagesEnglish(): array
+    {
+        return [
             [
                 'locale' => AppFixture::LOCALE_EN,
                 'title' => 'Artists',
                 'url' => '/artists',
                 'subtitle' => 'Discover our roster of talented musicians',
                 'headerImage' => [
-                    'id' => $this->getMediaId('artists.jpg'),
+                    'id' => $this->mediaId('artists.jpg'),
                 ],
                 'navigationContexts' => ['main', 'footer'],
-                'structureType' => 'overview',
+                'template' => 'overview',
                 'element' => [
                     [
                         'type' => 'pages',
@@ -102,14 +479,14 @@ class DocumentFixture implements DocumentFixtureInterface
                 'locale' => AppFixture::LOCALE_EN,
                 'title' => 'Civil Literature',
                 'url' => '/artists/civil-literature',
-                'parent_path' => '/cmf/demo/contents/artists',
+                'parentOf' => '/artists',
                 'subtitle' => '',
                 'headerImage' => [
-                    'id' => $this->getMediaId('civil-literature.jpg'),
+                    'id' => $this->mediaId('civil-literature.jpg'),
                 ],
                 'excerpt' => [
                     'images' => [
-                        'ids' => [$this->getMediaId('civil-literature.jpg')],
+                        'ids' => [$this->mediaId('civil-literature.jpg')],
                     ],
                 ],
                 'blocks' => [
@@ -126,26 +503,26 @@ class DocumentFixture implements DocumentFixtureInterface
                     [
                         'type' => 'albums',
                         'albums' => [
-                            $this->getAlbumId('Vikings'),
-                            $this->getAlbumId('Civilwar'),
-                            $this->getAlbumId('collapse'),
-                            $this->getAlbumId('#no more'),
+                            $this->albumId('Vikings'),
+                            $this->albumId('Civilwar'),
+                            $this->albumId('collapse'),
+                            $this->albumId('#no more'),
                         ],
                     ],
                 ],
-                'structureType' => 'default',
+                'template' => 'default',
             ], [
                 'locale' => AppFixture::LOCALE_EN,
                 'title' => 'Coyoos',
                 'url' => '/artists/coyoos',
-                'parent_path' => '/cmf/demo/contents/artists',
+                'parentOf' => '/artists',
                 'subtitle' => '',
                 'headerImage' => [
-                    'id' => $this->getMediaId('coyoos.jpg'),
+                    'id' => $this->mediaId('coyoos.jpg'),
                 ],
                 'excerpt' => [
                     'images' => [
-                        'ids' => [$this->getMediaId('coyoos.jpg')],
+                        'ids' => [$this->mediaId('coyoos.jpg')],
                     ],
                 ],
                 'blocks' => [
@@ -166,7 +543,7 @@ class DocumentFixture implements DocumentFixtureInterface
                     [
                         'type' => 'image-map',
                         'imageMap' => [
-                            'imageId' => $this->getMediaId('band.jpg'),
+                            'imageId' => $this->mediaId('band.jpg'),
                             'hotspots' => [
                                 [
                                     'type' => 'basic',
@@ -218,26 +595,26 @@ class DocumentFixture implements DocumentFixtureInterface
                     [
                         'type' => 'albums',
                         'albums' => [
-                            $this->getAlbumId('Wildfire'),
-                            $this->getAlbumId('Cross the River'),
-                            $this->getAlbumId('Gold Digger'),
-                            $this->getAlbumId('The Wolves'),
+                            $this->albumId('Wildfire'),
+                            $this->albumId('Cross the River'),
+                            $this->albumId('Gold Digger'),
+                            $this->albumId('The Wolves'),
                         ],
                     ],
                 ],
-                'structureType' => 'default',
+                'template' => 'default',
             ], [
                 'locale' => AppFixture::LOCALE_EN,
                 'title' => 'Marshall Plan',
                 'url' => '/artists/marshall-plan',
-                'parent_path' => '/cmf/demo/contents/artists',
+                'parentOf' => '/artists',
                 'subtitle' => '',
                 'headerImage' => [
-                    'id' => $this->getMediaId('marshall.jpg'),
+                    'id' => $this->mediaId('marshall.jpg'),
                 ],
                 'excerpt' => [
                     'images' => [
-                        'ids' => [$this->getMediaId('marshall.jpg')],
+                        'ids' => [$this->mediaId('marshall.jpg')],
                     ],
                 ],
                 'blocks' => [
@@ -258,26 +635,26 @@ class DocumentFixture implements DocumentFixtureInterface
                     [
                         'type' => 'albums',
                         'albums' => [
-                            $this->getAlbumId('Way'),
-                            $this->getAlbumId('let the light be'),
-                            $this->getAlbumId('Variety'),
-                            $this->getAlbumId('Path'),
+                            $this->albumId('Way'),
+                            $this->albumId('let the light be'),
+                            $this->albumId('Variety'),
+                            $this->albumId('Path'),
                         ],
                     ],
                 ],
-                'structureType' => 'default',
+                'template' => 'default',
             ], [
                 'locale' => AppFixture::LOCALE_EN,
                 'title' => 'The Bagpipes',
                 'url' => '/artists/the-bagpipes',
-                'parent_path' => '/cmf/demo/contents/artists',
+                'parentOf' => '/artists',
                 'subtitle' => '',
                 'headerImage' => [
-                    'id' => $this->getMediaId('dudelsack.jpg'),
+                    'id' => $this->mediaId('dudelsack.jpg'),
                 ],
                 'excerpt' => [
                     'images' => [
-                        'ids' => [$this->getMediaId('dudelsack.jpg')],
+                        'ids' => [$this->mediaId('dudelsack.jpg')],
                     ],
                 ],
                 'blocks' => [
@@ -294,26 +671,26 @@ class DocumentFixture implements DocumentFixtureInterface
                     [
                         'type' => 'albums',
                         'albums' => [
-                            $this->getAlbumId('Joy'),
-                            $this->getAlbumId('Busk'),
-                            $this->getAlbumId('Bonfire'),
-                            $this->getAlbumId('Scottlang Call\'s'),
+                            $this->albumId('Joy'),
+                            $this->albumId('Busk'),
+                            $this->albumId('Bonfire'),
+                            $this->albumId('Scottlang Call\'s'),
                         ],
                     ],
                 ],
-                'structureType' => 'default',
+                'template' => 'default',
             ], [
                 'locale' => AppFixture::LOCALE_EN,
                 'title' => 'TJ Fury',
                 'url' => '/artists/tj-fury',
-                'parent_path' => '/cmf/demo/contents/artists',
+                'parentOf' => '/artists',
                 'subtitle' => '',
                 'headerImage' => [
-                    'id' => $this->getMediaId('tj-fury.jpg'),
+                    'id' => $this->mediaId('tj-fury.jpg'),
                 ],
                 'excerpt' => [
                     'images' => [
-                        'ids' => [$this->getMediaId('tj-fury.jpg')],
+                        'ids' => [$this->mediaId('tj-fury.jpg')],
                     ],
                 ],
                 'blocks' => [
@@ -330,24 +707,24 @@ class DocumentFixture implements DocumentFixtureInterface
                     [
                         'type' => 'albums',
                         'albums' => [
-                            $this->getAlbumId('Rebel'),
-                            $this->getAlbumId('random'),
-                            $this->getAlbumId('down_town'),
-                            $this->getAlbumId('Railling'),
+                            $this->albumId('Rebel'),
+                            $this->albumId('random'),
+                            $this->albumId('down_town'),
+                            $this->albumId('Railling'),
                         ],
                     ],
                 ],
-                'structureType' => 'default',
+                'template' => 'default',
             ], [
                 'locale' => AppFixture::LOCALE_EN,
                 'title' => 'Blog',
                 'url' => '/blog',
                 'subtitle' => 'We like to give you insights into what we do',
                 'headerImage' => [
-                    'id' => $this->getMediaId('blog.jpg'),
+                    'id' => $this->mediaId('blog.jpg'),
                 ],
                 'navigationContexts' => ['main'],
-                'structureType' => 'overview',
+                'template' => 'overview',
                 'element' => [
                     [
                         'type' => 'articles',
@@ -363,7 +740,7 @@ class DocumentFixture implements DocumentFixtureInterface
                 'url' => '/about',
                 'subtitle' => 'We work hard, but we love what we do',
                 'headerImage' => [
-                    'id' => $this->getMediaId('about.png'),
+                    'id' => $this->mediaId('about.png'),
                 ],
                 'blocks' => [
                     [
@@ -382,40 +759,28 @@ class DocumentFixture implements DocumentFixtureInterface
                     ],
                 ],
                 'navigationContexts' => ['main', 'footer'],
-                'structureType' => 'default',
+                'template' => 'default',
             ],
         ];
-
-        $pages = [];
-
-        foreach ($pagesData as $pageData) {
-            $pages[$pageData['url']] = $this->createPage($documentManager, $pageData);
-        }
-
-        return $pages;
     }
 
     /**
-     * @param PageDocument[] $englishPages
-     *
-     * @throws MetadataNotFoundException
-     *
-     * @return mixed[]
+     * @return array<int, array<string, mixed>>
      */
-    private function loadPagesGerman(DocumentManager $documentManager, array $englishPages): array
+    private function pagesGerman(): array
     {
-        $pagesData = [
+        return [
             [
-                'id' => $englishPages['/artists']->getUuid(),
+                'translationOf' => '/artists',
                 'locale' => AppFixture::LOCALE_DE,
                 'title' => 'Musiker',
                 'url' => '/musiker',
                 'subtitle' => 'Entdecke unsere Vielfalt an talentierten Musiker',
                 'headerImage' => [
-                    'id' => $this->getMediaId('artists.jpg'),
+                    'id' => $this->mediaId('artists.jpg'),
                 ],
                 'navigationContexts' => ['main', 'footer'],
-                'structureType' => 'overview',
+                'template' => 'overview',
                 'element' => [
                     [
                         'type' => 'pages',
@@ -426,18 +791,18 @@ class DocumentFixture implements DocumentFixtureInterface
                     ],
                 ],
             ], [
-                'id' => $englishPages['/artists/civil-literature']->getUuid(),
+                'translationOf' => '/artists/civil-literature',
                 'locale' => AppFixture::LOCALE_DE,
                 'title' => 'Civil Literature',
                 'url' => '/musiker/civil-literature',
-                'parent_path' => '/cmf/demo/contents/artists',
+                'parentOf' => '/artists',
                 'subtitle' => '',
                 'headerImage' => [
-                    'id' => $this->getMediaId('civil-literature.jpg'),
+                    'id' => $this->mediaId('civil-literature.jpg'),
                 ],
                 'excerpt' => [
                     'images' => [
-                        'ids' => [$this->getMediaId('civil-literature.jpg')],
+                        'ids' => [$this->mediaId('civil-literature.jpg')],
                     ],
                 ],
                 'blocks' => [
@@ -454,27 +819,27 @@ class DocumentFixture implements DocumentFixtureInterface
                     [
                         'type' => 'albums',
                         'albums' => [
-                            $this->getAlbumId('Vikings'),
-                            $this->getAlbumId('Civilwar'),
-                            $this->getAlbumId('collapse'),
-                            $this->getAlbumId('#no more'),
+                            $this->albumId('Vikings'),
+                            $this->albumId('Civilwar'),
+                            $this->albumId('collapse'),
+                            $this->albumId('#no more'),
                         ],
                     ],
                 ],
-                'structureType' => 'default',
+                'template' => 'default',
             ], [
-                'id' => $englishPages['/artists/coyoos']->getUuid(),
+                'translationOf' => '/artists/coyoos',
                 'locale' => AppFixture::LOCALE_DE,
                 'title' => 'Coyoos',
                 'url' => '/musiker/coyoos',
-                'parent_path' => '/cmf/demo/contents/artists',
+                'parentOf' => '/artists',
                 'subtitle' => '',
                 'headerImage' => [
-                    'id' => $this->getMediaId('coyoos.jpg'),
+                    'id' => $this->mediaId('coyoos.jpg'),
                 ],
                 'excerpt' => [
                     'images' => [
-                        'ids' => [$this->getMediaId('coyoos.jpg')],
+                        'ids' => [$this->mediaId('coyoos.jpg')],
                     ],
                 ],
                 'blocks' => [
@@ -495,27 +860,27 @@ class DocumentFixture implements DocumentFixtureInterface
                     [
                         'type' => 'albums',
                         'albums' => [
-                            $this->getAlbumId('Wildfire'),
-                            $this->getAlbumId('Cross the River'),
-                            $this->getAlbumId('Gold Digger'),
-                            $this->getAlbumId('The Wolves'),
+                            $this->albumId('Wildfire'),
+                            $this->albumId('Cross the River'),
+                            $this->albumId('Gold Digger'),
+                            $this->albumId('The Wolves'),
                         ],
                     ],
                 ],
-                'structureType' => 'default',
+                'template' => 'default',
             ], [
-                'id' => $englishPages['/artists/marshall-plan']->getUuid(),
+                'translationOf' => '/artists/marshall-plan',
                 'locale' => AppFixture::LOCALE_DE,
                 'title' => 'Marshall Plan',
                 'url' => '/musiker/marshall-plan',
-                'parent_path' => '/cmf/demo/contents/artists',
+                'parentOf' => '/artists',
                 'subtitle' => '',
                 'headerImage' => [
-                    'id' => $this->getMediaId('marshall.jpg'),
+                    'id' => $this->mediaId('marshall.jpg'),
                 ],
                 'excerpt' => [
                     'images' => [
-                        'ids' => [$this->getMediaId('marshall.jpg')],
+                        'ids' => [$this->mediaId('marshall.jpg')],
                     ],
                 ],
                 'blocks' => [
@@ -536,27 +901,27 @@ class DocumentFixture implements DocumentFixtureInterface
                     [
                         'type' => 'albums',
                         'albums' => [
-                            $this->getAlbumId('Way'),
-                            $this->getAlbumId('let the light be'),
-                            $this->getAlbumId('Variety'),
-                            $this->getAlbumId('Path'),
+                            $this->albumId('Way'),
+                            $this->albumId('let the light be'),
+                            $this->albumId('Variety'),
+                            $this->albumId('Path'),
                         ],
                     ],
                 ],
-                'structureType' => 'default',
+                'template' => 'default',
             ], [
-                'id' => $englishPages['/artists/the-bagpipes']->getUuid(),
+                'translationOf' => '/artists/the-bagpipes',
                 'locale' => AppFixture::LOCALE_DE,
                 'title' => 'The Bagpipes',
                 'url' => '/musiker/the-bagpipes',
-                'parent_path' => '/cmf/demo/contents/artists',
+                'parentOf' => '/artists',
                 'subtitle' => '',
                 'headerImage' => [
-                    'id' => $this->getMediaId('dudelsack.jpg'),
+                    'id' => $this->mediaId('dudelsack.jpg'),
                 ],
                 'excerpt' => [
                     'images' => [
-                        'ids' => [$this->getMediaId('dudelsack.jpg')],
+                        'ids' => [$this->mediaId('dudelsack.jpg')],
                     ],
                 ],
                 'blocks' => [
@@ -573,27 +938,27 @@ class DocumentFixture implements DocumentFixtureInterface
                     [
                         'type' => 'albums',
                         'albums' => [
-                            $this->getAlbumId('Joy'),
-                            $this->getAlbumId('Busk'),
-                            $this->getAlbumId('Bonfire'),
-                            $this->getAlbumId('Scottlang Call\'s'),
+                            $this->albumId('Joy'),
+                            $this->albumId('Busk'),
+                            $this->albumId('Bonfire'),
+                            $this->albumId('Scottlang Call\'s'),
                         ],
                     ],
                 ],
-                'structureType' => 'default',
+                'template' => 'default',
             ], [
-                'id' => $englishPages['/artists/tj-fury']->getUuid(),
+                'translationOf' => '/artists/tj-fury',
                 'locale' => AppFixture::LOCALE_DE,
                 'title' => 'TJ Fury',
                 'url' => '/musiker/tj-fury',
-                'parent_path' => '/cmf/demo/contents/artists',
+                'parentOf' => '/artists',
                 'subtitle' => '',
                 'headerImage' => [
-                    'id' => $this->getMediaId('tj-fury.jpg'),
+                    'id' => $this->mediaId('tj-fury.jpg'),
                 ],
                 'excerpt' => [
                     'images' => [
-                        'ids' => [$this->getMediaId('tj-fury.jpg')],
+                        'ids' => [$this->mediaId('tj-fury.jpg')],
                     ],
                 ],
                 'blocks' => [
@@ -610,25 +975,25 @@ class DocumentFixture implements DocumentFixtureInterface
                     [
                         'type' => 'albums',
                         'albums' => [
-                            $this->getAlbumId('Rebel'),
-                            $this->getAlbumId('random'),
-                            $this->getAlbumId('down_town'),
-                            $this->getAlbumId('Railling'),
+                            $this->albumId('Rebel'),
+                            $this->albumId('random'),
+                            $this->albumId('down_town'),
+                            $this->albumId('Railling'),
                         ],
                     ],
                 ],
-                'structureType' => 'default',
+                'template' => 'default',
             ], [
-                'id' => $englishPages['/blog']->getUuid(),
+                'translationOf' => '/blog',
                 'locale' => AppFixture::LOCALE_DE,
                 'title' => 'Blog',
                 'url' => '/blog',
                 'subtitle' => 'Erhalten Sie einen Einblick in unsere Arbeit',
                 'headerImage' => [
-                    'id' => $this->getMediaId('blog.jpg'),
+                    'id' => $this->mediaId('blog.jpg'),
                 ],
                 'navigationContexts' => ['main'],
-                'structureType' => 'overview',
+                'template' => 'overview',
                 'element' => [
                     [
                         'type' => 'articles',
@@ -639,13 +1004,13 @@ class DocumentFixture implements DocumentFixtureInterface
                     ],
                 ],
             ], [
-                'id' => $englishPages['/about']->getUuid(),
+                'translationOf' => '/about',
                 'locale' => AppFixture::LOCALE_DE,
                 'title' => 'International Talents',
                 'url' => '/about',
                 'subtitle' => 'Wir arbeiten hart, aber lieben was wir tun',
                 'headerImage' => [
-                    'id' => $this->getMediaId('about.png'),
+                    'id' => $this->mediaId('about.png'),
                 ],
                 'blocks' => [
                     [
@@ -664,27 +1029,17 @@ class DocumentFixture implements DocumentFixtureInterface
                     ],
                 ],
                 'navigationContexts' => ['main', 'footer'],
-                'structureType' => 'default',
+                'template' => 'default',
             ],
         ];
-
-        $pages = [];
-
-        foreach ($pagesData as $pageData) {
-            $pages[$pageData['url']] = $this->createPage($documentManager, $pageData);
-        }
-
-        return $pages;
     }
 
     /**
-     * @throws MetadataNotFoundException
-     *
-     * @return mixed[]
+     * @return array<int, array<string, mixed>>
      */
-    private function loadArticlesEnglish(DocumentManager $documentManager): array
+    private function articlesEnglish(): array
     {
-        $articlesData = [
+        return [
             [
                 'locale' => AppFixture::LOCALE_EN,
                 'title' => 'A great song will win',
@@ -692,13 +1047,13 @@ class DocumentFixture implements DocumentFixtureInterface
                     'title' => 'A great song will win',
                     'description' => '<p>We got the chance to talk to the Head of International Talents Jonathan Bennett. We talked about his career highlights and his advice for the artists.</p>',
                     'images' => [
-                        'ids' => [$this->getMediaId('mic.jpg')],
+                        'ids' => [$this->mediaId('mic.jpg')],
                     ],
                 ],
                 'headerImage' => [
-                    'id' => $this->getMediaId('mic.jpg'),
+                    'id' => $this->mediaId('mic.jpg'),
                 ],
-                'structureType' => 'blog',
+                'template' => 'blog',
                 'blocks' => [
                     [
                         'type' => 'text',
@@ -726,13 +1081,13 @@ class DocumentFixture implements DocumentFixtureInterface
                     'title' => 'A week on the road with Civil Literature',
                     'description' => '<p>Two month ago Civil Literature launched their new album "Civil War". Now they are on tour for one week and they have already played half a dozend concerts.</p>',
                     'images' => [
-                        'ids' => [$this->getMediaId('roadtrip.jpg')],
+                        'ids' => [$this->mediaId('roadtrip.jpg')],
                     ],
                 ],
                 'headerImage' => [
-                    'id' => $this->getMediaId('roadtrip.jpg'),
+                    'id' => $this->mediaId('roadtrip.jpg'),
                 ],
-                'structureType' => 'blog',
+                'template' => 'blog',
                 'blocks' => [
                     [
                         'type' => 'text',
@@ -759,13 +1114,13 @@ class DocumentFixture implements DocumentFixtureInterface
                     'title' => 'Behind the scenes of our creative directors',
                     'description' => '<p>As the people working at International Talents it is our job to help our costumers to create something you will love.</p>',
                     'images' => [
-                        'ids' => [$this->getMediaId('meeting.jpg')],
+                        'ids' => [$this->mediaId('meeting.jpg')],
                     ],
                 ],
                 'headerImage' => [
-                    'id' => $this->getMediaId('meeting.jpg'),
+                    'id' => $this->mediaId('meeting.jpg'),
                 ],
-                'structureType' => 'blog',
+                'template' => 'blog',
                 'blocks' => [
                     [
                         'type' => 'text',
@@ -792,13 +1147,13 @@ class DocumentFixture implements DocumentFixtureInterface
                     'title' => 'Drop Big Beats',
                     'description' => '<p>Charlotte Merana shares her advice for ambitious DJs and electronic musicans.</p>',
                     'images' => [
-                        'ids' => [$this->getMediaId('tj-fury.jpg')],
+                        'ids' => [$this->mediaId('tj-fury.jpg')],
                     ],
                 ],
                 'headerImage' => [
-                    'id' => $this->getMediaId('tj-fury.jpg'),
+                    'id' => $this->mediaId('tj-fury.jpg'),
                 ],
-                'structureType' => 'blog',
+                'template' => 'blog',
                 'blocks' => [
                     [
                         'type' => 'text',
@@ -825,13 +1180,13 @@ class DocumentFixture implements DocumentFixtureInterface
                     'title' => 'Legend behind the Mix',
                     'description' => '<p>We got the oppurtunity to sit down with our legendary record producer and mix master James McMorrison.</p>',
                     'images' => [
-                        'ids' => [$this->getMediaId('sound.jpg')],
+                        'ids' => [$this->mediaId('sound.jpg')],
                     ],
                 ],
                 'headerImage' => [
-                    'id' => $this->getMediaId('sound.jpg'),
+                    'id' => $this->mediaId('sound.jpg'),
                 ],
-                'structureType' => 'blog',
+                'template' => 'blog',
                 'blocks' => [
                     [
                         'type' => 'text',
@@ -849,42 +1204,29 @@ class DocumentFixture implements DocumentFixtureInterface
                 ],
             ],
         ];
-
-        $articles = [];
-
-        foreach ($articlesData as $articleData) {
-            $article = $this->createArticle($documentManager, $articleData);
-            $articles[$article->getRoutePath()] = $article;
-        }
-
-        return $articles;
     }
 
     /**
-     * @param mixed[] $englishArticles
-     *
-     * @throws MetadataNotFoundException
-     *
-     * @return mixed[]
+     * @return array<int, array<string, mixed>>
      */
-    private function loadArticlesGerman(DocumentManager $documentManager, array $englishArticles): array
+    private function articlesGerman(): array
     {
-        $articlesData = [
+        return [
             [
-                'id' => $englishArticles['/blog/a-great-song-will-win']->getId(),
+                'translationOf' => '/blog/a-great-song-will-win',
                 'locale' => AppFixture::LOCALE_DE,
                 'title' => 'Ein Guter Song wird immer gewinnen',
                 'excerpt' => [
                     'title' => 'Ein Guter Song wird immer gewinnen',
                     'description' => '<p>Wir haben die Möglichkeit ergriffen, mit dem Mann, der ganz oben bei International Talents steht ein Gespräch zu führen.</p>',
                     'images' => [
-                        'ids' => [$this->getMediaId('mic.jpg')],
+                        'ids' => [$this->mediaId('mic.jpg')],
                     ],
                 ],
                 'headerImage' => [
-                    'id' => $this->getMediaId('mic.jpg'),
+                    'id' => $this->mediaId('mic.jpg'),
                 ],
-                'structureType' => 'blog',
+                'template' => 'blog',
                 'blocks' => [
                     [
                         'type' => 'text',
@@ -906,20 +1248,20 @@ class DocumentFixture implements DocumentFixtureInterface
                     ],
                 ],
             ], [
-                'id' => $englishArticles['/blog/a-week-on-the-road-with-civil-literature']->getId(),
+                'translationOf' => '/blog/a-week-on-the-road-with-civil-literature',
                 'locale' => AppFixture::LOCALE_DE,
                 'title' => 'Eine Woche unterwegs mit Civil Literature',
                 'excerpt' => [
                     'title' => 'Eine Woche unterwegs mit Civil Literature',
                     'description' => '<p>Vor zwei Monaten hat Civil Literature ihr neues Album "Civil War" veröffentlicht. Nun sind sie für eine Woche auf Tour und bis jetzt haben sie schon ein halbes Duzent Konzerte gegeben.</p>',
                     'images' => [
-                        'ids' => [$this->getMediaId('roadtrip.jpg')],
+                        'ids' => [$this->mediaId('roadtrip.jpg')],
                     ],
                 ],
                 'headerImage' => [
-                    'id' => $this->getMediaId('roadtrip.jpg'),
+                    'id' => $this->mediaId('roadtrip.jpg'),
                 ],
-                'structureType' => 'blog',
+                'template' => 'blog',
                 'blocks' => [
                     [
                         'type' => 'text',
@@ -940,20 +1282,20 @@ class DocumentFixture implements DocumentFixtureInterface
                     ],
                 ],
             ], [
-                'id' => $englishArticles['/blog/behind-the-scenes-of-our-creative-directors']->getId(),
+                'translationOf' => '/blog/behind-the-scenes-of-our-creative-directors',
                 'locale' => AppFixture::LOCALE_DE,
                 'title' => 'Hinter den Kulissen unserer creative Directors',
                 'excerpt' => [
                     'title' => 'Hinter den Kulissen unserer creative Directors',
                     'description' => '<p>Als Mitarbeiter bei International Talents ist es unsere Aufgabe unseren Kunden zu helfen, damit sie etwas erstellen können, dass ihre Fans lieben werden.</p>',
                     'images' => [
-                        'ids' => [$this->getMediaId('meeting.jpg')],
+                        'ids' => [$this->mediaId('meeting.jpg')],
                     ],
                 ],
                 'headerImage' => [
-                    'id' => $this->getMediaId('meeting.jpg'),
+                    'id' => $this->mediaId('meeting.jpg'),
                 ],
-                'structureType' => 'blog',
+                'template' => 'blog',
                 'blocks' => [
                     [
                         'type' => 'text',
@@ -974,20 +1316,20 @@ class DocumentFixture implements DocumentFixtureInterface
                     ],
                 ],
             ], [
-                'id' => $englishArticles['/blog/drop-big-beats']->getId(),
+                'translationOf' => '/blog/drop-big-beats',
                 'locale' => AppFixture::LOCALE_DE,
                 'title' => 'Fette Beats',
                 'excerpt' => [
                     'title' => 'Fette Beats',
                     'description' => '<p>Charlotte Merena teilt ihren Ratschlag für ehrgeizige DJs und Künstler, die in der elektronischen Musikbranche tätig sind.</p>',
                     'images' => [
-                        'ids' => [$this->getMediaId('tj-fury.jpg')],
+                        'ids' => [$this->mediaId('tj-fury.jpg')],
                     ],
                 ],
                 'headerImage' => [
-                    'id' => $this->getMediaId('tj-fury.jpg'),
+                    'id' => $this->mediaId('tj-fury.jpg'),
                 ],
-                'structureType' => 'blog',
+                'template' => 'blog',
                 'blocks' => [
                     [
                         'type' => 'text',
@@ -1008,20 +1350,20 @@ class DocumentFixture implements DocumentFixtureInterface
                     ],
                 ],
             ], [
-                'id' => $englishArticles['/blog/legend-behind-the-mix']->getId(),
+                'translationOf' => '/blog/legend-behind-the-mix',
                 'locale' => AppFixture::LOCALE_DE,
                 'title' => 'Eine Legende hinter dem Mischpult',
                 'excerpt' => [
                     'title' => 'Eine Legende hinter dem Mischpult',
                     'description' => '<p>Wir haben die Chance bekommen, ein Gespräch mit dem legendären Musikproduzenten und Mix-Master James McMorrison zu führen.</p>',
                     'images' => [
-                        'ids' => [$this->getMediaId('sound.jpg')],
+                        'ids' => [$this->mediaId('sound.jpg')],
                     ],
                 ],
                 'headerImage' => [
-                    'id' => $this->getMediaId('sound.jpg'),
+                    'id' => $this->mediaId('sound.jpg'),
                 ],
-                'structureType' => 'blog',
+                'template' => 'blog',
                 'blocks' => [
                     [
                         'type' => 'text',
@@ -1039,415 +1381,5 @@ class DocumentFixture implements DocumentFixtureInterface
                 ],
             ],
         ];
-
-        $articles = [];
-
-        foreach ($articlesData as $articleData) {
-            $article = $this->createArticle($documentManager, $articleData);
-            $articles[$article->getRoutePath()] = $article;
-        }
-
-        return $articles;
-    }
-
-    /**
-     * @param mixed[] $pages
-     * @param mixed[] $articles
-     *
-     * @throws DocumentManagerException
-     */
-    private function loadHomepageEnglish(DocumentManager $documentManager, array $pages, array $articles): void
-    {
-        /** @var HomeDocument $homeDocument */
-        $homeDocument = $documentManager->find('/cmf/demo/contents', AppFixture::LOCALE_EN);
-
-        /** @var BasePageDocument $aboutPage */
-        $aboutPage = $pages['/about'];
-
-        /** @var BasePageDocument $coyoosPage */
-        $coyoosPage = $pages['/artists/coyoos'];
-
-        /** @var BasePageDocument $civilLiteraturePage */
-        $civilLiteraturePage = $pages['/artists/civil-literature'];
-
-        /** @var ArticleDocument $legendBehindTheMixArticle */
-        $legendBehindTheMixArticle = $articles['/blog/legend-behind-the-mix'];
-
-        $homeDocument->getStructure()->bind(
-            [
-                'locale' => AppFixture::LOCALE_EN,
-                'title' => $homeDocument->getTitle(),
-                'url' => '/',
-                'teaser' => $coyoosPage->getUuid(),
-                'blocks' => [
-                    [
-                        'type' => 'text',
-                        'title' => 'Our Label',
-                        'description' => '<h3>International Talents was founded 1998</h3><p>From Great Britain all over the world International Talents become one of the worldwide leading music brand. With over 20 years of recorded music history, our passion for artistry in music continues today. We love to inspire young talents with all of our knowledge and experience.&nbsp;The desire to speak into the heart and soul of the listeners is what fueled the creative and strategic efforts of the label.</p>',
-                    ],
-                    [
-                        'type' => 'link',
-                        'link' => [
-                            'href' => $aboutPage->getUuid(),
-                            'provider' => 'page',
-                            'locale' => 'en',
-                            'target' => '_self',
-                            'title' => 'READ MORE',
-                        ],
-                    ],
-                    [
-                        'type' => 'teasers',
-                        'title' => 'Featured',
-                        'teasers' => [
-                            'items' => [
-                                [
-                                    'id' => $legendBehindTheMixArticle->getUuid(),
-                                    'type' => 'articles',
-                                ],
-                                [
-                                    'id' => $civilLiteraturePage->getUuid(),
-                                    'type' => 'pages',
-                                ],
-                            ],
-                            'presentAs' => null,
-                        ],
-                    ],
-                ],
-            ],
-        );
-
-        $documentManager->persist($homeDocument, AppFixture::LOCALE_EN);
-        $documentManager->publish($homeDocument, AppFixture::LOCALE_EN);
-    }
-
-    /**
-     * @param mixed[] $pages
-     * @param mixed[] $articles
-     *
-     * @throws DocumentManagerException
-     */
-    private function loadHomepageGerman(DocumentManager $documentManager, array $pages, array $articles): void
-    {
-        /** @var HomeDocument $homeDocument */
-        $homeDocument = $documentManager->find('/cmf/demo/contents', AppFixture::LOCALE_DE);
-
-        /** @var BasePageDocument $aboutPage */
-        $aboutPage = $pages['/about'];
-
-        /** @var BasePageDocument $coyoosPage */
-        $coyoosPage = $pages['/musiker/coyoos'];
-
-        /** @var BasePageDocument $civilLiteraturePage */
-        $civilLiteraturePage = $pages['/musiker/civil-literature'];
-
-        /** @var ArticleDocument $legendBehindTheMixArticle */
-        $legendBehindTheMixArticle = $articles['/blog/eine-legende-hinter-dem-mischpult'];
-
-        $homeDocument->getStructure()->bind(
-            [
-                'locale' => AppFixture::LOCALE_DE,
-                'title' => $homeDocument->getTitle(),
-                'url' => '/',
-                'teaser' => $coyoosPage->getUuid(),
-                'blocks' => [
-                    [
-                        'type' => 'text',
-                        'title' => 'Unser Label',
-                        'description' => '<h3>International Talents wurde 1998 gegründet</h3><p>Von Großbritanien aus wuchs International Talents über die ganze Welt zu einer der weltweit führenden Musik Marken.Wie lieben es junge Talente mit all unserem Wissen und Erfahrungen zu begleiten und inspirieren. Mit über 20 Jahren an Musik Aufnahmen, unserer Leidenschaft für die Musik Künstler geht heute weiter. Der Wunsch den Höreren und Fans ins Herz zusprechen ist die Motivation für immer neue kreative Ideen und Strategien des Labels.</p>',
-                    ],
-                    [
-                        'type' => 'link',
-                        'link' => [
-                            'href' => $aboutPage->getUuid(),
-                            'provider' => 'page',
-                            'locale' => 'en',
-                            'target' => '_self',
-                            'title' => 'MEHR LESEN',
-                        ],
-                    ],
-                    [
-                        'type' => 'teasers',
-                        'title' => 'Featured',
-                        'teasers' => [
-                            'items' => [
-                                [
-                                    'id' => $legendBehindTheMixArticle->getUuid(),
-                                    'type' => 'articles',
-                                ],
-                                [
-                                    'id' => $civilLiteraturePage->getUuid(),
-                                    'type' => 'pages',
-                                ],
-                            ],
-                            'presentAs' => null,
-                        ],
-                    ],
-                ],
-            ],
-        );
-
-        $documentManager->persist($homeDocument, AppFixture::LOCALE_DE);
-        $documentManager->publish($homeDocument, AppFixture::LOCALE_DE);
-    }
-
-    /**
-     * @throws \Exception
-     */
-    private function loadContactInformationSnippetEnglish(DocumentManager $documentManager): SnippetDocument
-    {
-        $data = [
-            'locale' => AppFixture::LOCALE_EN,
-            'title' => 'Demo Settings',
-            'account' => [
-                'id' => 1,
-            ],
-        ];
-
-        $snippetDocument = $this->createSnippet($documentManager, 'settings', $data);
-
-        $this->defaultSnippetManager->save('demo', 'webspace_settings', $snippetDocument->getUuid(), AppFixture::LOCALE_EN);
-
-        return $snippetDocument;
-    }
-
-    /**
-     * @throws \Exception
-     */
-    private function loadContactInformationSnippetGerman(DocumentManager $documentManager, SnippetDocument $snippetDocument): void
-    {
-        $data = [
-            'id' => $snippetDocument->getUuid(),
-            'locale' => AppFixture::LOCALE_DE,
-            'title' => 'Einstellungen Demo',
-            'account' => [
-                'id' => 1,
-            ],
-        ];
-
-        $snippetDocument = $this->createSnippet($documentManager, 'settings', $data);
-
-        $this->defaultSnippetManager->save('demo', 'webspace_settings', $snippetDocument->getUuid(), AppFixture::LOCALE_DE);
-    }
-
-    /**
-     * @param mixed[] $data
-     *
-     * @throws MetadataNotFoundException
-     */
-    private function createSnippet(DocumentManager $documentManager, string $structureType, array $data): SnippetDocument
-    {
-        $locale = isset($data['locale']) && $data['locale'] ? $data['locale'] : AppFixture::LOCALE_EN;
-
-        /** @var SnippetDocument $snippetDocument */
-        $snippetDocument = null;
-
-        try {
-            if (!isset($data['id']) || !$data['id']) {
-                throw new \OutOfBoundsException();
-            }
-
-            /** @var SnippetDocument $snippetDocument */
-            $snippetDocument = $documentManager->find($data['id'], $locale);
-        } catch (DocumentManagerException|\OutOfBoundsException) {
-            /** @var SnippetDocument $snippetDocument */
-            $snippetDocument = $documentManager->create('snippet');
-        }
-
-        $snippetDocument->getUuid();
-        $snippetDocument->setLocale($locale);
-        $snippetDocument->setTitle($data['title']);
-        $snippetDocument->setStructureType($structureType);
-        $snippetDocument->setWorkflowStage(WorkflowStage::PUBLISHED);
-        $snippetDocument->getStructure()->bind($data);
-
-        $documentManager->persist($snippetDocument, $locale, ['parent_path' => '/cmf/snippets']);
-        $documentManager->publish($snippetDocument, $locale);
-
-        return $snippetDocument;
-    }
-
-    /**
-     * @throws DocumentManagerException
-     */
-    private function updateArtistPageDataSource(DocumentManager $documentManager, string $locale): void
-    {
-        /** @var BasePageDocument $artistsDocument */
-        $artistsDocument = $documentManager->find('/cmf/demo/contents/artists', $locale);
-
-        $data = $artistsDocument->getStructure()->toArray();
-
-        if (!isset($data['element'])) {
-            return;
-        }
-
-        $data['element'] = \array_map(function (array $element) use ($artistsDocument): array {
-            if ('pages' === $element['type']) {
-                $element['pages']['dataSource'] = $artistsDocument->getUuid();
-            }
-
-            return $element;
-        }, $data['element']);
-
-        $artistsDocument->getStructure()->bind($data);
-
-        $documentManager->persist($artistsDocument, $locale);
-        $documentManager->publish($artistsDocument, $locale);
-    }
-
-    /**
-     * @param mixed[] $data
-     *
-     * @throws MetadataNotFoundException
-     */
-    private function createPage(DocumentManager $documentManager, array $data): PageDocument
-    {
-        $locale = $data['locale'] ?? AppFixture::LOCALE_EN;
-
-        if (!isset($data['url'])) {
-            $url = $this->pathCleanup->cleanup('/' . $data['title']);
-            if (isset($data['parent_path'])) {
-                $url = \mb_substr((string) $data['parent_path'], \mb_strlen('/cmf/demo/contents')) . $url;
-            }
-
-            $data['url'] = $url;
-        }
-
-        $extensionData = [
-            'seo' => $data['seo'] ?? [],
-            'excerpt' => $data['excerpt'] ?? [],
-        ];
-
-        unset($data['excerpt']);
-        unset($data['seo']);
-
-        /** @var PageDocument $pageDocument */
-        $pageDocument = null;
-
-        try {
-            if (!isset($data['id']) || !$data['id']) {
-                throw new \OutOfBoundsException();
-            }
-
-            /** @var PageDocument $pageDocument */
-            $pageDocument = $documentManager->find($data['id'], $locale);
-        } catch (DocumentManagerException|\OutOfBoundsException) {
-            /** @var PageDocument $pageDocument */
-            $pageDocument = $documentManager->create('page');
-        }
-
-        $pageDocument->setNavigationContexts($data['navigationContexts'] ?? []);
-        $pageDocument->setLocale($locale);
-        $pageDocument->setTitle($data['title']);
-        $pageDocument->setResourceSegment($data['url']);
-        $pageDocument->setStructureType($data['structureType'] ?? 'default');
-        $pageDocument->setWorkflowStage(WorkflowStage::PUBLISHED);
-        $pageDocument->getStructure()->bind($data);
-        $pageDocument->setAuthor(1);
-        $pageDocument->setExtensionsData($extensionData);
-
-        if (isset($data['redirect'])) {
-            $pageDocument->setRedirectType(RedirectType::EXTERNAL);
-            $pageDocument->setRedirectExternal($data['redirect']);
-        }
-
-        $documentManager->persist(
-            $pageDocument,
-            $locale,
-            ['parent_path' => $data['parent_path'] ?? '/cmf/demo/contents'],
-        );
-        $documentManager->publish($pageDocument, $locale);
-
-        return $pageDocument;
-    }
-
-    /**
-     * @param mixed[] $data
-     *
-     * @throws MetadataNotFoundException
-     */
-    private function createArticle(DocumentManager $documentManager, array $data): ArticleDocument
-    {
-        $locale = $data['locale'] ?? AppFixture::LOCALE_EN;
-
-        $extensionData = [
-            'seo' => $data['seo'] ?? [],
-            'excerpt' => $data['excerpt'] ?? [],
-        ];
-
-        unset($data['excerpt']);
-        unset($data['seo']);
-
-        $articleDocument = null;
-
-        try {
-            if (!isset($data['id']) || !$data['id']) {
-                throw new \OutOfBoundsException();
-            }
-
-            /** @var ArticleDocument $articleDocument */
-            $articleDocument = $documentManager->find($data['id'], $locale, ['load_ghost_content' => false]);
-        } catch (DocumentManagerException|\OutOfBoundsException) {
-            /** @var ArticleDocument $articleDocument */
-            $articleDocument = $documentManager->create('article');
-        }
-
-        $articleDocument->setLocale($locale);
-        $articleDocument->setTitle($data['title']);
-        $articleDocument->setStructureType($data['structureType'] ?? 'blog');
-        $articleDocument->setWorkflowStage(WorkflowStage::PUBLISHED);
-        $articleDocument->getStructure()->bind($data);
-        $articleDocument->setAuthor(1);
-        $articleDocument->setExtensionsData($extensionData);
-
-        $documentManager->persist($articleDocument, $locale);
-
-        // need to flush article before publishing to generate and assign route
-        // TODO: find a solution that does not require a flush for this
-        $documentManager->flush();
-        $documentManager->publish($articleDocument, $locale);
-
-        // need to flush and clear document manager after publishing article in specific locale
-        // otherwise, the route will be marked as history route when the article is published in another locale
-        // TODO: find a solution that does not require a clear when publishing an article in multiple locales
-        $documentManager->flush();
-        $documentManager->clear();
-
-        return $articleDocument;
-    }
-
-    private function getMediaId(string $name): int
-    {
-        try {
-            $id = $this->entityManager->createQueryBuilder()
-                ->from(Media::class, 'media')
-                ->select('media.id')
-                ->innerJoin('media.files', 'file')
-                ->innerJoin('file.fileVersions', 'fileVersion')
-                ->where('fileVersion.name = :name')
-                ->setMaxResults(1)
-                ->setParameter('name', $name)
-                ->getQuery()->getSingleScalarResult();
-
-            return (int) $id;
-        } catch (NonUniqueResultException $e) {
-            throw new \RuntimeException(\sprintf('Too many images with the name "%s" found.', $name), 0, $e);
-        }
-    }
-
-    private function getAlbumId(string $title): int
-    {
-        try {
-            $id = $this->entityManager->createQueryBuilder()
-                ->from(Album::class, 'album')
-                ->select('album.id')
-                ->where('album.title = :title')
-                ->setMaxResults(1)
-                ->setParameter('title', $title)
-                ->getQuery()->getSingleScalarResult();
-
-            return (int) $id;
-        } catch (NonUniqueResultException $e) {
-            throw new \RuntimeException(\sprintf('Too many albums with the title "%s" found.', $title), 0, $e);
-        }
     }
 }

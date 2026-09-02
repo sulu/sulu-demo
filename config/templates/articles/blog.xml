@@ -5,9 +5,10 @@
           xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
 
     <key>blog</key>
+    <group>blog</group>
 
     <view>articles/blog</view>
-    <controller>Sulu\Bundle\ArticleBundle\Controller\WebsiteArticleController::indexAction</controller>
+    <controller>Sulu\Content\UserInterface\Controller\Website\ContentController::indexAction</controller>
     <cacheLifetime>604800</cacheLifetime>
 
     <meta>
@@ -15,7 +16,6 @@
         <title lang="de">Blog</title>
     </meta>
 
-    <tag name="sulu_article.type" type="article"/>
 
     <properties>
         <property name="title" type="text_line" mandatory="true">
@@ -31,13 +31,17 @@
             <tag name="sulu.rlp.part"/>
         </property>
 
-        <property name="routePath" type="route">
+        <property name="url" type="route" mandatory="true">
             <meta>
                 <title lang="en">Resourcelocator</title>
                 <title lang="de">Adresse</title>
             </meta>
 
-            <tag name="sulu_article.article_route"/>
+            <params>
+                <param name="route_schema" value="/blog/{implode('-', object)}"/>
+            </params>
+
+            <tag name="sulu.rlp"/>
         </property>
 
         <section name="header">

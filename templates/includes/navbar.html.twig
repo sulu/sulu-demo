@@ -6,14 +6,19 @@
 
     <div class="navbar__navigation">
         <div class="navbar__links" id="navigation">
-            {# @see https://docs.sulu.io/en/2.2/reference/twig-extensions/functions/sulu_navigation_root_flat.html #}
-            {% for item in sulu_navigation_root_flat('main', 1, true) %}
+            {# @see https://docs.sulu.io/en/3.x/reference/twig-extensions/functions/sulu_page_navigation_root_flat.html #}
+            {% for item in sulu_page_navigation_root_flat('main', 1, {
+                'title': 'title',
+                'url': 'url',
+                'excerpt.title': 'excerpt.title',
+                'linkProvider': 'object.linkData[provider]',
+            }) %}
                 {# @see https://docs.sulu.io/en/2.2/reference/twig-extensions/functions/sulu_content_path.html #}
                 {% set itemUrl = sulu_content_path(item.url) %}
                 <a href="{{ itemUrl }}"
                    title="{{ item.title }}"
                    {# open external links as target blank and set noopener #}
-                   {% if item.nodeType == 4 %}target="_blank" rel="noopener"{% endif %}
+                   {% if item.linkProvider == 'external' %}target="_blank" rel="noopener"{% endif %}
                    class="navbar__item{{ app.request.uri starts with itemUrl ? ' navbar__item--active' : '' }}">
                     {# fallback to content title when excerpt title not set #}
                     {{ item.excerpt.title|default(item.title) }}

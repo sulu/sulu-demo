@@ -3,22 +3,24 @@
     "license": "proprietary",
     "type": "project",
     "description": "Sulu demo website",
-    "keywords": ["symfony", "sulu", "cms", "application", "admin"],
+    "keywords": [
+        "symfony",
+        "sulu",
+        "cms",
+        "application",
+        "admin"
+    ],
     "require": {
         "php": "^8.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "cmsig/seal-loupe-adapter": "^0.12",
         "doctrine/doctrine-bundle": "^2.13",
         "doctrine/doctrine-fixtures-bundle": "^3.6 || ^4.0",
-        "elasticsearch/elasticsearch": "7.17.*",
+        "doctrine/doctrine-migrations-bundle": "^3.3",
         "friendsofsymfony/http-cache-bundle": "^3.0",
-        "handcraftedinthealps/zendsearch": "^2.1",
-        "jackalope/jackalope-doctrine-dbal": "^1.10 || ^2.0",
-        "jackalope/jackalope-jackrabbit": "^2.0",
-        "league/flysystem": "^1.1",
-        "league/flysystem-aws-s3-v3": "^1.0",
-        "phpcr/phpcr-migrations-bundle": "^1.5",
-        "phpcr/phpcr-shell": "^1.6",
+        "league/flysystem": "^3.0",
+        "league/flysystem-aws-s3-v3": "^3.0",
         "predis/predis": "^1.1",
         "rokka/imagine-vips": "^0.40.0",
         "scheb/2fa-bundle": "^7.2",
@@ -26,10 +28,9 @@
         "scheb/2fa-trusted-device": "^7.2",
         "sentry/sentry-symfony": "^5.8",
         "stof/doctrine-extensions-bundle": "^1.8",
-        "sulu/article-bundle": "2.6.*",
-        "sulu/automation-bundle": "^2.2",
-        "sulu/redirect-bundle": "^2.2",
-        "sulu/sulu": "^2.6.26",
+        "sulu/automation-bundle": "^3.0",
+        "sulu/redirect-bundle": "^3.0",
+        "sulu/sulu": "~3.0.9",
         "sulu/web-twig": "^2.4",
         "symfony/config": "^7.4",
         "symfony/dotenv": "^7.4",
@@ -67,7 +68,6 @@
         "thecodingmachine/phpstan-strict-rules": "^2.0"
     },
     "conflict": {
-        "handcraftedinthealps/elasticsearch-bundle": ">5.4.2",
         "symfony/symfony": "*"
     },
     "autoload": {
@@ -75,7 +75,6 @@
             "App\\": "src/"
         },
         "exclude-from-classmap": [
-            "/src/DataFixtures/Document/",
             "/src/Migrations/"
         ]
     },
@@ -104,7 +103,7 @@
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
             "bin/websiteconsole cache:clear": "php-script",
             "bin/adminconsole sulu:media:init": "php-script",
-            "bin/adminconsole massive:search:init": "php-script"
+            "bin/adminconsole cmsig:seal:index-create": "php-script"
         },
         "post-install-cmd": [
             "@auto-scripts"
@@ -169,9 +168,7 @@
             "@php bin/console lint:container --env prod"
         ],
         "lint-doctrine": [
-            "@php bin/console doctrine:schema:validate --skip-sync",
-            "@php bin/console doctrine:ensure-production-settings --env stage",
-            "@php bin/console doctrine:ensure-production-settings --env prod"
+            "@php bin/console doctrine:schema:validate --skip-sync"
         ]
     },
     "config": {

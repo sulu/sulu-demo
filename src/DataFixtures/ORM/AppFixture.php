@@ -24,7 +24,6 @@ use Sulu\Bundle\MediaBundle\Entity\FileVersion;
 use Sulu\Bundle\MediaBundle\Entity\FileVersionMeta;
 use Sulu\Bundle\MediaBundle\Entity\Media;
 use Sulu\Bundle\MediaBundle\Entity\MediaInterface;
-use Sulu\Bundle\MediaBundle\Entity\MediaType;
 use Sulu\Bundle\MediaBundle\Media\Storage\StorageInterface;
 use Sulu\Bundle\WebsiteBundle\Entity\Analytics;
 use Symfony\Component\Finder\Finder;
@@ -507,11 +506,6 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
             $fileName,
         );
 
-        $mediaType = $manager->getRepository(MediaType::class)->find(2);
-        if (!$mediaType instanceof MediaType) {
-            throw new \RuntimeException('MediaType "2" not found. Have you loaded the Sulu fixtures?');
-        }
-
         $media = new Media();
 
         $file = new File();
@@ -519,7 +513,7 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
             ->setMedia($media);
 
         $media->addFile($file)
-            ->setType($mediaType)
+            ->setType(MediaInterface::TYPE_IMAGE)
             ->setCollection($collection);
 
         $fileVersion = new FileVersion();
@@ -641,6 +635,8 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
      */
     public function getOrder(): int
     {
-        return \PHP_INT_MAX;
+        // the content fixtures reference this media, these accounts and these albums,
+        // so they have to exist first
+        return \PHP_INT_MAX - 1;
     }
 }
