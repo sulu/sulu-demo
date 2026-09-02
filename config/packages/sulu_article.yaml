@@ -1,17 +1,3 @@
-parameters:
-    env(ELASTICSEARCH_HOST): '127.0.0.1:9200'
-    env(ELASTICSEARCH_INDEX): 'suludemo'
-
 sulu_article:
-    index_name: '%env(resolve:ELASTICSEARCH_INDEX)%'
-    hosts:
-        - '%env(resolve:ELASTICSEARCH_HOST)%'
     default_main_webspace: demo
     default_additional_webspaces: []
-
-sulu_route:
-    mappings:
-        Sulu\Bundle\ArticleBundle\Document\ArticleDocument:
-            generator: 'schema'
-            options:
-                route_schema: '/blog/{is_array(object) ? implode("-", object) : object.getTitle()}'
