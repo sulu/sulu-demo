@@ -66,6 +66,8 @@
                             <param name="991x" />
                         </param>
                     </params>
+
+                    <tag name="sulu.teaser.media"/>
                 </property>
             </properties>
         </section>
