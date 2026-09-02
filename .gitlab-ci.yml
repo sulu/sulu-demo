@@ -2,7 +2,7 @@ variables:
     APP_ENV: test
     APP_SECRET: a448d1dfcaa563fce56c2fd9981f662b
     DATABASE_URL: "mysql://root:root@mysql:3306/su_demo_test?serverVersion=8.0"
-    ELASTICSEARCH_HOST: elasticsearch:9200
+    SEAL_DSN: "loupe://$CI_PROJECT_DIR/var/indexes"
     EMAIL_FROM_ADDRESS: admin@localhost
     COMPOSER_PROCESS_TIMEOUT: "1200" # int is not supported by local gitlab-runner
     MYSQL_ROOT_PASSWORD: root
@@ -27,7 +27,9 @@ composer:
     before_script:
         - composer config -g cache-dir "$(pwd)/.composer-cache"
     script:
-        - composer install --no-interaction --prefer-dist --no-scripts --ignore-platform-req=ext-ffi
+        # the composer image has no intl, which the loupe search adapter needs; the jobs that
+        # actually run the code use sulu/php, which ships it
+        - composer install --no-interaction --prefer-dist --no-scripts --ignore-platform-req=ext-ffi --ignore-platform-req=ext-intl
         - curl --show-error --silent https://getcomposer.org/installer | php
     artifacts:
         name: composer-dependencies
@@ -48,7 +50,9 @@ lint:
         - mysql:8.0
     before_script:
         - php bin/adminconsole doctrine:database:create --if-not-exists
-        - php bin/adminconsole doctrine:schema:update --force
+        # the CI database is empty, so the schema is built from the mappings;
+        # the migrations describe the upgrade of an existing 2.6 database
+        - php bin/adminconsole doctrine:schema:create
     script:
         - php composer.phar lint
 
@@ -67,14 +71,12 @@ build:
     image: sulu/php:8.2-cli
     services:
         - mysql:8.0
-        - name: elasticsearch:7.13.2
-          command: [ "bin/elasticsearch", "-Expack.security.enabled=false", "-Ediscovery.type=single-node" ]
     script:
         - php bin/console sulu:build dev --destroy
 
 js-css-website:
     stage: test
-    image: node:18
+    image: node:20
     dependencies: []
     variables:
         NODE_OPTIONS: --max-old-space-size=1536

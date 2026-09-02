@@ -5,6 +5,7 @@ on:
     push:
         branches:
             - master
+            - '3.0'
 
 jobs:
     php:
@@ -20,34 +21,26 @@ jobs:
                     - 3306:3306
                 options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
-            elasticsearch:
-                image: elasticsearch:7.13.2
-                env:
-                    discovery.type: single-node
-                    xpack.security.enabled: 'false'
-                ports:
-                    - 9200:9200
-                options: --health-cmd="curl http://localhost:9200/_cluster/health" --health-interval=10s --health-timeout=5s --health-retries=3
 
         steps:
             - name: Checkout project
-              uses: actions/checkout@v2
+              uses: actions/checkout@v4
 
             - name: Install and configure PHP
               uses: shivammathur/setup-php@v2
               with:
                   php-version: '8.2'
-                  extensions: ctype, iconv, mysql
+                  extensions: ctype, iconv, mysql, pdo_sqlite
                   coverage: none
                   tools: composer
 
             - name: Install composer dependencies
-              uses: ramsey/composer-install@v1
+              uses: ramsey/composer-install@v3
 
             - name: Lint code
               run: |
                   bin/adminconsole doctrine:database:create --if-not-exists
-                  bin/adminconsole doctrine:schema:update --force
+                  bin/adminconsole doctrine:schema:create
                   composer lint
 
             - name: Execute test cases
@@ -59,7 +52,7 @@ jobs:
               run: bin/console sulu:build dev --destroy
 
     js-css-website:
-        name: Node 18 / Website
+        name: Node 20 / Website
         runs-on: ubuntu-latest
         defaults:
             run:
@@ -67,12 +60,12 @@ jobs:
 
         steps:
             - name: Checkout project
-              uses: actions/checkout@v2
+              uses: actions/checkout@v4
 
             - name: Install and configure Node
-              uses: actions/setup-node@v2-beta
+              uses: actions/setup-node@v4
               with:
-                  node-version: '18'
+                  node-version: '20'
 
             - name: Install npm dependencies
               uses: bahmutov/npm-install@v1

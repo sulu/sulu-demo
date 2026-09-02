@@ -37,13 +37,13 @@ A collection of helpful twig extensions and a tiny js component mangaement libra
 
 ## Requirements
 
-* PHP 8.0
+* PHP 8.2
     - json extension
     - xml extension
     - simplexml extension
+    - pdo_sqlite extension (used by the Loupe search adapter)
     - gd or imagick extension (needed for image converts)
 * MySQL or PostgreSQL Server
-* Elasticsearch 7
 * Composer
 * NPM if you want to run npm tasks
 
@@ -57,15 +57,16 @@ composer install
 
 ### Configure required services
 
-The demo requires a running **MySQL**  and **ElasticSearch** instance.
+The demo requires a running **MySQL** instance. Search runs on SEAL with the Loupe adapter, which
+only needs SQLite, so no separate search server is required.
 
-Configure your `DATABASE_URL` and `ELASTICSEARCH_HOST` in the `.env.local`  see `.env` as reference.
+Configure your `DATABASE_URL` in the `.env.local`  see `.env` as reference.
 
 If you don't want to install the services yourself you can use the provided [docker-compose.yml](https://docs.docker.com/compose/install/)
 to start this services inside an own container:
 
 ```bash
-docker-compose up
+docker compose up
 ```
 
 ### Install fixtures
