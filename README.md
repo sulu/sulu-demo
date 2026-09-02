@@ -19,10 +19,11 @@ Our documentation is available under:
 
 ## Used Extensions
 
-### [SuluArticleBundle](https://github.com/sulu/SuluArticleBundle)
+### Articles
 
-The SuluArticleBundle adds support for managing articles in Sulu. Articles can be used in a lot of different ways to manage unstructured data with an own URL in an admin-list.
-Most of the features, which can be used in pages, can also be used on articles - like templates, versioning, drafting, publishing and automation.
+Articles are part of the Sulu core package since Sulu 3.0, the separate SuluArticleBundle is gone.
+They manage content with an own URL in an admin list and support most of what pages support:
+templates, versioning, drafting, publishing and automation.
 
 ### [SuluAutomationBundle](https://github.com/sulu/SuluAutomationBundle)
 
@@ -88,6 +89,23 @@ php -S 127.0.0.1:8000 -t public config/router.php
 Then you can access the administration interface via [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin). The default user and password is “admin”.
 
 The web frontend can be found under [http://127.0.0.1:8000](http://127.0.0.1:8000).
+
+## Upgrading an existing Sulu 2.6 installation
+
+The demo runs on Sulu 3.0, which stores content in database tables instead of PHPCR. An existing
+2.6 database is migrated in three steps: rename `ro_routes` to `ro_routes_old`, run
+`bin/console doctrine:migrations:migrate` to create the new content tables, and move the content
+with [SuluPhpcrMigrationBundle](https://github.com/sulu/SuluPHPCRMigrationBundle):
+
+```bash
+bin/adminconsole sulu:phpcr-migration:migrate --dry-run
+bin/adminconsole sulu:phpcr-migration:migrate
+bin/adminconsole cmsig:seal:reindex
+```
+
+`doctrine:schema:update` must not be used on Sulu 3.0, the schema comes from the shipped
+migrations. The `phpcr_*` tables and `ro_routes_old` can be dropped once the migrated content
+has been verified.
 
 ## Tests
 
