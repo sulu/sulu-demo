@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<list xmlns="http://schemas.sulu.io/list-builder/list">
+    <key>categories</key>
+
+    <properties>
+        <property name="key" translation="sulu_category.key" visibility="never"/>
+
+        <property name="color" translation="app.color" type="color" visibility="yes">
+            <field-name>color</field-name>
+            <entity-name>%sulu.model.category.class%</entity-name>
+        </property>
+    </properties>
+</list>
