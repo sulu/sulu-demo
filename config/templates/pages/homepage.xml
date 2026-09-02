@@ -69,6 +69,17 @@
             </properties>
         </section>
 
+        <property name="price" type="currency">
+            <meta>
+                <title lang="en">Price</title>
+                <title lang="de">Preis</title>
+            </meta>
+
+            <params>
+                <param name="allowNegativeAmount" value="true"/>
+            </params>
+        </property>
+
         <section name="content">
             <meta>
                 <title lang="en">Content</title>
