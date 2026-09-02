@@ -51,5 +51,4 @@ return [
     Sulu\Search\Infrastructure\Symfony\HttpKernel\SuluSearchBundle::class => ['all' => true],
     Sulu\CustomUrl\Infrastructure\Symfony\HttpKernel\SuluCustomUrlBundle::class => ['all' => true],
     CmsIg\Seal\Integration\Symfony\SealBundle::class => ['all' => true],
-    Sulu\Bundle\PhpcrMigrationBundle\SuluPhpcrMigrationBundle::class => ['all' => true],
 ];
