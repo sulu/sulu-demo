@@ -30,7 +30,7 @@ class AlbumController extends AbstractController implements SecuredControllerInt
     {
     }
 
-    #[Route(path: '/admin/api/albums/{id}', methods: ['GET'], name: 'app.get_album')]
+    #[Route(path: '/admin/api/albums/{id}', name: 'app.get_album', methods: ['GET'])]
     public function get(int $id): Response
     {
         $album = $this->entityManager->getRepository(Album::class)->find($id);
@@ -41,7 +41,7 @@ class AlbumController extends AbstractController implements SecuredControllerInt
         return $this->json($this->getDataForEntity($album));
     }
 
-    #[Route(path: '/admin/api/albums/{id}', methods: ['PUT'], name: 'app.put_album')]
+    #[Route(path: '/admin/api/albums/{id}', name: 'app.put_album', methods: ['PUT'])]
     public function put(Request $request, int $id): Response
     {
         $album = $this->entityManager->getRepository(Album::class)->find($id);
@@ -56,7 +56,7 @@ class AlbumController extends AbstractController implements SecuredControllerInt
         return $this->json($this->getDataForEntity($album));
     }
 
-    #[Route(path: '/admin/api/albums', methods: ['POST'], name: 'app.post_album')]
+    #[Route(path: '/admin/api/albums', name: 'app.post_album', methods: ['POST'])]
     public function post(Request $request): Response
     {
         $album = new Album();
@@ -69,7 +69,7 @@ class AlbumController extends AbstractController implements SecuredControllerInt
         return $this->json($this->getDataForEntity($album), 201);
     }
 
-    #[Route(path: '/admin/api/albums/{id}', methods: ['DELETE'], name: 'app.delete_album')]
+    #[Route(path: '/admin/api/albums/{id}', name: 'app.delete_album', methods: ['DELETE'])]
     public function delete(int $id): Response
     {
         /** @var Album $album */
@@ -80,7 +80,7 @@ class AlbumController extends AbstractController implements SecuredControllerInt
         return $this->json(null, 204);
     }
 
-    #[Route(path: '/admin/api/albums', methods: ['GET'], name: 'app.get_album_list')]
+    #[Route(path: '/admin/api/albums', name: 'app.get_album_list', methods: ['GET'])]
     public function getList(): Response
     {
         $listRepresentation = $this->doctrineListRepresentationFactory->createDoctrineListRepresentation(

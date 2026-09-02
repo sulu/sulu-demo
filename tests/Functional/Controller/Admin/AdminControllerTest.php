@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Functional\Controller\Admin;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use Sulu\Bundle\TestBundle\Testing\SuluTestCase;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Component\Finder\Finder;
@@ -18,9 +19,7 @@ class AdminControllerTest extends SuluTestCase
         $this->client = static::createAuthenticatedClient();
     }
 
-    /**
-     * @dataProvider loadFormKeys
-     */
+    #[DataProvider('loadFormKeys')]
     public function testFormMetadata(string $formKey): void
     {
         $this->client->request(Request::METHOD_GET, '/admin/metadata/form/' . $formKey);
@@ -28,9 +27,7 @@ class AdminControllerTest extends SuluTestCase
         $this->assertHttpStatusCode(200, $this->client->getResponse());
     }
 
-    /**
-     * @dataProvider loadListKeys
-     */
+    #[DataProvider('loadListKeys')]
     public function testListMetadata(string $listKey): void
     {
         $this->client->request(Request::METHOD_GET, '/admin/metadata/list/' . $listKey);
@@ -48,23 +45,23 @@ class AdminControllerTest extends SuluTestCase
     /**
      * @return \Generator<array<string>>
      */
-    public function loadFormKeys()
+    public static function loadFormKeys(): \Generator
     {
-        return $this->getFileKeys('forms');
+        return self::getFileKeys('forms');
     }
 
     /**
      * @return \Generator<array<string>>
      */
-    public function loadListKeys(): \Generator
+    public static function loadListKeys(): \Generator
     {
-        return $this->getFileKeys('lists');
+        return self::getFileKeys('lists');
     }
 
     /**
      * @return \Generator<array<string>>
      */
-    private function getFileKeys(string $type): \Generator
+    private static function getFileKeys(string $type): \Generator
     {
         $finder = new Finder();
         $path = __DIR__ . '/../../../../config/' . $type;
