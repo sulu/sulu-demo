@@ -635,6 +635,8 @@ class AppFixture extends Fixture implements OrderedFixtureInterface
      */
     public function getOrder(): int
     {
-        return \PHP_INT_MAX;
+        // the content fixtures reference this media, these accounts and these albums,
+        // so they have to exist first
+        return \PHP_INT_MAX - 1;
     }
 }
