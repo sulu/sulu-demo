@@ -55,7 +55,7 @@ class DoctrineListRepresentationFactory
         if (null !== $requestedIds) {
             $idPositions = \array_flip($requestedIds);
 
-            \usort($items, fn ($a, $b) => $idPositions[$a['id']] - $idPositions[$b['id']]);
+            \usort($items, static fn ($a, $b) => $idPositions[$a['id']] - $idPositions[$b['id']]);
         }
 
         return new PaginatedRepresentation(
