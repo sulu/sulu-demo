@@ -30,7 +30,7 @@
             <entity-name>App\Entity\Album</entity-name>
         </property>
 
-        <property name="title" visibility="always" searchability="yes" translation="sulu_admin.title">
+        <property name="title" visibility="always" searchability="yes" translation="sulu_admin.title" type="colored_text">
             <field-name>title</field-name>
             <entity-name>App\Entity\Album</entity-name>
         </property>
