@@ -85,12 +85,6 @@ parameters:
 			path: src/Common/DoctrineListRepresentationFactory.php
 
 		-
-			message: '#^Parameter \#1 \$array of function usort expects TArray of array, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Common/DoctrineListRepresentationFactory.php
-
-		-
 			message: '#^Parameter \#1 \$entityName of method Sulu\\Component\\Rest\\ListBuilder\\Doctrine\\DoctrineListBuilderFactoryInterface\:\:create\(\) expects class\-string, string given\.$#'
 			identifier: argument.type
 			count: 1
@@ -103,28 +97,10 @@ parameters:
 			path: src/Common/DoctrineListRepresentationFactory.php
 
 		-
-			message: '#^Binary operation "\-" between mixed and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Content/Type/AlbumSelection.php
-
-		-
-			message: '#^Method App\\Content\\Type\\AlbumSelection\:\:getViewData\(\) should return array\<string, array\<int\>\|null\> but returns array\<string, mixed\>\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Content/Type/AlbumSelection.php
-
-		-
-			message: '#^Parameter \#1 \$array of function array_flip expects array\<int\|string\>, mixed given\.$#'
+			message: '#^Parameter \$id of static method Sulu\\Content\\Application\\ContentResolver\\Value\\ContentView\:\:createResolvableWithReferences\(\) expects int\|string, float\|int\|string given\.$#'
 			identifier: argument.type
 			count: 1
-			path: src/Content/Type/AlbumSelection.php
-
-		-
-			message: '#^Method App\\Content\\Type\\SingleAlbumSelection\:\:getViewData\(\) should return array\<string, int\|null\> but returns array\<string, mixed\>\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Content/Type/SingleAlbumSelection.php
+			path: src/Content/PropertyResolver/SingleAlbumSelectionPropertyResolver.php
 
 		-
 			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''id'' and array\{id\: int\|null, title\: string, image\: array\{id\: int\}\|null, tracklist\: array\<mixed\>\} will always evaluate to true\.$#'
