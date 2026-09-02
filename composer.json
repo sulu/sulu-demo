@@ -29,6 +29,7 @@
         "sentry/sentry-symfony": "^5.8",
         "stof/doctrine-extensions-bundle": "^1.8",
         "sulu/automation-bundle": "^3.0",
+        "sulu/phpcr-migration-bundle": "^1.0",
         "sulu/redirect-bundle": "^3.0",
         "sulu/sulu": "~3.0.9",
         "sulu/web-twig": "^2.4",

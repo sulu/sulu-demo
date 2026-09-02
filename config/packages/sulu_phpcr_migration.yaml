@@ -1,0 +1,11 @@
+# Temporary: reads the Sulu 2.x content out of the phpcr_* tables and writes it into the
+# Sulu 3.0 content tables. Removed again once the migration has run.
+parameters:
+    env(PHPCR_WORKSPACE): 'default'
+
+sulu_phpcr_migration:
+    # this project stored PHPCR in the database (PHPCR_BACKEND=doctrinedbal), not in jackrabbit
+    DSN: 'dbal://default?workspace=%env(PHPCR_WORKSPACE)%'
+    target:
+        dbal:
+            connection: default
