@@ -30,7 +30,7 @@
                             <param name="provider" value="articles"/>
                             <param name="max_per_page" value="4"/>
                             <param name="properties" type="collection">
-                                <param name="headerImage" value="content.headerImage"/>
+                                <param name="headerImage" value="headerImage"/>
                             </param>
                         </params>
                     </property>
