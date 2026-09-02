@@ -1,9 +1,7 @@
 <div class="article-list">
     {% for article in element.articles %}
-        {% set article = article.content %}
-
-        <a href="{{ sulu_content_path(article.routePath) }}" class="article-list__item">
-            {% set image = article.excerpt.images[0]|default(article.content.headerImage|default) %}
+        <a href="{{ sulu_content_path(article.url) }}" class="article-list__item">
+            {% set image = article.excerptImages[0]|default(article.headerImage|default) %}
 
             {% if image %}
                 <div class="article-list__item-image">
@@ -16,17 +14,15 @@
                 <p class="article-list__item-date">{{ article.authored|date('d.m.Y') }}</p>
 
                 <h2 class="article-list__item-title">
-                    {{ article.excerpt.title|default(article.title) }}
+                    {{ article.excerptTitle|default(article.title) }}
                 </h2>
 
-                <p class="posted-by">{{ 'posted_by'|trans }} <span>{{ article.authorFullName }}</span></p>
-
                 <div class="article-list__item-description">
-                    {{ article.excerpt.description|default|raw }}
+                    {{ article.excerptDescription|default|raw }}
                 </div>
 
                 <span class="article-list__item-button button">
-                    {{ article.excerpt.more|default('read_more'|trans) }}
+                    {{ article.excerptMore|default('read_more'|trans) }}
                 </span>
             </div>
         </a>

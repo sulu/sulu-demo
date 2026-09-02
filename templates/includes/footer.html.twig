@@ -23,7 +23,8 @@
                             <div class="grid__item width-6">
                                 <h4 class="footer__title">{{ 'contact'|trans }}</h4>
 
-                                {% set account = webspaceSettings.content.account.entity|default %}
+                                {# single_account_selection resolves to the account itself since Sulu 3.0 #}
+                                {% set account = webspaceSettings.account.entity|default %}
 
                                 {% if account %}
                                     {% set address = account.accountAddresses[0].address %}
@@ -42,8 +43,13 @@
                                 <h4 class="footer__title">{{ 'quick_links'|trans }}</h4>
 
                                 <div class="footer__quicklinks">
-                                    {# @see https://docs.sulu.io/en/2.2/reference/twig-extensions/functions/sulu_navigation_root_flat.html #}
-                                    {% for item in sulu_navigation_root_flat('footer', 1, true) %}
+                                    {# @see https://docs.sulu.io/en/3.x/reference/twig-extensions/functions/sulu_page_navigation_root_flat.html #}
+                                    {% for item in sulu_page_navigation_root_flat('footer', 1, {
+                                        'title': 'title',
+                                        'url': 'url',
+                                        'excerpt.title': 'excerpt.title',
+                                        'linkProvider': 'object.linkData[provider]',
+                                    }) %}
                                         {# @see https://docs.sulu.io/en/2.2/reference/twig-extensions/functions/sulu_content_path.html #}
                                         <a href="{{ sulu_content_path(item.url) }}" title="{{ item.title }}" class="footer__quicklink">
                                             {# fallback to content title when excerpt title not set #}

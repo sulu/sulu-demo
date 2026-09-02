@@ -1,5 +1,5 @@
-{# @see https://github.com/sulu/SuluArticleBundle/blob/2.1/Resources/doc/twig-extensions.md#sulu_article_load_recent #}
-{% set articles = sulu_article_load_recent(4) %}
+{# sulu_article_load_recent() was removed in Sulu 3.0, the articles come from a smart_content property now #}
+{% set articles = content.articles|default([]) %}
 
 {% if articles|length %}
     <div class="similar-articles">
@@ -7,17 +7,15 @@
 
         <div class="similar-articles__list" id="{{ register_component('slick-slider') }}">
             {% for article in articles %}
-                {% set articleContent = article.content.content %}
-
                 <article class="similar-articles__item">
-                    <a class="similar-articles__link" href="{{ sulu_content_path(articleContent.routePath) }}">
+                    <a class="similar-articles__link" href="{{ sulu_content_path(article.url) }}">
                         <div class="similar-articles__image">
                             {# @see https://github.com/sulu/web-twig/blob/v2.4.0/docs/image.md #}
-                            {{ get_image(articleContent.headerImage, '400x400') }}
+                            {{ get_image(article.headerImage|default, '400x400') }}
                         </div>
 
                         <div class="similar-articles__content">
-                            <h2 class="similar-articles__title">{{ articleContent.title }}</h2>
+                            <h2 class="similar-articles__title">{{ article.title }}</h2>
                             <p class="similar-articles__date" id="{{ register_component('timeago', { date: article.authored|date('c') }) }}"></p>
                         </div>
                     </a>

@@ -69,7 +69,8 @@
 } -%}
     {% block title %}
         {% if not seoTitle -%}
-            {% set seoTitle = app.request.pathInfo|split('/')|last|replace({'-': '_'})|humanize %}
+            {# humanize comes from symfony/form, which Sulu 3.0 no longer pulls in #}
+            {% set seoTitle = app.request.pathInfo|split('/')|last|replace({'-': ' ', '_': ' '})|trim|capitalize %}
         {%- endif -%}
         <title>{{ seoTitle }} - {{ metaClientName }}</title>
     {%- endblock -%}

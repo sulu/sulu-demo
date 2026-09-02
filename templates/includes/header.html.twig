@@ -10,13 +10,15 @@
 {% if type == 'homepage' %}
     {% set class = ' header--large' %}
 
-    {# @see https://docs.sulu.io/en/2.2/reference/twig-extensions/functions/sulu_content_load.html #}
-    {% set teaser = sulu_content_load(content.teaser, ['title', 'subtitle', 'headerImage', 'url']) %}
+    {# single_page_selection resolves the referenced page itself since Sulu 3.0 #}
+    {% set teaser = content.teaser|default %}
 
-    {% set title = teaser.content.title %}
-    {% set subtitle = teaser.content.subtitle|default(subtitle) %}
-    {% set image = teaser.content.headerImage|default %}
-    {% set url = sulu_content_path(teaser.content.url) %}
+    {% if teaser %}
+        {% set title = teaser.title|default(title) %}
+        {% set subtitle = teaser.subtitle|default(subtitle) %}
+        {% set image = teaser.headerImage|default %}
+        {% set url = sulu_content_path(teaser.url) %}
+    {% endif %}
 {% endif %}
 
 {% set isArticle = (type == 'article') %}
